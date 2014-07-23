@@ -79,8 +79,12 @@
     btnindex=textFieldIndexPath.row;
    
     btnclick++;
-    if(btnclick%2!=0)
-    {
+    
+ LbmgModel*lmdl=(LbmgModel *)[_lbrmgmtarray objectAtIndex:textFieldIndexPath.row];
+      if (![fname isEqualToString:lmdl.ForemanName]) {
+        
+        
+    
         
         [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         
@@ -95,7 +99,8 @@
         check=0;
         
     }
-    [self ForemanUpdate];
+
+       [self ForemanUpdate];
    
     
     
@@ -261,11 +266,13 @@
         
         if ([fname isEqualToString:lmdl.ForemanName]) {
             [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+            check=1;
 
         }
         else
         {
             [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            check=0;
         }
 //        if (indexPath.row==btnindex) {
 //                    if(check==0)

@@ -63,18 +63,18 @@
 }
 -(void)servicesPage
 {
-    if (!self.serviceVCtrl) {
+    //if (!self.serviceVCtrl) {
         self.serviceVCtrl=[[ServiceViewController alloc]initWithNibName:@"ServiceViewController" bundle:nil];
-    }
+   // }
     _serviceVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:_serviceVCtrl
                        animated:YES completion:NULL];
 }
 -(void)workphasePage
 {
-    if (!self.workVCtrl) {
+  //  if (!self.workVCtrl) {
         self.workVCtrl=[[workPhasesViewController alloc]initWithNibName:@"workPhasesViewController" bundle:nil];
-    }
+  //  }
     _workVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:_workVCtrl
                        animated:YES completion:NULL];
@@ -82,9 +82,9 @@
 }
 -(void)worktypepage{
     
-    if (!self.wrktypeVCtrl) {
+   // if (!self.wrktypeVCtrl) {
         self.wrktypeVCtrl=[[WorktypeViewController alloc]initWithNibName:@"WorktypeViewController" bundle:nil];
-    }
+  //  }
     _wrktypeVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_wrktypeVCtrl animated:YES completion:nil];
 }

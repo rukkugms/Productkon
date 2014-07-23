@@ -95,9 +95,9 @@
 }
 -(void)equipPage
 {
-    if (!self.equipVCtrl) {
+    //if (!self.equipVCtrl) {
         _equipVCtrl=[[EqpmViewController alloc]initWithNibName:@"EqpmViewController" bundle:nil];
-    }
+   // }
     _equipVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
     
     [self presentViewController:_equipVCtrl
@@ -105,9 +105,9 @@
 }
 
 -(void)manpwrpage{
-    if (!self.manVCtrl) {
+   // if (!self.manVCtrl) {
         _manVCtrl=[[ManViewController alloc]initWithNibName:@"ManViewController" bundle:nil];
-    }
+   // }
     _manVCtrl.modalPresentationStyle = UIModalPresentationFullScreen;
 
     [self presentViewController:_manVCtrl
@@ -115,9 +115,9 @@
 }
 -(void)materialsPage
 {
-    if (!self.materialVCtrl) {
+   // if (!self.materialVCtrl) {
         _materialVCtrl=[[MaterialsViewController alloc]initWithNibName:@"MaterialsViewController" bundle:nil];
-    }
+   // }
     _materialVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
     
     [self presentViewController:_materialVCtrl
@@ -126,18 +126,18 @@
 
 
 -(void)fleetPage{
-    if (!self.fleetVCtrl) {
+   // if (!self.fleetVCtrl) {
         _fleetVCtrl=[[FleetsViewController alloc]initWithNibName:@"FleetsViewController" bundle:nil];
-    }
+   // }
     
     _fleetVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_fleetVCtrl animated:YES completion:nil];
     
 }
 -(void)toolPage{
-    if (!self.smalltoolVCtrl) {
+   // if (!self.smalltoolVCtrl) {
         _smalltoolVCtrl=[[SmalltoolsViewController alloc]initWithNibName:@"SmalltoolsViewController" bundle:nil];
-    }
+   // }
     
     _smalltoolVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController: _smalltoolVCtrl animated:YES completion:nil];
@@ -145,18 +145,18 @@
     
 }
 -(void)ThirdPage{
-    if (!self.ThirdVCtrl) {
+   // if (!self.ThirdVCtrl) {
         _ThirdVCtrl=[[ThirdPartyViewController alloc]initWithNibName:@"ThirdPartyViewController" bundle:nil];
-    }
+   // }
     
     _ThirdVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController: _ThirdVCtrl animated:YES completion:nil];
 
 }
 -(void)ConsumPage{
-    if (!self.ConsuVCtrl) {
+    //if (!self.ConsuVCtrl) {
         _ConsuVCtrl=[[ConsumbleViewController alloc]initWithNibName:@"ConsumbleViewController" bundle:nil];
-    }
+    //}
     
     _ConsuVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController: _ConsuVCtrl animated:YES completion:nil];
@@ -164,17 +164,17 @@
 }
 -(void)AssetPage{
     
-    if (!self.AssetVCtrl) {
+   // if (!self.AssetVCtrl) {
         _AssetVCtrl=[[AssetsViewController alloc]initWithNibName:@"AssetsViewController" bundle:nil];
-    }
+    //}
     
     _AssetVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController: _AssetVCtrl animated:YES completion:nil];
 }
 -(void)crewpage{
-    if (!self.gpctrl) {
+    //if (!self.gpctrl) {
         self.gpctrl=[[GPSetupTileViewController alloc]initWithNibName:@"GPSetupTileViewController" bundle:nil];
-    }
+  //  }
     _gpctrl.modalPresentationStyle = UIModalPresentationFormSheet;
     [self presentViewController:_gpctrl
                        animated:YES completion:NULL];

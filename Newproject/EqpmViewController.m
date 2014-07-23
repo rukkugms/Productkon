@@ -1620,10 +1620,10 @@ finishedSavingWithError:(NSError *)error
     _destxtfld.text=eqmdl.itemdescptn;
     //_subtypetxtfld.text=eqmdl.subtype;
     [_subsearchlbl setTitle:eqmdl.subtype forState:UIControlStateNormal];
-    _purchasetxtfld.text=eqmdl.PurchaseValue;
+    _purchasetxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.PurchaseValue];
     _serialtxtfld.text=eqmdl.SerialNo;
     _manufattxtfld.text =eqmdl.ManufacturedYear;
-    _insuredtxtfld.text=eqmdl.InsuredValue;
+    _insuredtxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.InsuredValue];
     _hurstxtfld.text=eqmdl.HoursUsed;
     _fueltxtfld.text=eqmdl.FuelConsumptionPerHour;
     _condtntxtfld.text=eqmdl.Condition;

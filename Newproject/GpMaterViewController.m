@@ -1239,7 +1239,7 @@
         }
 
         
-        if ([_soapResults isEqualToString:@"Inserted Crew"]||[_soapResults isEqualToString:@"Deleted All Members"]||[_soapResults isEqualToString:@"deletedcrew"])
+       else if ([_soapResults isEqualToString:@"Inserted Crew"]||[_soapResults isEqualToString:@"Deleted All Members"]||[_soapResults isEqualToString:@"deletedcrew"])
         {
             _crewnametxtfld.text=@"";
             [self MaterialCrewNameSelect];

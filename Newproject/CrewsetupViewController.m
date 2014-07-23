@@ -1510,7 +1510,7 @@
               
 
            }
-        if ([_soapResults isEqualToString:@"insertcrew"]) {
+       else if ([_soapResults isEqualToString:@"insertcrew"]) {
             
             [self Selectcrewname];
           
@@ -1520,8 +1520,9 @@
         }
 
         
-        if ([_soapResults isEqualToString:@"Inserted Crew"]||[_soapResults isEqualToString:@"Deleted All Members"]||[_soapResults isEqualToString:@"deletedcrew"]) {
+       else if ([_soapResults isEqualToString:@"Inserted Crew"]||[_soapResults isEqualToString:@"Deleted All Members"]||[_soapResults isEqualToString:@"deletedcrew"]) {
             
+            _crewnametxtfld.text=@"";
             [self Selectcrewname];
         }
         else{
