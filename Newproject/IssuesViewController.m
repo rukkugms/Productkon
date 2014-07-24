@@ -183,6 +183,7 @@
 
         
      }
+    [self.popOverController dismissPopoverAnimated:YES];
   
     
 }
@@ -980,13 +981,40 @@
 }
 
 - (IBAction)savebtn:(id)sender {
+    if ([_jobsitebtnlbl.titleLabel.text isEqualToString:@"Select Jobsite"]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Jobsite is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if([_typebtnlbl.titleLabel.text isEqualToString:@"Select Type"])
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if([_statusbtnlbl.titleLabel.text isEqualToString:@"Select Status"])
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Status is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if([_datebtnlbl.titleLabel.text isEqualToString:@"Select"])
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Date is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if([_timebtn.titleLabel.text isEqualToString:@"Select"])
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Time is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
+
     if (btntype==1) {
          [self IssueManagementInsert];
     }
     if (btntype==2) {
         [self IssueManagementUpdate];
     }
-
+    }
 }
 
 - (IBAction)cancelbtn:(id)sender {

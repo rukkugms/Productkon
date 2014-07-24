@@ -721,7 +721,14 @@ return cell;
     
 }
 - (IBAction)cmntsavebtn:(id)sender {
+    if (_cmmnttxtview.text.length==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Comment is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
     [self FileCommentsInsert];
+    }
 }
 
 - (IBAction)cancelbtn:(id)sender {
