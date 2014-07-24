@@ -16,7 +16,7 @@
     BOOL recordResults;
     NSString*empdate;
     NSInteger webtype;
-    NSInteger btnindex;
+    NSInteger btnindex,touchedpath;
     
 }
 @property(nonatomic, strong) NSString*curntdate;

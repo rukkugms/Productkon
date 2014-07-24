@@ -99,7 +99,8 @@
         check=0;
         
     }
-
+    
+  [_mgmttable reloadData];
        [self ForemanUpdate];
    
     

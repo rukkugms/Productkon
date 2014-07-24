@@ -90,16 +90,25 @@
         
     }
        if (tableView==_absenttable) {
-        
+//           if (webtype==44) {
+//               
+//               if (check==1) {
+//                     [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//               }
+//               else{
+//                    [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+//               }
+//           }
+//           else{
+           
+           
          Absentmdl*absntmdl  =(Absentmdl *)[_absentarray objectAtIndex:indexPath.row];
-          
-        _jobsitelbl=(UILabel *)[cell viewWithTag:1];
-        
+          _jobsitelbl=(UILabel *)[cell viewWithTag:1];
         _jobsitelbl.text=absntmdl.josite;
-        
         _empnamelbl=(UILabel *)[cell viewWithTag:2];
         _empnamelbl.text=absntmdl.empname;
-           _checkbtnlbl.tag=indexPath.row;
+        _checkbtnlbl.tag=indexPath.row;
+           
            
            if([absntmdl.absentstatus isEqualToString:@"1"]){
                [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
@@ -118,11 +127,30 @@
            else{
                _checkbtnlbl.enabled=NO;
            }
-           
-    }
+           }
+  //  }
     
     return cell;
 }
+#pragma mark - Table Datsource
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    //alternating cell back ground color
+    if(tableView==_absenttable)
+    {
+        if (indexPath.row%2 == 0) {
+            [cell setBackgroundColor:[UIColor whiteColor]];
+            
+        }else
+        {
+            
+            //[cell setBackgroundColor:[UIColor colorWithRed:247.0/255.0f green:247.0/255.0f blue:247.0/255.0f alpha:1.0f]];
+            [cell setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f]];
+            
+            
+        }
+    }
+}
+
 #pragma mark - Calendar
 -(void)createCalenderPopover
 {
@@ -677,9 +705,10 @@
 }
 
 - (IBAction)checkbtn:(id)sender {
+   // webtype=44;
     button = (UIButton *)sender;
     CGPoint center= button.center;
-    
+    touchedpath=button.tag;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.absenttable];
     NSIndexPath *textFieldIndexPath = [self.absenttable indexPathForRowAtPoint:rootViewPoint];
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
@@ -706,6 +735,7 @@
         check=0;
         
     }
+    [_absenttable reloadData];
     [self AbsentManagementUpdate];
   
 
