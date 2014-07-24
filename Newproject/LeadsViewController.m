@@ -899,7 +899,14 @@ if (tableView==_leadTable) {
 
 - (IBAction)savecmtbtn:(id)sender {
          butnidtfr=3;
+    if (_cmttxtbox.text.length==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Comment is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+else
+{
     [self Saveleadcomment];
+}
     
     
 }

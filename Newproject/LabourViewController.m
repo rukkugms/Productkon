@@ -154,7 +154,7 @@
     {
         [_desccheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         _descbtn.enabled=NO;
-        [_descbtn setTitle:@"Select Description Name" forState:UIControlStateNormal];
+        [_descbtn setTitle:@"Select Description" forState:UIControlStateNormal];
     }
 
 }
@@ -599,7 +599,7 @@ return cell;
         
         job=@"";
     }
-    if ([_descbtn.titleLabel.text isEqualToString:@"Select Description Name"]) {
+    if ([_descbtn.titleLabel.text isEqualToString:@"Select Description"]) {
         
         desc=@"";
     }
