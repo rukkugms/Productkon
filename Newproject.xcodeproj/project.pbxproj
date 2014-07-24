@@ -106,6 +106,8 @@
 		D400406B185B180200C38E12 /* ResViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4004069185B180200C38E12 /* ResViewController.xib */; };
 		D4004074185B183600C38E12 /* EqpmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4004072185B183600C38E12 /* EqpmViewController.m */; };
 		D4004075185B183600C38E12 /* EqpmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4004073185B183600C38E12 /* EqpmViewController.xib */; };
+		D400A5E41980EA03003D5F4C /* customer-&con (1).png in Resources */ = {isa = PBXBuildFile; fileRef = D400A5E31980EA03003D5F4C /* customer-&con (1).png */; };
+		D400A5E61980EB78003D5F4C /* company-info.png in Resources */ = {isa = PBXBuildFile; fileRef = D400A5E51980EB78003D5F4C /* company-info.png */; };
 		D4014FF318E3E05B00DB825A /* SerialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4014FF118E3E05B00DB825A /* SerialViewController.m */; };
 		D4014FF418E3E05B00DB825A /* SerialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4014FF218E3E05B00DB825A /* SerialViewController.xib */; };
 		D4014FF618E3E34000DB825A /* Snumcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4014FF518E3E34000DB825A /* Snumcell.xib */; };
@@ -229,7 +231,6 @@
 		D47A9B1319407A8A001CC416 /* basic-requirment.png in Resources */ = {isa = PBXBuildFile; fileRef = D47A9B1219407A8A001CC416 /* basic-requirment.png */; };
 		D47A9B1C19407AA2001CC416 /* branches.png in Resources */ = {isa = PBXBuildFile; fileRef = D47A9B1419407AA2001CC416 /* branches.png */; };
 		D47A9B1D19407AA2001CC416 /* company-documents.png in Resources */ = {isa = PBXBuildFile; fileRef = D47A9B1519407AA2001CC416 /* company-documents.png */; };
-		D47A9B1E19407AA2001CC416 /* company-info.png in Resources */ = {isa = PBXBuildFile; fileRef = D47A9B1619407AA2001CC416 /* company-info.png */; };
 		D47A9B1F19407AA2001CC416 /* folder-rights.png in Resources */ = {isa = PBXBuildFile; fileRef = D47A9B1719407AA2001CC416 /* folder-rights.png */; };
 		D47A9B2019407AA2001CC416 /* requirement-type.png in Resources */ = {isa = PBXBuildFile; fileRef = D47A9B1819407AA2001CC416 /* requirement-type.png */; };
 		D47A9B2119407AA2001CC416 /* serialnumbers.png in Resources */ = {isa = PBXBuildFile; fileRef = D47A9B1919407AA2001CC416 /* serialnumbers.png */; };
@@ -644,6 +645,8 @@
 		D4004071185B183600C38E12 /* EqpmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqpmViewController.h; sourceTree = "<group>"; };
 		D4004072185B183600C38E12 /* EqpmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EqpmViewController.m; sourceTree = "<group>"; };
 		D4004073185B183600C38E12 /* EqpmViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EqpmViewController.xib; sourceTree = "<group>"; };
+		D400A5E31980EA03003D5F4C /* customer-&con (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "customer-&con (1).png"; sourceTree = "<group>"; };
+		D400A5E51980EB78003D5F4C /* company-info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "company-info.png"; sourceTree = "<group>"; };
 		D4014FF018E3E05B00DB825A /* SerialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerialViewController.h; sourceTree = "<group>"; };
 		D4014FF118E3E05B00DB825A /* SerialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerialViewController.m; sourceTree = "<group>"; };
 		D4014FF218E3E05B00DB825A /* SerialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SerialViewController.xib; sourceTree = "<group>"; };
@@ -805,7 +808,6 @@
 		D47A9B1219407A8A001CC416 /* basic-requirment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "basic-requirment.png"; sourceTree = "<group>"; };
 		D47A9B1419407AA2001CC416 /* branches.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = branches.png; sourceTree = "<group>"; };
 		D47A9B1519407AA2001CC416 /* company-documents.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "company-documents.png"; sourceTree = "<group>"; };
-		D47A9B1619407AA2001CC416 /* company-info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "company-info.png"; sourceTree = "<group>"; };
 		D47A9B1719407AA2001CC416 /* folder-rights.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "folder-rights.png"; sourceTree = "<group>"; };
 		D47A9B1819407AA2001CC416 /* requirement-type.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "requirement-type.png"; sourceTree = "<group>"; };
 		D47A9B1919407AA2001CC416 /* serialnumbers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = serialnumbers.png; sourceTree = "<group>"; };
@@ -1492,10 +1494,10 @@
 		D47A9B1119407A67001CC416 /* Company icons */ = {
 			isa = PBXGroup;
 			children = (
+				D400A5E51980EB78003D5F4C /* company-info.png */,
 				D47A9B1219407A8A001CC416 /* basic-requirment.png */,
 				D47A9B1419407AA2001CC416 /* branches.png */,
 				D47A9B1519407AA2001CC416 /* company-documents.png */,
-				D47A9B1619407AA2001CC416 /* company-info.png */,
 				D47A9B1719407AA2001CC416 /* folder-rights.png */,
 				D47A9B1819407AA2001CC416 /* requirement-type.png */,
 				D47A9B1919407AA2001CC416 /* serialnumbers.png */,
@@ -1718,6 +1720,7 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D400A5E31980EA03003D5F4C /* customer-&con (1).png */,
 				D4F7D9E3196E669B00B8F4D4 /* Serofred.png */,
 				D4F7D9E1196E661B00B8F4D4 /* work-type.png */,
 				D4F7D9DF196E661700B8F4D4 /* work-phares.png */,
@@ -2233,6 +2236,7 @@
 				D4FE723C187EA3BA00FF4DEF /* ios7-camera-icon.png in Resources */,
 				D4A16B571974EEA8002CA2A2 /* Gnmatlfirstcell.xib in Resources */,
 				D47A9B1D19407AA2001CC416 /* company-documents.png in Resources */,
+				D400A5E61980EB78003D5F4C /* company-info.png in Resources */,
 				D443A33317716FE60011C5DB /* appbar.close.png in Resources */,
 				D4F7D9D6196E646200B8F4D4 /* labour.png in Resources */,
 				D453DA321873F215007EE3DC /* Assetcell.xib in Resources */,
@@ -2325,6 +2329,7 @@
 				D40407DD192B1CFB00864BA4 /* save 3.png in Resources */,
 				D49FA2EE1961643E0037BA7A /* Tlaborcell.xib in Resources */,
 				D4A338E918F3EEEF00E53FAC /* Recordcustomcell.xib in Resources */,
+				D400A5E41980EA03003D5F4C /* customer-&con (1).png in Resources */,
 				D41B14EB195C2D3F00DEED6E /* images.png in Resources */,
 				D42D8C1618D2D8FF009D8085 /* BasicReqViewController.xib in Resources */,
 				D4A338EB18F3EEEF00E53FAC /* BillingViewController.xib in Resources */,
@@ -2420,7 +2425,6 @@
 				D429C5EE1952A43D00CE73A6 /* Exceptioncell.xib in Resources */,
 				D4A6748D19345E6C00D5A77E /* IconPubHol@2x.png in Resources */,
 				D44BEA7A18E0360F00719ED5 /* Addresscell.xib in Resources */,
-				D47A9B1E19407AA2001CC416 /* company-info.png in Resources */,
 				6426F5E318C05C12002471AC /* bgmetro1.png in Resources */,
 				D4A16B8E1974EEE0002CA2A2 /* DisplayBidTableViewController.xib in Resources */,
 				D48B608117F941AE001A53C8 /* RadioButton-Unselected.png in Resources */,
