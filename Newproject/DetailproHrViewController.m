@@ -1712,14 +1712,14 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
-    
-      if (!dateselctor==11) {
-    [self.popOverController presentPopoverFromRect:_expbtn.frame
+   
+      if (dateselctor==12) {
+       [self.popOverController presentPopoverFromRect:_expbtn.frame
                                             inView:self.paymentdetailview
                           permittedArrowDirections:UIPopoverArrowDirectionUp
                                           animated:YES];
       }
-      else{
+      else if (dateselctor==11) {
           [self.popOverController presentPopoverFromRect:_detalexpbtnlbl.frame
                                                   inView:self.editview
                                 permittedArrowDirections:UIPopoverArrowDirectionUp
@@ -1870,6 +1870,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
 
 
 - (IBAction)expbtn:(id)sender {
+    dateselctor=12;
     dateString=@"01/01/1900";
     [self createCalenderPopover];
 }
