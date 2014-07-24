@@ -1051,7 +1051,7 @@ if (tableView==_leadTable) {
                  "</soap:Envelope>\n"];
     NSLog(@"soapmessage%@",soapmessage);
    // NSURL *url=[NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"test.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     NSMutableURLRequest *theRequest=[NSMutableURLRequest requestWithURL:url];
     NSString *msglength=[NSString stringWithFormat:@"%d",[soapmessage length]];
     [theRequest addValue:@"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
@@ -1174,7 +1174,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"test.kontract360.com/service.asmx"];
+   NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
