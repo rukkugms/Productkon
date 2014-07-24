@@ -604,7 +604,7 @@ NSString *const DPCalendarViewDayCellIdentifier = @"DPCalendarViewDayCellIdentif
 #pragma mark UICollectionViewDataSource
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.item < self.daysInWeek) {
-         NSLog(@"indepath%d",indexPath.item);
+        // NSLog(@"indepath%d",indexPath.item);
         DPCalendarMonthlyWeekdayCell *cell =
         [collectionView dequeueReusableCellWithReuseIdentifier:DPCalendarViewWeekDayCellIdentifier
                                                   forIndexPath:indexPath];
@@ -619,7 +619,7 @@ NSString *const DPCalendarViewDayCellIdentifier = @"DPCalendarViewDayCellIdentif
     DPCalendarMonthlySingleMonthCell *cell =
     [collectionView dequeueReusableCellWithReuseIdentifier:DPCalendarViewDayCellIdentifier
                                               forIndexPath:indexPath];
-    NSLog(@"indepath%d",indexPath.item);
+    //NSLog(@"indepath%d",indexPath.item);
     
     cell.eventColors = self.eventColors;
     cell.todayBannerBkgColor = self.todayBannerBkgColor;
