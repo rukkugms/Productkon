@@ -168,8 +168,8 @@
                     <rect key="frame" x="352" y="168" width="150" height="144"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cos.png" id="fcS-RP-N2F">
-                            <rect key="frame" x="14" y="14" width="122" height="116"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="customer-&amp;con (1).png" id="fcS-RP-N2F">
+                            <rect key="frame" x="20" y="29" width="110" height="95"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Customer &amp; Contract" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="22">
@@ -314,7 +314,7 @@
         <image name="bgmetro1.png" width="1346" height="1200"/>
         <image name="clarity-shutdown-icon.png" width="50" height="50"/>
         <image name="com.png" width="512" height="512"/>
-        <image name="cos.png" width="512" height="512"/>
+        <image name="customer-&amp;con (1).png" width="350" height="350"/>
         <image name="estimation.png" width="512" height="512"/>
         <image name="fleet.png" width="512" height="512"/>
         <image name="hr.png" width="512" height="512"/>
