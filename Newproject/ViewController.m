@@ -34,10 +34,11 @@
     [_scroll setContentSize:CGSizeMake(1024,800)];
     
     
+    
     /*UDID*/
       NSString*newid=[[[UIDevice currentDevice]identifierForVendor]UUIDString];
        NSLog(@"UDID%@",newid);
-    
+    _logindevice=newid;
     
       UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:newid delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
       [alert show];
@@ -48,6 +49,12 @@
     #else
     //deviceId = [[UIDevice currentDevice].identifierForVendor];
      #endif
+    NSUUID *myDevice = [NSUUID UUID];
+    NSString *deviceUDID = myDevice.UUIDString;
+    UIAlertView*alert1=[[UIAlertView alloc]initWithTitle:nil message:deviceUDID delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert1 show];
+
+    
     }
 
 
@@ -69,6 +76,14 @@
 #pragma mark- WebService
 -(void)Loginselect{
        recordResults = FALSE;
+    NSDate *date = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    NSTimeZone *zone = [NSTimeZone localTimeZone];
+    [formatter setTimeZone:zone];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+   // NSLog(@"Date %@",[formatter stringFromDate:date]);
+    NSString*curntdate=[formatter stringFromDate:date];
+
     NSString *soapMessage;
     
     
@@ -80,17 +95,19 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Loginselect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<Loginselect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<UserName>%@</UserName>\n"
                    "<Password>%@</Password>\n"
+                   "<LTime>%@</LTime>\n"
+                   "<DeviceNumber>%@</DeviceNumber>\n"
                    "</Loginselect>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_usernametxt.text,_passwrdtxt.text];
+                   "</soap:Envelope>\n",_usernametxt.text,_passwrdtxt.text,curntdate,_logindevice];
     NSLog(@"soapmsg%@",soapMessage);
     
     
-   // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+   NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+  //  NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -98,7 +115,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/Loginselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/Loginselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -206,7 +223,12 @@
         cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
-        else{
+        else if([_soapResults isEqualToString:@"-1"]){
+          UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"You are already login from some other device" delegate:self
+                                              cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else {
             if (!self.hmeVCtrl) {
                 self.hmeVCtrl=[[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
             }
@@ -240,4 +262,10 @@
     [self Loginselect];
     }
   }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    _usernametxt.text=@"";
+    _passwrdtxt.text=@"";
+    
+}
 @end

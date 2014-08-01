@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HomeViewController.h"
-#import ""
+
 @interface ViewController : UIViewController{
      BOOL recordResults;
 
@@ -17,6 +17,7 @@
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
 @property(strong,nonatomic)NSMutableData *webData;
+@property(strong,nonatomic)NSString*logindevice;
 @property (strong, nonatomic) IBOutlet UITextField *usernametxt;
 @property (strong, nonatomic) IBOutlet UITextField *passwrdtxt;
 
