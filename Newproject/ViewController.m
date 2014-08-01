@@ -13,17 +13,21 @@
 @end
 
 @implementation ViewController
+@synthesize locationmanager,geocoder,placemark;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    NSString*newstring=@"newname";
-      NSString*astring=@"kontract360.com/service.asmx";
-
-
-   NSString*one=[NSString stringWithFormat:@"%@.%@", newstring , astring];
-    NSLog(@"%@",one);
+    
+    
+   
+    
+    
+//    NSString*newstring=@"newname";
+//    NSString*astring=@"kontract360.com/service.asmx";
+//    NSString*one=[NSString stringWithFormat:@"%@.%@", newstring , astring];
+//    NSLog(@"%@",one);
     
     [[UIApplication sharedApplication]setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
     [self prefersStatusBarHidden];
@@ -33,15 +37,15 @@
     _scroll.frame=CGRectMake(0,0,1024, 724);
     [_scroll setContentSize:CGSizeMake(1024,800)];
     
-    
+   
     
     /*UDID*/
       NSString*newid=[[[UIDevice currentDevice]identifierForVendor]UUIDString];
        NSLog(@"UDID%@",newid);
     _logindevice=newid;
     
-      UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:newid delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-      [alert show];
+   //   UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:newid delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    //  [alert show];
     
     // NSUUID *deviceId;
     #if TARGET_IPHONE_SIMULATOR
@@ -51,10 +55,14 @@
      #endif
     NSUUID *myDevice = [NSUUID UUID];
     NSString *deviceUDID = myDevice.UUIDString;
-    UIAlertView*alert1=[[UIAlertView alloc]initWithTitle:nil message:deviceUDID delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alert1 show];
+  //  UIAlertView*alert1=[[UIAlertView alloc]initWithTitle:nil message:deviceUDID delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+  //  [alert1 show];
 
+   
     
+    
+ 
+
     }
 
 
@@ -63,7 +71,26 @@
     [super viewWillAppear:animated];
     _usernametxt.text=@"";
     _passwrdtxt.text=@"";
+     locationmanager=[[CLLocationManager alloc]init];
+    geocoder=[[CLGeocoder alloc]init];
+    
+    locationmanager.delegate=self;
+    locationmanager.desiredAccuracy=kCLLocationAccuracyBest;
+    [locationmanager startUpdatingLocation];
+
 }
+
+//-(CLLocationManager *)locntnmangr{
+//    if (_locntnmangr!=nil) {
+//        return _locntnmangr;
+//    }
+//        return _locntnmangr;
+//}
+//- (void)startUpdatingLocation
+//{
+//    
+//}
+//startUpdatingLocation
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -76,6 +103,7 @@
 #pragma mark- WebService
 -(void)Loginselect{
        recordResults = FALSE;
+    
     NSDate *date = [NSDate date];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     NSTimeZone *zone = [NSTimeZone localTimeZone];
@@ -323,9 +351,52 @@
                        animated:YES completion:NULL];
 }
 
+- (IBAction)lctnbtn:(id)sender {
+    
+}
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     _usernametxt.text=@"";
     _passwrdtxt.text=@"";
+    
+}
+#pragma mark - CLLocationManagerDelegate
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        
+         NSLog(@"Resolving the Address");
+       // longitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+       // latitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+    }
+    
+    // Reverse Geocoding
+    NSLog(@"Resolving the Address");
+    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+        NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
+        if (error == nil && [placemarks count] > 0) {
+            placemark = [placemarks lastObject];
+           NSString*address= [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
+                                 placemark.subThoroughfare, placemark.thoroughfare,
+                                 placemark.postalCode, placemark.locality,
+                                 placemark.administrativeArea,
+                                 placemark.country];
+            NSLog(@"Address %@",address);
+        } else {
+            NSLog(@"%@", error.debugDescription);
+       }
+    } ];
     
 }
 @end
