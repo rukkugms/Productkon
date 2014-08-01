@@ -8,15 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "HomeViewController.h"
-#import ""
+
 @interface ViewController : UIViewController{
      BOOL recordResults;
+    NSString*logintime;
+    NSString*devicename;
+    NSString*devicenumber;
 
 }
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
 @property(strong,nonatomic)NSMutableData *webData;
+@property(strong,nonatomic)NSString*logindevice;
 @property (strong, nonatomic) IBOutlet UITextField *usernametxt;
 @property (strong, nonatomic) IBOutlet UITextField *passwrdtxt;
 
@@ -24,5 +28,7 @@
 @property(strong,nonatomic)HomeViewController*hmeVCtrl;
 - (IBAction)loginbtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIScrollView *scroll;
+@property (strong, nonatomic) IBOutlet UIButton *forgetbtn;
+
 
 @end

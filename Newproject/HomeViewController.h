@@ -16,7 +16,18 @@
 #import "TilecustmrViewController.h"
 #import "EsttileViewController.h"
 #import "ManagemttileViewController.h"
-@interface HomeViewController : UIViewController
+@interface HomeViewController : UIViewController{
+    
+
+BOOL recordResults;
+
+}
+/* xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
+
+@property (strong, nonatomic)NSString*username;
 
 /*Views*/
 @property (strong, nonatomic) IBOutlet UIView *customerview;
