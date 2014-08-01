@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface forgetViewController : UIViewController
+-(IBAction)closeforgetpage:(id)sender;
+-(IBAction)Passwordaction:(id)sender;
+-(IBAction)logoutaction:(id)sender;
+@property(strong,nonatomic)IBOutlet UIView *passwordview;
+@property(strong,nonatomic)IBOutlet UIView *logoutview;
+@property(strong,nonatomic)IBOutlet UIBarButtonItem *paswordbtn;
+@property(strong,nonatomic)IBOutlet UIBarButtonItem *logoutbtn;
 
 @end

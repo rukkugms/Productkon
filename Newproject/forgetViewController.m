@@ -26,7 +26,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    _passwordview.hidden=YES;
+    _logoutview.hidden=YES;
+  //  _passwordview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+   // _logoutview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f /alpha:1.0f];
     // Do any additional setup after loading the view from its nib.
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    _passwordview.hidden=YES;
+    _logoutview.hidden=YES;
+     _paswordbtn.tintColor=[UIColor whiteColor];
+    _logoutbtn.tintColor=[UIColor blackColor];
+//    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Select Sharing option:" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
+//                            @"Reset Your Password",
+//                            @"Logout From All Devices",
+//                            nil];
+   
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -34,5 +53,26 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(IBAction)closeforgetpage:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+-(IBAction)Passwordaction:(id)sender
+{
+    _logoutview.hidden=YES;
+    _passwordview.hidden=NO;
+    _paswordbtn.tintColor=[UIColor whiteColor];
+    _logoutbtn.tintColor=[UIColor blackColor];
+
+}
+-(IBAction)logoutaction:(id)sender
+{
+    _logoutview.hidden=NO;
+    _passwordview.hidden=YES;
+    _paswordbtn.tintColor=[UIColor blackColor];
+    _logoutbtn.tintColor=[UIColor whiteColor];
+
+}
+
 
 @end
