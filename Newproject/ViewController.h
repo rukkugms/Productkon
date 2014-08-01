@@ -11,6 +11,9 @@
 
 @interface ViewController : UIViewController{
      BOOL recordResults;
+    NSString*logintime;
+    NSString*devicename;
+    NSString*devicenumber;
 
 }
 /* xmlparser*/
@@ -25,5 +28,7 @@
 @property(strong,nonatomic)HomeViewController*hmeVCtrl;
 - (IBAction)loginbtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIScrollView *scroll;
+@property (strong, nonatomic) IBOutlet UIButton *forgetbtn;
+
 
 @end

@@ -197,6 +197,28 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"logintime"]){
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"device"]){
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"DeviceNumber"]){
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -224,21 +246,49 @@
             [alert show];
         }
         else if([_soapResults isEqualToString:@"-1"]){
-          UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"You are already login from some other device" delegate:self
+            
+            NSString*msg=[NSString stringWithFormat:@"You are already login from %@(%@) at %@ ",devicename,devicenumber,logintime];
+          UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:msg delegate:self
                                               cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+           
         }
         else {
             if (!self.hmeVCtrl) {
                 self.hmeVCtrl=[[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
             }
+           self.hmeVCtrl.username=_usernametxt.text;
             [self.navigationController pushViewController:_hmeVCtrl animated:YES];
 
         }
         _soapResults = nil;
-        
+        devicename=@"";
+        devicenumber=@"";
+        logintime=@"";
         
     }
+    
+     if([elementName isEqualToString:@"logintime"]){
+          recordResults = FALSE;
+         NSArray*array=[_soapResults componentsSeparatedByString:@"+"];
+         NSArray*array1=[[array objectAtIndex:0]componentsSeparatedByString:@"T"];
+         logintime=[NSString stringWithFormat:@"%@ %@",[array1 objectAtIndex:1],[array1 objectAtIndex:0]];
+          _soapResults = nil;
+         
+     }
+    if([elementName isEqualToString:@"device"]){
+        recordResults = FALSE;
+        devicename=_soapResults;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"DeviceNumber"]){
+        recordResults = FALSE;
+        devicenumber=_soapResults;
+        _soapResults = nil;
+        
+    }
+
 }
 - (IBAction)loginbtn:(id)sender {
     
