@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HomeViewController.h"
+#import "forgetViewController.h"
 
 @interface ViewController : UIViewController{
      BOOL recordResults;
@@ -26,9 +27,10 @@
 
 
 @property(strong,nonatomic)HomeViewController*hmeVCtrl;
+@property(strong,nonatomic)forgetViewController*forgetVCtrl;
 - (IBAction)loginbtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIScrollView *scroll;
 @property (strong, nonatomic) IBOutlet UIButton *forgetbtn;
-
+-(IBAction)toforgetaction:(id)sender;
 
 @end
