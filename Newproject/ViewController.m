@@ -33,17 +33,25 @@
     _scroll.frame=CGRectMake(0,0,1024, 724);
     [_scroll setContentSize:CGSizeMake(1024,800)];
     
-    NSUUID *deviceId;
-      deviceId = [UIDevice currentDevice].identifierForVendor;
-    NSLog(@"device%@",deviceId);
-#if TARGET_IPHONE_SIMULATOR
-   // deviceId = [NSUUID initWithUUIDString:@"UUID-STRING-VALUE"];
-#else
-    deviceId = [UIDevice currentDevice].identifierForVendor;
-#endif
-    //CEEF30F9-6D0F-4A8A-9C9E-377916EC89A5
     
-}
+    /*UDID*/
+      NSString*newid=[[[UIDevice currentDevice]identifierForVendor]UUIDString];
+       NSLog(@"UDID%@",newid);
+    
+    
+      UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:newid delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+      [alert show];
+    
+    // NSUUID *deviceId;
+    #if TARGET_IPHONE_SIMULATOR
+    //deviceId = [NSUUID initWithUUIDString:@"UUID-STRING-VALUE"];
+    #else
+    //deviceId = [[UIDevice currentDevice].identifierForVendor];
+     #endif
+    }
+
+
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     _usernametxt.text=@"";
