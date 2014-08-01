@@ -317,8 +317,10 @@
     if (!self.forgetVCtrl) {
         self.forgetVCtrl=[[forgetViewController alloc]initWithNibName:@"forgetViewController" bundle:nil];
     }
-   // self.hmeVCtrl.username=_usernametxt.text;
-    [self.navigationController pushViewController:_forgetVCtrl animated:YES];
+    _forgetVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+    
+    [self presentViewController:_forgetVCtrl
+                       animated:YES completion:NULL];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
