@@ -7,16 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+
 #import "HomeViewController.h"
 #import "forgetViewController.h"
 
-@interface ViewController : UIViewController{
+@interface ViewController : UIViewController<CLLocationManagerDelegate>{
      BOOL recordResults;
     NSString*logintime;
     NSString*devicename;
     NSString*devicenumber;
-
+    CLLocationManager*locationmanager;
+    CLGeocoder *geocoder;
+    CLPlacemark *placemark;
+  
 }
+@property(strong,nonatomic)CLLocationManager*locationmanager;
+@property(strong,nonatomic)CLGeocoder *geocoder;
+@property(strong,nonatomic)CLPlacemark *placemark;
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
@@ -32,5 +40,6 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *scroll;
 @property (strong, nonatomic) IBOutlet UIButton *forgetbtn;
 -(IBAction)toforgetaction:(id)sender;
+- (IBAction)lctnbtn:(id)sender;
 
 @end
