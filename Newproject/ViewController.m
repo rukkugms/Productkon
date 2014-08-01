@@ -312,6 +312,16 @@
     [self Loginselect];
     }
   }
+-(IBAction)toforgetaction:(id)sender
+{
+    if (!self.forgetVCtrl) {
+        self.forgetVCtrl=[[forgetViewController alloc]initWithNibName:@"forgetViewController" bundle:nil];
+    }
+    _forgetVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+    
+    [self presentViewController:_forgetVCtrl
+                       animated:YES completion:NULL];
+}
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     _usernametxt.text=@"";
