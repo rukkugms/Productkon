@@ -17,4 +17,10 @@
 @property(strong,nonatomic)IBOutlet UIBarButtonItem *paswordbtn;
 @property(strong,nonatomic)IBOutlet UIBarButtonItem *logoutbtn;
 @property(readwrite)NSInteger btnindex;
+@property(strong,nonatomic)IBOutlet UINavigationItem *navitem;
+
+-(IBAction)questionpopup:(id)sender;
+@property(strong,nonatomic)IBOutlet UITableView *popovertableview;
+@property(strong,nonatomic)UIPopoverController *popovercontroller;
+@property(strong,nonatomic)IBOutlet UIButton *qstnbtn;
 @end

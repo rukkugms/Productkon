@@ -353,24 +353,31 @@
                                @"Logout from all other devices?",
                                @"Cancel",
                                nil];
-    //popup.actionSheetStyle=UIActionSheetStyleBlackTranslucent;
-   [popup showFromRect:_forgetbtn.frame inView:self.view animated:YES];
+   // popup.actionSheetStyle=UIActionSheetStyleBlackOpaque;
+    popup.backgroundColor=UIColor.blackColor;
+     popup.tintColor=UIColor.blackColor;
+   [popup showFromRect:_forgetbtn.frame inView:self.scroll animated:YES];
     
 }
 - (void)willPresentActionSheet:(UIActionSheet *)actionSheet
 {
     for (UIView *subview in actionSheet.subviews) {
+        subview.backgroundColor=[UIColor blackColor];
         if ([subview isKindOfClass:[UIButton class]]) {
             UIButton *button = (UIButton *)subview;
-            button.titleLabel.textColor = [UIColor blackColor];
             button.titleLabel.font = [UIFont boldSystemFontOfSize:14.f];
-            [[button layer] setBorderWidth:1];
-            [[button layer] setCornerRadius:10];
+            [button setBackgroundImage:[UIImage imageNamed:@"action"] forState:UIControlStateNormal];
+            button.titleLabel.textColor = [UIColor whiteColor];
+            
+            //[[button layer] setBorderWidth:1];
+            //[[button layer] setCornerRadius:15];
             
         
         }
         if ([subview isKindOfClass:[UILabel class]]) {
-            [((UILabel *)subview) setFont:[UIFont boldSystemFontOfSize:14.f]];
+            //[((UILabel *)subview) setFont:[UIFont boldSystemFontOfSize:14.f]];
+            UILabel *label=(UILabel*)subview;
+            label.textColor=[UIColor blackColor];
         }
     
     }

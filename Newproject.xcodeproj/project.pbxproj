@@ -96,6 +96,7 @@
 		64AE02B71949AC56002D44B6 /* InOutSiteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64AE02B51949AC56002D44B6 /* InOutSiteViewController.xib */; };
 		64AE02B91949B029002D44B6 /* StkOtSiteout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64AE02B81949B029002D44B6 /* StkOtSiteout.xib */; };
 		64B08E5F19471498003C25F5 /* Labourcustommdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B08E5E19471498003C25F5 /* Labourcustommdl.m */; };
+		64B36211198F4D2000B54191 /* action.png in Resources */ = {isa = PBXBuildFile; fileRef = 64B36210198F4D2000B54191 /* action.png */; };
 		64D23F7D1905103000DEA64A /* Generalmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D23F7C1905103000DEA64A /* Generalmodel.m */; };
 		64F97983185ED60000E7722B /* appbar.addblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F97982185ED60000E7722B /* appbar.addblack.png */; };
 		64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F9798F185EF8B000E7722B /* jobsitereqViewController.m */; };
@@ -633,6 +634,7 @@
 		64AE02B81949B029002D44B6 /* StkOtSiteout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StkOtSiteout.xib; sourceTree = "<group>"; };
 		64B08E5D19471497003C25F5 /* Labourcustommdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Labourcustommdl.h; sourceTree = "<group>"; };
 		64B08E5E19471498003C25F5 /* Labourcustommdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Labourcustommdl.m; sourceTree = "<group>"; };
+		64B36210198F4D2000B54191 /* action.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action.png; sourceTree = "<group>"; };
 		64D23F7B1905103000DEA64A /* Generalmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generalmodel.h; sourceTree = "<group>"; };
 		64D23F7C1905103000DEA64A /* Generalmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Generalmodel.m; sourceTree = "<group>"; };
 		64F97982185ED60000E7722B /* appbar.addblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.addblack.png; sourceTree = "<group>"; };
@@ -1732,6 +1734,7 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				64B36210198F4D2000B54191 /* action.png */,
 				D400A5E31980EA03003D5F4C /* customer-&con (1).png */,
 				D4F7D9E3196E669B00B8F4D4 /* Serofred.png */,
 				D4F7D9E1196E661B00B8F4D4 /* work-type.png */,
@@ -2262,6 +2265,7 @@
 				D4A16B371974EEA8002CA2A2 /* customplancell.xib in Resources */,
 				D4F19DEC18D03AD1007617F0 /* FollowupViewController.xib in Resources */,
 				D47A9B3219407D67001CC416 /* thridpartyicon.png in Resources */,
+				64B36211198F4D2000B54191 /* action.png in Resources */,
 				D47A9B3819407DEB001CC416 /* equipmenticon.png in Resources */,
 				64A41246194080D6003EE113 /* markupmaster.png in Resources */,
 				D4A16B561974EEA8002CA2A2 /* SecondMdragcell.xib in Resources */,
