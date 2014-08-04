@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
-
+#include <ifaddrs.h>
+#include <arpa/inet.h>
 #import "HomeViewController.h"
 #import "forgetViewController.h"
 
-@interface ViewController : UIViewController<CLLocationManagerDelegate>{
+@interface ViewController : UIViewController<CLLocationManagerDelegate,UIActionSheetDelegate>{
      BOOL recordResults;
     NSString*logintime;
     NSString*devicename;
@@ -20,6 +21,7 @@
     CLLocationManager*locationmanager;
     CLGeocoder *geocoder;
     CLPlacemark *placemark;
+    NSString*address;
   
 }
 @property(strong,nonatomic)CLLocationManager*locationmanager;
