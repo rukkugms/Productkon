@@ -36,14 +36,19 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    _passwordview.hidden=YES;
-    _logoutview.hidden=YES;
-     _paswordbtn.tintColor=[UIColor whiteColor];
-    _logoutbtn.tintColor=[UIColor blackColor];
-//    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Select Sharing option:" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
-//                            @"Reset Your Password",
-//                            @"Logout From All Devices",
-//                            nil];
+    if (_btnindex==0) {
+        _passwordview.hidden=NO;
+        _logoutview.hidden=YES;
+    }
+    else
+    {
+        _passwordview.hidden=YES;
+        _logoutview.hidden=NO;
+        _paswordbtn.tintColor=[UIColor whiteColor];
+        _logoutbtn.tintColor=[UIColor blackColor];
+    }
+    
+
    
     
 }

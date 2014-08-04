@@ -60,7 +60,7 @@
                     <color key="barTintColor" red="0.0" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </toolbar>
                 <view contentMode="scaleToFill" id="XIl-ky-0Yf">
-                    <rect key="frame" x="33" y="129" width="476" height="429"/>
+                    <rect key="frame" x="33" y="96" width="476" height="429"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="OeQ-iS-dnL">
@@ -131,8 +131,8 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" id="uNi-TD-iDk">
-                    <rect key="frame" x="33" y="141" width="476" height="310"/>
+                <view hidden="YES" contentMode="scaleToFill" id="uNi-TD-iDk">
+                    <rect key="frame" x="34" y="130" width="476" height="310"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PHN-vD-n13">

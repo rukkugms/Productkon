@@ -16,5 +16,5 @@
 @property(strong,nonatomic)IBOutlet UIView *logoutview;
 @property(strong,nonatomic)IBOutlet UIBarButtonItem *paswordbtn;
 @property(strong,nonatomic)IBOutlet UIBarButtonItem *logoutbtn;
-
+@property(readwrite)NSInteger btnindex;
 @end

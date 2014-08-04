@@ -22,7 +22,7 @@
     
     
    
-    
+    [self getIPAddress];
     
 //    NSString*newstring=@"newname";
 //    NSString*astring=@"kontract360.com/service.asmx";
@@ -128,9 +128,10 @@
                    "<Password>%@</Password>\n"
                    "<LTime>%@</LTime>\n"
                    "<DeviceNumber>%@</DeviceNumber>\n"
+                   "<Location>%@</Location>\n"
                    "</Loginselect>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_usernametxt.text,_passwrdtxt.text,curntdate,_logindevice];
+                   "</soap:Envelope>\n",_usernametxt.text,_passwrdtxt.text,curntdate,_logindevice,address];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -342,14 +343,81 @@
   }
 -(IBAction)toforgetaction:(id)sender
 {
-    if (!self.forgetVCtrl) {
-        self.forgetVCtrl=[[forgetViewController alloc]initWithNibName:@"forgetViewController" bundle:nil];
-    }
-    _forgetVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+//    NSString *other1 = @"Other Button 1";
+//    NSString *other2 = @"Other Button 2";
+//    UIFont *changeFont = [UIFont fontWithName:@"Courier" size:12];
     
-    [self presentViewController:_forgetVCtrl
-                       animated:YES completion:NULL];
+    
+        UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
+                               @"Forget your password?",
+                               @"Logout from all other devices?",
+                               @"Cancel",
+                               nil];
+    //popup.actionSheetStyle=UIActionSheetStyleBlackTranslucent;
+   [popup showFromRect:_forgetbtn.frame inView:self.view animated:YES];
+    
 }
+- (void)willPresentActionSheet:(UIActionSheet *)actionSheet
+{
+    for (UIView *subview in actionSheet.subviews) {
+        if ([subview isKindOfClass:[UIButton class]]) {
+            UIButton *button = (UIButton *)subview;
+            button.titleLabel.textColor = [UIColor blackColor];
+            button.titleLabel.font = [UIFont boldSystemFontOfSize:14.f];
+            [[button layer] setBorderWidth:1];
+            [[button layer] setCornerRadius:10];
+            
+        
+        }
+        if ([subview isKindOfClass:[UILabel class]]) {
+            [((UILabel *)subview) setFont:[UIFont boldSystemFontOfSize:14.f]];
+        }
+    
+    }
+    //actionSheet.layer.backgroundColor=[UIColor yellowColor].CGColor;
+}
+//- (void)didPresentActionSheet:(UIActionSheet *)actionSheet {
+//    UIView *contentView = actionSheet.superview;
+//    UIView *popoverView = contentView.superview;
+//    
+//    UIView *chromeView;
+//    for (UIView *v in [popoverView subviews]) {
+//        if (v.subviews.count == 3) {
+//            chromeView = v;
+//            break;
+//        }
+//    }
+//    
+//    for (UIView *backgroundComponentView in [chromeView subviews]) {
+//        backgroundComponentView.hidden = YES;
+//        
+//        CGRect componentFrame = backgroundComponentView.frame;  // add your view with this frame
+//    }
+//}
+- (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (buttonIndex) {
+        case 0:
+            if (!self.forgetVCtrl) {
+                self.forgetVCtrl=[[forgetViewController alloc]initWithNibName:@"forgetViewController" bundle:nil];
+            }
+            _forgetVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+            _forgetVCtrl.btnindex=buttonIndex;
+                    [self presentViewController:_forgetVCtrl
+                               animated:YES completion:NULL];
+            break;
+         case 1:
+            if (!self.forgetVCtrl) {
+                self.forgetVCtrl=[[forgetViewController alloc]initWithNibName:@"forgetViewController" bundle:nil];
+            }
+            _forgetVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+            _forgetVCtrl.btnindex=buttonIndex;
+            [self presentViewController:_forgetVCtrl
+                               animated:YES completion:NULL];
+
+        default:
+            break;
+    }
+    }
 
 - (IBAction)lctnbtn:(id)sender {
     
@@ -360,43 +428,81 @@
     _passwrdtxt.text=@"";
     
 }
-#pragma mark - CLLocationManagerDelegate
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-    NSLog(@"didFailWithError: %@", error);
-    UIAlertView *errorAlert = [[UIAlertView alloc]
-                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [errorAlert show];
+//#pragma mark - CLLocationManagerDelegate
+//- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+//{
+//    NSLog(@"didFailWithError: %@", error);
+//    UIAlertView *errorAlert = [[UIAlertView alloc]
+//                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//    [errorAlert show];
+//}
+//
+//- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+//{
+//    NSLog(@"didUpdateToLocation: %@", newLocation);
+//    CLLocation *currentLocation = newLocation;
+//    
+//    if (currentLocation != nil) {
+//        
+//         NSLog(@"Resolving the Address");
+//       // longitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+//       // latitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+//    }
+//    
+//    // Reverse Geocoding
+//    NSLog(@"Resolving the Address");
+//    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+//        NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
+//        if (error == nil && [placemarks count] > 0) {
+//            placemark = [placemarks lastObject];
+//           NSString*address= [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
+//                                 placemark.subThoroughfare, placemark.thoroughfare,
+//                                 placemark.postalCode, placemark.locality,
+//                                 placemark.administrativeArea,
+//                                 placemark.country];
+//            NSLog(@"Address %@",address);
+//        } else {
+//            NSLog(@"%@", error.debugDescription);
+//       }
+//    } ];
+//    
+//}
+- (NSString *)getIPAddress {
+    
+    struct ifaddrs *interfaces = NULL;
+    struct ifaddrs *temp_addr = NULL;
+    NSString *wifiAddress = nil;
+    NSString *cellAddress = nil;
+    
+    // retrieve the current interfaces - returns 0 on success
+    if(!getifaddrs(&interfaces)) {
+        // Loop through linked list of interfaces
+        temp_addr = interfaces;
+        while(temp_addr != NULL) {
+            sa_family_t sa_type = temp_addr->ifa_addr->sa_family;
+            if(sa_type == AF_INET || sa_type == AF_INET6) {
+                NSString *name = [NSString stringWithUTF8String:temp_addr->ifa_name];
+                NSString *addr = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr->ifa_addr)->sin_addr)]; // pdp_ip0
+                NSLog(@"NAME: \"%@\" addr: %@", name, addr); // see for yourself
+                
+                if([name isEqualToString:@"en0"]) {
+                    // Interface is the wifi connection on the iPhone
+                    wifiAddress = addr;
+                } else
+                    if([name isEqualToString:@"pdp_ip0"]) {
+                        // Interface is the cell connection on the iPhone
+                        cellAddress = addr;
+                    }
+            }
+            temp_addr = temp_addr->ifa_next;
+        }
+        // Free memory
+        freeifaddrs(interfaces);
+    }
+    NSString *addr = wifiAddress ? wifiAddress : cellAddress;
+    address= wifiAddress ? wifiAddress : cellAddress;
+    return addr ? addr : @"0.0.0.0";
+    
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-{
-    NSLog(@"didUpdateToLocation: %@", newLocation);
-    CLLocation *currentLocation = newLocation;
-    
-    if (currentLocation != nil) {
-        
-         NSLog(@"Resolving the Address");
-       // longitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
-       // latitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
-    }
-    
-    // Reverse Geocoding
-    NSLog(@"Resolving the Address");
-    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
-        NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
-        if (error == nil && [placemarks count] > 0) {
-            placemark = [placemarks lastObject];
-           NSString*address= [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
-                                 placemark.subThoroughfare, placemark.thoroughfare,
-                                 placemark.postalCode, placemark.locality,
-                                 placemark.administrativeArea,
-                                 placemark.country];
-            NSLog(@"Address %@",address);
-        } else {
-            NSLog(@"%@", error.debugDescription);
-       }
-    } ];
-    
-}
 @end
