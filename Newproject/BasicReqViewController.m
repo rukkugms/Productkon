@@ -287,7 +287,7 @@
         _codelabel=(UILabel *)[cell viewWithTag:2];
         _codelabel.text=reqmdl.code;
         _ratelabel=(UILabel *)[cell viewWithTag:3];
-        _ratelabel.text=[NSString stringWithFormat:@"%@$",reqmdl.rate];
+        _ratelabel.text=[NSString stringWithFormat:@"$%@",reqmdl.rate];
         //_ratelabel.text=reqmdl.rate;
         _typelabel=(UILabel *)[cell viewWithTag:4];
         _typelabel.text=reqmdl.typname;
@@ -704,7 +704,7 @@
     
     _itemnametextfield.text=reqmdl.itemname;
     
-    _ratetextfield.text=[NSString stringWithFormat:@"%@$",reqmdl.rate];
+    _ratetextfield.text=[NSString stringWithFormat:@"$%@",reqmdl.rate];
     _codetextfield.text=reqmdl.code;
     _hourstextfield.text=reqmdl.hrs;
     _vendertextfield.text=reqmdl.vendername;

@@ -156,7 +156,7 @@
     _nametextfld.text=vmdl.vendorname;
     _addresstextfld.text=vmdl.vendoraddress;
     _phonetextfld.text=vmdl.vendorphone;
-    _ratetextfld.text=[NSString stringWithFormat:@"%@$",vmdl.vendorrate];
+    _ratetextfld.text=[NSString stringWithFormat:@"$%@",vmdl.vendorrate];
 }
 -(IBAction)cancelvendor:(id)sender
 {
@@ -198,7 +198,7 @@
     _phonelabel=(UILabel *)[cell viewWithTag:3];
     _phonelabel.text=_vmodel.vendorphone;
     _ratelabel=(UILabel *)[cell viewWithTag:4];
-    _ratelabel.text=[NSString stringWithFormat:@"%@$",vmdl.vendorrate];
+    _ratelabel.text=[NSString stringWithFormat:@"$%@",vmdl.vendorrate];
     return cell;
 }
 
