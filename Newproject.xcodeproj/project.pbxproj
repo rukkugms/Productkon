@@ -508,7 +508,6 @@
 		D4FED40F17F16EEE004BE242 /* VerificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FED40D17F16EED004BE242 /* VerificationViewController.m */; };
 		D4FED41217F18CB9004BE242 /* btn.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FED41117F18CB6004BE242 /* btn.png */; };
 		D4FED41417F18E28004BE242 /* tabbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FED41317F18E28004BE242 /* tabbtn.png */; };
-		D4FED41617F1A047004BE242 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FED41517F1A046004BE242 /* 1.png */; };
 		D4FED41817F1A04E004BE242 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FED41717F1A04D004BE242 /* 2.png */; };
 		D4FEF52218FE85560047E6BD /* Fmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FEF52118FE85560047E6BD /* Fmodel.m */; };
 		D4FEF52418FE895E0047E6BD /* Matrixcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4FEF52318FE895E0047E6BD /* Matrixcell.xib */; };
@@ -1195,7 +1194,6 @@
 		D4FED40D17F16EED004BE242 /* VerificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerificationViewController.m; sourceTree = "<group>"; };
 		D4FED41117F18CB6004BE242 /* btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn.png; sourceTree = "<group>"; };
 		D4FED41317F18E28004BE242 /* tabbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbtn.png; sourceTree = "<group>"; };
-		D4FED41517F1A046004BE242 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		D4FED41717F1A04D004BE242 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		D4FEF52018FE85550047E6BD /* Fmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fmodel.h; sourceTree = "<group>"; };
 		D4FEF52118FE85560047E6BD /* Fmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fmodel.m; sourceTree = "<group>"; };
@@ -1818,7 +1816,6 @@
 				D4E658D317F2EF5B00202B14 /* wrong.png */,
 				D4E658D117F2EF2500202B14 /* green-checkmark4-1.png */,
 				D4E658CB17F2DED100202B14 /* detailDisclosureButton.png */,
-				D4FED41517F1A046004BE242 /* 1.png */,
 				D4FED41717F1A04D004BE242 /* 2.png */,
 				D4E15793177416D9002764AB /* icon-disclosure.png */,
 				648D12FF17716E0E006BB41A /* appbar.close.png */,
@@ -2360,7 +2357,6 @@
 				D4F19DED18D03AD1007617F0 /* FollowupCell.xib in Resources */,
 				D4A16B401974EEA8002CA2A2 /* SaftyCell.xib in Resources */,
 				D4F7D9E0196E661700B8F4D4 /* work-phares.png in Resources */,
-				D4FED41617F1A047004BE242 /* 1.png in Resources */,
 				D4A16B9B1974EEE0002CA2A2 /* CalEventDetailViewController.xib in Resources */,
 				D4A16B9C1974EEE0002CA2A2 /* Eventcalcell.xib in Resources */,
 				D4A16B5A1974EEA8002CA2A2 /* Dragequip.xib in Resources */,
