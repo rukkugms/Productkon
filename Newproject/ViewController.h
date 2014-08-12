@@ -21,7 +21,7 @@
     CLLocationManager*locationmanager;
     CLGeocoder *geocoder;
     CLPlacemark *placemark;
-    NSString*address;
+    NSString*Naddress;
   
 }
 @property(strong,nonatomic)CLLocationManager*locationmanager;
