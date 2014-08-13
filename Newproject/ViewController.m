@@ -58,12 +58,7 @@
     UIAlertView*alert1=[[UIAlertView alloc]initWithTitle:nil message:deviceUDID delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
   [alert1 show];
 
-   
-    
-    
- 
-
-    }
+}
 
 
 
@@ -136,7 +131,7 @@
     
     
    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-  //  NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+ // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -338,7 +333,12 @@
         
     }
     else{
-    [self Loginselect];
+   // [self Loginselect];
+        if (!self.hmeVCtrl) {
+            self.hmeVCtrl=[[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
+        }
+        self.hmeVCtrl.username=_usernametxt.text;
+        [self.navigationController pushViewController:_hmeVCtrl animated:YES];
     }
   }
 -(IBAction)toforgetaction:(id)sender
@@ -435,49 +435,49 @@
     _passwrdtxt.text=@"";
     
 }
-#pragma mark - CLLocationManagerDelegate
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-    NSLog(@"didFailWithError: %@", error);
-    UIAlertView *errorAlert = [[UIAlertView alloc]
-                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [errorAlert show];
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-{
-    NSLog(@"didUpdateToLocation: %@", newLocation);
-    CLLocation *currentLocation = newLocation;
-    
-    if (currentLocation != nil) {
-        
-         NSLog(@"Resolving the Address");
-       // longitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
-       // latitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
-    }
-    
-    // Reverse Geocoding
-    NSLog(@"Resolving the Address");
-    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
-        NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
-        if (error == nil && [placemarks count] > 0) {
-            placemark = [placemarks lastObject];
-           NSString*address= [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
-                                 placemark.subThoroughfare, placemark.thoroughfare,
-                                 placemark.postalCode, placemark.locality,
-                                 placemark.administrativeArea,
-                                 placemark.country];
-            NSLog(@"Address %@",address);
-//            UIAlertView *alert = [[UIAlertView alloc]
-//                                       initWithTitle:@"Location" message:address delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//        [alert show];
-
-        } else {
-            NSLog(@"%@", error.debugDescription);
-       }
-    } ];
-    
-}
+//#pragma mark - CLLocationManagerDelegate
+//- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+//{
+//    NSLog(@"didFailWithError: %@", error);
+//    UIAlertView *errorAlert = [[UIAlertView alloc]
+//                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//    [errorAlert show];
+//}
+//
+//- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+//{
+//    NSLog(@"didUpdateToLocation: %@", newLocation);
+//    CLLocation *currentLocation = newLocation;
+//    
+//    if (currentLocation != nil) {
+//        
+//         NSLog(@"Resolving the Address");
+//       // longitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+//       // latitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+//    }
+//    
+//    // Reverse Geocoding
+//    NSLog(@"Resolving the Address");
+//    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+//        NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
+//        if (error == nil && [placemarks count] > 0) {
+//            placemark = [placemarks lastObject];
+//           NSString*address= [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
+//                                 placemark.subThoroughfare, placemark.thoroughfare,
+//                                 placemark.postalCode, placemark.locality,
+//                                 placemark.administrativeArea,
+//                                 placemark.country];
+//            NSLog(@"Address %@",address);
+////            UIAlertView *alert = [[UIAlertView alloc]
+////                                       initWithTitle:@"Location" message:address delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+////        [alert show];
+//
+//        } else {
+//            NSLog(@"%@", error.debugDescription);
+//       }
+//    } ];
+//    
+//}
 - (NSString *)getIPAddress {
     
     struct ifaddrs *interfaces = NULL;
