@@ -1514,8 +1514,16 @@
 }
 
 - (IBAction)clearbtn:(id)sender {
+    if([_crewbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+        
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select equipment group" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else{
+
     [self CrewSetUpDelete];
-    
+    }
     
 }
 
@@ -1545,7 +1553,16 @@
 }
 
 - (IBAction)savebtn:(id)sender {
+    if (_crewnametxtfld.text.length==0) {
+        
+        
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Group name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else{
+
     [self CrewSave];
+    }
 }
 
 - (IBAction)crewbtn:(id)sender {
@@ -1555,9 +1572,18 @@
 }
 
 - (IBAction)alldeletebtn:(id)sender {
+    if([_crewbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+        
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select equipment group" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else{
+
     
     UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to delete equipment group" delegate:self cancelButtonTitle:@"YES" otherButtonTitles:@"NO", nil];
     [alert show];
+    }
     
 }
 #pragma mark-alert
