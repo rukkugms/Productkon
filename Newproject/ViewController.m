@@ -55,8 +55,8 @@
      #endif
     NSUUID *myDevice = [NSUUID UUID];
     NSString *deviceUDID = myDevice.UUIDString;
-    UIAlertView*alert1=[[UIAlertView alloc]initWithTitle:nil message:deviceUDID delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-  [alert1 show];
+   // UIAlertView*alert1=[[UIAlertView alloc]initWithTitle:nil message:deviceUDID delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+  //[alert1 show];
 
 }
 
@@ -118,7 +118,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Loginselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Loginselect xmlns=\"http://test.kontract360.com/\">\n"
                    "<UserName>%@</UserName>\n"
                    "<Password>%@</Password>\n"
                    "<LTime>%@</LTime>\n"
@@ -131,8 +131,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-   NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
- // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+  // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+  NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -140,7 +140,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Loginselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/Loginselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -350,7 +350,7 @@
     
     
         UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
-                               @"Forget your password?",
+                               @"Forgot your password?",
                                @"Logout from all other devices?",
                                @"Cancel",
                                nil];
