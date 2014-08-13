@@ -291,7 +291,7 @@ return cell;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -342,7 +342,7 @@ return cell;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -403,7 +403,7 @@ return cell;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -706,7 +706,7 @@ return cell;
     NSIndexPath *textFieldIndexPath = [self.docutable indexPathForRowAtPoint:rootViewPoint];
     
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
-     NSString *fullURL =[NSString stringWithFormat:@"http://192.168.0.1:443%@",[_docdict objectForKey:[_documntarray objectAtIndex:textFieldIndexPath.row]]];
+     NSString *fullURL =[NSString stringWithFormat:@"http://testusa.kontract360.com%@",[_docdict objectForKey:[_documntarray objectAtIndex:textFieldIndexPath.row]]];
     //_urlstring=[_docdict objectForKey:[_documntarray objectAtIndex:textFieldIndexPath.row]];
    // _urlstring=[NSString stringWithFormat:@"http://192.168.0.1:443/Folder/Root/EmployeeHandbook/accounts.xlsx"];
     
