@@ -70,12 +70,30 @@
     [self MatrialCrewSetupSelect];
     }
 - (IBAction)savebtn:(id)sender {
+    if (_crewnametxtfld.text.length==0) {
+        
+        
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Group name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else{
+
     [self CrewMaterialSave];
+    }
 }
 - (IBAction)clearbtn:(id)sender {
+    
+    if([_groupbtn.titleLabel.text isEqualToString:@"Select"]){
+        
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select a material group" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else{
+
     [self MaterialCrewSetUpDelete];
     
-    
+    }
 }
 - (IBAction)deletebtn:(id)sender {
     if (self.editing) {
@@ -97,8 +115,19 @@
     
 }
 - (IBAction)alldeletebtn:(id)sender {
-    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to delete material group" delegate:self cancelButtonTitle:@"YES" otherButtonTitles:@"NO", nil];
-    [alert show];
+    if([_groupbtn.titleLabel.text isEqualToString:@"Select"]){
+        
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select a material group" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else{
+        
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to delete material group" delegate:self cancelButtonTitle:@"YES" otherButtonTitles:@"NO", nil];
+        [alert show];
+    }
+
+   
 
   //  [self AllMaterialCrewDelete];
 }
