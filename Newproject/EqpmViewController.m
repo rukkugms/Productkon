@@ -48,7 +48,9 @@ _scroll_addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255
     searchController.searchResultsDelegate =(id)self;
     searchController.delegate = (id)self;
 
-    
+    _picimageview.layer.borderColor=[UIColor blackColor].CGColor;
+
+    _picimageview.layer.borderWidth=2;
     _picimageview.userInteractionEnabled = YES;
     UITapGestureRecognizer *pgr = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self action:@selector(handlePinch:)];
