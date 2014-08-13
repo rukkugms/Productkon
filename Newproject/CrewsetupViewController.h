@@ -64,6 +64,7 @@
 @property (nonatomic, retain) UITableView *autocompleteTableView;
 
 @property (strong, nonatomic) IBOutlet UILabel *hurlyratelbl;
+@property (strong, nonatomic) IBOutlet UIButton *savebtnlbl;
 
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
