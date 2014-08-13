@@ -55,8 +55,8 @@
      #endif
     NSUUID *myDevice = [NSUUID UUID];
     NSString *deviceUDID = myDevice.UUIDString;
-    UIAlertView*alert1=[[UIAlertView alloc]initWithTitle:nil message:deviceUDID delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-  [alert1 show];
+   // UIAlertView*alert1=[[UIAlertView alloc]initWithTitle:nil message:deviceUDID delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+  //[alert1 show];
 
 }
 
