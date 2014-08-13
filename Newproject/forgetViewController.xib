@@ -10,9 +10,11 @@
                 <outlet property="logoutbtn" destination="yqo-gZ-w83" id="pAR-pO-Jyb"/>
                 <outlet property="logoutview" destination="uNi-TD-iDk" id="BrO-xk-OzJ"/>
                 <outlet property="navitem" destination="c1M-EE-WfY" id="S2n-ee-utL"/>
+                <outlet property="passwordtextfield" destination="j1w-RL-Lya" id="Mre-6G-J3f"/>
                 <outlet property="passwordview" destination="XIl-ky-0Yf" id="owE-cv-A8x"/>
                 <outlet property="paswordbtn" destination="5mI-gi-Peg" id="QCS-jW-16v"/>
                 <outlet property="qstnbtn" destination="heb-X8-Lxy" id="Obr-Sm-V2X"/>
+                <outlet property="usernametextfield" destination="Pyt-Lk-mKb" id="XpE-l3-Hz3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -152,40 +154,43 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
                 <view hidden="YES" contentMode="scaleToFill" id="uNi-TD-iDk">
-                    <rect key="frame" x="32" y="96" width="476" height="310"/>
+                    <rect key="frame" x="45" y="120" width="450" height="310"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PHN-vD-n13">
-                            <rect key="frame" x="91" y="41" width="84" height="21"/>
+                            <rect key="frame" x="78" y="41" width="84" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Pyt-Lk-mKb">
-                            <rect key="frame" x="91" y="65" width="294" height="30"/>
+                            <rect key="frame" x="78" y="65" width="294" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j6X-b0-Hfe">
-                            <rect key="frame" x="91" y="133" width="84" height="21"/>
+                            <rect key="frame" x="78" y="133" width="84" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="j1w-RL-Lya">
-                            <rect key="frame" x="91" y="156" width="294" height="30"/>
+                            <rect key="frame" x="78" y="156" width="294" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LjD-xe-zhA">
-                            <rect key="frame" x="203" y="233" width="71" height="30"/>
+                            <rect key="frame" x="190" y="233" width="71" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                             <state key="normal" title="Logout">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="logoutfromall:" destination="-1" eventType="touchUpInside" id="5sv-RV-57C"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

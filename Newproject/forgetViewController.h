@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface forgetViewController : UIViewController
+{
+    BOOL recordResults;
+}
 -(IBAction)closeforgetpage:(id)sender;
 -(IBAction)Passwordaction:(id)sender;
 -(IBAction)logoutaction:(id)sender;
@@ -23,4 +26,14 @@
 @property(strong,nonatomic)IBOutlet UITableView *popovertableview;
 @property(strong,nonatomic)UIPopoverController *popovercontroller;
 @property(strong,nonatomic)IBOutlet UIButton *qstnbtn;
+/* xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
+
+/*logoutfromall*/
+
+@property(strong,nonatomic)IBOutlet UITextField *usernametextfield;
+@property(strong,nonatomic)IBOutlet UITextField *passwordtextfield;
+-(IBAction)logoutfromall:(id)sender;
 @end

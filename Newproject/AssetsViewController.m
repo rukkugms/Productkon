@@ -47,6 +47,8 @@
     searchController.searchResultsDataSource = (id)self;
     searchController.searchResultsDelegate =(id)self;
     searchController.delegate = (id)self;
+    _pictureimgview.layer.borderColor=[UIColor blackColor].CGColor;
+    _pictureimgview.layer.borderWidth=2;
     _pictureimgview.userInteractionEnabled = YES;
     UITapGestureRecognizer *pgr = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self action:@selector(handlePinch:)];

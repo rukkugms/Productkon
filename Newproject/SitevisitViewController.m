@@ -4097,7 +4097,7 @@ _passingdate=dateString;
     
 }
 - (IBAction)accebilityupdate:(id)sender {
-    if (_accblitytxtview.text.length==0) {
+    if (_Accibltylblview.text.length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
