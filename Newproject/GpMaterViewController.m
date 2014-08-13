@@ -97,10 +97,26 @@
     
 }
 - (IBAction)alldeletebtn:(id)sender {
-    [self AllMaterialCrewDelete];
+    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to delete material group" delegate:self cancelButtonTitle:@"YES" otherButtonTitles:@"NO", nil];
+    [alert show];
+
+  //  [self AllMaterialCrewDelete];
 }
 
-
+#pragma mark-alert
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex==[alertView cancelButtonIndex]){
+        [self AllMaterialCrewDelete];
+    }
+    
+    else{
+        
+        
+    }
+    
+    
+}
 
 #pragma mark-Popover
 -(void)createpopover{

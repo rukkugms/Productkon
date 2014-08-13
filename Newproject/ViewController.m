@@ -124,9 +124,10 @@
                    "<LTime>%@</LTime>\n"
                    "<DeviceNumber>%@</DeviceNumber>\n"
                    "<Location>%@</Location>\n"
+                     "<Device>%@</Device>\n"
                    "</Loginselect>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_usernametxt.text,_passwrdtxt.text,curntdate,_logindevice,Naddress];
+                   "</soap:Envelope>\n",_usernametxt.text,_passwrdtxt.text,curntdate,_logindevice,Naddress,@"Ipad"];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -333,12 +334,12 @@
         
     }
     else{
-   // [self Loginselect];
-        if (!self.hmeVCtrl) {
-            self.hmeVCtrl=[[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
-        }
-        self.hmeVCtrl.username=_usernametxt.text;
-        [self.navigationController pushViewController:_hmeVCtrl animated:YES];
+  [self Loginselect];
+//        if (!self.hmeVCtrl) {
+//            self.hmeVCtrl=[[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
+//        }
+//        self.hmeVCtrl.username=_usernametxt.text;
+//        [self.navigationController pushViewController:_hmeVCtrl animated:YES];
     }
   }
 -(IBAction)toforgetaction:(id)sender

@@ -12,6 +12,7 @@
                 <outlet property="crewnametxtfld" destination="pkd-BX-thy" id="InW-Va-7Ly"/>
                 <outlet property="manpwrtable" destination="JW7-1s-Jbi" id="0ks-OF-VhR"/>
                 <outlet property="navbar" destination="xla-uz-U74" id="kUP-0D-cWQ"/>
+                <outlet property="savebtnlbl" destination="GtU-Bt-540" id="FF0-vO-Q6f"/>
                 <outlet property="servicebtnlbl" destination="v25-d5-olj" id="ie0-9K-ei1"/>
                 <outlet property="touchview" destination="S8L-iO-mH7" id="vtL-yO-c8I"/>
                 <outlet property="view" destination="2" id="3"/>
@@ -153,9 +154,9 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLp-QW-raX">
-                    <rect key="frame" x="897" y="70" width="118" height="30"/>
+                    <rect key="frame" x="897" y="70" width="94" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                     <state key="normal" title="Delete Crew">
                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -184,9 +185,9 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GtU-Bt-540">
-                    <rect key="frame" x="533" y="69" width="120" height="28"/>
+                    <rect key="frame" x="529" y="70" width="120" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                     <state key="normal" title="Create Crew ">
                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -208,7 +209,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8p-We-9Nx">
-                    <rect key="frame" x="845" y="98" width="99" height="30"/>
+                    <rect key="frame" x="897" y="108" width="99" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                     <state key="normal" title="Delete All Items">

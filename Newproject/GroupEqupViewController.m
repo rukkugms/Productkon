@@ -1555,7 +1555,24 @@
 }
 
 - (IBAction)alldeletebtn:(id)sender {
-    [self AllCrewDelete];
+    
+    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to delete equipment group" delegate:self cancelButtonTitle:@"YES" otherButtonTitles:@"NO", nil];
+    [alert show];
+    
+}
+#pragma mark-alert
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex==[alertView cancelButtonIndex]){
+        [self AllCrewDelete];
+    }
+    
+    else{
+        
+        
+    }
+
+   
 }
 
 

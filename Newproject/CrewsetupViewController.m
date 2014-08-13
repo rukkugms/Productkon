@@ -158,13 +158,20 @@
 
 #pragma mark-textfield delegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    _autocompleteTableView.hidden = NO;
-    NSString *substring = [NSString stringWithString:textField.text];
-    substring = [substring stringByReplacingCharactersInRange:range withString:string];
-    [self searchAutocompleteEntriesWithSubstring:substring];
+//    _autocompleteTableView.hidden = NO;
+//    NSString *substring = [NSString stringWithString:textField.text];
+//    substring = [substring stringByReplacingCharactersInRange:range withString:string];
+//    [self searchAutocompleteEntriesWithSubstring:substring];
     return YES;
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField{
+//    if (textField==_crewnametxtfld) {
+//        if (_crewnametxtfld.text.length>0) {
+//            
+//            _savebtnlbl.enabled=YES;
+//        }
+//    }
+//    
      }
 #pragma mark-tableview datasource
 
@@ -679,6 +686,8 @@
 -(void)CrewSave{
     
     recordResults = FALSE;
+    
+    
     NSString *soapMessage;
     
     
@@ -1559,7 +1568,17 @@
 }
 
 - (IBAction)clearbtn:(id)sender {
-        [self CrewSetUpDelete];
+    if([_crewbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+        
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select crew name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+
+    }
+    else{
+         [self CrewSetUpDelete];
+    }
+        
+    
     
     
 }
@@ -1590,7 +1609,17 @@
 }
 
 - (IBAction)savebtn:(id)sender {
+    
+    if (_crewnametxtfld.text.length==0) {
+        
+        
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else{
+
     [self CrewSave];
+    }
 }
 
 - (IBAction)crewbtn:(id)sender {
@@ -1600,8 +1629,33 @@
 }
 
 - (IBAction)alldeletebtn:(id)sender {
-    [self AllCrewDelete];
+    if([_crewbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+        
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select crew name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else{
+    
+    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to delete crew" delegate:self cancelButtonTitle:@"YES" otherButtonTitles:@"NO", nil];
+    [alert show];
+    }
+    
 }
-
-
+#pragma mark-alert
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if ([alertView.message isEqualToString:@"Are you sure you want to delete crew"]) {
+        
+    
+    if (buttonIndex==[alertView cancelButtonIndex]){
+        [self AllCrewDelete];
+        
+           }
+    
+    else{
+        
+        
+    }
+    }
+}
 @end
