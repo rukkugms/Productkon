@@ -1570,7 +1570,7 @@
 - (IBAction)clearbtn:(id)sender {
     if([_crewbtnlbl.titleLabel.text isEqualToString:@"Select"]){
         
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select crew name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select crew" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
 
     }
@@ -1631,7 +1631,7 @@
 - (IBAction)alldeletebtn:(id)sender {
     if([_crewbtnlbl.titleLabel.text isEqualToString:@"Select"]){
         
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select crew name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select crew" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
     }
