@@ -251,7 +251,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllFolderRights xmlns=\"http://test.kontract360.com/\">\n"
+                   "<SelectAllFolderRights xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "</SelectAllFolderRights>\n"
                    "</soap:Body>\n"
@@ -268,7 +268,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/SelectAllFolderRights" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllFolderRights" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -355,7 +355,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UpdateFolderRights xmlns=\"http://test.kontract360.com/\">\n"
+                   "<UpdateFolderRights xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<userid>%d</userid>\n"
                    "<create>%d</create>\n"
                    "<delete>%d</delete>\n"
@@ -376,7 +376,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/UpdateFolderRights" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/UpdateFolderRights" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

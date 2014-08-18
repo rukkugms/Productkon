@@ -111,7 +111,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UploadPlanDrawings xmlns=\"http://test.kontract360.com/\">\n"
+                   "<UploadPlanDrawings xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<f>%@</f>\n"
                    "<fileName>%@</fileName>\n"
                    "<PlanId>%@</PlanId>\n"
@@ -131,7 +131,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/UploadPlanDrawings" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/UploadPlanDrawings" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -165,7 +165,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UploadPlanDrawings xmlns=\"http://test.kontract360.com/\">\n"
+                   "<UploadPlanDrawings xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<f>%@</f>\n"
                    "<fileName>%@</fileName>\n"
                    "<PlanId>%@</PlanId>\n"
@@ -185,7 +185,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/UploadPlanDrawings" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/UploadPlanDrawings" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -232,7 +232,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UploadPlanDrawings xmlns=\"http://test.kontract360.com/\">\n"
+                   "<UploadPlanDrawings xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<f>%@</f>\n"
                    "<fileName>%@</fileName>\n"
                    "<PlanId>%@</PlanId>\n"
@@ -252,7 +252,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/UploadPlanDrawings" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/UploadPlanDrawings" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -301,7 +301,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UploadPlanDrawings xmlns=\"http://test.kontract360.com/\">\n"
+                   "<UploadPlanDrawings xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<f>%@</f>\n"
                    "<fileName>%@</fileName>\n"
                    "<PlanId>%@</PlanId>\n"
@@ -321,7 +321,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/UploadPlanDrawings" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/UploadPlanDrawings" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

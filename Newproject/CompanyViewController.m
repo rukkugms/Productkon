@@ -82,7 +82,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<GetBasicInfo xmlns=\"http://test.kontract360.com/\">\n"
+                   "<GetBasicInfo xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "</GetBasicInfo>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
@@ -98,7 +98,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-     [theRequest addValue: @"http://test.kontract360.com/GetBasicInfo" forHTTPHeaderField:@"Soapaction"];
+     [theRequest addValue: @"http://testUSA.kontract360.com/GetBasicInfo" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -136,7 +136,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SaveBasicInfo xmlns=\"http://test.kontract360.com/\">\n"
+                   "<SaveBasicInfo xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<CompanyName>%@</CompanyName>\n"
                    "<Address>%@</Address>\n"
                    "<City>%@</City>\n"
@@ -166,7 +166,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/SaveBasicInfo" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SaveBasicInfo" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -199,7 +199,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Stateselect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<Stateselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "</Stateselect>\n"
                    "</soap:Body>\n"
@@ -216,7 +216,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/Stateselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/Stateselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -249,7 +249,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Countryselect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<Countryselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "</Countryselect>\n"
                    "</soap:Body>\n"
@@ -266,7 +266,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/Countryselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/Countryselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

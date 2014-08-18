@@ -282,7 +282,7 @@ return cell;
                    
                    "<soap:Body>\n"
                    
-                   "<AllDocumentsselect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<AllDocumentsselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                   "<Type>%@</Type>\n"
                    "</AllDocumentsselect>\n"
                    "</soap:Body>\n"
@@ -299,7 +299,7 @@ return cell;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/AllDocumentsselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/AllDocumentsselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -333,7 +333,7 @@ return cell;
                    
                    "<soap:Body>\n"
                    
-                   "<FileCommentsselect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<FileCommentsselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<FileId>%d</FileId>\n"
                    "</FileCommentsselect>\n"
                    "</soap:Body>\n"
@@ -350,7 +350,7 @@ return cell;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/FileCommentsselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/FileCommentsselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -391,7 +391,7 @@ return cell;
                    
                    "<soap:Body>\n"
                    
-                   "<FileCommentsInsert xmlns=\"http://test.kontract360.com/\">\n"
+                   "<FileCommentsInsert xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<FileId>%d</FileId>\n"
                    "<Comments>%@</Comments>\n"
                    "<UserId>%d</UserId>\n"
@@ -411,7 +411,7 @@ return cell;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/FileCommentsInsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/FileCommentsInsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
