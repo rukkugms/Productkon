@@ -659,7 +659,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllPlans xmlns=\"http://test.kontract360.com/\">\n"
+                   "<SelectAllPlans xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "</SelectAllPlans>\n"
                    "</soap:Body>\n"
@@ -669,7 +669,7 @@
     
    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
 
-    //NSURL *url = [NSURL URLWithString:@"test.kontract360.com/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"testUSA.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -677,7 +677,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/SelectAllPlans" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllPlans" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -710,7 +710,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllCustomer xmlns=\"http://test.kontract360.com/\">\n"
+                   "<SelectAllCustomer xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "</SelectAllCustomer>\n"
                    "</soap:Body>\n"
@@ -727,7 +727,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/SelectAllCustomer" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllCustomer" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -759,7 +759,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllLeads xmlns=\"http://test.kontract360.com/\">\n"
+                   "<SelectAllLeads xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "</SelectAllLeads>\n"
                    "</soap:Body>\n"
@@ -776,7 +776,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/SelectAllLeads" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllLeads" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -836,7 +836,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<InsertPlan xmlns=\"http://test.kontract360.com/\">\n"
+                   "<InsertPlan xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<customername>%@</customername>\n"
                    "<leadid>%d</leadid>\n"
                    "<cusid>%d</cusid>\n"
@@ -855,7 +855,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-//NSURL *url = [NSURL URLWithString:@"test.kontract360.com/service.asmx"];
+//NSURL *url = [NSURL URLWithString:@"testUSA.kontract360.com/service.asmx"];
    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
@@ -864,7 +864,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/InsertPlan" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/InsertPlan" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -952,7 +952,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UpdatePlan xmlns=\"http://test.kontract360.com/\">\n"
+                   "<UpdatePlan xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<planid>%@</planid>\n"
                    "<customername>%@</customername>\n"
                    "<leadid>%d</leadid>\n"
@@ -980,7 +980,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/UpdatePlan" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/UpdatePlan" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1015,7 +1015,7 @@
                    
                    
                    "<soap:Body>\n"
-                   "<DeletePlan xmlns=\"http://test.kontract360.com/\">\n"
+                   "<DeletePlan xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<planid>%@</planid>\n"
                    "</DeletePlan>\n"
                    "</soap:Body>\n"
@@ -1032,7 +1032,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/DeletePlan" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/DeletePlan" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1065,7 +1065,7 @@
                    
                    
                    "<soap:Body>\n"
-                   "<SearchPlan xmlns=\"http://test.kontract360.com/\">\n"
+                   "<SearchPlan xmlns=\"http://testUSA.kontract360.com/\">\n"
                     "<searchtext>%@</searchtext>\n"
                    "</SearchPlan>\n"
                    "</soap:Body>\n"
@@ -1082,7 +1082,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/SearchPlan" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SearchPlan" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1115,7 +1115,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<WorkTypeSelect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<WorkTypeSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "</WorkTypeSelect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
@@ -1131,7 +1131,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/WorkTypeSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/WorkTypeSelect" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];

@@ -512,7 +512,7 @@ _quantityarray=[[NSMutableArray alloc]init];
                    
                    "<soap:Body>\n"
                    
-                   "<BidManPowerReviewSelect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<BidManPowerReviewSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<BidId>%@</BidId>\n"
                    "</BidManPowerReviewSelect>\n"
                    "</soap:Body>\n"
@@ -529,7 +529,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/BidManPowerReviewSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/BidManPowerReviewSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -560,7 +560,7 @@ _quantityarray=[[NSMutableArray alloc]init];
                    
                    "<soap:Body>\n"
                    
-                   "<BidEquipmentSelect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<BidEquipmentSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<BidId>%@</BidId>\n"
                    "</BidEquipmentSelect>\n"
                    "</soap:Body>\n"
@@ -577,7 +577,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/BidEquipmentSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/BidEquipmentSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -608,7 +608,7 @@ _quantityarray=[[NSMutableArray alloc]init];
                    
                    "<soap:Body>\n"
                    
-                   "<BidMaterialReviewselect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<BidMaterialReviewselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<BidId>%@</BidId>\n"
                    "</BidMaterialReviewselect>\n"
                    "</soap:Body>\n"
@@ -625,7 +625,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/BidMaterialReviewselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/BidMaterialReviewselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -656,7 +656,7 @@ _quantityarray=[[NSMutableArray alloc]init];
                    
                    "<soap:Body>\n"
                    
-                   "<BidOtherReviewselect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<BidOtherReviewselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<BidId>%@</BidId>\n"
                    "</BidOtherReviewselect>\n"
                    "</soap:Body>\n"
@@ -673,7 +673,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/BidOtherReviewselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/BidOtherReviewselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -706,7 +706,7 @@ _quantityarray=[[NSMutableArray alloc]init];
                    
                    
                    "<soap:Body>\n"
-                   "<BidmanpowerSearch xmlns=\"http://test.kontract360.com/\">\n"
+                   "<BidmanpowerSearch xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "<BidId>%@</BidId>\n"
                    "</BidmanpowerSearch>\n"
@@ -724,7 +724,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/BidmanpowerSearch" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/BidmanpowerSearch" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -757,7 +757,7 @@ _quantityarray=[[NSMutableArray alloc]init];
                    
                    
                    "<soap:Body>\n"
-                   "<BidEquipmentReviewSearch xmlns=\"http://test.kontract360.com/\">\n"
+                   "<BidEquipmentReviewSearch xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "<BidId>%@</BidId>\n"
                    "</BidEquipmentReviewSearch>\n"
@@ -775,7 +775,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/BidEquipmentReviewSearch" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/BidEquipmentReviewSearch" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -808,7 +808,7 @@ _quantityarray=[[NSMutableArray alloc]init];
                    
                    
                    "<soap:Body>\n"
-                   "<BidMaterialReviewSearch xmlns=\"http://test.kontract360.com/\">\n"
+                   "<BidMaterialReviewSearch xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "<BidId>%@</BidId>\n"
                    "</BidMaterialReviewSearch>\n"
@@ -826,7 +826,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/BidMaterialReviewSearch" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/BidMaterialReviewSearch" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -859,7 +859,7 @@ _quantityarray=[[NSMutableArray alloc]init];
                    
                    
                    "<soap:Body>\n"
-                   "<BidOtherReviewSearch xmlns=\"http://test.kontract360.com/\">\n"
+                   "<BidOtherReviewSearch xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "<BidId>%@</BidId>\n"
                    "</BidOtherReviewSearch>\n"
@@ -877,7 +877,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/BidOtherReviewSearch" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/BidOtherReviewSearch" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -909,7 +909,7 @@ _quantityarray=[[NSMutableArray alloc]init];
                    
                    "<soap:Body>\n"
                    
-                   "<BidReviewCostselect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<BidReviewCostselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "</BidReviewCostselect>\n"
                    "</soap:Body>\n"
@@ -926,7 +926,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/BidReviewCostselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/BidReviewCostselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -958,7 +958,7 @@ _quantityarray=[[NSMutableArray alloc]init];
                    
                    "<soap:Body>\n"
                    
-                   "<BidReviewInsert xmlns=\"http://test.kontract360.com/\">\n"
+                   "<BidReviewInsert xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<BidId>%@</BidId>\n"
                    "</BidReviewInsert>\n"
                    "</soap:Body>\n"
@@ -975,7 +975,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/BidReviewInsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/BidReviewInsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

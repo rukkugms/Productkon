@@ -646,7 +646,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<CrewManPowerSelect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<CrewManPowerSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
                     "<SubType>%@</SubType>\n"
                    "</CrewManPowerSelect>\n"
                    "</soap:Body>\n"
@@ -663,7 +663,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/CrewManPowerSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/CrewManPowerSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -699,7 +699,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<CrewSave xmlns=\"http://test.kontract360.com/\">\n"
+                   "<CrewSave xmlns=\"http://testUSA.kontract360.com/\">\n"
                     "<CrewName>%@</CrewName>\n"
                    "</CrewSave>\n"
                    "</soap:Body>\n"
@@ -716,7 +716,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/CrewSave" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/CrewSave" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -750,7 +750,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<CrewSetUpSelect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<CrewSetUpSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "</CrewSetUpSelect>\n"
                    "</soap:Body>\n"
@@ -767,7 +767,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/CrewSetUpSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/CrewSetUpSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -801,7 +801,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Selectcrewname xmlns=\"http://test.kontract360.com/\">\n"
+                   "<Selectcrewname xmlns=\"http://testUSA.kontract360.com/\">\n"
                     "<crewname>%@</crewname>\n"
                    "</Selectcrewname>\n"
                    "</soap:Body>\n"
@@ -818,7 +818,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/Selectcrewname" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/Selectcrewname" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -852,7 +852,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<crewinsert xmlns=\"http://test.kontract360.com/\">\n"
+                   "<crewinsert xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<Manpower>%@</Manpower>\n"
                    "<Description>%@</Description>\n"
                    "<Type>%@</Type>\n"
@@ -878,7 +878,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/crewinsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/crewinsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -912,7 +912,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Crewdelete xmlns=\"http://test.kontract360.com/\">\n"
+                   "<Crewdelete xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<ID>%d</ID>\n"
                    "</Crewdelete>\n"
                    "</soap:Body>\n"
@@ -929,7 +929,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/Crewdelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/Crewdelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -962,7 +962,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<AllSkills xmlns=\"http://test.kontract360.com/\">\n"
+                   "<AllSkills xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "</AllSkills>\n"
                    "</soap:Body>\n"
@@ -979,7 +979,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/AllSkills" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/AllSkills" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1015,7 +1015,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<CrewSetUpDelete xmlns=\"http://test.kontract360.com/\">\n"
+                   "<CrewSetUpDelete xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<CrewId>%d</CrewId>\n"
                    "</CrewSetUpDelete>\n"
                    "</soap:Body>\n"
@@ -1032,7 +1032,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/CrewSetUpDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/CrewSetUpDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1066,7 +1066,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<AllCrewDelete xmlns=\"http://test.kontract360.com/\">\n"
+                   "<AllCrewDelete xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<CrewId>%d</CrewId>\n"
                    "</AllCrewDelete>\n"
                    "</soap:Body>\n"
@@ -1083,7 +1083,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/AllCrewDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/AllCrewDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

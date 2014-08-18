@@ -45,11 +45,13 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    NSString *encodedString=[_urlstring stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    //NSURL *weburl = [NSURL URLWithString:encodedString];
     
-     NSString*urls=[_urlstring stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-   // NSString*urls=[NSString stringWithFormat:@"http://test.kontract360.com/Folder/Root/HR/1/17493136.jpg"];
-    NSLog(@"url%@",urls);
-    NSURL *targetURL = [NSURL URLWithString:urls];
+    NSString*urls=[_urlstring stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+  // NSString*urls=[NSString stringWithFormat:@"http://google.com"];
+  //  NSLog(@"url%@",urls);
+    NSURL *targetURL = [NSURL URLWithString:encodedString];
     NSURLRequest *request = [NSURLRequest requestWithURL:targetURL];
     [_webview loadRequest:request];
 
