@@ -113,6 +113,13 @@
     doubleTap11.numberOfTapsRequired=1;
     doubleTap11.delegate=(id)self;
     [self.wrksetngview addGestureRecognizer:doubleTap11];
+    
+    UITapGestureRecognizer *doubleTap12 = [[UITapGestureRecognizer alloc]
+                                           initWithTarget:self
+                                           action:@selector(securitypage)];
+    doubleTap12.numberOfTapsRequired=1;
+    doubleTap12.delegate=(id)self;
+    [self.securityview addGestureRecognizer:doubleTap12];
 
 }
 
@@ -229,6 +236,15 @@
     _wrkstngVCtrlr.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_wrkstngVCtrlr animated:YES completion:nil];
 }
+-(void)securitypage{
+  //  if (!self.securityVCtrl) {
+        self.securityVCtrl=[[SecurityViewController alloc]initWithNibName:@"SecurityViewController" bundle:nil];
+    //}
+    _securityVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    [self presentViewController:_securityVCtrl animated:YES completion:nil];
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

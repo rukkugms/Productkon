@@ -22,6 +22,7 @@
 #import "SerialViewController.h"
 #import "WorktypeViewController.h"
 #import "SettngsViewController.h"
+#import "SecurityViewController.h"
 
 @interface TileViewController : UIViewController
 
@@ -65,5 +66,5 @@
 @property(strong,nonatomic)SerialViewController *SerialVCtrl;
 @property(strong,nonatomic)WorktypeViewController *wrktypeVCtrl;
 @property(strong,nonatomic)SettngsViewController *wrkstngVCtrlr;
-
+@property(strong,nonatomic)SecurityViewController*securityVCtrl;
 @end
