@@ -201,7 +201,7 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="securelock.png" id="LDA-X0-1G3">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.png" id="LDA-X0-1G3">
                             <rect key="frame" x="20" y="26" width="100" height="75"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
@@ -222,8 +222,8 @@
         <image name="company-documents.png" width="512" height="512"/>
         <image name="company-info.png" width="512" height="512"/>
         <image name="folder-rights.png" width="512" height="512"/>
+        <image name="lock.png" width="238" height="212"/>
         <image name="requirement-type.png" width="512" height="512"/>
-        <image name="securelock.png" width="450" height="400"/>
         <image name="users.png" width="512" height="512"/>
         <image name="worksettings.png" width="512" height="512"/>
     </resources>
