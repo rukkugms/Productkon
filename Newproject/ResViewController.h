@@ -47,9 +47,5 @@
 - (IBAction)closebtnActn:(id)sender;
 
 
-//NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//
-//[defaults setObject:_soapResults forKey:@"Userid"];
-//[defaults synchronize];
 
 @end

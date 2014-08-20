@@ -264,6 +264,11 @@
     if([elementName isEqualToString:@"records"]){
        
         recordResults = FALSE;
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        
+        [defaults setObject:_soapResults forKey:@"Userid"];
+        [defaults synchronize];
+
         if([_soapResults isEqualToString:@"0"]){
             
             UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Username or Password" delegate:self

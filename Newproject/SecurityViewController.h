@@ -12,6 +12,7 @@
     BOOL recordResults;
     NSString*entryid;
     NSString*userid;
+    NSInteger path;
 }
 
 

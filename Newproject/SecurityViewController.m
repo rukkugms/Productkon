@@ -201,7 +201,7 @@
                    "<answer>%@</answer>\n"
                    "</SecurityAnswersInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",1,[[_qustndict objectForKey:_qustnbtnlbl.titleLabel.text]integerValue],_answertxtfld.text];
+                   "</soap:Envelope>\n",[userid integerValue],[[_qustndict objectForKey:_qustnbtnlbl.titleLabel.text]integerValue],_answertxtfld.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -215,6 +215,56 @@
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
     [theRequest addValue: @"http://ios.kontract360.com/SecurityAnswersInsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)Getanswer{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Getanswer xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<userid>%d</userid>\n"
+                   "<qid>%d</qid>\n"
+                   "</Getanswer>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[userid integerValue],[[_qustndict objectForKey:[_qustnarray objectAtIndex:path]]integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Getanswer" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -252,7 +302,7 @@
                    "<qid>%d</qid>\n"
                    "</SecurityquestionandanswersDelete>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",1,[[_qustndict objectForKey:_qustnbtnlbl.titleLabel.text]integerValue]];
+                   "</soap:Envelope>\n",[userid integerValue],[[_qustndict objectForKey:_qustnbtnlbl.titleLabel.text]integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -303,7 +353,7 @@
                   
                    "</QuestioncountSelect>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",1];
+                   "</soap:Envelope>\n",[userid integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -401,6 +451,39 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"result"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Column1"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"GetanswerResponse"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"answer"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -435,13 +518,52 @@
         
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        recordResults = FALSE;
+        
+       
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+        [_qustnbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        _answertxtfld.text=@"";
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Column1"])
+    {
+         recordResults = FALSE;
+        NSInteger count=[_soapResults integerValue];
+        if (count>2) {
+            
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"You are already reached you entry limit. Remove a question to add a new one" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [alert show];
+            [_qustnbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+            _answertxtfld.text=@"";
+
+        }
+        else{
+             [self SecurityAnswersInsert];
+        }
+        _soapResults = nil;
+
+    }
+    if([elementName isEqualToString:@"answer"])
+    {    recordResults = FALSE;
+        _answertxtfld.text=_soapResults;
+        _soapResults = nil;
+    }
 
 }
 #pragma mark - tabledelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView==_popOverTableView) {
+        _answertxtfld.text=@"";
+        path=indexPath.row;
         [_qustnbtnlbl setTitle:[_qustnarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+        
+        [self Getanswer];
     }
 }
 
@@ -465,9 +587,17 @@
 }
 
 - (IBAction)savebtn:(id)sender {
-    [self SecurityAnswersInsert];
+    if (_answertxtfld.text.length==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Answer is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else{
+   
+     [self QuestioncountSelect];
+    }
 }
 
 - (IBAction)removebtn:(id)sender {
+    [self SecurityquestionandanswersDelete];
 }
 @end
