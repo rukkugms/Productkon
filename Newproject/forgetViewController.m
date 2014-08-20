@@ -37,6 +37,7 @@
 {
     [super viewWillAppear:animated];
     if (_btnindex==0) {
+        [self SecurityQuestionSelect];
         _passwordview.hidden=NO;
         [[_passwordview layer] setBorderWidth:1];
         [[_passwordview layer] setCornerRadius:10];
@@ -45,6 +46,7 @@
     }
     else
     {
+        
         _passwordview.hidden=YES;
         _logoutview.hidden=NO;
         _paswordbtn.tintColor=[UIColor whiteColor];
@@ -66,6 +68,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark-IBActions
 -(IBAction)closeforgetpage:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
@@ -90,8 +93,10 @@
 {
     [self LogoutFromAll];
 }
+
 -(IBAction)questionpopup:(id)sender
-{UIViewController* popoverContent = [[UIViewController alloc]
+{
+    UIViewController* popoverContent = [[UIViewController alloc]
                                      init];
     UIView* popoverView = [[UIView alloc]
                            initWithFrame:CGRectMake(0, 0, 300, 150)];
@@ -122,6 +127,54 @@
     
 
 }
+-(IBAction)changePassword:(id)sender
+{
+   
+    if ([_userText.text isEqualToString:@""]) {
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please enter your username" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+
+    }
+    else if ([_newpswdText.text isEqualToString:@""])
+    {
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please enter your new password" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if ([_confirmpswdText.text isEqualToString:@""])
+    {
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please confirm your password" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if ([_qstnbtn.titleLabel.text isEqualToString:@"Select"]||[_qstnbtn.titleLabel.text isEqualToString:@""])
+    {
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Select a security question" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if ([_answrText.text isEqualToString:@""])
+    {
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please enter your answer" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if ([_newpswdText.text isEqualToString:_confirmpswdText.text]) {
+        
+    }
+    else{
+             
+             UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Password does not match" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+             [alert show];
+             
+    }
+
+    
+}
+-(IBAction)cancelaction:(id)sender
+{
+    _userText.text=@"";
+    _newpswdText.text=@"";
+    _confirmpswdText.text=@"";
+    _answrText.text=@"";
+    [_qstnbtn setTitle:@"Select" forState:UIControlStateNormal];
+}
 #pragma mark-Tableview
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -133,7 +186,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return [_questionsarray count];
     
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -151,7 +204,7 @@
         cell.textLabel.font = [UIFont systemFontOfSize:12.0];
         
        
-                //cell.textLabel.text=[_statearray objectAtIndex:indexPath.row];
+                cell.textLabel.text=[_questionsarray objectAtIndex:indexPath.row];
     }
     
     
@@ -169,7 +222,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    //  [_statebtn setTitle:[_statearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+     [_qstnbtn setTitle:[_questionsarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
                 
     
         
@@ -231,6 +284,108 @@
     }
     
 }
+-(void)SecurityQuestionSelect
+{
+    recordResults = FALSE;
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   "<SecurityQuestionSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "</SecurityQuestionSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SecurityQuestionSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+
+}
+//-(void)Checkanswerselect
+//{
+//    recordResults = FALSE;
+//    
+//    NSString *soapMessage;
+//    
+//    
+//    soapMessage = [NSString stringWithFormat:
+//                   
+//                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+//                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+//                   
+//                   
+//                   "<soap:Body>\n"
+//                   "<Checkanswerselect xmlns=\"http://ios.kontract360.com/\">\n"
+//                   "<userid>%d</userid>\n"
+//                   "<qid>%d</qid>\n"
+//                   "<answer>%@</answer>\n"
+//                   "</Checkanswerselect>\n"
+//                   "</soap:Body>\n"
+//                   "</soap:Envelope>\n"];
+//    NSLog(@"soapmsg%@",soapMessage);
+//    
+//    
+//    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+//    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+//    
+//    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+//    
+//    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+//    
+//    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+//    
+//    [theRequest addValue: @"http://ios.kontract360.com/Checkanswerselect" forHTTPHeaderField:@"Soapaction"];
+//    
+//    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+//    [theRequest setHTTPMethod:@"POST"];
+//    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+//    
+//    
+//    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+//    
+//    if( theConnection )
+//    {
+//        _webData = [NSMutableData data];
+//    }
+//    else
+//    {
+//        ////NSLog(@"theConnection is NULL");
+//    }
+//    
+//}
+
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -339,5 +494,25 @@
          }
 }
 
+#pragma mark-textfld delegates
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    if(textField==_newpswdText)
+    {
+        NSUInteger newLength = [_newpswdText.text length] + [string length] - range.length;
+        return (newLength > 20) ? NO : YES;
+    }
+    if(textField==_confirmpswdText)
+    {
+        NSUInteger newLength = [_confirmpswdText.text length] + [string length] - range.length;
+        return (newLength > 20) ? NO : YES;
+    }
+    if(textField==_answrText)
+    {
+        NSUInteger newLength = [_answrText.text length] + [string length] - range.length;
+        return (newLength > 20) ? NO : YES;
+    }
+    return YES;
 
+}
 @end

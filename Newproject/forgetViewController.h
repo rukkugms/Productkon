@@ -25,7 +25,7 @@
 -(IBAction)questionpopup:(id)sender;
 @property(strong,nonatomic)IBOutlet UITableView *popovertableview;
 @property(strong,nonatomic)UIPopoverController *popovercontroller;
-@property(strong,nonatomic)IBOutlet UIButton *qstnbtn;
+
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
@@ -36,4 +36,17 @@
 @property(strong,nonatomic)IBOutlet UITextField *usernametextfield;
 @property(strong,nonatomic)IBOutlet UITextField *passwordtextfield;
 -(IBAction)logoutfromall:(id)sender;
+
+
+
+/*password reset page*/
+@property(strong,nonatomic)IBOutlet UITextField *userText;
+@property(strong,nonatomic)IBOutlet UITextField *newpswdText;
+@property(strong,nonatomic)IBOutlet UITextField *confirmpswdText;
+@property(strong,nonatomic)IBOutlet UIButton *qstnbtn;
+@property (strong,nonatomic)IBOutlet UITextField *answrText;
+-(IBAction)changePassword:(id)sender;
+-(IBAction)cancelaction:(id)sender;
+@property(strong,nonatomic)NSMutableArray *questionsarray;
+
 @end
