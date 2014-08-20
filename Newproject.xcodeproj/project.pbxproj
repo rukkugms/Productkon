@@ -182,6 +182,8 @@
 		D41B14E9195C0CF500DEED6E /* RelatedtoMdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D41B14E8195C0CF500DEED6E /* RelatedtoMdl.m */; };
 		D41B14EB195C2D3F00DEED6E /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = D41B14EA195C2D3F00DEED6E /* images.png */; };
 		D41B14ED195C2F1700DEED6E /* calendarimg.png in Resources */ = {isa = PBXBuildFile; fileRef = D41B14EC195C2F1700DEED6E /* calendarimg.png */; };
+		D42505CA19A46830001D16A2 /* SecurityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42505C819A46830001D16A2 /* SecurityViewController.m */; };
+		D42505CB19A46830001D16A2 /* SecurityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42505C919A46830001D16A2 /* SecurityViewController.xib */; };
 		D429C5EE1952A43D00CE73A6 /* Exceptioncell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D429C5ED1952A43D00CE73A6 /* Exceptioncell.xib */; };
 		D429C5F01952DD6100CE73A6 /* Siteinexcptncell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D429C5EF1952DD6000CE73A6 /* Siteinexcptncell.xib */; };
 		D42D8C0718D2D8AC009D8085 /* folderrightsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42D8C0418D2D8AC009D8085 /* folderrightsViewController.m */; };
@@ -749,6 +751,9 @@
 		D41B14E8195C0CF500DEED6E /* RelatedtoMdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelatedtoMdl.m; sourceTree = "<group>"; };
 		D41B14EA195C2D3F00DEED6E /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
 		D41B14EC195C2F1700DEED6E /* calendarimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendarimg.png; sourceTree = "<group>"; };
+		D42505C719A46830001D16A2 /* SecurityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityViewController.h; sourceTree = "<group>"; };
+		D42505C819A46830001D16A2 /* SecurityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityViewController.m; sourceTree = "<group>"; };
+		D42505C919A46830001D16A2 /* SecurityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecurityViewController.xib; sourceTree = "<group>"; };
 		D429C5ED1952A43D00CE73A6 /* Exceptioncell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Exceptioncell.xib; sourceTree = "<group>"; };
 		D429C5EF1952DD6000CE73A6 /* Siteinexcptncell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Siteinexcptncell.xib; sourceTree = "<group>"; };
 		D42D8C0318D2D8AC009D8085 /* folderrightsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = folderrightsViewController.h; sourceTree = "<group>"; };
@@ -1283,6 +1288,9 @@
 				D4A338C718F3BD1900E53FAC /* WorktypeViewController.m */,
 				D4A338C818F3BD1900E53FAC /* WorktypeViewController.xib */,
 				D4A338CB18F3C22C00E53FAC /* worktypecell.xib */,
+				D42505C719A46830001D16A2 /* SecurityViewController.h */,
+				D42505C819A46830001D16A2 /* SecurityViewController.m */,
+				D42505C919A46830001D16A2 /* SecurityViewController.xib */,
 			);
 			name = Company;
 			sourceTree = "<group>";
@@ -2353,6 +2361,7 @@
 				64A3B81418DFEE980015887F /* LeadsViewController.xib in Resources */,
 				D4FED41417F18E28004BE242 /* tabbtn.png in Resources */,
 				D4A16B961974EEE0002CA2A2 /* PhasecomponentsViewController.xib in Resources */,
+				D42505CB19A46830001D16A2 /* SecurityViewController.xib in Resources */,
 				64A1F8B718AA007500EE8850 /* customdoccell.xib in Resources */,
 				D4F19DED18D03AD1007617F0 /* FollowupCell.xib in Resources */,
 				D4A16B401974EEA8002CA2A2 /* SaftyCell.xib in Resources */,
@@ -2664,6 +2673,7 @@
 				D49F875718EEA36B00413CAD /* listusermdl.m in Sources */,
 				D4FEF52218FE85560047E6BD /* Fmodel.m in Sources */,
 				D4FED40F17F16EEE004BE242 /* VerificationViewController.m in Sources */,
+				D42505CA19A46830001D16A2 /* SecurityViewController.m in Sources */,
 				D47A9B0B19402B89001CC416 /* EmpJobViewController.m in Sources */,
 				D4DEEDDA17F40BE70096A908 /* UploadDocViewController.m in Sources */,
 				D4A16B9A1974EEE0002CA2A2 /* CalEventDetailViewController.m in Sources */,

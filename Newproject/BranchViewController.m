@@ -297,7 +297,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Branchselect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<Branchselect xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</Branchselect>\n"
                    "</soap:Body>\n"
@@ -305,8 +305,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //  NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -314,7 +314,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/Branchselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/Branchselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -348,7 +348,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<BranchInsert xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<BranchInsert xmlns=\"http://ios.kontract360.com/\">\n"
                    "<BranchName>%@</BranchName>\n"
                    "<BranchAddress>%@</BranchAddress>\n"
                    "<Phone>%@</Phone>\n"
@@ -360,8 +360,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //  NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -369,7 +369,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/BranchInsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/BranchInsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -405,7 +405,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<BranchUpdate xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<BranchUpdate xmlns=\"http://ios.kontract360.com/\">\n"
                    "<BranchId>%d</BranchId>\n"
                    "<BranchName>%@</BranchName>\n"
                    "<BranchAddress>%@</BranchAddress>\n"
@@ -418,8 +418,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //  NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -427,7 +427,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/BranchUpdate" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/BranchUpdate" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -461,7 +461,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Branchdelete xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<Branchdelete xmlns=\"http://ios.kontract360.com/\">\n"
                    "<BranchId>%d</BranchId>\n"
                    "</Branchdelete>\n"
                    "</soap:Body>\n"
@@ -469,8 +469,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //  NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -478,7 +478,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/Branchdelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/Branchdelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -514,7 +514,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SearchBranch xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SearchBranch xmlns=\"http://ios.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "</SearchBranch>\n"
                    "</soap:Body>\n"
@@ -523,7 +523,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -531,7 +531,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SearchBranch" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SearchBranch" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
