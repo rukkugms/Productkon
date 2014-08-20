@@ -39,6 +39,7 @@
 @property (strong, nonatomic) IBOutlet UIView *serialview;
 @property (strong, nonatomic) IBOutlet UIView *worktypeview;
 @property (strong, nonatomic) IBOutlet UIView *wrksetngview;
+@property (strong, nonatomic) IBOutlet UIView *securityview;
 
 
 //close Actions
