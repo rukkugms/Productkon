@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface forgetViewController : UIViewController
+@interface forgetViewController : UIViewController<UITextFieldDelegate>
 {
     BOOL recordResults;
 }
@@ -48,5 +48,7 @@
 -(IBAction)changePassword:(id)sender;
 -(IBAction)cancelaction:(id)sender;
 @property(strong,nonatomic)NSMutableArray *questionsarray;
+@property(strong,nonatomic)NSString *questionstring;
+@property(strong,nonatomic)NSMutableDictionary *questionDict;
 
 @end
