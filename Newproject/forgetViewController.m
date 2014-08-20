@@ -37,12 +37,17 @@
 {
     [super viewWillAppear:animated];
     if (_btnindex==0) {
-        
+         _questionsarray=[[NSMutableArray alloc]init];
         _passwordview.hidden=NO;
         [[_passwordview layer] setBorderWidth:1];
         [[_passwordview layer] setCornerRadius:10];
         _logoutview.hidden=YES;
         _navitem.title=@"Reset Your Password";
+        _userText.text=@"";
+        _newpswdText.text=@"";
+        _confirmpswdText.text=@"";
+        _answrText.text=@"";
+        [_qstnbtn setTitle:@"Select" forState:UIControlStateNormal];
     }
     else
     {
@@ -100,10 +105,10 @@
     UIViewController* popoverContent = [[UIViewController alloc]
                                      init];
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 300, 150)];
+                           initWithFrame:CGRectMake(0, 0, 330, 150)];
     
     popoverView.backgroundColor = [UIColor lightTextColor];
-    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 300, 150)];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 330, 150)];
     _popovertableview.delegate=(id)self;
     _popovertableview.dataSource=(id)self;
     _popovertableview.rowHeight= 32;
@@ -114,7 +119,7 @@
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(300, 150);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(330, 150);
     
     //create a popover controller
     self.popovercontroller = [[UIPopoverController alloc]
@@ -175,6 +180,7 @@
     _confirmpswdText.text=@"";
     _answrText.text=@"";
     [_qstnbtn setTitle:@"Select" forState:UIControlStateNormal];
+     _questionsarray=[[NSMutableArray alloc]init];
 }
 #pragma mark-Tableview
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -554,6 +560,28 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"ChangePasswordResponse"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+
 
 
 
@@ -623,8 +651,14 @@
         }
         _soapResults=nil;
     }
-    
+     if([elementName isEqualToString:@"result"]){
+          if (_btnindex==0) {
+         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Password Successfully Changed" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+         [alert show];
+              //[self dismissViewControllerAnimated:YES completion:nil];
+          }
 
+     }
 
 }
 
@@ -637,6 +671,23 @@
         _passwordtextfield.text=@"";
         
          }
+    if ([alertView.message isEqualToString:@"Password Successfully Changed"])
+    {
+        _userText.text=@"";
+        _newpswdText.text=@"";
+        _confirmpswdText.text=@"";
+        _answrText.text=@"";
+        [_qstnbtn setTitle:@"Select" forState:UIControlStateNormal];
+        
+        
+    }
+    if ([alertView.message isEqualToString:@"Password does not match"]) {
+        
+        _newpswdText.text=@"";
+        _confirmpswdText.text=@"";
+        
+    }
+
 }
 
 #pragma mark-textfld delegates
