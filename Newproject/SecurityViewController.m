@@ -534,9 +534,13 @@
     {
          recordResults = FALSE;
         NSInteger count=[_soapResults integerValue];
-        if (count>2) {
+        if (answertype==1) {
             
-            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"You are already reached you entry limit. Remove a question to add a new one" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        
+        
+              if (count>=3) {
+            
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"You are already reached your entry limit. Remove a question to add a new one" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             [alert show];
             [_qustnbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
             _answertxtfld.text=@"";
@@ -545,12 +549,25 @@
         else{
              [self SecurityAnswersInsert];
         }
+        }
+        else{
+            [self SecurityAnswersInsert];
+        }
+
+        
         _soapResults = nil;
 
     }
     if([elementName isEqualToString:@"answer"])
     {    recordResults = FALSE;
+         answertype=0;
+        if ([_soapResults isEqualToString:@"0"]) {
+            answertype=1;
+        }
+        else{
         _answertxtfld.text=_soapResults;
+            
+        }
         _soapResults = nil;
     }
 
@@ -563,7 +580,10 @@
         path=indexPath.row;
         [_qustnbtnlbl setTitle:[_qustnarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
         
+        
+        [self.popOverController dismissPopoverAnimated:YES];
         [self Getanswer];
+        
     }
 }
 
