@@ -184,6 +184,7 @@
 		D41B14ED195C2F1700DEED6E /* calendarimg.png in Resources */ = {isa = PBXBuildFile; fileRef = D41B14EC195C2F1700DEED6E /* calendarimg.png */; };
 		D42505CA19A46830001D16A2 /* SecurityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42505C819A46830001D16A2 /* SecurityViewController.m */; };
 		D42505CB19A46830001D16A2 /* SecurityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42505C919A46830001D16A2 /* SecurityViewController.xib */; };
+		D42505D119A4750F001D16A2 /* securelock.png in Resources */ = {isa = PBXBuildFile; fileRef = D42505D019A4750F001D16A2 /* securelock.png */; };
 		D429C5EE1952A43D00CE73A6 /* Exceptioncell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D429C5ED1952A43D00CE73A6 /* Exceptioncell.xib */; };
 		D429C5F01952DD6100CE73A6 /* Siteinexcptncell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D429C5EF1952DD6000CE73A6 /* Siteinexcptncell.xib */; };
 		D42D8C0718D2D8AC009D8085 /* folderrightsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42D8C0418D2D8AC009D8085 /* folderrightsViewController.m */; };
@@ -754,6 +755,7 @@
 		D42505C719A46830001D16A2 /* SecurityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityViewController.h; sourceTree = "<group>"; };
 		D42505C819A46830001D16A2 /* SecurityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityViewController.m; sourceTree = "<group>"; };
 		D42505C919A46830001D16A2 /* SecurityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecurityViewController.xib; sourceTree = "<group>"; };
+		D42505D019A4750F001D16A2 /* securelock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = securelock.png; path = ../../securelock.png; sourceTree = "<group>"; };
 		D429C5ED1952A43D00CE73A6 /* Exceptioncell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Exceptioncell.xib; sourceTree = "<group>"; };
 		D429C5EF1952DD6000CE73A6 /* Siteinexcptncell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Siteinexcptncell.xib; sourceTree = "<group>"; };
 		D42D8C0318D2D8AC009D8085 /* folderrightsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = folderrightsViewController.h; sourceTree = "<group>"; };
@@ -1740,6 +1742,7 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D42505D019A4750F001D16A2 /* securelock.png */,
 				64B36210198F4D2000B54191 /* action.png */,
 				D400A5E31980EA03003D5F4C /* customer-&con (1).png */,
 				D4F7D9E3196E669B00B8F4D4 /* Serofred.png */,
@@ -2211,6 +2214,7 @@
 				D4A16B4F1974EEA8002CA2A2 /* PGcell.xib in Resources */,
 				D4A338EC18F3EEEF00E53FAC /* billingcell.xib in Resources */,
 				649E1F7C18615A240010CBD8 /* customequipcell.xib in Resources */,
+				D42505D119A4750F001D16A2 /* securelock.png in Resources */,
 				D40DD25D1873D26100E7BC2C /* FleetsViewController.xib in Resources */,
 				D4097D121963ED0C00D8E910 /* Pjobcell.xib in Resources */,
 				64A14D7D187546D20028B43A /* jobdetailsViewController.xib in Resources */,
