@@ -13,6 +13,7 @@
     NSString*entryid;
     NSString*userid;
     NSInteger path;
+    NSInteger answertype;
 }
 
 
