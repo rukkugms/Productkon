@@ -37,7 +37,7 @@
 {
     [super viewWillAppear:animated];
     if (_btnindex==0) {
-        [self SecurityQuestionSelect];
+        
         _passwordview.hidden=NO;
         [[_passwordview layer] setBorderWidth:1];
         [[_passwordview layer] setCornerRadius:10];
@@ -96,6 +96,7 @@
 
 -(IBAction)questionpopup:(id)sender
 {
+   // [self CheckQuestionsforUser];
     UIViewController* popoverContent = [[UIViewController alloc]
                                      init];
     UIView* popoverView = [[UIView alloc]
@@ -129,7 +130,7 @@
 }
 -(IBAction)changePassword:(id)sender
 {
-   
+    
     if ([_userText.text isEqualToString:@""]) {
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please enter your username" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert show];
@@ -156,7 +157,7 @@
         [alert show];
     }
     else if ([_newpswdText.text isEqualToString:_confirmpswdText.text]) {
-        
+        [self Checkanswerselect];
     }
     else{
              
@@ -284,7 +285,7 @@
     }
     
 }
--(void)SecurityQuestionSelect
+-(void)CheckQuestionsforUser
 {
     recordResults = FALSE;
     
@@ -298,10 +299,11 @@
                    
                    
                    "<soap:Body>\n"
-                   "<SecurityQuestionSelect xmlns=\"http://ios.kontract360.com/\">\n"
-                   "</SecurityQuestionSelect>\n"
+                   "<CheckQuestionsforUser xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<username>%@</username>\n"
+                   "</CheckQuestionsforUser>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n"];
+                   "</soap:Envelope>\n",_userText.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -314,7 +316,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SecurityQuestionSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/CheckQuestionsforUser" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -333,58 +335,109 @@
     }
 
 }
-//-(void)Checkanswerselect
-//{
-//    recordResults = FALSE;
-//    
-//    NSString *soapMessage;
-//    
-//    
-//    soapMessage = [NSString stringWithFormat:
-//                   
-//                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-//                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
-//                   
-//                   
-//                   "<soap:Body>\n"
-//                   "<Checkanswerselect xmlns=\"http://ios.kontract360.com/\">\n"
-//                   "<userid>%d</userid>\n"
-//                   "<qid>%d</qid>\n"
-//                   "<answer>%@</answer>\n"
-//                   "</Checkanswerselect>\n"
-//                   "</soap:Body>\n"
-//                   "</soap:Envelope>\n"];
-//    NSLog(@"soapmsg%@",soapMessage);
-//    
-//    
-//    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-//    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-//    
-//    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
-//    
-//    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
-//    
-//    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-//    
-//    [theRequest addValue: @"http://ios.kontract360.com/Checkanswerselect" forHTTPHeaderField:@"Soapaction"];
-//    
-//    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
-//    [theRequest setHTTPMethod:@"POST"];
-//    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    
-//    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-//    
-//    if( theConnection )
-//    {
-//        _webData = [NSMutableData data];
-//    }
-//    else
-//    {
-//        ////NSLog(@"theConnection is NULL");
-//    }
-//    
-//}
+-(void)Checkanswerselect
+{
+    recordResults = FALSE;
+    NSString *quest=[_questionDict objectForKey:_qstnbtn.titleLabel.text];
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   "<Checkanswerselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<username>%@</username>\n"
+                   "<qid>%d</qid>\n"
+                   "<answer>%@</answer>\n"
+                   "</Checkanswerselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_userText.text,[quest integerValue],_answrText.text];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Checkanswerselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)ChangePassword
+{
+    recordResults = FALSE;
+       NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   "<ChangePassword xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<username>%@</username>\n"
+                   "<password>%@</password>\n"
+                   "</ChangePassword>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_userText.text,_newpswdText.text];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/ChangePassword" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -425,6 +478,7 @@
 	[_xmlParser parse];
     
     
+
 }
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
@@ -449,6 +503,62 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"CheckQuestionsforUserResponse"])
+    {
+        
+        _questionsarray=[[NSMutableArray alloc]init];
+        _questionDict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"qid"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"question"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"CheckanswerselectResponse"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Column1"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+
+
+
+
 
 
 }
@@ -481,6 +591,41 @@
         }
         _soapResults=nil;
     }
+    if([elementName isEqualToString:@"qid"]){
+        
+        recordResults = FALSE;
+        _questionstring=_soapResults;
+         _soapResults=nil;
+}
+    if([elementName isEqualToString:@"question"]){
+        
+        recordResults = FALSE;
+        [_questionsarray addObject:_soapResults];
+        [_questionDict setObject:_questionstring forKey:_soapResults];
+        _soapResults=nil;
+    }
+    if([elementName isEqualToString:@"CheckanswerselectResult"]){
+        
+        recordResults = FALSE;
+        
+        _soapResults=nil;
+    }
+    if([elementName isEqualToString:@"Column1"]){
+        
+        recordResults = FALSE;
+        if ([_soapResults integerValue]>0) {
+            [self ChangePassword];
+        }
+        else
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Your answer doesnot match" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        _soapResults=nil;
+    }
+    
+
+
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -514,5 +659,13 @@
     }
     return YES;
 
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+  
+    if (textField==_userText)
+    {
+        [self CheckQuestionsforUser];
+    }
 }
 @end
