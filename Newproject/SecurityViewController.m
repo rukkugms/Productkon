@@ -581,10 +581,11 @@
         [_qustnbtnlbl setTitle:[_qustnarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
         
         
-        [self.popOverController dismissPopoverAnimated:YES];
+    
         [self Getanswer];
         
     }
+        [self.popOverController dismissPopoverAnimated:YES];
 }
 
 #pragma mark-textfld delegates
@@ -618,6 +619,21 @@
 }
 
 - (IBAction)removebtn:(id)sender {
+    if([_qustnbtnlbl.titleLabel.text isEqualToString:@"Select"])
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select a question" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {if(answertype==1)
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"This is not your security question" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+
+    }
+    else{
     [self SecurityquestionandanswersDelete];
+    }
+    }
 }
 @end
