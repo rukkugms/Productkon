@@ -48,7 +48,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                             <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
-                                <navigationItem title="Equipment" id="f2N-2X-pPp">
+                                <navigationItem title="Resources -> Equipment" id="f2N-2X-pPp">
                                     <barButtonItem key="rightBarButtonItem" id="c2w-G2-5pJ">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="j12-P6-qTd">
                                             <rect key="frame" x="702" y="-3" width="50" height="50"/>
