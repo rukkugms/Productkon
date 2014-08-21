@@ -59,6 +59,15 @@
     [self.worktypeview addGestureRecognizer:doubleTap2];
     
     
+    UITapGestureRecognizer *doubleTap3 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(userpage)];
+    doubleTap3.numberOfTapsRequired=1;
+    doubleTap3.delegate=(id)self;
+    [self.userview addGestureRecognizer:doubleTap3];
+
+    
+    
     
 }
 -(void)servicesPage
@@ -88,6 +97,16 @@
     _wrktypeVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_wrktypeVCtrl animated:YES completion:nil];
 }
+-(void)userpage{
+    
+    self.userrightsVCtrl=[[UserRightViewController alloc]initWithNibName:@"UserRightViewController" bundle:nil];
+    //  }
+    _userrightsVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    [self presentViewController:_userrightsVCtrl animated:YES completion:nil];
+
+    
+}
+
 -(IBAction)closethepage:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:NULL];

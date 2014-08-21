@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettngsViewController">
             <connections>
                 <outlet property="serviceview" destination="t28-7c-DHF" id="ybm-FT-yWm"/>
+                <outlet property="userview" destination="GPt-Wx-RH4" id="wUB-t7-OZv"/>
                 <outlet property="view" destination="dmW-df-sww" id="69m-DO-xn8"/>
                 <outlet property="workphaseview" destination="EmI-2r-Wq1" id="c5B-Yg-H3l"/>
                 <outlet property="worktypeview" destination="fUQ-a3-XBT" id="su7-91-dQp"/>
@@ -77,7 +78,7 @@
                     <color key="backgroundColor" red="1" green="0.88871464420000001" blue="0.42814781019999998" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EmI-2r-Wq1">
-                    <rect key="frame" x="183" y="290" width="183" height="158"/>
+                    <rect key="frame" x="60" y="285" width="183" height="158"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Work Phases" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXd-IF-EcH">
@@ -91,6 +92,20 @@
                             <rect key="frame" x="54" y="34" width="75" height="75"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.88871464420000001" blue="0.42814781019999998" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GPt-Wx-RH4">
+                    <rect key="frame" x="298" y="285" width="183" height="158"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Rights" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMt-8j-x5W">
+                            <rect key="frame" x="54" y="117" width="75" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.88871464420000001" blue="0.42814781019999998" alpha="1" colorSpace="calibratedRGB"/>
                 </view>

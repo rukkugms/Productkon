@@ -174,6 +174,9 @@
 		D4149BB01949B3F300A5A6FD /* StockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4149BAE1949B3F300A5A6FD /* StockViewController.m */; };
 		D4149BB11949B3F300A5A6FD /* StockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4149BAF1949B3F300A5A6FD /* StockViewController.xib */; };
 		D4149F28177186C100738AAC /* squareimage1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4149F27177186C100738AAC /* squareimage1.png */; };
+		D41708F919A5B24900F55599 /* UserRightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D41708F719A5B24900F55599 /* UserRightViewController.m */; };
+		D41708FA19A5B24900F55599 /* UserRightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D41708F819A5B24900F55599 /* UserRightViewController.xib */; };
+		D41708FE19A5B94C00F55599 /* Userrightscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D41708FD19A5B94C00F55599 /* Userrightscell.xib */; };
 		D41A63D51961302A00FBDBC6 /* TimeSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D41A63D31961302900FBDBC6 /* TimeSheetViewController.m */; };
 		D41A63D61961302A00FBDBC6 /* TimeSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D41A63D41961302900FBDBC6 /* TimeSheetViewController.xib */; };
 		D41B14DF195BF18400DEED6E /* RelatedtoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D41B14DD195BF18400DEED6E /* RelatedtoViewController.m */; };
@@ -221,6 +224,9 @@
 		D44BEA7718E0254900719ED5 /* TypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44BEA7518E0254900719ED5 /* TypeViewController.xib */; };
 		D44BEA7A18E0360F00719ED5 /* Addresscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44BEA7918E0360F00719ED5 /* Addresscell.xib */; };
 		D44BEA8218E04D5100719ED5 /* cTypecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44BEA8118E04D5100719ED5 /* cTypecell.xib */; };
+		D44DF4EE19A5D73B00F3E9AB /* Sign-RadioButton01.png in Resources */ = {isa = PBXBuildFile; fileRef = D44DF4ED19A5D73A00F3E9AB /* Sign-RadioButton01.png */; };
+		D44DF4F019A5D88C00F3E9AB /* C2jN9.png in Resources */ = {isa = PBXBuildFile; fileRef = D44DF4EF19A5D88C00F3E9AB /* C2jN9.png */; };
+		D44DF4F219A5DF4600F3E9AB /* radioButtonIcon.gif in Resources */ = {isa = PBXBuildFile; fileRef = D44DF4F119A5DF4500F3E9AB /* radioButtonIcon.gif */; };
 		D453DA211873F18C007EE3DC /* ThirdPartyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D453DA1F1873F18C007EE3DC /* ThirdPartyViewController.m */; };
 		D453DA221873F18C007EE3DC /* ThirdPartyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D453DA201873F18C007EE3DC /* ThirdPartyViewController.xib */; };
 		D453DA261873F1AF007EE3DC /* ConsumbleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D453DA241873F1AF007EE3DC /* ConsumbleViewController.m */; };
@@ -741,6 +747,10 @@
 		D4149BAE1949B3F300A5A6FD /* StockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockViewController.m; sourceTree = "<group>"; };
 		D4149BAF1949B3F300A5A6FD /* StockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockViewController.xib; sourceTree = "<group>"; };
 		D4149F27177186C100738AAC /* squareimage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squareimage1.png; sourceTree = "<group>"; };
+		D41708F619A5B24800F55599 /* UserRightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRightViewController.h; sourceTree = "<group>"; };
+		D41708F719A5B24900F55599 /* UserRightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRightViewController.m; sourceTree = "<group>"; };
+		D41708F819A5B24900F55599 /* UserRightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserRightViewController.xib; sourceTree = "<group>"; };
+		D41708FD19A5B94C00F55599 /* Userrightscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Userrightscell.xib; sourceTree = "<group>"; };
 		D41A63D21961302900FBDBC6 /* TimeSheetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSheetViewController.h; sourceTree = "<group>"; };
 		D41A63D31961302900FBDBC6 /* TimeSheetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeSheetViewController.m; sourceTree = "<group>"; };
 		D41A63D41961302900FBDBC6 /* TimeSheetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeSheetViewController.xib; sourceTree = "<group>"; };
@@ -802,6 +812,9 @@
 		D44BEA7518E0254900719ED5 /* TypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TypeViewController.xib; sourceTree = "<group>"; };
 		D44BEA7918E0360F00719ED5 /* Addresscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Addresscell.xib; sourceTree = "<group>"; };
 		D44BEA8118E04D5100719ED5 /* cTypecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cTypecell.xib; sourceTree = "<group>"; };
+		D44DF4ED19A5D73A00F3E9AB /* Sign-RadioButton01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sign-RadioButton01.png"; sourceTree = "<group>"; };
+		D44DF4EF19A5D88C00F3E9AB /* C2jN9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = C2jN9.png; sourceTree = "<group>"; };
+		D44DF4F119A5DF4500F3E9AB /* radioButtonIcon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = radioButtonIcon.gif; sourceTree = "<group>"; };
 		D453DA1E1873F18C007EE3DC /* ThirdPartyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdPartyViewController.h; sourceTree = "<group>"; };
 		D453DA1F1873F18C007EE3DC /* ThirdPartyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdPartyViewController.m; sourceTree = "<group>"; };
 		D453DA201873F18C007EE3DC /* ThirdPartyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdPartyViewController.xib; sourceTree = "<group>"; };
@@ -1293,6 +1306,10 @@
 				D42505C719A46830001D16A2 /* SecurityViewController.h */,
 				D42505C819A46830001D16A2 /* SecurityViewController.m */,
 				D42505C919A46830001D16A2 /* SecurityViewController.xib */,
+				D41708F619A5B24800F55599 /* UserRightViewController.h */,
+				D41708F719A5B24900F55599 /* UserRightViewController.m */,
+				D41708F819A5B24900F55599 /* UserRightViewController.xib */,
+				D41708FD19A5B94C00F55599 /* Userrightscell.xib */,
 			);
 			name = Company;
 			sourceTree = "<group>";
@@ -1742,6 +1759,9 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D44DF4F119A5DF4500F3E9AB /* radioButtonIcon.gif */,
+				D44DF4EF19A5D88C00F3E9AB /* C2jN9.png */,
+				D44DF4ED19A5D73A00F3E9AB /* Sign-RadioButton01.png */,
 				D42505D419A4A5A8001D16A2 /* lock.png */,
 				64B36210198F4D2000B54191 /* action.png */,
 				D400A5E31980EA03003D5F4C /* customer-&con (1).png */,
@@ -2281,6 +2301,7 @@
 				D47A9B3019407D53001CC416 /* smalltoolsicon.png in Resources */,
 				D4399EBC186D7BB100A693F7 /* search-button@2x.png in Resources */,
 				D4A6749119345E6C00D5A77E /* IconDateGrey@2x.png in Resources */,
+				D44DF4EE19A5D73B00F3E9AB /* Sign-RadioButton01.png in Resources */,
 				64A09DAF1860549E001F74E2 /* appbar.checkmark.thick.unchecked.png in Resources */,
 				D4A16B5D1974EEA8002CA2A2 /* Destequcell.xib in Resources */,
 				D4A16B5C1974EEA8002CA2A2 /* Srcequcell.xib in Resources */,
@@ -2312,6 +2333,7 @@
 				D4149B6B194966F400A5A6FD /* Siteoutview.xib in Resources */,
 				D4A16B491974EEA8002CA2A2 /* addworkscheduleview.xib in Resources */,
 				D4F2F920193C439100B732E9 /* iconarrowright.png in Resources */,
+				D41708FA19A5B24900F55599 /* UserRightViewController.xib in Resources */,
 				64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */,
 				D4A16B471974EEA8002CA2A2 /* EqaddRecordview.xib in Resources */,
 				649EB48C18A8DF4700CDBE28 /* DetailproHrViewController.xib in Resources */,
@@ -2353,6 +2375,7 @@
 				D40407DD192B1CFB00864BA4 /* save 3.png in Resources */,
 				D49FA2EE1961643E0037BA7A /* Tlaborcell.xib in Resources */,
 				D4A338E918F3EEEF00E53FAC /* Recordcustomcell.xib in Resources */,
+				D44DF4F219A5DF4600F3E9AB /* radioButtonIcon.gif in Resources */,
 				D400A5E41980EA03003D5F4C /* customer-&con (1).png in Resources */,
 				D41B14EB195C2D3F00DEED6E /* images.png in Resources */,
 				D42D8C1618D2D8FF009D8085 /* BasicReqViewController.xib in Resources */,
@@ -2384,6 +2407,7 @@
 				64A41244194080D6003EE113 /* contract-mangement.png in Resources */,
 				D4AA4F8B1965535A00916138 /* AbsentViewController.xib in Resources */,
 				D4EBA8641978FD6C00B612E1 /* Trecell.xib in Resources */,
+				D44DF4F019A5D88C00F3E9AB /* C2jN9.png in Resources */,
 				D42D8C2D18D2E126009D8085 /* customservicescell.xib in Resources */,
 				D44BEA8218E04D5100719ED5 /* cTypecell.xib in Resources */,
 				D4A16B451974EEA8002CA2A2 /* Jobsiterecord.xib in Resources */,
@@ -2481,6 +2505,7 @@
 				64A3B81E18DFEEC90015887F /* ActivityCustomCell.xib in Resources */,
 				D47A9B2A19407D09001CC416 /* materialsicon.png in Resources */,
 				D43DAA3718D1B62700280AA6 /* cmpnydocucell.xib in Resources */,
+				D41708FE19A5B94C00F55599 /* Userrightscell.xib in Resources */,
 				64A654B5192F1F14004DDB84 /* GPSetupTileViewController.xib in Resources */,
 				D40A663C187131CA00AB7496 /* cb_mono_off.png in Resources */,
 				64AE02B71949AC56002D44B6 /* InOutSiteViewController.xib in Resources */,
@@ -2511,6 +2536,7 @@
 			files = (
 				D4F4B0B319068ED50026C8B6 /* Gmandrgmdl.m in Sources */,
 				D43DAA3418D1B0A700280AA6 /* CmpnydocsViewController.m in Sources */,
+				D41708F919A5B24900F55599 /* UserRightViewController.m in Sources */,
 				D4A674BF19345FFD00D5A77E /* DPCalendarTestOptionsCell.m in Sources */,
 				641A35D6196175F80080403B /* LbmgModel.m in Sources */,
 				D40407DB192B171A00864BA4 /* myscroll.m in Sources */,
