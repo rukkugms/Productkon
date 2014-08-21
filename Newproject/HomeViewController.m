@@ -339,6 +339,8 @@
         
         
         recordResults = FALSE;
+        _rights=[[Rightscheck alloc]init];
+        _rights.entryid=[_soapResults integerValue];
         
         _soapResults=nil;
     }
@@ -346,61 +348,70 @@
     {
         
         
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
+        recordResults = FALSE;
+        
+        _rights.userid=[_soapResults integerValue];
+        
+        _soapResults=nil;
     }
     if([elementName isEqualToString:@"ModuleId"])
     {
         
         
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
+        recordResults = FALSE;
+        
+        _rights.moduleid=[_soapResults integerValue];
+        
+        _soapResults=nil;
+
     }
     if([elementName isEqualToString:@"ViewModule"])
     {
         
+        recordResults = FALSE;
         
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
+        if ([_soapResults isEqualToString:@"true"]) {
+            _rights.ViewModule=1;
+            
+            
         }
-        recordResults = TRUE;
+        else{
+            _rights.ViewModule=0;
+           
+        }
+        
+
+        
+        _soapResults=nil;
+
+       
     }
     if([elementName isEqualToString:@"EditModule"])
     {
         
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
+        if ([_soapResults isEqualToString:@"true"]) {
+            _rights.EditModule=1;
+            
+            
         }
-        recordResults = TRUE;
+        else{
+            _rights.EditModule=0;
+            
+        }
+
+       
     }
     if([elementName isEqualToString:@"DeleteModule"])
     {
         
         
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
+       
     }
     if([elementName isEqualToString:@"PrintModule"])
     {
         
         
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
+       
     }
     
 
