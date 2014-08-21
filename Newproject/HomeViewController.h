@@ -16,6 +16,8 @@
 #import "TilecustmrViewController.h"
 #import "EsttileViewController.h"
 #import "ManagemttileViewController.h"
+#import "Rightscheck.h"
+
 @interface HomeViewController : UIViewController{
     
 NSString*userid;
@@ -52,7 +54,7 @@ BOOL recordResults;
 @property(strong,nonatomic)ManagemttileViewController*mangVCtrl;
 
 
-
+@property(strong,nonatomic)Rightscheck *rights;
 @property(readwrite)NSInteger ModuleID;
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 

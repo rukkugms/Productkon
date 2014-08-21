@@ -227,7 +227,7 @@
     }
     if([elementName isEqualToString:@"UserRightsforparticularmoduleselectResponse"])
     {
-        
+        _userrightsarray=[[NSMutableArray alloc]init];
         
         if(!_soapResults)
         {
@@ -338,11 +338,9 @@
     {
         
         
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
+        recordResults = FALSE;
+        
+        _soapResults=nil;
     }
     if([elementName isEqualToString:@"UserId"])
     {
