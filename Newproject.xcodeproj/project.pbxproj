@@ -92,6 +92,7 @@
 		64A654B4192F1F14004DDB84 /* GPSetupTileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A654B2192F1F14004DDB84 /* GPSetupTileViewController.m */; };
 		64A654B5192F1F14004DDB84 /* GPSetupTileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A654B3192F1F14004DDB84 /* GPSetupTileViewController.xib */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
+		64ACC62219A5E20E00FC3FD8 /* Rightscheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 64ACC62119A5E20E00FC3FD8 /* Rightscheck.m */; };
 		64AE02B61949AC56002D44B6 /* InOutSiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64AE02B41949AC56002D44B6 /* InOutSiteViewController.m */; };
 		64AE02B71949AC56002D44B6 /* InOutSiteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64AE02B51949AC56002D44B6 /* InOutSiteViewController.xib */; };
 		64AE02B91949B029002D44B6 /* StkOtSiteout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64AE02B81949B029002D44B6 /* StkOtSiteout.xib */; };
@@ -636,6 +637,8 @@
 		64A654B1192F1F14004DDB84 /* GPSetupTileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSetupTileViewController.h; sourceTree = "<group>"; };
 		64A654B2192F1F14004DDB84 /* GPSetupTileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSetupTileViewController.m; sourceTree = "<group>"; };
 		64A654B3192F1F14004DDB84 /* GPSetupTileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPSetupTileViewController.xib; sourceTree = "<group>"; };
+		64ACC62019A5E20E00FC3FD8 /* Rightscheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rightscheck.h; sourceTree = "<group>"; };
+		64ACC62119A5E20E00FC3FD8 /* Rightscheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rightscheck.m; sourceTree = "<group>"; };
 		64AE02B31949AC56002D44B6 /* InOutSiteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InOutSiteViewController.h; sourceTree = "<group>"; };
 		64AE02B41949AC56002D44B6 /* InOutSiteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InOutSiteViewController.m; sourceTree = "<group>"; };
 		64AE02B51949AC56002D44B6 /* InOutSiteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InOutSiteViewController.xib; sourceTree = "<group>"; };
@@ -2020,6 +2023,8 @@
 				D4EBA8661978FE7700B612E1 /* Thrtrmsmdl.m */,
 				D404F36B197E369E00458EF4 /* payementmdl.h */,
 				D404F36C197E369E00458EF4 /* payementmdl.m */,
+				64ACC62019A5E20E00FC3FD8 /* Rightscheck.h */,
+				64ACC62119A5E20E00FC3FD8 /* Rightscheck.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -2617,6 +2622,7 @@
 				64A4D097195AE50E00C3F783 /* Bidmodel.m in Sources */,
 				D44BEA6C18E0243500719ED5 /* AddressViewController.m in Sources */,
 				D49F875D18EEA36B00413CAD /* SitevistMdl.m in Sources */,
+				64ACC62219A5E20E00FC3FD8 /* Rightscheck.m in Sources */,
 				D4A16B351974EEA8002CA2A2 /* PlanningViewController.m in Sources */,
 				D49F876018EEA36B00413CAD /* Scfflddetails.m in Sources */,
 				D4A16B501974EEA8002CA2A2 /* GeneralViewController.m in Sources */,

@@ -225,6 +225,92 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"UserRightsforparticularmoduleselectResponse"])
+    {
+        _userrightsarray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"EntryId"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"UserId"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"ModuleId"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"ViewModule"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"EditModule"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"DeleteModule"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"PrintModule"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+   
+
+
+
+
+
     
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -248,10 +334,92 @@
         [self.navigationController popToRootViewControllerAnimated:YES];
         _soapResults=nil;
       }
+    if([elementName isEqualToString:@"EntryId"])
+    {
+        
+        
+        recordResults = FALSE;
+        _rights=[[Rightscheck alloc]init];
+        _rights.entryid=[_soapResults integerValue];
+        
+        _soapResults=nil;
+    }
+    if([elementName isEqualToString:@"UserId"])
+    {
+        
+        
+        recordResults = FALSE;
+        
+        _rights.userid=[_soapResults integerValue];
+        
+        _soapResults=nil;
+    }
+    if([elementName isEqualToString:@"ModuleId"])
+    {
+        
+        
+        recordResults = FALSE;
+        
+        _rights.moduleid=[_soapResults integerValue];
+        
+        _soapResults=nil;
+
+    }
+    if([elementName isEqualToString:@"ViewModule"])
+    {
+        
+        recordResults = FALSE;
+        
+        if ([_soapResults isEqualToString:@"true"]) {
+            _rights.ViewModule=1;
+            
+            
+        }
+        else{
+            _rights.ViewModule=0;
+           
+        }
+        
+
+        
+        _soapResults=nil;
+
+       
+    }
+    if([elementName isEqualToString:@"EditModule"])
+    {
+        
+        if ([_soapResults isEqualToString:@"true"]) {
+            _rights.EditModule=1;
+            
+            
+        }
+        else{
+            _rights.EditModule=0;
+            
+        }
+
+       
+    }
+    if([elementName isEqualToString:@"DeleteModule"])
+    {
+        
+        
+       
+    }
+    if([elementName isEqualToString:@"PrintModule"])
+    {
+        
+        
+       
+    }
+    
+
 }
 
 
 -(void)customerpage{
+   _ModuleID=3;
     if (!self.custmrVCtrl) {
         self.custmrVCtrl=[[TilecustmrViewController alloc]initWithNibName:@"TilecustmrViewController" bundle:nil];
     }
@@ -265,6 +433,8 @@
 }
 -(void)LeadPage
 {
+   _ModuleID=4;
+    
     if (!self.leadVCtrl) {
         self.leadVCtrl=[[LeadsViewController alloc]initWithNibName:@"LeadsViewController" bundle:nil];
     }
@@ -275,6 +445,8 @@
 }
 -(void)companyPage
 {
+    _ModuleID=1;
+    [self UserRightsforparticularmoduleselect];
     if (!self.tileVCtrl) {
         self.tileVCtrl=[[TileViewController alloc]initWithNibName:@"TileViewController" bundle:nil];
     }
@@ -286,6 +458,7 @@
     
 }
 -(void)hrpage{
+   _ModuleID=8;
     if (!self.TilehrVCtrl) {
         self.TilehrVCtrl=[[TilehrViewController alloc]initWithNibName:@"TilehrViewController" bundle:nil];
     }
@@ -296,6 +469,8 @@
                        animated:YES completion:NULL];
 }
 -(void)repage{
+   _ModuleID=2;
+
     if (!self.ReVCtrl) {
         self.ReVCtrl=[[ResViewController alloc]initWithNibName:@"ResViewController" bundle:nil];
     }
@@ -306,6 +481,7 @@
     
 }
 -(void)plangpage{
+   _ModuleID=5;
     if (!self.PlangVCtrl) {
         self.PlangVCtrl=[[PlanningViewController alloc]initWithNibName:@"PlanningViewController" bundle:nil];
         
@@ -318,6 +494,7 @@
 
 }
 -(void)Estimationpage{
+   _ModuleID=6;
     if (!self.EstmVCtrl) {
         self.EstmVCtrl=[[EsttileViewController alloc]initWithNibName:@"EsttileViewController" bundle:nil];
     }
@@ -329,6 +506,7 @@
     
 }
 -(void)Managementpage{
+  _ModuleID=7;
     if (!_mangVCtrl) {
         _mangVCtrl=[[ManagemttileViewController alloc]initWithNibName:@"ManagemttileViewController" bundle:nil];
     }
@@ -343,6 +521,62 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+#pragma mark- WebService
+-(void)UserRightsforparticularmoduleselect{
+    recordResults = FALSE;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    userid = [defaults objectForKey:@"Userid"];
+
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UserRightsforparticularmoduleselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserId>%d</UserId>\n"
+                   "<ModuleId>%d</ModuleId>\n"
+                   "</UserRightsforparticularmoduleselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[userid integerValue],_ModuleID];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UserRightsforparticularmoduleselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
 }
 
 @end

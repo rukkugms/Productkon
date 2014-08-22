@@ -122,6 +122,10 @@
     [self.securityview addGestureRecognizer:doubleTap12];
 
 }
+-(void)checkRights
+{
+    NSString *module=[NSString stringWithFormat:@"Company->Company Info"];
+}
 
 -(void)companyPage
 {

@@ -16,9 +16,11 @@
 #import "TilecustmrViewController.h"
 #import "EsttileViewController.h"
 #import "ManagemttileViewController.h"
+#import "Rightscheck.h"
+
 @interface HomeViewController : UIViewController{
     
-
+NSString*userid;
 BOOL recordResults;
 
 }
@@ -50,6 +52,11 @@ BOOL recordResults;
 @property(strong,nonatomic)PlanningViewController *PlangVCtrl;
 @property(strong,nonatomic)EsttileViewController *EstmVCtrl;
 @property(strong,nonatomic)ManagemttileViewController*mangVCtrl;
+
+
+@property(strong,nonatomic)Rightscheck *rights;
+@property(readwrite)NSInteger ModuleID;
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
 
 -(IBAction)logout:(id)sender;
 

@@ -26,7 +26,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
-                        <navigationItem title="Material" id="j2G-gS-9wy">
+                        <navigationItem title="Resources -> Group SetUp -> Materials" id="j2G-gS-9wy">
                             <barButtonItem key="rightBarButtonItem" id="NHR-Uf-d1s">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ddy-wQ-PIr">
                                     <rect key="frame" x="958" y="-3" width="50" height="50"/>
