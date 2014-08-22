@@ -23,8 +23,13 @@
 #import "WorktypeViewController.h"
 #import "SettngsViewController.h"
 #import "SecurityViewController.h"
+#import "Rightscheck.h"
 
 @interface TileViewController : UIViewController
+{
+    BOOL recordResults;
+    NSString *userid;
+}
 
 
 //tiles
@@ -67,4 +72,14 @@
 @property(strong,nonatomic)WorktypeViewController *wrktypeVCtrl;
 @property(strong,nonatomic)SettngsViewController *wrkstngVCtrlr;
 @property(strong,nonatomic)SecurityViewController*securityVCtrl;
+
+
+/* xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
+
+@property(strong,nonatomic)Rightscheck *rights;
+@property(readwrite)NSInteger Moduleid;
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
 @end

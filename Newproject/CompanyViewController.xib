@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CompanyViewController">
             <connections>
+                <outlet property="addressbtn" destination="STI-xR-tRJ" id="uma-pc-V80"/>
                 <outlet property="addresstxtfld" destination="25" id="45"/>
                 <outlet property="citytxtfld" destination="26" id="46"/>
                 <outlet property="companynametxtfld" destination="7" id="38"/>
@@ -16,6 +17,7 @@
                 <outlet property="logoweb" destination="Dv6-Jl-OEs" id="zOV-TY-uJj"/>
                 <outlet property="mailtxtfld" destination="33" id="48"/>
                 <outlet property="phonetxtfld" destination="27" id="47"/>
+                <outlet property="savebtn" destination="35" id="CPi-Dp-a1U"/>
                 <outlet property="scroll" destination="20" id="21"/>
                 <outlet property="statebtn" destination="a2P-0f-B59" id="mPs-hG-y9y"/>
                 <outlet property="stateempIdtxtfld" destination="31" id="50"/>

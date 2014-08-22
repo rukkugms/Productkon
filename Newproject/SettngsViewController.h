@@ -11,8 +11,14 @@
 #import "workPhasesViewController.h"
 #import "WorktypeViewController.h"
 #import "UserRightViewController.h"
+#import "Rightscheck.h"
 
 @interface SettngsViewController : UIViewController
+{
+    BOOL recordResults;
+    NSString *userid;
+
+}
 
 
 @property (strong, nonatomic) IBOutlet UIView *serviceview;
@@ -27,5 +33,12 @@
 
 -(IBAction)closethepage:(id)sender;
 
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
+
+@property(strong,nonatomic)Rightscheck *rights;
+@property(readwrite)NSInteger Moduleid;
 
 @end
