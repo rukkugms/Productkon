@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserRightsmdl.h"
 
 @interface UserRightViewController : UIViewController{
      BOOL recordResults;
@@ -15,19 +16,28 @@
     NSString* mainid;
       NSString* subid;
      NSString* subsubid;
-  NSInteger path;
+     NSInteger path;
     NSInteger userpath;
 }
 
 
 @property(strong,nonatomic)NSMutableDictionary*userdict;
 @property(strong,nonatomic)NSMutableArray*userarray;
+@property(strong,nonatomic)NSMutableDictionary*revuserdict;
+
 @property(strong,nonatomic)NSMutableArray*maintilearray;
 @property(strong,nonatomic)NSMutableDictionary*maintiledict;
+@property(strong,nonatomic)NSMutableDictionary*revmaintiledict;
 @property(strong,nonatomic)NSMutableArray*subtilearray;
 @property(strong,nonatomic)NSMutableDictionary*subtiledict;
+@property(strong,nonatomic)NSMutableDictionary*revsubtiledict;
 @property(strong,nonatomic)NSMutableArray*subsubtilearray;
 @property(strong,nonatomic)NSMutableDictionary*subsubtiledict;
+@property(strong,nonatomic)NSMutableDictionary*revsubsubtiledict;
+@property(strong,nonatomic)NSMutableArray*usertablearray;
+
+
+@property(strong,nonatomic)UserRightsmdl*usermdl;
 
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;
@@ -57,6 +67,18 @@
 @property (strong, nonatomic) IBOutlet UIButton *Allprintbtnlbl;
 
 
+/*cell outlets*/
+
+@property (strong, nonatomic) IBOutlet UILabel *namelbl;
+@property (strong, nonatomic) IBOutlet UILabel *companylbl;
+
+@property (strong, nonatomic) IBOutlet UIButton *viewbtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *editbtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *deletebtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *printbtnlbl;
+
+
+
 
 - (IBAction)clsebtn:(id)sender;
 - (IBAction)userbtn:(id)sender;
@@ -67,5 +89,12 @@
 - (IBAction)alleditcheckbtn:(id)sender;
 - (IBAction)Alldeletecheckbtn:(id)sender;
 - (IBAction)Allprintcheckbtn:(id)sender;
+
+- (IBAction)viewbtn:(id)sender;
+- (IBAction)editbtn:(id)sender;
+- (IBAction)deletebtn:(id)sender;
+- (IBAction)printbtn:(id)sender;
+
+
 
 @end

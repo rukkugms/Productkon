@@ -327,6 +327,7 @@
 		D4A0BCF419667D0B00A421C3 /* newlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0BCF319667D0A00A421C3 /* newlogo.png */; };
 		D4A0BCF819668A6000A421C3 /* 40x27logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0BCF719668A6000A421C3 /* 40x27logo.png */; };
 		D4A10B731936F588001856F8 /* Eventmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A10B721936F588001856F8 /* Eventmdl.m */; };
+		D4A123D219A6FE1100A4ED9B /* UserRightsmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A123D119A6FE1100A4ED9B /* UserRightsmdl.m */; };
 		D4A16B351974EEA8002CA2A2 /* PlanningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A16AFF1974EEA8002CA2A2 /* PlanningViewController.m */; };
 		D4A16B361974EEA8002CA2A2 /* PlanningViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A16B001974EEA8002CA2A2 /* PlanningViewController.xib */; };
 		D4A16B371974EEA8002CA2A2 /* customplancell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A16B011974EEA8002CA2A2 /* customplancell.xib */; };
@@ -969,6 +970,8 @@
 		D4A0BCF719668A6000A421C3 /* 40x27logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 40x27logo.png; sourceTree = "<group>"; };
 		D4A10B711936F588001856F8 /* Eventmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Eventmdl.h; sourceTree = "<group>"; };
 		D4A10B721936F588001856F8 /* Eventmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Eventmdl.m; sourceTree = "<group>"; };
+		D4A123D019A6FE1100A4ED9B /* UserRightsmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRightsmdl.h; sourceTree = "<group>"; };
+		D4A123D119A6FE1100A4ED9B /* UserRightsmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRightsmdl.m; sourceTree = "<group>"; };
 		D4A16AFE1974EEA8002CA2A2 /* PlanningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanningViewController.h; sourceTree = "<group>"; };
 		D4A16AFF1974EEA8002CA2A2 /* PlanningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanningViewController.m; sourceTree = "<group>"; };
 		D4A16B001974EEA8002CA2A2 /* PlanningViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanningViewController.xib; sourceTree = "<group>"; };
@@ -2025,6 +2028,8 @@
 				D404F36C197E369E00458EF4 /* payementmdl.m */,
 				64ACC62019A5E20E00FC3FD8 /* Rightscheck.h */,
 				64ACC62119A5E20E00FC3FD8 /* Rightscheck.m */,
+				D4A123D019A6FE1100A4ED9B /* UserRightsmdl.h */,
+				D4A123D119A6FE1100A4ED9B /* UserRightsmdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -2594,6 +2599,7 @@
 				D49F875B18EEA36B00413CAD /* Validation.m in Sources */,
 				D400405B185B178F00C38E12 /* DocmntViewController.m in Sources */,
 				D40DD2611873D29B00E7BC2C /* SmalltoolsViewController.m in Sources */,
+				D4A123D219A6FE1100A4ED9B /* UserRightsmdl.m in Sources */,
 				D4097D0D1963D00B00D8E910 /* PSitereqmntViewController.m in Sources */,
 				D4B4CBA119738ED500696D37 /* Appreqmdl.m in Sources */,
 				D49F876D18EEA36B00413CAD /* subcontract.m in Sources */,

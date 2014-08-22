@@ -404,7 +404,7 @@
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
     [_popOverTableView reloadData];
-        [_usertable reloadData];
+    [_usertable reloadData];
     
 }
 
@@ -442,7 +442,7 @@
        
     }
     else{
-      return 5;
+        return [_usertablearray count];
     }
     return YES;
 }
@@ -479,8 +479,43 @@
         }
        
     }
-  //  _typelbl=(UILabel *)[cell viewWithTag:1];
-   // _typelbl.text=[_worktypearray objectAtIndex:indexPath.row];
+    
+      if (tableView==_usertable) {
+          UserRightsmdl*usrmdl=(UserRightsmdl *)[_usertablearray objectAtIndex:indexPath.row];
+            _namelbl=(UILabel *)[cell viewWithTag:1];
+          _namelbl.text=[_revuserdict objectForKey:usrmdl.userid];
+          _companylbl=(UILabel *)[cell viewWithTag:2];
+          _companylbl.text=[_revmaintiledict objectForKey:usrmdl.moduleid];
+          
+          if ([usrmdl.viewrights isEqualToString:@"true"]) {
+              
+               [_viewbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+          }
+          else{
+                [_viewbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+          }
+          if ([usrmdl.editrights isEqualToString:@"true"]) {
+              [_editbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+          }
+          else{
+              [_editbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+          }
+          if ([usrmdl.deleterights isEqualToString:@"true"]) {
+              [_deletebtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+          }
+          else{
+              [_deletebtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+          }
+          if ([usrmdl.printrightes isEqualToString:@"true"]) {
+              [_printbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+          }
+          else{
+              [_printbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+          }
+
+
+          
+      }
     
     
     return cell;
@@ -546,6 +581,7 @@
     {
         _userarray=[[NSMutableArray alloc]init];
         _userdict=[[NSMutableDictionary alloc]init];
+        _revuserdict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -574,6 +610,7 @@
     {
         _maintilearray=[[NSMutableArray alloc]init];
         _maintiledict=[[NSMutableDictionary alloc]init];
+         _revmaintiledict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -612,6 +649,7 @@
     {
         _subtilearray=[[NSMutableArray alloc]init];
         _subtiledict=[[NSMutableDictionary alloc]init];
+        _revsubtiledict=[[NSMutableDictionary alloc]init];
         
         if(!_soapResults)
         {
@@ -641,6 +679,7 @@
     {
         _subsubtilearray=[[NSMutableArray alloc]init];
         _subsubtiledict=[[NSMutableDictionary alloc]init];
+         _revsubsubtiledict=[[NSMutableDictionary alloc]init];
         
         if(!_soapResults)
         {
@@ -668,7 +707,7 @@
     }
     if([elementName isEqualToString:@"UserRightsselectResponse"])
     {
-        
+        _usertablearray=[[NSMutableArray alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -685,7 +724,7 @@
         recordResults = TRUE;
     }
     
-    if([elementName isEqualToString:@"UserId"])
+    if([elementName isEqualToString:@"UserUserId"])
     {
         
         if(!_soapResults)
@@ -694,7 +733,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"ModuleId"])
+    if([elementName isEqualToString:@"UserModuleId"])
     {
         
         if(!_soapResults)
@@ -771,6 +810,7 @@
         
         recordResults = FALSE;
         [_userdict setObject:userid forKey:_soapResults];
+        [_revuserdict setObject:_soapResults forKey:userid];
         [_userarray addObject:_soapResults];
         _soapResults = nil;
     }
@@ -787,6 +827,7 @@
         
          recordResults = FALSE;
         [_maintiledict setObject:mainid forKey:_soapResults];
+        [_revmaintiledict setObject:_soapResults forKey:mainid];
         [_maintilearray addObject:_soapResults];
         _soapResults = nil;
     }
@@ -806,6 +847,7 @@
         
         [_subtilearray addObject:[array objectAtIndex:1]];
         [_subtiledict setObject:subid forKey:[array objectAtIndex:1]];
+        [_revsubtiledict setObject:[array objectAtIndex:1] forKey:subid];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"subsubmoduleId"])
@@ -824,6 +866,7 @@
         
         [_subsubtilearray addObject:[array objectAtIndex:2]];
         [_subsubtiledict setObject:subid forKey:[array objectAtIndex:2]];
+          [_revsubsubtiledict setObject:[array objectAtIndex:2] forKey:subid];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"EntryId"])
@@ -834,31 +877,31 @@
         _soapResults = nil;
     }
     
-    if([elementName isEqualToString:@"UserId"])
+    if([elementName isEqualToString:@"UserUserId"])
     {
-        
+        _usermdl=[[UserRightsmdl alloc]init];
         recordResults = FALSE;
-        
+        _usermdl.userid=_soapResults;
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"ModuleId"])
+    if([elementName isEqualToString:@"UserModuleId"])
     {
         recordResults = FALSE;
-        
+        _usermdl.moduleid=_soapResults;
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"ViewModule"])
     {
         
         recordResults = FALSE;
-        
+        _usermdl.viewrights=_soapResults;
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"EditModule"])
     {
         
         recordResults = FALSE;
-        
+        _usermdl.editrights=_soapResults;
         _soapResults = nil;
 
     }
@@ -866,7 +909,7 @@
     {
         
         recordResults = FALSE;
-        
+        _usermdl.deleterights=_soapResults;
         _soapResults = nil;
 
     }
@@ -874,6 +917,8 @@
     {
         
         recordResults = FALSE;
+        _usermdl.printrightes=_soapResults;
+        [_usertablearray addObject:_usermdl];
         
         _soapResults = nil;
 
@@ -921,5 +966,17 @@
 }
 
 - (IBAction)Allprintcheckbtn:(id)sender {
+}
+
+- (IBAction)viewbtn:(id)sender {
+}
+
+- (IBAction)editbtn:(id)sender {
+}
+
+- (IBAction)deletebtn:(id)sender {
+}
+
+- (IBAction)printbtn:(id)sender {
 }
 @end
