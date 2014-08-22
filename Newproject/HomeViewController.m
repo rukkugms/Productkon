@@ -32,7 +32,7 @@
     
 }
 -(IBAction)logout:(id)sender
-{
+{_ModuleID=0;
     [self Logoutselect];
    
 }
@@ -161,6 +161,63 @@
     }
     
 }
+
+-(void)UserRightsforparticularmoduleselect{
+    recordResults = FALSE;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    userid = [defaults objectForKey:@"Userid"];
+    
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UserRightsforparticularmoduleselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserId>%d</UserId>\n"
+                   "<ModuleId>%d</ModuleId>\n"
+                   "</UserRightsforparticularmoduleselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[userid integerValue],_ModuleID];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UserRightsforparticularmoduleselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -198,7 +255,167 @@
     
     
 	[_xmlParser parse];
+    if (_ModuleID==1) {
+        
     
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    if (rightsmodel.ViewModule==1) {
+        
+        
+        if (!self.tileVCtrl) {
+            self.tileVCtrl=[[TileViewController alloc]initWithNibName:@"TileViewController" bundle:nil];
+        }
+        _tileVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+        
+        [self presentViewController:_tileVCtrl
+                           animated:YES completion:NULL];
+    }
+    else
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        //You don’t have right to view this form
+    }
+    
+
+    }
+    if (_ModuleID==2) {
+        Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+        if (rightsmodel.ViewModule==1) {
+            
+            
+            if (!self.ReVCtrl) {
+                self.ReVCtrl=[[ResViewController alloc]initWithNibName:@"ResViewController" bundle:nil];
+            }
+            _ReVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+            [self presentViewController:_ReVCtrl
+                               animated:YES completion:NULL];
+
+        }
+        else
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+
+    }
+    if (_ModuleID==3)
+    {
+        Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+        if (rightsmodel.ViewModule==1) {
+        if (!self.custmrVCtrl) {
+            self.custmrVCtrl=[[TilecustmrViewController alloc]initWithNibName:@"TilecustmrViewController" bundle:nil];
+        }
+        _custmrVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+        
+        
+        [self presentViewController:_custmrVCtrl
+                           animated:YES completion:NULL];
+        }
+        else
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+
+    }
+    if (_ModuleID==4)
+    {
+        Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+        if (rightsmodel.ViewModule==1) {
+            if (!self.leadVCtrl) {
+                self.leadVCtrl=[[LeadsViewController alloc]initWithNibName:@"LeadsViewController" bundle:nil];
+            }
+            [self presentViewController:_leadVCtrl
+                               animated:YES completion:NULL];
+        }
+        else
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+  
+    }
+    if (_ModuleID==5)
+    {
+        Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+        if (rightsmodel.ViewModule==1) {
+            if (!self.PlangVCtrl) {
+                self.PlangVCtrl=[[PlanningViewController alloc]initWithNibName:@"PlanningViewController" bundle:nil];
+                
+            }
+            // _PlangVCtrl.view.frame=CGRectMake(100, 171, 768, 768);
+            _PlangVCtrl.modalPresentationStyle=UIModalPresentationCustom;
+            _PlangVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+            [self presentViewController:_PlangVCtrl
+                               animated:YES completion:NULL];
+        }
+        else
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    }
+    if (_ModuleID==6)
+    {
+        Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+        if (rightsmodel.ViewModule==1) {
+            if (!self.EstmVCtrl) {
+                self.EstmVCtrl=[[EsttileViewController alloc]initWithNibName:@"EsttileViewController" bundle:nil];
+            }
+            _EstmVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+            _EstmVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+            [self presentViewController:_EstmVCtrl
+                               animated:YES completion:NULL];
+
+        }
+        else
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    }
+    if (_ModuleID==7)
+    {
+        Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+        if (rightsmodel.ViewModule==1) {
+            if (!_mangVCtrl) {
+                _mangVCtrl=[[ManagemttileViewController alloc]initWithNibName:@"ManagemttileViewController" bundle:nil];
+            }
+            _mangVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+            _mangVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+            [self presentViewController:_mangVCtrl
+                               animated:YES completion:NULL];
+        }
+        else
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    }
+    if (_ModuleID==8)
+    {
+        Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+        if (rightsmodel.ViewModule==1) {
+            if (!self.TilehrVCtrl) {
+                self.TilehrVCtrl=[[TilehrViewController alloc]initWithNibName:@"TilehrViewController" bundle:nil];
+            }
+            
+            _TilehrVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+            
+            [self presentViewController:_TilehrVCtrl
+                               animated:YES completion:NULL];
+
+        }
+        else
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    }
+   
+
+
     
 }
 
@@ -388,7 +605,7 @@
     }
     if([elementName isEqualToString:@"EditModule"])
     {
-        
+        recordResults = FALSE;
         if ([_soapResults isEqualToString:@"true"]) {
             _rights.EditModule=1;
             
@@ -398,48 +615,58 @@
             _rights.EditModule=0;
             
         }
+        _soapResults=nil;
 
        
     }
     if([elementName isEqualToString:@"DeleteModule"])
     {
-        
-        
+        recordResults = FALSE;
+        if ([_soapResults isEqualToString:@"true"]) {
+            _rights.DeleteModule=1;
+            
+            
+        }
+        else{
+            _rights.DeleteModule=0;
+            
+        }
+        _soapResults=nil;
        
     }
     if([elementName isEqualToString:@"PrintModule"])
     {
-        
-        
+        recordResults = FALSE;
+        if ([_soapResults isEqualToString:@"true"]) {
+            _rights.PrintModule=1;
+            
+            
+        }
+        else{
+            _rights.PrintModule=0;
+            
+        }
+
        
-    }
     
+    [_userrightsarray addObject:_rights];
+    _soapResults=nil;
 
 }
 
-
+}
 -(void)customerpage{
    _ModuleID=3;
-    if (!self.custmrVCtrl) {
-        self.custmrVCtrl=[[TilecustmrViewController alloc]initWithNibName:@"TilecustmrViewController" bundle:nil];
-    }
-    _custmrVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
-  
-
-    [self presentViewController:_custmrVCtrl
-                       animated:YES completion:NULL];
+     [self UserRightsforparticularmoduleselect];
+    
     
     
 }
 -(void)LeadPage
 {
    _ModuleID=4;
-    
-    if (!self.leadVCtrl) {
-        self.leadVCtrl=[[LeadsViewController alloc]initWithNibName:@"LeadsViewController" bundle:nil];
-    }
-    [self presentViewController:_leadVCtrl
-                       animated:YES completion:NULL];
+     [self UserRightsforparticularmoduleselect];
+   
     
 
 }
@@ -447,73 +674,36 @@
 {
     _ModuleID=1;
     [self UserRightsforparticularmoduleselect];
-    if (!self.tileVCtrl) {
-        self.tileVCtrl=[[TileViewController alloc]initWithNibName:@"TileViewController" bundle:nil];
-    }
-    _tileVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
-    
-    [self presentViewController:_tileVCtrl
-                       animated:YES completion:NULL];
-    
     
 }
 -(void)hrpage{
    _ModuleID=8;
-    if (!self.TilehrVCtrl) {
-        self.TilehrVCtrl=[[TilehrViewController alloc]initWithNibName:@"TilehrViewController" bundle:nil];
-    }
-  
-    _TilehrVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    [self UserRightsforparticularmoduleselect];
    
-    [self presentViewController:_TilehrVCtrl
-                       animated:YES completion:NULL];
 }
 -(void)repage{
    _ModuleID=2;
+    [self UserRightsforparticularmoduleselect];
 
-    if (!self.ReVCtrl) {
-        self.ReVCtrl=[[ResViewController alloc]initWithNibName:@"ResViewController" bundle:nil];
-    }
-    _ReVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
-    [self presentViewController:_ReVCtrl
-                       animated:YES completion:NULL];
-
+    
     
 }
 -(void)plangpage{
    _ModuleID=5;
-    if (!self.PlangVCtrl) {
-        self.PlangVCtrl=[[PlanningViewController alloc]initWithNibName:@"PlanningViewController" bundle:nil];
-        
-    }
-    // _PlangVCtrl.view.frame=CGRectMake(100, 171, 768, 768);
-    _PlangVCtrl.modalPresentationStyle=UIModalPresentationCustom;
-    _PlangVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-    [self presentViewController:_PlangVCtrl
-                       animated:YES completion:NULL];
+     [self UserRightsforparticularmoduleselect];
+    
 
 }
 -(void)Estimationpage{
    _ModuleID=6;
-    if (!self.EstmVCtrl) {
-        self.EstmVCtrl=[[EsttileViewController alloc]initWithNibName:@"EsttileViewController" bundle:nil];
-    }
-    _EstmVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
-    _EstmVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-    [self presentViewController:_EstmVCtrl
-                       animated:YES completion:NULL];
+     [self UserRightsforparticularmoduleselect];
     
     
 }
 -(void)Managementpage{
   _ModuleID=7;
-    if (!_mangVCtrl) {
-        _mangVCtrl=[[ManagemttileViewController alloc]initWithNibName:@"ManagemttileViewController" bundle:nil];
-    }
-    _mangVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
-    _mangVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-    [self presentViewController:_mangVCtrl
-                       animated:YES completion:NULL];
+     [self UserRightsforparticularmoduleselect];
+    
 
 }
 
@@ -521,62 +711,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-#pragma mark- WebService
--(void)UserRightsforparticularmoduleselect{
-    recordResults = FALSE;
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    userid = [defaults objectForKey:@"Userid"];
-
-    
-    NSString *soapMessage;
-    
-    
-    soapMessage = [NSString stringWithFormat:
-                   
-                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
-                   
-                   
-                   "<soap:Body>\n"
-                   
-                   "<UserRightsforparticularmoduleselect xmlns=\"http://ios.kontract360.com/\">\n"
-                   "<UserId>%d</UserId>\n"
-                   "<ModuleId>%d</ModuleId>\n"
-                   "</UserRightsforparticularmoduleselect>\n"
-                   "</soap:Body>\n"
-                   "</soap:Envelope>\n",[userid integerValue],_ModuleID];
-    NSLog(@"soapmsg%@",soapMessage);
-    
-    
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    
-    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
-    
-    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
-    
-    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-    
-    [theRequest addValue: @"http://ios.kontract360.com/UserRightsforparticularmoduleselect" forHTTPHeaderField:@"Soapaction"];
-    
-    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
-    [theRequest setHTTPMethod:@"POST"];
-    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    
-    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-    
-    if( theConnection )
-    {
-        _webData = [NSMutableData data];
-    }
-    else
-    {
-        ////NSLog(@"theConnection is NULL");
-    }
-    
 }
 
 @end

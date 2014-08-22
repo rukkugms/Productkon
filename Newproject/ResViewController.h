@@ -17,9 +17,14 @@
 #import "AssetsViewController.h"
 //#import "CrewsetupViewController.h"
 #import "GPSetupTileViewController.h"
+#import "Rightscheck.h"
 
 
 @interface ResViewController : UIViewController
+{
+    NSString*userid;
+    BOOL recordResults;
+}
 
 
 @property (strong, nonatomic) IBOutlet UIView *manpwrview;
@@ -46,6 +51,13 @@
 
 - (IBAction)closebtnActn:(id)sender;
 
+@property(strong,nonatomic)Rightscheck *rights;
+@property(readwrite)NSInteger ModuleID;
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+/* xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
 
 
 @end

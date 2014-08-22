@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Validation.h"
 #import "AddressViewController.h"
+#import "Rightscheck.h"
 @interface CompanyViewController : UIViewController<UITextFieldDelegate,UIScrollViewDelegate>
 {
       BOOL recordResults;
@@ -64,6 +65,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *stateunempidtxtfld;
 @property(strong,nonatomic)IBOutlet UIButton *coutryBtn;
 @property (strong, nonatomic) IBOutlet UIButton *statebtn;
+@property (strong, nonatomic) IBOutlet UIButton *addressbtn;
+@property (strong, nonatomic) IBOutlet UIButton *savebtn;
 - (IBAction)statebtn:(id)sender;
 - (IBAction)cuntrybtn:(id)sender;
 
@@ -81,5 +84,6 @@
 
 @property (strong, nonatomic) IBOutlet UIWebView *logoweb;
 
-
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 @end

@@ -41,9 +41,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-  
-    
-      [self countryselect];
+   
+    [self countryselect];
     [self Stateselect];
 
 
@@ -745,6 +744,22 @@
 
 - (IBAction)savebtn:(id)sender {
     
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    
+    if (rightsmodel.EditModule==0) {
+        _savebtn.userInteractionEnabled=NO;
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else
+    {
+        
+        _savebtn.userInteractionEnabled=YES;
+    
+
+    
     Validation*val=[[Validation alloc]init];
         int value1=[val isNumeric:_stateempIdtxtfld.text];
         int value2=[val isNumeric:_stateunempidtxtfld.text];
@@ -844,6 +859,8 @@
     [self SaveBasicInfo];
     }
 
+}
+     _savebtn.userInteractionEnabled=YES;
 }
 
 
