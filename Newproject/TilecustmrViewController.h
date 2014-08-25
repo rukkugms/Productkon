@@ -11,8 +11,13 @@
 #import "ContractViewController.h"
 #import "MarkupViewController.h"
 #import "BillingViewController.h"
+#import "Rightscheck.h"
 
 @interface TilecustmrViewController : UIViewController
+{
+    BOOL recordResults;
+    NSString *userid;
+}
 
 - (IBAction)clsebtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navgtnbar;
@@ -24,5 +29,16 @@
 @property (strong, nonatomic) IBOutlet UIView *cntrctview;
 @property (strong, nonatomic) IBOutlet UIView *markupview;
 @property (strong, nonatomic) IBOutlet UIView *billingview;
+
+/* xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
+
+@property(strong,nonatomic)Rightscheck *rights;
+@property(readwrite)NSInteger Moduleid;
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)NSString *result;
+
 
 @end

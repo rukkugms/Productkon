@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "MangmntdetailsViewController.h"
 #import "subcontract.h"
+#import "Rightscheck.h"
 
 @interface ContractViewController : UIViewController
 {
@@ -62,5 +63,8 @@
 /*array*/
 @property(strong,nonatomic)NSMutableArray *contractlistarray;
 @property(strong,nonatomic)NSMutableArray *passingarray;
+
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 
 @end

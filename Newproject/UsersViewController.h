@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "listusermdl.h"
 #import "Validation.h"
+#import "Rightscheck.h"
 
 @interface UsersViewController : UIViewController<UITextFieldDelegate>
 {
@@ -85,6 +86,9 @@
 
 /*array*/
 @property(strong,nonatomic)NSMutableArray *userlistarray;
+
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 
 
 @end

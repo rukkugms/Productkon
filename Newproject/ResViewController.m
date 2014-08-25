@@ -26,6 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _result=@"";
+    _ModuleID=0;
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     // Do any additional setup after loading the view from its nib.
     
@@ -138,12 +140,12 @@
     
 }
 -(void)AssetPage{
-    _ModuleID=35;
+    _ModuleID=37;
     [self UserRightsforparticularmoduleselect];
    
 }
 -(void)crewpage{
-    _ModuleID=37;
+    _ModuleID=30;
     [self UserRightsforparticularmoduleselect];
     
 
@@ -156,6 +158,8 @@
 }
 
 - (IBAction)closebtnActn:(id)sender {
+    _result=@"";
+    _ModuleID=0;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 -(void)UserRightsforparticularmoduleselect{
@@ -251,6 +255,15 @@
     
     
 	[_xmlParser parse];
+    if ([_result isEqualToString:@"Not yet set"]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Your rights are not yet set" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    
+    
+    else
+    {
+
     if (_ModuleID==26) {
         
         
@@ -262,7 +275,7 @@
             _manVCtrl=[[ManViewController alloc]initWithNibName:@"ManViewController" bundle:nil];
             // }
             _manVCtrl.modalPresentationStyle = UIModalPresentationFullScreen;
-            
+            _manVCtrl.userrightsarray=_userrightsarray;
             [self presentViewController:_manVCtrl
                                animated:YES completion:NULL];
 
@@ -285,7 +298,7 @@
             _equipVCtrl=[[EqpmViewController alloc]initWithNibName:@"EqpmViewController" bundle:nil];
             // }
             _equipVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
-            
+            _equipVCtrl.userrightsarray=_userrightsarray;
             [self presentViewController:_equipVCtrl
                                animated:YES completion:NULL];
             
@@ -305,7 +318,7 @@
             _materialVCtrl=[[MaterialsViewController alloc]initWithNibName:@"MaterialsViewController" bundle:nil];
             // }
             _materialVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
-            
+            _materialVCtrl.userrightsarray=_userrightsarray;
             [self presentViewController:_materialVCtrl
                                animated:YES completion:NULL];        }
         else
@@ -324,6 +337,7 @@
             // }
             
             _fleetVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+            _fleetVCtrl.userrightsarray=_userrightsarray;
             [self presentViewController:_fleetVCtrl animated:YES completion:nil];        }
         else
         {
@@ -358,6 +372,7 @@
             // }
             
             _ThirdVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+            _ThirdVCtrl.userrightsarray=_userrightsarray;
             [self presentViewController: _ThirdVCtrl animated:YES completion:nil];
         }
         else
@@ -375,6 +390,7 @@
             //}
             
             _ConsuVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+            _ConsuVCtrl.userrightsarray=_userrightsarray;
             [self presentViewController: _ConsuVCtrl animated:YES completion:nil];
         }
         else
@@ -392,6 +408,7 @@
             // }
             
             _smalltoolVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+            _smalltoolVCtrl.userrightsarray=_userrightsarray;
             [self presentViewController: _smalltoolVCtrl animated:YES completion:nil];
             
         }
@@ -410,6 +427,7 @@
             //}
             
             _AssetVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+            _AssetVCtrl.userrightsarray=_userrightsarray;
             [self presentViewController: _AssetVCtrl animated:YES completion:nil];
             
         }
@@ -420,7 +438,7 @@
         }
     }
 
-    
+    }
     
     
 }
@@ -428,7 +446,17 @@
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
-    if([elementName isEqualToString:@"LogoutselectResponse"])
+       if([elementName isEqualToString:@"UserRightsforparticularmoduleselectResponse"])
+    {
+      
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"result"])
     {
         
         
@@ -438,29 +466,10 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"message"])
-    {
-        
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"UserRightsforparticularmoduleselectResponse"])
-    {
-        _userrightsarray=[[NSMutableArray alloc]init];
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
+
     if([elementName isEqualToString:@"EntryId"])
     {
-        
+          _userrightsarray=[[NSMutableArray alloc]init];
         
         if(!_soapResults)
         {
@@ -557,6 +566,21 @@
         [self.navigationController popToRootViewControllerAnimated:YES];
         _soapResults=nil;
     }
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        
+        recordResults = FALSE;
+        
+        _result=@"Not yet set";
+        //        if ([_soapResults isEqualToString:@"0"]) {
+        //            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        //            [alert show];
+        //        }
+        
+        _soapResults=nil;
+    }
+
     if([elementName isEqualToString:@"EntryId"])
     {
         

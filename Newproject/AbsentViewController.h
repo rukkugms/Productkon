@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Absentmdl.h"
 #import "CKCalendarView.h"
+#import "Rightscheck.h"
 @interface AbsentViewController : UIViewController{
     UIButton*button;
     NSInteger btnclck;
@@ -50,4 +51,6 @@
 - (IBAction)checkbtn:(id)sender;
 - (IBAction)button:(id)sender;
 
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 @end

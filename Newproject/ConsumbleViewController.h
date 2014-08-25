@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Manpwr.h"
 #import "Validation.h"
+#import "Rightscheck.h"
 
 @interface ConsumbleViewController : UIViewController<UITextFieldDelegate>
 {
@@ -78,5 +79,8 @@
 -(IBAction)addconsume:(id)sender;
 -(IBAction)editconsume:(id)sender;
 -(IBAction)closeaddview:(id)sender;
+
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 
 @end

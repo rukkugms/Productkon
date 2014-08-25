@@ -1389,6 +1389,23 @@
 }
 
 - (IBAction)update:(id)sender {
+    
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    if (rightsmodel.EditModule==0) {
+        if (btnidtfr==22) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to add a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }else if(btnidtfr==11)
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        
+    }
+    else
+    {
+
     if (btnidtfr==11) {
         if([_itemdestxtfld.text isEqualToString:@""])
         {
@@ -1436,7 +1453,7 @@
 //           [self InsertManpowerDatastoDB];
 //        }
 
-  
+    }
       
     
     }
@@ -1463,6 +1480,18 @@
 }
 
 - (IBAction)deletebtn:(id)sender {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    
+    if (rightsmodel.DeleteModule==0) {
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else
+    {
+
     if (self.editing) {
         [super setEditing:NO animated:NO];
         [_manpowerTable setEditing:NO animated:NO];
@@ -1481,7 +1510,7 @@
         
         
     }
-
+    }
     
 }
 - (IBAction)selectQualificatin:(id)sender

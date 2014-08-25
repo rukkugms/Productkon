@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "Manpwr.h"
 #import "Crewmodel.h"
+#import "Rightscheck.h"
 
 @interface CrewsetupViewController : UIViewController<UIGestureRecognizerDelegate>{
     BOOL recordResults;
@@ -86,4 +87,6 @@
 - (IBAction)crewbtn:(id)sender;
 - (IBAction)alldeletebtn:(id)sender;
 
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 @end

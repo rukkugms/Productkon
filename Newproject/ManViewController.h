@@ -11,6 +11,7 @@
 #import"Validation.h"
 #import "sqlite3.h"
 #import "ServiceViewController.h"
+#import "Rightscheck.h"
 
 @interface ManViewController : UIViewController{
     
@@ -126,5 +127,8 @@
 @property(strong,nonatomic)IBOutlet UITextView *eduactiontextview;
 @property(strong,nonatomic)IBOutlet UIScrollView *scrollforqualification;
 @property (strong, nonatomic) IBOutlet UIScrollView *addscrollview;
+
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 
 @end

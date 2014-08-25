@@ -10,6 +10,7 @@
 #import "Servicemdl.h"
 #import "Validation.h"
 #import "SerialViewController.h"
+#import "Rightscheck.h"
 
 @interface ServiceViewController : UIViewController<UITextFieldDelegate>
 
@@ -23,6 +24,7 @@
     NSString *msgstr;
     UIButton *disbtn;
     NSInteger selectedcell;
+
     
 }
 @property(strong,nonatomic)SerialViewController *jobseqctrl;
@@ -72,5 +74,9 @@
 @property(readwrite)NSInteger previousopenviewindex;
 @property(strong,nonatomic)IBOutlet UIView *animatedview;
 @property(strong,nonatomic)IBOutlet UILabel *commentlabel;
+
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
+
 
 @end

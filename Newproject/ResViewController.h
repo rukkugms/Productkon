@@ -54,6 +54,8 @@
 @property(strong,nonatomic)Rightscheck *rights;
 @property(readwrite)NSInteger ModuleID;
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)NSString *result;
+
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;

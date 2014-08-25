@@ -12,6 +12,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "Base64.h"
+#import "Rightscheck.h"
 
 @interface EqpmViewController : UIViewController<UIImagePickerControllerDelegate>{
       BOOL recordResults;
@@ -106,4 +107,9 @@
 -(IBAction)addEquipment:(id)sender;
 -(IBAction)editequipview:(id)sender;
 -(IBAction)closeaddview:(id)sender;
+
+
+
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 @end

@@ -83,6 +83,18 @@
 }
 -(IBAction)deletebranchAction:(id)sender
 {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    
+    if (rightsmodel.DeleteModule==0) {
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else
+    {
+
     if (self.editing) {
         [super setEditing:NO animated:NO];
         [_branchtable setEditing:NO animated:NO];
@@ -97,6 +109,7 @@
         [_branchtable setEditing:YES animated:YES];
         [_branchtable reloadData];
         
+    }
     }
 }
 -(IBAction)editbranchaction:(id)sender
@@ -137,7 +150,22 @@
 }
 -(IBAction)savebranch:(id)sender
 {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
+    
+    if (rightsmodel.EditModule==0) {
+        if (optionidentifier==1) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to add a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        }else if(optionidentifier==2)
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        
+    }
+else
+{
     
         if([_branchnametextfld.text isEqualToString:@""])
         {
@@ -196,7 +224,7 @@
         }
     
     }
-    
+}
 }
 #pragma mark-tableview datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

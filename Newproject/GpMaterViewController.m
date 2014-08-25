@@ -82,6 +82,16 @@
     }
 }
 - (IBAction)clearbtn:(id)sender {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    if (rightsmodel.DeleteModule==0) {
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
+
     
     if([_groupbtn.titleLabel.text isEqualToString:@"Select"]){
         
@@ -94,8 +104,19 @@
     [self MaterialCrewSetUpDelete];
     
     }
+    }
 }
 - (IBAction)deletebtn:(id)sender {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    if (rightsmodel.DeleteModule==0) {
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
+
     if (self.editing) {
         [super setEditing:NO animated:NO];
         [_crewnametable setEditing:NO animated:NO];
@@ -112,9 +133,20 @@
         
         
     }
+    }
     
 }
 - (IBAction)alldeletebtn:(id)sender {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    if (rightsmodel.DeleteModule==0) {
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
+
     if([_groupbtn.titleLabel.text isEqualToString:@"Select"]){
         
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select a material group" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -127,7 +159,7 @@
         [alert show];
     }
 
-   
+    }
 
   //  [self AllMaterialCrewDelete];
 }
@@ -1619,8 +1651,18 @@
                     crewmdl1.manpower=draggedData;
                     [_crewmembersarray addObject:crewmdl1];
                 }
+                Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
                 
+                if (rightsmodel.EditModule==0) {
+                    
+                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to drag this item" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [alert show];
+                }
+                else
+                {
+
                 [self MaterialCrewInsert];
+                }
             }
         }
         else if(!dragFromSource && pathFromDstTable != nil)

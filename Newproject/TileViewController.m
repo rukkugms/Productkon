@@ -32,6 +32,8 @@
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewWillAppear:(BOOL)animated{
+    _result=@"";
+    _Moduleid=0;
     [super viewWillAppear:animated];
     
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc]
@@ -122,10 +124,6 @@
     doubleTap12.delegate=(id)self;
     [self.securityview addGestureRecognizer:doubleTap12];
 
-}
--(void)checkRights
-{
-    NSString *module=[NSString stringWithFormat:@"Company->Company Info"];
 }
 
 -(void)companyPage
@@ -226,6 +224,8 @@
 -(IBAction)closethetile:(id)sender
 {
     _Moduleid=0;
+   
+    _result=@"";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 #pragma mark- WebService
@@ -321,6 +321,15 @@
     
     
 	[_xmlParser parse];
+    if ([_result isEqualToString:@"Not yet set"]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Your rights are not yet set" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    
+    
+    else
+    {
+
     if (_Moduleid==13) {
         
 
@@ -353,6 +362,7 @@
             if (!self.branchVCtrl) {
                 self.branchVCtrl=[[BranchViewController alloc]initWithNibName:@"BranchViewController" bundle:nil];
             }
+            _branchVCtrl.userrightsarray=_userrightsarray;
             //_branchVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
             [self presentViewController:_branchVCtrl
                                animated:YES completion:NULL];
@@ -407,6 +417,7 @@
                 self.typeVCtrl=[[TypeViewController alloc]initWithNibName:@"TypeViewController" bundle:nil];
             }
             _typeVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+            _typeVCtrl.userrightsarray=_userrightsarray;
             [self presentViewController:_typeVCtrl
                                animated:YES completion:NULL];
         }
@@ -424,6 +435,7 @@
                 self.usersVctrl=[[UsersViewController alloc]initWithNibName:@"UsersViewController" bundle:nil];
             }
             _usersVctrl.modalPresentationStyle = UIModalPresentationPageSheet;
+            _usersVctrl.userrightsarray=_userrightsarray;
             [self presentViewController:_usersVctrl
                                animated:YES completion:NULL];
 
@@ -443,6 +455,7 @@
                 self.folderVCtrl=[[folderrightsViewController alloc]initWithNibName:@"folderrightsViewController" bundle:nil];
             }
             _folderVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+            _folderVCtrl.userrightsarray=_userrightsarray;
             [self presentViewController:_folderVCtrl
                                animated:YES completion:NULL];
 
@@ -461,6 +474,7 @@
                 self.basicreqVctrl=[[BasicReqViewController alloc]initWithNibName:@"BasicReqViewController" bundle:nil];
             }
             // _basicreqVctrl.modalPresentationStyle = UIModalPresentationPageSheet;
+            _basicreqVctrl.userrightsarray=_userrightsarray;
             [self presentViewController:_basicreqVctrl
                                animated:YES completion:NULL];
 
@@ -472,7 +486,7 @@
             [alert show];
         }
     }
-    
+    }
 
 }
 #pragma mark-xml parser
@@ -480,7 +494,7 @@
    attributes: (NSDictionary *)attributeDict{
        if([elementName isEqualToString:@"UserRightsforparticularmoduleselectResponse"])
     {
-        _userrightsarray=[[NSMutableArray alloc]init];
+        
         
         if(!_soapResults)
         {
@@ -488,9 +502,20 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"EntryId"])
+    if([elementName isEqualToString:@"result"])
     {
         
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"EntryId"])
+    {
+        _userrightsarray=[[NSMutableArray alloc]init];
         
         if(!_soapResults)
         {
@@ -581,6 +606,21 @@
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        
+        recordResults = FALSE;
+        
+        _result=@"Not yet set";
+        //        if ([_soapResults isEqualToString:@"0"]) {
+        //            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        //            [alert show];
+        //        }
+        
+        _soapResults=nil;
+    }
+
        if([elementName isEqualToString:@"EntryId"])
     {
         

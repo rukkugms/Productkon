@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Rightscheck.h"
 
 @interface WorktypeViewController : UIViewController{
       BOOL recordResults;
@@ -52,5 +53,8 @@
 
 - (IBAction)clsebtn:(id)sender;
 - (IBAction)addclsebtn:(id)sender;
+
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 
 @end

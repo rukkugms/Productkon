@@ -37,7 +37,10 @@
 }
 -(void)viewWillAppear:(BOOL)animated
 {
+    
     [super viewWillAppear:animated];
+    _result=@"";
+    _Moduleid=0;
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc]
                                          initWithTarget:self
                                          action:@selector(servicesPage)];
@@ -99,6 +102,7 @@
 -(IBAction)closethepage:(id)sender
 {
     _Moduleid=0;
+    _result=@"";
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 #pragma mark- WebService
@@ -194,6 +198,15 @@
     
     
 	[_xmlParser parse];
+    if ([_result isEqualToString:@"Not yet set"]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Your rights are not yet set" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    
+    
+    else
+    {
+
     if (_Moduleid==17) {
         
         
@@ -205,6 +218,7 @@
             self.serviceVCtrl=[[ServiceViewController alloc]initWithNibName:@"ServiceViewController" bundle:nil];
             // }
             _serviceVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+            _serviceVCtrl.userrightsarray=_userrightsarray;
             [self presentViewController:_serviceVCtrl
                                animated:YES completion:NULL];
 
@@ -227,6 +241,7 @@
             self.wrktypeVCtrl=[[WorktypeViewController alloc]initWithNibName:@"WorktypeViewController" bundle:nil];
             //  }
             _wrktypeVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+            _wrktypeVCtrl.userrightsarray=_userrightsarray;
             [self presentViewController:_wrktypeVCtrl animated:YES completion:nil];        }
         else
         {
@@ -243,6 +258,7 @@
             self.workVCtrl=[[workPhasesViewController alloc]initWithNibName:@"workPhasesViewController" bundle:nil];
             //  }
             _workVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+            _workVCtrl.userrightsarray=_userrightsarray;
             [self presentViewController:_workVCtrl
                                animated:YES completion:NULL];
         }
@@ -254,14 +270,14 @@
         
     }
        
-    
+    }
 }
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
     if([elementName isEqualToString:@"UserRightsforparticularmoduleselectResponse"])
     {
-        _userrightsarray=[[NSMutableArray alloc]init];
+        
         
         if(!_soapResults)
         {
@@ -269,10 +285,21 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"EntryId"])
+    if([elementName isEqualToString:@"result"])
     {
         
         
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"EntryId"])
+    {
+        
+        _userrightsarray=[[NSMutableArray alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -362,6 +389,22 @@
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        
+        recordResults = FALSE;
+        
+        _result=@"Not yet set";
+        //        if ([_soapResults isEqualToString:@"0"]) {
+        //            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        //            [alert show];
+        //        }
+        
+        _soapResults=nil;
+    }
+    
+
     if([elementName isEqualToString:@"EntryId"])
     {
         

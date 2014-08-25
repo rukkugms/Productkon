@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Rightscheck.h"
 
 @interface TypeViewController : UIViewController{
     BOOL recordResults;
@@ -54,6 +55,7 @@
 
 - (IBAction)updatebtn:(id)sender;
 - (IBAction)cancelbtn:(id)sender;
-
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 
 @end

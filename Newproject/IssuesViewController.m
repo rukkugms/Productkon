@@ -981,6 +981,23 @@
 }
 
 - (IBAction)savebtn:(id)sender {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    
+    if (rightsmodel.EditModule==0) {
+        if (btntype==1) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to add a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }else if(btntype==2)
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        
+    }
+    else
+    {
+
     if ([_jobsitebtnlbl.titleLabel.text isEqualToString:@"Select Jobsite"]) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Jobsite is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
@@ -1013,6 +1030,7 @@
     }
     if (btntype==2) {
         [self IssueManagementUpdate];
+    }
     }
     }
 }

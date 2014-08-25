@@ -705,6 +705,21 @@
 }
 
 - (IBAction)checkbtn:(id)sender {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    
+    if (rightsmodel.EditModule==0) {
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    
+    
+    else
+    {
+        
+
    // webtype=44;
     button = (UIButton *)sender;
     CGPoint center= button.center;
@@ -738,7 +753,7 @@
     [_absenttable reloadData];
     [self AbsentManagementUpdate];
   
-
+    }
 }
 
 - (IBAction)button:(id)sender {

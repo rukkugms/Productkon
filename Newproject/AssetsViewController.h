@@ -12,6 +12,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "Base64.h"
+#import "Rightscheck.h"
 
 
 @interface AssetsViewController : UIViewController<UITextFieldDelegate,UIImagePickerControllerDelegate>
@@ -119,6 +120,7 @@ NSInteger popvr;
 - (IBAction)addbtn:(id)sender;
 - (IBAction)editbtn:(id)sender;
 
-
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 
 @end

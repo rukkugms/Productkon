@@ -12,6 +12,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "Base64.h"
+#import "Rightscheck.h"
 
 
 @interface ThirdPartyViewController : UIViewController<UITextFieldDelegate,UIImagePickerControllerDelegate>
@@ -126,4 +127,6 @@
 - (IBAction)editbtn:(id)sender;
 
 
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 @end

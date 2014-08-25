@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "allfolderrights.h"
+#import "Rightscheck.h"
 
 @interface folderrightsViewController : UIViewController
 {
@@ -61,5 +62,9 @@
 -(IBAction)dwnldaction:(id)sender;
 -(IBAction)updatefolderrights:(id)sender;
 -(IBAction)cancel:(id)sender;
+
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
+
 
 @end

@@ -924,6 +924,23 @@
 }
 
 - (IBAction)updatebtn:(id)sender{
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    if (rightsmodel.EditModule==0) {
+        if (butntype==1) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to add a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }else if(butntype==2)
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        
+    }
+    else
+    {
+
+    
     if (butntype==1) {
         if([_destxtfld.text isEqualToString:@""])
         {
@@ -964,7 +981,7 @@
 
         [self UpdateConsumables];
         }
-        
+    }
     }
 }
 - (IBAction)cancelbtn:(id)sender{
@@ -978,6 +995,18 @@
     
 }
 - (IBAction)deletebtn:(id)sender{
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    
+    if (rightsmodel.DeleteModule==0) {
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else
+    {
+
     butntype=3;
     if (self.editing) {
         [super setEditing:NO animated:NO];
@@ -995,7 +1024,7 @@
         
         
         
-        
+    }
     }
 
     

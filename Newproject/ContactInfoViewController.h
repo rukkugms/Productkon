@@ -10,6 +10,7 @@
 #import "Infomdl.h"
 #import "Validation.h"
 
+
 @interface ContactInfoViewController : UIViewController{
     BOOL recordResults;
     NSInteger webtype;

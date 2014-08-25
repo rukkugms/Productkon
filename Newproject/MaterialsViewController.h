@@ -12,6 +12,7 @@
 #import "Base64.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "Rightscheck.h"
 
 
 @interface MaterialsViewController : UIViewController{
@@ -103,5 +104,7 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *measuresrchbtnlbl;
 
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 
 @end

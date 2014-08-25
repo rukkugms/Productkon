@@ -1515,7 +1515,22 @@
 }
 
 - (IBAction)updatebtn:(id)sender {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
+    if (rightsmodel.EditModule==0) {
+        if (butntype==1) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to add a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }else if(butntype==2)
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        
+    }
+    else
+    {
+
     
     UIImage *imagename =_picimageview.image;
     // NSData *data = UIImagePNGRepresentation(imagename);
@@ -1568,6 +1583,7 @@ else
     
 }
     }
+    }
 }
 
 - (IBAction)cancelbtn:(id)sender {
@@ -1584,6 +1600,19 @@ else
 
 - (IBAction)deletebtn:(id)sender {
     butntype=3;
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    
+    if (rightsmodel.DeleteModule==0) {
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else
+    {
+        
+
     if (self.editing) {
         [super setEditing:NO animated:NO];
         [_materialTable setEditing:NO animated:NO];
@@ -1602,7 +1631,7 @@ else
         
         
     }
-    
+    }
 
     
 }

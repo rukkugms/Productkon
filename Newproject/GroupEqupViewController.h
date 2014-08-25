@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Manpwr.h"
 #import "Crewmodel.h"
+#import "Rightscheck.h"
 @interface GroupEqupViewController : UIViewController<UIGestureRecognizerDelegate>{
     
      NSInteger poptype;
@@ -77,4 +78,7 @@
 
 - (IBAction)crewbtn:(id)sender;
 - (IBAction)alldeletebtn:(id)sender;
+
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 @end

@@ -40,5 +40,6 @@
 
 @property(strong,nonatomic)Rightscheck *rights;
 @property(readwrite)NSInteger Moduleid;
+@property(strong,nonatomic)NSString *result;
 
 @end

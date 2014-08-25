@@ -600,8 +600,19 @@
                 crewmdl1.manpower=draggedData;
                 [_crewmembersarray addObject:crewmdl1];
                 }
+                Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+                
+                if (rightsmodel.EditModule==0) {
+                    
+                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to drag this item" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [alert show];
+                }
+                else
+                {
+
                 
                 [self crewinsert];
+                }
                           }
         }
         else if(!dragFromSource && pathFromDstTable != nil)
@@ -1568,6 +1579,16 @@
 }
 
 - (IBAction)clearbtn:(id)sender {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    if (rightsmodel.DeleteModule==0) {
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
+
     if([_crewbtnlbl.titleLabel.text isEqualToString:@"Select"]){
         
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select crew" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -1580,10 +1601,20 @@
         
     
     
-    
+    }
 }
 
 - (IBAction)deletebtn:(id)sender {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    if (rightsmodel.DeleteModule==0) {
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
+
           if (self.editing) {
             [super setEditing:NO animated:NO];
             [_crewnametable setEditing:NO animated:NO];
@@ -1600,7 +1631,8 @@
             
             
         }
-        
+    }
+    
     }
 
 - (IBAction)servicebtn:(id)sender {
@@ -1609,6 +1641,15 @@
 }
 
 - (IBAction)savebtn:(id)sender {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    if (rightsmodel.EditModule==0) {
+       
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to add a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+    }
+    else
+    {
     
     if (_crewnametxtfld.text.length==0) {
         
@@ -1620,6 +1661,7 @@
 
     [self CrewSave];
     }
+    }
 }
 
 - (IBAction)crewbtn:(id)sender {
@@ -1629,6 +1671,17 @@
 }
 
 - (IBAction)alldeletebtn:(id)sender {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    if (rightsmodel.DeleteModule==0) {
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
+
+    
     if([_crewbtnlbl.titleLabel.text isEqualToString:@"Select"]){
         
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select crew" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -1639,6 +1692,7 @@
     
     UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to delete crew" delegate:self cancelButtonTitle:@"YES" otherButtonTitles:@"NO", nil];
     [alert show];
+    }
     }
     
 }

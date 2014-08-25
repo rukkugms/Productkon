@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Cbranch.h"
 #import "Validation.h"
+#import "Rightscheck.h"
 
 @interface BranchViewController : UIViewController
 {
@@ -71,5 +72,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *emailtextfield;
 @property (strong, nonatomic) IBOutlet UITextView *addresstextview;
 @property (strong, nonatomic) IBOutlet UITextField *faxtextfield;
+
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 
 @end

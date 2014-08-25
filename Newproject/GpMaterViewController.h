@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Manpwr.h"
 #import "Crewmodel.h"
+#import "Rightscheck.h"
 
 @interface GpMaterViewController : UIViewController<UIGestureRecognizerDelegate>
 {
@@ -80,5 +81,8 @@
 /*draganddrop*/
 @property (strong, nonatomic) IBOutlet UIView *touchview;
 
+
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LbmgModel.h"
+#import "Rightscheck.h"
 
 @interface LbrMgmtViewController : UIViewController
 {
@@ -54,4 +55,7 @@
 @property(strong,nonatomic)IBOutlet UIButton *checkbtn;
 
 @property(strong,nonatomic)NSString *checkstring;
+
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 @end

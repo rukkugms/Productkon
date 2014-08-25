@@ -12,7 +12,7 @@
 #import "Validation.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <MobileCoreServices/MobileCoreServices.h>
-
+#import "Rightscheck.h"
 
 
 @interface SmalltoolsViewController : UIViewController{
@@ -96,6 +96,7 @@
 - (IBAction)closeaddbtn:(id)sender;
 
 - (IBAction)editbtn:(id)sender;
-
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 
 @end

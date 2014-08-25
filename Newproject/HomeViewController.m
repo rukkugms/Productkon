@@ -32,12 +32,15 @@
     
 }
 -(IBAction)logout:(id)sender
-{_ModuleID=0;
+{   _ModuleID=0;
+    _result=@"";
+   
     [self Logoutselect];
    
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    _result=@"";
 //    UIBarButtonItem *logoutbutton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"logout1"] style:UIBarButtonItemStylePlain target:self action:@selector(logoutAction)];
 //    
 //    // [self.navigationItem setRightBarButtonItem:logoutbutton animated:YES];
@@ -255,9 +258,16 @@
     
     
 	[_xmlParser parse];
+    if ([_result isEqualToString:@"Not yet set"]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Your rights are not yet set" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+
+    
+    else
+    {
     if (_ModuleID==1) {
         
-    
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     if (rightsmodel.ViewModule==1) {
         
@@ -272,10 +282,12 @@
     }
     else
     {
+        
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+        }
         //You don’t have right to view this form
-    }
+    
     
 
     }
@@ -294,10 +306,11 @@
         }
         else
         {
+           
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
-
+        
     }
     if (_ModuleID==3)
     {
@@ -314,10 +327,11 @@
         }
         else
         {
+            
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
-
+        
     }
     if (_ModuleID==4)
     {
@@ -331,10 +345,11 @@
         }
         else
         {
+           
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+        
         }
-  
     }
     if (_ModuleID==5)
     {
@@ -352,9 +367,11 @@
         }
         else
         {
+            
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+        
     }
     if (_ModuleID==6)
     {
@@ -371,9 +388,11 @@
         }
         else
         {
+            
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+        
     }
     if (_ModuleID==7)
     {
@@ -389,9 +408,11 @@
         }
         else
         {
+            
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+        
     }
     if (_ModuleID==8)
     {
@@ -409,13 +430,16 @@
         }
         else
         {
+            
+
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+        
         }
     }
    
 
-
+    }
     
 }
 
@@ -442,9 +466,9 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"UserRightsforparticularmoduleselectResponse"])
+       if([elementName isEqualToString:@"UserRightsforparticularmoduleselectResponse"])
     {
-        _userrightsarray=[[NSMutableArray alloc]init];
+        
         
         if(!_soapResults)
         {
@@ -452,9 +476,32 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"EntryId"])
+    if([elementName isEqualToString:@"result"])
     {
         
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+
+//    if([elementName isEqualToString:@"UserRightsforparticularmoduleselectResult"])
+//    {
+//        _userrightsarray=[[NSMutableArray alloc]init];
+//        
+//        if(!_soapResults)
+//        {
+//            _soapResults = [[NSMutableString alloc] init];
+//        }
+//        recordResults = TRUE;
+//    }
+
+    if([elementName isEqualToString:@"EntryId"])
+    {
+        _userrightsarray=[[NSMutableArray alloc]init];
         
         if(!_soapResults)
         {
@@ -549,6 +596,7 @@
         
         recordResults = FALSE;
         [self.navigationController popToRootViewControllerAnimated:YES];
+        
         _soapResults=nil;
       }
     if([elementName isEqualToString:@"EntryId"])
@@ -561,6 +609,21 @@
         
         _soapResults=nil;
     }
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        
+        recordResults = FALSE;
+        
+        _result=@"Not yet set";
+//        if ([_soapResults isEqualToString:@"0"]) {
+//            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//            [alert show];
+//        }
+        
+        _soapResults=nil;
+    }
+
     if([elementName isEqualToString:@"UserId"])
     {
         
@@ -571,6 +634,7 @@
         
         _soapResults=nil;
     }
+    
     if([elementName isEqualToString:@"ModuleId"])
     {
         

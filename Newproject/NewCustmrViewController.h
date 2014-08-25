@@ -11,6 +11,7 @@
 #import "ContactInfoViewController.h"
 #import "SalesRepInfoViewController.h"
 #import "Validation.h"
+#import "Rightscheck.h"
 
 @interface NewCustmrViewController : UIViewController{
     BOOL recordResults;
@@ -112,6 +113,8 @@
 - (IBAction)clseviewbtn:(id)sender;
 - (IBAction)editbtn:(id)sender;
 - (IBAction)disclurebtn:(id)sender;
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 
 
 @end

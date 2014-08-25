@@ -13,8 +13,15 @@
 #import "LbrMgmtViewController.h"
 #import "PSitereqmntViewController.h"
 #import "AbsentViewController.h"
+#import "Rightscheck.h"
 //ghfgh
 @interface ManagemttileViewController : UIViewController
+
+{
+    BOOL recordResults;
+    NSString *userid;
+
+}
 @property (strong, nonatomic) IBOutlet UIView *resurceview;
 @property (strong, nonatomic) IBOutlet UIView *issueview;
 @property (strong, nonatomic) IBOutlet UIView *timesheetview;
@@ -29,6 +36,17 @@
 - (IBAction)clsebtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIView *siteview;
 @property (strong, nonatomic) IBOutlet UIView *absntview;
+
+/* xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
+
+@property(strong,nonatomic)Rightscheck *rights;
+@property(readwrite)NSInteger Moduleid;
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)NSString *result;
+
 
 
 @end

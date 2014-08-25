@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WebViewController.h"
 #import "commentmdl.h"
+#import "Rightscheck.h"
 @interface CmpnydocsViewController : UIViewController{
     BOOL recordResults;
     NSString *type;
@@ -69,5 +70,9 @@
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
 @property(strong,nonatomic)NSMutableData *webData;
+
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
+
 
 @end

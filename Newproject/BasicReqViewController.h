@@ -10,6 +10,7 @@
 #import "basicreqmdl.h"
 #import "Validation.h"
 #import "venderViewController.h"
+#import "Rightscheck.h"
 
 @interface BasicReqViewController : UIViewController<myDelegate>
 {
@@ -133,6 +134,9 @@
 - (IBAction)addcancelbtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *cancelbtn;
 
+
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 
 
 @end

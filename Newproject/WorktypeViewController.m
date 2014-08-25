@@ -499,6 +499,18 @@
 }
 
 - (IBAction)deletebtn:(id)sender {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    
+    if (rightsmodel.DeleteModule==0) {
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else
+    {
+
     if (self.editing) {
         [super setEditing:NO animated:NO];
         [_typetable setEditing:NO animated:NO];
@@ -519,12 +531,30 @@
     }
 
 }
+}
 
 - (IBAction)cancelbtn:(id)sender {
     _typetxtfld.text=@"";
 }
 
 - (IBAction)updatebtn:(id)sender {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    
+    if (rightsmodel.EditModule==0) {
+        if (webtype==1) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to add a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }else if(webtype==2)
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        
+    }
+    else
+    {
+
     if ([_typetxtfld.text isEqualToString:@""]){
         
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Type Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -538,6 +568,7 @@
     }
     else if (webtype==2){
         [self WorkTypeupdate];
+    }
     }
     }
 }

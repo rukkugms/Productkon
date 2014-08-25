@@ -12,6 +12,7 @@
 #import "Base64.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "Rightscheck.h"
 
 @interface FleetsViewController : UIViewController{
 
@@ -125,4 +126,7 @@ NSInteger popvr;
 - (IBAction)subsearchbtn:(id)sender;
 - (IBAction)addbtn:(id)sender;
 - (IBAction)editbtn:(id)sender;
+
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 @end

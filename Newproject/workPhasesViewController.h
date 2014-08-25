@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "phasesmodel.h"
 #import "WorktypeViewController.h"
+#import "Rightscheck.h"
 @interface workPhasesViewController : UIViewController<UITextFieldDelegate>
 {
     NSInteger webtype;
@@ -86,4 +87,8 @@
 @property(strong,nonatomic)NSMutableDictionary *servicedict;
 @property(strong,nonatomic)NSMutableArray *phasesbasedonservicearray;
 @property(strong,nonatomic)NSMutableDictionary *phasedict;
+
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
+
 @end

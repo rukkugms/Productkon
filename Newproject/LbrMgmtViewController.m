@@ -68,6 +68,21 @@
 }
 -(IBAction)checkaction:(id)sender
 {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    
+    if (rightsmodel.EditModule==0) {
+        
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        
+        }
+        
+    
+    else
+    {
+        
+
     _checkstring=@"clickd";
    
     button = (UIButton *)sender;
@@ -103,7 +118,7 @@
   [_mgmttable reloadData];
        [self ForemanUpdate];
    
-    
+    }
     
 }
 -(IBAction)Editaction:(id)sender

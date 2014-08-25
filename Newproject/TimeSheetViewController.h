@@ -10,6 +10,7 @@
 #import "CKCalendarView.h"
 #import "jobsitemodel.h"
 #import "Timesheetmdl.h"
+#import "Rightscheck.h"
 @interface TimeSheetViewController : UIViewController{
     
     NSInteger barbtntype;
@@ -189,5 +190,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *otag;
 @property (strong, nonatomic) IBOutlet UILabel *opolbl;
 @property (strong, nonatomic) IBOutlet UILabel *owolbl;
+
+
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 
 @end

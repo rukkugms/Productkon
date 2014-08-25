@@ -658,7 +658,7 @@ _addview.hidden=YES;
     if(textField==_seqnotextfld)
     {
         NSUInteger newLength = [_seqnotextfld.text length] + [string length] - range.length;
-        return (newLength > 50) ? NO : YES;
+        return (newLength > 10) ? NO : YES;
     }
     return YES;
 }

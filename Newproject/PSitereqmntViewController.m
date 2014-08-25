@@ -456,8 +456,24 @@
                     
                     [_newjobarray addObject:jobsitemdl];
                 }
+                Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+                
+                
+                if (rightsmodel.EditModule==0) {
+                   
+                        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to drag this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                        [alert show];
+                    
+                    
+                    }
+                    
+                
+                else
+                {
+
                 
                 [self SiteRequirementlistInsert];
+                }
             }
         }
         else if(!dragFromSource && pathFromDstTable != nil)
@@ -1072,7 +1088,18 @@
 }
 #pragma mark-Button Action
 - (IBAction)deletebtn:(id)sender {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
+    
+    if (rightsmodel.DeleteModule==0) {
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else
+    {
+
     if (self.editing) {
         [super setEditing:NO animated:NO];
         [_jobtble setEditing:NO animated:NO];
@@ -1089,7 +1116,7 @@
         
         
     }
-
+    }
 }
 
 - (IBAction)jobsitebtn:(id)sender {

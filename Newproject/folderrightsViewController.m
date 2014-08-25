@@ -226,7 +226,19 @@
 }
 -(IBAction)updatefolderrights:(id)sender
 {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    if (rightsmodel.EditModule==0) {
+                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        
+        
+    }
+    else
+    {
+
     [self UpdateFolderRights];
+    }
     
 }
 -(IBAction)cancel:(id)sender

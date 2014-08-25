@@ -610,6 +610,23 @@
 
 -(IBAction)updateaction:(id)sender
 {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    
+    if (rightsmodel.EditModule==0) {
+        if (optionidentifier==1) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to add a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }else if(optionidentifier==2)
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        
+    }
+    else
+    {
+
     if(optionidentifier==1)
 {
     Validation *val=[[Validation alloc]init];
@@ -633,7 +650,7 @@
         }
     
 
-    
+
 }
     else if(optionidentifier==2)
     {
@@ -659,6 +676,7 @@
         }
 
         
+    }
     }
 }
 

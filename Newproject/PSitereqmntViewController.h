@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Manpwr.h"
 #import "jobsitemodel.h"
+#import "Rightscheck.h"
 @interface PSitereqmntViewController : UIViewController{
     BOOL recordResults;
     UITableViewCell*    draggedCell;
@@ -67,5 +68,7 @@
 - (IBAction)deletebtn:(id)sender;
 - (IBAction)jobsitebtn:(id)sender;
 - (IBAction)clsebtn:(id)sender;
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 
 @end

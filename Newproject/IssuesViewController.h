@@ -10,6 +10,7 @@
 #import "Issuemdl.h"
 #import "CKCalendarView.h"
 #import "RelatedtoViewController.h"
+#import "Rightscheck.h"
 @interface IssuesViewController : UIViewController{
     
      BOOL  recordResults;
@@ -87,5 +88,9 @@
 - (IBAction)cancelbtn:(id)sender;
 - (IBAction)statusbtn:(id)sender;
 - (IBAction)relatedtobtn:(id)sender;
+
+
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 
 @end
