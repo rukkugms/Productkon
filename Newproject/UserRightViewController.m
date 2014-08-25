@@ -33,12 +33,13 @@
     _usertable.layer.borderWidth=3.0;
     _usertable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
     _titleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f];
+   
 
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
- 
+  viewcheck=0;
     
 }
 
@@ -242,7 +243,7 @@
                    "<subof>%d</subof>\n"
                    "</Submoduleselect>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[[_maintiledict objectForKey:[_maintilearray objectAtIndex:path]]integerValue]];
+                   "</soap:Envelope>\n",[[_maintiledict objectForKey:[_maintilearray objectAtIndex:mastrpath]]integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -291,7 +292,7 @@
                    "<subof>%d</subof>\n"
                    "</SubSubmoduleselect>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[[_subtiledict objectForKey:[_subtilearray objectAtIndex:path]]integerValue]];
+                   "</soap:Envelope>\n",[[_subtiledict objectForKey:[_subtilearray objectAtIndex:subpath]]integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -323,7 +324,7 @@
     
 }
 -(void)UserRightsselect{
-    
+    webtype=1;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -371,6 +372,494 @@
     }
     
 }
+-(void)UserRightsforMainTileselect{
+    webtype=2;
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UserRightsforMainTileselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserId>%d</UserId>\n"
+                   "</UserRightsforMainTileselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[[_userdict objectForKey:[_userarray objectAtIndex:userpath]]integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UserRightsforMainTileselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)UserRightsforsubTileselect{
+    webtype=3;
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UserRightsforsubTileselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserId>%d</UserId>\n"
+                   "<subof>%d</subof>\n"
+                   "</UserRightsforsubTileselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[[_userdict objectForKey:[_userarray objectAtIndex:userpath]]integerValue],[[_maintiledict objectForKey:masterbtnstrg]integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UserRightsforsubTileselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)Checksubmenuselect{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Checksubmenuselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<moduleid>%d</moduleid>\n"
+                 
+                   "</Checksubmenuselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[[_subtiledict objectForKey:subbtnstrg]integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Checksubmenuselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+-(void)SubUserRightsforsubTileselect{
+    webtype=4;
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UserRightsforsubTileselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserId>%d</UserId>\n"
+                   "<subof>%d</subof>\n"
+                   "</UserRightsforsubTileselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[[_userdict objectForKey:[_userarray objectAtIndex:userpath]]integerValue],[[_subtiledict objectForKey:subbtnstrg]integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UserRightsforsubTileselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)UserRightsforparticularmodule2select{
+    webtype=5;
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UserRightsforparticularmodule2select xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserId>%d</UserId>\n"
+                   "<ModuleId>%d</ModuleId>\n"
+                   "</UserRightsforparticularmodule2select>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[[_userdict objectForKey:[_userarray objectAtIndex:userpath]]integerValue],[[_subtiledict objectForKey:subbtnstrg]integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UserRightsforparticularmodule2select" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)SubUserRightsforparticularmoduleselect{
+    webtype=6;
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UserRightsforparticularmodule2select xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserId>%d</UserId>\n"
+                   "<ModuleId>%d</ModuleId>\n"
+                   "</UserRightsforparticularmodule2select>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[[_userdict objectForKey:[_userarray objectAtIndex:userpath]]integerValue],[[_subsubtiledict objectForKey:subsubbtnstrg]integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UserRightsforparticularmodule2select" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+-(void)Userrightssave{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    UserRightsmdl*usrmdl=(UserRightsmdl *)[_usertablearray objectAtIndex:btnindex];
+    
+    if (viewclck==0) {
+        
+        viewcheck=[usrmdl.viewrights integerValue];
+    }
+    if (editclck==0) {
+        editcheck=[usrmdl.editrights integerValue];
+    }
+    if (deleteclck==0) {
+        deletecheck=[usrmdl.deleterights integerValue];
+    }
+    if (printclck==0) {
+        printcheck=[usrmdl.printrightes integerValue];
+    }
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Userrightssave xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserId>%d</UserId>\n"
+                   "<ModuleId>%d</ModuleId>\n"
+                   "<ViewModule>%d</ViewModule>\n"
+                   "<EditModule>%d</EditModule>\n"
+                   "<DeleteModule>%d</DeleteModule>\n"
+                   "<PrintModule>%d</PrintModule>\n"
+                   "</Userrightssave>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[usrmdl.userid integerValue],[usrmdl.moduleid integerValue],viewcheck,editcheck,deletecheck,printcheck];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Userrightssave" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)Allrightssave{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    for (int i=0; i<[_usertablearray count]; i++) {
+        
+    
+    UserRightsmdl*usrmdl=(UserRightsmdl *)[_usertablearray objectAtIndex:i];
+        if (Allviewclckd==1) {
+            if (checkviewstrg==1) {
+                
+                viewcheck=0;
+                         }
+            else{
+               viewcheck=1;
+            }
+
+        }
+        
+        else{
+            viewcheck=[usrmdl.viewrights integerValue];
+        }
+        if (Alleditclckd==1) {
+            if (checkeditstrg==1) {
+                
+                editcheck=0;
+            }
+            else{
+                editcheck=1;
+            }
+            
+        }
+        
+        else{
+            editcheck=[usrmdl.editrights integerValue];
+        }
+
+        if (Alldeleteclckd==1) {
+            if (checkdeletestrg==1) {
+                
+                deletecheck=0;
+            }
+            else{
+                deletecheck=1;
+            }
+            
+        }
+        
+        else{
+           deletecheck=[usrmdl.deleterights integerValue];
+        }
+        
+        if (Allprintclckd==1) {
+            if (checkprintstrg==1) {
+                
+                printcheck=0;
+            }
+            else{
+                printcheck=1;
+            }
+            
+        }
+        
+        else{
+            printcheck=[usrmdl.printrightes integerValue];
+        }
+
+
+       soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Userrightssave xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserId>%d</UserId>\n"
+                   "<ModuleId>%d</ModuleId>\n"
+                   "<ViewModule>%d</ViewModule>\n"
+                   "<EditModule>%d</EditModule>\n"
+                   "<DeleteModule>%d</DeleteModule>\n"
+                   "<PrintModule>%d</PrintModule>\n"
+                   "</Userrightssave>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[usrmdl.userid integerValue],[usrmdl.moduleid integerValue],viewcheck,editcheck,deletecheck,printcheck];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Userrightssave" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    }
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -404,7 +893,7 @@
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
     [_popOverTableView reloadData];
-        [_usertable reloadData];
+    [_usertable reloadData];
     
 }
 
@@ -442,7 +931,7 @@
        
     }
     else{
-      return 5;
+        return [_usertablearray count];
     }
     return YES;
 }
@@ -456,7 +945,9 @@
           cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
          if (tableView==_usertable) {
         [[NSBundle mainBundle]loadNibNamed:@"Userrightscell" owner:self options:nil];
-        cell=_usercell;
+                //[[NSBundle mainBundle]loadNibNamed:@"Newuserrightscell" owner:self options:nil];
+            
+          cell=_usercell;
          }
     }
     
@@ -479,9 +970,121 @@
         }
        
     }
-  //  _typelbl=(UILabel *)[cell viewWithTag:1];
-   // _typelbl.text=[_worktypearray objectAtIndex:indexPath.row];
     
+      if (tableView==_usertable) {
+          UserRightsmdl*usrmdl=(UserRightsmdl *)[_usertablearray objectAtIndex:indexPath.row];
+          _namelbl=(UILabel *)[cell viewWithTag:1];
+          _namelbl.text=[_revuserdict objectForKey:usrmdl.userid];
+          _companylbl=(UILabel *)[cell viewWithTag:2];
+          _companylbl.text=usrmdl.modulename;
+          [cell.contentView addSubview:_newbtn];
+          
+          if ([usrmdl.viewonly isEqualToString:@"true"]) {
+              _editbtnlbl.enabled=NO;
+              _deletebtnlbl.enabled=NO;
+              _printbtnlbl.enabled=NO;
+          }
+          else{
+              _editbtnlbl.enabled=YES;
+              _deletebtnlbl.enabled=YES;
+              _printbtnlbl.enabled=YES;
+          }
+                 
+          if ([usrmdl.viewrights isEqualToString:@"1"]) {
+              // [_newbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+             
+               [_viewbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+              viewcheck=1;
+              
+          }
+          else{
+             // [_newbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+              [_viewbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+               viewcheck=0;
+          }
+          if ([usrmdl.editrights isEqualToString:@"1"]) {
+              [_editbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+          }
+          else{
+              [_editbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+          }
+          if ([usrmdl.deleterights isEqualToString:@"1"]) {
+              [_deletebtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+          }
+          else{
+              [_deletebtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+          }
+          if ([usrmdl.printrightes isEqualToString:@"1"]) {
+              [_printbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+          }
+          else{
+              [_printbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+          }
+
+          
+          
+          if (Allviewclckd==1) {
+              
+          
+          if (checkviewstrg==1) {
+               [_viewbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+//              for (int i=0; i<[_usertablearray count]; i++) {
+//                  
+//              }
+          }
+          else{
+               [_viewbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+          }
+
+          
+      }
+          if (Alleditclckd==1) {
+              
+              
+              if (checkeditstrg==1) {
+                  [_editbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+                  //              for (int i=0; i<[_usertablearray count]; i++) {
+                  //
+                  //              }
+              }
+              else{
+                  [_editbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+              }
+              
+              
+          }
+          if (Alldeleteclckd==1) {
+              
+              
+              if (checkdeletestrg==1) {
+                  [_deletebtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+                  //              for (int i=0; i<[_usertablearray count]; i++) {
+                  //
+                  //              }
+              }
+              else{
+                  [_deletebtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+              }
+              
+              
+          }
+          if (Allprintclckd==1) {
+              
+              
+              if (checkprintstrg==1) {
+                  [_printbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+                  //              for (int i=0; i<[_usertablearray count]; i++) {
+                  //
+                  //              }
+              }
+              else{
+                  [_printbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+              }
+              
+              
+          }
+
+      }
     
     return cell;
     
@@ -512,30 +1115,69 @@
      path=indexPath.row;
     
     if (tableView==_popOverTableView) {
-        switch (popover) {
-            case 1:
-                userpath=indexPath.row;
-                [_userbtn setTitle:[_userarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-               
-                break;
-            case 2:
-               [_masterbtn setTitle:[_maintilearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-                 [self UserRightsselect];
-                break;
-            case 3:
-                 [_subbtnlbl setTitle:[_subtilearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-                break;
-            case 4:
-                [_subsubbtnlbl setTitle:[_subsubtilearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-                break;
-
-            default:
-                break;
-
         
         
-}
-    [self.popOverController dismissPopoverAnimated:YES];
+        
+          if (popover==1) {
+              
+              userpath=indexPath.row;
+              [_userbtn setTitle:[_userarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+              _masterbtn.enabled=YES;
+              
+               [_Allviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+               [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+               [_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+               [_Allprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+              [self UserRightsselect];
+              
+          }
+        
+        else if (popover==2) {
+             mastrpath=indexPath.row;
+            [_Allviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_Allprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+              [_masterbtn setTitle:[_maintilearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+             masterbtnstrg=[_maintilearray objectAtIndex:indexPath.row];
+            _subbtnlbl.enabled=YES;
+            if (indexPath.row==12) {
+                 [self UserRightsforMainTileselect];
+            }
+            else{
+                [self UserRightsforsubTileselect];
+            }
+        }
+        
+        else if (popover==3) {
+              subpath=indexPath.row;
+            [_Allviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_Allprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+             [_subbtnlbl setTitle:[_subtilearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+         
+            subbtnstrg=[_subtilearray objectAtIndex:indexPath.row];
+            [self Checksubmenuselect];
+            //[self SubUserRightsforsubTileselect];
+        }
+
+        else if (popover==4) {
+            subsubpath=indexPath.row;
+            [_Allviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_Allprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+             [_subsubbtnlbl setTitle:[_subsubtilearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+            subsubbtnstrg=[_subsubtilearray objectAtIndex:indexPath.row];
+            [self SubUserRightsforparticularmoduleselect];
+        }
+        
+        
+  
+                
+                
+[self.popOverController dismissPopoverAnimated:YES];
 }
 }
 
@@ -546,6 +1188,7 @@
     {
         _userarray=[[NSMutableArray alloc]init];
         _userdict=[[NSMutableDictionary alloc]init];
+        _revuserdict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -574,6 +1217,7 @@
     {
         _maintilearray=[[NSMutableArray alloc]init];
         _maintiledict=[[NSMutableDictionary alloc]init];
+         _revmaintiledict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -612,6 +1256,7 @@
     {
         _subtilearray=[[NSMutableArray alloc]init];
         _subtiledict=[[NSMutableDictionary alloc]init];
+        _revsubtiledict=[[NSMutableDictionary alloc]init];
         
         if(!_soapResults)
         {
@@ -641,6 +1286,7 @@
     {
         _subsubtilearray=[[NSMutableArray alloc]init];
         _subsubtiledict=[[NSMutableDictionary alloc]init];
+         _revsubsubtiledict=[[NSMutableDictionary alloc]init];
         
         if(!_soapResults)
         {
@@ -668,7 +1314,7 @@
     }
     if([elementName isEqualToString:@"UserRightsselectResponse"])
     {
-        
+        _usertablearray=[[NSMutableArray alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -685,7 +1331,7 @@
         recordResults = TRUE;
     }
     
-    if([elementName isEqualToString:@"UserId"])
+    if([elementName isEqualToString:@"UserUserId"])
     {
         
         if(!_soapResults)
@@ -694,9 +1340,17 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"ModuleId"])
+    if([elementName isEqualToString:@"UserModuleId"])
     {
         
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"userModulename"])
+    {
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -739,8 +1393,63 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"viewonly"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
+    if([elementName isEqualToString:@"UserRightsforMainTileselectResponse"])
+    {
+        _usertablearray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"UserRightsforsubTileselectResponse"])
+    {
+        _usertablearray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
+    if([elementName isEqualToString:@"result"])
+    {
+       
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"UserRightsforparticularmodule2selectResponse"])
+    {
+        _usertablearray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"result"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
@@ -771,6 +1480,7 @@
         
         recordResults = FALSE;
         [_userdict setObject:userid forKey:_soapResults];
+        [_revuserdict setObject:_soapResults forKey:userid];
         [_userarray addObject:_soapResults];
         _soapResults = nil;
     }
@@ -787,6 +1497,7 @@
         
          recordResults = FALSE;
         [_maintiledict setObject:mainid forKey:_soapResults];
+        [_revmaintiledict setObject:_soapResults forKey:mainid];
         [_maintilearray addObject:_soapResults];
         _soapResults = nil;
     }
@@ -806,6 +1517,7 @@
         
         [_subtilearray addObject:[array objectAtIndex:1]];
         [_subtiledict setObject:subid forKey:[array objectAtIndex:1]];
+        [_revsubtiledict setObject:[array objectAtIndex:1] forKey:subid];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"subsubmoduleId"])
@@ -823,7 +1535,8 @@
         NSArray*array=[_soapResults componentsSeparatedByString:@"->"];
         
         [_subsubtilearray addObject:[array objectAtIndex:2]];
-        [_subsubtiledict setObject:subid forKey:[array objectAtIndex:2]];
+        [_subsubtiledict setObject:subsubid forKey:[array objectAtIndex:2]];
+          [_revsubsubtiledict setObject:[array objectAtIndex:2] forKey:subsubid];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"EntryId"])
@@ -834,23 +1547,38 @@
         _soapResults = nil;
     }
     
-    if([elementName isEqualToString:@"UserId"])
+    if([elementName isEqualToString:@"UserUserId"])
     {
-        
+        _usermdl=[[UserRightsmdl alloc]init];
         recordResults = FALSE;
-        
+        _usermdl.userid=_soapResults;
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"ModuleId"])
+    if([elementName isEqualToString:@"UserModuleId"])
     {
         recordResults = FALSE;
-        
+        _usermdl.moduleid=_soapResults;
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"userModulename"])
+    {
+        recordResults = FALSE;
+        _usermdl.modulename=_soapResults;
+        _soapResults = nil;
+    }
+
+    
     if([elementName isEqualToString:@"ViewModule"])
     {
         
         recordResults = FALSE;
+        
+        if ([_soapResults isEqualToString:@"true"]) {
+            _usermdl.viewrights=@"1";
+        }
+        else{
+             _usermdl.viewrights=@"0";
+        }
         
         _soapResults = nil;
     }
@@ -858,7 +1586,13 @@
     {
         
         recordResults = FALSE;
-        
+        if ([_soapResults isEqualToString:@"true"]) {
+            _usermdl.editrights=@"1";
+        }
+        else{
+            _usermdl.editrights=@"0";
+        }
+
         _soapResults = nil;
 
     }
@@ -866,7 +1600,12 @@
     {
         
         recordResults = FALSE;
-        
+        if ([_soapResults isEqualToString:@"true"]) {
+            _usermdl.deleterights=@"1";
+        }
+        else{
+            _usermdl.deleterights=@"0";
+        }
         _soapResults = nil;
 
     }
@@ -874,12 +1613,73 @@
     {
         
         recordResults = FALSE;
+        if ([_soapResults isEqualToString:@"true"]) {
+            _usermdl.printrightes=@"1";
+        }
+        else{
+            _usermdl.printrightes=@"0";
+        }
+
+      
         
         _soapResults = nil;
 
     }
 
-    
+    if([elementName isEqualToString:@"viewonly"])
+    {
+        
+        recordResults = FALSE;
+        _usermdl.viewonly=_soapResults;
+          [_usertablearray addObject:_usermdl];
+         _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        recordResults = FALSE;
+        if ([_soapResults isEqualToString:@"0"]) {
+            
+            [self UserRightsforparticularmodule2select];
+            
+        }
+        else if ([_soapResults integerValue]>0){
+               _subsubbtnlbl.enabled=YES;
+                [self SubUserRightsforsubTileselect];
+        }
+              else{
+                  
+                  
+           
+                  switch (webtype) {
+                      case 1:
+                          [self UserRightsselect];
+                          break;
+                      case 2:
+                          [self UserRightsforMainTileselect];
+                          break;
+                      case 3:
+                          [self UserRightsforsubTileselect];
+                          break;
+                      case 4:
+                          [self SubUserRightsforsubTileselect];
+                          break;
+                      case 5:
+                          [self UserRightsforparticularmodule2select];
+                          break;
+                      case 6:
+                          [self SubUserRightsforparticularmoduleselect];
+                          break;
+                      default:
+                          break;
+                  }
+              
+        }
+      
+          _soapResults = nil;
+    }
+
+
 }
 #pragma mark-IBActions
 - (IBAction)clsebtn:(id)sender {
@@ -888,18 +1688,35 @@
 
 - (IBAction)userbtn:(id)sender {
      popover=1;
+     [_masterbtn setTitle:@"Select" forState:UIControlStateNormal];
+     [_subbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+     [_subsubbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    _masterbtn.enabled=NO;
+    _subbtnlbl.enabled=NO;
+    _subsubbtnlbl.enabled=NO;
+    
     [self createpopover];
     [self AllUsersselect];
 }
 
 - (IBAction)masterbtn:(id)sender {
     popover=2;
+   
+    [_subbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    [_subsubbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+     _subbtnlbl.enabled=NO;
+    _subsubbtnlbl.enabled=NO;
+
     [self createpopover];
     [self Mainmoduleselect];
 }
 
 - (IBAction)subbtn:(id)sender {
     popover=3;
+ 
+    [_subsubbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+   
+    _subsubbtnlbl.enabled=NO;
     [self createpopover];
     [self Submoduleselect];
 
@@ -912,14 +1729,240 @@
 }
 
 - (IBAction)allviewcheckbtn:(id)sender {
+    Allviewclckd=1;
+      btnclck++;
+       if(btnclck%2!=0){
+           [_Allviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+           checkviewstrg=0;
+           [_usertable reloadData];
+           [self Allrightssave];
+           
+           
+       }
+       else
+       {
+           [_Allviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            checkviewstrg=1;
+            [_usertable reloadData];
+           [self Allrightssave];
+       }
+
+   // Allviewclckd=0;
 }
 
 - (IBAction)alleditcheckbtn:(id)sender {
+    Alleditclckd=1;
+    btnclck1++;
+    if(btnclck1%2!=0){
+        [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        checkeditstrg=0;
+        [_usertable reloadData];
+          [self Allrightssave];
+        
+        
+    }
+    else
+    {
+        [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        checkeditstrg=1;
+        [_usertable reloadData];
+         [self Allrightssave];
+    }
+
 }
 
 - (IBAction)Alldeletecheckbtn:(id)sender {
+    Alldeleteclckd=1;
+    btnclck2++;
+    if(btnclck2%2!=0){
+        [_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        checkdeletestrg=0;
+        [_usertable reloadData];
+          [self Allrightssave];
+        
+        
+    }
+    else
+    {
+        [_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        checkdeletestrg=1;
+        [_usertable reloadData];
+         [self Allrightssave];
+    }
+
 }
 
 - (IBAction)Allprintcheckbtn:(id)sender {
+    Allprintclckd=1;
+    btnclck3++;
+    if(btnclck3%2!=0){
+        [_Allprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        checkprintstrg=0;
+        [_usertable reloadData];
+          [self Allrightssave];
+        
+        
+    }
+    else
+    {
+        [_Allprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        checkprintstrg=1;
+        [_usertable reloadData];
+        [self Allrightssave];
+    }
+
+}
+
+- (IBAction)viewbtn:(id)sender {
+    viewclck=1;
+      Allviewclckd=0;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    //touchedpath=button.tag;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.usertable];
+    NSIndexPath *textFieldIndexPath = [self.usertable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
+    
+//    btnclck++;
+//    if(btnclck%2!=0){
+//       // [_newbtn setImage:[UIImage imageNamed:@"cb_mono_off.png"] forState:UIControlStateNormal];
+//          [_viewbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+//        
+//    }
+//    else{
+//           //[_newbtn setImage:[UIImage imageNamed:@"cb_mono_on.png"] forState:UIControlStateNormal];
+//           [_viewbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+//    }
+    
+    
+   UserRightsmdl*usrmdl=(UserRightsmdl *)[_usertablearray objectAtIndex:textFieldIndexPath.row];
+    if ([usrmdl.viewrights isEqualToString:@"1"])
+        
+        
+    {
+       // [_newbtn setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+           [_viewbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+        viewcheck=0;
+       
+    }
+    else{
+        
+        
+       [_viewbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+        //[_newbtn setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+        viewcheck=1;
+    }
+    [_usertable reloadData];
+    [self Userrightssave];
+    
+    //[_usertable reloadData];
+
+}
+
+- (IBAction)editbtn:(id)sender {
+    editclck=1;
+    Alleditclckd=0;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    //touchedpath=button.tag;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.usertable];
+    NSIndexPath *textFieldIndexPath = [self.usertable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+     btnindex=textFieldIndexPath.row;
+    
+    // btnclck++;
+    //if(btnclck%2!=0)
+    UserRightsmdl*usrmdl=(UserRightsmdl *)[_usertablearray objectAtIndex:textFieldIndexPath.row];
+    if ([usrmdl.editrights isEqualToString:@"1"])
+        
+        
+    {
+        [_editbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+        // [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        editcheck=0;
+    }
+    else{
+        
+        
+        //   [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        [_editbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+        editcheck=1;
+    }
+    [_usertable reloadData];
+     [self Userrightssave];
+
+}
+
+- (IBAction)deletebtn:(id)sender {
+    deleteclck=1;
+    Alldeleteclckd=0;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    //touchedpath=button.tag;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.usertable];
+    NSIndexPath *textFieldIndexPath = [self.usertable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+     btnindex=textFieldIndexPath.row;
+    
+    // btnclck++;
+    //if(btnclck%2!=0)
+    UserRightsmdl*usrmdl=(UserRightsmdl *)[_usertablearray objectAtIndex:textFieldIndexPath.row];
+    if ([usrmdl.deleterights isEqualToString:@"1"])
+        
+        
+    {
+        [_deletebtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+        // [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        deletecheck=0;
+        
+    }
+    else{
+        
+        
+        //   [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        [_deletebtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+        deletecheck=1;
+    }
+    [_usertable reloadData];
+    [self Userrightssave];
+
+}
+
+- (IBAction)printbtn:(id)sender {
+    printclck=1;
+    Allprintclckd=0;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    //touchedpath=button.tag;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.usertable];
+    NSIndexPath *textFieldIndexPath = [self.usertable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+     btnindex=textFieldIndexPath.row;
+    
+    // btnclck++;
+    //if(btnclck%2!=0)
+    UserRightsmdl*usrmdl=(UserRightsmdl *)[_usertablearray objectAtIndex:textFieldIndexPath.row];
+    if ([usrmdl.printrightes isEqualToString:@"1"])
+        
+        
+    {
+        [_printbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+        // [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        printcheck=0;
+    }
+    else{
+        
+        
+        //   [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        [_printbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+         printcheck=1;
+    }
+    [_usertable reloadData];
+    [self Userrightssave];
+
+
+}
+- (IBAction)newbtn:(id)sender {
 }
 @end
