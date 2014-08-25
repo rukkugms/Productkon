@@ -34,6 +34,10 @@
 		6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6481615B176EF0C50017F4CC /* rightarowblack.png */; };
 		648D12FE17716C7F006BB41A /* rectangle3.png in Resources */ = {isa = PBXBuildFile; fileRef = 648D12FD17716C7F006BB41A /* rectangle3.png */; };
 		648DE20B1777F7B400261F74 /* ContactInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8811772DFDA00CAECE7 /* ContactInfoViewController.xib */; };
+		649316BC19AB45D7008CB7BF /* PlngTileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649316BA19AB45D7008CB7BF /* PlngTileViewController.m */; };
+		649316BD19AB45D7008CB7BF /* PlngTileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649316BB19AB45D7008CB7BF /* PlngTileViewController.xib */; };
+		649316C119AB4629008CB7BF /* TLLeadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649316BF19AB4629008CB7BF /* TLLeadsViewController.m */; };
+		649316C219AB4629008CB7BF /* TLLeadsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649316C019AB4629008CB7BF /* TLLeadsViewController.xib */; };
 		64955C9B180E52D5000A86A1 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64955C99180E52D5000A86A1 /* WebViewController.m */; };
 		64955C9C180E52D5000A86A1 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64955C9A180E52D5000A86A1 /* WebViewController.xib */; };
 		649AE8791772DB8D00CAECE7 /* appbar.edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8781772DB8C00CAECE7 /* appbar.edit.png */; };
@@ -560,6 +564,12 @@
 		6481615B176EF0C50017F4CC /* rightarowblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightarowblack.png; sourceTree = "<group>"; };
 		648D12FD17716C7F006BB41A /* rectangle3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rectangle3.png; sourceTree = "<group>"; };
 		648D12FF17716E0E006BB41A /* appbar.close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.close.png; sourceTree = "<group>"; };
+		649316B919AB45D7008CB7BF /* PlngTileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlngTileViewController.h; sourceTree = "<group>"; };
+		649316BA19AB45D7008CB7BF /* PlngTileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlngTileViewController.m; sourceTree = "<group>"; };
+		649316BB19AB45D7008CB7BF /* PlngTileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlngTileViewController.xib; sourceTree = "<group>"; };
+		649316BE19AB4629008CB7BF /* TLLeadsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLLeadsViewController.h; sourceTree = "<group>"; };
+		649316BF19AB4629008CB7BF /* TLLeadsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLLeadsViewController.m; sourceTree = "<group>"; };
+		649316C019AB4629008CB7BF /* TLLeadsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLLeadsViewController.xib; sourceTree = "<group>"; };
 		64955C98180E52D5000A86A1 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		64955C99180E52D5000A86A1 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		64955C9A180E52D5000A86A1 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
@@ -1706,6 +1716,9 @@
 		D4B7017C18AB3E490060BE0A /* Planning */ = {
 			isa = PBXGroup;
 			children = (
+				649316B919AB45D7008CB7BF /* PlngTileViewController.h */,
+				649316BA19AB45D7008CB7BF /* PlngTileViewController.m */,
+				649316BB19AB45D7008CB7BF /* PlngTileViewController.xib */,
 				D4A16AFE1974EEA8002CA2A2 /* PlanningViewController.h */,
 				D4A16AFF1974EEA8002CA2A2 /* PlanningViewController.m */,
 				D4A16B001974EEA8002CA2A2 /* PlanningViewController.xib */,
@@ -2051,6 +2064,9 @@
 		D4F19DCC18D03AA4007617F0 /* Leads */ = {
 			isa = PBXGroup;
 			children = (
+				649316BE19AB4629008CB7BF /* TLLeadsViewController.h */,
+				649316BF19AB4629008CB7BF /* TLLeadsViewController.m */,
+				649316C019AB4629008CB7BF /* TLLeadsViewController.xib */,
 				64A3B80E18DFEE980015887F /* LeadsViewController.h */,
 				64A3B80F18DFEE980015887F /* LeadsViewController.m */,
 				64A3B81018DFEE980015887F /* LeadsViewController.xib */,
@@ -2320,6 +2336,7 @@
 				D4A16B5D1974EEA8002CA2A2 /* Destequcell.xib in Resources */,
 				D4A16B5C1974EEA8002CA2A2 /* Srcequcell.xib in Resources */,
 				D40367F118ED3A5200139E7D /* MangmntdetailsViewController.xib in Resources */,
+				649316BD19AB45D7008CB7BF /* PlngTileViewController.xib in Resources */,
 				D4A16B411974EEA8002CA2A2 /* siteEqupmtntcell.xib in Resources */,
 				649AE8791772DB8D00CAECE7 /* appbar.edit.png in Resources */,
 				D4F19E0218D03FBA007617F0 /* Contractcell.xib in Resources */,
@@ -2499,6 +2516,7 @@
 				D4A338E418F3EEEF00E53FAC /* MarkupViewController.xib in Resources */,
 				D4A16B621974EEA8002CA2A2 /* Editplanview.xib in Resources */,
 				D4014FF618E3E34000DB825A /* Snumcell.xib in Resources */,
+				649316C219AB4629008CB7BF /* TLLeadsViewController.xib in Resources */,
 				D40736C018BB1E9B00C5DB30 /* right_arrow.png in Resources */,
 				D4A16B3D1974EEA8002CA2A2 /* cellfordocumnt.xib in Resources */,
 				D4097D0E1963D00B00D8E910 /* PSitereqmntViewController.xib in Resources */,
@@ -2644,6 +2662,7 @@
 				D4A338EA18F3EEEF00E53FAC /* BillingViewController.m in Sources */,
 				D4A16B871974EEE0002CA2A2 /* EstimationViewController.m in Sources */,
 				D4F0AD4319306866004821DD /* GpMaterViewController.m in Sources */,
+				649316BC19AB45D7008CB7BF /* PlngTileViewController.m in Sources */,
 				649EE4C219614866008DEF02 /* LbrMgmtViewController.m in Sources */,
 				D4F19D9F18D01CDB007617F0 /* NewCustmrViewController.m in Sources */,
 				D4A674C019345FFD00D5A77E /* DPCalendarTestCreateEventViewController.m in Sources */,
@@ -2707,6 +2726,7 @@
 				D4A16B851974EEE0002CA2A2 /* EsttileViewController.m in Sources */,
 				D44BEA7118E0252600719ED5 /* BranchViewController.m in Sources */,
 				649ED79E187FB8260086CDDE /* CompanyViewController.m in Sources */,
+				649316C119AB4629008CB7BF /* TLLeadsViewController.m in Sources */,
 				D49F876118EEA36B00413CAD /* Scaffoldsubtypemodel.m in Sources */,
 				D4A338E518F3EEEF00E53FAC /* DetailmarkupsectionViewController.m in Sources */,
 				D49F874C18EEA36B00413CAD /* followupmodel.m in Sources */,
