@@ -14,6 +14,7 @@
 #import "CommentsViewController.h"
 #import "commentmdl.h"
 #import "Validation.h"
+#import "Rightscheck.h"
 @interface LeadsViewController : UIViewController<UIActionSheetDelegate>{
     NSInteger poptype;
     BOOL recordResults;
@@ -157,6 +158,7 @@
 - (IBAction)cancelcmtbtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *ancelbtnlbl;
 
-
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 
 @end

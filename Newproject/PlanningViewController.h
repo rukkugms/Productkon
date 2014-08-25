@@ -13,6 +13,7 @@
 #import "DetailplanViewController.h"
 #import "planmodel.h"
 #import "Validation.h"
+#import "Rightscheck.h"
 @interface PlanningViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
     NSInteger leadcheck;
@@ -118,6 +119,8 @@
 
 - (IBAction)cmplxitywrkbtn:(id)sender;
 
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 
 
 @end
