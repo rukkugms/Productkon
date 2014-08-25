@@ -451,12 +451,12 @@
     {
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
-            if (!self.folderVCtrl) {
-                self.folderVCtrl=[[folderrightsViewController alloc]initWithNibName:@"folderrightsViewController" bundle:nil];
+            if (!self.ftileVCtrl) {
+                self.ftileVCtrl=[[FtileViewController alloc]initWithNibName:@"FtileViewController" bundle:nil];
             }
-            _folderVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
-            _folderVCtrl.userrightsarray=_userrightsarray;
-            [self presentViewController:_folderVCtrl
+            _ftileVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+           // _ftileVCtrl.userrightsarray=_userrightsarray;
+            [self presentViewController:_ftileVCtrl
                                animated:YES completion:NULL];
 
         }

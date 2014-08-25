@@ -24,6 +24,7 @@
 #import "SettngsViewController.h"
 #import "SecurityViewController.h"
 #import "Rightscheck.h"
+#import "FtileViewController.h"
 
 @interface TileViewController : UIViewController
 {
@@ -72,7 +73,7 @@
 @property(strong,nonatomic)WorktypeViewController *wrktypeVCtrl;
 @property(strong,nonatomic)SettngsViewController *wrkstngVCtrlr;
 @property(strong,nonatomic)SecurityViewController*securityVCtrl;
-
+@property(strong,nonatomic)FtileViewController *ftileVCtrl;
 
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
