@@ -80,7 +80,7 @@
    
     btnclick++;
     
- LbmgModel*lmdl=(LbmgModel *)[_lbrmgmtarray objectAtIndex:textFieldIndexPath.row];
+      LbmgModel*lmdl=(LbmgModel *)[_lbrmgmtarray objectAtIndex:textFieldIndexPath.row];
       if (![fname isEqualToString:lmdl.ForemanName]) {
         
         

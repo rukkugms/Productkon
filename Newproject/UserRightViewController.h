@@ -16,8 +16,20 @@
     NSString* mainid;
       NSString* subid;
      NSString* subsubid;
-     NSInteger path;
+     NSInteger path,subsubpath,subpath,mastrpath;
     NSInteger userpath;
+    UIButton *button;
+    NSInteger btnclck,btnclck1,btnclck2,btnclck3;
+    NSInteger btnindex;
+    NSInteger viewcheck,editcheck,deletecheck,printcheck;
+    NSInteger viewclck,editclck,deleteclck,printclck;
+    
+    NSInteger checkviewstrg,checkeditstrg,checkdeletestrg,checkprintstrg;
+    NSInteger Allviewclckd,Alleditclckd,Alldeleteclckd,Allprintclckd;
+    
+    NSString*subbtnstrg,*masterbtnstrg,*subsubbtnstrg;
+    
+    NSInteger webtype;
 }
 
 
@@ -95,6 +107,8 @@
 - (IBAction)deletebtn:(id)sender;
 - (IBAction)printbtn:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UIButton *newbtn;
 
+- (IBAction)newbtn:(id)sender;
 
 @end
