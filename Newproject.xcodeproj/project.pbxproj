@@ -165,6 +165,9 @@
 		D40DD2611873D29B00E7BC2C /* SmalltoolsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40DD25F1873D29B00E7BC2C /* SmalltoolsViewController.m */; };
 		D40DD2621873D29B00E7BC2C /* SmalltoolsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40DD2601873D29B00E7BC2C /* SmalltoolsViewController.xib */; };
 		D40DD2661873ED0800E7BC2C /* Smalltoolcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40DD2651873ED0800E7BC2C /* Smalltoolcell.xib */; };
+		D410CC5119AB4AE50093DDE6 /* FtileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D410CC4F19AB4AE50093DDE6 /* FtileViewController.m */; };
+		D410CC5219AB4AE50093DDE6 /* FtileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D410CC5019AB4AE50093DDE6 /* FtileViewController.xib */; };
+		D410CC5419AB4C8F0093DDE6 /* userrights.png in Resources */ = {isa = PBXBuildFile; fileRef = D410CC5319AB4C8F0093DDE6 /* userrights.png */; };
 		D413816A1946BD4A0056574C /* EqOthersMdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D41381691946BD4A0056574C /* EqOthersMdl.m */; };
 		D413816C1947107A0056574C /* createjob.png in Resources */ = {isa = PBXBuildFile; fileRef = D413816B1947107A0056574C /* createjob.png */; };
 		D413816E194710830056574C /* site.png in Resources */ = {isa = PBXBuildFile; fileRef = D413816D194710830056574C /* site.png */; };
@@ -743,6 +746,10 @@
 		D40DD25F1873D29B00E7BC2C /* SmalltoolsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmalltoolsViewController.m; sourceTree = "<group>"; };
 		D40DD2601873D29B00E7BC2C /* SmalltoolsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmalltoolsViewController.xib; sourceTree = "<group>"; };
 		D40DD2651873ED0800E7BC2C /* Smalltoolcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Smalltoolcell.xib; sourceTree = "<group>"; };
+		D410CC4E19AB4AE50093DDE6 /* FtileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FtileViewController.h; sourceTree = "<group>"; };
+		D410CC4F19AB4AE50093DDE6 /* FtileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FtileViewController.m; sourceTree = "<group>"; };
+		D410CC5019AB4AE50093DDE6 /* FtileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FtileViewController.xib; sourceTree = "<group>"; };
+		D410CC5319AB4C8F0093DDE6 /* userrights.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userrights.png; sourceTree = "<group>"; };
 		D41381681946BD4A0056574C /* EqOthersMdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqOthersMdl.h; sourceTree = "<group>"; };
 		D41381691946BD4A0056574C /* EqOthersMdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EqOthersMdl.m; sourceTree = "<group>"; };
 		D413816B1947107A0056574C /* createjob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = createjob.png; sourceTree = "<group>"; };
@@ -1289,10 +1296,6 @@
 				D42D8C3918D2E3F0009D8085 /* UsersViewController.m */,
 				D42D8C3718D2E3E3009D8085 /* UsersViewController.xib */,
 				D42D8C3C18D2E411009D8085 /* usercell.xib */,
-				D42D8C0318D2D8AC009D8085 /* folderrightsViewController.h */,
-				D42D8C0418D2D8AC009D8085 /* folderrightsViewController.m */,
-				D42D8C0518D2D8AC009D8085 /* folderrightsViewController.xib */,
-				D42D8C0618D2D8AC009D8085 /* custonfldrrigtscell.xib */,
 				64A11EE318683792008D20CC /* workPhasesViewController.h */,
 				64A11EE418683792008D20CC /* workPhasesViewController.m */,
 				64A11EE518683792008D20CC /* workPhasesViewController.xib */,
@@ -1324,6 +1327,13 @@
 				D42505C719A46830001D16A2 /* SecurityViewController.h */,
 				D42505C819A46830001D16A2 /* SecurityViewController.m */,
 				D42505C919A46830001D16A2 /* SecurityViewController.xib */,
+				D410CC4E19AB4AE50093DDE6 /* FtileViewController.h */,
+				D410CC4F19AB4AE50093DDE6 /* FtileViewController.m */,
+				D410CC5019AB4AE50093DDE6 /* FtileViewController.xib */,
+				D42D8C0318D2D8AC009D8085 /* folderrightsViewController.h */,
+				D42D8C0418D2D8AC009D8085 /* folderrightsViewController.m */,
+				D42D8C0518D2D8AC009D8085 /* folderrightsViewController.xib */,
+				D42D8C0618D2D8AC009D8085 /* custonfldrrigtscell.xib */,
 				D41708F619A5B24800F55599 /* UserRightViewController.h */,
 				D41708F719A5B24900F55599 /* UserRightViewController.m */,
 				D41708F819A5B24900F55599 /* UserRightViewController.xib */,
@@ -1781,6 +1791,7 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D410CC5319AB4C8F0093DDE6 /* userrights.png */,
 				D44DF4F119A5DF4500F3E9AB /* radioButtonIcon.gif */,
 				D44DF4EF19A5D88C00F3E9AB /* C2jN9.png */,
 				D44DF4ED19A5D73A00F3E9AB /* Sign-RadioButton01.png */,
@@ -2347,6 +2358,7 @@
 				D4A16B361974EEA8002CA2A2 /* PlanningViewController.xib in Resources */,
 				649ED79F187FB8260086CDDE /* CompanyViewController.xib in Resources */,
 				D4F7D9D2196E5B5C00B8F4D4 /* equipmentothers.png in Resources */,
+				D410CC5419AB4C8F0093DDE6 /* userrights.png in Resources */,
 				D49FA2F21961647A0037BA7A /* TOtherscell.xib in Resources */,
 				D47A9B2C19407D22001CC416 /* manpowericon.png in Resources */,
 				D47A9B1319407A8A001CC416 /* basic-requirment.png in Resources */,
@@ -2488,6 +2500,7 @@
 				D48F436618A2335500AFDDC2 /* vertical blue.png in Resources */,
 				D4399EBE186D7BBF00A693F7 /* search-button.png in Resources */,
 				D47A9B2619407CD9001CC416 /* fleeticon.png in Resources */,
+				D410CC5219AB4AE50093DDE6 /* FtileViewController.xib in Resources */,
 				649EB48E18A8DF8400CDBE28 /* proHRDetailcell.xib in Resources */,
 				D4A16B941974EEE0002CA2A2 /* Phestcell.xib in Resources */,
 				D4D7A29117F5422000880E38 /* Untitled.png in Resources */,
@@ -2690,6 +2703,7 @@
 				64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */,
 				D4A338D518F3EE8700E53FAC /* subheadermarkmodel.m in Sources */,
 				646A28B91937351D00902C4A /* Eqeventmdl.m in Sources */,
+				D410CC5119AB4AE50093DDE6 /* FtileViewController.m in Sources */,
 				649EB48B18A8DF4700CDBE28 /* DetailproHrViewController.m in Sources */,
 				D49F875F18EEA36B00413CAD /* Scaffoldtypemdl.m in Sources */,
 				D453DA261873F1AF007EE3DC /* ConsumbleViewController.m in Sources */,

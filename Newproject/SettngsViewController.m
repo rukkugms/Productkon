@@ -91,10 +91,10 @@
 }
 -(void)userpage{
     
-    self.userrightsVCtrl=[[UserRightViewController alloc]initWithNibName:@"UserRightViewController" bundle:nil];
-    //  }
-    _userrightsVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
-    [self presentViewController:_userrightsVCtrl animated:YES completion:nil];
+//    self.userrightsVCtrl=[[UserRightViewController alloc]initWithNibName:@"UserRightViewController" bundle:nil];
+//    //  }
+//    _userrightsVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+//    [self presentViewController:_userrightsVCtrl animated:YES completion:nil];
 
     
 }
