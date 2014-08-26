@@ -7,7 +7,34 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LeadsViewController.h"
+#import "Rightscheck.h"
+
 
 @interface TLLeadsViewController : UIViewController
+
+{
+    NSString*userid;
+    BOOL recordResults;
+}
+
+
+@property (strong, nonatomic) IBOutlet UIView *leadView;
+
+@property(strong,nonatomic)LeadsViewController *leadVCtrl;
+
+
+-(IBAction)closethistilepage:(id)sender;
+
+
+@property(strong,nonatomic)Rightscheck *rights;
+@property(readwrite)NSInteger ModuleID;
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)NSString *result;
+
+/* xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
 
 @end

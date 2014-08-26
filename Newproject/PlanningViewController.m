@@ -378,6 +378,18 @@
 }
 -(IBAction)deleteplan:(id)sender
 {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    
+    if (rightsmodel.DeleteModule==0) {
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else
+    {
+
     if (self.editing) {
         [super setEditing:NO animated:NO];
         [_plangtable setEditing:NO animated:NO];
@@ -392,6 +404,7 @@
         [_plangtable setEditing:YES animated:YES];
         [_plangtable reloadData];
         
+    }
     }
 
 }
@@ -499,7 +512,23 @@
 
 -(IBAction)updateplanning:(id)sender
 {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
+    if (rightsmodel.EditModule==0) {
+        if (optionidentifier==1) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to add a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }else if(optionidentifier==2)
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        
+    }
+    else
+    {
+        
+
     
 //    Validation*val=[[Validation alloc]init];
 //    int value1=[val isNumeric:_ziptxtfld.text];
@@ -538,6 +567,7 @@
     else if(optionidentifier==2)
     {
         [self UpdatePlan];
+    }
     }
     }
 }

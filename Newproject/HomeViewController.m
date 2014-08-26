@@ -337,10 +337,11 @@
     {
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
-            if (!self.leadVCtrl) {
-                self.leadVCtrl=[[LeadsViewController alloc]initWithNibName:@"LeadsViewController" bundle:nil];
+            if (!self.LCtrl) {
+                self.LCtrl=[[TLLeadsViewController alloc]initWithNibName:@"TLLeadsViewController" bundle:nil];
             }
-            [self presentViewController:_leadVCtrl
+             _LCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+            [self presentViewController:_LCtrl
                                animated:YES completion:NULL];
         }
         else
@@ -355,14 +356,13 @@
     {
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
-            if (!self.PlangVCtrl) {
-                self.PlangVCtrl=[[PlanningViewController alloc]initWithNibName:@"PlanningViewController" bundle:nil];
+            if (!self.PlnCtrl) {
+                self.PlnCtrl=[[PlngTileViewController alloc]initWithNibName:@"PlngTileViewController" bundle:nil];
                 
             }
             // _PlangVCtrl.view.frame=CGRectMake(100, 171, 768, 768);
-            _PlangVCtrl.modalPresentationStyle=UIModalPresentationCustom;
-            _PlangVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-            [self presentViewController:_PlangVCtrl
+             _PlnCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+            [self presentViewController:_PlnCtrl
                                animated:YES completion:NULL];
         }
         else

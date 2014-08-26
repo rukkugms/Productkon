@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LeadsViewController.h"
 #import "HRViewController.h"
 #import "TileViewController.h"
 #import "ResViewController.h"
 #import "TilehrViewController.h"
-#import "PlanningViewController.h"
 #import "TilecustmrViewController.h"
 #import "EsttileViewController.h"
 #import "ManagemttileViewController.h"
 #import "Rightscheck.h"
+#import "TLLeadsViewController.h"
+#import "PlngTileViewController.h"
 
 @interface HomeViewController : UIViewController{
     
@@ -45,13 +45,15 @@ BOOL recordResults;
 /*controllers*/
 
 @property (strong, nonatomic)TilecustmrViewController*custmrVCtrl;
-@property(strong,nonatomic)LeadsViewController *leadVCtrl;
+
 @property(strong,nonatomic)TileViewController*tileVCtrl;
 @property(strong,nonatomic)ResViewController*ReVCtrl;
 @property(strong,nonatomic)TilehrViewController*TilehrVCtrl;
-@property(strong,nonatomic)PlanningViewController *PlangVCtrl;
+
 @property(strong,nonatomic)EsttileViewController *EstmVCtrl;
 @property(strong,nonatomic)ManagemttileViewController*mangVCtrl;
+@property(strong,nonatomic)TLLeadsViewController*LCtrl;
+@property(strong,nonatomic)PlngTileViewController*PlnCtrl;
 
 
 @property(strong,nonatomic)Rightscheck *rights;

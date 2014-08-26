@@ -139,6 +139,18 @@
 }
 -(IBAction)deletelead:(id)sender
 {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    
+    if (rightsmodel.DeleteModule==0) {
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else
+    {
+
     if (self.editing) {
         [super setEditing:NO animated:NO];
         [_leadTable setEditing:NO animated:NO];
@@ -156,6 +168,7 @@
         
         
         
+    }
     }
 
 }
@@ -921,6 +934,22 @@ else
 
 
 - (IBAction)updatebtn:(id)sender {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    if (rightsmodel.EditModule==0) {
+        if (butnidtfr==1) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to add a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }else if(butnidtfr==2)
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        
+    }
+    else
+    {
+
     Validation *val=[[Validation alloc]init];
     if([_companybtn.titleLabel.text isEqualToString:@""]||[_companybtn.titleLabel.text isEqualToString:@"Select"])
     {
@@ -986,6 +1015,7 @@ else
             [self updatelead];
         }
 
+    }
     }
 }
 - (IBAction)selectcompany:(id)sender
