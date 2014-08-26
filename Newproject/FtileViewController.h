@@ -9,12 +9,27 @@
 #import <UIKit/UIKit.h>
 #import "folderrightsViewController.h"
 #import "UserRightViewController.h"
+#import "Rightscheck.h"
 
 @interface FtileViewController : UIViewController
+{
+    BOOL recordResults;
+    NSString *userid;
+}
 - (IBAction)clsebtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIView *usrview;
 
 @property (strong, nonatomic) IBOutlet UIView *fldrview;
 @property (strong, nonatomic)folderrightsViewController*folderVCtrl;
 @property(strong,nonatomic)UserRightViewController *userrightsVCtrl;
+
+/* xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
+
+@property(strong,nonatomic)Rightscheck *rights;
+@property(readwrite)NSInteger Moduleid;
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)NSString *result;
 @end

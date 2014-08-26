@@ -473,7 +473,7 @@
     
 }
 -(void)Checksubmenuselect{
-    
+    webtype=7;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -1639,8 +1639,13 @@
         
         recordResults = FALSE;
         if ([_soapResults isEqualToString:@"0"]) {
-            
-            [self UserRightsforparticularmodule2select];
+            if (webtype==7) {
+                [self UserRightsforparticularmodule2select];
+            }
+            else
+            {
+                
+            }
             
         }
         else if ([_soapResults integerValue]>0){
@@ -1729,6 +1734,16 @@
 }
 
 - (IBAction)allviewcheckbtn:(id)sender {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    if (rightsmodel.EditModule==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        
+    }
+    else{
+
     Allviewclckd=1;
       btnclck++;
        if(btnclck%2!=0){
@@ -1746,11 +1761,22 @@
             [_usertable reloadData];
            [self Allrightssave];
        }
-
+    }
    // Allviewclckd=0;
 }
 
 - (IBAction)alleditcheckbtn:(id)sender {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    if (rightsmodel.EditModule==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        
+    }
+    else
+    {
+
     Alleditclckd=1;
     btnclck1++;
     if(btnclck1%2!=0){
@@ -1768,10 +1794,22 @@
         [_usertable reloadData];
          [self Allrightssave];
     }
+    }
 
 }
 
 - (IBAction)Alldeletecheckbtn:(id)sender {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    if (rightsmodel.EditModule==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        
+    }
+    else
+    {
+
     Alldeleteclckd=1;
     btnclck2++;
     if(btnclck2%2!=0){
@@ -1789,10 +1827,22 @@
         [_usertable reloadData];
          [self Allrightssave];
     }
+    }
 
 }
 
 - (IBAction)Allprintcheckbtn:(id)sender {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    if (rightsmodel.EditModule==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        
+    }
+    else
+    {
+
     Allprintclckd=1;
     btnclck3++;
     if(btnclck3%2!=0){
@@ -1810,10 +1860,22 @@
         [_usertable reloadData];
         [self Allrightssave];
     }
+    }
 
 }
 
 - (IBAction)viewbtn:(id)sender {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    if (rightsmodel.EditModule==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        
+    }
+    else
+    {
+   [_Allviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     viewclck=1;
       Allviewclckd=0;
     button = (UIButton *)sender;
@@ -1857,10 +1919,21 @@
     [self Userrightssave];
     
     //[_usertable reloadData];
-
+    }
 }
 
 - (IBAction)editbtn:(id)sender {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    if (rightsmodel.EditModule==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        
+    }
+    else
+    {
+[_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     editclck=1;
     Alleditclckd=0;
     button = (UIButton *)sender;
@@ -1891,10 +1964,22 @@
     }
     [_usertable reloadData];
      [self Userrightssave];
+    }
 
 }
 
 - (IBAction)deletebtn:(id)sender {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    if (rightsmodel.EditModule==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        
+    }
+    else
+    {
+[_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     deleteclck=1;
     Alldeleteclckd=0;
     button = (UIButton *)sender;
@@ -1926,10 +2011,21 @@
     }
     [_usertable reloadData];
     [self Userrightssave];
-
+    }
 }
 
 - (IBAction)printbtn:(id)sender {
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    if (rightsmodel.EditModule==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        
+    }
+    else
+    {
+[_Allprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     printclck=1;
     Allprintclckd=0;
     button = (UIButton *)sender;
@@ -1960,6 +2056,7 @@
     }
     [_usertable reloadData];
     [self Userrightssave];
+    }
 
 
 }
