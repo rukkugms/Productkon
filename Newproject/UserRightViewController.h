@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UserRightsmdl.h"
+#import "Rightscheck.h"
 
 @interface UserRightViewController : UIViewController{
      BOOL recordResults;
@@ -110,5 +111,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *newbtn;
 
 - (IBAction)newbtn:(id)sender;
+
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)Rightscheck *rights;
 
 @end
