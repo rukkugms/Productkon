@@ -292,6 +292,7 @@ return cell;
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+  
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -707,6 +708,7 @@ return cell;
     
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
      NSString *fullURL =[NSString stringWithFormat:@"http://ios.kontract360.com%@",[_docdict objectForKey:[_documntarray objectAtIndex:textFieldIndexPath.row]]];
+    NSLog(@"fullurl%@",fullURL);
     //_urlstring=[_docdict objectForKey:[_documntarray objectAtIndex:textFieldIndexPath.row]];
    // _urlstring=[NSString stringWithFormat:@"http://192.168.0.1:443/Folder/Root/EmployeeHandbook/accounts.xlsx"];
     
