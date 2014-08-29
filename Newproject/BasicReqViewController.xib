@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BasicReqViewController">
             <connections>
                 <outlet property="addreqview" destination="Cqm-3c-T8e" id="Nq4-O9-SyM"/>
+                <outlet property="allcraftbtnlbl" destination="vGD-hk-yg2" id="o8M-jO-C1f"/>
                 <outlet property="basicreqtable" destination="3yV-UT-gaN" id="ID6-tN-vD5"/>
                 <outlet property="cancelbtn" destination="wuY-LO-dH2" id="Re4-pj-aYU"/>
                 <outlet property="codetextfield" destination="Sdy-IO-LLc" id="FxH-nW-XTy"/>
@@ -360,6 +361,22 @@
                                                         <action selector="selectcraft:" destination="-1" eventType="touchUpInside" id="aMg-Qn-eGb"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vGD-hk-yg2">
+                                                    <rect key="frame" x="0.0" y="87" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="appbar.checkmark.thick.unchecked.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="allcraftbtn:" destination="-1" eventType="touchUpInside" id="wJt-Fc-GCg"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Crafts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="huC-9v-0V9">
+                                                    <rect key="frame" x="58" y="102" width="59" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         </view>

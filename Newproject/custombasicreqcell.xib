@@ -8,8 +8,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BasicReqViewController">
             <connections>
                 <outlet property="allcrftbtn" destination="8Df-fe-a6G" id="Iso-Oq-RTG"/>
+                <outlet property="cellcraftbtnlbl" destination="6UM-hW-v8v" id="fkw-wT-kmc"/>
                 <outlet property="codelabel" destination="QqT-tZ-dry" id="obp-Xe-KVw"/>
-                <outlet property="crftlabel" destination="qXt-ZT-g9u" id="J38-6V-eiF"/>
                 <outlet property="defbtn" destination="f4c-xi-vgv" id="cvw-TP-wdt"/>
                 <outlet property="inhousebtn" destination="NCV-ee-XGY" id="no2-AZ-Lh6"/>
                 <outlet property="itemnamelabel" destination="90c-Pm-Zn9" id="bAz-pm-2OU"/>
@@ -68,12 +68,6 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="9" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Craft" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qXt-ZT-g9u">
-                        <rect key="frame" x="572" y="12" width="89" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9gS-1N-LoK">
                         <rect key="frame" x="939" y="3" width="40" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -154,6 +148,18 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6UM-hW-v8v">
+                        <rect key="frame" x="571" y="8" width="90" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                        <state key="normal" title="Craft" backgroundImage="textbox.png">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="cellcraftbtn:" destination="-1" eventType="touchUpInside" id="PWF-uq-p1M"/>
+                        </connections>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
         </tableViewCell>
@@ -161,5 +167,6 @@
     <resources>
         <image name="appbar.checkmark.thick.unchecked.png" width="76" height="76"/>
         <image name="appbar.edit.png" width="52" height="52"/>
+        <image name="textbox.png" width="298" height="64"/>
     </resources>
 </document>

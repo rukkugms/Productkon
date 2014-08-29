@@ -20,11 +20,11 @@
     /*value for checkbtn*/
     NSInteger expiry;
     NSInteger defaultcheck;
-    NSInteger inhouse;
+    NSInteger inhouse,allcraft;
     NSInteger craft;
     NSString *expirystring;
     NSString *defaultstring;
-    NSString *inhousestring;
+    NSString *inhousestring,*allcraftstrg;
     NSString *craftsrings;
     NSInteger optionidentifier;
     NSInteger path;
@@ -138,5 +138,11 @@
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
 
+@property (strong, nonatomic) IBOutlet UIButton *cellcraftbtnlbl;
+
+- (IBAction)cellcraftbtn:(id)sender;
+
+- (IBAction)allcraftbtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *allcraftbtnlbl;
 
 @end
