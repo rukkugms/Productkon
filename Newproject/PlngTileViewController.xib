@@ -28,7 +28,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="0.51582458939999998" blue="0.53142107660000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.80000000000000004" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <navigationBar contentMode="scaleToFill" id="3U6-0o-DWY">
                     <rect key="frame" x="0.0" y="0.0" width="540" height="44"/>

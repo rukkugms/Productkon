@@ -992,7 +992,7 @@
                 NSCharacterSet *notAllowedChars = [[NSCharacterSet characterSetWithCharactersInString:@"1234567890"] invertedSet];
                 NSString *resultString = [[faxnoString componentsSeparatedByCharactersInSet:notAllowedChars] componentsJoinedByString:@""];
                 NSLog (@"Result: %@", resultString);
-                if ([resultString length]==9){
+                if ([resultString length]<=9){
                     
                     fmt=1;
                     
@@ -1114,7 +1114,7 @@
                 NSCharacterSet *notAllowedChars = [[NSCharacterSet characterSetWithCharactersInString:@"1234567890"] invertedSet];
                 NSString *resultString = [[phnnostring componentsSeparatedByCharactersInSet:notAllowedChars] componentsJoinedByString:@""];
                 NSLog (@"Result: %@", resultString);
-                if ([resultString length]==9){
+                if ([resultString length]<=9){
                     
                     
                     fmt=1;
