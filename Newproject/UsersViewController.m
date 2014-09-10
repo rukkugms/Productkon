@@ -1077,7 +1077,10 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)adduserview:(id)sender
-{    optionIdentifier=1;
+{
+    [_usertable setEditing:NO animated:NO];
+
+    optionIdentifier=1;
     _resultdisplaylabel.hidden=YES;
     _addview.hidden=NO;
     _navitem.title=@"Create";
@@ -1090,6 +1093,7 @@
 }
 -(IBAction)edituserview:(id)sender
 {
+    [_usertable setEditing:NO animated:NO];
     optionIdentifier=2;
     _addview.hidden=NO;
     _navitem.title=@"Edit";

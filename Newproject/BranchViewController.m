@@ -69,6 +69,9 @@
 }
 -(IBAction)addbranchaction:(id)sender
 {
+   // [super setEditing:NO animated:NO];
+    [_branchtable setEditing:NO animated:NO];
+  //  [_branchtable reloadData];
     _branchview.hidden=NO;
     optionidentifier=1;
     _navbar.title=@"Create";
@@ -114,6 +117,9 @@
 }
 -(IBAction)editbranchaction:(id)sender
 {
+//    [super setEditing:NO animated:NO];
+    [_branchtable setEditing:NO animated:NO];
+    //[_branchtable reloadData];
     _branchview.hidden=NO;
     optionidentifier=2;
     _navbar.title=@"Edit";
@@ -176,35 +182,7 @@ else
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
-       
-    
-       else if (optionidentifier==1) {
-
-           if(![_emailtextfield.text isEqualToString:@""])
-           {
-               Validation *val=[[Validation alloc]init];
-               int value2 = [val validEmailAddress:_emailtextfield.text];
-               if(value2==0)
-               {
-                   
-                   UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                   [alert1 show];
-               }
-               
-               
-           
-           else
-           {
-
-        [self BranchInsert];
-           }
-           }
-        }
-    
-      else if(optionidentifier==2)
-    {
-        if(![_emailtextfield.text isEqualToString:@""])
-        {
+        else  if(![_emailtextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
             Validation *val=[[Validation alloc]init];
             int value2 = [val validEmailAddress:_emailtextfield.text];
             if(value2==0)
@@ -213,17 +191,48 @@ else
                 UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [alert1 show];
             }
-            
-            
-            else{
+            else if (optionidentifier==1) {
+                
+                
+                [self BranchInsert];
+                
+                
+            }
+            else if (optionidentifier==2) {
+                
+                
+                [self BranchUpdate];
+                
+                
+            }
+
+
+            }
+           
+    
+
+    
+    
+       else if (optionidentifier==1) {
+
+          
+        [self BranchInsert];
+           
+           
+        }
+    
+      else if(optionidentifier==2)
+    {
+        
         
 
         
        [self BranchUpdate];
-            }
-        }
+        
+        
     
     }
+    
 }
 }
 #pragma mark-tableview datasource
@@ -622,7 +631,7 @@ else
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict
 {
-    if ([elementName isEqualToString:@"BranchselectResult"]) {
+    if ([elementName isEqualToString:@"BranchselectResponse"]) {
         _brancharray=[[NSMutableArray alloc]init];
         if(!_soapResults)
         {

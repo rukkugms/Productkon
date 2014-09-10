@@ -52,6 +52,8 @@
 }
 -(void)viewWillAppear:(BOOL)animated
 {
+    _result=@"";
+    _moduleid=0;
     [super viewWillAppear:animated];
     [self SelectAllPhases];
 }
@@ -216,7 +218,9 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)addworkPhasesview:(id)sender
-{   optionIdentifier=1;
+{
+     [_phasetable setEditing:NO animated:NO];
+    optionIdentifier=1;
     _workphasesview.hidden=NO;
     _navItem.title=@"Create";
     _phasetextfld.text=@"";
@@ -227,7 +231,10 @@
     
 }
 -(IBAction)editWorkPhasesview:(id)sender
-{    optionIdentifier=2;
+{
+    [_phasetable setEditing:NO animated:NO];
+
+    optionIdentifier=2;
     _workphasesview.hidden=NO;
     _cancelbtn.enabled=NO;
     _navItem.title=@"Edit";
@@ -253,11 +260,14 @@
 }
 -(IBAction)closeworkphasesview:(id)sender
 {
+    _result=@"";
+    _moduleid=0;
     _workphasesview.hidden=YES;
     _updatelbl.hidden=YES;
 }
 -(IBAction)update_phases:(id)sender
 {
+   
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
     
@@ -275,9 +285,7 @@
     else
     {
 
-    if(optionIdentifier==1)
-{
-    if ([_phasetextfld.text isEqualToString:@""]) {
+       if ([_phasetextfld.text isEqualToString:@""]) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phase is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
@@ -289,31 +297,21 @@
 
     }
     else{
+        if(optionIdentifier==1)
+        {
+
     
     
     
-    [self InsertPhases];
-        
+       [self InsertPhases];
+        }
+        else if(optionIdentifier==2)
+        {
+             [self UpdatePhases];
+        }
         
     }
 }
-    else if(optionIdentifier==2)
-    {
-        if ([_phasetextfld.text isEqualToString:@""]) {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phase is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            
-        }
-       else if([_servicebtn.titleLabel.text isEqualToString:@"Select"]||[_servicebtn.titleLabel.text isEqualToString:@""])
-        {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Service Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            
-        }
-
-        [self UpdatePhases];
-        }
-    }
     
 }
 -(IBAction)cancel_phases:(id)sender
@@ -326,11 +324,13 @@
 }
 
 - (IBAction)wrkphasebtn:(id)sender {
-    if (!self.worktypeVCtrl) {
-        self.worktypeVCtrl=[[WorktypeViewController alloc]initWithNibName:@"WorktypeViewController" bundle:nil];
-    }
-    _worktypeVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
-    [self presentViewController:_worktypeVCtrl animated:YES completion:nil];
+    _moduleid=18;
+    [self UserRightsforparticularmoduleselect];
+//    if (!self.worktypeVCtrl) {
+//        self.worktypeVCtrl=[[WorktypeViewController alloc]initWithNibName:@"WorktypeViewController" bundle:nil];
+//    }
+//    _worktypeVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+//    [self presentViewController:_worktypeVCtrl animated:YES completion:nil];
     
 }
 
@@ -905,6 +905,63 @@
     }
     
 }
+-(void)UserRightsforparticularmoduleselect{
+    webtype=5;
+    recordresults = FALSE;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    userid = [defaults objectForKey:@"Userid"];
+    
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UserRightsforparticularmoduleselect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<UserId>%d</UserId>\n"
+                   "<ModuleId>%d</ModuleId>\n"
+                   "</UserRightsforparticularmoduleselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[userid integerValue],_moduleid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://testUSA.kontract360.com/UserRightsforparticularmoduleselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 
 
 #pragma mark - Connection
@@ -941,6 +998,39 @@
     if(webtype==1||webtype==2)
     {
         [self SelectAllPhases];
+        webtype=0;
+    }
+    if(webtype==5)
+    {
+        if ([_result isEqualToString:@"Not yet set"]) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Your rights are not yet set" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        
+        
+        else
+        {
+            
+                       if (_moduleid==18) {
+                Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+                if (rightsmodel.ViewModule==1) {
+                    
+                    
+                    // if (!self.wrktypeVCtrl) {
+                    self.worktypeVCtrl=[[WorktypeViewController alloc]initWithNibName:@"WorktypeViewController" bundle:nil];
+                    //  }
+                    _worktypeVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+                    _worktypeVCtrl.userrightsarray=_userrightsarray;
+                    [self presentViewController:_worktypeVCtrl animated:YES completion:nil];        }
+                else
+                {
+                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [alert show];
+                }
+                
+            }
+
+    }
         webtype=0;
     }
     [_phasetable reloadData];
@@ -1112,7 +1202,99 @@
         }
         recordresults = TRUE;
     }
+    if([elementName isEqualToString:@"UserRightsforparticularmoduleselectResponse"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+//    if([elementName isEqualToString:@"result"])
+//    {
+//        
+//        
+//        if(!_soapResults)
+//        {
+//            _soapResults = [[NSMutableString alloc] init];
+//        }
+//        recordresults = TRUE;
+//    }
     
+    if([elementName isEqualToString:@"EntryId"])
+    {
+        _userrightsarray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"UserId"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"ModuleId"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"ViewModule"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"EditModule"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"DeleteModule"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"PrintModule"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    
+
 
     
 
@@ -1258,10 +1440,115 @@
         [alert show];
         
     }
+        if (webtype==5) {
+            _result=@"Not yet set";
+        }
          _soapResults = nil;
 
     }
-    
+    if([elementName isEqualToString:@"EntryId"])
+    {
+        
+        
+        recordresults = FALSE;
+        _rights=[[Rightscheck alloc]init];
+        _rights.entryid=[_soapResults integerValue];
+        
+        _soapResults=nil;
+    }
+    if([elementName isEqualToString:@"UserId"])
+    {
+        
+        
+        recordresults = FALSE;
+        
+        _rights.userid=[_soapResults integerValue];
+        
+        _soapResults=nil;
+    }
+    if([elementName isEqualToString:@"ModuleId"])
+    {
+        
+        
+        recordresults = FALSE;
+        
+        _rights.moduleid=[_soapResults integerValue];
+        
+        _soapResults=nil;
+        
+    }
+    if([elementName isEqualToString:@"ViewModule"])
+    {
+        
+        recordresults = FALSE;
+        
+        if ([_soapResults isEqualToString:@"true"]) {
+            _rights.ViewModule=1;
+            
+            
+        }
+        else{
+            _rights.ViewModule=0;
+            
+        }
+        
+        
+        
+        _soapResults=nil;
+        
+        
+    }
+    if([elementName isEqualToString:@"EditModule"])
+    {
+        recordresults = FALSE;
+        if ([_soapResults isEqualToString:@"true"]) {
+            _rights.EditModule=1;
+            
+            
+        }
+        else{
+            _rights.EditModule=0;
+            
+        }
+        _soapResults=nil;
+        
+        
+    }
+    if([elementName isEqualToString:@"DeleteModule"])
+    {
+        recordresults = FALSE;
+        if ([_soapResults isEqualToString:@"true"]) {
+            _rights.DeleteModule=1;
+            
+            
+        }
+        else{
+            _rights.DeleteModule=0;
+            
+        }
+        _soapResults=nil;
+        
+    }
+    if([elementName isEqualToString:@"PrintModule"])
+    {
+        recordresults = FALSE;
+        if ([_soapResults isEqualToString:@"true"]) {
+            _rights.PrintModule=1;
+            
+            
+        }
+        else{
+            _rights.PrintModule=0;
+            
+        }
+        
+        
+        
+        [_userrightsarray addObject:_rights];
+        _soapResults=nil;
+        
+    }
+
 
 
 

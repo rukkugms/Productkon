@@ -16,6 +16,7 @@
     UIButton *button;
     NSInteger deletepath;
     NSString * msgstrg;
+     NSInteger optionidentifier;
 }
 @property (strong, nonatomic)Mdladdress *addressmdl;
 @property (strong, nonatomic)NSMutableArray *addesslistarray;
