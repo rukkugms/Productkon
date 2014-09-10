@@ -768,17 +768,54 @@
    int value5 = [val validEmailAddress:_mailtxtfld.text];
     int value6=[val validateUrl:_webtxtfld.text];
     
-    if(value6==0){
         
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Website" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+         if ([_companynametxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length ==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Company Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
-
     }
+        
+    else if ([_addresstxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length ==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Address is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+        
+    else if([_citytxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length ==0)
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"City is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if (([_statebtn.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length ==0)||[_statebtn.titleLabel.text isEqualToString:@"Select"]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"State is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else  if ([_phonetxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length ==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if (([_mailtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length ==0)) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Email is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if ([_faxtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length ==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Fax is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if ([_webtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length ==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Website is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+
    else if(value5==0){
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
        }
-    
+      else    if(value6==0){
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Website" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
+        }
+
 
        else if(value1==0)
         {
@@ -819,42 +856,7 @@
     
     
     
-       else if ([_companynametxtfld.text isEqualToString:@""]) {
-           UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Company Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-           [alert show];
-       }
-    
-   else if ([_addresstxtfld.text isEqualToString:@""]) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Address is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-    }
-   
-   else if([_citytxtfld.text isEqualToString:@""])
-    {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"City is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-    }
-   else if ([_statebtn.titleLabel.text isEqualToString:@""]||[_statebtn.titleLabel.text isEqualToString:@"Select"]) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"State is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-    }
-  else  if ([_phonetxtfld.text isEqualToString:@""]) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-    }
-   else if (([_mailtxtfld.text isEqualToString:@""])) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Email is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-    }
-   else if ([_faxtxtfld.text isEqualToString:@""]) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Fax is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-    }
-   else if ([_webtxtfld.text isEqualToString:@""]) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Website is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-    }
-    else
+         else
     {
     [self SaveBasicInfo];
     }
