@@ -743,7 +743,7 @@
     }
 
 - (IBAction)savebtn:(id)sender {
-    
+    _savebtn.enabled=NO;
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
     
@@ -1238,8 +1238,14 @@
     }
     if(textField==_mailtxtfld){
         
+        NSString *estring=_mailtxtfld.text;
+        if (estring.length==0) {
+            
+        }
+        else
+        {
             Validation *val=[[Validation alloc]init];
-            BOOL bEmailValid = [val validEmailAddress:_mailtxtfld.text];
+            BOOL bEmailValid = [val validEmailAddress:[_mailtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
             if(bEmailValid)
             {
                 // email valid, other validations in the form
@@ -1249,6 +1255,8 @@
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
             }
+            
+        }
         
 
     }
@@ -1305,6 +1313,18 @@
             
             
             _webtxtfld.text=@"";
+            
+            
+        }
+    }
+    if ([alertView.message isEqualToString:@"Updated Successfully"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _savebtn.enabled=YES;
             
             
         }

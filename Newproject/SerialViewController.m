@@ -372,7 +372,7 @@
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
-    if([elementName isEqualToString:@"ServiceJobSequenceselectResult"])
+    if([elementName isEqualToString:@"ServiceJobSequenceselectResponse"])
     {
         _sequencearray=[[NSMutableArray alloc]init];
         if(!_soapResults)
@@ -470,7 +470,7 @@
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-    if([elementName isEqualToString:@"ServiceJobSequenceselectResult"])
+    if([elementName isEqualToString:@"ServiceJobSequenceselectResponse"])
     {
         
         recordResults = FALSE;
