@@ -463,6 +463,10 @@
 		D4DEEDDD17F428D40096A908 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DEEDDC17F428D40096A908 /* MobileCoreServices.framework */; };
 		D4DEEDDF17F428E20096A908 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DEEDDE17F428E10096A908 /* AssetsLibrary.framework */; };
 		D4E15794177416D9002764AB /* icon-disclosure.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E15793177416D9002764AB /* icon-disclosure.png */; };
+		D4E4469519C0191700E76D83 /* Craftreqmtmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E4469419C0191700E76D83 /* Craftreqmtmdl.m */; };
+		D4E4469C19C031CF00E76D83 /* CraftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E4469A19C031CE00E76D83 /* CraftViewController.m */; };
+		D4E4469D19C031CF00E76D83 /* CraftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E4469B19C031CF00E76D83 /* CraftViewController.xib */; };
+		D4E4469F19C03E2B00E76D83 /* craftcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E4469E19C03E2B00E76D83 /* craftcell.xib */; };
 		D4E6156418D971C500D7EAA0 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E6156318D971C500D7EAA0 /* logo.png */; };
 		D4E658C017F2A54F00202B14 /* I9view.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E658BF17F2A54F00202B14 /* I9view.xib */; };
 		D4E658CA17F2DDFA00202B14 /* rightdisclosure.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E658C917F2DDFA00202B14 /* rightdisclosure.png */; };
@@ -1161,6 +1165,12 @@
 		D4DEEDDC17F428D40096A908 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D4DEEDDE17F428E10096A908 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		D4E15793177416D9002764AB /* icon-disclosure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-disclosure.png"; sourceTree = "<group>"; };
+		D4E4469319C0191600E76D83 /* Craftreqmtmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Craftreqmtmdl.h; sourceTree = "<group>"; };
+		D4E4469419C0191700E76D83 /* Craftreqmtmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Craftreqmtmdl.m; sourceTree = "<group>"; };
+		D4E4469919C031CE00E76D83 /* CraftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CraftViewController.h; sourceTree = "<group>"; };
+		D4E4469A19C031CE00E76D83 /* CraftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CraftViewController.m; sourceTree = "<group>"; };
+		D4E4469B19C031CF00E76D83 /* CraftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CraftViewController.xib; sourceTree = "<group>"; };
+		D4E4469E19C03E2B00E76D83 /* craftcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = craftcell.xib; sourceTree = "<group>"; };
 		D4E6156318D971C500D7EAA0 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../logo.png; sourceTree = "<group>"; };
 		D4E658BF17F2A54F00202B14 /* I9view.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = I9view.xib; sourceTree = "<group>"; };
 		D4E658C917F2DDFA00202B14 /* rightdisclosure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightdisclosure.png; sourceTree = "<group>"; };
@@ -1339,6 +1349,10 @@
 				D41708F819A5B24900F55599 /* UserRightViewController.xib */,
 				D41708FD19A5B94C00F55599 /* Userrightscell.xib */,
 				D4A123D319A7249C00A4ED9B /* Newuserrightscell.xib */,
+				D4E4469919C031CE00E76D83 /* CraftViewController.h */,
+				D4E4469A19C031CE00E76D83 /* CraftViewController.m */,
+				D4E4469B19C031CF00E76D83 /* CraftViewController.xib */,
+				D4E4469E19C03E2B00E76D83 /* craftcell.xib */,
 			);
 			name = Company;
 			sourceTree = "<group>";
@@ -2057,6 +2071,8 @@
 				64ACC62119A5E20E00FC3FD8 /* Rightscheck.m */,
 				D4A123D019A6FE1100A4ED9B /* UserRightsmdl.h */,
 				D4A123D119A6FE1100A4ED9B /* UserRightsmdl.m */,
+				D4E4469319C0191600E76D83 /* Craftreqmtmdl.h */,
+				D4E4469419C0191700E76D83 /* Craftreqmtmdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -2363,6 +2379,7 @@
 				D47A9B2C19407D22001CC416 /* manpowericon.png in Resources */,
 				D47A9B1319407A8A001CC416 /* basic-requirment.png in Resources */,
 				D4F19DA018D01CDB007617F0 /* NewCustmrViewController.xib in Resources */,
+				D4E4469D19C031CF00E76D83 /* CraftViewController.xib in Resources */,
 				D4A16B8B1974EEE0002CA2A2 /* BidViewController.xib in Resources */,
 				D4F7D9CC196E5B4D00B8F4D4 /* ProjectSiteRequirement.png in Resources */,
 				64A41243194080D6003EE113 /* billing-matrix.png in Resources */,
@@ -2429,6 +2446,7 @@
 				D4FED41217F18CB9004BE242 /* btn.png in Resources */,
 				64A3B81418DFEE980015887F /* LeadsViewController.xib in Resources */,
 				D4FED41417F18E28004BE242 /* tabbtn.png in Resources */,
+				D4E4469F19C03E2B00E76D83 /* craftcell.xib in Resources */,
 				D4A16B961974EEE0002CA2A2 /* PhasecomponentsViewController.xib in Resources */,
 				D42505CB19A46830001D16A2 /* SecurityViewController.xib in Resources */,
 				64A1F8B718AA007500EE8850 /* customdoccell.xib in Resources */,
@@ -2595,6 +2613,7 @@
 				D49F874718EEA36B00413CAD /* NSData+Base64.m in Sources */,
 				D40720871772F37D0070629A /* ContactInfoViewController.m in Sources */,
 				D49F876C18EEA36B00413CAD /* Matrixmark.m in Sources */,
+				D4E4469519C0191700E76D83 /* Craftreqmtmdl.m in Sources */,
 				D49F8A5018EEBEA400413CAD /* Wagesmdl.m in Sources */,
 				D4EBA8671978FE7700B612E1 /* Thrtrmsmdl.m in Sources */,
 				D40D1EB7176B086F00379DD5 /* main.m in Sources */,
@@ -2699,6 +2718,7 @@
 				D4A674A919345F7200D5A77E /* DPCalendarMonthlyCell.m in Sources */,
 				D49BF6A419540B61000226FD /* Issuemdl.m in Sources */,
 				D41B14E9195C0CF500DEED6E /* RelatedtoMdl.m in Sources */,
+				D4E4469C19C031CF00E76D83 /* CraftViewController.m in Sources */,
 				D49F875918EEA36B00413CAD /* jobsitemodel.m in Sources */,
 				64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */,
 				D4A338D518F3EE8700E53FAC /* subheadermarkmodel.m in Sources */,

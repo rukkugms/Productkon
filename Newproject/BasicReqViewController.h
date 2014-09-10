@@ -11,6 +11,8 @@
 #import "Validation.h"
 #import "venderViewController.h"
 #import "Rightscheck.h"
+#import "Craftreqmtmdl.h"
+#import "CraftViewController.h"
 
 @interface BasicReqViewController : UIViewController<myDelegate>
 {
@@ -37,6 +39,9 @@
      
 }
 -(void)newaction;
+@property(strong,nonatomic)CraftViewController*craftVCtrl;
+@property(strong,nonatomic)NSMutableArray *brcraftarray;
+@property(strong,nonatomic)Craftreqmtmdl*craftmdl;
 @property(strong,nonatomic)NSString *soapstring;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
 @property(strong,nonatomic)IBOutlet UIView *craftview;
