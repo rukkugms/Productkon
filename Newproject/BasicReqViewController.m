@@ -76,6 +76,8 @@
     [self SelectAllRequirements];
     [self SelectAllCraft];
     [self SelectAllItemType];
+   
+    
     //[self SelectAllJobSites];
 
 }
@@ -223,9 +225,9 @@
             case 3:
                 return [_typelistarray count];
                 break;
-//            case 4:
-//                return [_autocompletearray count];
-//                break;
+            case 5:
+                return [_brcraftarray count];
+                break;
             default:
                 break;
         }
@@ -258,7 +260,7 @@
             cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
             cell.textLabel.font = [UIFont systemFontOfSize:12.0];
             
-
+        Craftreqmtmdl*crftreqmdl=(Craftreqmtmdl *)[_brcraftarray objectAtIndex:indexPath.row];
             switch (poptype) {
                 case 1:
                     cell.textLabel.text=[_joblistarray objectAtIndex:indexPath.row];
@@ -269,9 +271,10 @@
                 case 3:
                     cell.textLabel.text=[_typelistarray objectAtIndex:indexPath.row];
                     break;
-//                case 4:
-//                    cell.textLabel.text=[_autocompletearray objectAtIndex:indexPath.row];
-//                    break;
+                case 4:
+                
+                    cell.textLabel.text=crftreqmdl.Brdescriptn;
+                    break;
                 default:
                     break;
             }
@@ -324,11 +327,16 @@
             
         }
         if (reqmdl.allcraft==0) {
-            [_allcrftbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+                _cellcraftbtnlbl.enabled=YES;
+           // [_allcrftbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_cellcraftbtnlbl setTitle:@"Craft" forState:UIControlStateNormal];
             
         }
         else if(reqmdl.allcraft==1){
-            [_allcrftbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+            _cellcraftbtnlbl.enabled=NO;
+           // [_allcrftbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+             [_cellcraftbtnlbl setTitle:@"All Craft" forState:UIControlStateNormal];
+            
             
         }
 
@@ -691,7 +699,9 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)addbasicreq:(id)sender
-{   optionidentifier=1;
+{
+         [_basicreqtable setEditing:NO animated:NO];
+    optionidentifier=1;
      self.openviewindex=NSNotFound;
     [self SelectAllCourseVendor];
     _addreqview.hidden=NO;
@@ -709,7 +719,9 @@
     _resultdisplaylabel.hidden=YES;
 }
 -(IBAction)editBasicreq:(id)sender
-{   optionidentifier=2;
+{     [_basicreqtable setEditing:NO animated:NO];
+    
+    optionidentifier=2;
     _addreqview.hidden=NO;
     _navItem.title=@"Edit";
     
@@ -1034,7 +1046,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllRequirements xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SelectAllRequirements xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</SelectAllRequirements>\n"
                    "</soap:Body>\n"
@@ -1042,8 +1054,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1051,7 +1063,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllRequirements" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SelectAllRequirements" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1071,6 +1083,7 @@
     
  
 }
+
 -(void)DeleteRequirements
 {   webtype=2;
     recordresults = FALSE;
@@ -1085,7 +1098,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<DeleteRequirements xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<DeleteRequirements xmlns=\"http://ios.kontract360.com/\">\n"
                    "<entryid>%d</entryid>\n"
                    "</DeleteRequirements>\n"
                    "</soap:Body>\n"
@@ -1093,8 +1106,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+  NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1102,7 +1115,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/DeleteRequirements" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/DeleteRequirements" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1136,7 +1149,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllCourseVendor xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SelectAllCourseVendor xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</SelectAllCourseVendor>\n"
                    "</soap:Body>\n"
@@ -1144,8 +1157,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+   NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1153,7 +1166,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllCourseVendor" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SelectAllCourseVendor" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1186,7 +1199,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllItemType xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SelectAllItemType xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</SelectAllItemType>\n"
                    "</soap:Body>\n"
@@ -1194,8 +1207,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1203,7 +1216,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllItemType" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SelectAllItemType" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1235,7 +1248,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllCraft xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SelectAllCraft xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</SelectAllCraft>\n"
                    "</soap:Body>\n"
@@ -1243,8 +1256,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1252,7 +1265,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllCraft" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SelectAllCraft" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1285,7 +1298,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllJobSites xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SelectAllJobSites xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</SelectAllJobSites>\n"
                    "</soap:Body>\n"
@@ -1293,8 +1306,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1302,7 +1315,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllJobSites" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SelectAllJobSites" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1376,7 +1389,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<InsertRequirements xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<InsertRequirements xmlns=\"http://ios.kontract360.com/\">\n"
                    "<itemname>%@</itemname>\n"
                    "<code>%@</code>\n"
                    "<rate>%f</rate>\n"
@@ -1393,8 +1406,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1402,7 +1415,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/InsertRequirements" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/InsertRequirements" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1435,7 +1448,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SearchRequirements xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SearchRequirements xmlns=\"http://ios.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "</SearchRequirements>\n"
                    "</soap:Body>\n"
@@ -1443,8 +1456,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+   NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1452,7 +1465,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SearchRequirements" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SearchRequirements" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1562,7 +1575,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UpdateRequirements xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<UpdateRequirements xmlns=\"http://ios.kontract360.com/\">\n"
                    "<entryid>%d</entryid>\n"
                    "<itemname>%@</itemname>\n"
                    "<code>%@</code>\n"
@@ -1580,8 +1593,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1589,7 +1602,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/UpdateRequirements" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/UpdateRequirements" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1994,6 +2007,8 @@
         }
         recordresults = TRUE;
     }
+   
+
 
 
 }
@@ -2374,7 +2389,39 @@
         
     }
 
+    if([elementName isEqualToString:@"BREntryId"])
+    {
+        _craftmdl=[[Craftreqmtmdl alloc]init];
+        
+        recordresults=FALSE;
+      
+        _soapResults = nil;
 
+    }
+    
+    if([elementName isEqualToString:@"BRRequirementId"])
+    {
+        
+        recordresults=FALSE;
+        _craftmdl.BRreqid=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"BRValue"])
+    {
+        
+        recordresults=FALSE;
+          _craftmdl.BRreqid=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"BRDescription"])
+    {
+        
+        recordresults=FALSE;
+          _craftmdl.Brdescriptn=_soapResults;
+        [_brcraftarray addObject:_craftmdl];
+        _soapResults = nil;
+    }
+   
 }
 
 
@@ -2409,41 +2456,60 @@
 
 
 - (IBAction)cellcraftbtn:(id)sender {
+      button = (UIButton *)sender;
+       CGPoint center= button.center;
+        CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.basicreqtable];
+        NSIndexPath *textFieldIndexPath = [self.basicreqtable indexPathForRowAtPoint:rootViewPoint];
     
-    button = (UIButton *)sender;
-    CGPoint center= button.center;
-    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.basicreqtable];
-    NSIndexPath *textFieldIndexPath = [self.basicreqtable indexPathForRowAtPoint:rootViewPoint];
-    UITableViewCell *cell = [self.basicreqtable cellForRowAtIndexPath:textFieldIndexPath];
+  basicreqmdl*reqmdl=(basicreqmdl *)[_allrequirementarray objectAtIndex:textFieldIndexPath.row];
     
-    poptype=4;
-    UIViewController* popoverContent = [[UIViewController alloc]
-                                        init];
-    UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 150, 200)];
-    
-    popoverView.backgroundColor = [UIColor lightTextColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 150, 200)];
-    _popOverTableView.delegate=(id)self;
-    _popOverTableView.dataSource=(id)self;
-    _popOverTableView.rowHeight= 32;
+    self.craftVCtrl=[[CraftViewController alloc]initWithNibName:@"CraftViewController" bundle:nil];
+
+
+   self.craftVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+    _craftVCtrl.reqid=reqmdl.eid;
+  [self presentViewController:self.craftVCtrl
+                   animated:YES completion:NULL];
+
+
     
     
-    
-    [popoverView addSubview:_popOverTableView];
-    popoverContent.view = popoverView;
-    
-    //resize the popover view shown
-    //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(150, 200);
-    
-    //create a popover controller
-    self.popOverController = [[UIPopoverController alloc]
-                              initWithContentViewController:popoverContent];
-    [self.popOverController presentPopoverFromRect:_cellcraftbtnlbl.frame
-                                            inView:cell
-                          permittedArrowDirections:UIPopoverArrowDirectionUp
-                                          animated:YES];
+    //      poptype=4;
+//    button = (UIButton *)sender;
+//    CGPoint center= button.center;
+//    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.basicreqtable];
+//    NSIndexPath *textFieldIndexPath = [self.basicreqtable indexPathForRowAtPoint:rootViewPoint];
+//    UITableViewCell *cell = [self.basicreqtable cellForRowAtIndexPath:textFieldIndexPath];
+//    
+//  
+//    UIViewController* popoverContent = [[UIViewController alloc]
+//                                        init];
+//    UIView* popoverView = [[UIView alloc]
+//                           initWithFrame:CGRectMake(0, 0, 150, 200)];
+//    
+//    popoverView.backgroundColor = [UIColor lightTextColor];
+//    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 150, 200)];
+//    _popOverTableView.delegate=(id)self;
+//    _popOverTableView.dataSource=(id)self;
+//    _popOverTableView.rowHeight= 32;
+//    
+//    
+//    
+//    
+//    [popoverView addSubview:_popOverTableView];
+//    popoverContent.view = popoverView;
+//    
+//    //resize the popover view shown
+//    //in the current view to the view's size
+//    popoverContent.contentSizeForViewInPopover = CGSizeMake(150, 200);
+//    
+//    //create a popover controller
+//    self.popOverController = [[UIPopoverController alloc]
+//                              initWithContentViewController:popoverContent];
+//    [self.popOverController presentPopoverFromRect:_cellcraftbtnlbl.frame
+//                                            inView:cell
+//                          permittedArrowDirections:UIPopoverArrowDirectionUp
+//                                          animated:YES];
 
 }
 

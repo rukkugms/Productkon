@@ -31,6 +31,7 @@
     NSString*subbtnstrg,*masterbtnstrg,*subsubbtnstrg;
     
     NSInteger webtype;
+    NSInteger activate;
 }
 
 
@@ -89,9 +90,11 @@
 @property (strong, nonatomic) IBOutlet UIButton *editbtnlbl;
 @property (strong, nonatomic) IBOutlet UIButton *deletebtnlbl;
 @property (strong, nonatomic) IBOutlet UIButton *printbtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *activatebtnlbl;
 
 
 
+- (IBAction)activatebtn:(id)sender;
 
 - (IBAction)clsebtn:(id)sender;
 - (IBAction)userbtn:(id)sender;
