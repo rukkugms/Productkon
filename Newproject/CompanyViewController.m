@@ -1571,6 +1571,7 @@
                 break;
             case 2:
                 [_coutryBtn setTitle:[_countryarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                 [_statebtn setTitle:@"Select" forState:UIControlStateNormal];
                 
                 break;
                 

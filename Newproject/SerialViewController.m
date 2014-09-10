@@ -128,7 +128,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ServiceJobSequenceselect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<ServiceJobSequenceselect xmlns=\"http://ios.kontract360.com/\">\n"
                     "<SkillId>%d</SkillId>\n"
                    "</ServiceJobSequenceselect>\n"
                    "</soap:Body>\n"
@@ -136,8 +136,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -145,7 +145,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/ServiceJobSequenceselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/ServiceJobSequenceselect" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -180,7 +180,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<JobSequenceInsert xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<JobSequenceInsert xmlns=\"http://ios.kontract360.com/\">\n"
                    "<JobTask>%@</JobTask>\n"
                    "<SkillId>%d</SkillId>\n"
                    "<SequenceNumber>%d</SequenceNumber>\n"
@@ -190,8 +190,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -199,7 +199,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/JobSequenceInsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/JobSequenceInsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -236,7 +236,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<JobSequenceUpdate xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<JobSequenceUpdate xmlns=\"http://ios.kontract360.com/\">\n"
                    "<JobSequenceId>%d</JobSequenceId>\n"
                    "<JobTask>%@</JobTask>\n"
                    "<SkillId>%d</SkillId>\n"
@@ -247,8 +247,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -256,7 +256,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/JobSequenceUpdate" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/JobSequenceUpdate" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -290,7 +290,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<JobSequenceDelete xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<JobSequenceDelete xmlns=\"http://ios.kontract360.com/\">\n"
                    "<JobSequenceId>%d</JobSequenceId>\n"
                    "</JobSequenceDelete>\n"
                    "</soap:Body>\n"
@@ -298,8 +298,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -307,7 +307,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/JobSequenceDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/JobSequenceDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -537,6 +537,10 @@
 }
 
 - (IBAction)editbtn:(id)sender {
+    //[super setEditing:NO animated:NO];
+    [_sequencetable setEditing:NO animated:NO];
+   // [_sequencetable reloadData];
+
     _addview.hidden=NO;
     optionidentifier=2;
     _navbar.title=@"Edit";
@@ -554,6 +558,9 @@
 }
 -(IBAction)addsequence:(id)sender
 {
+    //[super setEditing:NO animated:NO];
+    [_sequencetable setEditing:NO animated:NO];
+   // [_sequencetable reloadData];
     _addview.hidden=NO;
     optionidentifier=1;
     _navbar.title=@"Create";
@@ -631,12 +638,21 @@ _addview.hidden=YES;
         
         
         if (buttonIndex==0) {
+            if (optionidentifier==1) {
+                
+            
             
             
             _seqnotextfld.text=@"";
             _jobtasktextfld.text=@"";
+            }
             
-            
+            else if(optionidentifier==2)
+            {
+                _seqnotextfld.text=@"";
+                _jobtasktextfld.text=@"";
+                _addview.hidden=YES;
+            }
             
         }
     }

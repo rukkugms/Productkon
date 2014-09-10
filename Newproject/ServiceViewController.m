@@ -102,7 +102,7 @@
   //  [disbtn setImage:[UIImage imageNamed:@"carat-open.png"] forState:UIControlStateSelected];
     disbtn.tag=indexPath.row;
     [disbtn addTarget:self action:@selector(disaction:) forControlEvents:UIControlEventTouchUpInside];
-    disbtn.frame = CGRectMake(270.0, 0.0, 50.0, 50.0);
+    disbtn.frame = CGRectMake(310.0, 0.0, 50.0, 50.0);
     [cell.contentView addSubview:disbtn];
     
        return cell;
@@ -112,7 +112,7 @@
     // [_animatedview removeFromSuperview];
     _commentlabel.hidden=YES;
     [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
-        .frame =  CGRectMake(300, 11, 0, 0);} completion:nil];
+        .frame =  CGRectMake(340, 11, 0, 0);} completion:nil];
     
     _animatedview.hidden=YES;
     //Empmdl *empmdl=(Empmdl *)[_employeelistarray objectAtIndex:sender.tag];
@@ -131,7 +131,7 @@
     
     
     //create uiview
-    _animatedview=[[UIView alloc]initWithFrame:CGRectMake(300, 11, 0, 25)];
+    _animatedview=[[UIView alloc]initWithFrame:CGRectMake(340, 11, 0, 25)];
     _animatedview.backgroundColor=[UIColor colorWithRed:99.0/255.0f green:184.0/255.0f blue:255.0/255.0f alpha:1.0f];
     _commentlabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
     _commentlabel.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
@@ -147,7 +147,7 @@
     
     _animatedview.hidden=NO;
     [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
-        .frame =  CGRectMake(300, 11, 79, 25);} completion:nil];
+        .frame =  CGRectMake(340, 11, 79, 25);} completion:nil];
     
     _commentlabel.hidden=NO;
     
@@ -184,7 +184,7 @@
             
             _animatedview.hidden=NO;
             [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
-                .frame =  CGRectMake(300, 11, 79, 25);} completion:nil];
+                .frame =  CGRectMake(340, 11, 79, 25);} completion:nil];
             [self viewopened:btnindex];
            
             _commentlabel.hidden=NO;
@@ -194,7 +194,7 @@
         }
         else{
             [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
-                .frame =  CGRectMake(300, 11, 79, 25);} completion:nil];
+                .frame =  CGRectMake(340, 11, 79, 25);} completion:nil];
             [self viewclosed:btnindex];
             //_venderlbl.hidden=YES;
             
@@ -211,7 +211,7 @@
     
     if (previousOpenviewIndex != NSNotFound) {
         [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{  _animatedview
-            .frame =  CGRectMake(300, 10, 0, 0);} completion:nil];
+            .frame =  CGRectMake(340, 10, 0, 0);} completion:nil];
         
         _animatedview.hidden=YES;
         
@@ -283,7 +283,10 @@
 #pragma mark-IBActions
 
 -(IBAction)Addservices:(id)sender
-{   optionidentifier=1;
+{//[super setEditing:NO animated:NO];
+    [_servicesTable setEditing:NO animated:NO];
+   // [_servicesTable reloadData];
+    optionidentifier=1;
     self.navabar.title = @"Create";
     _resultdispalylabel.hidden=YES;
     _addserview.hidden=NO;
@@ -295,6 +298,10 @@
 }
 -(IBAction)editservices:(id)sender
 {   optionidentifier=2;
+    //[super setEditing:NO animated:NO];
+    [_servicesTable setEditing:NO animated:NO];
+   // [_servicesTable reloadData];
+
     _cancelbtn.enabled=NO;
      self.navabar.title = @"Edit";
     _resultdispalylabel.hidden=YES;
@@ -433,7 +440,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllServices xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SelectAllServices xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</SelectAllServices>\n"
                    "</soap:Body>\n"
@@ -441,8 +448,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -450,7 +457,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllServices" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SelectAllServices" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -483,7 +490,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<InsertServices xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<InsertServices xmlns=\"http://ios.kontract360.com/\">\n"
                    "<servname>%@</servname>\n"
                    "<Abbrevation>%@</Abbrevation>\n"
                    "</InsertServices>\n"
@@ -492,8 +499,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -501,7 +508,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/InsertServices" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/InsertServices" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -585,7 +592,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UpdateServices xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<UpdateServices xmlns=\"http://ios.kontract360.com/\">\n"
                    "<SkillId>%d</SkillId>\n"
                    "<servname>%@</servname>\n"
                    "<Abbrevation>%@</Abbrevation>\n"
@@ -595,8 +602,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -604,7 +611,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/UpdateServices" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/UpdateServices" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -840,7 +847,7 @@
         
         _servmdl.servname=_soapResults;
         
-      
+      [_servicelistarray addObject:_servmdl];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"Abbrevation"])
@@ -848,8 +855,8 @@
         
         recordResults = FALSE;
         
-        _servmdl.abbrevtn=_soapResults;
-        [_servicelistarray addObject:_servmdl];
+//        _servmdl.abbrevtn=_soapResults;
+//        [_servicelistarray addObject:_servmdl];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"UpdateServicesResult"])

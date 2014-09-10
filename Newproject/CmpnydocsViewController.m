@@ -56,6 +56,8 @@
     [[self.cmmnttxtview layer] setCornerRadius:10];
    
 
+   
+
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -209,8 +211,11 @@
         }
             if (tableView==_cmmnttable){
                 commentmdl *cmnt1=(commentmdl *)[_commentarray objectAtIndex:indexPath.row];
-                _cmntlbl=(UILabel *)[cell viewWithTag:1];
-                _cmntlbl.text=cmnt1.comments;
+                //_newcmmnttxtview=(UITextView *)[cell viewWithTag:1];
+//                [[self.newcmmnttxtview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+//                [[self.newcmmnttxtview layer] setBorderWidth:2];
+//                [[self.newcmmnttxtview layer] setCornerRadius:10];
+                _newcmmnttxtview.text=cmnt1.comments;
                 _cmttype=(UILabel *)[cell viewWithTag:2];
                 _cmttype.text=cmnt1.commentdate;
 

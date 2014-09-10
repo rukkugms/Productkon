@@ -21,7 +21,7 @@
     UIButton *button;
     NSInteger btnindex;
     NSString *checkstring;
-    
+    NSString *userid;
 }
 @property (strong, nonatomic)WorktypeViewController *worktypeVCtrl;
 
@@ -90,5 +90,7 @@
 
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
+@property(readwrite)NSInteger moduleid;
+@property(strong,nonatomic)NSString *result;
 
 @end

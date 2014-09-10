@@ -251,7 +251,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+     //NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
@@ -508,6 +508,7 @@
 
 - (IBAction)addbtn:(id)sender {
     _addview.hidden=NO;
+    optionidentifier=1;
      _addnavitem.title=@"Create";
     webtype=1;
     _headrtxtfld.text=@"";
@@ -573,10 +574,19 @@
         
         
         if (buttonIndex==0) {
+            if (optionidentifier==1) {
+                
             
             
             _headrtxtfld.text=@"";
             _adrsstxtview.text=@"";
+            }
+            else if(optionidentifier==2)
+            {
+                _headrtxtfld.text=@"";
+                _adrsstxtview.text=@"";
+                _addview.hidden=YES;
+            }
 
             
             
@@ -619,6 +629,7 @@
 
 - (IBAction)editbtn:(id)sender {
    // _.enabled=NO;
+    optionidentifier=2;
      _addview.hidden=NO;
     _addnavitem.title=@"Edit";
  webtype=2;

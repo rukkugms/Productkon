@@ -492,6 +492,7 @@
 #pragma mark-Actions
 
 - (IBAction)addbtn:(id)sender {
+    [_typetable setEditing:NO animated:NO];
     webtype=1;
     _addview.hidden=NO;
      _typetxtfld.text=@"";
@@ -582,6 +583,7 @@
     _addview.hidden=YES;
 }
 - (IBAction)editbtn:(id)sender {
+     [_typetable setEditing:NO animated:NO];
     _navtitle.title=@"Edit";
 
     _addview.hidden=NO;

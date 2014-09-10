@@ -466,7 +466,7 @@
     else
     {
 
-    if ([_typetxtfld.text isEqualToString:@""]){
+    if ([_typetxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
         
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Type Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         
@@ -527,6 +527,8 @@
 }
 
 - (IBAction)editbtn:(id)sender {
+    [_typetable setEditing:NO animated:NO];
+
     _addview.hidden=NO;
     _navitem.title=@"Edit";
     webtype=2;
@@ -542,6 +544,8 @@
 }
 
 - (IBAction)addbtn:(id)sender {
+    [_typetable setEditing:NO animated:NO];
+
     webtype=1;
     _addview.hidden=NO;
       _navitem.title=@"Create";
