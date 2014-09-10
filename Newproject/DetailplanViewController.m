@@ -688,7 +688,7 @@
     
 }
 -(void)JobsequenceSelect{
-    // webtype=2;
+   //  webtype=2;
     poptype=3;
     recordResults = FALSE;
     NSInteger skillid=8040;
@@ -1750,7 +1750,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"TotalManHoursSelectResult"])
+    if([elementName isEqualToString:@"ServiceJobSequenceselectResponse"])
     {
        
         if(!_soapresults)
@@ -2468,11 +2468,11 @@
         _totalmanhourlabel.text=[_soapresults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         _soapresults = nil;
     }
-    if([elementName isEqualToString:@"ServiceJobSequenceselectResult"])
+    if([elementName isEqualToString:@"ServiceJobSequenceselectResponse"])
     {
         
         recordResults = FALSE;
-        
+         webtype=2;
         
         _soapresults = nil;
     }
@@ -2500,7 +2500,7 @@
         [_sequencearray addObject:_soapresults];
         [_sequencedict setObject:_soapresults forKey:_sequencestring];
         [_sequenceiddict setObject:_sequencestring forKey:_soapresults];
-        webtype=2;
+       
         _soapresults = nil;
     }
     if([elementName isEqualToString:@"SequenceNumber"])
