@@ -27,7 +27,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-   
+    _activatebtnlbl.enabled=NO;
+
     
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _usertable.layer.borderWidth=3.0;
@@ -141,7 +142,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<AllUsersselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<AllUsersselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "</AllUsersselect>\n"
                    "</soap:Body>\n"
@@ -149,8 +150,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-   // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -158,7 +159,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/AllUsersselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/AllUsersselect" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -874,7 +875,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Useractivateselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Useractivateselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                      "<UserId>%d</UserId>\n"
                    "</Useractivateselect>\n"
                    "</soap:Body>\n"
@@ -882,8 +883,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    //NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+     //NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -891,7 +892,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Useractivateselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/Useractivateselect" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -923,7 +924,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UserActivateUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserActivateUpdate xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<UserId>%d</UserId>\n"
                    "<Activate>%d</Activate>\n"
                    "</UserActivateUpdate>\n"
@@ -932,8 +933,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    //NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -941,7 +942,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UserActivateUpdate" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/UserActivateUpdate" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -1222,6 +1223,7 @@
               userpath=indexPath.row;
               [_userbtn setTitle:[_userarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
               _masterbtn.enabled=YES;
+              _activatebtnlbl.enabled=YES;
               [self Useractivateselect];
                [_Allviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
                [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
@@ -1840,6 +1842,7 @@
      [_masterbtn setTitle:@"Select" forState:UIControlStateNormal];
      [_subbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
      [_subsubbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+      _activatebtnlbl.enabled=NO;
     _masterbtn.enabled=NO;
     _subbtnlbl.enabled=NO;
     _subsubbtnlbl.enabled=NO;
