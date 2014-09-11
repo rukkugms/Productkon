@@ -76,11 +76,11 @@
         }
         else if (poptype==2){
             switch (tyid) {
-                case 2:
+                case 1:
                 return [_empydict count];
                     
                         break;
-                case 3:
+                case 2:
                     return [_custmrdict count];
                     
                     break;
@@ -129,12 +129,12 @@
             
              
              switch (tyid) {
-                 case 2:
+                 case 1:
                      _empyarry=[_empydict allKeys];
                      cell.textLabel.text=[_empyarry objectAtIndex:indexPath.row];
                      
                      break;
-                 case 3:
+                 case 2:
                      _custmrrarry=[_custmrdict allKeys];
                      cell.textLabel.text=[_custmrrarry objectAtIndex:indexPath.row];
                      break;
@@ -169,11 +169,11 @@
         if (poptype==2) {
             
             switch (tyid) {
-                case 2:
+                case 1:
                       [_type2btnlbl setTitle:[_empyarry objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
                     
                     break;
-                case 3:
+                case 2:
                    [_type2btnlbl setTitle:[_custmrrarry objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
                     break;
                 default:
@@ -485,10 +485,10 @@
     
     
     switch (tyid) {
-        case 2:
+        case 1:
                usertyid=[[_empydict objectForKey:_type2btnlbl.titleLabel.text]integerValue];
             break;
-        case 3:
+        case 2:
              usertyid=[[_custmrdict objectForKey:_type2btnlbl.titleLabel.text]integerValue];
 
             break;
@@ -554,10 +554,10 @@
     
     
     switch (tyid) {
-        case 2:
+        case 1:
             usertyid=[[_empydict objectForKey:_type2btnlbl.titleLabel.text]integerValue];
             break;
-        case 3:
+        case 2:
             usertyid=[[_custmrdict objectForKey:_type2btnlbl.titleLabel.text]integerValue];
             
             break;
@@ -1120,19 +1120,20 @@
     _usrnametextfld.text=usrmdl.username;
     _pswdtextfld.text=usrmdl.pwd;
     _titlenamelabel.hidden=NO;
-   if([usrmdl.UserTypeId isEqualToString:@"2"])
+   if([usrmdl.UserTypeId isEqualToString:@"1"])
    {
-       [_type2btnlbl setTitle:usrmdl.empname forState:UIControlStateNormal];
+        NSLog(@"%@",usrmdl.empname);
+       [_type2btnlbl setTitle:usrmdl.empname forState:UIControlStateDisabled];
        [_type1btnlbl setTitle:@"Employee            " forState:UIControlStateNormal];
        _titlenamelabel.text=_type1btnlbl.titleLabel.text;
    }
-   else if ([usrmdl.UserTypeId isEqualToString:@"3"])
+   else if ([usrmdl.UserTypeId isEqualToString:@"2"])
    {
-       [_type2btnlbl setTitle:usrmdl.customername forState:UIControlStateNormal];
+       [_type2btnlbl setTitle:usrmdl.customername forState:UIControlStateDisabled];
         [_type1btnlbl setTitle:@"Customer            " forState:UIControlStateNormal];
         _titlenamelabel.text=_type1btnlbl.titleLabel.text;
    }
-   else if ([usrmdl.UserTypeId isEqualToString:@"4"])
+   else if ([usrmdl.UserTypeId isEqualToString:@"3"])
    {
        [_type1btnlbl setTitle:@"Vendor              " forState:UIControlStateNormal];
         _titlenamelabel.text=_type1btnlbl.titleLabel.text;
@@ -1143,7 +1144,7 @@
         [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
          _titlenamelabel.text=@"";
     }
-   else if([usrmdl.UserTypeId isEqualToString:@"1"])
+   else if([usrmdl.UserTypeId isEqualToString:@"4"])
    {
        [_type1btnlbl setTitle:@"Select" forState:UIControlStateNormal];
        [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
@@ -1202,13 +1203,13 @@
     tyid=[[_Nametypeusrdict objectForKey:_type1btnlbl.titleLabel.text]integerValue];
     
     switch (tyid) {
-        case 2:
+        case 1:
             [self Employeeselect];
             break;
-        case 3:
+        case 2:
             [self SelectAllCustomer];
             break;
-        case 4:
+        case 3:
             break;
             
         default:
@@ -1253,6 +1254,11 @@
                 [alert1 show];
             }
                    }
+        else if([_pswdtextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length<5)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Please enter atleast 5 charactors" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+        }
      else if ([_type1btnlbl.titleLabel.text isEqualToString:@"Select"]||[_type1btnlbl.titleLabel.text isEqualToString:@""])
         
         

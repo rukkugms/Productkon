@@ -96,6 +96,7 @@
 }
 -(IBAction)logoutfromall:(id)sender
 {
+    
     [self LogoutFromAll];
 }
 
@@ -136,17 +137,22 @@
 -(IBAction)changePassword:(id)sender
 {
     
-    if ([_userText.text isEqualToString:@""]) {
+    if ([_userText.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please enter your username" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert show];
 
     }
-    else if ([_newpswdText.text isEqualToString:@""])
+    else if ([_newpswdText.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
     {
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please enter your new password" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert show];
     }
-    else if ([_confirmpswdText.text isEqualToString:@""])
+    else if ([_newpswdText.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length<5)
+    {
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please enter atleast 5 charactors" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if ([_confirmpswdText.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
     {
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please confirm your password" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert show];
@@ -156,7 +162,7 @@
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Select a security question" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert show];
     }
-    else if ([_answrText.text isEqualToString:@""])
+    else if ([_answrText.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
     {
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please enter your answer" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert show];
@@ -687,6 +693,13 @@
         _confirmpswdText.text=@"";
         
     }
+    if ([alertView.message isEqualToString:@"Please enter atleast 5 charactors"]) {
+        
+        _newpswdText.text=@"";
+        _confirmpswdText.text=@"";
+        
+    }
+
 
 }
 
