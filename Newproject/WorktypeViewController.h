@@ -17,6 +17,7 @@
     NSInteger path;
     UIButton *button;
     NSString *msgstrg;
+    NSInteger optionidentifier;
     
 }
 

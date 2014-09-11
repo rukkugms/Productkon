@@ -471,9 +471,16 @@
         
         
         if (buttonIndex==0) {
+            if (optionidentifier==1) {
+                _typetxtfld.text=@"";
+            }
+            else if(optionidentifier==2)
+            {
             
             
             _typetxtfld.text=@"";
+                _addview.hidden=YES;
+            }
             
             
         }
@@ -494,6 +501,7 @@
 - (IBAction)addbtn:(id)sender {
     [_typetable setEditing:NO animated:NO];
     webtype=1;
+    optionidentifier=1;
     _addview.hidden=NO;
      _typetxtfld.text=@"";
     _navtitle.title=@"Create";
@@ -585,7 +593,7 @@
 - (IBAction)editbtn:(id)sender {
      [_typetable setEditing:NO animated:NO];
     _navtitle.title=@"Edit";
-
+    optionidentifier=2;
     _addview.hidden=NO;
     webtype=2;
     button = (UIButton *)sender;

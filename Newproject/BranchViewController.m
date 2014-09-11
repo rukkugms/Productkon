@@ -1121,12 +1121,24 @@ if(textField==_emailtextfield){
         
         if (buttonIndex==0) {
             
-            
+            if (optionidentifier==1) {
+           
             _branchnametextfld.text=@"";
             _addresstextview.text=@"";
             _phonetextfield.text=@"";
             _faxtextfield.text=@"";
             _emailtextfield.text=@"";
+            }
+            else if(optionidentifier==2)
+            {
+                _branchnametextfld.text=@"";
+                _addresstextview.text=@"";
+                _phonetextfield.text=@"";
+                _faxtextfield.text=@"";
+                _emailtextfield.text=@"";
+                _branchview.hidden=YES;
+                
+            }
 
             
             

@@ -528,7 +528,7 @@
 
 - (IBAction)editbtn:(id)sender {
     [_typetable setEditing:NO animated:NO];
-
+    optionidentifier=2;
     _addview.hidden=NO;
     _navitem.title=@"Edit";
     webtype=2;
@@ -545,7 +545,7 @@
 
 - (IBAction)addbtn:(id)sender {
     [_typetable setEditing:NO animated:NO];
-
+    optionidentifier=1;
     webtype=1;
     _addview.hidden=NO;
       _navitem.title=@"Create";
@@ -562,8 +562,15 @@
         
         if (buttonIndex==0) {
             
+            if (optionidentifier==1) {
+                _typetxtfld.text=@"";
+            }
+            else if(optionidentifier==2)
+            {
+                _typetxtfld.text=@"";
+                _addview.hidden=YES;
+            }
             
-            _typetxtfld.text=@"";
             
             
         }
