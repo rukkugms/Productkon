@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>D8A5900F-AE15-4BCE-BF72-655D5F759008</string>
+	<string>6CCEE974-A34F-44BE-BC69-DA065080BF5A</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Newproject</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>B1AA09B4-7987-497B-B9C2-925E9213A2ED</key>
-		<string>https://github.com/rukkugms/bgt.git</string>
+		<key>5CD0A5BA-93DA-4466-BDDD-2C5C79B309FE</key>
+		<string>https://github.com/Riagms/bgt.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Newproject.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>B1AA09B4-7987-497B-B9C2-925E9213A2ED</key>
+		<key>5CD0A5BA-93DA-4466-BDDD-2C5C79B309FE</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/rukkugms/bgt.git</string>
+	<string>https://github.com/Riagms/bgt.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>B1AA09B4-7987-497B-B9C2-925E9213A2ED</string>
+	<string>5CD0A5BA-93DA-4466-BDDD-2C5C79B309FE</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>B1AA09B4-7987-497B-B9C2-925E9213A2ED</string>
+			<string>5CD0A5BA-93DA-4466-BDDD-2C5C79B309FE</string>
 			<key>IDESourceControlWCCName</key>
-			<string>bgt</string>
+			<string>gitRepokontract</string>
 		</dict>
 	</array>
 </dict>
