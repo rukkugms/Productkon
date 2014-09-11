@@ -463,7 +463,6 @@
 		D4DEEDDD17F428D40096A908 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DEEDDC17F428D40096A908 /* MobileCoreServices.framework */; };
 		D4DEEDDF17F428E20096A908 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DEEDDE17F428E10096A908 /* AssetsLibrary.framework */; };
 		D4E15794177416D9002764AB /* icon-disclosure.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E15793177416D9002764AB /* icon-disclosure.png */; };
-		D4E4469519C0191700E76D83 /* Craftreqmtmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E4469419C0191700E76D83 /* Craftreqmtmdl.m */; };
 		D4E6156418D971C500D7EAA0 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E6156318D971C500D7EAA0 /* logo.png */; };
 		D4E658C017F2A54F00202B14 /* I9view.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E658BF17F2A54F00202B14 /* I9view.xib */; };
 		D4E658CA17F2DDFA00202B14 /* rightdisclosure.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E658C917F2DDFA00202B14 /* rightdisclosure.png */; };
@@ -1162,8 +1161,6 @@
 		D4DEEDDC17F428D40096A908 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D4DEEDDE17F428E10096A908 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		D4E15793177416D9002764AB /* icon-disclosure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-disclosure.png"; sourceTree = "<group>"; };
-		D4E4469319C0191600E76D83 /* Craftreqmtmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Craftreqmtmdl.h; sourceTree = "<group>"; };
-		D4E4469419C0191700E76D83 /* Craftreqmtmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Craftreqmtmdl.m; sourceTree = "<group>"; };
 		D4E6156318D971C500D7EAA0 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../logo.png; sourceTree = "<group>"; };
 		D4E658BF17F2A54F00202B14 /* I9view.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = I9view.xib; sourceTree = "<group>"; };
 		D4E658C917F2DDFA00202B14 /* rightdisclosure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightdisclosure.png; sourceTree = "<group>"; };
@@ -2060,8 +2057,6 @@
 				64ACC62119A5E20E00FC3FD8 /* Rightscheck.m */,
 				D4A123D019A6FE1100A4ED9B /* UserRightsmdl.h */,
 				D4A123D119A6FE1100A4ED9B /* UserRightsmdl.m */,
-				D4E4469319C0191600E76D83 /* Craftreqmtmdl.h */,
-				D4E4469419C0191700E76D83 /* Craftreqmtmdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -2600,7 +2595,6 @@
 				D49F874718EEA36B00413CAD /* NSData+Base64.m in Sources */,
 				D40720871772F37D0070629A /* ContactInfoViewController.m in Sources */,
 				D49F876C18EEA36B00413CAD /* Matrixmark.m in Sources */,
-				D4E4469519C0191700E76D83 /* Craftreqmtmdl.m in Sources */,
 				D49F8A5018EEBEA400413CAD /* Wagesmdl.m in Sources */,
 				D4EBA8671978FE7700B612E1 /* Thrtrmsmdl.m in Sources */,
 				D40D1EB7176B086F00379DD5 /* main.m in Sources */,
