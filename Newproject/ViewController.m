@@ -323,14 +323,14 @@
 - (IBAction)loginbtn:(id)sender {
     
     
-    if((_usernametxt.text.length==0)||(_passwrdtxt.text.length==0)){
+    if(([_usernametxt.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)||([_passwrdtxt.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)){
         
-        if(_usernametxt.text.length==0){
+        if([_usernametxt.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Enter Username" delegate:self
                                           cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         }
-       else if(_passwrdtxt.text.length==0){
+       else if([_passwrdtxt.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Enter Password" delegate:self
                                           cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
