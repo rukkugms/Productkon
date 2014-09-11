@@ -1074,6 +1074,7 @@
             [_type1btnlbl setTitle:@"Select" forState:UIControlStateNormal];
             [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
             _addview.hidden=YES;
+            _usertable.userInteractionEnabled=YES;
         }
 
     }
@@ -1084,12 +1085,13 @@
 -(IBAction)closeuser:(id)sender
 {
      _addview.hidden=YES;
+    _usertable.userInteractionEnabled=YES;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)adduserview:(id)sender
 {
     [_usertable setEditing:NO animated:NO];
-
+    _usertable.userInteractionEnabled=NO;
     optionIdentifier=1;
     _resultdisplaylabel.hidden=YES;
     _addview.hidden=NO;
@@ -1104,6 +1106,7 @@
 -(IBAction)edituserview:(id)sender
 {
     [_usertable setEditing:NO animated:NO];
+    _usertable.userInteractionEnabled=NO;
     optionIdentifier=2;
     _addview.hidden=NO;
     _navitem.title=@"Edit";
@@ -1156,6 +1159,7 @@
 -(IBAction)closeuserview:(id)sender
 {
     _addview.hidden=YES;
+    _usertable.userInteractionEnabled=YES;
 //    [_type2btnlbl setTitle:@"" forState:UIControlStateNormal];
 //    [_type1btnlbl setTitle:@"" forState:UIControlStateNormal];
 }

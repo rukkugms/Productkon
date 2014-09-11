@@ -48,7 +48,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated
 {
-   
+    _servicesTable.userInteractionEnabled=YES;
     [super viewWillAppear:animated];
      self.openviewindex=NSNotFound;
     
@@ -65,6 +65,7 @@
 }
 -(IBAction)closetheservicesview:(id)sender
 {
+    _servicesTable.userInteractionEnabled=YES;
      self.openviewindex=NSNotFound;
     _addserview.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:NULL];
@@ -285,6 +286,7 @@
 -(IBAction)Addservices:(id)sender
 {//[super setEditing:NO animated:NO];
     [_servicesTable setEditing:NO animated:NO];
+    _servicesTable.userInteractionEnabled=NO;
    // [_servicesTable reloadData];
     optionidentifier=1;
     self.navabar.title = @"Create";
@@ -326,6 +328,7 @@
     _resultdispalylabel.hidden=YES;
     _addserview.hidden=YES;
      self.openviewindex=NSNotFound;
+    _servicesTable.userInteractionEnabled=YES;
 }
 -(IBAction)updateservice:(id)sender
 {
@@ -962,6 +965,7 @@
             _abbreviatintextfld.text=@"";
             [_servicetextfld resignFirstResponder];
             [_abbreviatintextfld resignFirstResponder];
+            _servicesTable.userInteractionEnabled=YES;
             _addserview.hidden=YES;
         }
     }

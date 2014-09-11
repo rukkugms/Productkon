@@ -73,6 +73,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    _basicreqtable.userInteractionEnabled=YES;
     [self SelectAllRequirements];
     [self SelectAllCraft];
     [self SelectAllItemType];
@@ -176,6 +177,7 @@
         else if(optionidentifier==2)
         {
             _addreqview.hidden=YES;
+             _basicreqtable.userInteractionEnabled=YES;
             _itemnametextfield.text=@"";
             _codetextfield.text=@"";
             _hourstextfield.text=@"";
@@ -714,12 +716,14 @@
 
 -(IBAction)closetheBASicreqview:(id)sender
 { _addreqview.hidden=YES;
+     _basicreqtable.userInteractionEnabled=YES;
      self.openviewindex=NSNotFound;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)addbasicreq:(id)sender
 {
          [_basicreqtable setEditing:NO animated:NO];
+     _basicreqtable.userInteractionEnabled=NO;
     optionidentifier=1;
      self.openviewindex=NSNotFound;
     [self SelectAllCourseVendor];
@@ -739,7 +743,7 @@
 }
 -(IBAction)editBasicreq:(id)sender
 {     [_basicreqtable setEditing:NO animated:NO];
-    
+     _basicreqtable.userInteractionEnabled=NO;
     optionidentifier=2;
     _addreqview.hidden=NO;
     _navItem.title=@"Edit";
@@ -810,6 +814,7 @@
 }
 -(IBAction)closeeditBasicreqview:(id)sender
 { self.openviewindex=NSNotFound;
+     _basicreqtable.userInteractionEnabled=YES;
     _resultdisplaylabel.hidden=YES;
     _addreqview.hidden=YES;
     _itemnametextfield.text=@"";
