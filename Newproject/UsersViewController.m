@@ -1060,11 +1060,21 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if([alertView.message isEqualToString:_resultstring])
+    {if(optionIdentifier==1)
     {
         _usrnametextfld.text=@"";
         _pswdtextfld.text=@"";
         [_type1btnlbl setTitle:@"Select" forState:UIControlStateNormal];
         [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    }
+        else if (optionIdentifier==2)
+        {
+            _usrnametextfld.text=@"";
+            _pswdtextfld.text=@"";
+            [_type1btnlbl setTitle:@"Select" forState:UIControlStateNormal];
+            [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
+            _addview.hidden=YES;
+        }
 
     }
 }

@@ -915,11 +915,23 @@
     }
     if ([alertView.message isEqualToString:_soapstring]) {
         
+        if (optionidentifier==1) {
+            
         
         _nametextfld.text=@"";
         _addresstextfld.text=@"";
         _phonetextfld.text=@"";
         _ratetextfld.text=@"";
+        }
+        else if(optionidentifier==2)
+        {
+            _nametextfld.text=@"";
+            _addresstextfld.text=@"";
+            _phonetextfld.text=@"";
+            _ratetextfld.text=@"";
+            _venderaddview.hidden=YES;
+        }
+            
 
         
     }

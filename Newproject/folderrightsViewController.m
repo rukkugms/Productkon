@@ -669,6 +669,7 @@
                 [_editcreatecheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
                 [_editdwnldcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
                 [_editupldcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+                _editview.hidden=YES;
                 
                 
             }

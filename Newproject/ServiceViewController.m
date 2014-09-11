@@ -440,7 +440,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllServices xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SelectAllServices xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "</SelectAllServices>\n"
                    "</soap:Body>\n"
@@ -448,8 +448,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    //NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+     //NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -457,7 +457,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SelectAllServices" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllServices" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -490,7 +490,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<InsertServices xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<InsertServices xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<servname>%@</servname>\n"
                    "<Abbrevation>%@</Abbrevation>\n"
                    "</InsertServices>\n"
@@ -499,8 +499,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    //NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -508,7 +508,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/InsertServices" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/InsertServices" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -592,7 +592,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UpdateServices xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UpdateServices xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<SkillId>%d</SkillId>\n"
                    "<servname>%@</servname>\n"
                    "<Abbrevation>%@</Abbrevation>\n"
@@ -602,8 +602,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-   // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -611,7 +611,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UpdateServices" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/UpdateServices" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -950,10 +950,19 @@
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if ([alertView.message isEqualToString:msgstr]) {
+        if (optionidentifier==1) {
         _servicetextfld.text=@"";
         _abbreviatintextfld.text=@"";
         [_servicetextfld resignFirstResponder];
         [_abbreviatintextfld resignFirstResponder];
+        }
+        else if(optionidentifier==2){
+            _servicetextfld.text=@"";
+            _abbreviatintextfld.text=@"";
+            [_servicetextfld resignFirstResponder];
+            [_abbreviatintextfld resignFirstResponder];
+            _addserview.hidden=YES;
+        }
     }
 }
 

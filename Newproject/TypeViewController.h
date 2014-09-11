@@ -17,6 +17,7 @@
     NSInteger path;
     NSString *msgstrg;
     NSInteger deletepath;
+    NSInteger optionidentifier;
 
 }
 

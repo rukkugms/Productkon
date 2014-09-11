@@ -1562,10 +1562,22 @@
 {
     if([alertView.message isEqualToString:_soapstring])
     {
-        _phasetextfld.text=@"";
-        //[_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        [_servicebtn setTitle:@"Select" forState:UIControlStateNormal];
-        [_phasebtn setTitle:@"Select" forState:UIControlStateNormal];
+        if (optionIdentifier==1) {
+            _phasetextfld.text=@"";
+            //[_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_servicebtn setTitle:@"Select" forState:UIControlStateNormal];
+            [_phasebtn setTitle:@"Select" forState:UIControlStateNormal];
+        }
+        else if(optionIdentifier==2)
+        {
+            _phasetextfld.text=@"";
+            //[_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_servicebtn setTitle:@"Select" forState:UIControlStateNormal];
+            [_phasebtn setTitle:@"Select" forState:UIControlStateNormal];
+            _workphasesview.hidden=YES;
+
+        }
+       
         
     }
 }
