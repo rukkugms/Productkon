@@ -743,6 +743,7 @@
     }
 
 - (IBAction)savebtn:(id)sender {
+    
     _savebtn.enabled=NO;
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
