@@ -717,9 +717,9 @@ return cell;
     //_urlstring=[_docdict objectForKey:[_documntarray objectAtIndex:textFieldIndexPath.row]];
    // _urlstring=[NSString stringWithFormat:@"http://192.168.0.1:443/Folder/Root/EmployeeHandbook/accounts.xlsx"];
     
-    if (!self.webVCtrl) {
+    //if (!self.webVCtrl) {
         self.webVCtrl=[[WebViewController alloc]initWithNibName:@"WebViewController" bundle:nil];
-    }
+   // }
     _webVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
     _webVCtrl.urlstring=fullURL;
     
