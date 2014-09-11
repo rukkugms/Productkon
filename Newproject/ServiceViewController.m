@@ -300,6 +300,7 @@
 {   optionidentifier=2;
     //[super setEditing:NO animated:NO];
     [_servicesTable setEditing:NO animated:NO];
+     _servicesTable.userInteractionEnabled=NO;
    // [_servicesTable reloadData];
 
     _cancelbtn.enabled=NO;
