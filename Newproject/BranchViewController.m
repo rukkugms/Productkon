@@ -64,13 +64,14 @@
 - (IBAction)Closebranchpage:(id)sender
 {
     _branchview.hidden=YES;
-
+    _branchtable.userInteractionEnabled=YES;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)addbranchaction:(id)sender
 {
    // [super setEditing:NO animated:NO];
     [_branchtable setEditing:NO animated:NO];
+    _branchtable.userInteractionEnabled=NO;
   //  [_branchtable reloadData];
     _branchview.hidden=NO;
     optionidentifier=1;
@@ -119,6 +120,7 @@
 {
 //    [super setEditing:NO animated:NO];
     [_branchtable setEditing:NO animated:NO];
+    _branchtable.userInteractionEnabled=NO;
     //[_branchtable reloadData];
     _branchview.hidden=NO;
     optionidentifier=2;
@@ -145,6 +147,7 @@
 -(IBAction)closebranch:(id)sender
 {
     _branchview.hidden=YES;
+    _branchtable.userInteractionEnabled=YES;
 }
 -(IBAction)cancel:(id)sender
 {
@@ -1137,6 +1140,7 @@ if(textField==_emailtextfield){
                 _faxtextfield.text=@"";
                 _emailtextfield.text=@"";
                 _branchview.hidden=YES;
+                 _branchtable.userInteractionEnabled=YES;
                 
             }
 
