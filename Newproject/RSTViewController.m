@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 GMSIndia1. All rights reserved.
 //
 
-#import "SubtypViewController.h"
+#import "RSTViewController.h"
 
-@interface SubtypViewController ()
+@interface RSTViewController ()
 
 @end
 
-@implementation SubtypViewController
+@implementation RSTViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

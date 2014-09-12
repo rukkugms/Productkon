@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SubtypViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RSTViewController">
             <connections>
                 <outlet property="subcell" destination="wGg-ad-Rt6" id="Ify-CG-Z8T"/>
                 <outlet property="subtypelabel" destination="vXu-Ns-1VT" id="EQp-zv-vDS"/>

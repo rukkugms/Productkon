@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SubtypViewController : UIViewController
+@interface RSTViewController: UIViewController
 {
     NSInteger deletepath;
     NSInteger path;
@@ -42,5 +42,5 @@
 @property(strong,nonatomic)NSMutableArray *selectedsubtypearray;
 
 @property(strong,nonatomic)IBOutlet UIButton *subtypebutton;
-@property(strong,nonatomic)IBOutlet UILabel *subtypelabel;
+
 @end
