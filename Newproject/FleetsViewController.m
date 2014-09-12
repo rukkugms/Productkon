@@ -1522,6 +1522,7 @@ if([elementName isEqualToString:@"url"])
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 - (IBAction)addbtn:(id)sender{
+    _fleetTable.userInteractionEnabled=NO;
     _codetxtfld.text=@"";
     _destxtfld.text=@"";
     _subtypetxtfld.text=@"";
@@ -1556,12 +1557,13 @@ if([elementName isEqualToString:@"url"])
 {
     _addview.hidden=YES;
       _updatelbl.hidden=YES;
-    
+      _fleetTable.userInteractionEnabled=YES;
 }
 - (IBAction)editbtn:(id)sender
 
 {
     btntype=2;
+      _fleetTable.userInteractionEnabled=NO;
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.fleetTable];
@@ -1627,7 +1629,7 @@ if([elementName isEqualToString:@"url"])
     
     _encodedString = [data base64EncodedString];
     
-    if([_destxtfld.text isEqualToString:@""]){
+    if([_destxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
         
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         
@@ -1820,6 +1822,12 @@ if([elementName isEqualToString:@"url"])
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if ([alertView.message isEqualToString:msgstrg])
     {
+        
+        if (btntype==2) {
+            _addview.hidden=YES;
+            _fleetTable.userInteractionEnabled=YES;
+        }
+
         _codetxtfld.text=@"";
         _destxtfld.text=@"";
         _subtypetxtfld.text=@"";

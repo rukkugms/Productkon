@@ -1652,6 +1652,7 @@ finishedSavingWithError:(NSError *)error
 - (IBAction)Addclosebtn:(id)sender {
     _addview.hidden=YES;
     _updatelbl.hidden=YES;
+    _thirdprtyTable.userInteractionEnabled=YES;
 
 }
 
@@ -1681,7 +1682,7 @@ finishedSavingWithError:(NSError *)error
     _encodedString = [data base64EncodedString];
     NSLog(@"%@",_encodedString);
 
-    if([_destxtfld.text isEqualToString:@""]){
+    if([_destxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ].length==0){
         
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         
@@ -1744,6 +1745,7 @@ finishedSavingWithError:(NSError *)error
 }
 
 - (IBAction)addbtn:(id)sender {
+       _thirdprtyTable.userInteractionEnabled=NO;
     _cancelbtn.enabled=YES;
     _codetxtfld.text=@"";
     _destxtfld.text=@"";
@@ -1776,7 +1778,7 @@ finishedSavingWithError:(NSError *)error
 
 - (IBAction)editbtn:(id)sender {
     btntype=2;
-
+ _thirdprtyTable.userInteractionEnabled=NO;
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.thirdprtyTable];
@@ -1970,7 +1972,10 @@ finishedSavingWithError:(NSError *)error
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
      if ([alertView.message isEqualToString:msgstrg])
      {
-        
+         if(btntype==2){
+             _addview.hidden=YES;
+             _thirdprtyTable.userInteractionEnabled=NO;
+         }
         
          _codetxtfld.text=@"";
          _destxtfld.text=@"";

@@ -1542,7 +1542,7 @@
 
     
     if (butntype==1) {
-        if([_destxtfld.text isEqualToString:@""])
+        if([_destxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ].length==0)
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
@@ -1563,7 +1563,7 @@
     }
     }
     else if (butntype==2){
-        if([_destxtfld.text isEqualToString:@""])
+        if([_destxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ].length==0)
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
@@ -1643,6 +1643,7 @@ else
 }
 -(IBAction)addmaterial:(id)sender
 {
+    _materialTable.userInteractionEnabled=NO;
     _resultdispalylabel.hidden=YES;
     _codetxtfld.text=@"";
     
@@ -1660,6 +1661,7 @@ else
 }
 -(IBAction)editmaterial:(id)sender
 {
+     _materialTable.userInteractionEnabled=NO;
     butntype=2;
     _resultdispalylabel.hidden=YES;
     _cancelbtnlbl.enabled=NO;
@@ -1691,6 +1693,7 @@ else
 -(IBAction)closeaddview:(id)sender
 {
     _addmatView.hidden=YES;
+     _materialTable.userInteractionEnabled=YES;
    }
 
 - (IBAction)mesuresechbtn:(id)sender {
@@ -1721,11 +1724,32 @@ else
             [alert1 show];
             
         }}
+    if(textField==_unitofmesuretxtfld){
+        
+        int value13=[val validatespecialcharacters:_unitofmesuretxtfld.text];
+        if(value13==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Unit" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+        
+        
+    }
+
     return YES;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if ([alertView.message isEqualToString:msgstrg]) {
+        
+        if(butntype==2){
+            _addmatView.hidden=YES;
+             _materialTable.userInteractionEnabled=YES;
+        }
         _codetxtfld.text=@"";
         
         _destxtfld.text=@"";
@@ -1744,12 +1768,19 @@ else
         _unitcosttxtfld.text=@"";
         
     }
-    
-    
-    if ([alertView.message isEqualToString:@"Invalid stock in hand"]) {
+    if ([alertView.message isEqualToString:@"Invalid unit cost"]) {
         
         
-        _stockinhandtxtfld.text=@"";
+        _unitcosttxtfld.text=@"";
+        
+    }
+    
+
+    
+    if ([alertView.message isEqualToString:@"Invalid Unit"]) {
+        
+        
+        _unitofmesuretxtfld.text=@"";
         
     }}
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
