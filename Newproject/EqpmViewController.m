@@ -2089,7 +2089,7 @@ _shiftwisetxtfld.text=@"";
 
     //basicreqmdl*reqmdl=(basicreqmdl *)[_allrequirementarray objectAtIndex:textFieldIndexPath.row];
 
-    self.subtypctrlr=[[SubtypViewController alloc]initWithNibName:@"SubtypViewController" bundle:nil];
+    self.subtypctrlr=[[RSTViewController alloc]initWithNibName:@"RSTViewController" bundle:nil];
 
 
     self.subtypctrlr.modalPresentationStyle = UIModalPresentationFormSheet;
