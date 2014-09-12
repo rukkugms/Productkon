@@ -13,6 +13,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "Base64.h"
 #import "Rightscheck.h"
+#import "SubtypViewController.h"
 
 @interface EqpmViewController : UIViewController<UIImagePickerControllerDelegate>{
       BOOL recordResults;
@@ -107,9 +108,11 @@
 -(IBAction)addEquipment:(id)sender;
 -(IBAction)editequipview:(id)sender;
 -(IBAction)closeaddview:(id)sender;
+-(IBAction)cellsubtypeselection:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *cellsubtypebtn;
 
 
-
+@property(strong,nonatomic)SubtypViewController *subtypctrlr;
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
 @end
