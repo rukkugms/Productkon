@@ -487,6 +487,10 @@
             
         }
     }
+     if ([alertView.message isEqualToString:@"Type Name is required"]) {
+         _typetxtfld.text=@"";
+     }
+    
 }
 #pragma mark-Textfield Delegates
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
@@ -567,7 +571,7 @@
     else
     {
 
-    if ([_typetxtfld.text isEqualToString:@""]){
+    if ([_typetxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
         
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Type Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         

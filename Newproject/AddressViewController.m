@@ -548,13 +548,13 @@
 }
 
 - (IBAction)updatebtn:(id)sender {
-    if ([_headrtxtfld.text isEqualToString:@""]){
+    if ([_headrtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
     
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Header is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         
         [alert show];
     }
-    else if([_adrsstxtview.text isEqualToString:@""]){
+    else if([_adrsstxtview.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Address is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         
         [alert show];

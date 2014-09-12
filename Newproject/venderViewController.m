@@ -113,7 +113,7 @@
     if(optionidentifier==1)
     {
     Validation*val=[[Validation alloc]init];
-    int value1=[val isBlank:_nametextfld.text];
+    int value1=[val isBlank:[_nametextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
         if(value1==0)
         {
             UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -130,7 +130,7 @@
     else if(optionidentifier==2)
     {
         Validation*val=[[Validation alloc]init];
-        int value1=[val isBlank:_nametextfld.text];
+        int value1=[val isBlank:[_nametextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
         if(value1==0)
         {
             UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -922,6 +922,10 @@
         
         _ratetextfld.text=@"";
         
+    }
+    if ([alertView.message isEqualToString:@"Name is required"])
+    {
+        _nametextfld.text=@"";
     }
     if ([alertView.message isEqualToString:_soapstring]) {
         

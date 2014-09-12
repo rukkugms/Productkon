@@ -176,12 +176,12 @@
 else
 {
     
-        if([_branchnametextfld.text isEqualToString:@""])
+        if([_branchnametextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Branch Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
-        else  if ([_phonetextfield.text isEqualToString:@""]) {
+        else  if ([_phonetextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
@@ -1177,6 +1177,14 @@ if ([alertView.message isEqualToString:@"Invalid Phone Number"])
             
         }
         
+    }
+    if ([alertView.message isEqualToString:@"Branch Name is required"])
+    {
+        _branchnametextfld.text=@"";
+    }
+    if ([alertView.message isEqualToString:@"Phone Number is required"])
+    {
+        _phonetextfield.text=@"";
     }
     
     

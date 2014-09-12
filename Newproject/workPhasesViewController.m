@@ -290,7 +290,7 @@
     else
     {
 
-       if ([_phasetextfld.text isEqualToString:@""]) {
+       if ([_phasetextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phase is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
@@ -1586,6 +1586,13 @@
        
         
     }
+    if([alertView.message isEqualToString:@"Phase is required"])
+    {
+        _phasetextfld.text=@"";
+    }
+    
+
+    
 }
 
 #pragma mark-Searchbar

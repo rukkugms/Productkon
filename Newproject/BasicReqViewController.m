@@ -156,6 +156,10 @@
         _hourstextfield.text=@"";
         
     }
+    if ([alertView.message isEqualToString:@"Item Name is required"])
+    {
+        _itemnametextfield.text=@"";
+    }
     if ([alertView.message isEqualToString:_soapstring]) {
         
         if (optionidentifier==1) {
@@ -664,7 +668,7 @@
     if(optionidentifier==1)
 {
     Validation *val=[[Validation alloc]init];
-    int value1=[val isBlank:_itemnametextfield.text];
+    int value1=[val isBlank:[_itemnametextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
     if(value1==0)
     {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Item Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -689,7 +693,7 @@
     else if(optionidentifier==2)
     {
         Validation *val=[[Validation alloc]init];
-        int value1=[val isBlank:_itemnametextfield.text];
+        int value1=[val isBlank:[_itemnametextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
         if(value1==0)
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Item Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];

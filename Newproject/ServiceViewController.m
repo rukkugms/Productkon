@@ -352,7 +352,7 @@
 {
     
    Validation*val=[[Validation alloc]init];
-        int value1=[val isBlank:_servicetextfld.text];
+        int value1=[val isBlank:[_servicetextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
         if (value1==0) {
             UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Service name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
@@ -373,7 +373,7 @@
 }
     else if(optionidentifier==2)
     {   Validation*val=[[Validation alloc]init];
-        int value1=[val isBlank:_servicetextfld.text];
+        int value1=[val isBlank:[_servicetextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
         if (value1==0) {
             UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Service name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
@@ -969,6 +969,11 @@
             _addserview.hidden=YES;
         }
     }
+    if ([alertView.message isEqualToString:@"Service name is required"])
+    {
+         _servicetextfld.text=@"";
+    }
+
 }
 
 @end
