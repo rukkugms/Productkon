@@ -1566,6 +1566,14 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"subof"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -1747,10 +1755,20 @@
     {
         
         recordResults = FALSE;
-        _usermdl.viewonly=_soapResults;
-          [_usertablearray addObject:_usermdl];
+        
          _soapResults = nil;
     }
+    if([elementName isEqualToString:@"subof"])
+    {
+        
+        recordResults = FALSE;
+        _usermdl.viewonly=_soapResults;
+
+          [_usertablearray addObject:_usermdl];
+      
+        _soapResults = nil;
+    }
+
     if([elementName isEqualToString:@"result"])
     {
         

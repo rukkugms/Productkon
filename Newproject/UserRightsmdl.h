@@ -18,6 +18,7 @@
 @property(strong,nonatomic)NSString*deleterights;
 @property(strong,nonatomic)NSString*printrightes;
 @property(strong,nonatomic)NSString*viewonly;
+@property(strong,nonatomic)NSString*subof;
 
 
 @end

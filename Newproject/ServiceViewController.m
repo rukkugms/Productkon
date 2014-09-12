@@ -353,13 +353,29 @@
     
    Validation*val=[[Validation alloc]init];
         int value1=[val isBlank:[_servicetextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+     int value2=[val validatespecialcharacters:_servicetextfld.text];
         if (value1==0) {
             UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Service name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         
         
-    }
+     }
+ 
+       
+       else if(value2==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Service Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+        
+        
+    
+
     else
     {
         
@@ -374,6 +390,8 @@
     else if(optionidentifier==2)
     {   Validation*val=[[Validation alloc]init];
         int value1=[val isBlank:[_servicetextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        int value2=[val validatespecialcharacters:_servicetextfld.text];
+
         if (value1==0) {
             UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Service name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
@@ -381,6 +399,15 @@
             
             
         }
+        else if(value2==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Service Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+
         else
         {
 
@@ -949,22 +976,7 @@
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    if(textField==_servicetextfld){
-        Validation *val=[[Validation alloc]init];
-        int value1=[val validatespecialcharacters:_servicetextfld.text];
-        if(value1==0)
-        {
-            
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Service Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert1 show];
-            
-            
-        }
-        
-        
-        
-    }
-
+   
    
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
