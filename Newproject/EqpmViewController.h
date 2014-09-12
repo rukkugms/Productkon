@@ -25,6 +25,8 @@
     NSString * mesgstrg;
     NSString *newequcode;
     NSString*skill;
+    NSInteger createcheck;
+     NSString  *createstring;
     
 }
 @property(strong,nonatomic)NSMutableDictionary *skilldict;
@@ -115,4 +117,5 @@
 @property(strong,nonatomic)RSTViewController *subtypctrlr;
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
+@property(strong,nonatomic)IBOutlet UIButton *checkbtn;
 @end

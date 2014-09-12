@@ -31,6 +31,8 @@
 @property(strong,nonatomic)NSString*YearlyRate;
 @property(strong,nonatomic)NSString*type;
 @property(strong,nonatomic)NSString*stockinhand;
+@property(strong,nonatomic)NSString *EqAllSubTypes;
+
 
 @property(readwrite)NSInteger overhead;
 

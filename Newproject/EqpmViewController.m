@@ -282,6 +282,20 @@ finishedSavingWithError:(NSError *)error
     _desclbl.text=eqmdl.itemdescptn;
     _typelbl=(UILabel *)[cell viewWithTag:3];
     _typelbl.text=eqmdl.subtype;
+        if ([eqmdl.EqAllSubTypes isEqualToString:@"true"]) {
+            _cellsubtypebtn.enabled=NO;
+            // [_allcrftbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_cellsubtypebtn setTitle:@"All Sub Types" forState:UIControlStateNormal];
+            
+        }
+        else if([eqmdl.EqAllSubTypes isEqualToString:@"false"]){
+            _cellsubtypebtn.enabled=YES;
+            // [_allcrftbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+            [_cellsubtypebtn setTitle:@"Sub Types" forState:UIControlStateNormal];
+            
+            
+        }
+
     }
        return cell;
 }
@@ -475,10 +489,11 @@ finishedSavingWithError:(NSError *)error
                    "<WeeklyRate>%f</WeeklyRate>\n"
                    "<MonthlyRate>%f</MonthlyRate>\n"
                    "<YearlyRate>%f</YearlyRate>\n"
-                    "<qtyinstock>%f</qtyinstock>\n"
+                   "<qtyinstock>%f</qtyinstock>\n"
+                   "<EqAllSubTypes>%d</EqAllSubTypes>\n"
                    "</InsertEquipment>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_subsearchlbl.titleLabel.text],[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[_yearlytxtfld.text floatValue],[_stockinhndtxtfld.text floatValue]];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_subsearchlbl.titleLabel.text],[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[_yearlytxtfld.text floatValue],[_stockinhndtxtfld.text floatValue],createcheck];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -527,8 +542,34 @@ finishedSavingWithError:(NSError *)error
     //NSString*picturelocatn=@"";
     NSString *soapMessage;
     Equpmntmdl*eqmdl=(Equpmntmdl *)[_Equpntarray objectAtIndex:path];
+    NSInteger check;
     
-    
+    if([createstring isEqualToString:@"create"])
+    {
+        if (createcheck==0) {
+            check=0;
+        }
+        else{
+            check=1;
+            
+        }
+        createstring=@"";
+    }
+    else
+    {
+        if ([eqmdl.EqAllSubTypes isEqualToString:@"true"]) {
+            
+            check=1;
+        }
+        else if([eqmdl.EqAllSubTypes isEqualToString:@"false"]){
+           
+             check=0;
+            
+        }
+
+        
+    }
+
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -1154,6 +1195,15 @@ finishedSavingWithError:(NSError *)error
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"EqAllSubTypes"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     if([elementName isEqualToString:@"YearlyRate"])
     {
         
@@ -1163,6 +1213,7 @@ finishedSavingWithError:(NSError *)error
         }
         recordResults = TRUE;
     }
+
     if([elementName isEqualToString:@"SearchEquipmentResponse"])
     {
         _Equpntarray=[[NSMutableArray alloc]init];
@@ -1453,7 +1504,7 @@ finishedSavingWithError:(NSError *)error
     {
         recordResults = FALSE;
         _eqmdl.stockinhand=_soapResults;
-        [_Equpntarray addObject:_eqmdl];
+       
 
         _soapResults = nil;
 
@@ -1466,6 +1517,13 @@ finishedSavingWithError:(NSError *)error
         _soapResults = nil;
 
       
+    }
+    if([elementName isEqualToString:@"EqAllSubTypes"])
+    {
+        recordResults = FALSE;
+        _eqmdl.EqAllSubTypes=_soapResults;
+         [_Equpntarray addObject:_eqmdl];
+        _soapResults = nil;
     }
 
     if([elementName isEqualToString:@"result"])
@@ -1542,6 +1600,21 @@ finishedSavingWithError:(NSError *)error
 - (IBAction)subsearch:(id)sender {
     [self createpopover];
     [self AllSkills];
+}
+- (IBAction)checksubtypebtn:(id)sender
+{
+    if (createcheck==0) {
+        [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        createcheck=1;
+        
+    }
+    
+    else{
+        [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        createcheck=0;
+        
+    }
+
 }
 
 - (IBAction)deletebtn:(id)sender {
@@ -1651,6 +1724,20 @@ finishedSavingWithError:(NSError *)error
     _stockinhndtxtfld.text=[NSString stringWithFormat:@"%@",eqmdl.stockinhand];
     _uplodpiclctn=[NSString stringWithFormat:@"%@",eqmdl.PictureLocation];
     [_picimageview setImage:[UIImage imageNamed:@"ios7-camera-icon"]];
+    if ([eqmdl.EqAllSubTypes isEqualToString:@"true"]) {
+        
+        [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+       
+        
+    }
+    else if([eqmdl.EqAllSubTypes isEqualToString:@"false"]){
+        
+         [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        
+        
+        
+    }
+
     
     [self FetchAnyImage];
 
@@ -1694,7 +1781,7 @@ _addequipmentview.hidden=NO;
         
          // [self UploadAnyImage];
     
-    if([_destxtfld.text isEqualToString:@""]){
+    if([_destxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
         
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         
@@ -2087,13 +2174,13 @@ _shiftwisetxtfld.text=@"";
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.equipmenttbl];
     NSIndexPath *textFieldIndexPath = [self.equipmenttbl indexPathForRowAtPoint:rootViewPoint];
 
-    //basicreqmdl*reqmdl=(basicreqmdl *)[_allrequirementarray objectAtIndex:textFieldIndexPath.row];
+    Equpmntmdl*eqmdl=(Equpmntmdl *)[_Equpntarray objectAtIndex:textFieldIndexPath.row];
 
     self.subtypctrlr=[[RSTViewController alloc]initWithNibName:@"RSTViewController" bundle:nil];
 
 
     self.subtypctrlr.modalPresentationStyle = UIModalPresentationFormSheet;
-   // _craftVCtrl.reqid=reqmdl.eid;
+    _subtypctrlr.equipmainid=eqmdl.entryid;
     [self presentViewController:self.subtypctrlr
                    animated:YES completion:NULL];
 }

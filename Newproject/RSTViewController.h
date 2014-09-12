@@ -7,15 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Craftreqmtmdl.h"
 
 @interface RSTViewController: UIViewController
 {
     NSInteger deletepath;
     NSInteger path;
-}
+    BOOL recordResults;
+    NSString *msgstring;
+    NSInteger webtype;
+   }
 -(IBAction)closesubtype:(id)sender;
 
-
+@property(strong,nonatomic)Craftreqmtmdl *subtypemdl;
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;
 @property(strong,nonatomic)UIPopoverController *popOverController1;
@@ -42,5 +46,10 @@
 @property(strong,nonatomic)NSMutableArray *selectedsubtypearray;
 
 @property(strong,nonatomic)IBOutlet UIButton *subtypebutton;
+@property(strong,nonatomic)IBOutlet UILabel *subtypelabel;
+@property(readwrite)NSInteger equipmainid;
+@property(strong,nonatomic)NSString *skillstring;
+@property(strong,nonatomic)NSMutableDictionary *subtypelistdictionary;
+
 
 @end
