@@ -55,6 +55,7 @@
     _result=@"";
     _moduleid=0;
     [super viewWillAppear:animated];
+    _phasetable.userInteractionEnabled=YES;
     [self SelectAllPhases];
 }
 #pragma mark-tableview datasources
@@ -215,11 +216,13 @@
 -(IBAction)closePhases:(id)sender
 {
     _workphasesview.hidden=YES;
+    _phasetable.userInteractionEnabled=YES;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)addworkPhasesview:(id)sender
 {
      [_phasetable setEditing:NO animated:NO];
+    _phasetable.userInteractionEnabled=NO;
     optionIdentifier=1;
     _workphasesview.hidden=NO;
     _navItem.title=@"Create";
@@ -233,6 +236,7 @@
 -(IBAction)editWorkPhasesview:(id)sender
 {
     [_phasetable setEditing:NO animated:NO];
+    _phasetable.userInteractionEnabled=NO;
 
     optionIdentifier=2;
     _workphasesview.hidden=NO;
@@ -262,6 +266,7 @@
 {
     _result=@"";
     _moduleid=0;
+    _phasetable.userInteractionEnabled=YES;
     _workphasesview.hidden=YES;
     _updatelbl.hidden=YES;
 }
@@ -1575,6 +1580,7 @@
             [_servicebtn setTitle:@"Select" forState:UIControlStateNormal];
             [_phasebtn setTitle:@"Select" forState:UIControlStateNormal];
             _workphasesview.hidden=YES;
+            _phasetable.userInteractionEnabled=YES;
 
         }
        

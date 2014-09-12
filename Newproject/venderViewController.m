@@ -51,6 +51,7 @@
 #pragma mark-Actions
 -(IBAction)closevendorpage:(id)sender
 { _venderaddview.hidden=YES;
+    _vendelisttable.userInteractionEnabled=YES;
     if ([self.delegate respondsToSelector:@selector(newaction)])
     {
     [self.delegate newaction];
@@ -84,6 +85,9 @@
 {
     optionidentifier=1;
     _venderaddview.hidden=NO;
+    [_vendelisttable setEditing:NO animated:NO];
+
+    _vendelisttable.userInteractionEnabled=NO;
     _navitem.title=@"Create";
     _resultdispaylabel.hidden=YES;
     _nametextfld.text=@"";
@@ -96,6 +100,7 @@
 -(IBAction)closeaddview:(id)sender
 {
     _venderaddview.hidden=YES;
+    _vendelisttable.userInteractionEnabled=YES;
     _resultdispaylabel.hidden=YES;
     _nametextfld.text=@"";
     _addresstextfld.text=@"";
@@ -142,6 +147,9 @@
 }
 -(IBAction)editvender:(id)sender
 {
+    _vendelisttable.userInteractionEnabled=NO;
+    [_vendelisttable setEditing:NO animated:NO];
+
     optionidentifier=2;
     _cancelbtn.enabled=NO;
     _venderaddview.hidden=NO;
@@ -932,6 +940,7 @@
             _phonetextfld.text=@"";
             _ratetextfld.text=@"";
             _venderaddview.hidden=YES;
+            _vendelisttable.userInteractionEnabled=YES;
         }
             
 

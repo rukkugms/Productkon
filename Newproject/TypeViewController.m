@@ -444,6 +444,7 @@
 
 
 - (IBAction)clsebtn:(id)sender {
+    _typetable.userInteractionEnabled=YES;
      _addview.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -528,6 +529,7 @@
 
 - (IBAction)editbtn:(id)sender {
     [_typetable setEditing:NO animated:NO];
+    _typetable.userInteractionEnabled=NO;
     optionidentifier=2;
     _addview.hidden=NO;
     _navitem.title=@"Edit";
@@ -545,6 +547,7 @@
 
 - (IBAction)addbtn:(id)sender {
     [_typetable setEditing:NO animated:NO];
+    _typetable.userInteractionEnabled=NO;
     optionidentifier=1;
     webtype=1;
     _addview.hidden=NO;
@@ -569,6 +572,7 @@
             {
                 _typetxtfld.text=@"";
                 _addview.hidden=YES;
+                _typetable.userInteractionEnabled=YES;
             }
             
             

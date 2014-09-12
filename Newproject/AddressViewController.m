@@ -503,10 +503,14 @@
 
 - (IBAction)clsebtn:(id)sender {
     _addview.hidden=YES;
+    _addresstable.userInteractionEnabled=YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)addbtn:(id)sender {
+    _addresstable.userInteractionEnabled=NO;
+    [_addresstable setEditing:NO animated:NO];
+
     _addview.hidden=NO;
     optionidentifier=1;
      _addnavitem.title=@"Create";
@@ -586,6 +590,7 @@
                 _headrtxtfld.text=@"";
                 _adrsstxtview.text=@"";
                 _addview.hidden=YES;
+                _addresstable.userInteractionEnabled=YES;
             }
 
             
@@ -624,10 +629,13 @@
 
 - (IBAction)addclsebtn:(id)sender {
     _addview.hidden=YES;
+      _addresstable.userInteractionEnabled=YES;
     
 }
 
 - (IBAction)editbtn:(id)sender {
+    _addresstable.userInteractionEnabled=NO;
+    [_addresstable setEditing:NO animated:NO];
    // _.enabled=NO;
     optionidentifier=2;
      _addview.hidden=NO;

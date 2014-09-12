@@ -36,6 +36,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+   
     [self WorkTypeSelect];
 }
 
@@ -480,6 +481,7 @@
             
             _typetxtfld.text=@"";
                 _addview.hidden=YES;
+                _typetable.userInteractionEnabled=YES;
             }
             
             
@@ -500,6 +502,7 @@
 
 - (IBAction)addbtn:(id)sender {
     [_typetable setEditing:NO animated:NO];
+    _typetable.userInteractionEnabled=NO;
     webtype=1;
     optionidentifier=1;
     _addview.hidden=NO;
@@ -583,15 +586,18 @@
 }
 
 - (IBAction)clsebtn:(id)sender {
+    _typetable.userInteractionEnabled=YES;
     _addview.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)addclsebtn:(id)sender {
     _addview.hidden=YES;
+    _typetable.userInteractionEnabled=YES;
 }
 - (IBAction)editbtn:(id)sender {
      [_typetable setEditing:NO animated:NO];
+    _typetable.userInteractionEnabled=NO;
     _navtitle.title=@"Edit";
     optionidentifier=2;
     _addview.hidden=NO;
