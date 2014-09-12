@@ -949,7 +949,22 @@
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    
+    if(textField==_servicetextfld){
+        Validation *val=[[Validation alloc]init];
+        int value1=[val validatespecialcharacters:_servicetextfld.text];
+        if(value1==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Service Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+        
+        
+    }
+
    
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -972,6 +987,10 @@
     if ([alertView.message isEqualToString:@"Service name is required"])
     {
          _servicetextfld.text=@"";
+    }
+    if ([alertView.message isEqualToString:@"Invalid Service Name"])
+    {
+        _servicetextfld.text=@"";
     }
 
 }
