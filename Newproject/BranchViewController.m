@@ -1095,7 +1095,22 @@ if(textField==_emailtextfield){
     
     }
     
-    
+    if(textField==_branchnametextfld){
+        Validation *val=[[Validation alloc]init];
+        int value1=[val validatespecialcharacters:_branchnametextfld.text];
+        if(value1==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Branch Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+        
+        
+    }
+
     
     
 
@@ -1165,7 +1180,19 @@ if ([alertView.message isEqualToString:@"Invalid Email"]) {
             
         }
     }
-    
+    if ([alertView.message isEqualToString:@"Invalid Branch Name"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _branchnametextfld.text=@"";
+            
+            
+        }
+    }
+
     
     
     
