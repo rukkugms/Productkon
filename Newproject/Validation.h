@@ -15,4 +15,5 @@
 -(BOOL)isdataformat:(NSString *)input;
 -(BOOL) validEmailAddress:(NSString*) emailStr;
 - (BOOL) validateUrl: (NSString *) candidate;
+-(BOOL)validatespecialcharacters:(NSString *)input;
 @end

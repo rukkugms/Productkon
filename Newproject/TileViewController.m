@@ -185,9 +185,9 @@
     }
 
 -(void)serailnumpage{
-    if (!self.SerialVCtrl) {
+   // if (!self.SerialVCtrl) {
         self.SerialVCtrl=[[SerialViewController alloc]initWithNibName:@"SerialViewController" bundle:nil];
-    }
+   // }
      _SerialVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:_SerialVCtrl
                        animated:YES completion:NULL];
@@ -337,9 +337,9 @@
         if (rightsmodel.ViewModule==1) {
             
             
-            if (!self.compVCtrl) {
+           // if (!self.compVCtrl) {
                 self.compVCtrl=[[CompanyViewController alloc]initWithNibName:@"CompanyViewController" bundle:nil];
-            }
+           // }
             _compVCtrl.modalPresentationStyle = UIModalPresentationCustom;
             _compVCtrl.userrightsarray=_userrightsarray;
             [self presentViewController:_compVCtrl
@@ -359,9 +359,9 @@
         if (rightsmodel.ViewModule==1) {
             
             
-            if (!self.branchVCtrl) {
+           // if (!self.branchVCtrl) {
                 self.branchVCtrl=[[BranchViewController alloc]initWithNibName:@"BranchViewController" bundle:nil];
-            }
+            //}
             _branchVCtrl.userrightsarray=_userrightsarray;
             //_branchVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
             [self presentViewController:_branchVCtrl
@@ -378,9 +378,9 @@
     {
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
-            if (!self.cmpnyVCtrl) {
+           // if (!self.cmpnyVCtrl) {
                 self.cmpnyVCtrl=[[CmpnydocsViewController alloc]initWithNibName:@"CmpnydocsViewController" bundle:nil];
-            }
+           // }
             _cmpnyVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
             [self presentViewController:_cmpnyVCtrl
                                animated:YES completion:NULL];
@@ -396,9 +396,9 @@
     {
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
-            if (!self.wrkstngVCtrlr) {
+           // if (!self.wrkstngVCtrlr) {
                 self.wrkstngVCtrlr=[[SettngsViewController alloc]initWithNibName:@"SettngsViewController" bundle:nil];
-            }
+           // }
             _wrkstngVCtrlr.modalPresentationStyle=UIModalPresentationFormSheet;
             [self presentViewController:_wrkstngVCtrlr animated:YES completion:nil];
         }
@@ -413,9 +413,9 @@
     {
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
-            if (!self.typeVCtrl) {
+           // if (!self.typeVCtrl) {
                 self.typeVCtrl=[[TypeViewController alloc]initWithNibName:@"TypeViewController" bundle:nil];
-            }
+           // }
             _typeVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
             _typeVCtrl.userrightsarray=_userrightsarray;
             [self presentViewController:_typeVCtrl
@@ -431,9 +431,9 @@
     {
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
-            if (!self.usersVctrl) {
+           // if (!self.usersVctrl) {
                 self.usersVctrl=[[UsersViewController alloc]initWithNibName:@"UsersViewController" bundle:nil];
-            }
+           // }
             _usersVctrl.modalPresentationStyle = UIModalPresentationPageSheet;
             _usersVctrl.userrightsarray=_userrightsarray;
             [self presentViewController:_usersVctrl
@@ -451,9 +451,9 @@
     {
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
-            if (!self.ftileVCtrl) {
+           // if (!self.ftileVCtrl) {
                 self.ftileVCtrl=[[FtileViewController alloc]initWithNibName:@"FtileViewController" bundle:nil];
-            }
+           // }
             _ftileVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
            // _ftileVCtrl.userrightsarray=_userrightsarray;
             [self presentViewController:_ftileVCtrl
@@ -470,9 +470,9 @@
     {
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
-            if (!self.basicreqVctrl) {
+           // if (!self.basicreqVctrl) {
                 self.basicreqVctrl=[[BasicReqViewController alloc]initWithNibName:@"BasicReqViewController" bundle:nil];
-            }
+            //}
             // _basicreqVctrl.modalPresentationStyle = UIModalPresentationPageSheet;
             _basicreqVctrl.userrightsarray=_userrightsarray;
             [self presentViewController:_basicreqVctrl

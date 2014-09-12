@@ -770,7 +770,7 @@
     int value6=[val validateUrl:_webtxtfld.text];
     
         
-         if ([_companynametxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length ==0) {
+    if ([_companynametxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length ==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Company Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
@@ -1286,6 +1286,22 @@
             [alert show];
         }
     }
+    
+      if(textField==_citytxtfld){
+           Validation *val=[[Validation alloc]init];
+          int value1=[val validatespecialcharacters:_citytxtfld.text];
+          if(value1==0)
+          {
+              
+              UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid City Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+              [alert1 show];
+              
+              
+          }
+          
+
+          
+      }
 
 //
 //        if(textField==_citytxtfld){
@@ -1568,11 +1584,12 @@
         switch (poptype) {
             case 1:
                 [_statebtn setTitle:[_statearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                    [_coutryBtn setTitle:@"Select" forState:UIControlStateNormal];
                 
                 break;
             case 2:
                 [_coutryBtn setTitle:[_countryarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-                 [_statebtn setTitle:@"Select" forState:UIControlStateNormal];
+             
                 
                 break;
                 
