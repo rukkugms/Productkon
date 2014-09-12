@@ -1078,6 +1078,16 @@
         }
 
     }
+    if([alertView.message isEqualToString:@"User Name is required"])
+    {
+        _usrnametextfld.text=@"";
+        
+    }
+    if([alertView.message isEqualToString:@"Password is required"])
+    {
+        _pswdtextfld.text=@"";
+        
+    }
 }
 
 
@@ -1243,8 +1253,8 @@
     if(optionIdentifier==1)
     {
         Validation *val=[[Validation alloc]init];
-        int value1=[val isBlank:_usrnametextfld.text];
-        int value2=[val isBlank:_pswdtextfld.text];
+        int value1=[val isBlank:[_usrnametextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        int value2=[val isBlank:[_pswdtextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
         
         if (value1==0||value2==0) {
             if(value1==0)

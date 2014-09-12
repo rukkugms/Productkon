@@ -923,6 +923,10 @@
         _ratetextfld.text=@"";
         
     }
+    if ([alertView.message isEqualToString:@"Name is required"])
+    {
+        _nametextfld.text=@"";
+    }
     if ([alertView.message isEqualToString:_soapstring]) {
         
         if (optionidentifier==1) {
