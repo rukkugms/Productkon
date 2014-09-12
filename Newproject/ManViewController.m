@@ -1238,6 +1238,7 @@
         msgstrg=_soapResults;
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+            
         }
         
         _soapResults = nil;
@@ -1292,6 +1293,7 @@
 
 #pragma mark-Action
 - (IBAction)addmanpwer:(id)sender {
+    _manpowerTable.userInteractionEnabled=NO;
   
     _itemcodetxtfld.text=@"";
     
@@ -1317,11 +1319,14 @@
 }
 - (IBAction)clsebtn:(id)sender {
     _addview.hidden=YES;
+    _manpowerTable.userInteractionEnabled=YES;
+
     
 }
 -(IBAction)editmanpower:(id)sender
 {
     btnidtfr=11;
+       _manpowerTable.userInteractionEnabled=NO;
      _cancelbtnlbl.enabled=NO;
     _resultdisplaylabel.hidden=YES;
     button = (UIButton *)sender;
@@ -1408,7 +1413,7 @@
     {
 
     if (btnidtfr==11) {
-        if([_itemdestxtfld.text isEqualToString:@""])
+        if([_itemdestxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Classification  is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
@@ -1427,7 +1432,7 @@
     }
     }
     else if (btnidtfr==22){
-        if([_itemdestxtfld.text isEqualToString:@""])
+        if([_itemdestxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Classification  is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
@@ -1575,6 +1580,11 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 if ([alertView.message isEqualToString:msgstrg]) {
+    
+    if(btnidtfr==11){
+        _addview.hidden=YES;
+        _manpowerTable.userInteractionEnabled=YES;
+    }
     _itemcodetxtfld.text=@"";
     
     _itemdestxtfld.text=@"";
@@ -1846,9 +1856,9 @@ if ([alertView.message isEqualToString:msgstrg]) {
 }
 
 - (IBAction)servicebtn:(id)sender {
-    if(!self.serviceVCtrl){
+    //if(!self.serviceVCtrl){
         _serviceVCtrl=[[ServiceViewController alloc]initWithNibName:@"ServiceViewController" bundle:nil];
-    }
+   // }
     _serviceVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:_serviceVCtrl
                        animated:YES completion:NULL];}

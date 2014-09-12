@@ -942,7 +942,7 @@
 
     
     if (butntype==1) {
-        if([_destxtfld.text isEqualToString:@""])
+        if([_destxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ].length==0)
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
@@ -963,7 +963,7 @@
     }
     else  if (butntype==2)
     {
-        if([_destxtfld.text isEqualToString:@""])
+        if([_destxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
     {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
@@ -1033,7 +1033,9 @@
 
 -(IBAction)closeconsume:(id)sender{
       _addView.hidden=YES;
+    
     [self dismissViewControllerAnimated:YES completion:nil];
+    
     
 }
 -(IBAction)addconsume:(id)sender
@@ -1049,11 +1051,13 @@
     butntype=1;
     _cancelbtn.enabled=YES;
        _navItem.title=@"Create";
+    _consumbleTable.userInteractionEnabled=NO;
     
     
 }
 -(IBAction)editconsume:(id)sender{
      butntype=2;
+      _consumbleTable.userInteractionEnabled=NO;
     button = (UIButton *)sender;
     CGPoint center= button.center;
     _resultdisplaylabel.hidden=YES;
@@ -1079,6 +1083,7 @@
 -(IBAction)closeaddview:(id)sender{
     _addView.hidden=YES;
     _resultdisplaylabel.hidden=YES;
+    _consumbleTable.userInteractionEnabled=YES;
     
     
 }
@@ -1112,6 +1117,10 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if ([alertView.message isEqualToString:msgstrg]) {
+        if (butntype==2){
+            _addView.hidden=YES;
+            _consumbleTable.userInteractionEnabled=YES;
+        }
         _codetxtfld.text=@"";
         _resultdisplaylabel.hidden=NO;
         _resultdisplaylabel.text=_soapResults;

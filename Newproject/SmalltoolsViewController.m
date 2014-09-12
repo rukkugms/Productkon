@@ -1166,7 +1166,7 @@ _soapResults = nil;
     _stockinhandtxtfld.text=@"";
     [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
 
-    
+     _Tooltable.userInteractionEnabled=NO;
     _addview.hidden=NO;
     _cancelbtnlbl.enabled=YES;
     _navtitle.title=@"Create";
@@ -1245,7 +1245,7 @@ _soapResults = nil;
 
     
     if (butntype==1) {
-        if([_destxtfld.text isEqualToString:@""])
+        if([_destxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ].length==0)
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
@@ -1265,7 +1265,7 @@ _soapResults = nil;
         
     }
     else if (butntype==2){
-        if([_destxtfld.text isEqualToString:@""])
+        if([_destxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ].length==0)
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
@@ -1312,6 +1312,7 @@ else
 
 - (IBAction)editbtn:(id)sender {
     butntype=2;
+     _Tooltable.userInteractionEnabled=NO;
     _cancelbtnlbl.enabled=NO;
     _resultdisplaylabel.hidden=YES;
     button = (UIButton *)sender;
@@ -1364,7 +1365,10 @@ else
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if ([alertView.message isEqualToString:msgstrg]) {
-        
+         if (butntype==2){
+             _addview.hidden=YES;
+             _Tooltable.userInteractionEnabled=YES;
+         }
         _codetxtfld.text=@"";
         
         _destxtfld.text=@"";

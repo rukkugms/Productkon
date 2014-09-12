@@ -1607,6 +1607,7 @@ recordResults = FALSE;
     btntype=1;
     _addview.hidden=NO;
     _navItem.title=@"Create";
+    _AssetTable.userInteractionEnabled=NO;
 }
 
 
@@ -1615,6 +1616,7 @@ recordResults = FALSE;
 - (IBAction)Addclosebtn:(id)sender{
     _addview.hidden=YES;
     _updatelbl.hidden=YES;
+    _AssetTable.userInteractionEnabled=YES;
 
     
 }
@@ -1622,6 +1624,8 @@ recordResults = FALSE;
 
 {
     btntype=2;
+    _AssetTable.userInteractionEnabled=NO;
+
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.AssetTable];
@@ -1684,7 +1688,7 @@ recordResults = FALSE;
     
     _encodedString = [data base64EncodedString];
     NSLog(@"%@",_encodedString);
-    if([_destxtfld.text isEqualToString:@""]){
+    if([_destxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
         
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         
@@ -1876,7 +1880,11 @@ recordResults = FALSE;
  {
         
         
-        
+     if(btntype==2){
+         _addview.hidden=YES;
+         _AssetTable.userInteractionEnabled=YES;
+     }
+         
         
             
             _codetxtfld.text=@"";
