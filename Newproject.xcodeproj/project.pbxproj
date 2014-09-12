@@ -95,6 +95,7 @@
 		64A4D097195AE50E00C3F783 /* Bidmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A4D096195AE50E00C3F783 /* Bidmodel.m */; };
 		64A5ED4D19C2C4EC002E0018 /* SubtypViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A5ED4B19C2C4EC002E0018 /* SubtypViewController.m */; };
 		64A5ED4E19C2C4EC002E0018 /* SubtypViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A5ED4C19C2C4EC002E0018 /* SubtypViewController.xib */; };
+		64A5ED5019C2D7D3002E0018 /* Subcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A5ED4F19C2D7D3002E0018 /* Subcell.xib */; };
 		64A654B4192F1F14004DDB84 /* GPSetupTileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A654B2192F1F14004DDB84 /* GPSetupTileViewController.m */; };
 		64A654B5192F1F14004DDB84 /* GPSetupTileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A654B3192F1F14004DDB84 /* GPSetupTileViewController.xib */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
@@ -658,6 +659,7 @@
 		64A5ED4A19C2C4EC002E0018 /* SubtypViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubtypViewController.h; sourceTree = "<group>"; };
 		64A5ED4B19C2C4EC002E0018 /* SubtypViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubtypViewController.m; sourceTree = "<group>"; };
 		64A5ED4C19C2C4EC002E0018 /* SubtypViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubtypViewController.xib; sourceTree = "<group>"; };
+		64A5ED4F19C2D7D3002E0018 /* Subcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Subcell.xib; sourceTree = "<group>"; };
 		64A654B1192F1F14004DDB84 /* GPSetupTileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSetupTileViewController.h; sourceTree = "<group>"; };
 		64A654B2192F1F14004DDB84 /* GPSetupTileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSetupTileViewController.m; sourceTree = "<group>"; };
 		64A654B3192F1F14004DDB84 /* GPSetupTileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPSetupTileViewController.xib; sourceTree = "<group>"; };
@@ -1403,6 +1405,7 @@
 				64A5ED4A19C2C4EC002E0018 /* SubtypViewController.h */,
 				64A5ED4B19C2C4EC002E0018 /* SubtypViewController.m */,
 				64A5ED4C19C2C4EC002E0018 /* SubtypViewController.xib */,
+				64A5ED4F19C2D7D3002E0018 /* Subcell.xib */,
 				D4049664192F17DD00685109 /* Group SetUp */,
 			);
 			name = Resources;
@@ -2294,6 +2297,7 @@
 				64A11EE718683792008D20CC /* workPhasesViewController.xib in Resources */,
 				D4FFBD201855B7830007851D /* carat.png in Resources */,
 				D49FA2F0196164560037BA7A /* TEqupcell.xib in Resources */,
+				64A5ED5019C2D7D3002E0018 /* Subcell.xib in Resources */,
 				D4A16B901974EEE0002CA2A2 /* Bidreviewcell.xib in Resources */,
 				D4A16B4F1974EEA8002CA2A2 /* PGcell.xib in Resources */,
 				D4A338EC18F3EEEF00E53FAC /* billingcell.xib in Resources */,
