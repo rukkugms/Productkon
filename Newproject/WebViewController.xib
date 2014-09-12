@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <webView opaque="NO" contentMode="scaleAspectFit" scalesPageToFit="YES" id="4">
+                <webView opaque="NO" contentMode="center" scalesPageToFit="YES" id="4">
                     <rect key="frame" x="85" y="121" width="621" height="844"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

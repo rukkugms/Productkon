@@ -534,12 +534,14 @@
 
 - (IBAction)addclsebtn:(id)sender {
     _addview.hidden=YES;
+      _sequencetable.userInteractionEnabled=YES;
 }
 
 - (IBAction)editbtn:(id)sender {
     //[super setEditing:NO animated:NO];
-    [_sequencetable setEditing:NO animated:NO];
+    //[_sequencetable setEditing:NO animated:NO];
    // [_sequencetable reloadData];
+    _sequencetable.userInteractionEnabled=NO;
 
     _addview.hidden=NO;
     optionidentifier=2;
@@ -559,7 +561,8 @@
 -(IBAction)addsequence:(id)sender
 {
     //[super setEditing:NO animated:NO];
-    [_sequencetable setEditing:NO animated:NO];
+  //  [_sequencetable setEditing:NO animated:NO];
+      _sequencetable.userInteractionEnabled=NO;
    // [_sequencetable reloadData];
     _addview.hidden=NO;
     optionidentifier=1;
@@ -591,11 +594,20 @@ _addview.hidden=YES;
         
         
     }
-    else if ([_seqnotextfld.text isEqualToString:@""]) {
+    else if ([_seqnotextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length ==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Sequence Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
     }
+    else if ([_jobtasktextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length ==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Job Task is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    
+
+    
+    
     else
     {
 
@@ -645,6 +657,7 @@ _addview.hidden=YES;
             
             _seqnotextfld.text=@"";
             _jobtasktextfld.text=@"";
+                 _sequencetable.userInteractionEnabled=YES;
             }
             
             else if(optionidentifier==2)
@@ -652,6 +665,7 @@ _addview.hidden=YES;
                 _seqnotextfld.text=@"";
                 _jobtasktextfld.text=@"";
                 _addview.hidden=YES;
+                  _sequencetable.userInteractionEnabled=YES;
             }
             
         }

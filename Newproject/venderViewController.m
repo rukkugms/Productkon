@@ -95,6 +95,7 @@
     _phonetextfld.text=@"";
     _ratetextfld.text=@"";
     _cancelbtn.enabled=YES;
+      _vendelisttable.userInteractionEnabled=NO;
 }
 -(IBAction)closeaddview:(id)sender
 {
@@ -105,6 +106,7 @@
     _addresstextfld.text=@"";
     _phonetextfld.text=@"";
     _ratetextfld.text=@"";
+    //_vendelisttable.userInteractionEnabled=NO;
 }
 -(IBAction)updatevender:(id)sender
 {
