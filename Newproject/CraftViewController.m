@@ -38,6 +38,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    _crafttable.userInteractionEnabled=YES;
     [self CraftBasicRequirementsselect];
 }
 - (void)didReceiveMemoryWarning
@@ -576,9 +577,9 @@ if([elementName isEqualToString:@"BRDescription"])
     {
           recordresults = FALSE;
         if([_soapResults isEqualToString:@"deleted"]){
-            
+            [self CraftBasicRequirementsselect];
         }else{
-            _soapResults=msgstrg;
+            msgstrg=_soapResults;
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
          [alert show];
         }
@@ -596,7 +597,7 @@ if([elementName isEqualToString:@"BRDescription"])
     
      [_craftbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
     
-    _addview.hidden=YES;
+    //_addview.hidden=YES;
     }
 }
 #pragma mark-Popover
@@ -631,6 +632,7 @@ if([elementName isEqualToString:@"BRDescription"])
 }
 - (IBAction)addbtn:(id)sender {
          [_crafttable setEditing:NO animated:NO];
+    _crafttable.userInteractionEnabled=NO;
     _addview.hidden=NO;
     
 }
@@ -659,6 +661,7 @@ if([elementName isEqualToString:@"BRDescription"])
 }
 
 - (IBAction)clsebtn:(id)sender {
+    _crafttable.userInteractionEnabled=YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)updatebtn:(id)sender {
@@ -675,6 +678,7 @@ if([elementName isEqualToString:@"BRDescription"])
 
 - (IBAction)addclsebtn:(id)sender {
     _addview.hidden=YES;
+    _crafttable.userInteractionEnabled=YES;
     
 }
 
