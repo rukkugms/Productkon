@@ -251,6 +251,17 @@
     NSString *soapMessage;
     
 Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:butnpath];
+    if (createsub!=1) {
+        if ([pwrmdl.allsubtype isEqualToString:@"true"]) {
+            checksub=1;
+        }
+        else{
+             checksub=0;
+        }
+    }
+    else{
+        createsub=0;
+    }
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -1263,13 +1274,13 @@ _soapResults = nil;
             [alert show];
              _destxtfld.text=@"";
         }
-        else if ([_subsearchbtnlbl.titleLabel.text isEqualToString:@""]||[_subsearchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
-            
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            
-            [alert show];
-            
-        }
+//        else if ([_subsearchbtnlbl.titleLabel.text isEqualToString:@""]||[_subsearchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+//            
+//            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//            
+//            [alert show];
+//            
+//        }
 
    else
   {
@@ -1379,6 +1390,7 @@ else
     
 }
 - (IBAction)checksubtypebtn:(id)sender {
+    createsub=1;
     if (checksub==0) {
         [_checksubbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         checksub=1;
