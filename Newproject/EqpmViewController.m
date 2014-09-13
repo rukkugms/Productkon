@@ -64,6 +64,7 @@ _scroll_addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255
     
     [super viewWillAppear:animated];
     [self AllSkills];
+    _equipmenttbl.userInteractionEnabled=YES;
     //[self SelectAllEquipment];
 }
 
@@ -1552,7 +1553,12 @@ finishedSavingWithError:(NSError *)error
             [alert show];
             [self SelectAllEquipment];
         }
-      
+         if ([_soapResults isEqualToString:@"Already Exists"])
+             {
+                  mesgstrg=_soapResults;
+                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:mesgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                 [alert show];
+             }
         
         
       _soapResults = nil;
@@ -1663,6 +1669,7 @@ finishedSavingWithError:(NSError *)error
 }
 -(IBAction)addEquipment:(id)sender
 {
+    [_equipmenttbl setEditing:NO animated:NO];
     _codetxfld.text=@"";
     _destxtfld.text=@"";
     _subtypetxtfld.text=@"";
@@ -1683,7 +1690,7 @@ finishedSavingWithError:(NSError *)error
   _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
     [_subsearchlbl setTitle:@"Select" forState:UIControlStateNormal];
     [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-
+    _equipmenttbl.userInteractionEnabled=NO;
     _cancelbtnlbl.enabled=YES;
 
     btntype=1;
@@ -1693,12 +1700,15 @@ finishedSavingWithError:(NSError *)error
 -(IBAction)closeaddview:(id)sender
 {
     _addequipmentview.hidden=YES;
+     _equipmenttbl.userInteractionEnabled=YES;
       _updatelbl.hidden=YES;
 
 }
 -(IBAction)editequipview:(id)sender
 {
     btntype=2;
+     _equipmenttbl.userInteractionEnabled=NO;
+    [_equipmenttbl setEditing:NO animated:NO];
     _cancelbtnlbl.enabled=NO;
     button = (UIButton *)sender;
     CGPoint center= button.center;
@@ -1998,6 +2008,9 @@ _addequipmentview.hidden=NO;
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if ([alertView.message isEqualToString:mesgstrg]) {
+        if (btntype==1) {
+            
+        
         _codetxfld.text=@"";
         _destxtfld.text=@"";
         _subtypetxtfld.text=@"";
@@ -2017,6 +2030,31 @@ _addequipmentview.hidden=NO;
         _stockinhndtxtfld.text=@"";
         _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
         [_subsearchlbl setTitle:@"Select" forState:UIControlStateNormal];
+        }
+        else if (btntype==2)
+        {_codetxfld.text=@"";
+            _destxtfld.text=@"";
+            _subtypetxtfld.text=@"";
+            _purchasetxtfld.text=@"";
+            _serialtxtfld.text=@"";
+            _manufattxtfld.text =@"";
+            _insuredtxtfld.text=@"";
+            _hurstxtfld.text=@"";
+            _fueltxtfld.text=@"";
+            _condtntxtfld.text=@"";
+            _hurlytxtfld.text=@"";
+            _dailytxtfld.text=@"";
+            _shiftwisetxtfld.text=@"";
+            _weeklytxtfld.text=@"";
+            _monthlytxtfld.text=@"";
+            _yearlytxtfld.text=@"";
+            _stockinhndtxtfld.text=@"";
+            _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+            [_subsearchlbl setTitle:@"Select" forState:UIControlStateNormal];
+            _addequipmentview.hidden=YES;
+             _equipmenttbl.userInteractionEnabled=YES;
+            
+        }
 
         
     }
