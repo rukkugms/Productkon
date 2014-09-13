@@ -225,22 +225,27 @@
     if (createsfty!=1) {
        
         if ([pwrmdl.relatedtosfty isEqualToString:@"true"]) {
-            createsfty=1;
+            saftycheck=1;
         }
         else{
-            createsfty=0;
+            saftycheck=0;
         }
+    }
+    else{
+        createsfty=0;
     }
     if (createsub!=1) {
         
         if ([pwrmdl.allsubtype isEqualToString:@"true"]) {
-            createsub=1;
+            checksub=1;
         }
         else{
-            createsub=0;
+            checksub=0;
         }
     }
-
+    else{
+        createsfty=0;
+    }
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -1022,13 +1027,13 @@
             [alert show];
              _destxtfld.text=@"";
         }
-        else if ([_subsearchbtnlbl.titleLabel.text isEqualToString:@""]||[_subsearchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
-            
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            
-            [alert show];
-            
-        }
+//        else if ([_subsearchbtnlbl.titleLabel.text isEqualToString:@""]||[_subsearchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+//            
+//            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//            
+//            [alert show];
+//            
+//        }
 
         else
         {

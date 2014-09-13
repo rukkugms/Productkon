@@ -13,6 +13,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "Base64.h"
 #import "Rightscheck.h"
+#import "RSTViewController.h"
 
 
 @interface AssetsViewController : UIViewController<UITextFieldDelegate,UIImagePickerControllerDelegate>
@@ -21,7 +22,7 @@ BOOL recordResults ;
 NSInteger btntype;
 UIButton *button;
 NSInteger path;
-NSInteger deltepath;
+NSInteger deltepath,moduleid,checksub,createsub;
 NSInteger webtype;
 NSInteger btnpath;
 NSInteger popvr;
@@ -122,5 +123,11 @@ NSInteger popvr;
 
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
+
+- (IBAction)subtypebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *subtypebtnlbl;
+@property (strong, nonatomic)RSTViewController *subtypctrlr;
+@property (strong, nonatomic) IBOutlet UIButton *checksubtypebtnlbl;
+- (IBAction)checksubtypebtn:(id)sender;
 
 @end

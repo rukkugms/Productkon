@@ -523,7 +523,7 @@ finishedSavingWithError:(NSError *)error
      NSString*MonthlyRate=_monthlytxtfld.text;
      NSString*YearlyRate=_yearlytxtfld.text;
   Equpmntmdl*eqmdl=(Equpmntmdl *)[_Assetarray objectAtIndex:path];
-    
+      
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -1658,6 +1658,16 @@ recordResults = FALSE;
     [self FetchAnyImage];
     _addview.hidden=NO;
     _navItem.title=@"Edit";
+    if ([eqmdl.EqAllSubTypes isEqualToString:@"true"]) {
+        
+        [_checksubtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        checksub=1;
+    }
+    else{
+        [_checksubtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        checksub=0;
+    }
+
 }
 
 
@@ -1735,6 +1745,43 @@ recordResults = FALSE;
      [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
 
 }
+- (IBAction)subtypebtn:(id)sender {
+    moduleid=37;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.AssetTable];
+    NSIndexPath *textFieldIndexPath = [self.AssetTable indexPathForRowAtPoint:rootViewPoint];
+    
+    Equpmntmdl*eqmdl=(Equpmntmdl *)[_Assetarray objectAtIndex:textFieldIndexPath.row];
+    
+    self.subtypctrlr=[[RSTViewController alloc]initWithNibName:@"RSTViewController" bundle:nil];
+    
+    
+    self.subtypctrlr.modalPresentationStyle = UIModalPresentationFormSheet;
+    _subtypctrlr.equipmainid=eqmdl.entryid;
+    _subtypctrlr.moduleid=moduleid;
+    [self presentViewController:self.subtypctrlr
+                       animated:YES completion:NULL];
+}
+
+- (IBAction)checksubtypebtn:(id)sender {
+    createsub=1;
+    
+    if (checksub==0) {
+        [_checksubtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        checksub=1;
+        
+    }
+    
+    else{
+        [_checksubtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        checksub=0;
+        
+    }
+    
+    
+}
+
 #pragma mark-textfield delegate
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
     
