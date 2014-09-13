@@ -27,5 +27,7 @@
 @property(strong,nonatomic)NSString *JobTasks;
 @property(strong,nonatomic)NSString *EducationReq;
 @property(strong,nonatomic)NSString *unitofmeasure;
+@property(strong,nonatomic)NSString *allsubtype;
+@property(strong,nonatomic)NSString *relatedtosfty;
 
 @end

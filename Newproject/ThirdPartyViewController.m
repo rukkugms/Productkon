@@ -29,6 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    moduleid=34;
     // Do any additional setup after loading the view from its nib.
     _scroll.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
@@ -360,9 +361,10 @@ finishedSavingWithError:(NSError *)error
                    "<YearlyRate>%f</YearlyRate>\n"
                    "<type>%@</type>\n"
                    "<qtyinstock>%f</qtyinstock>\n"
+                   "<TPAllSubTypes>%d</TPAllSubTypes>\n"
                    "</InsertThirdParty>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",[unitcost floatValue],_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[yearly floatValue],_typesearchlbl.titleLabel.text,[_stckinhandtxtdfld.text floatValue]];
+                   "</soap:Envelope>\n",@"abc",[unitcost floatValue],_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[yearly floatValue],_typesearchlbl.titleLabel.text,[_stckinhandtxtdfld.text floatValue],checksub];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -442,9 +444,10 @@ finishedSavingWithError:(NSError *)error
                    "<YearlyRate>%f</YearlyRate>\n"
                    "<type>%@</type>\n"
                    "<qtyinstock>%f</qtyinstock>\n"
+                   "<TPAllSubTypes>%d</TPAllSubTypes>\n"
                    "</UpdateThirdParty>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",Thrdprty.entryid,_codetxtfld.text,[unitcost floatValue],_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[yearly floatValue],_typesearchlbl.titleLabel.text,[_stckinhandtxtdfld.text floatValue]];
+                   "</soap:Envelope>\n",Thrdprty.entryid,_codetxtfld.text,[unitcost floatValue],_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[yearly floatValue],_typesearchlbl.titleLabel.text,[_stckinhandtxtdfld.text floatValue],checksub];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1076,7 +1079,16 @@ finishedSavingWithError:(NSError *)error
         }
         recordResults = TRUE;
     }
-    
+    if([elementName isEqualToString:@"TPAllSubTypes"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"SearchThirdPartyResponse"])
     {
         _thirdprtyarray=[[NSMutableArray alloc]init];
@@ -1367,10 +1379,21 @@ finishedSavingWithError:(NSError *)error
         recordResults = FALSE;
         
         _thirdpartymdl.stockinhand=_soapResults;
-        [_thirdprtyarray addObject:_thirdpartymdl];
+       
         _soapResults = nil;
         
     }
+    if([elementName isEqualToString:@"TPAllSubTypes"])
+    {
+        
+        recordResults = FALSE;
+        
+        _thirdpartymdl.EqAllSubTypes=_soapResults;
+        [_thirdprtyarray addObject:_thirdpartymdl];
+        _soapResults = nil;
+
+    }
+
     if([elementName isEqualToString:@"ThirdpartyCode"])
     {
         recordResults = FALSE;
@@ -1507,10 +1530,20 @@ finishedSavingWithError:(NSError *)error
         _codelbl.text=eqmdl.itemcode;
         _deslbl=(UILabel *)[cell viewWithTag:2];
         _deslbl.text=eqmdl.itemdescptn;
-        _typelbl=(UILabel *)[cell viewWithTag:3];
-        _typelbl.text=eqmdl.subtype;
+       // _typelbl=(UILabel *)[cell viewWithTag:3];
+        //_typelbl.text=eqmdl.subtype;
         _costlbl=(UILabel *)[cell viewWithTag:4];
         _costlbl.text=[NSString stringWithFormat:@"$%@",eqmdl.unitcost];
+        if ([eqmdl.EqAllSubTypes isEqualToString:@"true"]) {
+            _subtypebtnlbl.enabled=NO;
+          
+            [_subtypebtnlbl setTitle:@"All Sub Types" forState:UIControlStateNormal];
+        }
+        else{
+            _subtypebtnlbl.enabled=YES;
+            
+            [_subtypebtnlbl setTitle:@"Sub Types" forState:UIControlStateNormal];
+        }
     }
     return cell;
 }
@@ -1689,13 +1722,13 @@ finishedSavingWithError:(NSError *)error
         [alert show];
          _destxtfld.text=@"";
     }
-    else if ([_suserachbtnlbl.titleLabel.text isEqualToString:@""]||[_suserachbtnlbl.titleLabel.text isEqualToString:@"Select"]){
-        
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        
-        [alert show];
-        
-    }
+//    else if ([_suserachbtnlbl.titleLabel.text isEqualToString:@""]||[_suserachbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+//        
+//        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        
+//        [alert show];
+//        
+//    }
 
     else{
 
@@ -1812,14 +1845,59 @@ finishedSavingWithError:(NSError *)error
    _unitcsttxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.unitcost];
     _stckinhandtxtdfld.text=eqmdl.stockinhand;
     _uplodpiclctn=eqmdl.PictureLocation;
-     // [_picimageview setImage:[UIImage imageNamed:@"ios7-camera-icon"]];
-    [self FetchAnyImage];
+    if ([eqmdl.EqAllSubTypes isEqualToString:@"true"]) {
+        
+        [_checksubtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        checksub=1;
+    }
+    else{
+        [_checksubtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        checksub=0;
+    }
+   // [_picimageview setImage:[UIImage imageNamed:@"ios7-camera-icon"]];
+   [self FetchAnyImage];
     _addview.hidden=NO;
     _navitem.title=@"Edit";
     _cancelbtn.enabled=NO;
     
 
    }
+- (IBAction)subtypebtn:(id)sender {
+    
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.thirdprtyTable];
+    NSIndexPath *textFieldIndexPath = [self.thirdprtyTable indexPathForRowAtPoint:rootViewPoint];
+    
+    Equpmntmdl*eqmdl=(Equpmntmdl *)[_thirdprtyarray objectAtIndex:textFieldIndexPath.row];
+    
+    self.subtypctrlr=[[RSTViewController alloc]initWithNibName:@"RSTViewController" bundle:nil];
+    
+    
+    self.subtypctrlr.modalPresentationStyle = UIModalPresentationFormSheet;
+    _subtypctrlr.equipmainid=eqmdl.entryid;
+   // _subtypctrlr.moduleid=moduleid;
+    [self presentViewController:self.subtypctrlr
+                       animated:YES completion:NULL];
+    
+    
+    
+}
+- (IBAction)checksubtype:(id)sender {
+    if (checksub==0) {
+        [_checksubtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        checksub=1;
+        
+    }
+    
+    else{
+        [_checksubtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        checksub=0;
+        
+    }
+    
+}
+
 #pragma mark-textfield delegate
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
     
@@ -1975,7 +2053,7 @@ finishedSavingWithError:(NSError *)error
      {
          if(btntype==2){
              _addview.hidden=YES;
-             _thirdprtyTable.userInteractionEnabled=NO;
+             _thirdprtyTable.userInteractionEnabled=YES;
          }
         
          _codetxtfld.text=@"";
@@ -2171,9 +2249,6 @@ finishedSavingWithError:(NSError *)error
         NSUInteger newLength = [_unitcsttxtfld.text length] + [string length] - range.length;
         return (newLength > 18) ? NO : YES;
     }
-    
-    
-    
     
     //_picker.hidden=YES;
     return YES;

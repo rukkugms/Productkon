@@ -1484,4 +1484,22 @@ finishedSavingWithError:(NSError *)error
     
 }
 
+- (IBAction)subtypebtn:(id)sender {
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.Tooltable];
+    NSIndexPath *textFieldIndexPath = [self.Tooltable indexPathForRowAtPoint:rootViewPoint];
+    
+    Manpwr*materaialmdl=(Manpwr *)[_toolarray objectAtIndex:textFieldIndexPath.row];
+    
+    self.subtypctrlr=[[RSTViewController alloc]initWithNibName:@"RSTViewController" bundle:nil];
+    
+    
+    self.subtypctrlr.modalPresentationStyle = UIModalPresentationFormSheet;
+    _subtypctrlr.equipmainid=materaialmdl.entryid;
+    // _subtypctrlr.moduleid=moduleid;
+    [self presentViewController:self.subtypctrlr
+                       animated:YES completion:NULL];
+
+}
 @end
