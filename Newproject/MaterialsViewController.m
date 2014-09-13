@@ -238,6 +238,20 @@
     _typelbl.text=materaialmdl.subtype;
     _costlbl=(UILabel *)[cell viewWithTag:4];
     _costlbl.text=[NSString stringWithFormat:@"$%@",materaialmdl.unitcost];
+         if ([materaialmdl.allsubtype isEqualToString:@"true"]) {
+             _subtypebtn.enabled=NO;
+             // [_allcrftbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+             [_subtypebtn setTitle:@"All Sub Types" forState:UIControlStateNormal];
+             
+         }
+         else if([materaialmdl.allsubtype isEqualToString:@"false"]){
+             _subtypebtn.enabled=YES;
+             // [_allcrftbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+             [_subtypebtn setTitle:@"Sub Types" forState:UIControlStateNormal];
+             
+             
+         }
+
 
      }
     return cell;
@@ -372,7 +386,7 @@
                    "<InserteMaterials xmlns=\"http://ios.kontract360.com/\">\n"
                    "<itemcode>%@</itemcode>\n"
                    "<description>%@</description>\n"
-                   "<subtype>%@</subtype>\n"
+                   
                    "<unitcost>%f</unitcost>\n"
                    "<picture>%@</picture>\n"
                     "<qtyinstock>%f</qtyinstock>\n"
@@ -380,7 +394,7 @@
                    "<MTAllSubTypes>%d</MTAllSubTypes>\n"
                    "</InserteMaterials>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[unitcost floatValue],@"",[_stockinhandtxtfld.text floatValue],_unitofmesuretxtfld.text,createcheck];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[unitcost floatValue],@"",[_stockinhandtxtfld.text floatValue],_unitofmesuretxtfld.text,createcheck];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -421,31 +435,33 @@
     NSString *soapMessage;
     
       Manpwr*pwrmdl=(Manpwr *)[_materialarray objectAtIndex:butnpath];
-//    if([createstring isEqualToString:@"create"])
-//    {
-//        if (createcheck==0) {
-//            check=0;
-//        }
-//        else{
-//            check=1;
-//            
-//        }
-//        createstring=@"";
-//    }
-//    else
-//    {
-//        if ([eqmdl.EqAllSubTypes isEqualToString:@"true"]) {
-//            
-//            check=1;
-//        }
-//        else if([eqmdl.EqAllSubTypes isEqualToString:@"false"]){
-//            
-//            check=0;
-//            
-//        }
-//        
-//        
-//    }
+     NSInteger check;
+    if([createstring isEqualToString:@"create"])
+    {
+        if (createcheck==0) {
+            check=0;
+        }
+        else{
+            check=1;
+            
+        }
+        createstring=@"";
+    }
+    else
+    {
+        if ([pwrmdl.allsubtype isEqualToString:@"true"]) {
+            
+            check=1;
+        }
+        else //if([pwrmdl.allsubtype isEqualToString:@"false"])
+        {
+            
+            check=0;
+            
+        }
+        
+        
+    }
 
     soapMessage = [NSString stringWithFormat:
                    
@@ -459,7 +475,7 @@
                    "<entryid>%d</entryid>\n"
                    "<itemcode>%@</itemcode>\n"
                    "<description>%@</description>\n"
-                   "<subtype>%@</subtype>\n"
+                   
                    "<unitcost>%f</unitcost>\n"
                    "<picture>%@</picture>\n"
                     "<qtyinstock>%f</qtyinstock>\n"
@@ -467,7 +483,8 @@
                     "<MTAllSubTypes>%d</MTAllSubTypes>\n"
                    "</UpdateMaterials>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[unitcost floatValue],@"",[_stockinhandtxtfld.text floatValue],_unitofmesuretxtfld.text];
+                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,
+                   [unitcost floatValue],@"",[_stockinhandtxtfld.text floatValue],_unitofmesuretxtfld.text,check];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1413,7 +1430,7 @@
         
         recordResults = FALSE;
         
-        //_materialmdl.allsubtypes=_soapResults;
+        _materialmdl.allsubtype=_soapResults;
         [_materialarray addObject:_materialmdl];
         _soapResults = nil;
         
@@ -1598,13 +1615,13 @@
             [alert show];
              _destxtfld.text=@"";
         }
-        else if ([_subsearchbtnlbl.titleLabel.text isEqualToString:@""]||[_subsearchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
-            
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            
-            [alert show];
-            
-        }
+//        else if ([_subsearchbtnlbl.titleLabel.text isEqualToString:@""]||[_subsearchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+//            
+//            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//            
+//            [alert show];
+//            
+//        }
 
         else
         {
@@ -1620,13 +1637,13 @@
             [alert show];
              _destxtfld.text=@"";
         }
-        else if ([_subsearchbtnlbl.titleLabel.text isEqualToString:@""]||[_subsearchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
-            
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            
-            [alert show];
-            
-        }
+//        else if ([_subsearchbtnlbl.titleLabel.text isEqualToString:@""]||[_subsearchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+//            
+//            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//            
+//            [alert show];
+//            
+//        }
 
 else
 {
@@ -1705,6 +1722,8 @@ else
     _stockinhandtxtfld.text=@"";
         _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
     [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+
 
     butntype=1;
     _cancelbtnlbl.enabled=YES;
@@ -1736,6 +1755,20 @@ else
     _uplodpiclctn=pwrmdl.picturelocation;
     _unitofmesuretxtfld.text=pwrmdl.unitofmeasure;
       [_picimageview setImage:[UIImage imageNamed:@"ios7-camera-icon"]];
+    if ([pwrmdl.allsubtype isEqualToString:@"true"]) {
+        
+        [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        createcheck=1;
+        
+    }
+    else if([pwrmdl.allsubtype isEqualToString:@"false"]){
+        
+        [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        createcheck=1;
+        
+        
+    }
+
     [self FetchAnyImage];
 
 

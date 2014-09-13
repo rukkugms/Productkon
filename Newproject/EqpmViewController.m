@@ -474,7 +474,7 @@ finishedSavingWithError:(NSError *)error
                     "<InsertEquipment xmlns=\"http://ios.kontract360.com/\">\n"
                    "<ItemCode>%@</ItemCode>\n"
                    "<Description>%@</Description>\n"
-                   "<SubType>%@</SubType>\n"
+                  
                    "<PurchaseValue>%f</PurchaseValue>\n"
                    "<SerialNo>%@</SerialNo>\n"
                    "<ManufacturedYear>%d</ManufacturedYear>\n"
@@ -493,7 +493,7 @@ finishedSavingWithError:(NSError *)error
                    "<EqAllSubTypes>%d</EqAllSubTypes>\n"
                    "</InsertEquipment>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_subsearchlbl.titleLabel.text],[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[_yearlytxtfld.text floatValue],[_stockinhndtxtfld.text floatValue],createcheck];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[_yearlytxtfld.text floatValue],[_stockinhndtxtfld.text floatValue],createcheck];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -561,7 +561,8 @@ finishedSavingWithError:(NSError *)error
             
             check=1;
         }
-        else if([eqmdl.EqAllSubTypes isEqualToString:@"false"]){
+        else //if([eqmdl.EqAllSubTypes isEqualToString:@"false"])
+        {
            
              check=0;
             
@@ -582,7 +583,7 @@ finishedSavingWithError:(NSError *)error
                    "<UpdateEquipment xmlns=\"http://ios.kontract360.com/\">\n"
                    "<ItemCode>%@</ItemCode>\n"
                    "<Description>%@</Description>\n"
-                   "<SubType>%@</SubType>\n"
+                  
                    "<PurchaseValue>%f</PurchaseValue>\n"
                    "<SerialNo>%@</SerialNo>\n"
                    "<ManufacturedYear>%d</ManufacturedYear>\n"
@@ -599,9 +600,10 @@ finishedSavingWithError:(NSError *)error
                    "<YearlyRate>%f</YearlyRate>\n"
                       "<entryid>%d</entryid>\n"
                      "<qtyinstock>%f</qtyinstock>\n"
+                   "<EqAllSubTypes>%d</EqAllSubTypes>\n"
                    "</UpdateEquipment>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxfld.text,_destxtfld.text,[_skilldict objectForKey:_subsearchlbl.titleLabel.text],[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[_yearlytxtfld.text floatValue],eqmdl.entryid,[_stockinhndtxtfld.text floatValue]];
+                   "</soap:Envelope>\n",_codetxfld.text,_destxtfld.text,[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[_yearlytxtfld.text floatValue],eqmdl.entryid,[_stockinhndtxtfld.text floatValue],check];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1680,6 +1682,8 @@ finishedSavingWithError:(NSError *)error
     _stockinhndtxtfld.text=@"";
   _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
     [_subsearchlbl setTitle:@"Select" forState:UIControlStateNormal];
+    [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+
     _cancelbtnlbl.enabled=YES;
 
     btntype=1;
@@ -1727,12 +1731,13 @@ finishedSavingWithError:(NSError *)error
     if ([eqmdl.EqAllSubTypes isEqualToString:@"true"]) {
         
         [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-       
+        createcheck=1;
         
     }
     else if([eqmdl.EqAllSubTypes isEqualToString:@"false"]){
         
          [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        createcheck=0;
         
         
         

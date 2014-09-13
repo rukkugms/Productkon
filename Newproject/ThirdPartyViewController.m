@@ -344,7 +344,7 @@ finishedSavingWithError:(NSError *)error
                    "<ItemCode>%@</ItemCode>\n"
                     "<unitcost>%f</unitcost>\n"
                     "<Description>%@</Description>\n"
-                    "<SubType>%@</SubType>\n"
+                   
                     "<PurchaseValue>%f</PurchaseValue>\n"
                    "<SerialNo>%@</SerialNo>\n"
                    "<ManufacturedYear>%d</ManufacturedYear>\n"
@@ -364,7 +364,7 @@ finishedSavingWithError:(NSError *)error
                    "<TPAllSubTypes>%d</TPAllSubTypes>\n"
                    "</InsertThirdParty>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",[unitcost floatValue],_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[yearly floatValue],_typesearchlbl.titleLabel.text,[_stckinhandtxtdfld.text floatValue],checksub];
+                   "</soap:Envelope>\n",@"abc",[unitcost floatValue],_destxtfld.text,[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[yearly floatValue],_typesearchlbl.titleLabel.text,[_stckinhandtxtdfld.text floatValue],checksub];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -413,6 +413,34 @@ finishedSavingWithError:(NSError *)error
        NSString*yearly=[_yearlytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
 
       Equpmntmdl*Thrdprty=(Equpmntmdl *)[_thirdprtyarray objectAtIndex:btnpath];
+    NSInteger check;
+    if([checkstring isEqualToString:@"Check"])
+    {
+        if (checksub==0) {
+            check=0;
+        }
+        else{
+            check=1;
+            
+        }
+        checkstring=@"";
+    }
+    else
+    {
+        if ([Thrdprty.EqAllSubTypes isEqualToString:@"true"]) {
+            
+            check=1;
+        }
+        else //if([pwrmdl.allsubtype isEqualToString:@"false"])
+        {
+            
+            check=0;
+            
+        }
+        
+        
+    }
+
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -427,7 +455,7 @@ finishedSavingWithError:(NSError *)error
                    "<ItemCode>%@</ItemCode>\n"
                      "<unitcost>%f</unitcost>\n"
                    "<Description>%@</Description>\n"
-                   "<SubType>%@</SubType>\n"
+                  
                    "<PurchaseValue>%f</PurchaseValue>\n"
                    "<SerialNo>%@</SerialNo>\n"
                    "<ManufacturedYear>%d</ManufacturedYear>\n"
@@ -447,7 +475,7 @@ finishedSavingWithError:(NSError *)error
                    "<TPAllSubTypes>%d</TPAllSubTypes>\n"
                    "</UpdateThirdParty>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",Thrdprty.entryid,_codetxtfld.text,[unitcost floatValue],_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[yearly floatValue],_typesearchlbl.titleLabel.text,[_stckinhandtxtdfld.text floatValue],checksub];
+                   "</soap:Envelope>\n",Thrdprty.entryid,_codetxtfld.text,[unitcost floatValue],_destxtfld.text,[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[yearly floatValue],_typesearchlbl.titleLabel.text,[_stckinhandtxtdfld.text floatValue],check];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1863,7 +1891,7 @@ finishedSavingWithError:(NSError *)error
 
    }
 - (IBAction)subtypebtn:(id)sender {
-    
+    moduleid=34;
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.thirdprtyTable];
@@ -1876,7 +1904,7 @@ finishedSavingWithError:(NSError *)error
     
     self.subtypctrlr.modalPresentationStyle = UIModalPresentationFormSheet;
     _subtypctrlr.equipmainid=eqmdl.entryid;
-   // _subtypctrlr.moduleid=moduleid;
+    _subtypctrlr.moduleid=moduleid;
     [self presentViewController:self.subtypctrlr
                        animated:YES completion:NULL];
     
@@ -1884,6 +1912,7 @@ finishedSavingWithError:(NSError *)error
     
 }
 - (IBAction)checksubtype:(id)sender {
+    checkstring=@"Check";
     if (checksub==0) {
         [_checksubtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         checksub=1;
