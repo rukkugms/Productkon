@@ -207,13 +207,12 @@
                    "<InsertSmallTools xmlns=\"http://ios.kontract360.com/\">\n"
                    "<itemcode>%@</itemcode>\n"
                    "<description>%@</description>\n"
-                   "<subtype>%@</subtype>\n"
                    "<unitcost>%f</unitcost>\n"
                     "<qtyinstock>%f</qtyinstock>\n"
                     "<STAllSubTypes>%d</STAllSubTypes>\n"
                    "</InsertSmallTools>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[unitcost floatValue],[_stockinhandtxtfld.text floatValue],checksub];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[unitcost floatValue],[_stockinhandtxtfld.text floatValue],checksub];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -275,13 +274,12 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:butnpath];
                    "<entryid>%d</entryid>\n"
                    "<itemcode>%@</itemcode>\n"
                    "<description>%@</description>\n"
-                   "<subtype>%@</subtype>\n"
                    "<unitcost>%f</unitcost>\n"
                    "<qtyinstock>%f</qtyinstock>\n"
                     "<STAllSubTypes>%d</STAllSubTypes>\n"
                    "</UpdateSmallTools>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[unitcost  floatValue],[_stockinhandtxtfld.text floatValue],checksub];
+                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,[unitcost floatValue],[_stockinhandtxtfld.text floatValue],checksub];
     NSLog(@"soapmsg%@",soapMessage);
     
     
