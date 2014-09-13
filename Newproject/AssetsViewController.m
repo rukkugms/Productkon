@@ -1515,14 +1515,22 @@ recordResults = FALSE;
             msgstrg=_soapResults;
             
         }
+        if ([_soapResults isEqualToString:@"Already Exists"]) {
+            
+            msgstrg=_soapResults;
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
+        }
 
-               else if ([_soapResults isEqualToString:@"Asset Picture Updated"]) {
+
+        else if ([_soapResults isEqualToString:@"Asset Picture Updated"]) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             
             [self SelectAllOther];
         }
-        
+       
                _soapResults = nil;
     }
     if([elementName isEqualToString:@"url"])
