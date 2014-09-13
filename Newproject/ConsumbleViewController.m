@@ -1201,7 +1201,7 @@
     
     self.subtypctrlr.modalPresentationStyle = UIModalPresentationFormSheet;
     _subtypctrlr.equipmainid=materaialmdl.entryid;
-    // _subtypctrlr.moduleid=moduleid;
+     _subtypctrlr.moduleid=moduleid;
     [self presentViewController:self.subtypctrlr
                        animated:YES completion:NULL];
 }
