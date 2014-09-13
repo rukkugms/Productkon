@@ -20,7 +20,7 @@
      BOOL recordResults;
     NSInteger butnpath;
     NSInteger path;
-    NSInteger butntype,checksub,createsub;
+    NSInteger butntype,checksub,createsub,moduleid;
     UIButton *button;
     NSInteger webtype;
     NSString *msgstrg;

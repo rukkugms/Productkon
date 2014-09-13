@@ -210,9 +210,10 @@
                    "<subtype>%@</subtype>\n"
                    "<unitcost>%f</unitcost>\n"
                     "<qtyinstock>%f</qtyinstock>\n"
+                    "<STAllSubTypes>%d</STAllSubTypes>\n"
                    "</InsertSmallTools>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[unitcost floatValue],[_stockinhandtxtfld.text floatValue]];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[unitcost floatValue],[_stockinhandtxtfld.text floatValue],checksub];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -277,9 +278,10 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:butnpath];
                    "<subtype>%@</subtype>\n"
                    "<unitcost>%f</unitcost>\n"
                    "<qtyinstock>%f</qtyinstock>\n"
+                    "<STAllSubTypes>%d</STAllSubTypes>\n"
                    "</UpdateSmallTools>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[unitcost  floatValue],[_stockinhandtxtfld.text floatValue]];
+                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[unitcost  floatValue],[_stockinhandtxtfld.text floatValue],checksub];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -787,7 +789,16 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
         }
         recordResults = TRUE;
     }
-    
+    if([elementName isEqualToString:@"STAllSubTypes"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
    
     if([elementName isEqualToString:@"SearchSmallToolsResponse"])
@@ -955,10 +966,19 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
         
         _Toolmdl.stckinhand=_soapResults;
         
-        [_toolarray addObject:_Toolmdl];
+        
 
          _soapResults = nil;
     }
+    if([elementName isEqualToString:@"STAllSubTypes"])
+    {
+        
+      recordResults = FALSE;
+        _Toolmdl.allsubtype=_soapResults;
+        [_toolarray addObject:_Toolmdl];
+         _soapResults = nil;
+    }
+
     if([elementName isEqualToString:@"UnitCost"])
     {
         
@@ -1332,6 +1352,7 @@ else
 
 - (IBAction)closeaddbtn:(id)sender {
     _addview.hidden=YES;
+     _Tooltable.userInteractionEnabled=YES;
     
 }
 
@@ -1372,6 +1393,7 @@ else
 
 }
 - (IBAction)subtypebtn:(id)sender {
+    moduleid=36;
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.Tooltable];
@@ -1384,7 +1406,7 @@ else
     
     self.subtypctrlr.modalPresentationStyle = UIModalPresentationFormSheet;
     _subtypctrlr.equipmainid=materaialmdl.entryid;
-    // _subtypctrlr.moduleid=moduleid;
+    _subtypctrlr.moduleid=moduleid;
     [self presentViewController:self.subtypctrlr
                        animated:YES completion:NULL];
     

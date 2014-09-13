@@ -279,8 +279,20 @@ finishedSavingWithError:(NSError *)error
         _codelbl.text=eqmdl.itemcode;
         _deslbl=(UILabel *)[cell viewWithTag:2];
         _deslbl.text=eqmdl.itemdescptn;
-        _typelbl=(UILabel *)[cell viewWithTag:3];
-        _typelbl.text=eqmdl.subtype;
+        //_typelbl=(UILabel *)[cell viewWithTag:3];
+        //_typelbl.text=eqmdl.subtype;
+        if ([eqmdl.EqAllSubTypes isEqualToString:@"true"]) {
+            _subtypebtnlbl.enabled=NO;
+            
+            [_subtypebtnlbl setTitle:@"All Sub Types" forState:UIControlStateNormal];
+        }
+        else{
+            _subtypebtnlbl.enabled=YES;
+            
+            [_subtypebtnlbl setTitle:@"Sub Types" forState:UIControlStateNormal];
+        }
+
+        
     }
     return cell;
 }
@@ -1715,13 +1727,14 @@ recordResults = FALSE;
         
         [alert show];
          _destxtfld.text=@"";
-    } else if ([_suserachbtnlbl.titleLabel.text isEqualToString:@""]||[_suserachbtnlbl.titleLabel.text isEqualToString:@"Select"]){
-        
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        
-        [alert show];
-        
     }
+//    else if ([_suserachbtnlbl.titleLabel.text isEqualToString:@""]||[_suserachbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+//        
+//        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        
+//        [alert show];
+//        
+//    }
     else{
 
     if (btntype==1) {
