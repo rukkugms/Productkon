@@ -61,6 +61,10 @@
     {
         [self SmallToolsSubTypeselect];
     }
+    else if (_moduleid==37)
+    {
+        [self OthercompanySubTypeselect];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -131,6 +135,10 @@
         {
             [self SmallToolsubtypeinsert];
         }
+        else if (_moduleid==37)
+        {
+            [self OtherCompanysubtypeinsert];
+        }
 
     }
 
@@ -164,6 +172,10 @@
     else if(_moduleid==36)
     {
         [self MultiSmalltoolsubtypeselect];
+    }
+    else if(_moduleid==37)
+    {
+        [self Multiothercompanysubtypeselect];
     }
 
 
@@ -303,6 +315,11 @@
         else if (_moduleid==36)
         {
             [self SmalltoolsubtypeDelete];
+            [_selectedsubtypearray removeObject:indexPath];
+        }
+        else if (_moduleid==37)
+        {
+            [self OthercompanysubtypeDelete];
             [_selectedsubtypearray removeObject:indexPath];
         }
        
@@ -1318,6 +1335,209 @@
     
 }
 
+#pragma mark-Assets
+
+-(void)OthercompanySubTypeselect{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<OthercompanySubTypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<OCStOtherId>%d</OCStOtherId>\n"
+                   "</OthercompanySubTypeselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_equipmainid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/OthercompanySubTypeselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+-(void)Multiothercompanysubtypeselect{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Multiothercompanysubtypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<OCStOtherId>%d</OCStOtherId>\n"
+                   "</Multiothercompanysubtypeselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_equipmainid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Multiothercompanysubtypeselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+-(void)OtherCompanysubtypeinsert{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<OtherCompanysubtypeinsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<OCStOtherId>%d</OCStOtherId>\n"
+                   "<OCStSubTypeId>%d</OCStSubTypeId>\n"
+                   "<OCStDescription>%@</OCStDescription>\n"
+                   "</OtherCompanysubtypeinsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_equipmainid,[[_subtypelistdictionary objectForKey:[_Subtypelistarray objectAtIndex:path]]integerValue],[_Subtypelistarray objectAtIndex:path]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/OtherCompanysubtypeinsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)OthercompanysubtypeDelete{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    Craftreqmtmdl*subtypemdl=(Craftreqmtmdl *)[_selectedsubtypearray objectAtIndex:deletepath];
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<OthercompanysubtypeDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<OCStOtherId>%d</OCStOtherId>\n"
+                   "</OthercompanysubtypeDelete>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[subtypemdl.Brentryid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/OthercompanysubtypeDelete" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -1419,6 +1639,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"OthercompanySubTypeselectResponse"])
+    {
+        _selectedsubtypearray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
 
     if([elementName isEqualToString:@"EntryId"])
@@ -1496,6 +1726,28 @@
         recordResults = TRUE;
     }
     if([elementName isEqualToString:@"MultiConsumablesubtypeselectResponse"])
+    {
+        
+        _Subtypelistarray=[[NSMutableArray alloc]init];
+        _subtypelistdictionary=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"MultiSmalltoolsubtypeselectResponse"])
+    {
+        
+        _Subtypelistarray=[[NSMutableArray alloc]init];
+        _subtypelistdictionary=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"MultiothercompanysubtypeselectResponse"])
     {
         
         _Subtypelistarray=[[NSMutableArray alloc]init];
@@ -1596,6 +1848,15 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"OtherCompanysubtypeinsertResponse"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
     if([elementName isEqualToString:@"EquipmentsubtypeDeleteResponse"])
     {
@@ -1642,6 +1903,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"OthercompanysubtypeDeleteResponse"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
        if([elementName isEqualToString:@"result"])
     {
@@ -1787,6 +2058,10 @@
             {
                 [self SmallToolsSubTypeselect];
             }
+            else if (_moduleid==37)
+            {
+                [self OthercompanySubTypeselect];
+            }
         }else{
             msgstring=_soapResults;
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -1822,6 +2097,10 @@
         else if (_moduleid==36)
         {
             [self SmallToolsSubTypeselect];
+        }
+        else if (_moduleid==37)
+        {
+            [self OthercompanySubTypeselect];
         }
         
         [_subtypebutton setTitle:@"Select" forState:UIControlStateNormal];
