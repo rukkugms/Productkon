@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="addmatView" destination="AdN-1P-aZt" id="8Qc-el-C3t"/>
                 <outlet property="cancelbtnlbl" destination="euM-lj-5st" id="eac-uv-735"/>
+                <outlet property="checkbtn" destination="pQt-fb-4tf" id="7Gl-r2-eGH"/>
                 <outlet property="codetxtfld" destination="6HA-9R-XIM" id="8BW-Fs-zzI"/>
                 <outlet property="destxtfld" destination="AA2-Pd-kcl" id="Lja-BE-hBg"/>
                 <outlet property="materialTable" destination="ioM-Hg-c3p" id="Cui-2M-5OH"/>
@@ -171,8 +172,8 @@
                                         <outlet property="delegate" destination="-1" id="2Ku-qi-rxp"/>
                                     </connections>
                                 </textField>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sub Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6fQ-2G-zH5">
-                                    <rect key="frame" x="50" y="133" width="70" height="21"/>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Sub Types" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6fQ-2G-zH5">
+                                    <rect key="frame" x="50" y="146" width="85" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <nil key="highlightedColor"/>
@@ -280,12 +281,15 @@
                                         <action selector="mesuresechbtn:" destination="-1" eventType="touchUpInside" id="8d7-tu-QM8"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pQt-fb-4tf">
-                                    <rect key="frame" x="50" y="151" width="46" height="30"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="pQt-fb-4tf">
+                                    <rect key="frame" x="135" y="133" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Button">
+                                    <state key="normal" image="cb_mono_off.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="checksubtypebtn:" destination="-1" eventType="touchUpInside" id="Jez-1l-Bjf"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -301,6 +305,7 @@
         <image name="appbar.addblack.png" width="76" height="76"/>
         <image name="appbar.close.png" width="76" height="76"/>
         <image name="appbar.delete.png" width="76" height="76"/>
+        <image name="cb_mono_off.png" width="22" height="21"/>
         <image name="ios7-camera-icon.png" width="128" height="128"/>
         <image name="searchicon.png" width="40" height="40"/>
         <image name="textbox.png" width="298" height="64"/>

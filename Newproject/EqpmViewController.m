@@ -1602,7 +1602,7 @@ finishedSavingWithError:(NSError *)error
     [self AllSkills];
 }
 - (IBAction)checksubtypebtn:(id)sender
-{
+{  createstring=@"create";
     if (createcheck==0) {
         [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         createcheck=1;
@@ -2198,6 +2198,7 @@ _shiftwisetxtfld.text=@"";
 }
 -(IBAction)cellsubtypeselection:(id)sender
 {
+    _moduleid=27;
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.equipmenttbl];
@@ -2210,6 +2211,7 @@ _shiftwisetxtfld.text=@"";
 
     self.subtypctrlr.modalPresentationStyle = UIModalPresentationFormSheet;
     _subtypctrlr.equipmainid=eqmdl.entryid;
+    _subtypctrlr.moduleid=_moduleid;
     [self presentViewController:self.subtypctrlr
                    animated:YES completion:NULL];
 }

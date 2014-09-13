@@ -17,6 +17,9 @@
     NSString *msgstring;
     NSInteger webtype;
    }
+
+
+@property(readwrite)NSInteger moduleid;
 -(IBAction)closesubtype:(id)sender;
 
 @property(strong,nonatomic)Craftreqmtmdl *subtypemdl;
@@ -50,6 +53,10 @@
 @property(readwrite)NSInteger equipmainid;
 @property(strong,nonatomic)NSString *skillstring;
 @property(strong,nonatomic)NSMutableDictionary *subtypelistdictionary;
+
+
+//Materials
+@property(readwrite)NSInteger materialmainid;
 
 
 @end
