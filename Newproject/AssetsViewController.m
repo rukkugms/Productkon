@@ -473,7 +473,6 @@ finishedSavingWithError:(NSError *)error
                    "<InsertOther xmlns=\"http://ios.kontract360.com/\">\n"
                    "<ItemCode>%@</ItemCode>\n"
                    "<Description>%@</Description>\n"
-                   "<SubType>%@</SubType>\n"
                    "<PurchaseValue>%f</PurchaseValue>\n"
                    "<SerialNo>%@</SerialNo>\n"
                    "<ManufacturedYear>%d</ManufacturedYear>\n"
@@ -489,9 +488,10 @@ finishedSavingWithError:(NSError *)error
                    "<MonthlyRate>%f</MonthlyRate>\n"
                    "<YearlyRate>%f</YearlyRate>\n"
                    "<qtyinstock>%f</qtyinstock>\n"
+                   "<OCAllSubTypes>%d</OCAllSubTypes>\n"
                    "</InsertOther>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[yearly floatValue],[_stckinhandtxtfld.text floatValue]];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[yearly floatValue],[_stckinhandtxtfld.text floatValue],checksub];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -558,7 +558,6 @@ finishedSavingWithError:(NSError *)error
                    "<UpdateOther xmlns=\"http://ios.kontract360.com/\">\n"
                    "<ItemCode>%@</ItemCode>\n"
                    "<Description>%@</Description>\n"
-                   "<SubType>%@</SubType>\n"
                    "<PurchaseValue>%f</PurchaseValue>\n"
                    "<SerialNo>%@</SerialNo>\n"
                    "<ManufacturedYear>%d</ManufacturedYear>\n"
@@ -575,9 +574,10 @@ finishedSavingWithError:(NSError *)error
                    "<YearlyRate>%f</YearlyRate>\n"
                    "<entryid>%d</entryid>\n"
                    "<qtyinstock>%f</qtyinstock>\n"
+                    "<OCAllSubTypes>%d</OCAllSubTypes>\n"
                    "</UpdateOther>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[_purchasetxtfld.text floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[HourlyRate floatValue],[DailyRate floatValue],[ShiftwiseRate floatValue],[WeeklyRate floatValue],[MonthlyRate floatValue],[YearlyRate floatValue],eqmdl.entryid,[_stckinhandtxtfld.text floatValue]];
+                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,[_purchasetxtfld.text floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[HourlyRate floatValue],[DailyRate floatValue],[ShiftwiseRate floatValue],[WeeklyRate floatValue],[MonthlyRate floatValue],[YearlyRate floatValue],eqmdl.entryid,[_stckinhandtxtfld.text floatValue],checksub];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1186,6 +1186,15 @@ finishedSavingWithError:(NSError *)error
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"OCAllSubTypes"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
   
     if([elementName isEqualToString:@"SearchOtherResponse"])
@@ -1467,9 +1476,19 @@ finishedSavingWithError:(NSError *)error
         
         recordResults = FALSE;
         _Assetmdl.stockinhand=_soapResults;
+    
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"OCAllSubTypes"])
+    {
+        
+       recordResults = FALSE;
+          _Assetmdl.EqAllSubTypes=_soapResults;
         [_Assetarray addObject:_Assetmdl];
         _soapResults = nil;
     }
+    
+
     if([elementName isEqualToString:@"OtherCode"])
     {
 recordResults = FALSE;
