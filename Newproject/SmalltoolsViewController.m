@@ -1021,7 +1021,14 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
             msgstrg=_soapResults;
             
         }
-        
+        if ([_soapResults isEqualToString:@"Already Exists"]) {
+            
+            msgstrg=_soapResults;
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
+        }
+
         else if ([_soapResults isEqualToString:@"SmallTools Picture Updated"]) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
