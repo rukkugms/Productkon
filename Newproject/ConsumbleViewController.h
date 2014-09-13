@@ -18,7 +18,7 @@
     NSInteger path;
     NSInteger butntype;
     UIButton *button;
-    NSInteger webtype,checksub,moduleid,saftycheck;
+    NSInteger webtype,checksub,moduleid,saftycheck,createsub,createsfty;
     NSString *msgstrg;
     NSString*skill;
     

@@ -177,12 +177,13 @@
                    "<InsertConsumables xmlns=\"http://ios.kontract360.com/\">\n"
                    "<itemcode>%@</itemcode>\n"
                    "<description>%@</description>\n"
-                   "<subtype>%@</subtype>\n"
                    "<unitcost>%f</unitcost>\n"
                    "<qtyinstock>%f</qtyinstock>\n"
+                   "<RelatedToSafety>%d</RelatedToSafety>\n"
+                   "<COAllSubTypes>%d</COAllSubTypes>\n"
                     "</InsertConsumables>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[unitcost floatValue],[_stckinhandtxtfld.text floatValue]];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[unitcost floatValue],[_stckinhandtxtfld.text floatValue],saftycheck,checksub];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -221,6 +222,25 @@
      NSString*unitcost=[_unitcosttxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
     //NSString*unitcost=[_unitcosttxtfld.text substringFromIndex:1];
     Manpwr*pwrmdl=(Manpwr *)[_cnsumblearray objectAtIndex:butnpath];
+    if (createsfty!=1) {
+       
+        if ([pwrmdl.relatedtosfty isEqualToString:@"true"]) {
+            createsfty=1;
+        }
+        else{
+            createsfty=0;
+        }
+    }
+    if (createsub!=1) {
+        
+        if ([pwrmdl.allsubtype isEqualToString:@"true"]) {
+            createsub=1;
+        }
+        else{
+            createsub=0;
+        }
+    }
+
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -233,12 +253,13 @@
                    "<entryid>%d</entryid>\n"
                    "<itemcode>%@</itemcode>\n"
                    "<description>%@</description>\n"
-                   "<subtype>%@</subtype>\n"
                    "<unitcost>%f</unitcost>\n"
                    "<qtyinstock>%f</qtyinstock>\n"
+                   "<RelatedToSafety>%d</RelatedToSafety>\n"
+                   "<COAllSubTypes>%d</COAllSubTypes>\n"
                     "</UpdateConsumables>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[unitcost floatValue],[_stckinhandtxtfld.text floatValue]];
+                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,[unitcost floatValue],[_stckinhandtxtfld.text floatValue],saftycheck,checksub];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -578,6 +599,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"RelatedToSafety"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"COAllSubTypes"])
     {
         
@@ -1153,7 +1184,7 @@
     }
 
 - (IBAction)subtypebtn:(id)sender {
-    button = (UIButton *)sender;
+       button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.consumbleTable];
     NSIndexPath *textFieldIndexPath = [self.consumbleTable indexPathForRowAtPoint:rootViewPoint];
@@ -1170,6 +1201,8 @@
                        animated:YES completion:NULL];
 }
 - (IBAction)checksubtypebtn:(id)sender {
+    createsub=1;
+
     if (checksub==0) {
         [_checksubtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         checksub=1;
@@ -1184,6 +1217,7 @@
     
 }
 - (IBAction)checksfty:(id)sender {
+    createsfty=1;
     if (saftycheck==0) {
         [_checksaftybtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         saftycheck=1;

@@ -1074,10 +1074,22 @@ _soapResults = nil;
         _codelbl.text=materaialmdl.itemcode;
         _deslbl=(UILabel *)[cell viewWithTag:2];
         _deslbl.text=materaialmdl.itemdescptn;
-        _typelbl=(UILabel *)[cell viewWithTag:3];
-        _typelbl.text=materaialmdl.subtype;
+       // _typelbl=(UILabel *)[cell viewWithTag:3];
+        //_typelbl.text=materaialmdl.subtype;
         _costlbl=(UILabel *)[cell viewWithTag:4];
         _costlbl.text= [NSString stringWithFormat:@"$%@",materaialmdl.unitcost];
+        
+        if ([materaialmdl.allsubtype isEqualToString:@"true"]) {
+            _subtypebtnlbl.enabled=NO;
+            
+            [_subtypebtnlbl setTitle:@"All Sub Types" forState:UIControlStateNormal];
+        }
+        else{
+            _subtypebtnlbl.enabled=YES;
+            
+            [_subtypebtnlbl setTitle:@"Sub Types" forState:UIControlStateNormal];
+        }
+
         
     }
     return cell;
@@ -1336,6 +1348,49 @@ else
     [self FetchAnyImage];
     _addview.hidden=NO;
     _navtitle.title=@"Edit";
+    
+    if ([toolmdl.allsubtype isEqualToString:@"true"]) {
+        
+        [_checksubbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        checksub=1;
+    }
+    else{
+        [_checksubbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        checksub=0;
+    }
+
+}
+- (IBAction)subtypebtn:(id)sender {
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.Tooltable];
+    NSIndexPath *textFieldIndexPath = [self.Tooltable indexPathForRowAtPoint:rootViewPoint];
+    
+    Manpwr*materaialmdl=(Manpwr *)[_toolarray objectAtIndex:textFieldIndexPath.row];
+    
+    self.subtypctrlr=[[RSTViewController alloc]initWithNibName:@"RSTViewController" bundle:nil];
+    
+    
+    self.subtypctrlr.modalPresentationStyle = UIModalPresentationFormSheet;
+    _subtypctrlr.equipmainid=materaialmdl.entryid;
+    // _subtypctrlr.moduleid=moduleid;
+    [self presentViewController:self.subtypctrlr
+                       animated:YES completion:NULL];
+    
+}
+- (IBAction)checksubtypebtn:(id)sender {
+    if (checksub==0) {
+        [_checksubbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        checksub=1;
+        
+    }
+    
+    else{
+        [_checksubbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        checksub=0;
+        
+    }
+
 }
 
 #pragma mark-Textfield Delegate
@@ -1484,22 +1539,4 @@ finishedSavingWithError:(NSError *)error
     
 }
 
-- (IBAction)subtypebtn:(id)sender {
-    button = (UIButton *)sender;
-    CGPoint center= button.center;
-    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.Tooltable];
-    NSIndexPath *textFieldIndexPath = [self.Tooltable indexPathForRowAtPoint:rootViewPoint];
-    
-    Manpwr*materaialmdl=(Manpwr *)[_toolarray objectAtIndex:textFieldIndexPath.row];
-    
-    self.subtypctrlr=[[RSTViewController alloc]initWithNibName:@"RSTViewController" bundle:nil];
-    
-    
-    self.subtypctrlr.modalPresentationStyle = UIModalPresentationFormSheet;
-    _subtypctrlr.equipmainid=materaialmdl.entryid;
-    // _subtypctrlr.moduleid=moduleid;
-    [self presentViewController:self.subtypctrlr
-                       animated:YES completion:NULL];
-
-}
 @end
