@@ -26,6 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    moduleid=35;
+    
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _addView.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     // Do any additional setup after loading the view from its nib.
@@ -576,6 +578,15 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"COAllSubTypes"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
     if([elementName isEqualToString:@"SearchConsumablesResponse"])
     {
@@ -732,9 +743,29 @@
         
         recordResults = FALSE;
         _Consublemdl.stckinhand=_soapResults;
+      
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"RelatedToSafety"])
+    {
+        
+        recordResults = FALSE;
+        _Consublemdl.relatedtosfty=_soapResults;
+        
+        
+        _soapResults = nil;
+    }
+
+    if([elementName isEqualToString:@"COAllSubTypes"])
+    {
+        
+        recordResults = FALSE;
+        _Consublemdl.allsubtype=_soapResults;
         [_cnsumblearray addObject:  _Consublemdl];
         
         _soapResults = nil;
+
     }
 
        if([elementName isEqualToString:@"subtype"])
@@ -833,11 +864,23 @@
         _codelbl.text=materaialmdl.itemcode;
         _deslbl=(UILabel *)[cell viewWithTag:2];
         _deslbl.text=materaialmdl.itemdescptn;
-        _typelbl=(UILabel *)[cell viewWithTag:3];
-        _typelbl.text=materaialmdl.subtype;
+        //_typelbl=(UILabel *)[cell viewWithTag:3];
+       // _typelbl.text=materaialmdl.subtype;
          NSLog(@"%@", _Consublemdl.subtype);
         _costlbl=(UILabel *)[cell viewWithTag:4];
         _costlbl.text=[NSString stringWithFormat:@"$%@",materaialmdl.unitcost];
+        if ([materaialmdl.allsubtype isEqualToString:@"true"]) {
+            _subtypebtnlbl.enabled=NO;
+            
+            [_subtypebtnlbl setTitle:@"All Sub Types" forState:UIControlStateNormal];
+        }
+        else{
+            _subtypebtnlbl.enabled=YES;
+            
+            [_subtypebtnlbl setTitle:@"Sub Types" forState:UIControlStateNormal];
+        }
+        
+
         
     }
     return cell;
@@ -1072,13 +1115,33 @@
     NSLog(@"toolmdl.itemcode%@",toolmdl.itemcode);
     _destxtfld.text=toolmdl.itemdescptn;
     _subtyptxtfld.text=toolmdl.subtype;
-    [_subsearchbtnlbl setTitle:toolmdl.subtype forState:UIControlStateNormal];
+   // [_subsearchbtnlbl setTitle:toolmdl.subtype forState:UIControlStateNormal];
 
     _unitcosttxtfld.text=[NSString stringWithFormat:@"$%@",toolmdl.unitcost];
     _cancelbtn.enabled=NO;
     _stckinhandtxtfld.text=toolmdl.stckinhand;
     _addView.hidden=NO;
     _navItem.title=@"Edit";
+    if ([toolmdl.allsubtype isEqualToString:@"true"]) {
+        
+        [_checksubtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        checksub=1;
+    }
+    else{
+        [_checksubtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        checksub=0;
+    }
+
+    if ([toolmdl.relatedtosfty isEqualToString:@"true"]) {
+        
+        [_checksaftybtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        saftycheck=1;
+    }
+    else{
+        [_checksaftybtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        saftycheck=0;
+    }
+    
 
 }
 
@@ -1087,6 +1150,52 @@
     _resultdisplaylabel.hidden=YES;
     _consumbleTable.userInteractionEnabled=YES;
     
+    }
+
+- (IBAction)subtypebtn:(id)sender {
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.consumbleTable];
+    NSIndexPath *textFieldIndexPath = [self.consumbleTable indexPathForRowAtPoint:rootViewPoint];
+    
+    Manpwr*materaialmdl=(Manpwr *)[_cnsumblearray objectAtIndex:textFieldIndexPath.row];
+    
+    self.subtypctrlr=[[RSTViewController alloc]initWithNibName:@"RSTViewController" bundle:nil];
+    
+    
+    self.subtypctrlr.modalPresentationStyle = UIModalPresentationFormSheet;
+    _subtypctrlr.equipmainid=materaialmdl.entryid;
+    // _subtypctrlr.moduleid=moduleid;
+    [self presentViewController:self.subtypctrlr
+                       animated:YES completion:NULL];
+}
+- (IBAction)checksubtypebtn:(id)sender {
+    if (checksub==0) {
+        [_checksubtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        checksub=1;
+        
+    }
+    
+    else{
+        [_checksubtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        checksub=0;
+        
+    }
+    
+}
+- (IBAction)checksfty:(id)sender {
+    if (saftycheck==0) {
+        [_checksaftybtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        saftycheck=1;
+        
+    }
+    
+    else{
+        [_checksaftybtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        saftycheck=0;
+        
+    }
+
     
 }
 #pragma mark-textfield delegate
@@ -1174,5 +1283,6 @@
     
     return YES;
 }
+
 
 @end

@@ -13,6 +13,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "Rightscheck.h"
+#import "RSTViewController.h"
 
 
 @interface SmalltoolsViewController : UIViewController{
@@ -98,5 +99,8 @@
 - (IBAction)editbtn:(id)sender;
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
+- (IBAction)subtypebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *subtypebtnlbl;
+@property (strong, nonatomic)RSTViewController *subtypctrlr;
 
 @end

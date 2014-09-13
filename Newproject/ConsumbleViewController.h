@@ -10,7 +10,7 @@
 #import "Manpwr.h"
 #import "Validation.h"
 #import "Rightscheck.h"
-
+#import "RSTViewController.h"
 @interface ConsumbleViewController : UIViewController<UITextFieldDelegate>
 {
     BOOL   recordResults;
@@ -18,7 +18,7 @@
     NSInteger path;
     NSInteger butntype;
     UIButton *button;
-    NSInteger webtype;
+    NSInteger webtype,checksub,moduleid,saftycheck;
     NSString *msgstrg;
     NSString*skill;
     
@@ -79,8 +79,16 @@
 -(IBAction)addconsume:(id)sender;
 -(IBAction)editconsume:(id)sender;
 -(IBAction)closeaddview:(id)sender;
+@property (strong, nonatomic)RSTViewController *subtypctrlr;
 
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
+- (IBAction)subtypebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *subtypebtnlbl;
+- (IBAction)checksubtypebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *checksubtypebtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *checksaftybtn;
+
+- (IBAction)checksfty:(id)sender;
 
 @end

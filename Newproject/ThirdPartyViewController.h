@@ -13,6 +13,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "Base64.h"
 #import "Rightscheck.h"
+#import "RSTViewController.h"
 
 
 @interface ThirdPartyViewController : UIViewController<UITextFieldDelegate,UIImagePickerControllerDelegate>
@@ -21,14 +22,15 @@
     NSInteger btntype;
     UIButton *button;
     NSInteger path;
-    NSInteger deltepath;
-    NSInteger webtype;
+    NSInteger deltepath,moduleid;
+    NSInteger webtype,checksub;
     NSInteger btnpath;
     NSInteger popvr;
     NSString *msgstrg;
    
     NSString*skill;
     NSString *thirdpatrycode;
+    
     
 }
 @property(strong,nonatomic)NSMutableDictionary *skilldict;
@@ -129,4 +131,12 @@
 
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
+
+- (IBAction)subtypebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *subtypebtnlbl;
+@property (strong, nonatomic)RSTViewController *subtypctrlr;
+
+@property (strong, nonatomic) IBOutlet UIButton *checksubtypebtnlbl;
+- (IBAction)checksubtype:(id)sender;
+
 @end
