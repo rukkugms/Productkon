@@ -1972,6 +1972,22 @@ _addequipmentview.hidden=NO;
     
         
     }
+    if(textField==_serialtxtfld){
+        Validation *val=[[Validation alloc]init];
+        int value1=[val validatespecialcharacters:_serialtxtfld.text];
+        if(value1==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Serial Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+        
+        
+    }
+
     return YES;
 }
 
@@ -2005,6 +2021,12 @@ _addequipmentview.hidden=NO;
         _purchasetxtfld.text=@"";
         
     }
+    if ([alertView.message isEqualToString:@"Description field is required"]) {
+        
+        
+        _destxtfld.text=@"";
+        
+    }
     
     if ([alertView.message isEqualToString:@"Invalid year"]) {
         
@@ -2012,6 +2034,13 @@ _addequipmentview.hidden=NO;
         _manufattxtfld.text=@"";
         
     }
+    if ([alertView.message isEqualToString:@"Invalid Serial Number"]) {
+        
+        
+        _serialtxtfld.text=@"";
+        
+    }
+    
     if ([alertView.message isEqualToString:@"Invalid insured value"]) {
         
         
