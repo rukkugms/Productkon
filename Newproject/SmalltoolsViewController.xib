@@ -10,6 +10,7 @@
                 <outlet property="Tooltable" destination="vQ6-0w-lwp" id="J6Z-Rz-IgJ"/>
                 <outlet property="addview" destination="utJ-Ha-2lI" id="vuY-1e-UC7"/>
                 <outlet property="cancelbtnlbl" destination="Ruw-Qs-grE" id="oBt-tw-fYU"/>
+                <outlet property="checksubbtnlbl" destination="680-tl-iap" id="xlD-P2-OJ9"/>
                 <outlet property="codetxtfld" destination="jmM-3h-ugT" id="c3R-bl-eje"/>
                 <outlet property="costtxtfld" destination="Djm-vH-8TL" id="Xj8-fQ-HhP"/>
                 <outlet property="destxtfld" destination="LfS-2o-ba2" id="LJC-3d-nbT"/>
@@ -18,7 +19,6 @@
                 <outlet property="picimageview" destination="St6-P0-Hvp" id="xgW-Iw-kfV"/>
                 <outlet property="resultdisplaylabel" destination="FNS-yA-DTH" id="ahB-2b-nCU"/>
                 <outlet property="stockinhandtxtfld" destination="0l4-wj-wMA" id="Zfv-ib-eKw"/>
-                <outlet property="subsearchbtnlbl" destination="p51-kM-tTJ" id="XGz-2R-8if"/>
                 <outlet property="view" destination="9N2-uw-8vf" id="kgk-1I-Tsb"/>
                 <outlet property="view1" destination="Ov6-Bx-oOC" id="oiL-CH-mih"/>
             </connections>
@@ -171,12 +171,6 @@
                                         <outlet property="delegate" destination="-1" id="dnH-F8-JYs"/>
                                     </connections>
                                 </textField>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sub Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Iek-li-Yhr">
-                                    <rect key="frame" x="25" y="138" width="70" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Djm-vH-8TL">
                                     <rect key="frame" x="381" y="162" width="198" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -212,18 +206,6 @@
                                     </state>
                                     <connections>
                                         <action selector="updatebtn:" destination="-1" eventType="touchUpInside" id="sny-a5-vJb"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="p51-kM-tTJ">
-                                    <rect key="frame" x="25" y="162" width="200" height="33"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                    <state key="normal" title="Select" backgroundImage="textbox.png">
-                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="subsearchbtn:" destination="-1" eventType="touchUpInside" id="ODL-rv-Uej"/>
                                     </connections>
                                 </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stock In Hand" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qky-Xs-JfH">
@@ -262,6 +244,22 @@
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Sub Types" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ogG-yC-e0j">
+                                    <rect key="frame" x="33" y="138" width="137" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="680-tl-iap">
+                                    <rect key="frame" x="56" y="164" width="22" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="cb_mono_off.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="checksubtypebtn:" destination="-1" eventType="touchUpInside" id="M1v-rV-i3N"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
@@ -276,7 +274,7 @@
         <image name="appbar.addblack.png" width="76" height="76"/>
         <image name="appbar.close.png" width="76" height="76"/>
         <image name="appbar.delete.png" width="76" height="76"/>
+        <image name="cb_mono_off.png" width="22" height="21"/>
         <image name="ios7-camera-icon.png" width="128" height="128"/>
-        <image name="textbox.png" width="298" height="64"/>
     </resources>
 </document>

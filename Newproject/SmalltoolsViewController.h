@@ -20,7 +20,7 @@
      BOOL recordResults;
     NSInteger butnpath;
     NSInteger path;
-    NSInteger butntype;
+    NSInteger butntype,checksub;
     UIButton *button;
     NSInteger webtype;
     NSString *msgstrg;
@@ -102,5 +102,7 @@
 - (IBAction)subtypebtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *subtypebtnlbl;
 @property (strong, nonatomic)RSTViewController *subtypctrlr;
+@property (strong, nonatomic) IBOutlet UIButton *checksubbtnlbl;
 
+- (IBAction)checksubtypebtn:(id)sender;
 @end
