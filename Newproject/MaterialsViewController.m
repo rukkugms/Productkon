@@ -377,9 +377,10 @@
                    "<picture>%@</picture>\n"
                     "<qtyinstock>%f</qtyinstock>\n"
                    "<UnitInMeasure>%@</UnitInMeasure>\n"
+                   "<MTAllSubTypes>%d</MTAllSubTypes>\n"
                    "</InserteMaterials>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[unitcost floatValue],@"",[_stockinhandtxtfld.text floatValue],_unitofmesuretxtfld.text];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[unitcost floatValue],@"",[_stockinhandtxtfld.text floatValue],_unitofmesuretxtfld.text,createcheck];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -420,6 +421,32 @@
     NSString *soapMessage;
     
       Manpwr*pwrmdl=(Manpwr *)[_materialarray objectAtIndex:butnpath];
+//    if([createstring isEqualToString:@"create"])
+//    {
+//        if (createcheck==0) {
+//            check=0;
+//        }
+//        else{
+//            check=1;
+//            
+//        }
+//        createstring=@"";
+//    }
+//    else
+//    {
+//        if ([eqmdl.EqAllSubTypes isEqualToString:@"true"]) {
+//            
+//            check=1;
+//        }
+//        else if([eqmdl.EqAllSubTypes isEqualToString:@"false"]){
+//            
+//            check=0;
+//            
+//        }
+//        
+//        
+//    }
+
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -437,6 +464,7 @@
                    "<picture>%@</picture>\n"
                     "<qtyinstock>%f</qtyinstock>\n"
                    "<UnitInMeasure>%@</UnitInMeasure>\n"
+                    "<MTAllSubTypes>%d</MTAllSubTypes>\n"
                    "</UpdateMaterials>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[unitcost floatValue],@"",[_stockinhandtxtfld.text floatValue],_unitofmesuretxtfld.text];
@@ -1061,6 +1089,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"MTAllSubTypes"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"SearchMaterialsResponse"])
     {
          _materialarray=[[NSMutableArray alloc]init];
@@ -1365,11 +1403,23 @@
     {  recordResults = FALSE;
         
         _materialmdl.unitofmeasure=_soapResults;
-        [_materialarray addObject:_materialmdl];
+        
         _soapResults = nil;
 
 
     }
+    if([elementName isEqualToString:@"MTAllSubTypes"])
+    {
+        
+        recordResults = FALSE;
+        
+        //_materialmdl.allsubtypes=_soapResults;
+        [_materialarray addObject:_materialmdl];
+        _soapResults = nil;
+        
+        
+    }
+
     if([elementName isEqualToString:@"subtype"])
     {
         recordResults = FALSE;
@@ -1907,5 +1957,42 @@ finishedSavingWithError:(NSError *)error
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
+-(IBAction)cellsubtypeselection:(id)sender
+{
+    _moduleid=28;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.materialTable];
+    NSIndexPath *textFieldIndexPath = [self.materialTable indexPathForRowAtPoint:rootViewPoint];
+    
+    Manpwr*matmodel=(Manpwr *)[_materialarray objectAtIndex:textFieldIndexPath.row];
+    
+    self.rstctrlr=[[RSTViewController alloc]initWithNibName:@"RSTViewController" bundle:nil];
+    
+    
+    self.rstctrlr.modalPresentationStyle = UIModalPresentationFormSheet;
+    _rstctrlr.materialmainid=matmodel.entryid;
+    _rstctrlr.moduleid=_moduleid;
+    [self presentViewController:self.rstctrlr
+                       animated:YES completion:NULL];
+}
+- (IBAction)checksubtypebtn:(id)sender
+{
+    createstring=@"create";
+    if (createcheck==0) {
+        [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        createcheck=1;
+        
+    }
+    
+    else{
+        [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        createcheck=0;
+        
+    }
+    
+}
+
+
 
 @end

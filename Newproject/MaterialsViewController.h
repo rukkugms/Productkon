@@ -13,6 +13,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "Rightscheck.h"
+#import "RSTViewController.h"
 
 
 @interface MaterialsViewController : UIViewController{
@@ -26,8 +27,11 @@
     NSString *matealcode;
     NSString*skill;
     NSInteger poptype;
+    NSInteger createcheck;
+    NSString *createstring;
     
 }
+@property(strong,nonatomic)RSTViewController *rstctrlr;
 @property(strong,nonatomic)NSMutableDictionary *skilldict;
 @property(strong,nonatomic)NSMutableDictionary *revskilldict;
 
@@ -106,5 +110,12 @@
 
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
+
+@property(strong,nonatomic)IBOutlet UIButton *subtypebtn;
+-(IBAction)cellsubtypeselection:(id)sender;
+- (IBAction)checksubtypebtn:(id)sender;
+@property(strong,nonatomic)IBOutlet UIButton *checkbtn;
+@property(readwrite)NSInteger moduleid;
+
 
 @end
