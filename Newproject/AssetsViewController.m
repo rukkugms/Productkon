@@ -523,6 +523,17 @@ finishedSavingWithError:(NSError *)error
      NSString*MonthlyRate=_monthlytxtfld.text;
      NSString*YearlyRate=_yearlytxtfld.text;
   Equpmntmdl*eqmdl=(Equpmntmdl *)[_Assetarray objectAtIndex:path];
+    if (createsub!=1) {
+        if ([eqmdl.EqAllSubTypes isEqualToString:@"true"]) {
+            checksub=1;
+        }
+        else{
+            checksub=0;
+        }
+    }
+    else{
+        createsub=0;
+    }
       
     soapMessage = [NSString stringWithFormat:
                    
