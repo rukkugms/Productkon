@@ -30,6 +30,7 @@
    
     NSString*skill;
     NSString *thirdpatrycode;
+    NSString *checkstring;
     
     
 }
