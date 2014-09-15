@@ -97,7 +97,8 @@
 {
        _ancelbtnlbl.enabled=YES;
     [self SelectAllCustomer];
-    
+    _leadTable.userInteractionEnabled=NO;
+    [_leadTable setEditing:NO animated:NO];
      self.navbaritem.title = @"Create";
     
     butnidtfr=1;
@@ -270,11 +271,29 @@ if (tableView==_leadTable) {
     _EmailId= (UILabel*)[cell viewWithTag:4];
     _EmailId.text=info.emailid;
     _IndustryType=(UILabel*)[cell viewWithTag:5];
+    if ([info.Industrytype isEqualToString:@"Select"]) {
+        _IndustryType.text=@"";
+    }
+    else
+    {
     _IndustryType.text=info.Industrytype;
+    }
     _ProjectType=(UILabel*)[cell viewWithTag:6];
+    if ([info.projecttype isEqualToString:@"Select"]) {
+        _ProjectType.text=@"";
+    }
+    else
+    {
     _ProjectType.text=info.projecttype;
+    }
     _ProjectExecution=(UILabel*)[cell viewWithTag:7];
+    if ([info.projectexecution isEqualToString:@"Select"]) {
+        _ProjectExecution.text=@"";
+    }
+    else
+    {
     _ProjectExecution.text=info.projectexecution;
+    }
     _editbtncelllbl=(UIButton *)[cell viewWithTag:8];
     [cell.contentView addSubview:_editbtncelllbl];
     
@@ -528,6 +547,10 @@ if (tableView==_leadTable) {
 
 - (IBAction)editcellbtn:(id)sender {
     butnidtfr=2;
+    [self SelectAllCustomer];
+    [self Stateselect];
+    _leadTable.userInteractionEnabled=NO;
+    [_leadTable setEditing:NO animated:NO];
     _ancelbtnlbl.enabled=NO;
     
      self.navbaritem.title = @"Edit";
@@ -575,9 +598,7 @@ if (tableView==_leadTable) {
     [_leadstatusBtn setTitle:info1.leadstatus forState:UIControlStateNormal];
     [_industrytypetxtfld setTitle:info1.Industrytype forState:UIControlStateNormal];
     [_prjctexcutntxtfld setTitle:info1.projectexecution forState:UIControlStateNormal];
-    [self SelectAllCustomer];
-     [self Stateselect];
-
+    
 
    
 }
@@ -617,6 +638,8 @@ if (tableView==_leadTable) {
 
 - (IBAction)clsebtn:(id)sender {
     butnidtfr=0;
+    _leadTable.userInteractionEnabled=YES;
+   
     _view2.hidden=YES;
 //    _view2.frame = CGRectMake(250, 250, 384, 356);
 //    //    CGPoint origin = _hidenview.frame.origin;
@@ -940,7 +963,8 @@ else
         if (butnidtfr==1) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to add a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
-        }else if(butnidtfr==2)
+        }
+        else if(butnidtfr==2)
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
@@ -956,67 +980,68 @@ else
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Company Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
-    else if([_phonetxtfld.text isEqualToString:@""])
+    else if([_phonetxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
     {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+        _phonetxtfld.text=@"";
     }
-    else if(![_prjctyeartxtfld.text isEqualToString:@""]||![_emailidtxtfld.text isEqualToString:@""])
-    {
-        int value1 = [val isNumeric:_prjctyeartxtfld.text];
-        int value2 = [val validEmailAddress:_emailidtxtfld.text];
-        if(value1==0)
-        {
-            
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Year" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert1 show];
-        }
-        else if(value2==0)
-        {
-            
-            if([_emailidtxtfld.text length]==0)
-            {
-                
-            }
-            else
-            {
-                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [alert show];
-            }
-
-        }
-        else
+//    else if([_prjctyeartxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length!=0)
+//    {
+//        int value1 = [val isNumeric:_prjctyeartxtfld.text];
+//        if(value1==0)
+//        {
+//            
+//            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Year" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//            [alert1 show];
+//        }
+//    }
+//    else if([_emailidtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length!=0)
+//
+//    {
+//        
+//        int value2 = [val validEmailAddress:_emailidtxtfld.text];
+//        
+//        if(value2==0)
+//        {
+//            
+//           
+//                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//                [alert show];
+//        }
+//    }
+else
         {
             if (butnidtfr==1) {
                 [self Addlead];
             }
-            else  if(butnidtfr==2)
+            else // if(butnidtfr==2)
             {
                 
                 [self updatelead];
             }
 
-        }
+}
 
         
         
-        
+    }
     
     
-    }
-    else
-    {
-        if (butnidtfr==1) {
-            [self Addlead];
-        }
-        else  if(butnidtfr==2)
-        {
-            
-            [self updatelead];
-        }
-
-    }
-    }
+    
+//    else
+//    {
+//        if (butnidtfr==1) {
+//            [self Addlead];
+//        }
+//        else  if(butnidtfr==2)
+//        {
+//            
+//            [self updatelead];
+//        }
+//
+//    }
+//}
 }
 - (IBAction)selectcompany:(id)sender
 {
@@ -1082,17 +1107,17 @@ else
                  @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                  "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
                  "<soap:Body>\n"
-                 "<Stateselect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                 "<Stateselect xmlns=\"http://ios.kontract360.com/\">\n"
                  "</Stateselect>\n"
                  "</soap:Body>\n"
                  "</soap:Envelope>\n"];
     NSLog(@"soapmessage%@",soapmessage);
    // NSURL *url=[NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     NSMutableURLRequest *theRequest=[NSMutableURLRequest requestWithURL:url];
     NSString *msglength=[NSString stringWithFormat:@"%d",[soapmessage length]];
     [theRequest addValue:@"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-    [theRequest addValue: @"http://testUSA.kontract360.com/Stateselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/Stateselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msglength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1127,7 +1152,7 @@ else
                                  
                    "<soap:Body>\n"
                    
-                   "<GetLeads xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<GetLeads xmlns=\"http://ios.kontract360.com/\">\n"
                   
                    "</GetLeads>\n"
                    "</soap:Body>\n"
@@ -1136,7 +1161,7 @@ else
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1144,7 +1169,7 @@ else
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/GetLeads" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/GetLeads" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1182,7 +1207,7 @@ else
                    
                    "<soap:Body>\n"
                    
-                   "<UpdateCLMDemo xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<UpdateCLMDemo xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "<LeadId>%d</LeadId>\n"
                    "<CompanyName>%@</CompanyName>\n"
@@ -1192,7 +1217,7 @@ else
                    "<Phone>%@</Phone>\n"
                    "<EmailId>%@</EmailId>\n"
                    "<City>%@</City>\n"
-                   "<State>%d</State>\n"
+                   "<State>%@</State>\n"
                    "<TypeOfLead>%@</TypeOfLead>\n"
                    "<IndustryType>%@</IndustryType>\n"
                    "<ProjectType>%@</ProjectType>\n"
@@ -1205,13 +1230,13 @@ else
                    "<ID>%@</ID>\n"
                    "</UpdateCLMDemo>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",info2.leadid,_companybtn.titleLabel.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,[stid integerValue],_leadtypebtnlbl.titleLabel.text,_industrytypetxtfld.titleLabel.text,_projecttype.titleLabel.text,_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,_leadstatusBtn.titleLabel.text,[info2.bidstatus integerValue ],info2.idvalue];
+                   "</soap:Envelope>\n",info2.leadid,_companybtn.titleLabel.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,stid,_leadtypebtnlbl.titleLabel.text,_industrytypetxtfld.titleLabel.text,_projecttype.titleLabel.text,_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,_leadstatusBtn.titleLabel.text,[info2.bidstatus integerValue ],info2.idvalue];
                                                                                                                                                                                                                                     
     NSLog(@"soapmsg%@",soapMessage);
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-  NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+  NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1219,7 +1244,7 @@ else
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/UpdateCLMDemo" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/UpdateCLMDemo" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1261,7 +1286,7 @@ else
                    
                    "<soap:Body>\n"
                    
-                   "<SaveLead xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SaveLead xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "<leadid>%d</leadid>\n"
                    "<Companyname>%@</Companyname>\n"
@@ -1271,7 +1296,7 @@ else
                    "<Phone>%@</Phone>\n"
                    "<MailId>%@</MailId>\n"
                    "<City>%@</City>\n"
-                   "<State>%d</State>\n"
+                   "<State>%@</State>\n"
                    "<LeadType>%@</LeadType>\n"
                    "<IndustryType>%@</IndustryType>\n"
                    "<ProjectType>%@</ProjectType>\n"
@@ -1284,13 +1309,13 @@ else
                    "<ID>%@</ID>\n"
                    "</SaveLead>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",Leadid,_companybtn.titleLabel.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,[stid integerValue],_leadtypebtnlbl.titleLabel.text,_industrytypetxtfld.titleLabel.text,_projecttype.titleLabel.text,_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,_leadstatusBtn.titleLabel.text,[bidstatus integerValue],idvalue];
+                   "</soap:Envelope>\n",Leadid,_companybtn.titleLabel.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,stid,_leadtypebtnlbl.titleLabel.text,_industrytypetxtfld.titleLabel.text,_projecttype.titleLabel.text,_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,_leadstatusBtn.titleLabel.text,[bidstatus integerValue],idvalue];
     
     NSLog(@"soapmsg%@",soapMessage);
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1298,7 +1323,7 @@ else
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SaveLead" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SaveLead" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1333,7 +1358,7 @@ else
                    
                    "<soap:Body>\n"
                    
-                   "<SearchLead1 xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SearchLead1 xmlns=\"http://ios.kontract360.com/\">\n"
                     "<searchtext>%@</searchtext>\n"
                    "</SearchLead1>\n"
                    "</soap:Body>\n"
@@ -1342,7 +1367,7 @@ else
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1350,7 +1375,7 @@ else
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue:@"http://testUSA.kontract360.com/SearchLead1" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue:@"http://ios.kontract360.com/SearchLead1" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1384,7 +1409,7 @@ else
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllCustomer xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SelectAllCustomer xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</SelectAllCustomer>\n"
                    "</soap:Body>\n"
@@ -1393,7 +1418,7 @@ else
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1401,7 +1426,7 @@ else
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllCustomer" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SelectAllCustomer" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1435,7 +1460,7 @@ else
                    
                    "<soap:Body>\n"
                    
-                   "<DeleteLead xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<DeleteLead xmlns=\"http://ios.kontract360.com/\">\n"
                    "<leadid>%d</leadid>\n"
                   
                    "</DeleteLead>\n"
@@ -1445,7 +1470,7 @@ else
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1453,7 +1478,7 @@ else
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/DeleteLead" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/DeleteLead" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1486,7 +1511,7 @@ else
                    
                    "<soap:Body>\n"
                    
-                   "<LeadCommentsList xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<LeadCommentsList xmlns=\"http://ios.kontract360.com/\">\n"
                    "<leadId>%d</leadId>\n"
                    
                    "</LeadCommentsList>\n"
@@ -1496,7 +1521,7 @@ else
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1504,7 +1529,7 @@ else
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/LeadCommentsList" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/LeadCommentsList" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1550,7 +1575,7 @@ else
                    
                    "<soap:Body>\n"
                    
-                   "<SaveLeadComment xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SaveLeadComment xmlns=\"http://ios.kontract360.com/\">\n"
                    "<LeadId>%d</LeadId>\n"
                    "<Comments>%@</Comments>\n"
                    "<UserId>%d</UserId>\n"
@@ -1562,7 +1587,7 @@ else
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1570,7 +1595,7 @@ else
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SaveLeadComment" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SaveLeadComment" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -2358,6 +2383,10 @@ else
 {
    if([alertView.message isEqualToString:_msgstring])
    {
+       if (btnindex==2) {
+           _view2.hidden=YES;
+           _leadTable.userInteractionEnabled=YES;
+       }
        [_companybtn setTitle:@"Select" forState:UIControlStateNormal];
        _contactnametxtfld.text=@"";
        _phonetxtfld.text=@"";
@@ -2392,15 +2421,33 @@ else
     _phonetxtfld.text=@"";
             
     }
-    if ([alertView.message isEqualToString:@"Invalid Year"]) {
+    if ([alertView.message isEqualToString:@"Invalid Year"])
            
         {
            _prjctyeartxtfld.text=@"";
         }
 
+    if ([alertView.message isEqualToString:@"Invalid Contact Title"])
         
+    {
+        _contacttiletxtfld.text=@"";
+    }
     
-}
+    if ([alertView.message isEqualToString:@"Invalid Contact Name"])
+        
+    {
+        _contactnametxtfld.text=@"";
+    }
+    
+    if ([alertView.message isEqualToString:@"Invalid City"])
+        
+    {
+        _citytxtfld.text=@"";
+    }
+    
+
+    
+
     }
 
 #pragma mark - SearchBar
@@ -2534,7 +2581,7 @@ else
 {
      if(textField==_prjctyeartxtfld){
          Validation *val=[[Validation alloc]init];
-         int value1=[val isNumeric:_prjctyeartxtfld.text];
+         int value1=[val isNumeric:[_prjctyeartxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
         
          if(value1==0)
          {
@@ -2546,28 +2593,90 @@ else
          }
          
      }
+    if(textField==_contactnametxtfld){
+        
+        
+        
+        Validation *val=[[Validation alloc]init];
+        int value1=[val validatespecialcharacters:[_contactnametxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        if(value1==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Contact Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+    if(textField==_citytxtfld){
+        
+        
+        
+        Validation *val=[[Validation alloc]init];
+        int value1=[val validatespecialcharacters:[_citytxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        if(value1==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid City" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+    if(textField==_contacttiletxtfld){
+        
+        
+        
+        Validation *val=[[Validation alloc]init];
+        int value1=[val validatespecialcharacters:[_contacttiletxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        if(value1==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Contact Title" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+    if(textField==_locationtxtfld){
+        
+        
+        
+        Validation *val=[[Validation alloc]init];
+        int value1=[val validatespecialcharacters:[_locationtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        if(value1==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Location" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+
+
+
     
     if(textField==_emailidtxtfld){
         
-        Validation *val=[[Validation alloc]init];
-        BOOL bEmailValid = [val validEmailAddress:_emailidtxtfld.text];
-        if(bEmailValid)
-        {
-            // email valid, other validations in the form
-        }
-        else
-        {
-            if([_emailidtxtfld.text length]==0)
-            {
+        if(![_emailidtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
+            Validation *val=[[Validation alloc]init];
+            BOOL bEmailValid = [val validEmailAddress:[_emailidtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
             
+            if(bEmailValid)
+            {
+                // email valid, other validations in the form
             }
             else
             {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
             }
         }
-        
         
     }
 

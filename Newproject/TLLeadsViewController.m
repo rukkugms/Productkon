@@ -164,9 +164,9 @@
             if (rightsmodel.ViewModule==1) {
                 
                 
-                if (!self.leadVCtrl) {
+               // if (!self.leadVCtrl) {
                     self.leadVCtrl=[[LeadsViewController alloc]initWithNibName:@"LeadsViewController" bundle:nil];
-                }
+              //  }
                
                 _leadVCtrl.userrightsarray=_userrightsarray;
                 [self presentViewController:_leadVCtrl

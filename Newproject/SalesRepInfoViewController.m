@@ -110,7 +110,8 @@
 - (IBAction)editsalesaction:(id)sender
 {
     _cancelbtnlbl.enabled=NO;
-   
+    _salesRepTable.userInteractionEnabled=NO;
+    [_salesRepTable setEditing:NO animated:NO];
        _cancelbtnlbl.titleLabel.textColor=[UIColor grayColor];
     _addView.hidden=NO;
     _navbar.title=@"Edit";
@@ -134,6 +135,8 @@
 }
 - (IBAction)addsalesaction:(id)sender
 {_cancelbtnlbl.enabled=YES;
+    _salesRepTable.userInteractionEnabled=NO;
+    [_salesRepTable setEditing:NO animated:NO];
    _cancelbtnlbl.titleLabel.textColor=[UIColor colorWithRed:0/255.0f green:122.0/255.0f blue:255.0/255.0f alpha:1.0f];
     _addView.hidden=NO;
      _navbar.title=@"Create";
@@ -792,6 +795,10 @@
 -(void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if ([alertView.message isEqualToString:_resultstring]) {
+        if (optionidentifier==2) {
+            _addView.hidden=YES;
+            _salesRepTable.userInteractionEnabled=YES;
+        }
         _custcodetextfield.text=@"";
         _emailtextfield.text=@"";
         _extensiontextfield.text=@"";
@@ -812,27 +819,31 @@
     if ([alertView.message isEqualToString:@"Invalid Email"]) {
         _emailtextfield.text=@"";
     }
+    if ([alertView.message isEqualToString:@"Invalid Company Name"]) {
+        _nametextfield.text=@"";
+    }
+
 
 
 }
 - (IBAction)update:(id)sender {
    
-        if([_nametextfield.text isEqualToString:@""])
+        if([_nametextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
-        else if([_mobiletextfield.text isEqualToString:@""])
+        else if([_mobiletextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Mobile Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
-        else if([_phoneofficetextfield.text isEqualToString:@""])
+        else if([_phoneofficetextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
-        else if(![_emailtextfield.text isEqualToString:@""])
+        else if(![_emailtextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length)
         {
             Validation *val=[[Validation alloc]init];
             int value2 = [val validEmailAddress:_emailtextfield.text];
@@ -1227,9 +1238,9 @@
 if(textField==_emailtextfield){
         
         Validation *val=[[Validation alloc]init];
-        if(![_emailtextfield.text isEqualToString:@""])
+        if(![_emailtextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
         {
-            int value2 = [val validEmailAddress:_emailtextfield.text];
+            int value2 = [val validEmailAddress:[_emailtextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
             if(value2==0)
             {
                 
@@ -1245,9 +1256,9 @@ if(textField==_emailtextfield){
     if(textField==_extensiontextfield){
         
         Validation *val=[[Validation alloc]init];
-        if(![_extensiontextfield.text isEqualToString:@""])
+        if(![_extensiontextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
         {
-            int value2 = [val isNumeric:_extensiontextfield.text];
+            int value2 = [val isNumeric:[_extensiontextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
             if(value2==0)
             {
                 
@@ -1264,6 +1275,23 @@ if(textField==_emailtextfield){
     
     
     
+    if(textField==_nametextfield){
+        
+        
+        
+        Validation *val=[[Validation alloc]init];
+        int value1=[val validatespecialcharacters:[_nametextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        if(value1==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Company Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+
     
     
     
@@ -1296,6 +1324,11 @@ if(textField==_emailtextfield){
     {
         NSUInteger newLength = [_nametextfield.text length] + [string length] - range.length;
         return (newLength > 100) ? NO : YES;
+    }
+    if(textField==_extensiontextfield)
+    {
+        NSUInteger newLength = [_extensiontextfield.text length] + [string length] - range.length;
+        return (newLength > 5) ? NO : YES;
     }
     return YES;
     

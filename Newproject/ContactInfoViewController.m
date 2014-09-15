@@ -559,6 +559,7 @@
 #pragma mark-Button
 - (IBAction)addbtn:(id)sender {
       _cancelbtnlbl.enabled=YES;
+    optionidentifier=1;
      _cancelbtnlbl.titleLabel.textColor=[UIColor colorWithRed:0/255.0f green:122.0/255.0f blue:255.0/255.0f alpha:1.0f];
     _navitem.title=@"Create";
     webtype=1;
@@ -569,6 +570,8 @@
     _mobiletextfld.text=@"";
     _faxtxtfld.text=@"";
     _pstntxtfld.text=@"";
+    _contactinfoTable.userInteractionEnabled=NO;
+    [_contactinfoTable setEditing:NO animated:NO];
 
 }
 
@@ -576,30 +579,31 @@
 -(IBAction)closetheView:(id)sender
 {
     self.addview.hidden=YES;
+    _contactinfoTable.userInteractionEnabled=YES;
 }
 
 - (IBAction)updatebtn:(id)sender {
-    if([_nametextfield.text isEqualToString:@""]){
+    if([_nametextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
 
     }
-    else if ([_mobiletextfld.text isEqualToString:@""]){
+    else if ([_mobiletextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Mobile Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
 
         
     }
-    else if ([_phonetextfield.text isEqualToString:@""]){
+    else if ([_phonetextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
         
     }
-    else if(![_emailtextfield.text isEqualToString:@""])
+    else if(![_emailtextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
     {
         Validation *val=[[Validation alloc]init];
-        int value2 = [val validEmailAddress:_emailtextfield.text];
+        int value2 = [val validEmailAddress:[_emailtextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
         if(value2==0)
         {
             
@@ -654,6 +658,10 @@
 }
 
 - (IBAction)editbtn:(id)sender {
+    optionidentifier=2;
+    _contactinfoTable.userInteractionEnabled=NO;
+    [_contactinfoTable setEditing:NO animated:NO];
+
     _cancelbtnlbl.enabled=NO;
     _cancelbtnlbl.titleLabel.textColor=[UIColor grayColor];
     webtype=2;
@@ -790,7 +798,10 @@
         
         
         if (buttonIndex==0) {
-            
+            if (optionidentifier==2) {
+                _contactinfoTable.userInteractionEnabled=YES;
+                _addview.hidden=YES;
+            }
             
             _nametextfield.text=@"";
               _emailtextfield.text=@"";
@@ -848,6 +859,15 @@
         if (buttonIndex==0) {
             
             _mobiletextfld.text=@"";
+            
+        }
+        
+    }
+    if ([alertView.message isEqualToString:@"Invalid Company Name"])
+    {
+        if (buttonIndex==0) {
+            
+            _nametextfield.text=@"";
             
         }
         
@@ -920,7 +940,23 @@
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    
+    if(textField==_nametextfield){
+        
+        
+        
+        Validation *val=[[Validation alloc]init];
+        int value1=[val validatespecialcharacters:[_nametextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        if(value1==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Company Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+
     if(textField==_faxtxtfld)
     {
         faxnoString=_faxtxtfld.text;
@@ -1283,12 +1319,12 @@
     }
 
         if(textField==_emailtextfield){
-            if(![_emailtextfield.text isEqualToString:@""]){
+            if(![_emailtextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
                 
             
         
         Validation *val=[[Validation alloc]init];
-        BOOL bEmailValid = [val validEmailAddress:_emailtextfield.text];
+        BOOL bEmailValid = [val validEmailAddress:[_emailtextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
         if(bEmailValid)
         {
             // email valid, other validations in the form
