@@ -631,7 +631,7 @@ if([elementName isEqualToString:@"BRDescription"])
 
 }
 - (IBAction)addbtn:(id)sender {
-         [_crafttable setEditing:NO animated:NO];
+        // [_crafttable setEditing:NO animated:NO];
     _crafttable.userInteractionEnabled=NO;
     _addview.hidden=NO;
     

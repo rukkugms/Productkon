@@ -1225,7 +1225,12 @@
               userpath=indexPath.row;
               [_userbtn setTitle:[_userarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
               _masterbtn.enabled=YES;
+              
               _activatebtnlbl.enabled=YES;
+              [_masterbtn setTitle:@"Select" forState:UIControlStateNormal];
+              [_subbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+              [_subsubbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+
               [self Useractivateselect];
                [_Allviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
                [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
@@ -1237,6 +1242,8 @@
         
         else if (popover==2) {
              mastrpath=indexPath.row;
+            [_subbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+            [_subsubbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
             [_Allviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             [_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
@@ -1254,6 +1261,8 @@
         
         else if (popover==3) {
               subpath=indexPath.row;
+         
+            [_subsubbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
             [_Allviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             [_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
@@ -1862,13 +1871,8 @@
 
 - (IBAction)userbtn:(id)sender {
      popover=1;
-     [_masterbtn setTitle:@"Select" forState:UIControlStateNormal];
-     [_subbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
-     [_subsubbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
-      _activatebtnlbl.enabled=NO;
-    _masterbtn.enabled=NO;
-    _subbtnlbl.enabled=NO;
-    _subsubbtnlbl.enabled=NO;
+         _activatebtnlbl.enabled=NO;
+   
     
     [self createpopover];
     [self AllUsersselect];
@@ -1877,10 +1881,8 @@
 - (IBAction)masterbtn:(id)sender {
     popover=2;
    
-    [_subbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
-    [_subsubbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
-     _subbtnlbl.enabled=NO;
-    _subsubbtnlbl.enabled=NO;
+        //_subbtnlbl.enabled=NO;
+   // _subsubbtnlbl.enabled=NO;
 
     [self createpopover];
     [self Mainmoduleselect];
@@ -1889,9 +1891,9 @@
 - (IBAction)subbtn:(id)sender {
     popover=3;
  
-    [_subsubbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
    
-    _subsubbtnlbl.enabled=NO;
+   
+   // _subsubbtnlbl.enabled=NO;
     [self createpopover];
     [self Submoduleselect];
 

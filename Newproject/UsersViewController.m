@@ -1100,8 +1100,7 @@
 }
 -(IBAction)adduserview:(id)sender
 {
-    [_usertable setEditing:NO animated:NO];
-    _usertable.userInteractionEnabled=NO;
+     _usertable.userInteractionEnabled=NO;
     optionIdentifier=1;
     _resultdisplaylabel.hidden=YES;
     _addview.hidden=NO;
@@ -1115,7 +1114,7 @@
 }
 -(IBAction)edituserview:(id)sender
 {
-    [_usertable setEditing:NO animated:NO];
+   
     _usertable.userInteractionEnabled=NO;
     optionIdentifier=2;
     _addview.hidden=NO;
