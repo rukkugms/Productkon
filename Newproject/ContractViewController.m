@@ -268,9 +268,9 @@
     subcontract*smdl=(subcontract *)[_contractlistarray objectAtIndex:selectedcell];
     [_passingarray addObject:smdl];
 
-    if (!self.mgmtdetails) {
+  //  if (!self.mgmtdetails) {
         self.mgmtdetails=[[MangmntdetailsViewController alloc]initWithNibName:@"MangmntdetailsViewController" bundle:nil];
-    }
+  //  }
     _mgmtdetails.detailsarray=_passingarray;
     //_custmrVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
     
@@ -788,7 +788,15 @@
         recordResults = TRUE;
         
     }
-
+    
+ if ([elementName isEqualToString:@"TempworkerMarkup"]) {
+     if(!_soapresults)
+     {
+         _soapresults=[[NSMutableString alloc]init];
+     }
+     recordResults = TRUE;
+     
+ }
 
    }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -1026,11 +1034,18 @@
         
         recordResults=FALSE;
         _sub.ExpiryDate=_soapresults;
-        [_contractlistarray addObject:_sub];
+       
         _soapresults=nil;
     }
     
 
+    if ([elementName isEqualToString:@"TempworkerMarkup"]) {
+        
+        recordResults=FALSE;
+        _sub.TempworkerMarkup=_soapresults;
+        [_contractlistarray addObject:_sub];
+        _soapresults=nil;
+    }
 
 
 
