@@ -509,7 +509,7 @@
 
 - (IBAction)addbtn:(id)sender {
     _addresstable.userInteractionEnabled=NO;
-    [_addresstable setEditing:NO animated:NO];
+   
 
     _addview.hidden=NO;
     optionidentifier=1;
@@ -635,7 +635,6 @@
 
 - (IBAction)editbtn:(id)sender {
     _addresstable.userInteractionEnabled=NO;
-    [_addresstable setEditing:NO animated:NO];
    // _.enabled=NO;
     optionidentifier=2;
      _addview.hidden=NO;

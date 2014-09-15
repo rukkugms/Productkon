@@ -726,7 +726,7 @@
 }
 -(IBAction)addbasicreq:(id)sender
 {
-         [_basicreqtable setEditing:NO animated:NO];
+    
      _basicreqtable.userInteractionEnabled=NO;
     optionidentifier=1;
      self.openviewindex=NSNotFound;
@@ -746,7 +746,7 @@
     _resultdisplaylabel.hidden=YES;
 }
 -(IBAction)editBasicreq:(id)sender
-{     [_basicreqtable setEditing:NO animated:NO];
+{     
      _basicreqtable.userInteractionEnabled=NO;
     optionidentifier=2;
     _addreqview.hidden=NO;

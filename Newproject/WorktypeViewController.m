@@ -505,7 +505,7 @@
 #pragma mark-Actions
 
 - (IBAction)addbtn:(id)sender {
-    [_typetable setEditing:NO animated:NO];
+   // [_typetable setEditing:NO animated:NO];
     _typetable.userInteractionEnabled=NO;
     webtype=1;
     optionidentifier=1;
@@ -600,7 +600,7 @@
     _typetable.userInteractionEnabled=YES;
 }
 - (IBAction)editbtn:(id)sender {
-     [_typetable setEditing:NO animated:NO];
+    // [_typetable setEditing:NO animated:NO];
     _typetable.userInteractionEnabled=NO;
     _navtitle.title=@"Edit";
     optionidentifier=2;

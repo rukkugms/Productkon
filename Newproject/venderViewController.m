@@ -85,7 +85,7 @@
 {
     optionidentifier=1;
     _venderaddview.hidden=NO;
-    [_vendelisttable setEditing:NO animated:NO];
+    
 
     _vendelisttable.userInteractionEnabled=NO;
     _navitem.title=@"Create";
@@ -148,7 +148,7 @@
 -(IBAction)editvender:(id)sender
 {
     _vendelisttable.userInteractionEnabled=NO;
-    [_vendelisttable setEditing:NO animated:NO];
+
 
     optionidentifier=2;
     _cancelbtn.enabled=NO;

@@ -70,7 +70,7 @@
 -(IBAction)addbranchaction:(id)sender
 {
    // [super setEditing:NO animated:NO];
-    [_branchtable setEditing:NO animated:NO];
+    
     _branchtable.userInteractionEnabled=NO;
   //  [_branchtable reloadData];
     _branchview.hidden=NO;
@@ -119,7 +119,7 @@
 -(IBAction)editbranchaction:(id)sender
 {
 //    [super setEditing:NO animated:NO];
-    [_branchtable setEditing:NO animated:NO];
+ 
     _branchtable.userInteractionEnabled=NO;
     //[_branchtable reloadData];
     _branchview.hidden=NO;

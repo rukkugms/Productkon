@@ -221,7 +221,7 @@
 }
 -(IBAction)addworkPhasesview:(id)sender
 {
-     [_phasetable setEditing:NO animated:NO];
+
     _phasetable.userInteractionEnabled=NO;
     optionIdentifier=1;
     _workphasesview.hidden=NO;
@@ -235,7 +235,7 @@
 }
 -(IBAction)editWorkPhasesview:(id)sender
 {
-    [_phasetable setEditing:NO animated:NO];
+ 
     _phasetable.userInteractionEnabled=NO;
 
     optionIdentifier=2;

@@ -285,7 +285,7 @@
 
 -(IBAction)Addservices:(id)sender
 {//[super setEditing:NO animated:NO];
-    [_servicesTable setEditing:NO animated:NO];
+  
     _servicesTable.userInteractionEnabled=NO;
    // [_servicesTable reloadData];
     optionidentifier=1;
@@ -301,7 +301,7 @@
 -(IBAction)editservices:(id)sender
 {   optionidentifier=2;
     //[super setEditing:NO animated:NO];
-    [_servicesTable setEditing:NO animated:NO];
+  
      _servicesTable.userInteractionEnabled=NO;
    // [_servicesTable reloadData];
 
