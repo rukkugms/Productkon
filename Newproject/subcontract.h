@@ -73,4 +73,5 @@
 
 @property(strong,nonatomic)NSString *SpecialRatesStructure;
 @property(strong,nonatomic)NSString *ExpiryDate;
+@property(strong,nonatomic)NSString *TempworkerMarkup;
 @end

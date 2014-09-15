@@ -19,7 +19,7 @@
 @interface MangmntdetailsViewController : UIViewController{
     
     BOOL recordResults;
-    NSInteger tabletype;
+    NSInteger tabletype,markuppath;
     NSString *markup;
     NSString *docuname,*diststrg;
     UIButton *button;
@@ -111,6 +111,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *overtimechecklbl;
 @property (strong, nonatomic) IBOutlet UIButton *minimumchecklbl;
 @property (strong, nonatomic) IBOutlet UIButton *holidayschecklbl;
+@property (strong, nonatomic) IBOutlet UITextField *workermarkuptxtfld;
+
 
 - (IBAction)overcheckbtn:(id)sender;
 - (IBAction)minimumhrsbtn:(id)sender;
@@ -171,6 +173,8 @@
 /*markup view*/
 @property (strong, nonatomic)NSMutableArray *markupnamearray;
 @property (strong, nonatomic)NSMutableDictionary *markupdict;
+@property (strong, nonatomic)NSMutableDictionary *revmarkupdict;
+
 @property(strong,nonatomic)IBOutlet UIPopoverController *popovercontroller;
 @property(strong,nonatomic)UITableView *popovertableview;
 @property (strong, nonatomic) IBOutlet UIView *markupview;
@@ -256,5 +260,6 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *docunamelbl;
 - (IBAction)viewbtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UITextField *tempwrker;
 
 @end

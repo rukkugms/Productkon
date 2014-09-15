@@ -1475,10 +1475,10 @@
 			isa = PBXGroup;
 			children = (
 				D4B7017B18AB3E280060BE0A /* Home */,
-				D400402F185B12A600C38E12 /* Resources */,
 				648D130A1771A29B006BB41A /* Company */,
-				D44BEA7818E0257400719ED5 /* others */,
+				D400402F185B12A600C38E12 /* Resources */,
 				D4A2AFFB176EED2A00F4E196 /* Customer */,
+				D44BEA7818E0257400719ED5 /* others */,
 				D4FED40417F15AC5004BE242 /* hr */,
 				D4F19DCC18D03AA4007617F0 /* Leads */,
 				D4B7017C18AB3E490060BE0A /* Planning */,
@@ -1645,9 +1645,9 @@
 				D49FBE3418F2A4B70050B19F /* Doccontrctcell.xib */,
 				D4EBA8591978E05000B612E1 /* Cfecell.xib */,
 				D4EBA8631978FD6C00B612E1 /* Trecell.xib */,
-				D4A338D618F3EEEF00E53FAC /* MarkupViewController.h */,
 				D4A338D718F3EEEF00E53FAC /* MarkupViewController.m */,
 				D4A338D818F3EEEF00E53FAC /* MarkupViewController.xib */,
+				D4A338D618F3EEEF00E53FAC /* MarkupViewController.h */,
 				D4A338D918F3EEEF00E53FAC /* DetailmarkupsectionViewController.h */,
 				D4A338DA18F3EEEF00E53FAC /* DetailmarkupsectionViewController.m */,
 				D4A338DB18F3EEEF00E53FAC /* DetailmarkupsectionViewController.xib */,
