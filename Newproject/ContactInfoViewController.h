@@ -20,6 +20,7 @@
     NSInteger deletepath;
     NSString *faxnoString;
     NSInteger fmt;
+    NSInteger optionidentifier;
     //phoneno format
     NSString *phnnostring;
       NSString *mobilestrg;

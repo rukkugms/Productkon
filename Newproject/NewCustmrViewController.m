@@ -154,7 +154,7 @@
         _citylbl= (UILabel *)[cell viewWithTag:2];
         _citylbl.text=custmd.city;
         _statelbl=(UILabel *)[cell viewWithTag:3];
-        _statelbl.text=custmd.state;
+        _statelbl.text=[_revstatedict objectForKey:custmd.state];
         _cuntrylbl=(UILabel *)[cell viewWithTag:4];
         _cuntrylbl.text=[_revcountrydict objectForKey:custmd.country];
         _phonelbl=(UILabel *)[cell viewWithTag:5];
@@ -234,6 +234,7 @@
         switch (poptype) {
             case 1:
                 [_statebtnlbl setTitle:[_statearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                 [_cuntrybtnlbl setTitle:@"Select" forState:UIControlStateNormal];
                
                 break;
             case 2:
@@ -297,7 +298,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<CustomerMasterselect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<CustomerMasterselect xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</CustomerMasterselect>\n"
                    "</soap:Body>\n"
@@ -306,7 +307,8 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -314,7 +316,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/CustomerMasterselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/CustomerMasterselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -347,7 +349,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Stateselect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<Stateselect xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</Stateselect>\n"
                    "</soap:Body>\n"
@@ -356,15 +358,15 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
-    
+   // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+   NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
     NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/Stateselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/Stateselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -397,7 +399,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Countryselect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<Countryselect xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</Countryselect>\n"
                    "</soap:Body>\n"
@@ -406,7 +408,8 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+  //  NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -414,7 +417,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/Countryselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/Countryselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -447,11 +450,11 @@
                    
                    "<soap:Body>\n"
                    
-                   "<CustomerMasterInsert xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<CustomerMasterInsert xmlns=\"http://ios.kontract360.com/\">\n"
                    "<CustomerName>%@</CustomerName>\n"
                    "<Adress>%@</Adress>\n"
                    "<City>%@</City>\n"
-                   "<State>%d</State>\n"
+                   "<State>%@</State>\n"
                    "<Zip>%@</Zip>\n"
                    "<Country>%d</Country>\n"
                    "<Phone>%@</Phone>\n"
@@ -461,20 +464,20 @@
                   
                    "</CustomerMasterInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n", _nametextfld.text,_addresstxtview.text,_citytxtfld.text,[[_statedict objectForKey:_statebtnlbl.titleLabel.text]integerValue ],_zipbtnlbl.text,[[_countrydict objectForKey:_cuntrybtnlbl.titleLabel.text]integerValue],_phonetxtfld.text, _faxtxtfld.text, _emailtxtfld.text,_websitetxtfld.text];
+                   "</soap:Envelope>\n", _nametextfld.text,_addresstxtview.text,_citytxtfld.text,[_statedict objectForKey:_statebtnlbl.titleLabel.text],_zipbtnlbl.text,[[_countrydict objectForKey:_cuntrybtnlbl.titleLabel.text]integerValue],_phonetxtfld.text, _faxtxtfld.text, _emailtxtfld.text,_websitetxtfld.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
-    
+   // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
     NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/CustomerMasterInsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/CustomerMasterInsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -508,13 +511,13 @@
                    
                    "<soap:Body>\n"
                    
-                   "<CustomerMasterUpdate xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<CustomerMasterUpdate xmlns=\"http://ios.kontract360.com/\">\n"
                    "<Id>%d</Id>\n"
                    "<CustomerCode>%@</CustomerCode>\n"
                    "<CustomerName>%@</CustomerName>\n"
                    "<Address>%@</Address>\n"
                    "<City>%@</City>\n"
-                   "<State>%d</State>\n"
+                   "<State>%@</State>\n"
                    "<Zip>%@</Zip>\n"
                    "<Country>%d</Country>\n"
                    "<Phone>%@</Phone>\n"
@@ -523,20 +526,20 @@
                    "<Website>%@</Website>\n"
                     "</CustomerMasterUpdate>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n", [custmd.customerid integerValue],custmd.customercode,_nametextfld.text,_addresstxtview.text,_citytxtfld.text,[[_statedict objectForKey:_statebtnlbl.titleLabel.text]integerValue],_zipbtnlbl.text,[[_countrydict objectForKey:_cuntrybtnlbl.titleLabel.text]integerValue],_phonetxtfld.text, _faxtxtfld.text, _emailtxtfld.text,_websitetxtfld.text];
+                   "</soap:Envelope>\n", [custmd.customerid integerValue],custmd.customercode,_nametextfld.text,_addresstxtview.text,_citytxtfld.text,[_statedict objectForKey:_statebtnlbl.titleLabel.text],_zipbtnlbl.text,[[_countrydict objectForKey:_cuntrybtnlbl.titleLabel.text]integerValue],_phonetxtfld.text, _faxtxtfld.text,_emailtxtfld.text,_websitetxtfld.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
-    
+   // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
     NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/CustomerMasterUpdate" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/CustomerMasterUpdate" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -619,16 +622,17 @@
                    
                    "<soap:Body>\n"
                    
-                   "<CustomerMaster1Delete xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<CustomerMaster1Delete xmlns=\"http://ios.kontract360.com/\">\n"
                     "<Id>%d</Id>\n"
                    "</CustomerMaster1Delete>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",[custmd.customerid integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
-    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -636,7 +640,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/CustomerMaster1Delete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/CustomerMaster1Delete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1168,7 +1172,10 @@
 
 - (IBAction)addcustmrbtn:(id)sender {
     webtype=1;
+    optionidentifier=1;
      _cancelbtnlbl.enabled=YES;
+     [_custmrtable setEditing:NO animated:NO];
+    _custmrtable.userInteractionEnabled=NO;
     _cancelbtnlbl.titleLabel.textColor=[UIColor colorWithRed:0/255.0f green:122.0/255.0f blue:255.0/255.0f alpha:1.0f];
        _navtitle.title=@"Create";
     _nametextfld.text=@"";
@@ -1252,22 +1259,25 @@
     else
     {
 
-    if ([_nametextfld.text isEqualToString:@""]) {
+    if ([_nametextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+        _nametextfld.text=@"";
     }
 
-   else  if ([_addresstxtview.text isEqualToString:@""]) {
+   else  if ([_addresstxtview.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Address is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
-          else  if ([_phonetxtfld.text isEqualToString:@""]) {
+          else  if ([_phonetxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+              _phonetxtfld.text=@"";
     }
-    else if (([_emailtxtfld.text isEqualToString:@""])) {
+    else if (([_emailtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Email is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+        _emailtxtfld.text=@"";
     }
        else{
            
@@ -1299,11 +1309,16 @@
 
 - (IBAction)clseviewbtn:(id)sender {
     _addview.hidden=YES;
+    
+    _custmrtable.userInteractionEnabled=YES;
 
 }
 
 - (IBAction)editbtn:(id)sender {
+    [_custmrtable setEditing:NO animated:NO];
+    _custmrtable.userInteractionEnabled=NO;
     _cancelbtnlbl.enabled=NO;
+    optionidentifier=2;
     _cancelbtnlbl.titleLabel.textColor=[UIColor grayColor];
     webtype=2;
     _navtitle.title=@"Edit";
@@ -1318,6 +1333,7 @@
     _nametextfld.text=custmd.customername;
     _addresstxtview.text=custmd.custmraddress;
     _citytxtfld.text=custmd.city;
+    NSLog(@"%@",custmd.state);
     [_statebtnlbl setTitle:[_revstatedict objectForKey:custmd.state] forState:UIControlStateNormal];
     [_cuntrybtnlbl setTitle:[_revcountrydict objectForKey:custmd.country] forState:UIControlStateNormal];
     _websitetxtfld.text=custmd.website;
@@ -1686,9 +1702,9 @@
     
         if(textField==_emailtxtfld){
         
-            if(![_emailtxtfld.text isEqualToString:@""]){
+     if(![_emailtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
         Validation *val=[[Validation alloc]init];
-        BOOL bEmailValid = [val validEmailAddress:_emailtxtfld.text];
+        BOOL bEmailValid = [val validEmailAddress:[_emailtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
             
         if(bEmailValid)
         {
@@ -1708,7 +1724,7 @@
         
         
         Validation *val=[[Validation alloc]init];
-        BOOL webval=[val validateUrl:_websitetxtfld.text];
+        BOOL webval=[val validateUrl:[_websitetxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
         if(webval)
         {
             // email valid, other validations in the form
@@ -1720,6 +1736,40 @@
             [alert show];
         }
     }
+    if(textField==_nametextfld){
+        
+        
+        
+        Validation *val=[[Validation alloc]init];
+        int value1=[val validatespecialcharacters:[_nametextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        if(value1==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Company Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+    if(textField==_citytxtfld){
+        
+        
+        
+        Validation *val=[[Validation alloc]init];
+        int value1=[val validatespecialcharacters:[_citytxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        if(value1==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid City Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+
+
     
     
     
@@ -1731,6 +1781,11 @@
         
         
         if (buttonIndex==0) {
+            if (optionidentifier==2)
+            {
+                _addview.hidden=YES;
+                _custmrtable.userInteractionEnabled=YES;
+            }
             
             
             _nametextfld.text=@"";
@@ -1809,6 +1864,24 @@
         if (buttonIndex==0) {
             
             _phonetxtfld.text=@"";
+            
+        }
+        
+    }
+    if ([alertView.message isEqualToString:@"Invalid Company Name"])
+    {
+        if (buttonIndex==0) {
+            
+            _nametextfld.text=@"";
+            
+        }
+        
+    }
+    if ([alertView.message isEqualToString:@"Invalid City Name"])
+    {
+        if (buttonIndex==0) {
+            
+            _citytxtfld.text=@"";
             
         }
         

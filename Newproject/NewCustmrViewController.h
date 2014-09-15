@@ -20,6 +20,7 @@
     NSInteger poptype;
     UIButton *button;
     NSInteger path;
+    NSInteger optionidentifier;
     NSInteger webtype;
     NSInteger btnindex;
     NSString *faxnoString;
