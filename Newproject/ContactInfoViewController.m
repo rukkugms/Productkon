@@ -571,7 +571,7 @@
     _faxtxtfld.text=@"";
     _pstntxtfld.text=@"";
     _contactinfoTable.userInteractionEnabled=NO;
-    [_contactinfoTable setEditing:NO animated:NO];
+  //  [_contactinfoTable setEditing:NO animated:NO];
 
 }
 
@@ -660,7 +660,7 @@
 - (IBAction)editbtn:(id)sender {
     optionidentifier=2;
     _contactinfoTable.userInteractionEnabled=NO;
-    [_contactinfoTable setEditing:NO animated:NO];
+   // [_contactinfoTable setEditing:NO animated:NO];
 
     _cancelbtnlbl.enabled=NO;
     _cancelbtnlbl.titleLabel.textColor=[UIColor grayColor];

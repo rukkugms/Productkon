@@ -98,7 +98,7 @@
        _ancelbtnlbl.enabled=YES;
     [self SelectAllCustomer];
     _leadTable.userInteractionEnabled=NO;
-    [_leadTable setEditing:NO animated:NO];
+   // [_leadTable setEditing:NO animated:NO];
      self.navbaritem.title = @"Create";
     
     butnidtfr=1;
@@ -550,7 +550,7 @@ if (tableView==_leadTable) {
     [self SelectAllCustomer];
     [self Stateselect];
     _leadTable.userInteractionEnabled=NO;
-    [_leadTable setEditing:NO animated:NO];
+    //[_leadTable setEditing:NO animated:NO];
     _ancelbtnlbl.enabled=NO;
     
      self.navbaritem.title = @"Edit";
@@ -2217,7 +2217,7 @@ else
     {
         
         recordResults = FALSE;
-        _infoleads.leadstatus=_soapResults;
+        _infoleads.leadstatus=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         _soapResults = nil;
     }
 
@@ -2521,8 +2521,8 @@ else
 //                                          animated:YES];
     
     
-    [self.popOverController1 presentPopoverFromRect: CGRectMake(0, 120, 300, 500)                                        inView:self.view
-                           permittedArrowDirections:UIPopoverArrowDirectionAny
+    [self.popOverController1 presentPopoverFromRect: CGRectMake(360, 180, 300, 500)                                        inView:self.view
+                           permittedArrowDirections:nil
                                            animated:YES];
     
 
