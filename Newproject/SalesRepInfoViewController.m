@@ -111,7 +111,7 @@
 {
     _cancelbtnlbl.enabled=NO;
     _salesRepTable.userInteractionEnabled=NO;
-    [_salesRepTable setEditing:NO animated:NO];
+   // [_salesRepTable setEditing:NO animated:NO];
        _cancelbtnlbl.titleLabel.textColor=[UIColor grayColor];
     _addView.hidden=NO;
     _navbar.title=@"Edit";
@@ -136,7 +136,7 @@
 - (IBAction)addsalesaction:(id)sender
 {_cancelbtnlbl.enabled=YES;
     _salesRepTable.userInteractionEnabled=NO;
-    [_salesRepTable setEditing:NO animated:NO];
+   // [_salesRepTable setEditing:NO animated:NO];
    _cancelbtnlbl.titleLabel.textColor=[UIColor colorWithRed:0/255.0f green:122.0/255.0f blue:255.0/255.0f alpha:1.0f];
     _addView.hidden=NO;
      _navbar.title=@"Create";
