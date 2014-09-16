@@ -22,6 +22,7 @@
     NSInteger btnindex;
     NSString *checkstring;
     NSString *userid;
+    NSInteger x;
 }
 @property (strong, nonatomic)WorktypeViewController *worktypeVCtrl;
 

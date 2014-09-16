@@ -271,8 +271,13 @@
     _updatelbl.hidden=YES;
 }
 -(IBAction)update_phases:(id)sender
+{ x=1;
+    _moduleid=19;
+    [self UserRightsforparticularmoduleselect];
+    
+}
+-(void)updateaction
 {
-   
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
     
@@ -289,35 +294,67 @@
     }
     else
     {
-
-       if ([_phasetextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phase is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
         
-    }
-    else if([_servicebtn.titleLabel.text isEqualToString:@"Select"]||[_servicebtn.titleLabel.text isEqualToString:@""])
-    {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Work type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-
-    }
-    else{
-        if(optionIdentifier==1)
-        {
-
-    
-    
-    
-       [self InsertPhases];
+        if ([_phasetextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phase is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
         }
-        else if(optionIdentifier==2)
+        else if([_servicebtn.titleLabel.text isEqualToString:@"Select"]||[_servicebtn.titleLabel.text isEqualToString:@""])
         {
-             [self UpdatePhases];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Work type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
         }
-        
+        else{
+            if(optionIdentifier==1)
+            {
+                
+                
+                
+                
+                [self InsertPhases];
+            }
+            else if(optionIdentifier==2)
+            {
+                [self UpdatePhases];
+            }
+            
+        }
     }
+
 }
+-(void)deleteaction
+{
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
+    
+    if (rightsmodel.DeleteModule==0) {
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else
+    {
+        
+        if (self.editing) {
+            [super setEditing:NO animated:NO];
+            [_phasetable setEditing:NO animated:NO];
+            [_phasetable reloadData];
+            
+            
+            
+        }
+        
+        else{
+            [super setEditing:YES animated:YES];
+            [_phasetable setEditing:YES animated:YES];
+            [_phasetable reloadData];
+            
+        }
+    }
+
 }
 -(IBAction)cancel_phases:(id)sender
 {
@@ -358,35 +395,9 @@
 //
 //}
 -(IBAction)deletephases:(id)sender
-{
-    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
-    
-    
-    if (rightsmodel.DeleteModule==0) {
-        
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-        
-    }
-    else
-    {
-
-    if (self.editing) {
-        [super setEditing:NO animated:NO];
-        [_phasetable setEditing:NO animated:NO];
-        [_phasetable reloadData];
-        
-        
-        
-    }
-    
-    else{
-        [super setEditing:YES animated:YES];
-        [_phasetable setEditing:YES animated:YES];
-        [_phasetable reloadData];
-        
-    }
-    }
+{ x=2;
+    _moduleid=19;
+    [self UserRightsforparticularmoduleselect];
     
 }
 
@@ -1005,6 +1016,10 @@
         [self SelectAllPhases];
         webtype=0;
     }
+    if (webtype==0) {
+        [self SelectAllPhases];
+        webtype=10;
+    }
     if(webtype==5)
     {
         if ([_result isEqualToString:@"Not yet set"]) {
@@ -1031,6 +1046,19 @@
                 {
                     UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                     [alert show];
+                }
+                
+            }
+            if (_moduleid==19) {
+                if (x==1) {
+                    [self updateaction];
+                    webtype=1;
+                    
+                }
+                else
+                {
+                    [self deleteaction];
+                    webtype=2;
                 }
                 
             }
@@ -1438,7 +1466,7 @@
     {
         
         recordresults = FALSE;
-        if (webtype==1) {
+        if (webtype==1||webtype==0) {
             
             _soapstring=_soapResults;
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
