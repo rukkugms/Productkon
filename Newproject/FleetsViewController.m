@@ -1633,9 +1633,7 @@ if([elementName isEqualToString:@"url"])
     else
     {
 
-        _activitybtn.hidden=NO;
-        [_activitybtn startAnimating];
-    
+        
     UIImage *imagename =_picimageview.image;
     // NSData *data = UIImagePNGRepresentation(imagename);
     
@@ -1661,6 +1659,9 @@ if([elementName isEqualToString:@"url"])
     }
 
     else{
+        _activitybtn.hidden=NO;
+        [_activitybtn startAnimating];
+
     if (btntype==1) {
         [self Insertfleet];
     }

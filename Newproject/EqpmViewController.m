@@ -1789,8 +1789,7 @@ _addequipmentview.hidden=NO;
     else
     {
 
-      _activitybtn.hidden=NO;
-        [_activitybtn startAnimating];
+    
 
         UIImage *imagename =_picimageview.image;
        // NSData *data = UIImagePNGRepresentation(imagename);
@@ -1821,7 +1820,8 @@ _addequipmentview.hidden=NO;
     }
     else{
         
-    
+        _activitybtn.hidden=NO;
+        [_activitybtn startAnimating];
     if (btntype==1) {
         [self InsertEquipment];
         //[self UploadAnyImage];
