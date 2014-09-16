@@ -1755,10 +1755,7 @@ recordResults = FALSE;
     }
     else
     {
-        _activitybtn.hidden=NO;
-        [_activitybtn startAnimating];
-
-    UIImage *imagename =_pictureimgview.image;
+           UIImage *imagename =_pictureimgview.image;
     // NSData *data = UIImagePNGRepresentation(imagename);
     
     NSData *data = UIImageJPEGRepresentation(imagename, 1.0);
@@ -1781,6 +1778,10 @@ recordResults = FALSE;
 //        
 //    }
     else{
+        _activitybtn.hidden=NO;
+        [_activitybtn startAnimating];
+        
+
 
     if (btntype==1) {
         [self InsertOther];

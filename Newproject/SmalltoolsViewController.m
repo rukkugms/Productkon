@@ -1325,8 +1325,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     }
     else
     {
-  _activitybtn.hidden=NO;
-        [_activitybtn startAnimating];
+ 
     
     UIImage *imagename =_picimageview.image;
     // NSData *data = UIImagePNGRepresentation(imagename);
@@ -1354,6 +1353,8 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
 
    else
   {
+      _activitybtn.hidden=NO;
+      [_activitybtn startAnimating];
         [self InsertSmallTools];
      }
         
@@ -1375,6 +1376,8 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
 
 else
 {
+    _activitybtn.hidden=NO;
+    [_activitybtn startAnimating];
         [self UpdateSmallTools];
 }
         

@@ -1612,8 +1612,7 @@
     else
     {
 
-        _activitybtn.hidden=NO;
-        [_activitybtn startAnimating];
+       
     UIImage *imagename =_picimageview.image;
     // NSData *data = UIImagePNGRepresentation(imagename);
     
@@ -1640,6 +1639,8 @@
 
         else
         {
+            _activitybtn.hidden=NO;
+            [_activitybtn startAnimating];
         [self InserteMaterials];
             [self UnitOfMeasureInsert];
 
@@ -1662,6 +1663,8 @@
 
 else
 {
+    _activitybtn.hidden=NO;
+    [_activitybtn startAnimating];
         [self UpdateMaterials];
      [self UnitOfMeasureInsert];
     

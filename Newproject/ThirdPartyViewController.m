@@ -1748,9 +1748,7 @@ finishedSavingWithError:(NSError *)error
     }
     else
     {
-        _activitybtn.hidden=NO;
-        [_activitybtn startAnimating];
-
+      
     UIImage *imagename =_pictureimgvw.image;
     // NSData *data = UIImagePNGRepresentation(imagename);
     
@@ -1776,6 +1774,9 @@ finishedSavingWithError:(NSError *)error
 //    }
 
     else{
+        _activitybtn.hidden=NO;
+        [_activitybtn startAnimating];
+
 
     if (btntype==1) {
         [self InsertThirdParty];
