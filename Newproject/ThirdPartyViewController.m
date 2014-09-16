@@ -2004,12 +2004,12 @@ finishedSavingWithError:(NSError *)error
             
         }
         else{
-            NSInteger daily=8*[_hurlytxtfld.text integerValue];
-            _dailytxtfld.text=[NSString stringWithFormat:@"%d",daily];
-            NSInteger weekly=24*[_hurlytxtfld.text integerValue];
-            _weeklytxtfld.text=[NSString stringWithFormat:@"%d",weekly];
-            NSInteger monthly=72*[_hurlytxtfld.text integerValue];
-            _monthlytxtfld.text=[NSString stringWithFormat:@"%d",monthly];
+            float daily=8*[_hurlytxtfld.text integerValue];
+            _dailytxtfld.text=[NSString stringWithFormat:@"%g",daily];
+            float weekly=24*[_hurlytxtfld.text integerValue];
+            _weeklytxtfld.text=[NSString stringWithFormat:@"%g",weekly];
+            float monthly=72*[_hurlytxtfld.text integerValue];
+            _monthlytxtfld.text=[NSString stringWithFormat:@"%g",monthly];
             
         }
 
@@ -2022,7 +2022,17 @@ finishedSavingWithError:(NSError *)error
             [alert1 show];
             
         }
-        
+        else{
+            
+            float hourly=[_dailytxtfld.text floatValue]/8;
+            _hurlytxtfld.text=[NSString stringWithFormat:@"%g",hourly];
+            float weekly=24*hourly;
+            _weeklytxtfld.text=[NSString stringWithFormat:@"%g",weekly];
+            float monthly=72*hourly;
+            _monthlytxtfld.text=[NSString stringWithFormat:@"%g",monthly];
+            
+        }
+
         
     }
     if (textField==_shiftwisetxtfld) {
@@ -2043,7 +2053,17 @@ finishedSavingWithError:(NSError *)error
             
         }
         
-        
+        else{
+            
+            float hourly=[_weeklytxtfld.text floatValue]/24;
+            _hurlytxtfld.text=[NSString stringWithFormat:@"%g",hourly];
+            float daily=8*hourly;
+            _dailytxtfld.text=[NSString stringWithFormat:@"%g",daily];
+            float monthly=72*hourly;
+            _monthlytxtfld.text=[NSString stringWithFormat:@"%g",monthly];
+            
+        }
+
     }
     
     if (textField==_monthlytxtfld) {
@@ -2053,7 +2073,17 @@ finishedSavingWithError:(NSError *)error
             [alert1 show];
             
         }
-        
+        else{
+            
+            float hourly=[_monthlytxtfld.text floatValue]/72;
+            _hurlytxtfld.text=[NSString stringWithFormat:@"%g",hourly];
+            float daily=8*hourly;
+            _dailytxtfld.text=[NSString stringWithFormat:@"%g",daily];
+            float weekly=72*hourly;
+            _weeklytxtfld.text=[NSString stringWithFormat:@"%g",weekly];
+            
+        }
+
         
     }
     
