@@ -92,6 +92,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self FleetSubTypeSelect];
+    _activitybtn.hidden=YES;
 
     //[self SelectAllfleet];
 }
@@ -736,7 +737,8 @@
 -(void)FetchAnyImage{
     recordResults = FALSE;
     NSString *soapMessage;
-    
+    _activitybtn.hidden=NO;
+    [_activitybtn startAnimating];
     // NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxfld.text];
     NSString *type=@"Fleets";
     //NSString*filename=@"818191.jpg";
@@ -1420,7 +1422,8 @@
             msgstrg=_soapResults;
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
-            
+            _activitybtn.hidden=YES;
+            [_activitybtn stopAnimating];
         }
 
         if ([_soapResults isEqualToString:@"Updated Successfully"]) {
@@ -1434,7 +1437,8 @@
                 else if ([_soapResults isEqualToString:@"Fleet Picture Updated"]) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
-            
+                    _activitybtn.hidden=YES;
+                    [_activitybtn stopAnimating];
             [self SelectAllfleet];
         }
        
@@ -1455,7 +1459,8 @@ if([elementName isEqualToString:@"url"])
     
     _picimageview.image=image1;
     NSLog(@"img%@",image1);
-    
+    _activitybtn.hidden=YES;
+    [_activitybtn stopAnimating];
     _soapResults = nil;
     
     
@@ -1628,6 +1633,8 @@ if([elementName isEqualToString:@"url"])
     else
     {
 
+        _activitybtn.hidden=NO;
+        [_activitybtn startAnimating];
     
     UIImage *imagename =_picimageview.image;
     // NSData *data = UIImagePNGRepresentation(imagename);

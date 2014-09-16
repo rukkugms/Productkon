@@ -139,5 +139,6 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *checksubtypebtnlbl;
 - (IBAction)checksubtype:(id)sender;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activitybtn;
 
 @end

@@ -1527,7 +1527,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
-       else if ([_activityTxtFld.text isEqualToString:@""])
+       else if ([_activityTxtFld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Activity is required" delegate:self
                                                cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -1547,7 +1547,7 @@ else
                                                cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
-        else if ([_activityTxtFld.text isEqualToString:@""])
+        else if ([_activityTxtFld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Activity is required" delegate:self
                                                cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];

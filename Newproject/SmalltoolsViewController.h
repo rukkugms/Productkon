@@ -103,6 +103,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *subtypebtnlbl;
 @property (strong, nonatomic)RSTViewController *subtypctrlr;
 @property (strong, nonatomic) IBOutlet UIButton *checksubbtnlbl;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activitybtn;
 
 - (IBAction)checksubtypebtn:(id)sender;
 @end

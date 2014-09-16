@@ -57,6 +57,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self AllSkills];
+    _activitybtn.hidden=YES;
 
     //[self SelectAllMaterials];
 }
@@ -779,7 +780,8 @@
 -(void)FetchAnyImage{
         recordResults = FALSE;
         NSString *soapMessage;
-        
+    _activitybtn.hidden=NO;
+    [_activitybtn startAnimating];
         // NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxfld.text];
         NSString *type=@"Materials";
         //NSString*filename=@"818191.jpg";
@@ -1478,6 +1480,8 @@
             
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _activitybtn.hidden=YES;
+            [_activitybtn stopAnimating];
             [self SelectAllMaterials];
         }
        else if ([_soapResults isEqualToString:@"Already Exists"])
@@ -1485,6 +1489,8 @@
             msgstrg=_soapResults;
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _activitybtn.hidden=YES;
+            [_activitybtn stopAnimating];
         }
 
         
@@ -1506,7 +1512,8 @@
         
         _picimageview.image=image1;
         NSLog(@"img%@",image1);
-        
+        _activitybtn.hidden=YES;
+        [_activitybtn stopAnimating];
         // _picturelocation=_soapResults;
         _soapResults = nil;
         
@@ -1605,7 +1612,8 @@
     else
     {
 
-    
+        _activitybtn.hidden=NO;
+        [_activitybtn startAnimating];
     UIImage *imagename =_picimageview.image;
     // NSData *data = UIImagePNGRepresentation(imagename);
     

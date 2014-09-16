@@ -117,5 +117,6 @@
 @property(strong,nonatomic)IBOutlet UIButton *checkbtn;
 @property(readwrite)NSInteger moduleid;
 
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activitybtn;
 
 @end

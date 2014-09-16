@@ -82,6 +82,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
      [self AllSkills];
+    _activitybtn.hidden=YES;
    // [self SelectAllSmallTools];
 }
 
@@ -515,7 +516,8 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     
     recordResults = FALSE;
     NSString *soapMessage;
-    
+    _activitybtn.hidden=NO;
+    [_activitybtn startAnimating];
     //NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxtfld.text];
     NSString *type=@"SmallTools";
     
@@ -908,6 +910,24 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
         
     }
 
+    if([elementName isEqualToString:@"FetchAnyImageResponse"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"url"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -1026,13 +1046,16 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
             msgstrg=_soapResults;
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _activitybtn.hidden=YES;
+            [_activitybtn stopAnimating];
             
         }
 
         else if ([_soapResults isEqualToString:@"SmallTools Picture Updated"]) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
-            
+            _activitybtn.hidden=YES;
+            [_activitybtn stopAnimating];
             [self SelectAllSmallTools];
         }
         
@@ -1060,7 +1083,28 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     {
         recordResults =FALSE;
         smallcode=_soapResults;
-_soapResults = nil;
+   _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"url"])
+    {
+        recordResults = FALSE;
+        
+        _activitybtn.hidden=YES;
+        [_activitybtn stopAnimating];
+        NSData *data1=[_soapResults base64DecodedData];
+        
+        UIImage *image1=  [[UIImage alloc]initWithData:data1];
+        
+        //[NSData dataWithData:UIImagePNGRepresentation(image.image)];
+        
+        
+        _picimageview.image=image1;
+        NSLog(@"img%@",image1);
+        
+        _soapResults = nil;
+
+
+        
     }
 
 }
@@ -1281,7 +1325,8 @@ _soapResults = nil;
     }
     else
     {
-
+  _activitybtn.hidden=NO;
+        [_activitybtn startAnimating];
     
     UIImage *imagename =_picimageview.image;
     // NSData *data = UIImagePNGRepresentation(imagename);

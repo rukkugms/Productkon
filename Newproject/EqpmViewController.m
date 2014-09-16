@@ -66,6 +66,7 @@ _scroll_addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255
     [self AllSkills];
     _equipmenttbl.userInteractionEnabled=YES;
     //[self SelectAllEquipment];
+    _activitybtn.hidden=YES;
 }
 
 
@@ -855,7 +856,8 @@ finishedSavingWithError:(NSError *)error
 -(void)FetchAnyImage{
     recordResults = FALSE;
     NSString *soapMessage;
-    
+    _activitybtn.hidden=NO;
+    [_activitybtn startAnimating];
    // NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxfld.text];
     NSString *type=@"Equipments";
    //NSString*filename=@"818191.jpg";
@@ -1551,13 +1553,19 @@ finishedSavingWithError:(NSError *)error
             
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:mesgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _activitybtn.hidden=YES;
+
+              [_activitybtn stopAnimating];
             [self SelectAllEquipment];
         }
          if ([_soapResults isEqualToString:@"Already Exists"])
              {
                   mesgstrg=_soapResults;
+                  _activitybtn.hidden=YES;
+                   [_activitybtn stopAnimating];
                  UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:mesgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                  [alert show];
+                 
              }
         
         
@@ -1573,7 +1581,8 @@ finishedSavingWithError:(NSError *)error
         UIImage *image1=  [[UIImage alloc]initWithData:data1];
         
         //[NSData dataWithData:UIImagePNGRepresentation(image.image)];
-        
+        _activitybtn.hidden=YES;
+        [_activitybtn stopAnimating];
         
         _picimageview.image=image1;
         NSLog(@"img%@",image1);
@@ -1780,8 +1789,8 @@ _addequipmentview.hidden=NO;
     else
     {
 
-    
-    
+      _activitybtn.hidden=NO;
+        [_activitybtn startAnimating];
 
         UIImage *imagename =_picimageview.image;
        // NSData *data = UIImagePNGRepresentation(imagename);

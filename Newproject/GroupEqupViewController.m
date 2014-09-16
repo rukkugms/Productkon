@@ -1486,6 +1486,12 @@
         }
         
        else  if ([_soapResults isEqualToString:@"Inserted Crew"]||[_soapResults isEqualToString:@"Deleted All Members"]||[_soapResults isEqualToString:@"deletedcrew"]) {
+           if ([_soapResults isEqualToString:@"Inserted Crew"]){
+               
+               UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+               [alert show];
+           }
+
             _crewnametxtfld.text=@"";
             [self Selectcrewname];
         }
@@ -1542,8 +1548,8 @@
         
     }
     else{
-
-    [self CrewSetUpDelete];
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to delete equipment group" delegate:self cancelButtonTitle:@"YES" otherButtonTitles:@"NO", nil];
+        [alert show];
     }
     }
     
@@ -1635,7 +1641,7 @@
     else{
 
     
-    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to delete equipment group" delegate:self cancelButtonTitle:@"YES" otherButtonTitles:@"NO", nil];
+    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to delete all items" delegate:self cancelButtonTitle:@"YES" otherButtonTitles:@"NO", nil];
     [alert show];
     }
     }
@@ -1643,15 +1649,35 @@
 #pragma mark-alert
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
-    if (buttonIndex==[alertView cancelButtonIndex]){
-        [self AllCrewDelete];
-    }
     
-    else{
+    if ([alertView.message isEqualToString:@"Are you sure you want to delete equipment group"]) {
         
         
+        if (buttonIndex==[alertView cancelButtonIndex]){
+            [self AllCrewDelete];
+            
+        }
+        
+        else{
+            
+            
+        }
+    }
+    if ([alertView.message isEqualToString:@"Are you sure you want to delete all items"]) {
+        
+        
+        if (buttonIndex==[alertView cancelButtonIndex]){
+            [self AllCrewDelete];
+            
+        }
+        
+        else{
+            
+            
+        }
     }
 
+   
    
 }
 
