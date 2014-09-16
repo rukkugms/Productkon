@@ -72,7 +72,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self AllSkills];
-
+    _result=@"";
+    moduleid=0;
   //  [self Selectallmanpower];
 
 //    NSTimer *timer;
@@ -123,6 +124,8 @@
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
     _addview.hidden=YES;
+    _result=@"";
+    moduleid=0;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -674,17 +677,27 @@
 -(void)UpdateManpower{
     webtype=1;
     
-     Manpwr*pwrmdl=(Manpwr *)[_Allmanpwrarry objectAtIndex:btnindex];
+    
     recordResults = FALSE;
     NSString *soapMessage;
      NSInteger overhead;
-    if (checkbtnclick==0) {
-        overhead=0;
+     Manpwr*pwrmdl=(Manpwr *)[_Allmanpwrarry objectAtIndex:btnindex];
+    if([checkstring isEqualToString:@"Check"])
+    {
+        if (checkbtnclick==0) {
+            overhead=0;
+        }
+        else{
+            overhead=1;
+            
+        }
+        checkstring=@"";
     }
-    else{
-         overhead=1;
-        
+    else
+    {
+        overhead=pwrmdl.overhead;
     }
+    
     
  //  NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
    NSString*unitcost=   [_unitcosttxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
@@ -837,9 +850,61 @@
         [self Selectallmanpower];
         webtype=0;
     }
+    if (webtype==0) {
+        [self Selectallmanpower];
+        webtype=5;
+    }
     [_manpowerTable reloadData];
     [_popOverTableView reloadData];
-    
+    if(webtype==12)
+    {
+        if ([_result isEqualToString:@"Not yet set"]) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Your rights are not yet set" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        
+        
+        else
+        {
+            
+            if (moduleid==17) {
+                Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+                if (rightsmodel.ViewModule==1) {
+                    
+                    
+                    // if (!self.wrktypeVCtrl) {
+                    self.serviceVCtrl=[[ServiceViewController alloc]initWithNibName:@"ServiceViewController" bundle:nil];
+                    //  }
+                    _serviceVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+                    _serviceVCtrl.userrightsarray=_userrightsarray;
+                    [self presentViewController:_serviceVCtrl animated:YES completion:nil];        }
+                else
+                {
+                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to add a subtype" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [alert show];
+                }
+                
+            }
+           else if (moduleid==26)
+           {
+               if (x==1) {
+                   
+               
+                [self updateaction];
+                   webtype=1;
+               }
+               else
+               {
+                   [self deleteaction];
+                   webtype=1;
+               }
+               
+            }
+            
+        }
+        webtype=0;
+    }
+
 }
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
@@ -853,7 +918,7 @@
         }
         recordResults = TRUE;
     }
-     if([elementName isEqualToString:@"EntryId"])
+     if([elementName isEqualToString:@"EqEntryId"])
     {
         
         if(!_soapResults)
@@ -1046,6 +1111,7 @@
         recordResults = TRUE;
         
     }
+    
     if([elementName isEqualToString:@"SkillId"])
     {
         if(!_soapResults)
@@ -1064,6 +1130,89 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"UserRightsforparticularmoduleselectResponse"])
+    {
+       
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"EntryId"])
+    {
+        _userrightsarray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"UserId"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"ModuleId"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"ViewModule"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"EditModule"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"DeleteModule"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"PrintModule"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+
     
 
 }
@@ -1082,7 +1231,7 @@
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-    if([elementName isEqualToString:@"EntryId"])
+    if([elementName isEqualToString:@"EqEntryId"])
     {
         _manpwrmdl=[[Manpwr alloc]init];
         
@@ -1230,6 +1379,10 @@
             
           
         }
+        if (webtype==12) {
+            _result=@"Not yet set";
+        }
+
         if (newtype==3) {
             newtype=0;
             
@@ -1240,6 +1393,8 @@
         [alert show];
             
         }
+        
+       
         
         _soapResults = nil;
     }
@@ -1261,8 +1416,114 @@
         
         
     }
-
+    
+    if([elementName isEqualToString:@"EntryId"])
+    {
+        
+        
+        recordResults = FALSE;
+        _rights=[[Rightscheck alloc]init];
+        _rights.entryid=[_soapResults integerValue];
+        
+        _soapResults=nil;
+    }
+    if([elementName isEqualToString:@"UserId"])
+    {
+        
+        
+        recordResults = FALSE;
+        
+        _rights.userid=[_soapResults integerValue];
+        
+        _soapResults=nil;
+    }
+    if([elementName isEqualToString:@"ModuleId"])
+    {
+        
+        
+        recordResults = FALSE;
+        
+        _rights.moduleid=[_soapResults integerValue];
+        
+        _soapResults=nil;
+        
+    }
+    if([elementName isEqualToString:@"ViewModule"])
+    {
+        
+        recordResults = FALSE;
+        
+        if ([_soapResults isEqualToString:@"true"]) {
+            _rights.ViewModule=1;
+            
+            
+        }
+        else{
+            _rights.ViewModule=0;
+            
+        }
+        
+        
+        
+        _soapResults=nil;
+        
+        
+    }
+    if([elementName isEqualToString:@"EditModule"])
+    {
+        recordResults = FALSE;
+        if ([_soapResults isEqualToString:@"true"]) {
+            _rights.EditModule=1;
+            
+            
+        }
+        else{
+            _rights.EditModule=0;
+            
+        }
+        _soapResults=nil;
+        
+        
+    }
+    if([elementName isEqualToString:@"DeleteModule"])
+    {
+        recordResults = FALSE;
+        if ([_soapResults isEqualToString:@"true"]) {
+            _rights.DeleteModule=1;
+            
+            
+        }
+        else{
+            _rights.DeleteModule=0;
+            
+        }
+        _soapResults=nil;
+        
+    }
+    if([elementName isEqualToString:@"PrintModule"])
+    {
+        recordResults = FALSE;
+        if ([_soapResults isEqualToString:@"true"]) {
+            _rights.PrintModule=1;
+            
+            
+        }
+        else{
+            _rights.PrintModule=0;
+            
+        }
+        
+        
+        
+        [_userrightsarray addObject:_rights];
+        _soapResults=nil;
+        
+    }
+    
 }
+
+
+
 #pragma mark-Searchbar
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     
@@ -1318,6 +1579,7 @@
     checkbtnclick=0;
 }
 - (IBAction)clsebtn:(id)sender {
+    moduleid=26;
     _addview.hidden=YES;
     _manpowerTable.userInteractionEnabled=YES;
 
@@ -1371,7 +1633,7 @@
 }
 - (IBAction)overhdcheck:(id)sender {
     
-    
+    checkstring=@"Check";
     if (checkbtnclick==0) {
          [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         checkbtnclick=1;
@@ -1390,12 +1652,22 @@
 }
 
 - (IBAction)searchbtn:(id)sender {
+    //moduleid=0;
     [self createpopover];
     [self AllSkills];
 }
 
 - (IBAction)update:(id)sender {
+    x=1;
+    moduleid=26;
+    [self UserRightsforparticularmoduleselect];
     
+    
+    
+    
+}
+-(void)updateaction
+{
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
     if (rightsmodel.EditModule==0) {
@@ -1411,60 +1683,58 @@
     }
     else
     {
-
-    if (btnidtfr==11) {
-        if([_itemdestxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
-        {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Classification  is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            _itemdestxtfld.text=@"";
         
+        if (btnidtfr==11) {
+            if([_itemdestxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
+            {
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Classification  is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                _itemdestxtfld.text=@"";
+                
+            }
+            else if ([_searchbtnlbl.titleLabel.text isEqualToString:@""]||[_searchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+                
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                
+                [alert show];
+                
+            }
+            
+            else
+            {
+                [self UpdateManpower];
+            }
         }
-        else if ([_searchbtnlbl.titleLabel.text isEqualToString:@""]||[_searchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+        else if (btnidtfr==22){
+            if([_itemdestxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
+            {
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Classification  is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                _itemdestxtfld.text=@"";
+            }
+            else if ([_searchbtnlbl.titleLabel.text isEqualToString:@""]||[_searchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+                
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                
+                [alert show];
+                
+            }
             
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            else
+            {
+                [self InsertManpower];
+            }
             
-            [alert show];
+            
+            //        if ([_Availablityresult isEqualToString:@"Yes"]) {
+            //            
+            //             [self InsertManpower];
+            //        }
+            //        else if([_Availablityresult isEqualToString:@"No"]){
+            //           [self InsertManpowerDatastoDB];
+            //        }
             
         }
-
-        else
-        {
-        [self UpdateManpower];
-    }
-    }
-    else if (btnidtfr==22){
-        if([_itemdestxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
-        {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Classification  is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-             _itemdestxtfld.text=@"";
-        }
-        else if ([_searchbtnlbl.titleLabel.text isEqualToString:@""]||[_searchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
-            
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            
-            [alert show];
-            
-        }
-
-        else
-        {
-            [self InsertManpower];
-        }
-
-        
-//        if ([_Availablityresult isEqualToString:@"Yes"]) {
-//            
-//             [self InsertManpower];
-//        }
-//        else if([_Availablityresult isEqualToString:@"No"]){
-//           [self InsertManpowerDatastoDB];
-//        }
-
-    }
-      
-    
     }
 }
 
@@ -1488,7 +1758,13 @@
 
 }
 
-- (IBAction)deletebtn:(id)sender {
+- (IBAction)deletebtn:(id)sender
+{x=2;
+    moduleid=26;
+    [self UserRightsforparticularmoduleselect];
+}
+-(void)deleteaction
+{
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
     
@@ -1500,27 +1776,27 @@
     }
     else
     {
+        
+        if (self.editing) {
+            [super setEditing:NO animated:NO];
+            [_manpowerTable setEditing:NO animated:NO];
+            [_manpowerTable reloadData];
+            
+            
+            
+        }
+        
+        else{
+            [super setEditing:YES animated:YES];
+            [_manpowerTable setEditing:YES animated:YES];
+            [_manpowerTable reloadData];
+            
+            
+            
+            
+        }
+    }
 
-    if (self.editing) {
-        [super setEditing:NO animated:NO];
-        [_manpowerTable setEditing:NO animated:NO];
-        [_manpowerTable reloadData];
-        
-        
-        
-    }
-    
-    else{
-        [super setEditing:YES animated:YES];
-        [_manpowerTable setEditing:YES animated:YES];
-        [_manpowerTable reloadData];
-        
-        
-        
-        
-    }
-    }
-    
 }
 - (IBAction)selectQualificatin:(id)sender
 {
@@ -1587,6 +1863,7 @@ if ([alertView.message isEqualToString:msgstrg]) {
     if(btnidtfr==11){
         _addview.hidden=YES;
         _manpowerTable.userInteractionEnabled=YES;
+        //[self Selectallmanpower];
     }
     _itemcodetxtfld.text=@"";
     
@@ -1859,10 +2136,65 @@ if ([alertView.message isEqualToString:msgstrg]) {
 }
 
 - (IBAction)servicebtn:(id)sender {
-    //if(!self.serviceVCtrl){
-        _serviceVCtrl=[[ServiceViewController alloc]initWithNibName:@"ServiceViewController" bundle:nil];
-   // }
-    _serviceVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
-    [self presentViewController:_serviceVCtrl
-                       animated:YES completion:NULL];}
+    moduleid=17;
+    [self UserRightsforparticularmoduleselect];
+}
+
+-(void)UserRightsforparticularmoduleselect{
+    webtype=12;
+    recordResults = FALSE;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    userid = [defaults objectForKey:@"Userid"];
+    
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UserRightsforparticularmoduleselect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<UserId>%d</UserId>\n"
+                   "<ModuleId>%d</ModuleId>\n"
+                   "</UserRightsforparticularmoduleselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[userid integerValue],moduleid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    //NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://testUSA.kontract360.com/UserRightsforparticularmoduleselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 @end

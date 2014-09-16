@@ -26,6 +26,10 @@
     NSString*skill;
     NSString*msgstrg;
     NSInteger newtype;
+    NSInteger moduleid;
+    NSString *userid;
+    NSString *checkstring;
+    NSInteger x;
     
 }
 @property(strong,nonatomic)ServiceViewController *serviceVCtrl;
@@ -130,5 +134,6 @@
 
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
+@property(strong,nonatomic)NSString *result;
 
 @end
