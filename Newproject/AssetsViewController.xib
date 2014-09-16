@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AssetsViewController">
             <connections>
                 <outlet property="AssetTable" destination="v9f-A0-mGp" id="oCh-2r-2dK"/>
+                <outlet property="activitybtn" destination="yxc-Yk-Vsk" id="b53-td-4Fz"/>
                 <outlet property="addview" destination="aA1-Fd-gca" id="lr9-b5-ROv"/>
                 <outlet property="cancelbtn" destination="f1n-Da-HWZ" id="m28-Qh-vmc"/>
                 <outlet property="checksubtypebtnlbl" destination="cR7-m9-ago" id="beH-Ww-zrL"/>
@@ -282,6 +283,7 @@
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="22j-TJ-xAg">
                                             <rect key="frame" x="41" y="72" width="194" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>
@@ -395,7 +397,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="f1n-Da-HWZ">
                                             <rect key="frame" x="305" y="647" width="88" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                             <state key="normal" title="Cancel"/>
                                             <connections>
                                                 <action selector="cancelbtn:" destination="-1" eventType="touchUpInside" id="v4E-xu-dmV"/>
@@ -404,7 +406,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="95Y-77-Aix">
                                             <rect key="frame" x="190" y="647" width="130" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                             <state key="normal" title="Update ">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -443,6 +445,10 @@
                                                 <action selector="checksubtypebtn:" destination="-1" eventType="touchUpInside" id="DbO-LV-bZ2"/>
                                             </connections>
                                         </button>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="yxc-Yk-Vsk">
+                                            <rect key="frame" x="127" y="555" width="37" height="37"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.78902264030000002" green="0.78902264030000002" blue="0.78902264030000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </scrollView>

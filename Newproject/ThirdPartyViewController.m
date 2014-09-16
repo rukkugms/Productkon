@@ -214,6 +214,7 @@ finishedSavingWithError:(NSError *)error
     [super viewWillAppear:animated];
     [self AllSkills];
     //[self SelectAllThirdParty];
+    _activitybtn.hidden=YES;
 }
 #pragma mark- WebService
 -(void)SelectAllSubtypeThirdParty{
@@ -671,7 +672,8 @@ finishedSavingWithError:(NSError *)error
     
     recordResults = FALSE;
     NSString *soapMessage;
-    
+    _activitybtn.hidden=NO;
+    [_activitybtn startAnimating];
     //NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxtfld.text];
     NSString *type=@"ThirdParty";
     
@@ -1452,6 +1454,8 @@ finishedSavingWithError:(NSError *)error
             msgstrg=_soapResults;
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _activitybtn.hidden=YES;
+            [_activitybtn stopAnimating];
             
         }
 
@@ -1459,7 +1463,9 @@ finishedSavingWithError:(NSError *)error
                 else if ([_soapResults isEqualToString:@"ThirdParty Picture Updated"]) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
-            
+                    _activitybtn.hidden=YES;
+                    [_activitybtn stopAnimating];
+
             [self SelectAllThirdParty];
         }
         
@@ -1471,7 +1477,8 @@ finishedSavingWithError:(NSError *)error
     {
         recordResults = FALSE;
         
-        
+        _activitybtn.hidden=YES;
+        [_activitybtn stopAnimating];
         NSData *data1=[_soapResults base64DecodedData];
         
         UIImage *image1=  [[UIImage alloc]initWithData:data1];
@@ -1741,6 +1748,8 @@ finishedSavingWithError:(NSError *)error
     }
     else
     {
+        _activitybtn.hidden=NO;
+        [_activitybtn startAnimating];
 
     UIImage *imagename =_pictureimgvw.image;
     // NSData *data = UIImagePNGRepresentation(imagename);

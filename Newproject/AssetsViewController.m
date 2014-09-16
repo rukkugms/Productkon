@@ -155,6 +155,7 @@ finishedSavingWithError:(NSError *)error
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    _activitybtn.hidden=YES;
     [self AllSkills];
 
     //[self SelectAllOther];
@@ -824,6 +825,10 @@ finishedSavingWithError:(NSError *)error
 -(void)FetchAnyImage{
     
     recordResults = FALSE;
+    _activitybtn.hidden=NO;
+
+    [_activitybtn startAnimating];
+   
     NSString *soapMessage;
     
     //NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxtfld.text];
@@ -1518,8 +1523,12 @@ recordResults = FALSE;
         if ([_soapResults isEqualToString:@"Already Exists"]) {
             
             msgstrg=_soapResults;
+            
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            [_activitybtn stopAnimating];
+            _activitybtn.hidden=YES;
+          
             
         }
 
@@ -1527,7 +1536,9 @@ recordResults = FALSE;
         else if ([_soapResults isEqualToString:@"Asset Picture Updated"]) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
-            
+            [_activitybtn stopAnimating];
+            _activitybtn.hidden=YES;
+
             [self SelectAllOther];
         }
        
@@ -1535,7 +1546,11 @@ recordResults = FALSE;
     }
     if([elementName isEqualToString:@"url"])
     {
-       
+        recordResults = FALSE;
+
+        [_activitybtn stopAnimating];
+        _activitybtn.hidden=YES;
+
             NSData *data1=[_soapResults base64DecodedData];
             
             UIImage *image1=  [[UIImage alloc]initWithData:data1];
@@ -1724,6 +1739,7 @@ recordResults = FALSE;
 
 
 - (IBAction)updatebtn:(id)sender {
+    
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
     if (rightsmodel.EditModule==0) {
@@ -1739,6 +1755,8 @@ recordResults = FALSE;
     }
     else
     {
+        _activitybtn.hidden=NO;
+        [_activitybtn startAnimating];
 
     UIImage *imagename =_pictureimgview.image;
     // NSData *data = UIImagePNGRepresentation(imagename);
