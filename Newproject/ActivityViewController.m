@@ -525,7 +525,9 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     _descptionTextview.text=@"";
     _activityTxtFld.text=@"";
-    
+    _dateBtn.backgroundColor=nil;
+    _activityTxtFld.backgroundColor=nil;
+    _employerTxtfld.backgroundColor=nil;
     
     _newviewactivity.hidden=NO;
 //    //_view2.hidden=NO;
@@ -621,6 +623,10 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     _activityTxtFld.text=info1.activity;
     _descptionTextview.text=info1.description;
     _dateBtn.enabled=NO;
+    _dateBtn.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    _activityTxtFld.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+   _employerTxtfld.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+
     _activityTxtFld.userInteractionEnabled=NO;
     _employerTxtfld.userInteractionEnabled=NO;
     [_activityTypeBtn setTitle:info1.communicationtype forState:UIControlStateNormal];
