@@ -38,6 +38,7 @@
 @property (strong, nonatomic) IBOutlet UIView *crewview;
 
 //ViewControllers
+////neww
 
 @property(strong,nonatomic)ManViewController *manVCtrl;
 @property(strong,nonatomic)EqpmViewController *equipVCtrl;
