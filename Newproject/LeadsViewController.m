@@ -2383,7 +2383,7 @@ else
 {
    if([alertView.message isEqualToString:_msgstring])
    {
-       if (btnindex==2) {
+       if (butnidtfr==2) {
            _view2.hidden=YES;
            _leadTable.userInteractionEnabled=YES;
        }
@@ -2413,10 +2413,20 @@ else
        
 
    }
+    
+    if([alertView.message isEqualToString:@"Invalid Lead Assign To"])
+    {
+        _leadassigntotextfld.text=@"";
+    }
     if([alertView.message isEqualToString:@"Invalid Email"])
     {
         _emailidtxtfld.text=@"";
     }
+    if([alertView.message isEqualToString:@"Invalid Location"])
+    {
+        _locationtxtfld.text=@"";
+    }
+
     if ([alertView.message isEqualToString:@"Invalid PhoneNumber"]) {
     _phonetxtfld.text=@"";
             
@@ -2609,6 +2619,23 @@ else
         }
         
     }
+    if(textField==_leadassigntotextfld){
+        
+        
+        
+        Validation *val=[[Validation alloc]init];
+        int value1=[val validatespecialcharacters:[_leadassigntotextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        if(value1==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Lead Assign To" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+
     if(textField==_citytxtfld){
         
         
