@@ -12,6 +12,7 @@
 #import "FollowupViewController.h"
 #import "activityInfo.h"
 #import "commentmdl.h"
+#import "Validation.h"
 @interface ActivityViewController : UIViewController
 {
        BOOL recordResults;
@@ -25,6 +26,7 @@
     NSInteger selectedcell;
     UIButton *carbtn;
 }
+@property(strong,nonatomic)Validation *val;
 @property(strong,nonatomic)NSString *resultmsg;
 @property(readwrite)NSInteger openviewindex;
 @property(readwrite)NSInteger previousopenviewindex;

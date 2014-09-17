@@ -1315,8 +1315,8 @@
 }
 
 - (IBAction)editbtn:(id)sender {
-    [_custmrtable setEditing:NO animated:NO];
-   // _custmrtable.userInteractionEnabled=NO;
+    //[_custmrtable setEditing:NO animated:NO];
+    _custmrtable.userInteractionEnabled=NO;
     _cancelbtnlbl.enabled=NO;
     optionidentifier=2;
     _cancelbtnlbl.titleLabel.textColor=[UIColor grayColor];
@@ -1724,7 +1724,7 @@
         
         
         Validation *val=[[Validation alloc]init];
-        BOOL webval=[val validateUrl:[_websitetxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        BOOL webval=[val validateUrl:_websitetxtfld.text];
         if(webval)
         {
             // email valid, other validations in the form
@@ -1741,7 +1741,7 @@
         
         
         Validation *val=[[Validation alloc]init];
-        int value1=[val validatespecialcharacters:[_nametextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        int value1=[val validatespecialcharacters:_nametextfld.text];
         if(value1==0)
         {
             
@@ -1757,7 +1757,7 @@
         
         
         Validation *val=[[Validation alloc]init];
-        int value1=[val validatespecialcharacters:[_citytxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        int value1=[val validatespecialcharacters:_citytxtfld.text];
         if(value1==0)
         {
             

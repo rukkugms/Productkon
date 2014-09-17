@@ -512,6 +512,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 
 -(IBAction)addNewActivity:(id)sender
 { self.openviewindex=NSNotFound;
+    _activityTable.userInteractionEnabled=NO;
     _cancelbtnlbl.enabled=YES;
     butnidtfr=1;
     [_dateBtn setTitle:@"Select" forState:UIControlStateNormal];
@@ -549,6 +550,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
        _employerTxtfld.text=@"";
     
     _statusTxtFld.text=@"";
+    _activityTable.userInteractionEnabled=YES;
     
     _descptionTextview.text=@"";
     _activityTxtFld.text=@"";
@@ -577,8 +579,11 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 
 
 - (IBAction)editcellbtn:(id)sender
-{ self.activityNav.title = @"Edit";
-     _cancelbtnlbl.enabled=NO;
+{
+    butnidtfr=2;
+    self.activityNav.title = @"Edit";
+    _cancelbtnlbl.enabled=NO;
+    _activityTable.userInteractionEnabled=NO;
     _newviewactivity.hidden=NO;
 
 //    _newviewactivity.frame = CGRectMake(510, 346, 0, 0);
@@ -1504,6 +1509,10 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 -(void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if ([alertView.message isEqualToString:_resultmsg]) {
+        if (butnidtfr==2) {
+            _newviewactivity.hidden=YES;
+            _activityTable.userInteractionEnabled=YES;
+        }
         _activityTxtFld.text=@"";
         [_dateBtn setTitle:@"Select" forState:UIControlStateNormal];
         [_activityTypeBtn setTitle:@"Select" forState:UIControlStateNormal];
@@ -1514,6 +1523,14 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         _composecmtview.hidden=YES;
 
         
+    }
+    if([alertView.message isEqualToString:@"Invalid Activity"])
+    {
+        _activityTxtFld.text=@"";
+    }
+    if([alertView.message isEqualToString:@"Invalid Employee"])
+    {
+        _employerTxtfld.text=@"";
     }
 }
 #pragma mark;Actions
@@ -1529,8 +1546,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         }
        else if ([_activityTxtFld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Activity is required" delegate:self
-                                               cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Activity is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         else
@@ -1543,8 +1559,7 @@ else
     {
         if ([_dateBtn.titleLabel.text isEqualToString:@"Select"]||[_dateBtn.titleLabel.text isEqualToString:@""])
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Date is required" delegate:self
-                                               cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Date is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         else if ([_activityTxtFld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
@@ -1652,6 +1667,53 @@ else
 - (IBAction)closecomments:(id)sender
 {
     [self.popOverController dismissPopoverAnimated:YES];
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if(textField==_employerTxtfld){
+        Validation *val=[[Validation alloc]init];
+        int value1=[val validatespecialcharacters:[_employerTxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        
+        if(value1==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Employee" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+    if(textField==_activityTxtFld){
+        Validation *val=[[Validation alloc]init];
+        int value1=[val validatespecialcharacters:[_activityTxtFld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        
+        if(value1==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Activity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+//    if(textField==_statusTxtFld){
+//        Validation *val=[[Validation alloc]init];
+//        int value1=[val validatespecialcharacters:[_statusTxtFld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+//        
+//        if(value1==0)
+//        {
+//            
+//            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Status" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//            [alert1 show];
+//            
+//            
+//        }
+//        
+//    }
+
+
 }
 
 @end

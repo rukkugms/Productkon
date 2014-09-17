@@ -945,7 +945,7 @@
         
         
         Validation *val=[[Validation alloc]init];
-        int value1=[val validatespecialcharacters:[_nametextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        int value1=[val validatespecialcharacters:_nametextfield.text];
         if(value1==0)
         {
             
