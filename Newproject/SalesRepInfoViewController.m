@@ -98,6 +98,7 @@
 -(IBAction)closetheView:(id)sender
 {
     self.addView.hidden=YES;
+    _salesRepTable.userInteractionEnabled=YES;
     _custcodetextfield.text=@"";
     _emailtextfield.text=@"";
     _extensiontextfield.text=@"";
@@ -573,7 +574,7 @@
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict
 {
-    if ([elementName isEqualToString:@"CustomerSalesRepInfoselectResult"]) {
+    if ([elementName isEqualToString:@"CustomerSalesRepInfoselectResponse"]) {
         _salesarray=[[NSMutableArray alloc]init];
         if(!_soapResults)
         {
@@ -664,7 +665,7 @@
         recordResults = TRUE;
         
     }
-    if ([elementName isEqualToString:@"CustomerSalesRepInfoInsertResult"]) {
+    if ([elementName isEqualToString:@"CustomerSalesRepInfoInsertResponse"]) {
         
         if(!_soapResults)
         {
@@ -673,7 +674,7 @@
         recordResults = TRUE;
         
     }
-    if ([elementName isEqualToString:@"CustomerSalesRepInfoUpdateResult"]) {
+    if ([elementName isEqualToString:@"CustomerSalesRepInfoUpdateResponse"]) {
         
         if(!_soapResults)
         {

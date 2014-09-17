@@ -2577,14 +2577,14 @@ else
     if(textField==_prjctyeartxtfld)
     {
         NSUInteger newLength = [_prjctyeartxtfld.text length] + [string length] - range.length;
-        return (newLength > 30) ? NO : YES;
+        return (newLength > 4) ? NO : YES;
     }
     if(textField==_phonetxtfld)
     {
         NSUInteger newLength = [_phonetxtfld.text length] + [string length] - range.length;
         return (newLength > 12) ? NO : YES;
     }
-    
+   
     return YES;
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField

@@ -366,7 +366,7 @@
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
     
-    if([elementName isEqualToString:@"CustomercontactInfoselectResult"])
+    if([elementName isEqualToString:@"CustomercontactInfoselectResponse"])
     {
         _infoarray=[[NSMutableArray alloc]init];
         if(!_soapResults)
