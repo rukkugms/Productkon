@@ -974,11 +974,7 @@
     }
     return YES;
 }
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-   
-   
-}
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if ([alertView.message isEqualToString:msgstr]) {
         if (optionidentifier==1) {

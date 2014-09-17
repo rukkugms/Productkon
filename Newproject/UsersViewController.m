@@ -1088,6 +1088,12 @@
         _pswdtextfld.text=@"";
         
     }
+    if([alertView.message isEqualToString:@"Invalid User Name"])
+    {
+        _usrnametextfld.text=@"";
+        
+    }
+   
 }
 
 
@@ -1459,6 +1465,25 @@
 
     return YES;
     
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if(textField==_usrnametextfld){
+        Validation *val=[[Validation alloc]init];
+        int value1=[val validatespecialcharacters:_usrnametextfld.text];
+        if(value1==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid User Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+        
+        
+    }
+
 }
 
 

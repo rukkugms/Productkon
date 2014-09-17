@@ -2608,7 +2608,7 @@ else
         
         
         Validation *val=[[Validation alloc]init];
-        int value1=[val validatespecialcharacters:[_contactnametxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        int value1=[val validatespecialcharacters:_contactnametxtfld.text];
         if(value1==0)
         {
             
@@ -2624,7 +2624,7 @@ else
         
         
         Validation *val=[[Validation alloc]init];
-        int value1=[val validatespecialcharacters:[_leadassigntotextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        int value1=[val validatespecialcharacters:_leadassigntotextfld.text];
         if(value1==0)
         {
             
@@ -2641,7 +2641,7 @@ else
         
         
         Validation *val=[[Validation alloc]init];
-        int value1=[val validatespecialcharacters:[_citytxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        int value1=[val validatespecialcharacters:_citytxtfld.text];
         if(value1==0)
         {
             
@@ -2657,7 +2657,7 @@ else
         
         
         Validation *val=[[Validation alloc]init];
-        int value1=[val validatespecialcharacters:[_contacttiletxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        int value1=[val validatespecialcharacters:_contacttiletxtfld.text];
         if(value1==0)
         {
             
@@ -2673,7 +2673,7 @@ else
         
         
         Validation *val=[[Validation alloc]init];
-        int value1=[val validatespecialcharacters:[_locationtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        int value1=[val validatespecialcharacters:_locationtxtfld.text];
         if(value1==0)
         {
             
