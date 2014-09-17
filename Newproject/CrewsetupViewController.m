@@ -1531,17 +1531,24 @@
 
            }
        else if ([_soapResults isEqualToString:@"insertcrew"]) {
-            
+          
             [self Selectcrewname];
           
             
             
             
         }
+       else if ([_soapResults isEqualToString:@"Already Exists"]) {
+           UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+           [alert show];
+           [self Selectcrewname];
+           
+           
+           }
 
         
-       else if ([_soapResults isEqualToString:@"Inserted Crew"]||[_soapResults isEqualToString:@"Deleted All Members"]||[_soapResults isEqualToString:@"deletedcrew"]) {
-           
+       else if ([_soapResults isEqualToString:@"Inserted Crew"]||[_soapResults isEqualToString:@"Deleted All Members"]||[_soapResults isEqualToString:@"deletedcrew"]||[_soapResults isEqualToString:@"insert"]) {
+          
            if ([_soapResults isEqualToString:@"Inserted Crew"]){
                
                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
