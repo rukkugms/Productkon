@@ -89,7 +89,7 @@ return TRUE;
 }
 
 -(BOOL)validatespecialcharacters:(NSString *)input{
-     NSCharacterSet *myCharSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"];
+     NSCharacterSet *myCharSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "];
     for (int i = 0; i < [input length]; i++)
     {
         unichar c = [input characterAtIndex:i];
