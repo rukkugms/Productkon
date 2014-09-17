@@ -1672,7 +1672,7 @@ else
 {
     if(textField==_employerTxtfld){
         Validation *val=[[Validation alloc]init];
-        int value1=[val validatespecialcharacters:[_employerTxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        int value1=[val validatespecialcharacters:_employerTxtfld.text];
         
         if(value1==0)
         {
@@ -1686,7 +1686,7 @@ else
     }
     if(textField==_activityTxtFld){
         Validation *val=[[Validation alloc]init];
-        int value1=[val validatespecialcharacters:[_activityTxtFld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        int value1=[val validatespecialcharacters:_activityTxtFld.text];
         
         if(value1==0)
         {
