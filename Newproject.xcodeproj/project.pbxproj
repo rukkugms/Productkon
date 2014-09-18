@@ -339,6 +339,8 @@
 		D49FBE3518F2A4B70050B19F /* Doccontrctcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49FBE3418F2A4B70050B19F /* Doccontrctcell.xib */; };
 		D4A0BCF419667D0B00A421C3 /* newlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0BCF319667D0A00A421C3 /* newlogo.png */; };
 		D4A0BCF819668A6000A421C3 /* 40x27logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0BCF719668A6000A421C3 /* 40x27logo.png */; };
+		D4A1065119CABB7A009A68C4 /* ProjecttypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A1064F19CABB7A009A68C4 /* ProjecttypeViewController.m */; };
+		D4A1065219CABB7A009A68C4 /* ProjecttypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A1065019CABB7A009A68C4 /* ProjecttypeViewController.xib */; };
 		D4A10B731936F588001856F8 /* Eventmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A10B721936F588001856F8 /* Eventmdl.m */; };
 		D4A123D219A6FE1100A4ED9B /* UserRightsmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A123D119A6FE1100A4ED9B /* UserRightsmdl.m */; };
 		D4A123D419A7249C00A4ED9B /* Newuserrightscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A123D319A7249C00A4ED9B /* Newuserrightscell.xib */; };
@@ -1004,6 +1006,9 @@
 		D49FBE3418F2A4B70050B19F /* Doccontrctcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Doccontrctcell.xib; sourceTree = "<group>"; };
 		D4A0BCF319667D0A00A421C3 /* newlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newlogo.png; sourceTree = "<group>"; };
 		D4A0BCF719668A6000A421C3 /* 40x27logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 40x27logo.png; sourceTree = "<group>"; };
+		D4A1064E19CABB7A009A68C4 /* ProjecttypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjecttypeViewController.h; sourceTree = "<group>"; };
+		D4A1064F19CABB7A009A68C4 /* ProjecttypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjecttypeViewController.m; sourceTree = "<group>"; };
+		D4A1065019CABB7A009A68C4 /* ProjecttypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjecttypeViewController.xib; sourceTree = "<group>"; };
 		D4A10B711936F588001856F8 /* Eventmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Eventmdl.h; sourceTree = "<group>"; };
 		D4A10B721936F588001856F8 /* Eventmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Eventmdl.m; sourceTree = "<group>"; };
 		D4A123D019A6FE1100A4ED9B /* UserRightsmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRightsmdl.h; sourceTree = "<group>"; };
@@ -2135,6 +2140,9 @@
 				64A3B82018DFEF0B0015887F /* CommentsViewController.h */,
 				64A3B82118DFEF0B0015887F /* CommentsViewController.m */,
 				64A3B82218DFEF0B0015887F /* CommentsViewController.xib */,
+				D4A1064E19CABB7A009A68C4 /* ProjecttypeViewController.h */,
+				D4A1064F19CABB7A009A68C4 /* ProjecttypeViewController.m */,
+				D4A1065019CABB7A009A68C4 /* ProjecttypeViewController.xib */,
 			);
 			name = Leads;
 			sourceTree = "<group>";
@@ -2396,6 +2404,7 @@
 				648DE20B1777F7B400261F74 /* ContactInfoViewController.xib in Resources */,
 				D41499BA194576D5001E9146 /* EqothersViewController.xib in Resources */,
 				D4A16B361974EEA8002CA2A2 /* PlanningViewController.xib in Resources */,
+				D4A1065219CABB7A009A68C4 /* ProjecttypeViewController.xib in Resources */,
 				649ED79F187FB8260086CDDE /* CompanyViewController.xib in Resources */,
 				D4F7D9D2196E5B5C00B8F4D4 /* equipmentothers.png in Resources */,
 				D410CC5419AB4C8F0093DDE6 /* userrights.png in Resources */,
@@ -2649,6 +2658,7 @@
 				D49F875018EEA36B00413CAD /* activityInfo.m in Sources */,
 				D49E056018C7022800AF6330 /* CrewsetupViewController.m in Sources */,
 				D4A16B591974EEA8002CA2A2 /* DequipViewController.m in Sources */,
+				D4A1065119CABB7A009A68C4 /* ProjecttypeViewController.m in Sources */,
 				D49F874D18EEA36B00413CAD /* Empdetails.m in Sources */,
 				D40DD25C1873D26100E7BC2C /* FleetsViewController.m in Sources */,
 				D49F875818EEA36B00413CAD /* basicreqmdl.m in Sources */,
