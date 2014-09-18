@@ -1,15 +1,15 @@
 //
-//  TypeofleadViewController.h
+//  StatusViewController.h
 //  Newproject
 //
-//  Created by Riya on 9/18/14.
+//  Created by GMSIndia 2 on 18/09/14.
 //  Copyright (c) 2014 GMSIndia1. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "Craftreqmtmdl.h"
 
-@interface TypeofleadViewController : UIViewController
+@interface StatusViewController : UIViewController
 {
     NSInteger optionidentifier;
     UIButton *button;
@@ -19,12 +19,12 @@
     BOOL recordresults;
 }
 @property (strong, nonatomic) IBOutlet UIView *addview;
-@property (strong, nonatomic) IBOutlet UITextField *leadtxtfld;
-@property (strong, nonatomic) IBOutlet UITableView *leadtypetable;
-@property(strong,nonatomic)IBOutlet UITableViewCell *leadcell;
-@property(strong,nonatomic)Craftreqmtmdl *typemdl;
+@property (strong, nonatomic) IBOutlet UITextField *statustxtfld;
+@property (strong, nonatomic) IBOutlet UITableView *statustable;
+@property(strong,nonatomic)IBOutlet UITableViewCell *statuscell;
+@property(strong,nonatomic)Craftreqmtmdl *statusmdl;
 @property (strong, nonatomic) IBOutlet UINavigationItem *navitem;
-@property(strong,nonatomic)IBOutlet UILabel *typelabel;
+@property(strong,nonatomic)IBOutlet UILabel *statuslabel;
 @property(strong,nonatomic)IBOutlet UIView *titleview;
 
 
@@ -33,7 +33,7 @@
 @property(strong,nonatomic)NSMutableString *soapResults;
 @property(strong,nonatomic)NSMutableData *webData;
 
-@property(strong,nonatomic)NSMutableArray *typearry;
+@property(strong,nonatomic)NSMutableArray *statusarry;
 
 
 - (IBAction)clsebtn:(id)sender;
@@ -41,7 +41,8 @@
 - (IBAction)addclsebtn:(id)sender;
 - (IBAction)addbtn:(id)sender;
 - (IBAction)deletebtn:(id)sender;
--(IBAction)Editleadtype:(id)sender;
+-(IBAction)Editleadstatus:(id)sender;
 @property(strong,nonatomic)NSString *result;
+
 
 @end
