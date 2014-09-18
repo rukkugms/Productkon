@@ -2835,5 +2835,25 @@ else
 {
     [self.popOverController1 dismissPopoverAnimated:YES];
 }
+-(IBAction)toprojecttype:(id)sender
+{
+    
+}
+-(IBAction)toindustrytype:(id)sender
+{
+    _industryctl=[[IndustrytpeViewController alloc]initWithNibName:@"IndustrytpeViewController" bundle:nil];
+    _industryctl.modalPresentationStyle=UIModalPresentationFormSheet;
+    //_subtypctrlr.moduleid=moduleid;
+    [self presentViewController:self.industryctl
+                       animated:YES completion:NULL];
+    
+}
+-(IBAction)toleadtype:(id)sender
+{
+    
+}
+-(IBAction)toleadstatus:(id)sender{
+    
+}
 
 @end

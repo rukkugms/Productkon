@@ -58,7 +58,12 @@
 {
     
 }
-- (IBAction)deletebtn:(id)sender{
+- (IBAction)deletebtn:(id)sender
+{
+    
+}
+-(IBAction)closethispage:(id)sender
+{
     
 }
 @end
