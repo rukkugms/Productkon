@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 GMSIndia1. All rights reserved.
 //
 
-#import "ProjecttypeViewController.h"
+#import "NProjecttypeViewController.h"
 
-@interface ProjecttypeViewController ()
+@interface NProjecttypeViewController ()
 
 @end
 
-@implementation ProjecttypeViewController
+@implementation NProjecttypeViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
