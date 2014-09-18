@@ -42,6 +42,10 @@
     _SearchingBar.delegate = (id)self;
      _SearchingBar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     self.contactinfoTable.tableHeaderView=_SearchingBar;
+    UISearchDisplayController *searchdisplaycontroller=[[UISearchDisplayController alloc]initWithSearchBar:_SearchingBar contentsController:self];
+    searchdisplaycontroller.searchResultsDataSource=(id)self;
+    searchdisplaycontroller.searchResultsDelegate=(id)self;
+    searchdisplaycontroller.delegate=(id)self;
 
     // Do any additional setup after loading the view from its nib.
 }

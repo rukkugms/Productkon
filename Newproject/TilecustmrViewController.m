@@ -210,9 +210,9 @@
             if (rightsmodel.ViewModule==1) {
                 
                 
-                if (!self.custmrVCtrl) {
+               // if (!self.custmrVCtrl) {
                     self.custmrVCtrl=[[NewCustmrViewController alloc]initWithNibName:@"NewCustmrViewController" bundle:nil];
-                }
+                //}
                 //_custmrVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
                 _custmrVCtrl.userrightsarray=_userrightsarray;
                 [self presentViewController:_custmrVCtrl
@@ -230,9 +230,9 @@
         if (_Moduleid==39) {
             Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
             if (rightsmodel.ViewModule==1) {
-                if (!self.cntrctVCtrl) {
+               // if (!self.cntrctVCtrl) {
                     self.cntrctVCtrl=[[ContractViewController alloc]initWithNibName:@"ContractViewController" bundle:nil];
-                }
+              //  }
                 //_custmrVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
                 
                 [self presentViewController:_cntrctVCtrl
@@ -252,9 +252,9 @@
             Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
             if (rightsmodel.ViewModule==1) {
                 
-                if (!self.markVCtrl) {
+               // if (!self.markVCtrl) {
                     self.markVCtrl=[[MarkupViewController alloc]initWithNibName:@"MarkupViewController" bundle:nil];
-                }
+               // }
                 //_custmrVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
                 
                 [self presentViewController:_markVCtrl
@@ -271,9 +271,9 @@
         {
             Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
             if (rightsmodel.ViewModule==1) {
-                if (!self.billgVCtrl) {
+                //if (!self.billgVCtrl) {
                     self.billgVCtrl=[[BillingViewController alloc]initWithNibName:@"BillingViewController" bundle:nil];
-                }
+              //  }
                 //_billgVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
                 
                 [self presentViewController:_billgVCtrl
