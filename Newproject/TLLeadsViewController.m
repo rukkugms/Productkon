@@ -37,6 +37,7 @@
     [self.leadView addGestureRecognizer:doubleTap1];
     // Do any additional setup after loading the view from its nib.
 }
+                                                                             
 
 - (void)didReceiveMemoryWarning
 {
