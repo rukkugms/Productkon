@@ -16,6 +16,7 @@
 #import "Validation.h"
 #import "Rightscheck.h"
 #import "IndustrytpeViewController.h"
+#import "ProjecttypeViewController.h"
 @interface LeadsViewController : UIViewController<UIActionSheetDelegate>{
     NSInteger poptype;
     BOOL recordResults;
@@ -28,6 +29,7 @@
     NSInteger fmt;
   }
 @property(strong,nonatomic)IndustrytpeViewController *industryctl;
+@property(strong,nonatomic)ProjecttypeViewController *projectctl;
 @property(strong,nonatomic)NSString *stateid;
 @property(strong,nonatomic)NSString *msgstring;
 @property(readwrite)  NSInteger leadID;
