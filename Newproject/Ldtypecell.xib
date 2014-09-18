@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TypeofleadViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OfleadViewController">
             <connections>
                 <outlet property="leadcell" destination="1DI-wZ-5tH" id="r2B-Z1-rLW"/>
                 <outlet property="typelabel" destination="mti-eG-aVk" id="LjA-CB-N38"/>

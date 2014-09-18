@@ -2854,7 +2854,7 @@ else
 }
 -(IBAction)toleadtype:(id)sender
 {
-    _typctrl=[[TypeofleadViewController alloc]initWithNibName:@"TypeofleadViewController" bundle:nil];
+    _typctrl=[[OfleadViewController alloc]initWithNibName:@"OfleadViewController" bundle:nil];
     _typctrl.modalPresentationStyle=UIModalPresentationFormSheet;
     //_subtypctrlr.moduleid=moduleid;
     [self presentViewController:self.typctrl

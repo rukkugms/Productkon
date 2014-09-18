@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 GMSIndia1. All rights reserved.
 //
 
-#import "TypeofleadViewController.h"
+#import "OfleadViewController.h"
 
-@interface TypeofleadViewController ()
+@interface OfleadViewController ()
 
 @end
 
-@implementation TypeofleadViewController
+@implementation OfleadViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

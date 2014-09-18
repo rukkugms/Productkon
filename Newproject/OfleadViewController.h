@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Craftreqmtmdl.h"
 
-@interface TypeofleadViewController : UIViewController
+@interface OfleadViewController : UIViewController
 {
     NSInteger optionidentifier;
     UIButton *button;

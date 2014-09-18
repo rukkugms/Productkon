@@ -346,8 +346,8 @@
 		D4A1065119CABB7A009A68C4 /* ProjecttypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A1064F19CABB7A009A68C4 /* ProjecttypeViewController.m */; };
 		D4A1065219CABB7A009A68C4 /* ProjecttypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A1065019CABB7A009A68C4 /* ProjecttypeViewController.xib */; };
 		D4A1065419CAC04A009A68C4 /* Projecttypecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A1065319CAC04A009A68C4 /* Projecttypecell.xib */; };
-		D4A1065819CACDF6009A68C4 /* TypeofleadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A1065619CACDF5009A68C4 /* TypeofleadViewController.m */; };
-		D4A1065919CACDF6009A68C4 /* TypeofleadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A1065719CACDF6009A68C4 /* TypeofleadViewController.xib */; };
+		D4A1065819CACDF6009A68C4 /* OfleadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A1065619CACDF5009A68C4 /* OfleadViewController.m */; };
+		D4A1065919CACDF6009A68C4 /* OfleadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A1065719CACDF6009A68C4 /* OfleadViewController.xib */; };
 		D4A10B731936F588001856F8 /* Eventmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A10B721936F588001856F8 /* Eventmdl.m */; };
 		D4A123D219A6FE1100A4ED9B /* UserRightsmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A123D119A6FE1100A4ED9B /* UserRightsmdl.m */; };
 		D4A123D419A7249C00A4ED9B /* Newuserrightscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A123D319A7249C00A4ED9B /* Newuserrightscell.xib */; };
@@ -1022,9 +1022,9 @@
 		D4A1064F19CABB7A009A68C4 /* ProjecttypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjecttypeViewController.m; sourceTree = "<group>"; };
 		D4A1065019CABB7A009A68C4 /* ProjecttypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjecttypeViewController.xib; sourceTree = "<group>"; };
 		D4A1065319CAC04A009A68C4 /* Projecttypecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Projecttypecell.xib; sourceTree = "<group>"; };
-		D4A1065519CACDF5009A68C4 /* TypeofleadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeofleadViewController.h; sourceTree = "<group>"; };
-		D4A1065619CACDF5009A68C4 /* TypeofleadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeofleadViewController.m; sourceTree = "<group>"; };
-		D4A1065719CACDF6009A68C4 /* TypeofleadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TypeofleadViewController.xib; sourceTree = "<group>"; };
+		D4A1065519CACDF5009A68C4 /* OfleadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfleadViewController.h; sourceTree = "<group>"; };
+		D4A1065619CACDF5009A68C4 /* OfleadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfleadViewController.m; sourceTree = "<group>"; };
+		D4A1065719CACDF6009A68C4 /* OfleadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OfleadViewController.xib; sourceTree = "<group>"; };
 		D4A10B711936F588001856F8 /* Eventmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Eventmdl.h; sourceTree = "<group>"; };
 		D4A10B721936F588001856F8 /* Eventmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Eventmdl.m; sourceTree = "<group>"; };
 		D4A123D019A6FE1100A4ED9B /* UserRightsmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRightsmdl.h; sourceTree = "<group>"; };
@@ -2160,9 +2160,9 @@
 				D4A1064F19CABB7A009A68C4 /* ProjecttypeViewController.m */,
 				D4A1065019CABB7A009A68C4 /* ProjecttypeViewController.xib */,
 				D4A1065319CAC04A009A68C4 /* Projecttypecell.xib */,
-				D4A1065519CACDF5009A68C4 /* TypeofleadViewController.h */,
-				D4A1065619CACDF5009A68C4 /* TypeofleadViewController.m */,
-				D4A1065719CACDF6009A68C4 /* TypeofleadViewController.xib */,
+				D4A1065519CACDF5009A68C4 /* OfleadViewController.h */,
+				D4A1065619CACDF5009A68C4 /* OfleadViewController.m */,
+				D4A1065719CACDF6009A68C4 /* OfleadViewController.xib */,
 				64A2052719CAE38800BD942F /* Ldtypecell.xib */,
 				64A2052919CAF06B00BD942F /* StatusViewController.h */,
 				64A2052A19CAF06B00BD942F /* StatusViewController.m */,
@@ -2452,7 +2452,7 @@
 				D4149B6B194966F400A5A6FD /* Siteoutview.xib in Resources */,
 				D4A16B491974EEA8002CA2A2 /* addworkscheduleview.xib in Resources */,
 				D4F2F920193C439100B732E9 /* iconarrowright.png in Resources */,
-				D4A1065919CACDF6009A68C4 /* TypeofleadViewController.xib in Resources */,
+				D4A1065919CACDF6009A68C4 /* OfleadViewController.xib in Resources */,
 				D41708FA19A5B24900F55599 /* UserRightViewController.xib in Resources */,
 				64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */,
 				D4A16B471974EEA8002CA2A2 /* EqaddRecordview.xib in Resources */,
@@ -2693,7 +2693,7 @@
 				D40DD25C1873D26100E7BC2C /* FleetsViewController.m in Sources */,
 				D49F875818EEA36B00413CAD /* basicreqmdl.m in Sources */,
 				D4A674AA19345F7200D5A77E /* Newsinglecell.m in Sources */,
-				D4A1065819CACDF6009A68C4 /* TypeofleadViewController.m in Sources */,
+				D4A1065819CACDF6009A68C4 /* OfleadViewController.m in Sources */,
 				D4F19DF518D03F47007617F0 /* ContractViewController.m in Sources */,
 				D4EBA8601978F40800B612E1 /* eqtermsmdl.m in Sources */,
 				D49F876718EEA36B00413CAD /* Mdladdress.m in Sources */,

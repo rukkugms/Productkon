@@ -443,7 +443,7 @@
                    
                    "<Equipmentsubtypeinsert xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<EqStEquipmentId>%d</EqStEquipmentId>\n"
-                   "<BRVaEqStSubTypeId>%d</BRVaEqStSubTypeId>\n"
+                   "<EqStSubTypeId>%d</EqStSubTypeId>\n"
                    "<EqStDescription>%@</EqStDescription>\n"
                    "</Equipmentsubtypeinsert>\n"
                    "</soap:Body>\n"
