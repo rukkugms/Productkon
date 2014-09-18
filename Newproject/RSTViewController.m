@@ -183,7 +183,7 @@
 
 - (IBAction)addbtn:(id)sender
 {
-    [_subtypetable setEditing:NO animated:NO];
+    //[_subtypetable setEditing:NO animated:NO];
     _subtypetable.userInteractionEnabled=NO;
 
     _addview.hidden=NO;
