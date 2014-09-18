@@ -46,6 +46,11 @@
     _SearchingBar.delegate = (id)self;
     _SearchingBar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     self.custmrtable.tableHeaderView=_SearchingBar;
+    
+    UISearchDisplayController *searchdisplaycontroller=[[UISearchDisplayController alloc]initWithSearchBar:_SearchingBar contentsController:self];
+    searchdisplaycontroller.searchResultsDataSource=(id)self;
+    searchdisplaycontroller.searchResultsDelegate=(id)self;
+    searchdisplaycontroller.delegate=(id)self;
 
     _popoverArry=[[NSMutableArray alloc]initWithObjects:@"Contact Info",@"Sales Rep Info", nil];
 
@@ -1246,10 +1251,10 @@
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
     if (rightsmodel.EditModule==0) {
-        if (webtype==1) {
+        if (optionidentifier==1) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to add a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
-        }else if(webtype==2)
+        }else if(optionidentifier==2)
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
@@ -1281,11 +1286,11 @@
     }
        else{
            
-        if (webtype==1) {
+        if (optionidentifier==1) {
         [self CustomerMasterInsert];
 
     }
-    else  if (webtype==2){
+    else  if (optionidentifier==2){
         [self CustomerMasterUpdate];
     }
     }
