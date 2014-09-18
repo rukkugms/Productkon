@@ -9,16 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "Craftreqmtmdl.h"
 
-@interface ProjecttypeViewController : UIViewController
+@interface NProjecttypeViewController : UIViewController
 {
     BOOL recordResults;
-
+    NSInteger optnidfr,path,deletepath;
+    UIButton *button;
     
 }
 @property (strong, nonatomic) IBOutlet UITableViewCell *projcttypecell;
 @property (strong, nonatomic) IBOutlet UILabel *projecttypelbl;
 @property (strong, nonatomic) Craftreqmtmdl *projctreqmdl;
-
+@property (strong, nonatomic)NSMutableArray *projecttypearray;
 /*Xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
@@ -31,6 +32,7 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *projectcell;
 
 @property (strong, nonatomic) IBOutlet UIView *addview;
+- (IBAction)editbtn:(id)sender;
 
 - (IBAction)addclsebtn:(id)sender;
 
