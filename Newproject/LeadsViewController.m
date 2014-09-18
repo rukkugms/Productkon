@@ -2837,7 +2837,7 @@ else
 }
 -(IBAction)toprojecttype:(id)sender
 {
-    _projectctl=[[ProjecttypeViewController alloc]initWithNibName:@"ProjecttypeViewController" bundle:nil];
+    _projectctl=[[NProjecttypeViewController alloc]initWithNibName:@"NProjecttypeViewController" bundle:nil];
     _projectctl.modalPresentationStyle=UIModalPresentationFormSheet;
     //_subtypctrlr.moduleid=moduleid;
     [self presentViewController:self.projectctl
@@ -2854,10 +2854,19 @@ else
 }
 -(IBAction)toleadtype:(id)sender
 {
-    
+    _typctrl=[[OfleadViewController alloc]initWithNibName:@"OfleadViewController" bundle:nil];
+    _typctrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    //_subtypctrlr.moduleid=moduleid;
+    [self presentViewController:self.typctrl
+                       animated:YES completion:NULL];
 }
 -(IBAction)toleadstatus:(id)sender{
-    
+    _statusctrl=[[StatusViewController alloc]initWithNibName:@"StatusViewController" bundle:nil];
+    _statusctrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    //_subtypctrlr.moduleid=moduleid;
+    [self presentViewController:self.statusctrl
+                       animated:YES completion:NULL];
+
 }
 
 @end

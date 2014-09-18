@@ -45,7 +45,7 @@
 - (IBAction)deletebtn:(id)sender;
 -(IBAction)closethispage:(id)sender;
 
-@property(strong,nonatomic)NSMutableArray *industrylistarray;
+
 @property(strong,nonatomic)NSMutableArray *selectedindustryarray;
 
 @property(strong,nonatomic)IBOutlet UITextField *industrytextfld;
