@@ -2837,7 +2837,7 @@ else
 }
 -(IBAction)toprojecttype:(id)sender
 {
-    _projectctl=[[ProjecttypeViewController alloc]initWithNibName:@"ProjecttypeViewController" bundle:nil];
+    _projectctl=[[NProjecttypeViewController alloc]initWithNibName:@"NProjecttypeViewController" bundle:nil];
     _projectctl.modalPresentationStyle=UIModalPresentationFormSheet;
     //_subtypctrlr.moduleid=moduleid;
     [self presentViewController:self.projectctl

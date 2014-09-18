@@ -16,7 +16,7 @@
 #import "Validation.h"
 #import "Rightscheck.h"
 #import "IndustrytpeViewController.h"
-#import "ProjecttypeViewController.h"
+#import "NProjecttypeViewController.h"
 #import "OfleadViewController.h"
 #import "StatusViewController.h"
 @interface LeadsViewController : UIViewController<UIActionSheetDelegate>{
@@ -33,7 +33,7 @@
 @property(strong,nonatomic)IndustrytpeViewController *industryctl;
 @property(strong,nonatomic)StatusViewController *statusctrl;
 @property(strong,nonatomic)OfleadViewController *typctrl;
-@property(strong,nonatomic)ProjecttypeViewController *projectctl;
+@property(strong,nonatomic)NProjecttypeViewController *projectctl;
 @property(strong,nonatomic)NSString *stateid;
 @property(strong,nonatomic)NSString *msgstring;
 @property(readwrite)  NSInteger leadID;
