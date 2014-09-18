@@ -1664,7 +1664,7 @@
         
         
         if (buttonIndex==[alertView cancelButtonIndex]){
-            [self AllCrewDelete];
+            [self CrewSetUpDelete];
             
         }
         
