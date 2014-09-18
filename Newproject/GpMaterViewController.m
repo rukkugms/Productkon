@@ -173,7 +173,7 @@
         
         
         if (buttonIndex==[alertView cancelButtonIndex]){
-          [self AllMaterialCrewDelete];
+          [self MaterialCrewSetUpDelete];
             
         }
         

@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProjecttypeViewController">
             <connections>
+                <outlet property="addview" destination="iZB-ms-icX" id="ELp-VN-bzJ"/>
                 <outlet property="prjcttypetxtfld" destination="X8l-iI-m6a" id="bda-bK-NIp"/>
                 <outlet property="titleview" destination="Unc-zj-zxw" id="1bi-xu-QmL"/>
                 <outlet property="typetable" destination="16q-sK-geu" id="YVo-6a-Zg6"/>
