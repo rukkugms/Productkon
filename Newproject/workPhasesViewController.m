@@ -689,7 +689,8 @@
   NSString *phid=@"0";
     NSInteger parnt;
     phasesmodel*phmdl=(phasesmodel *)[_workphasesarray objectAtIndex:btnindex];
-      NSString *serid=[_servicedict objectForKey:phmdl.servicename];
+
+      NSString *serid=[_servicedict objectForKey:_servicebtn.titleLabel.text];
    // NSLog(@"ser%@",phmdl.servicename);
    // NSLog(@"ser%@",_servicedict);
 
