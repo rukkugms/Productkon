@@ -72,7 +72,7 @@
     
     _leadtypeArray=[[NSMutableArray alloc]initWithObjects:@"Referral",@"Database",@"Repeat Customer",@"Phone Request", nil];
     _projecttypeArray=[[NSMutableArray alloc]initWithObjects:@"TurnAround",@"Maintenance",@"Capital Work",@"New Construction",@"Unknown", nil];
-    _industrytypeArray=[[NSMutableArray alloc]initWithObjects:@"Chemical",@"Refining",@"Pulp",@"Paper",@"Power" ,nil];
+   // _industrytypeArray=[[NSMutableArray alloc]initWithObjects:@"Chemical",@"Refining",@"Pulp",@"Paper",@"Power" ,nil];
     _prjctexcutnArray=[[NSMutableArray alloc]initWithObjects:@"Immediate",@"First Quarter", @"Second Quarter",@"Third Quarter",@"Fourth Quarter of that calender year", nil];
     _leadStatusArray=[[NSMutableArray alloc]initWithObjects:@"Open",@"Close",@"Active",@"Hot",@"Cold", nil];
     
@@ -103,7 +103,8 @@
     
     butnidtfr=1;
     
-    [_companybtn setTitle:@"Select" forState:UIControlStateNormal];
+    //[_companybtn setTitle:@"Select" forState:UIControlStateNormal];
+     _cmpnttxtfld.text=@"";
     _contactnametxtfld.text=@"";
     _phonetxtfld.text=@"";
     
@@ -335,6 +336,7 @@ if (tableView==_leadTable) {
                 
             case 7:
                 cell.textLabel.text=[_companylistArray objectAtIndex:indexPath.row];
+              
                 
                 break;
                 case 8:
@@ -488,8 +490,8 @@ if (tableView==_leadTable) {
 
              case 7:
                  
-                 [_companybtn setTitle:[_companylistArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-                 
+                 //[_companybtn setTitle:[_companylistArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                   _cmpnttxtfld.text=[_companylistArray objectAtIndex:indexPath.row];
                  [self.popOverController dismissPopoverAnimated:YES];
 
                  
@@ -582,8 +584,8 @@ if (tableView==_leadTable) {
     _citytxtfld.text=info1.city;
     [_leadtypebtnlbl setTitle:info1.Typeoflead forState:UIControlStateNormal];
     [_projecttype setTitle:info1.projecttype forState:UIControlStateNormal];
-    [_companybtn setTitle:info1.companyname forState:UIControlStateNormal];
-
+  //  [_companybtn setTitle:info1.companyname forState:UIControlStateNormal];
+    _cmpnttxtfld.text=info1.companyname;
 
     _prjctyeartxtfld.text=info1.projectexecutionyear;
     
@@ -603,7 +605,7 @@ if (tableView==_leadTable) {
    
 }
 - (IBAction)cancelbtn:(id)sender {
-    [_companybtn setTitle:@"Select" forState:UIControlStateNormal];
+    //[_companybtn setTitle:@"Select" forState:UIControlStateNormal];
     _contactnametxtfld.text=@"";    
     _phonetxtfld.text=@"";
     
@@ -616,7 +618,7 @@ if (tableView==_leadTable) {
     _prjctyeartxtfld.text=@"";
     
     _prjctdscptntxtfld.text=@"";
-    
+    _cmpnttxtfld.text=@"";
     _locationtxtfld.text=@"";
     _contacttiletxtfld.text=@"";
     _emailidtxtfld.text=@"";
@@ -773,7 +775,7 @@ if (tableView==_leadTable) {
                                             inView:self.scroll
                           permittedArrowDirections:UIPopoverArrowDirectionUp
                                           animated:YES];
-    
+    [self IndustrytypeSelect];
 
 }
 
@@ -921,6 +923,8 @@ if (tableView==_leadTable) {
 
     _composecmtview.hidden=NO;
     
+    
+    
     _cmttxtbox.text=@"";
 //   _composecmtview.frame = CGRectMake(512, 384, 0, 0);
 //    //    CGPoint origin = _hidenview.frame.origin;
@@ -935,12 +939,17 @@ if (tableView==_leadTable) {
 
 - (IBAction)savecmtbtn:(id)sender {
          butnidtfr=3;
-    if (_cmttxtbox.text.length==0) {
+   
+
+       if (_cmttxtbox.text.length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Comment is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+           
+
     }
 else
 {
+     _savebtnlbl.enabled=NO;
     [self Saveleadcomment];
 }
     
@@ -975,7 +984,7 @@ else
     {
 
     Validation *val=[[Validation alloc]init];
-    if([_companybtn.titleLabel.text isEqualToString:@""]||[_companybtn.titleLabel.text isEqualToString:@"Select"])
+    if([_cmpnttxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
     {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Company Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
@@ -1230,7 +1239,7 @@ else
                    "<ID>%@</ID>\n"
                    "</UpdateCLMDemo>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",info2.leadid,_companybtn.titleLabel.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,stid,_leadtypebtnlbl.titleLabel.text,_industrytypetxtfld.titleLabel.text,_projecttype.titleLabel.text,_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,_leadstatusBtn.titleLabel.text,[info2.bidstatus integerValue ],info2.idvalue];
+                   "</soap:Envelope>\n",info2.leadid,_cmpnttxtfld.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,stid,_leadtypebtnlbl.titleLabel.text,_industrytypetxtfld.titleLabel.text,_projecttype.titleLabel.text,_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,_leadstatusBtn.titleLabel.text,[info2.bidstatus integerValue ],info2.idvalue];
                                                                                                                                                                                                                                     
     NSLog(@"soapmsg%@",soapMessage);
     
@@ -1309,7 +1318,7 @@ else
                    "<ID>%@</ID>\n"
                    "</SaveLead>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",Leadid,_companybtn.titleLabel.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,stid,_leadtypebtnlbl.titleLabel.text,_industrytypetxtfld.titleLabel.text,_projecttype.titleLabel.text,_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,_leadstatusBtn.titleLabel.text,[bidstatus integerValue],idvalue];
+                   "</soap:Envelope>\n",Leadid,_cmpnttxtfld.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,stid,_leadtypebtnlbl.titleLabel.text,_industrytypetxtfld.titleLabel.text,_projecttype.titleLabel.text,_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,_leadstatusBtn.titleLabel.text,[bidstatus integerValue],idvalue];
     
     NSLog(@"soapmsg%@",soapMessage);
     
@@ -1618,6 +1627,56 @@ else
 }
 
 
+-(void)IndustrytypeSelect{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<IndustrytypeSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "</IndustrytypeSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/IndustrytypeSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -1868,6 +1927,49 @@ else
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"IndustrytypeSelectResponse"])
+    {
+        _industrytypeArray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"ITEntryId"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"ITItemCode"])
+    {
+        
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"ITName"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    
 //
 //
 //    if([elementName isEqualToString:@"Column1"])
@@ -1981,6 +2083,16 @@ else
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"CustomerCode"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"CustomerName"])
     {
         
@@ -2331,6 +2443,13 @@ else
         _companystring=_soapResults;
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"CustomerCode"])
+    {
+        
+        recordResults = FALSE;
+         _soapResults = nil;
+    }
+
     if([elementName isEqualToString:@"CustomerName"])
     {
         
@@ -2346,6 +2465,7 @@ else
         _msgstring=_soapResults;
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+         _savebtnlbl.enabled=NO;
         _soapResults=nil;
     }
     if([elementName isEqualToString:@"StateselectResult"])
@@ -2374,6 +2494,36 @@ else
     }
     
 
+    if([elementName isEqualToString:@"ITEntryId"])
+    {
+        
+        recordResults=FALSE;
+        
+              _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"ITItemCode"])
+    {
+        
+        recordResults=FALSE;
+        
+        
+        
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"ITName"])
+    {
+        
+        recordResults=FALSE;
+        
+      
+        
+        [_industrytypeArray addObject:_soapResults];
+        
+        _soapResults = nil;
+        
+    }
 
     
 

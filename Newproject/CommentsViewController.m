@@ -81,6 +81,7 @@
 
 -(IBAction)saveComment:(id)sender
 {
+    _savebtnlbl.enabled=NO;
     [_commentArray addObject:_cmntTextView.text];
     [_commentTable reloadData];
 }
