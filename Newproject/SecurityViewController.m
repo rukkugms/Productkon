@@ -608,7 +608,13 @@
 }
 
 - (IBAction)savebtn:(id)sender {
-    if (_answertxtfld.text.length==0) {
+    if ([_qustnbtnlbl.titleLabel.text isEqualToString:@""]||[_qustnbtnlbl.titleLabel.text isEqualToString:@"Select"]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Select your security question" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+
+        
+    }
+  else  if ([_answertxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Answer is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
