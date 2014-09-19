@@ -83,7 +83,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     [super viewWillAppear:animated];
    
      [self getLeadActivity];
-    
+        _savebtnlbl.enabled=YES;
     
     
 }

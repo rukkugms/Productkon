@@ -89,6 +89,7 @@
    
     
     _view2.hidden=YES;
+        _savebtnlbl.enabled=YES;
 
     
 }
@@ -2465,7 +2466,7 @@ else
         _msgstring=_soapResults;
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
-         _savebtnlbl.enabled=NO;
+         _savebtnlbl.enabled=YES;
         _soapResults=nil;
     }
     if([elementName isEqualToString:@"StateselectResult"])
