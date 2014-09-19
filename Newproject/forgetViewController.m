@@ -47,6 +47,7 @@
         _newpswdText.text=@"";
         _confirmpswdText.text=@"";
         _answrText.text=@"";
+        _answrText.enabled=NO;
         [_qstnbtn setTitle:@"Select" forState:UIControlStateNormal];
     }
     else
@@ -185,6 +186,7 @@
     _newpswdText.text=@"";
     _confirmpswdText.text=@"";
     _answrText.text=@"";
+    _answrText.enabled=NO;
     [_qstnbtn setTitle:@"Select" forState:UIControlStateNormal];
      _questionsarray=[[NSMutableArray alloc]init];
 }
@@ -239,7 +241,7 @@
                 
     
         
-        
+    _answrText.enabled=YES;
     
     [self.popovercontroller dismissPopoverAnimated:YES];
     
@@ -723,6 +725,12 @@
     }
     return YES;
 
+}
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if (textField==_userText) {
+        _qstnbtn.titleLabel.text=@"Select";
+    }
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {

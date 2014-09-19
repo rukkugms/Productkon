@@ -608,7 +608,7 @@
 }
 
 - (IBAction)savebtn:(id)sender {
-    if (_answertxtfld.text.length==0) {
+    if ([_answertxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Answer is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
