@@ -75,7 +75,6 @@
 		64A2052419CAB89600BD942F /* IndustrytpeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2052219CAB89600BD942F /* IndustrytpeViewController.xib */; };
 		64A2052619CAB93600BD942F /* Industrycell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2052519CAB93600BD942F /* Industrycell.xib */; };
 		64A2052819CAE38900BD942F /* Ldtypecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2052719CAE38800BD942F /* Ldtypecell.xib */; };
-		64A2052C19CAF06B00BD942F /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A2052A19CAF06B00BD942F /* StatusViewController.m */; };
 		64A2052D19CAF06B00BD942F /* StatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2052B19CAF06B00BD942F /* StatusViewController.xib */; };
 		64A2052F19CAF09600BD942F /* Statscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2052E19CAF09600BD942F /* Statscell.xib */; };
 		64A27C2018E1640000D184BF /* Srepcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A27C1F18E1640000D184BF /* Srepcell.xib */; };
@@ -644,7 +643,6 @@
 		64A2052219CAB89600BD942F /* IndustrytpeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndustrytpeViewController.xib; sourceTree = "<group>"; };
 		64A2052519CAB93600BD942F /* Industrycell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Industrycell.xib; sourceTree = "<group>"; };
 		64A2052719CAE38800BD942F /* Ldtypecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Ldtypecell.xib; sourceTree = "<group>"; };
-		64A2052A19CAF06B00BD942F /* StatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusViewController.m; sourceTree = "<group>"; };
 		64A2052B19CAF06B00BD942F /* StatusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusViewController.xib; sourceTree = "<group>"; };
 		64A2052E19CAF09600BD942F /* Statscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Statscell.xib; sourceTree = "<group>"; };
 		64A27C1F18E1640000D184BF /* Srepcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Srepcell.xib; sourceTree = "<group>"; };
@@ -2760,7 +2758,6 @@
 				D40427E819237F980049A709 /* Rephase.m in Sources */,
 				D49F874A18EEA36B00413CAD /* SectionHeaderView.m in Sources */,
 				D4A16B951974EEE0002CA2A2 /* PhasecomponentsViewController.m in Sources */,
-				64A2052C19CAF06B00BD942F /* StatusViewController.m in Sources */,
 				D4A16B431974EEA8002CA2A2 /* NewrecordViewController.m in Sources */,
 				D49F876618EEA36B00413CAD /* Custmermdl.m in Sources */,
 				D4F34360191CCD220023D715 /* ModlEstimation.m in Sources */,
