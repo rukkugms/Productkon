@@ -343,8 +343,9 @@
 		D49FBE3518F2A4B70050B19F /* Doccontrctcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49FBE3418F2A4B70050B19F /* Doccontrctcell.xib */; };
 		D4A0BCF419667D0B00A421C3 /* newlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0BCF319667D0A00A421C3 /* newlogo.png */; };
 		D4A0BCF819668A6000A421C3 /* 40x27logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0BCF719668A6000A421C3 /* 40x27logo.png */; };
-		D4A1065819CACDF6009A68C4 /* OfleadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A1065619CACDF5009A68C4 /* OfleadViewController.m */; };
-		D4A1065919CACDF6009A68C4 /* OfleadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A1065719CACDF6009A68C4 /* OfleadViewController.xib */; };
+		D4A1065119CABB7A009A68C4 /* NLProjecttypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A1064F19CABB7A009A68C4 /* NLProjecttypeViewController.m */; };
+		D4A1065219CABB7A009A68C4 /* NLProjecttypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A1065019CABB7A009A68C4 /* NLProjecttypeViewController.xib */; };
+		D4A1065419CAC04A009A68C4 /* NLProjecttypecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A1065319CAC04A009A68C4 /* NLProjecttypecell.xib */; };
 		D4A10B731936F588001856F8 /* Eventmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A10B721936F588001856F8 /* Eventmdl.m */; };
 		D4A123D219A6FE1100A4ED9B /* UserRightsmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A123D119A6FE1100A4ED9B /* UserRightsmdl.m */; };
 		D4A123D419A7249C00A4ED9B /* Newuserrightscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A123D319A7249C00A4ED9B /* Newuserrightscell.xib */; };
@@ -643,7 +644,6 @@
 		64A2052219CAB89600BD942F /* IndustrytpeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndustrytpeViewController.xib; sourceTree = "<group>"; };
 		64A2052519CAB93600BD942F /* Industrycell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Industrycell.xib; sourceTree = "<group>"; };
 		64A2052719CAE38800BD942F /* Ldtypecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Ldtypecell.xib; sourceTree = "<group>"; };
-		64A2052919CAF06B00BD942F /* StatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusViewController.h; sourceTree = "<group>"; };
 		64A2052A19CAF06B00BD942F /* StatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusViewController.m; sourceTree = "<group>"; };
 		64A2052B19CAF06B00BD942F /* StatusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusViewController.xib; sourceTree = "<group>"; };
 		64A2052E19CAF09600BD942F /* Statscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Statscell.xib; sourceTree = "<group>"; };
@@ -1015,9 +1015,10 @@
 		D49FBE3418F2A4B70050B19F /* Doccontrctcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Doccontrctcell.xib; sourceTree = "<group>"; };
 		D4A0BCF319667D0A00A421C3 /* newlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newlogo.png; sourceTree = "<group>"; };
 		D4A0BCF719668A6000A421C3 /* 40x27logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 40x27logo.png; sourceTree = "<group>"; };
-		D4A1065519CACDF5009A68C4 /* OfleadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfleadViewController.h; sourceTree = "<group>"; };
-		D4A1065619CACDF5009A68C4 /* OfleadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfleadViewController.m; sourceTree = "<group>"; };
-		D4A1065719CACDF6009A68C4 /* OfleadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OfleadViewController.xib; sourceTree = "<group>"; };
+		D4A1064E19CABB7A009A68C4 /* NLProjecttypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLProjecttypeViewController.h; sourceTree = "<group>"; };
+		D4A1064F19CABB7A009A68C4 /* NLProjecttypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLProjecttypeViewController.m; sourceTree = "<group>"; };
+		D4A1065019CABB7A009A68C4 /* NLProjecttypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NLProjecttypeViewController.xib; sourceTree = "<group>"; };
+		D4A1065319CAC04A009A68C4 /* NLProjecttypecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NLProjecttypecell.xib; sourceTree = "<group>"; };
 		D4A10B711936F588001856F8 /* Eventmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Eventmdl.h; sourceTree = "<group>"; };
 		D4A10B721936F588001856F8 /* Eventmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Eventmdl.m; sourceTree = "<group>"; };
 		D4A123D019A6FE1100A4ED9B /* UserRightsmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRightsmdl.h; sourceTree = "<group>"; };
@@ -2149,14 +2150,10 @@
 				64A3B82018DFEF0B0015887F /* CommentsViewController.h */,
 				64A3B82118DFEF0B0015887F /* CommentsViewController.m */,
 				64A3B82218DFEF0B0015887F /* CommentsViewController.xib */,
-				D4A1065519CACDF5009A68C4 /* OfleadViewController.h */,
-				D4A1065619CACDF5009A68C4 /* OfleadViewController.m */,
-				D4A1065719CACDF6009A68C4 /* OfleadViewController.xib */,
-				64A2052719CAE38800BD942F /* Ldtypecell.xib */,
-				64A2052919CAF06B00BD942F /* StatusViewController.h */,
-				64A2052A19CAF06B00BD942F /* StatusViewController.m */,
-				64A2052B19CAF06B00BD942F /* StatusViewController.xib */,
-				64A2052E19CAF09600BD942F /* Statscell.xib */,
+				D4A1064E19CABB7A009A68C4 /* NLProjecttypeViewController.h */,
+				D4A1064F19CABB7A009A68C4 /* NLProjecttypeViewController.m */,
+				D4A1065019CABB7A009A68C4 /* NLProjecttypeViewController.xib */,
+				D4A1065319CAC04A009A68C4 /* NLProjecttypecell.xib */,
 			);
 			name = Leads;
 			sourceTree = "<group>";
@@ -2307,6 +2304,7 @@
 				D4A16B981974EEE0002CA2A2 /* Thirdmatothcell.xib in Resources */,
 				64A00F3118C5B115002F607E /* empmgmtcell.xib in Resources */,
 				649F45E419457F8A00E89F5C /* Lbrcuscell.xib in Resources */,
+				D4A1065419CAC04A009A68C4 /* NLProjecttypecell.xib in Resources */,
 				D49E056118C7022800AF6330 /* CrewsetupViewController.xib in Resources */,
 				D4F19DF618D03F47007617F0 /* ContractViewController.xib in Resources */,
 				D41499B5194575BB001E9146 /* MovementtileViewController.xib in Resources */,
@@ -2418,6 +2416,7 @@
 				648DE20B1777F7B400261F74 /* ContactInfoViewController.xib in Resources */,
 				D41499BA194576D5001E9146 /* EqothersViewController.xib in Resources */,
 				D4A16B361974EEA8002CA2A2 /* PlanningViewController.xib in Resources */,
+				D4A1065219CABB7A009A68C4 /* NLProjecttypeViewController.xib in Resources */,
 				649ED79F187FB8260086CDDE /* CompanyViewController.xib in Resources */,
 				D4F7D9D2196E5B5C00B8F4D4 /* equipmentothers.png in Resources */,
 				D410CC5419AB4C8F0093DDE6 /* userrights.png in Resources */,
@@ -2439,7 +2438,6 @@
 				D4149B6B194966F400A5A6FD /* Siteoutview.xib in Resources */,
 				D4A16B491974EEA8002CA2A2 /* addworkscheduleview.xib in Resources */,
 				D4F2F920193C439100B732E9 /* iconarrowright.png in Resources */,
-				D4A1065919CACDF6009A68C4 /* OfleadViewController.xib in Resources */,
 				D41708FA19A5B24900F55599 /* UserRightViewController.xib in Resources */,
 				64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */,
 				D4A16B471974EEA8002CA2A2 /* EqaddRecordview.xib in Resources */,
@@ -2675,11 +2673,11 @@
 				D49F875018EEA36B00413CAD /* activityInfo.m in Sources */,
 				D49E056018C7022800AF6330 /* CrewsetupViewController.m in Sources */,
 				D4A16B591974EEA8002CA2A2 /* DequipViewController.m in Sources */,
+				D4A1065119CABB7A009A68C4 /* NLProjecttypeViewController.m in Sources */,
 				D49F874D18EEA36B00413CAD /* Empdetails.m in Sources */,
 				D40DD25C1873D26100E7BC2C /* FleetsViewController.m in Sources */,
 				D49F875818EEA36B00413CAD /* basicreqmdl.m in Sources */,
 				D4A674AA19345F7200D5A77E /* Newsinglecell.m in Sources */,
-				D4A1065819CACDF6009A68C4 /* OfleadViewController.m in Sources */,
 				D4F19DF518D03F47007617F0 /* ContractViewController.m in Sources */,
 				D4EBA8601978F40800B612E1 /* eqtermsmdl.m in Sources */,
 				D49F876718EEA36B00413CAD /* Mdladdress.m in Sources */,
