@@ -83,6 +83,9 @@
 		64A2F9AD19CBE425009B1018 /* LdtypViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A2F9AB19CBE425009B1018 /* LdtypViewController.m */; };
 		64A2F9AE19CBE425009B1018 /* LdtypViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2F9AC19CBE425009B1018 /* LdtypViewController.xib */; };
 		64A2F9B019CBE44D009B1018 /* TPcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2F9AF19CBE44D009B1018 /* TPcell.xib */; };
+		64A2F9B419CBE72E009B1018 /* STViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A2F9B219CBE72E009B1018 /* STViewController.m */; };
+		64A2F9B519CBE72E009B1018 /* STViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2F9B319CBE72E009B1018 /* STViewController.xib */; };
+		64A2F9B719CBE745009B1018 /* STcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2F9B619CBE745009B1018 /* STcell.xib */; };
 		64A3B81318DFEE980015887F /* LeadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A3B80F18DFEE980015887F /* LeadsViewController.m */; };
 		64A3B81418DFEE980015887F /* LeadsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3B81018DFEE980015887F /* LeadsViewController.xib */; };
 		64A3B81518DFEE980015887F /* CustomLeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3B81118DFEE980015887F /* CustomLeadCell.xib */; };
@@ -657,6 +660,10 @@
 		64A2F9AB19CBE425009B1018 /* LdtypViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LdtypViewController.m; sourceTree = "<group>"; };
 		64A2F9AC19CBE425009B1018 /* LdtypViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LdtypViewController.xib; sourceTree = "<group>"; };
 		64A2F9AF19CBE44D009B1018 /* TPcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPcell.xib; sourceTree = "<group>"; };
+		64A2F9B119CBE72E009B1018 /* STViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STViewController.h; sourceTree = "<group>"; };
+		64A2F9B219CBE72E009B1018 /* STViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STViewController.m; sourceTree = "<group>"; };
+		64A2F9B319CBE72E009B1018 /* STViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STViewController.xib; sourceTree = "<group>"; };
+		64A2F9B619CBE745009B1018 /* STcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STcell.xib; sourceTree = "<group>"; };
 		64A3B80E18DFEE980015887F /* LeadsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadsViewController.h; sourceTree = "<group>"; };
 		64A3B80F18DFEE980015887F /* LeadsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadsViewController.m; sourceTree = "<group>"; };
 		64A3B81018DFEE980015887F /* LeadsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeadsViewController.xib; sourceTree = "<group>"; };
@@ -2141,6 +2148,10 @@
 				64A2052119CAB89600BD942F /* IndustrytpeViewController.m */,
 				64A2052219CAB89600BD942F /* IndustrytpeViewController.xib */,
 				64A2052519CAB93600BD942F /* Industrycell.xib */,
+				64A2F9B119CBE72E009B1018 /* STViewController.h */,
+				64A2F9B219CBE72E009B1018 /* STViewController.m */,
+				64A2F9B319CBE72E009B1018 /* STViewController.xib */,
+				64A2F9B619CBE745009B1018 /* STcell.xib */,
 				64A3B81118DFEE980015887F /* CustomLeadCell.xib */,
 				64A3B81218DFEE980015887F /* CommentsCells.xib */,
 				64A3B81718DFEEC90015887F /* ActivityViewController.h */,
@@ -2357,6 +2368,7 @@
 				D4EC7E3D192A09FD00C60BA9 /* DrawingViewController.xib in Resources */,
 				D49F8A5518EECD3800413CAD /* fuelcell.xib in Resources */,
 				D47A9B2019407AA2001CC416 /* requirement-type.png in Resources */,
+				64A2F9B519CBE72E009B1018 /* STViewController.xib in Resources */,
 				D4F7D9DE196E65C800B8F4D4 /* GroupManpower.png in Resources */,
 				D4A16B9F1974EEE0002CA2A2 /* Sumcell.xib in Resources */,
 				D4CA2FD9176EC33E007EEF7D /* Customercell.xib in Resources */,
@@ -2429,6 +2441,7 @@
 				D4A16B361974EEA8002CA2A2 /* PlanningViewController.xib in Resources */,
 				D4A1065219CABB7A009A68C4 /* NLProjecttypeViewController.xib in Resources */,
 				649ED79F187FB8260086CDDE /* CompanyViewController.xib in Resources */,
+				64A2F9B719CBE745009B1018 /* STcell.xib in Resources */,
 				D4F7D9D2196E5B5C00B8F4D4 /* equipmentothers.png in Resources */,
 				D410CC5419AB4C8F0093DDE6 /* userrights.png in Resources */,
 				D49FA2F21961647A0037BA7A /* TOtherscell.xib in Resources */,
@@ -2672,6 +2685,7 @@
 				D49F876918EEA36B00413CAD /* Infomdl.m in Sources */,
 				D40720881772F38A0070629A /* SalesRepInfoViewController.m in Sources */,
 				D4A16B8A1974EEE0002CA2A2 /* BidViewController.m in Sources */,
+				64A2F9B419CBE72E009B1018 /* STViewController.m in Sources */,
 				D49F876818EEA36B00413CAD /* Cbranch.m in Sources */,
 				D49F874718EEA36B00413CAD /* NSData+Base64.m in Sources */,
 				D40720871772F37D0070629A /* ContactInfoViewController.m in Sources */,
