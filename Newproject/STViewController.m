@@ -139,7 +139,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<LeadStatusSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<LeadStatusSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "</LeadStatusSelect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
@@ -148,7 +148,7 @@
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
     // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -156,7 +156,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/LeadStatusSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/LeadStatusSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -189,7 +189,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<LeadstatusInsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<LeadstatusInsert xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<LSName>%@</LSName>\n"
                    "</LeadstatusInsert>\n"
                    "</soap:Body>\n"
@@ -197,7 +197,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     //  NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
@@ -206,7 +206,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/LeadstatusInsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/LeadstatusInsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -239,7 +239,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<LeadStatusUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<LeadStatusUpdate xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<LSEntryId>%d</LSEntryId>\n"
                    "<LSName>%@</LSName>\n"
                    "</LeadStatusUpdate>\n"
@@ -248,7 +248,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     //  NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
@@ -257,7 +257,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/LeadStatusUpdate" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/LeadStatusUpdate" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -291,7 +291,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<LeadStatusDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<LeadStatusDelete xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<LSEntryId>%d</LSEntryId>\n"
                    "</LeadStatusDelete>\n"
                    "</soap:Body>\n"
@@ -299,7 +299,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     //NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
@@ -308,7 +308,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/LeadStatusDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/LeadStatusDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

@@ -387,6 +387,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     }
 
 - (IBAction)Addcmtbtn:(id)sender {
+  
     _composecmtview.backgroundColor= [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     
     _composecmtview.hidden=NO;
@@ -731,7 +732,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    
                    "<soap:Body>\n"
                    
-                   "<FollowuptypeSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<FollowuptypeSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "</FollowuptypeSelect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
@@ -740,7 +741,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
     // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -748,7 +749,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/FollowuptypeSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/FollowuptypeSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1580,6 +1581,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+            _savebtnlbl.enabled=YES;
         }
         _soapResults = nil;
     }
@@ -1761,13 +1763,15 @@ else
 }
 -(IBAction)savecomment:(id)sender
 {    butnidtfr=3;
+    
     if (_cmttxtbox.text.length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Comment is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+        _savebtnlbl.enabled=YES;
     }
     else
     {
-
+_savebtnlbl.enabled=NO;
     [self saveComment];
     }
 }

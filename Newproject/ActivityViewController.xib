@@ -21,6 +21,7 @@
                 <outlet property="descptionTextview" destination="83" id="87"/>
                 <outlet property="employerTxtfld" destination="41" id="86"/>
                 <outlet property="newviewactivity" destination="34" id="51"/>
+                <outlet property="savebtnlbl" destination="101" id="oLw-uU-9MK"/>
                 <outlet property="scroll" destination="4" id="25"/>
                 <outlet property="statusTxtFld" destination="42" id="85"/>
                 <outlet property="view" destination="2" id="3"/>

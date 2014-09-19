@@ -123,5 +123,6 @@
 @property (strong, nonatomic) NSString *searchstring;
 
 @property (strong, nonatomic) IBOutlet UIButton *cancelbtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *savebtnlbl;
 
 @end
