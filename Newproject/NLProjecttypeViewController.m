@@ -134,7 +134,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ProjecttypeSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ProjecttypeSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "</ProjecttypeSelect>\n"
                    "</soap:Body>\n"
@@ -142,7 +142,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     //NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
@@ -151,7 +151,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ProjecttypeSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/ProjecttypeSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -184,7 +184,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ProjectTypeInsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ProjectTypeInsert xmlns=\"http://testUSA.kontract360.com/\">\n"
                     "<PTName>%@</PTName>\n"
                    "</ProjectTypeInsert>\n"
                    "</soap:Body>\n"
@@ -192,7 +192,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     //NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
@@ -201,7 +201,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ProjectTypeInsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/ProjectTypeInsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -235,7 +235,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ProjectTypeUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ProjectTypeUpdate xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<PTEntryId>%d</PTEntryId>\n"
                    "<PTName>%@</PTName>\n"
                    "</ProjectTypeUpdate>\n"
@@ -244,7 +244,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     //NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
@@ -253,7 +253,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ProjectTypeUpdate" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/ProjectTypeUpdate" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -287,7 +287,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ProjecttypeDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ProjecttypeDelete xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<PTEntryId>%d</PTEntryId>\n"
                   
                    "</ProjecttypeDelete>\n"
@@ -296,7 +296,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     //NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
@@ -305,7 +305,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ProjecttypeDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/ProjecttypeDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

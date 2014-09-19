@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="ancelbtnlbl" destination="4pg-hv-nP6" id="mIJ-MQ-uKd"/>
                 <outlet property="citytxtfld" destination="Rn6-bg-TCW" id="QCT-AH-hoM"/>
+                <outlet property="cmpnttxtfld" destination="doj-Hv-AdB" id="ruj-X6-gxT"/>
                 <outlet property="cmtnav" destination="126" id="132"/>
                 <outlet property="cmttable" destination="130" id="134"/>
                 <outlet property="cmttxtbox" destination="137" id="143"/>
@@ -30,6 +31,7 @@
                 <outlet property="prjctexcutntxtfld" destination="Uwy-rb-Ydl" id="3EB-aU-Wox"/>
                 <outlet property="prjctyeartxtfld" destination="bcJ-jC-rHc" id="UJP-D0-bbU"/>
                 <outlet property="projecttype" destination="GBA-JE-52P" id="tL3-Bs-yzF"/>
+                <outlet property="savebtnlbl" destination="139" id="syK-xf-ygn"/>
                 <outlet property="scroll" destination="mN5-Qf-jG7" id="aNC-KC-FxJ"/>
                 <outlet property="statebutton" destination="3GX-ff-ncp" id="LRr-AL-Ytj"/>
                 <outlet property="view" destination="2" id="3"/>
@@ -268,11 +270,11 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ylW-D9-aiu">
-                                            <rect key="frame" x="80" y="45" width="219" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ylW-D9-aiu">
+                                            <rect key="frame" x="306" y="45" width="42" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                            <state key="normal" title="Select" backgroundImage="textbox.png">
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                            <state key="normal" backgroundImage="search.png">
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -598,6 +600,12 @@
                                                 <action selector="toleadstatus:" destination="-1" eventType="touchUpInside" id="ca2-64-mDj"/>
                                             </connections>
                                         </button>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="doj-Hv-AdB">
+                                            <rect key="frame" x="78" y="45" width="220" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
                                     </subviews>
                                 </scrollView>
                             </subviews>
@@ -636,6 +644,7 @@
         <image name="appbar.addblack.png" width="76" height="76"/>
         <image name="appbar.close.png" width="76" height="76"/>
         <image name="appbar.delete.png" width="76" height="76"/>
+        <image name="search.png" width="48" height="48"/>
         <image name="textbox.png" width="298" height="64"/>
     </resources>
 </document>

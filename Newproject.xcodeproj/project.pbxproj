@@ -354,6 +354,7 @@
 		D4A10B731936F588001856F8 /* Eventmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A10B721936F588001856F8 /* Eventmdl.m */; };
 		D4A123D219A6FE1100A4ED9B /* UserRightsmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A123D119A6FE1100A4ED9B /* UserRightsmdl.m */; };
 		D4A123D419A7249C00A4ED9B /* Newuserrightscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A123D319A7249C00A4ED9B /* Newuserrightscell.xib */; };
+		D4A14A4C19CBEC96003C1193 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A14A4B19CBEC96003C1193 /* search.png */; };
 		D4A16B351974EEA8002CA2A2 /* PlanningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A16AFF1974EEA8002CA2A2 /* PlanningViewController.m */; };
 		D4A16B361974EEA8002CA2A2 /* PlanningViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A16B001974EEA8002CA2A2 /* PlanningViewController.xib */; };
 		D4A16B371974EEA8002CA2A2 /* customplancell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A16B011974EEA8002CA2A2 /* customplancell.xib */; };
@@ -1037,6 +1038,7 @@
 		D4A123D019A6FE1100A4ED9B /* UserRightsmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRightsmdl.h; sourceTree = "<group>"; };
 		D4A123D119A6FE1100A4ED9B /* UserRightsmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRightsmdl.m; sourceTree = "<group>"; };
 		D4A123D319A7249C00A4ED9B /* Newuserrightscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Newuserrightscell.xib; sourceTree = "<group>"; };
+		D4A14A4B19CBEC96003C1193 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
 		D4A16AFE1974EEA8002CA2A2 /* PlanningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanningViewController.h; sourceTree = "<group>"; };
 		D4A16AFF1974EEA8002CA2A2 /* PlanningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanningViewController.m; sourceTree = "<group>"; };
 		D4A16B001974EEA8002CA2A2 /* PlanningViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanningViewController.xib; sourceTree = "<group>"; };
@@ -1851,6 +1853,7 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D4A14A4B19CBEC96003C1193 /* search.png */,
 				D410CC5319AB4C8F0093DDE6 /* userrights.png */,
 				D44DF4F119A5DF4500F3E9AB /* radioButtonIcon.gif */,
 				D44DF4EF19A5D88C00F3E9AB /* C2jN9.png */,
@@ -2489,6 +2492,7 @@
 				D4EC1FE11875280500A55942 /* textbox.png in Resources */,
 				D47A9B2819407CF1001CC416 /* othercompanyassestsicon.png in Resources */,
 				D49DE839185EB391006F1CDA /* closebutton@2x.png in Resources */,
+				D4A14A4C19CBEC96003C1193 /* search.png in Resources */,
 				64A41249194080F1003EE113 /* bid.png in Resources */,
 				D4A16B531974EEA8002CA2A2 /* GdargViewController.xib in Resources */,
 				D4A6749019345E6C00D5A77E /* IconDateGrey.png in Resources */,

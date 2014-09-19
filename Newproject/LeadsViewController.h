@@ -19,6 +19,7 @@
 #import "NLProjecttypeViewController.h"
 #import "STViewController.h"
 #import "LdtypViewController.h"
+#import "Craftreqmtmdl.h"
 @interface LeadsViewController : UIViewController<UIActionSheetDelegate>{
     NSInteger poptype;
     BOOL recordResults;
@@ -168,9 +169,13 @@
 
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
+@property (strong, nonatomic) IBOutlet UITextField *cmpnttxtfld;
+
+
 -(IBAction)toprojecttype:(id)sender;
 -(IBAction)toindustrytype:(id)sender;
 -(IBAction)toleadtype:(id)sender;
 -(IBAction)toleadstatus:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *savebtnlbl;
 
 @end
