@@ -17,8 +17,8 @@
 #import "Rightscheck.h"
 #import "IndustrytpeViewController.h"
 #import "NLProjecttypeViewController.h"
-//#import "OfleadViewController.h"
-//#import "StatusViewController.h"
+#import "STViewController.h"
+#import "LdtypViewController.h"
 @interface LeadsViewController : UIViewController<UIActionSheetDelegate>{
     NSInteger poptype;
     BOOL recordResults;
@@ -31,8 +31,8 @@
     NSInteger fmt;
   }
 @property(strong,nonatomic)IndustrytpeViewController *industryctl;
-//@property(strong,nonatomic)StatusViewController *statusctrl;
-//@property(strong,nonatomic)OfleadViewController *typctrl;
+@property(strong,nonatomic)STViewController *statusctrl;
+@property(strong,nonatomic)LdtypViewController *typctrl;
 @property(strong,nonatomic)NLProjecttypeViewController *projectctl;
 @property(strong,nonatomic)NSString *stateid;
 @property(strong,nonatomic)NSString *msgstring;

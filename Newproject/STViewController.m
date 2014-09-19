@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 GMSIndia1. All rights reserved.
 //
 
-#import "StatusViewController.h"
+#import "STViewController.h"
 
-@interface StatusViewController ()
+@interface STViewController ()
 
 @end
 
-@implementation StatusViewController
+@implementation STViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

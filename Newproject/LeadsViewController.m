@@ -2854,18 +2854,18 @@ else
 }
 -(IBAction)toleadtype:(id)sender
 {
-//    _typctrl=[[OfleadViewController alloc]initWithNibName:@"OfleadViewController" bundle:nil];
-//    _typctrl.modalPresentationStyle=UIModalPresentationFormSheet;
-//    //_subtypctrlr.moduleid=moduleid;
-//    [self presentViewController:self.typctrl
-//                       animated:YES completion:NULL];
+    _typctrl=[[LdtypViewController alloc]initWithNibName:@"LdtypViewController" bundle:nil];
+    _typctrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    //_subtypctrlr.moduleid=moduleid;
+    [self presentViewController:self.typctrl
+                       animated:YES completion:NULL];
 }
 -(IBAction)toleadstatus:(id)sender{
-//    _statusctrl=[[StatusViewController alloc]initWithNibName:@"StatusViewController" bundle:nil];
-//    _statusctrl.modalPresentationStyle=UIModalPresentationFormSheet;
-//    //_subtypctrlr.moduleid=moduleid;
-//    [self presentViewController:self.statusctrl
-//                       animated:YES completion:NULL];
+    _statusctrl=[[STViewController alloc]initWithNibName:@"STViewController" bundle:nil];
+    _statusctrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    //_subtypctrlr.moduleid=moduleid;
+    [self presentViewController:self.statusctrl
+                       animated:YES completion:NULL];
 
 }
 
