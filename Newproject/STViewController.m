@@ -556,7 +556,7 @@
         cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
         if(tableView==_statustable){
             
-            [[NSBundle mainBundle]loadNibNamed:@"Statscell" owner:self options:nil];
+            [[NSBundle mainBundle]loadNibNamed:@"STcell" owner:self options:nil];
             cell=_statuscell;
         }
         
