@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Craftreqmtmdl.h"
 
-@interface NProjecttypeViewController : UIViewController
+@interface NLProjecttypeViewController : UIViewController
 {
     BOOL recordResults;
     NSInteger optnidfr,path,deletepath;
