@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Craftreqmtmdl.h"
 
-@interface StatusViewController : UIViewController
+@interface STViewController : UIViewController
 {
     NSInteger optionidentifier;
     UIButton *button;

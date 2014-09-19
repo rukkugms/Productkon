@@ -74,10 +74,6 @@
 		64A2052319CAB89600BD942F /* IndustrytpeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A2052119CAB89600BD942F /* IndustrytpeViewController.m */; };
 		64A2052419CAB89600BD942F /* IndustrytpeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2052219CAB89600BD942F /* IndustrytpeViewController.xib */; };
 		64A2052619CAB93600BD942F /* Industrycell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2052519CAB93600BD942F /* Industrycell.xib */; };
-		64A2052819CAE38900BD942F /* Ldtypecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2052719CAE38800BD942F /* Ldtypecell.xib */; };
-		64A2052C19CAF06B00BD942F /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A2052A19CAF06B00BD942F /* StatusViewController.m */; };
-		64A2052D19CAF06B00BD942F /* StatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2052B19CAF06B00BD942F /* StatusViewController.xib */; };
-		64A2052F19CAF09600BD942F /* Statscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2052E19CAF09600BD942F /* Statscell.xib */; };
 		64A27C2018E1640000D184BF /* Srepcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A27C1F18E1640000D184BF /* Srepcell.xib */; };
 		64A2D0941962C9F000BACE76 /* Reviebidmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A2D0931962C9F000BACE76 /* Reviebidmdl.m */; };
 		64A2F9AD19CBE425009B1018 /* LdtypViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A2F9AB19CBE425009B1018 /* LdtypViewController.m */; };
@@ -649,10 +645,6 @@
 		64A2052119CAB89600BD942F /* IndustrytpeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndustrytpeViewController.m; sourceTree = "<group>"; };
 		64A2052219CAB89600BD942F /* IndustrytpeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndustrytpeViewController.xib; sourceTree = "<group>"; };
 		64A2052519CAB93600BD942F /* Industrycell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Industrycell.xib; sourceTree = "<group>"; };
-		64A2052719CAE38800BD942F /* Ldtypecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Ldtypecell.xib; sourceTree = "<group>"; };
-		64A2052A19CAF06B00BD942F /* StatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusViewController.m; sourceTree = "<group>"; };
-		64A2052B19CAF06B00BD942F /* StatusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusViewController.xib; sourceTree = "<group>"; };
-		64A2052E19CAF09600BD942F /* Statscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Statscell.xib; sourceTree = "<group>"; };
 		64A27C1F18E1640000D184BF /* Srepcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Srepcell.xib; sourceTree = "<group>"; };
 		64A2D0921962C9F000BACE76 /* Reviebidmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reviebidmdl.h; sourceTree = "<group>"; };
 		64A2D0931962C9F000BACE76 /* Reviebidmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reviebidmdl.m; sourceTree = "<group>"; };
@@ -2467,7 +2459,6 @@
 				D4A16B471974EEA8002CA2A2 /* EqaddRecordview.xib in Resources */,
 				649EB48C18A8DF4700CDBE28 /* DetailproHrViewController.xib in Resources */,
 				D42D8C2818D2DD79009D8085 /* custommanapowercell.xib in Resources */,
-				64A2052819CAE38900BD942F /* Ldtypecell.xib in Resources */,
 				D4FED40917F15B07004BE242 /* HRViewController.xib in Resources */,
 				64AE02B91949B029002D44B6 /* StkOtSiteout.xib in Resources */,
 				D4A16B441974EEA8002CA2A2 /* NewrecordViewController.xib in Resources */,
@@ -2504,7 +2495,6 @@
 				6426F5F318C0621B002471AC /* jobs.png in Resources */,
 				D4A16B551974EEA8002CA2A2 /* FirstMdragcell.xib in Resources */,
 				D40407DD192B1CFB00864BA4 /* save 3.png in Resources */,
-				64A2052D19CAF06B00BD942F /* StatusViewController.xib in Resources */,
 				D49FA2EE1961643E0037BA7A /* Tlaborcell.xib in Resources */,
 				D4A338E918F3EEEF00E53FAC /* Recordcustomcell.xib in Resources */,
 				D44DF4F219A5DF4600F3E9AB /* radioButtonIcon.gif in Resources */,
@@ -2597,7 +2587,6 @@
 				D4D7A29117F5422000880E38 /* Untitled.png in Resources */,
 				D453DA2E1873F1F3007EE3DC /* Thirdpartycell.xib in Resources */,
 				D4F7D9CA196E5B4800B8F4D4 /* labourmanagement.png in Resources */,
-				64A2052F19CAF09600BD942F /* Statscell.xib in Resources */,
 				D4A16B391974EEA8002CA2A2 /* AddserviceViewController.xib in Resources */,
 				D42D8C0918D2D8AC009D8085 /* custonfldrrigtscell.xib in Resources */,
 				D4AA4F8F19655A5C00916138 /* Absentview.xib in Resources */,
@@ -2787,7 +2776,6 @@
 				D40427E819237F980049A709 /* Rephase.m in Sources */,
 				D49F874A18EEA36B00413CAD /* SectionHeaderView.m in Sources */,
 				D4A16B951974EEE0002CA2A2 /* PhasecomponentsViewController.m in Sources */,
-				64A2052C19CAF06B00BD942F /* StatusViewController.m in Sources */,
 				D4A16B431974EEA8002CA2A2 /* NewrecordViewController.m in Sources */,
 				D49F876618EEA36B00413CAD /* Custmermdl.m in Sources */,
 				D4F34360191CCD220023D715 /* ModlEstimation.m in Sources */,
