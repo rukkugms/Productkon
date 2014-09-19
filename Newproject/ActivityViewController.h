@@ -13,6 +13,8 @@
 #import "activityInfo.h"
 #import "commentmdl.h"
 #import "Validation.h"
+#import "FLPViewController.h"
+#import "Craftreqmtmdl.h"
 @interface ActivityViewController : UIViewController
 {
        BOOL recordResults;
@@ -26,6 +28,8 @@
     NSInteger selectedcell;
     UIButton *carbtn;
 }
+@property(strong,nonatomic)FLPViewController *flpctrl;
+@property(strong,nonatomic)Craftreqmtmdl *followmdl;
 @property(strong,nonatomic)Validation *val;
 @property(strong,nonatomic)NSString *resultmsg;
 @property(readwrite)NSInteger openviewindex;
@@ -108,10 +112,12 @@
 
 @property(strong,nonatomic)commentmdl *cmtmdl;
 @property(strong,nonatomic)NSMutableArray *cmntarray;
+@property(strong,nonatomic)NSMutableArray *folloarray;
 
 - (IBAction)Addcmtbtn:(id)sender;
 -(IBAction)savecomment:(id)sender;
 -(IBAction)cancelcomment:(id)sender;
+-(IBAction)tofollowup:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UISearchBar * SearchingBar;
 @property (strong, nonatomic) NSString *searchstring;

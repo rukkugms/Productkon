@@ -68,7 +68,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
    _btnArray=[[NSMutableArray alloc]initWithObjects:@"New Activity",@"Edit Activity",@"Delete Activity" ,nil];
     _popoverArray=[[NSMutableArray alloc]initWithObjects:@"Comments",nil];
     self.navigationController.navigationBar.tintColor=[UIColor grayColor];
-    _activitytypeArray=[[NSMutableArray alloc]initWithObjects:@"Email Follow UP",@"Phone Follow UP",@"Launch Appointment",@"Golf Game", nil];
+   // _activitytypeArray=[[NSMutableArray alloc]initWithObjects:@"Email Follow UP",@"Phone Follow UP",@"Launch Appointment",@"Golf Game", nil];
     [[self.cmttxtbox layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
     [[self.cmttxtbox layer] setBorderWidth:2];
     [[self.cmttxtbox layer] setCornerRadius:10];
@@ -110,7 +110,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         
         
                 
-                return [_activitytypeArray count];
+                return [_folloarray count];
         
 
        
@@ -149,11 +149,12 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     }
     //cell.textLabel.text=@"Leads";
       if (tableView==_popOverTableView) {
+            Craftreqmtmdl*submdl=(Craftreqmtmdl *)[_folloarray objectAtIndex:indexPath.row];
           cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
           cell.textLabel.font = [UIFont systemFontOfSize:12.0];
           
-                        cell.textLabel.text=[_activitytypeArray objectAtIndex:indexPath.row];
-                  
+          cell.textLabel.text=submdl.Brdescriptn;
+          
                   
           
 
@@ -370,8 +371,8 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 {
     if (tableView==_popOverTableView) {
         
-        
-        [_activityTypeBtn setTitle:[_activitytypeArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+         Craftreqmtmdl*submdl=(Craftreqmtmdl *)[_folloarray objectAtIndex:indexPath.row];
+        [_activityTypeBtn setTitle:submdl.Brdescriptn forState:UIControlStateNormal];
         
         
         
@@ -395,6 +396,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 -(IBAction)selectActivityType:(id)sender
 {    
     [self createPopover];
+    [self FollowuptypeSelect];
 }
 
 -(void)createPopover
@@ -669,6 +671,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 }
 
 #pragma mark-webservices
+
 -(void)getLeadActivity
 {
     recordResults = FALSE;
@@ -715,6 +718,56 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
  
 }
+-(void)FollowuptypeSelect{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<FollowuptypeSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "</FollowuptypeSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/FollowuptypeSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 -(void)getcomments
 {
     recordResults = FALSE;
@@ -1096,6 +1149,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
     [_activityTable reloadData];
+    [_popOverTableView reloadData];
     [_cmttable reloadData];
         if(webtype==1||webtype==2)
     {
@@ -1114,6 +1168,47 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict
 {
+    if([elementName isEqualToString:@"FollowuptypeSelectResponse"])
+    {
+        _folloarray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"FUTEntryId"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"FUTItemCode"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"FUTName"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"GetLeadActivityResponse"])
     {
         _activityArray=[[NSMutableArray alloc]init];
@@ -1358,6 +1453,40 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
+    if([elementName isEqualToString:@"FUTEntryId"])
+    {
+        
+        recordResults=FALSE;
+        
+        _followmdl=[[Craftreqmtmdl alloc]init];
+        _followmdl.Brentryid=_soapResults;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"FUTItemCode"])
+    {
+        
+        recordResults=FALSE;
+        
+        
+        _followmdl.BRreqid=_soapResults;
+        
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"FUTName"])
+    {
+        
+        recordResults=FALSE;
+        
+        _followmdl.Brdescriptn=_soapResults;
+        
+        [_folloarray addObject:_followmdl];
+        
+        _soapResults = nil;
+        
+    }
+
   
     if([elementName isEqualToString:@"GetLeadActivityResponse"])
     {
@@ -1720,6 +1849,15 @@ else
 //    }
 
 
+}
+-(IBAction)tofollowup:(id)sender
+{
+    _flpctrl=[[FLPViewController alloc]initWithNibName:@"FLPViewController" bundle:nil];
+    _flpctrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    //_subtypctrlr.moduleid=moduleid;
+    [self presentViewController:self.flpctrl
+                       animated:YES completion:NULL];
+    
 }
 
 @end

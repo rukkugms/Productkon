@@ -82,6 +82,9 @@
 		64A2F9B419CBE72E009B1018 /* STViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A2F9B219CBE72E009B1018 /* STViewController.m */; };
 		64A2F9B519CBE72E009B1018 /* STViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2F9B319CBE72E009B1018 /* STViewController.xib */; };
 		64A2F9B719CBE745009B1018 /* STcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2F9B619CBE745009B1018 /* STcell.xib */; };
+		64A2F9BB19CBEC17009B1018 /* FLPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A2F9B919CBEC17009B1018 /* FLPViewController.m */; };
+		64A2F9BC19CBEC17009B1018 /* FLPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2F9BA19CBEC17009B1018 /* FLPViewController.xib */; };
+		64A2F9BE19CBEC2E009B1018 /* Flpcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2F9BD19CBEC2E009B1018 /* Flpcell.xib */; };
 		64A3B81318DFEE980015887F /* LeadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A3B80F18DFEE980015887F /* LeadsViewController.m */; };
 		64A3B81418DFEE980015887F /* LeadsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3B81018DFEE980015887F /* LeadsViewController.xib */; };
 		64A3B81518DFEE980015887F /* CustomLeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3B81118DFEE980015887F /* CustomLeadCell.xib */; };
@@ -656,6 +659,10 @@
 		64A2F9B219CBE72E009B1018 /* STViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STViewController.m; sourceTree = "<group>"; };
 		64A2F9B319CBE72E009B1018 /* STViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STViewController.xib; sourceTree = "<group>"; };
 		64A2F9B619CBE745009B1018 /* STcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STcell.xib; sourceTree = "<group>"; };
+		64A2F9B819CBEC17009B1018 /* FLPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPViewController.h; sourceTree = "<group>"; };
+		64A2F9B919CBEC17009B1018 /* FLPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPViewController.m; sourceTree = "<group>"; };
+		64A2F9BA19CBEC17009B1018 /* FLPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FLPViewController.xib; sourceTree = "<group>"; };
+		64A2F9BD19CBEC2E009B1018 /* Flpcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Flpcell.xib; sourceTree = "<group>"; };
 		64A3B80E18DFEE980015887F /* LeadsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadsViewController.h; sourceTree = "<group>"; };
 		64A3B80F18DFEE980015887F /* LeadsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadsViewController.m; sourceTree = "<group>"; };
 		64A3B81018DFEE980015887F /* LeadsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeadsViewController.xib; sourceTree = "<group>"; };
@@ -2168,6 +2175,10 @@
 				64A2F9AB19CBE425009B1018 /* LdtypViewController.m */,
 				64A2F9AC19CBE425009B1018 /* LdtypViewController.xib */,
 				64A2F9AF19CBE44D009B1018 /* TPcell.xib */,
+				64A2F9B819CBEC17009B1018 /* FLPViewController.h */,
+				64A2F9B919CBEC17009B1018 /* FLPViewController.m */,
+				64A2F9BA19CBEC17009B1018 /* FLPViewController.xib */,
+				64A2F9BD19CBEC2E009B1018 /* Flpcell.xib */,
 			);
 			name = Leads;
 			sourceTree = "<group>";
@@ -2376,12 +2387,14 @@
 				64A3B82418DFEF0B0015887F /* CommentsViewController.xib in Resources */,
 				6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */,
 				64A3B82618E02FC90015887F /* branchcell.xib in Resources */,
+				64A2F9BC19CBEC17009B1018 /* FLPViewController.xib in Resources */,
 				D4F2F91E193C41F300B732E9 /* iconleftblack.png in Resources */,
 				D42D8C1718D2D8FF009D8085 /* custombasicreqcell.xib in Resources */,
 				D4A338E818F3EEEF00E53FAC /* markupcell.xib in Resources */,
 				D4A16B511974EEA8002CA2A2 /* GeneralViewController.xib in Resources */,
 				64A3B81F18DFEEC90015887F /* customcommentforactivitycell.xib in Resources */,
 				64A4124A194080F1003EE113 /* estimate.png in Resources */,
+				64A2F9BE19CBEC2E009B1018 /* Flpcell.xib in Resources */,
 				D47A9B0E19403CA5001CC416 /* Empjobcell.xib in Resources */,
 				D49E056518C71B9300AF6330 /* Namecrewcell.xib in Resources */,
 				D4A338CC18F3C22C00E53FAC /* worktypecell.xib in Resources */,
@@ -2772,6 +2785,7 @@
 				D49F876418EEA36B00413CAD /* vendermodel.m in Sources */,
 				D4A85B4118A0E867004E9C8B /* TilehrViewController.m in Sources */,
 				D4A6749B19345F1B00D5A77E /* DPCalendarEvent.m in Sources */,
+				64A2F9BB19CBEC17009B1018 /* FLPViewController.m in Sources */,
 				D408B81518CF19AC0001AAD5 /* TilecustmrViewController.m in Sources */,
 				D40427E819237F980049A709 /* Rephase.m in Sources */,
 				D49F874A18EEA36B00413CAD /* SectionHeaderView.m in Sources */,
