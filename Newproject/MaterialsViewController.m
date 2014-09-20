@@ -1023,6 +1023,8 @@
 	[_xmlParser parse];
     if (webtype==1||webtype==2||webtype==3) {
         [self SelectAllMaterials];
+        _searchbar.text=@"";
+
         webtype=0;
     }
     [_materialTable reloadData];
@@ -1861,7 +1863,7 @@ else
         _stockinhandtxtfld.text=@"";
         _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
         [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
-        
+        _searchbar.text=@"";
         
     }
 

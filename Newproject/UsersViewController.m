@@ -703,6 +703,7 @@
     if(webtype==1||webtype==2)
     {
         [self SelectAllUsers];
+        _searchbar.text=@"";
         webtype=0;
     }
     [_usertable reloadData];
@@ -1066,6 +1067,7 @@
         _pswdtextfld.text=@"";
         [_type1btnlbl setTitle:@"Select" forState:UIControlStateNormal];
         [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        _searchbar.text=@"";
     }
         else if (optionIdentifier==2)
         {
@@ -1075,6 +1077,7 @@
             [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
             _addview.hidden=YES;
             _usertable.userInteractionEnabled=YES;
+            _searchbar.text=@"";
         }
 
     }

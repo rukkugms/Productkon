@@ -700,6 +700,7 @@
 	[_xmlParser parse];
     if(webtype==1||webtype==2||webtype==3){
         [self CustomerMasterselect];
+        _SearchingBar.text=@"";
         webtype=0;
     }
     
@@ -1196,7 +1197,7 @@
     _faxtxtfld.text=@"";
 
     _addview.hidden=NO;
-    _SearchingBar.text=@"";
+   
    }
 
 - (IBAction)deletecustmrbtn:(id)sender {
@@ -1316,7 +1317,7 @@
 
 - (IBAction)clseviewbtn:(id)sender {
     _addview.hidden=YES;
-     _SearchingBar.text=@"";
+    
     _custmrtable.userInteractionEnabled=YES;
 
 }
@@ -1792,6 +1793,7 @@
             {
                 _addview.hidden=YES;
                 _custmrtable.userInteractionEnabled=YES;
+                
             }
             
             
@@ -1805,6 +1807,7 @@
             _emailtxtfld.text=@"";
             _phonetxtfld.text=@"";
             _faxtxtfld.text=@"";
+             _SearchingBar.text=@"";
             
             
         }

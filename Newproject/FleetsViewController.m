@@ -877,7 +877,10 @@
 	[_xmlParser parse];
     if (webtype==1||webtype==2||webtype==3) {
         [self SelectAllfleet];
+        
         webtype=0;
+        _searchbar.text=@"";
+
     }
     [_fleetTable reloadData];
     [_popOverTableView reloadData];
@@ -1897,6 +1900,8 @@ if([elementName isEqualToString:@"url"])
         _stockinhandtxtfld.text=@"";
         _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
         [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        _searchbar.text=@"";
+
 
     }
     if ([alertView.message isEqualToString:@"Invalid purchase value"]) {

@@ -626,6 +626,7 @@ else
     [_branchtable reloadData];
     if (webtype==1||webtype==2) {
         [self SelectBranches];
+        _searchbar.text=@"";
         webtype=0;
     }
     
@@ -1146,6 +1147,7 @@ if(textField==_emailtextfield){
             _phonetextfield.text=@"";
             _faxtextfield.text=@"";
             _emailtextfield.text=@"";
+                _searchbar.text=@"";
             }
             else if(optionidentifier==2)
             {
@@ -1156,6 +1158,7 @@ if(textField==_emailtextfield){
                 _emailtextfield.text=@"";
                 _branchview.hidden=YES;
                  _branchtable.userInteractionEnabled=YES;
+                _searchbar.text=@"";
                 
             }
 

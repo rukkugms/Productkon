@@ -1014,6 +1014,7 @@ finishedSavingWithError:(NSError *)error
 	[_xmlParser parse];
     if (webtype==1||webtype==2||webtype==3) {
         [self SelectAllEquipment];
+        _SearchingBar.text=@"";
       webtype=0;
     }
     [_equipmenttbl reloadData];
@@ -2090,6 +2091,7 @@ _addequipmentview.hidden=NO;
         _stockinhndtxtfld.text=@"";
         _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
         [_subsearchlbl setTitle:@"Select" forState:UIControlStateNormal];
+         _SearchingBar.text=@"";
         }
         else if (btntype==2)
         {_codetxfld.text=@"";
@@ -2113,6 +2115,7 @@ _addequipmentview.hidden=NO;
             [_subsearchlbl setTitle:@"Select" forState:UIControlStateNormal];
             _addequipmentview.hidden=YES;
              _equipmenttbl.userInteractionEnabled=YES;
+            _SearchingBar.text=@"";
             
         }
 
