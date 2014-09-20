@@ -714,6 +714,8 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
 	[_xmlParser parse];
     if (webtype==1||webtype==2||webtype==3) {
         [self SelectAllSmallTools];
+        _searchbar.text=@"";
+
         webtype=0;
     }
     [_Tooltable reloadData];
@@ -1522,6 +1524,8 @@ else
         
         _soapResults = nil;
         [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        _searchbar.text=@"";
+
         
     }
     

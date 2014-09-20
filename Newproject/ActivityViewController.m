@@ -1155,6 +1155,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         if(webtype==1||webtype==2)
     {
     [self getLeadActivity];
+        _SearchingBar.text=@"";
         webtype=0;
     }
     if (butnidtfr==3) {
@@ -1658,6 +1659,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         _statusTxtFld.text=@"";
         _cmttxtbox.text=@"";
         _composecmtview.hidden=YES;
+        _SearchingBar.text=@"";
 
         
     }

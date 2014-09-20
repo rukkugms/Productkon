@@ -751,6 +751,7 @@
 	[_xmlParser parse];
     if (webtype==1||webtype==2) {
         [self SelectAllServices];
+        _searchbar.text=@"";
         webtype=0;
     }
 
@@ -982,6 +983,7 @@
         _abbreviatintextfld.text=@"";
         [_servicetextfld resignFirstResponder];
         [_abbreviatintextfld resignFirstResponder];
+            _searchbar.text=@"";
         }
         else if(optionidentifier==2){
             _servicetextfld.text=@"";
@@ -990,6 +992,7 @@
             [_abbreviatintextfld resignFirstResponder];
             _servicesTable.userInteractionEnabled=YES;
             _addserview.hidden=YES;
+            _searchbar.text=@"";
         }
     }
     if ([alertView.message isEqualToString:@"Service name is required"])

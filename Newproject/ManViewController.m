@@ -848,6 +848,7 @@
     
     if (webtype==1) {
         [self Selectallmanpower];
+        _SearchingBar.text=@"";
         webtype=0;
     }
     if (webtype==0) {
@@ -1690,6 +1691,7 @@
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Classification  is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
                 _itemdestxtfld.text=@"";
+              
                 
             }
             else if([_craftcodetextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
@@ -1704,6 +1706,7 @@
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 
                 [alert show];
+                
                 
             }
             
@@ -1718,21 +1721,21 @@
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Classification  is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
                 _itemdestxtfld.text=@"";
+               
             }
             else if([_craftcodetextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
             {
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Craft Code  is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
                 _craftcodetextfld.text=@"";
-                
-            }
+                           }
 
             else if ([_searchbtnlbl.titleLabel.text isEqualToString:@""]||[_searchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
                 
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 
                 [alert show];
-                
+                               
             }
             
             else
@@ -1895,7 +1898,7 @@ if ([alertView.message isEqualToString:msgstrg]) {
     _payratetextfield.text=@"";
     _billingratetextfield.text=@"";
     [_searchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
-    
+    _SearchingBar.text=@"";
            }
 
     if ([alertView.message isEqualToString:@"Invalid Billing Rate"]) {

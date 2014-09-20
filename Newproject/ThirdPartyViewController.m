@@ -885,6 +885,8 @@ finishedSavingWithError:(NSError *)error
 	[_xmlParser parse];
     if (webtype==1||webtype==2||webtype==3) {
         [self SelectAllThirdParty];
+        _searchbar.text=@"";
+
         webtype=0;
     }
     [_thirdprtyTable reloadData];
@@ -2169,6 +2171,8 @@ finishedSavingWithError:(NSError *)error
          _stckinhandtxtdfld.text=@"";
          _pictureimgvw.image=[UIImage imageNamed:@"ios7-camera-icon"];
          [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+         _searchbar.text=@"";
+
     }
 
     if ([alertView.message isEqualToString:@"Invalid purchase value"]) {

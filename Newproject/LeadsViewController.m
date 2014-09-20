@@ -1718,6 +1718,7 @@ else
     }
     if (webtype==1) {
         [self getLeads];
+        _SearchingBar.text=@"";
         webtype=0;
     }
      [_leadTable reloadData];
@@ -2561,7 +2562,7 @@ else
        [_leadstatusBtn setTitle:@"Select" forState:UIControlStateNormal];
        _cmttxtbox.text=@"";
        _composecmtview.hidden=YES;
-       
+       _SearchingBar.text=@"";
 
    }
     

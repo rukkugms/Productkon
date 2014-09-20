@@ -990,6 +990,7 @@ finishedSavingWithError:(NSError *)error
 	[_xmlParser parse];
     if (webtype==1||webtype==2||webtype==3) {
         [self SelectAllOther];
+        _SearchingBar.text=@"";
        webtype=0;
     }
     [_AssetTable reloadData];
@@ -2077,7 +2078,9 @@ recordResults = FALSE;
             _yearlytxtfld.text=@"";
             _stckinhandtxtfld.text=@"";
             _pictureimgview.image=[UIImage imageNamed:@"ios7-camera-icon"];
-      [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];\
+      [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+     _SearchingBar.text=@"";
+
             
         }
     

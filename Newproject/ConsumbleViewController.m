@@ -530,6 +530,8 @@
 	[_xmlParser parse];
     if (webtype==1||webtype==2||webtype==3) {
         [self SelectAllConsumables];
+        _searchbar.text=@"";
+
         webtype=0;
     }
     [_consumbleTable reloadData];
@@ -1279,6 +1281,8 @@
         _unitcosttxtfld.text=@"";
         _stckinhandtxtfld.text=@"";
         [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        _searchbar.text=@"";
+
         
     }
 

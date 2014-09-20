@@ -1023,6 +1023,7 @@
     if(webtype==1||webtype==2)
     {
         [self SelectAllPhases];
+        _searchbar.text=@"";
         webtype=0;
     }
     if (webtype==0) {
@@ -1611,6 +1612,7 @@
             [_phasebtn setTitle:@"Select" forState:UIControlStateNormal];
             _result=@"";
             _updatebtn.enabled=YES;
+            _searchbar.text=@"";
         }
         else if(optionIdentifier==2)
         {
@@ -1622,6 +1624,7 @@
             _phasetable.userInteractionEnabled=YES;
             _result=@"";
             _updatebtn.enabled=YES;
+            _searchbar.text=@"";
 
         }
        

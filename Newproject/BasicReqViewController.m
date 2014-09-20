@@ -177,6 +177,7 @@
         [_expirycheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         [_defaultcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         [_inhousecheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            _searchbar.text=@"";
         }
         else if(optionidentifier==2)
         {
@@ -193,7 +194,7 @@
             [_craftcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             [_expirycheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             [_defaultcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-            [_inhousecheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_inhousecheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];_searchbar.text=@"";
         }
     }
 
@@ -1687,6 +1688,7 @@
     if(webtype==1||webtype==2)
     {
         [self SelectAllRequirements];
+        _searchbar.text=@"";
         webtype=0;
     }
     [_basicreqtable reloadData];
