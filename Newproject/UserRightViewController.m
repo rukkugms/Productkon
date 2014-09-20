@@ -1032,7 +1032,7 @@
         }
        
     }
-    else{
+    else if (tableView==_usertable) {
         return [_usertablearray count];
     }
     return YES;
@@ -1042,7 +1042,7 @@
     static NSString *CellIdentifier = @"mycell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
+   if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
           cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
          if (tableView==_usertable) {
@@ -1079,7 +1079,8 @@
           _namelbl.text=[_revuserdict objectForKey:usrmdl.userid];
           _companylbl=(UILabel *)[cell viewWithTag:2];
           _companylbl.text=usrmdl.modulename;
-          [cell.contentView addSubview:_newbtn];
+         // [cell.contentView addSubview:_newbtn];
+        //  _viewbtnlbl=(UIButton *)[cell viewWithTag:3];
           
           if ([usrmdl.viewonly isEqualToString:@"true"]) {
               _editbtnlbl.enabled=NO;
@@ -1880,7 +1881,10 @@
 
 - (IBAction)masterbtn:(id)sender {
     popover=2;
-   
+     Allviewclckd=0;
+    Alleditclckd=0;
+    Alldeleteclckd=0;
+    Allprintclckd=0;
         //_subbtnlbl.enabled=NO;
    // _subsubbtnlbl.enabled=NO;
 
@@ -1890,7 +1894,10 @@
 
 - (IBAction)subbtn:(id)sender {
     popover=3;
- 
+    Allviewclckd=0;
+    Alleditclckd=0;
+    Alldeleteclckd=0;
+    Allprintclckd=0;
    
    
    // _subsubbtnlbl.enabled=NO;
@@ -1901,6 +1908,10 @@
 
 - (IBAction)subsubbtn:(id)sender {
     popover=4;
+    Allviewclckd=0;
+    Alleditclckd=0;
+    Alldeleteclckd=0;
+    Allprintclckd=0;
     [self createpopover];
     [self SubSubmoduleselect];
 }
