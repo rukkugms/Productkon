@@ -13,6 +13,7 @@
                 <outlet property="phasetextfld" destination="f5U-q5-jUx" id="sM4-5Z-VWU"/>
                 <outlet property="servicebtn" destination="euS-BG-ipE" id="maO-Dl-sof"/>
                 <outlet property="titleview" destination="yul-tI-rwa" id="zaK-zv-R9C"/>
+                <outlet property="updatebtn" destination="6ih-8K-oN6" id="aUw-Af-xdB"/>
                 <outlet property="view" destination="2" id="3"/>
                 <outlet property="workphasesview" destination="Scm-ya-eRC" id="uJV-lT-118"/>
             </connections>

@@ -69,6 +69,7 @@
 @property(strong,nonatomic)IBOutlet UIButton *parentbtn;
 @property(strong,nonatomic)IBOutlet UITextField *phasetextfld;
 @property(strong,nonatomic)IBOutlet UIButton *cancelbtn;
+@property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 
 /*outlets in cell*/
 @property(strong,nonatomic)IBOutlet UILabel *namelabel;

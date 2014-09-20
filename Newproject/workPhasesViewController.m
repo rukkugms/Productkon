@@ -269,10 +269,14 @@
     _phasetable.userInteractionEnabled=YES;
     _workphasesview.hidden=YES;
     _updatelbl.hidden=YES;
+    _updatebtn.enabled=YES;
 }
 -(IBAction)update_phases:(id)sender
-{ x=1;
+{_updatebtn.enabled=NO;
+    _result=@"";
+    x=1;
     _moduleid=19;
+    
     [self UserRightsforparticularmoduleselect];
     
 }
@@ -298,12 +302,14 @@
         if ([_phasetextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phase is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _updatebtn.enabled=YES;
             
         }
         else if([_servicebtn.titleLabel.text isEqualToString:@"Select"]||[_servicebtn.titleLabel.text isEqualToString:@""])
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Work type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _updatebtn.enabled=YES;
             
         }
         else{
@@ -366,6 +372,7 @@
 }
 
 - (IBAction)wrkphasebtn:(id)sender {
+    _result=@"";
     _moduleid=18;
     [self UserRightsforparticularmoduleselect];
 //    if (!self.worktypeVCtrl) {
@@ -923,6 +930,7 @@
     
 }
 -(void)UserRightsforparticularmoduleselect{
+    //_moduleid=19;
     webtype=5;
     recordresults = FALSE;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -1601,6 +1609,8 @@
             //[_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             [_servicebtn setTitle:@"Select" forState:UIControlStateNormal];
             [_phasebtn setTitle:@"Select" forState:UIControlStateNormal];
+            _result=@"";
+            _updatebtn.enabled=YES;
         }
         else if(optionIdentifier==2)
         {
@@ -1610,6 +1620,8 @@
             [_phasebtn setTitle:@"Select" forState:UIControlStateNormal];
             _workphasesview.hidden=YES;
             _phasetable.userInteractionEnabled=YES;
+            _result=@"";
+            _updatebtn.enabled=YES;
 
         }
        
@@ -1618,6 +1630,7 @@
     if([alertView.message isEqualToString:@"Phase is required"])
     {
         _phasetextfld.text=@"";
+        _updatebtn.enabled=YES;
     }
     
 
