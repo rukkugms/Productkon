@@ -1177,6 +1177,7 @@
 
 - (IBAction)addcustmrbtn:(id)sender {
     webtype=1;
+    
     optionidentifier=1;
      _cancelbtnlbl.enabled=YES;
     // [_custmrtable setEditing:NO animated:NO];
@@ -1195,6 +1196,7 @@
     _faxtxtfld.text=@"";
 
     _addview.hidden=NO;
+    _SearchingBar.text=@"";
    }
 
 - (IBAction)deletecustmrbtn:(id)sender {
@@ -1314,7 +1316,7 @@
 
 - (IBAction)clseviewbtn:(id)sender {
     _addview.hidden=YES;
-    
+     _SearchingBar.text=@"";
     _custmrtable.userInteractionEnabled=YES;
 
 }
