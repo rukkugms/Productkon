@@ -445,6 +445,7 @@
 		D4A338EA18F3EEEF00E53FAC /* BillingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A338E018F3EEEF00E53FAC /* BillingViewController.m */; };
 		D4A338EB18F3EEEF00E53FAC /* BillingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A338E118F3EEEF00E53FAC /* BillingViewController.xib */; };
 		D4A338EC18F3EEEF00E53FAC /* billingcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A338E218F3EEEF00E53FAC /* billingcell.xib */; };
+		D4A5317819CD822B0056EBC1 /* login-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4A5317719CD822B0056EBC1 /* login-1.jpg */; };
 		D4A6748C19345E6C00D5A77E /* IconPubHol.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A6748619345E6C00D5A77E /* IconPubHol.png */; };
 		D4A6748D19345E6C00D5A77E /* IconPubHol@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A6748719345E6C00D5A77E /* IconPubHol@2x.png */; };
 		D4A6748E19345E6C00D5A77E /* IconCamera.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A6748819345E6C00D5A77E /* IconCamera.png */; };
@@ -1153,6 +1154,7 @@
 		D4A338E018F3EEEF00E53FAC /* BillingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillingViewController.m; sourceTree = "<group>"; };
 		D4A338E118F3EEEF00E53FAC /* BillingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BillingViewController.xib; sourceTree = "<group>"; };
 		D4A338E218F3EEEF00E53FAC /* billingcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = billingcell.xib; sourceTree = "<group>"; };
+		D4A5317719CD822B0056EBC1 /* login-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "login-1.jpg"; sourceTree = "<group>"; };
 		D4A6748619345E6C00D5A77E /* IconPubHol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconPubHol.png; sourceTree = "<group>"; };
 		D4A6748719345E6C00D5A77E /* IconPubHol@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IconPubHol@2x.png"; sourceTree = "<group>"; };
 		D4A6748819345E6C00D5A77E /* IconCamera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconCamera.png; sourceTree = "<group>"; };
@@ -1853,6 +1855,7 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D4A5317719CD822B0056EBC1 /* login-1.jpg */,
 				D4A14A4B19CBEC96003C1193 /* search.png */,
 				D410CC5319AB4C8F0093DDE6 /* userrights.png */,
 				D44DF4F119A5DF4500F3E9AB /* radioButtonIcon.gif */,
@@ -2406,6 +2409,7 @@
 				D4F61A5718A896D90006093B /* ProcesshrViewController.xib in Resources */,
 				D453DA2C1873F1D0007EE3DC /* AssetsViewController.xib in Resources */,
 				648D12FE17716C7F006BB41A /* rectangle3.png in Resources */,
+				D4A5317819CD822B0056EBC1 /* login-1.jpg in Resources */,
 				D4FE723C187EA3BA00FF4DEF /* ios7-camera-icon.png in Resources */,
 				D4A16B571974EEA8002CA2A2 /* Gnmatlfirstcell.xib in Resources */,
 				D47A9B1D19407AA2001CC416 /* company-documents.png in Resources */,

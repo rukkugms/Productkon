@@ -98,7 +98,7 @@
 -(IBAction)logoutfromall:(id)sender
 {
     
-    [self LogoutFromAll];
+   // [self LogoutFromAll];
 }
 
 -(IBAction)questionpopup:(id)sender
@@ -589,6 +589,17 @@
         recordResults = TRUE;
     }
 
+    if([elementName isEqualToString:@"result1"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
 
 
 
@@ -640,12 +651,12 @@
         [_questionDict setObject:_questionstring forKey:_soapResults];
         _soapResults=nil;
     }
-    if([elementName isEqualToString:@"CheckanswerselectResult"]){
-        
-        recordResults = FALSE;
-        
-        _soapResults=nil;
-    }
+//    if([elementName isEqualToString:@"CheckanswerselectResult"]){
+//        
+//        recordResults = FALSE;
+//        
+//        _soapResults=nil;
+//    }
     if([elementName isEqualToString:@"Column1"]){
         
         recordResults = FALSE;
@@ -659,12 +670,14 @@
         }
         _soapResults=nil;
     }
-     if([elementName isEqualToString:@"result"]){
-          if (_btnindex==0) {
-         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Password Successfully Changed" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+     if([elementName isEqualToString:@"result1"]){
+         msgstrg=_soapResults;
+          //if (_btnindex==0) {
+         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
          [alert show];
               //[self dismissViewControllerAnimated:YES completion:nil];
-          }
+          //}
+         _soapResults=nil;
 
      }
 
@@ -679,7 +692,7 @@
         _passwordtextfield.text=@"";
         
          }
-    if ([alertView.message isEqualToString:@"Password Successfully Changed"])
+    if ([alertView.message isEqualToString:msgstrg])
     {
         _userText.text=@"";
         _newpswdText.text=@"";

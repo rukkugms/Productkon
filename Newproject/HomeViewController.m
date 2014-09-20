@@ -34,13 +34,16 @@
 -(IBAction)logout:(id)sender
 {   _ModuleID=0;
     _result=@"";
+    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to logout" delegate:self cancelButtonTitle:@"YES" otherButtonTitles:@"NO", nil];
+    [alert show];
    
-    [self Logoutselect];
+    
    
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     _result=@"";
+    _wlcmelbl.text=_username;
 //    UIBarButtonItem *logoutbutton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"logout1"] style:UIBarButtonItemStylePlain target:self action:@selector(logoutAction)];
 //    
 //    // [self.navigationItem setRightBarButtonItem:logoutbutton animated:YES];
@@ -165,6 +168,7 @@
     }
     
 }
+#pragma mark- WebService
 
 -(void)UserRightsforparticularmoduleselect{
     recordResults = FALSE;
@@ -777,5 +781,22 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark-Alertview
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+
+if ([alertView.message isEqualToString:@"Are you sure you want to logout"]) {
+    
+    
+    if (buttonIndex==[alertView cancelButtonIndex]){
+        [self Logoutselect];
+        
+    }
+    
+    else{
+        
+        
+    }
+}}
 
 @end

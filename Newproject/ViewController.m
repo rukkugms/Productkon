@@ -159,6 +159,59 @@
     }
     
 }
+#pragma mark- WebService
+-(void)LogoutFromAll{
+    recordResults = FALSE;
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<LogoutFromAll xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<UserName>%@</UserName>\n"
+                   "<Password>%@</Password>\n"
+                   "</LogoutFromAll>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_usernametxt.text,_passwrdtxt.text];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://testUSA.kontract360.com/LogoutFromAll" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -244,6 +297,14 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"result"]){
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -283,6 +344,15 @@
             [alert show];
            
         }
+       else if([_soapResults isEqualToString:@"-2"]){
+           
+           
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"User is not activated please contact admin" delegate:self
+                                              cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
+        }
+
         else {
             if (!self.hmeVCtrl) {
                 self.hmeVCtrl=[[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
@@ -318,6 +388,15 @@
         _soapResults = nil;
         
     }
+    if([elementName isEqualToString:@"result"]){
+        recordResults = FALSE;
+        
+        _usernametxt.text=@"";
+        _passwrdtxt.text=@"";
+       _soapResults = nil;
+        
+    }
+
 
 }
 - (IBAction)loginbtn:(id)sender {
@@ -419,13 +498,14 @@
                                animated:YES completion:NULL];
             break;
          case 1:
-            if (!self.forgetVCtrl) {
-                self.forgetVCtrl=[[forgetViewController alloc]initWithNibName:@"forgetViewController" bundle:nil];
-            }
-            _forgetVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
-            _forgetVCtrl.btnindex=buttonIndex;
-            [self presentViewController:_forgetVCtrl
-                               animated:YES completion:NULL];
+            [self LogoutFromAll];
+//            if (!self.forgetVCtrl) {
+//                self.forgetVCtrl=[[forgetViewController alloc]initWithNibName:@"forgetViewController" bundle:nil];
+//            }
+//            _forgetVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+//            _forgetVCtrl.btnindex=buttonIndex;
+//            [self presentViewController:_forgetVCtrl
+//                               animated:YES completion:NULL];
 
         default:
             break;
@@ -437,9 +517,17 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    _usernametxt.text=@"";
-    _passwrdtxt.text=@"";
     
+    if ([alertView.message isEqualToString:@"Invalid Username or Password"]) {
+        _usernametxt.text=@"";
+        _passwrdtxt.text=@"";
+
+    }
+    if ([alertView.message isEqualToString:@"User is not activated please contact admin"]) {
+        _usernametxt.text=@"";
+        _passwrdtxt.text=@"";
+        
+    }
 }
 //#pragma mark - CLLocationManagerDelegate
 //- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error

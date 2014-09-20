@@ -11,6 +11,7 @@
 @interface forgetViewController : UIViewController<UITextFieldDelegate>
 {
     BOOL recordResults;
+    NSString *msgstrg;
 }
 -(IBAction)closeforgetpage:(id)sender;
 -(IBAction)Passwordaction:(id)sender;

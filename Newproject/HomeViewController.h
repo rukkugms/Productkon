@@ -22,6 +22,7 @@
     
 NSString*userid;
 BOOL recordResults;
+   
 
 }
 /* xmlparser*/
@@ -30,7 +31,7 @@ BOOL recordResults;
 @property(strong,nonatomic)NSMutableData *webData;
 
 @property (strong, nonatomic)NSString*username;
-
+@property (strong, nonatomic)NSString*welcmeuser;
 /*Views*/
 @property (strong, nonatomic) IBOutlet UIView *customerview;
 @property (strong, nonatomic) IBOutlet UIView *leadView;
@@ -63,5 +64,6 @@ BOOL recordResults;
 -(IBAction)logout:(id)sender;
 
 
+@property (strong, nonatomic) IBOutlet UILabel *wlcmelbl;
 
 @end
