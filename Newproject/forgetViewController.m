@@ -628,14 +628,14 @@
         
         recordResults = FALSE;
         
-        if ([_soapResults isEqualToString:@"Invalid Username or Password"]) {
+        //if ([_soapResults isEqualToString:@"Invalid Username or Password"]) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
-        }
-        else if([_soapResults isEqualToString:@"Logout Success"]) {
+        //}
+       // else if([_soapResults isEqualToString:@"Logout Success"]) {
             
-        [self dismissViewControllerAnimated:YES completion:NULL];
-        }
+     //   [self dismissViewControllerAnimated:YES completion:NULL];
+      //  }
         _soapResults=nil;
     }
     if([elementName isEqualToString:@"qid"]){
@@ -686,10 +686,14 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     ////NSLog(@"buttonIndex%d",buttonIndex);
     
-    if ([alertView.message isEqualToString:@"Invalid Username or Password"]) {
+    if ([alertView.message isEqualToString:@"Password Successfully Changed"]) {
         
-        _usernametextfield.text=@"";
-        _passwordtextfield.text=@"";
+        _userText.text=@"";
+        _newpswdText.text=@"";
+        _confirmpswdText.text=@"";
+        _answrText.text=@"";
+        [_qstnbtn setTitle:@"Select" forState:UIControlStateNormal];
+
         
          }
     if ([alertView.message isEqualToString:msgstrg])
@@ -750,7 +754,12 @@
   
     if (textField==_userText)
     {
+        if ([_userText.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length ==0) {
+           
+        }
+        else{
         [self CheckQuestionsforUser];
+        }
     }
 }
 @end
