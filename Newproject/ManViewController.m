@@ -1692,6 +1692,13 @@
                 _itemdestxtfld.text=@"";
                 
             }
+            else if([_craftcodetextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
+            {
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Craft Code  is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                _craftcodetextfld.text=@"";
+                
+            }
             else if ([_searchbtnlbl.titleLabel.text isEqualToString:@""]||[_searchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
                 
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -1712,6 +1719,14 @@
                 [alert show];
                 _itemdestxtfld.text=@"";
             }
+            else if([_craftcodetextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
+            {
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Craft Code  is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                _craftcodetextfld.text=@"";
+                
+            }
+
             else if ([_searchbtnlbl.titleLabel.text isEqualToString:@""]||[_searchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
                 
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
