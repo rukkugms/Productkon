@@ -209,7 +209,7 @@
 {
     if([elementName isEqualToString:@"EntryId"])
     {
-        _servicemdl=[[Planservcemdl alloc]init];
+        _servicemdl=[[Plaservcemdl alloc]init];
         recordResults = FALSE;
         _servicemdl.entryid=_soapResults;
         
@@ -321,7 +321,7 @@
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.servicetable];
     NSIndexPath *textFieldIndexPath = [self.servicetable indexPathForRowAtPoint:rootViewPoint];
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
-    Planservcemdl *planservcemdl=(Planservcemdl *)[_servicemdlarray objectAtIndex:textFieldIndexPath.row];
+    Plaservcemdl *planservcemdl=(Plaservcemdl *)[_servicemdlarray objectAtIndex:textFieldIndexPath.row];
 
     self.detailVCtrl=[[DetailplanViewController alloc]initWithNibName:@"DetailplanViewController" bundle:nil];
     // }

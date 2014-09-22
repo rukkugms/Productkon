@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DetailplanViewController.h"
-#import "Planservcemdl.h"
+#import "Plaservcemdl.h"
 
 @interface PServiceViewController : UIViewController{
     BOOL recordResults;
@@ -22,7 +22,7 @@
 @property (strong, nonatomic)DetailplanViewController*detailVCtrl;
 
 @property (strong, nonatomic)NSString*planID;
-@property (strong, nonatomic)Planservcemdl *servicemdl;
+@property (strong, nonatomic)Plaservcemdl *servicemdl;
 @property (strong, nonatomic)NSMutableArray*servicemdlarray;
 
 /* xmlparser*/
