@@ -445,6 +445,8 @@
 		D4A338EA18F3EEEF00E53FAC /* BillingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A338E018F3EEEF00E53FAC /* BillingViewController.m */; };
 		D4A338EB18F3EEEF00E53FAC /* BillingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A338E118F3EEEF00E53FAC /* BillingViewController.xib */; };
 		D4A338EC18F3EEEF00E53FAC /* billingcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A338E218F3EEEF00E53FAC /* billingcell.xib */; };
+		D4A3977719CFE8DE00E2514C /* PServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A3977519CFE8DE00E2514C /* PServiceViewController.m */; };
+		D4A3977819CFE8DE00E2514C /* PServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A3977619CFE8DE00E2514C /* PServiceViewController.xib */; };
 		D4A5317819CD822B0056EBC1 /* login-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4A5317719CD822B0056EBC1 /* login-1.jpg */; };
 		D4A6748C19345E6C00D5A77E /* IconPubHol.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A6748619345E6C00D5A77E /* IconPubHol.png */; };
 		D4A6748D19345E6C00D5A77E /* IconPubHol@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A6748719345E6C00D5A77E /* IconPubHol@2x.png */; };
@@ -1154,6 +1156,9 @@
 		D4A338E018F3EEEF00E53FAC /* BillingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillingViewController.m; sourceTree = "<group>"; };
 		D4A338E118F3EEEF00E53FAC /* BillingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BillingViewController.xib; sourceTree = "<group>"; };
 		D4A338E218F3EEEF00E53FAC /* billingcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = billingcell.xib; sourceTree = "<group>"; };
+		D4A3977419CFE8DE00E2514C /* PServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PServiceViewController.h; sourceTree = "<group>"; };
+		D4A3977519CFE8DE00E2514C /* PServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PServiceViewController.m; sourceTree = "<group>"; };
+		D4A3977619CFE8DE00E2514C /* PServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PServiceViewController.xib; sourceTree = "<group>"; };
 		D4A5317719CD822B0056EBC1 /* login-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "login-1.jpg"; sourceTree = "<group>"; };
 		D4A6748619345E6C00D5A77E /* IconPubHol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconPubHol.png; sourceTree = "<group>"; };
 		D4A6748719345E6C00D5A77E /* IconPubHol@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IconPubHol@2x.png"; sourceTree = "<group>"; };
@@ -1848,6 +1853,9 @@
 				D4A16B321974EEA8002CA2A2 /* Subtypecell.xib */,
 				D4A16B331974EEA8002CA2A2 /* maintablecell.xib */,
 				D4A16B341974EEA8002CA2A2 /* Editplanview.xib */,
+				D4A3977419CFE8DE00E2514C /* PServiceViewController.h */,
+				D4A3977519CFE8DE00E2514C /* PServiceViewController.m */,
+				D4A3977619CFE8DE00E2514C /* PServiceViewController.xib */,
 			);
 			name = Planning;
 			sourceTree = "<group>";
@@ -2593,6 +2601,7 @@
 				D47A9B2319407AA2001CC416 /* worksettings.png in Resources */,
 				D4DEEDDB17F40BE70096A908 /* UploadDocViewController.xib in Resources */,
 				D41499B0194573A2001E9146 /* ManagemttileViewController.xib in Resources */,
+				D4A3977819CFE8DE00E2514C /* PServiceViewController.xib in Resources */,
 				D4F7D9CE196E5B5200B8F4D4 /* ResourceMovement.png in Resources */,
 				649F45E219457D1800E89F5C /* LabourViewController.xib in Resources */,
 				D404966F192F3DCE00685109 /* ecrewcell.xib in Resources */,
@@ -2702,6 +2711,7 @@
 				D49F876C18EEA36B00413CAD /* Matrixmark.m in Sources */,
 				D49F8A5018EEBEA400413CAD /* Wagesmdl.m in Sources */,
 				D4EBA8671978FE7700B612E1 /* Thrtrmsmdl.m in Sources */,
+				D4A3977719CFE8DE00E2514C /* PServiceViewController.m in Sources */,
 				D40D1EB7176B086F00379DD5 /* main.m in Sources */,
 				D40D1EBB176B086F00379DD5 /* AppDelegate.m in Sources */,
 				D49F874F18EEA36B00413CAD /* Coursemdl.m in Sources */,
