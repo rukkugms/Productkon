@@ -17,7 +17,7 @@
 @property (strong, nonatomic)NSMutableDictionary*servicedict;
 @property (strong, nonatomic)NSMutableArray*servicearray;
 
-
+@property (strong, nonatomic)NSString*planID;
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
