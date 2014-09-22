@@ -210,6 +210,9 @@
                 
                 break;
             case 2:
+                if (_plntype==1) {
+                    
+                
                 if (indexPath.row==0) {
                     if (!self.servVctrl) {
                         self.servVctrl=[[AddserviceViewController alloc]initWithNibName:@"AddserviceViewController" bundle:nil];
@@ -225,8 +228,25 @@
 //                    }];
                     [self presentViewController:_servVctrl
                                        animated:YES completion:NULL];
+                }
 
                                    }
+                else
+                {
+                    if (indexPath.row==0) {
+                        //if (!self.psctrlr) {
+                            self.psctrlr=[[PServiceViewController alloc]initWithNibName:@"PServiceViewController" bundle:nil];
+                       // }
+                        planmodel*planmdl=(planmodel *)[_planlistarray objectAtIndex:btnindex];
+                        //_psctrlr.planID=planmdl.planid;
+                        NSLog(@"%@",planmdl.planid);
+                        _psctrlr.modalPresentationStyle=UIModalPresentationFormSheet;
+                        _psctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+                        [self presentViewController:_psctrlr
+                                           animated:YES completion:NULL];
+
+                }
+                }
                 if (indexPath.row==1) {
                     if (!self.sitevisitVctrl) {
                         self.sitevisitVctrl=[[SitevisitViewController alloc]initWithNibName:@"SitevisitViewController" bundle:nil];
@@ -267,42 +287,6 @@
                 
                 break;
                 
-//            case 3:
-//                 if (indexPath.row==0) {
-//                if (!self.servVctrl) {
-//                    self.servVctrl=[[AddserviceViewController alloc]initWithNibName:@"AddserviceViewController" bundle:nil];
-//                }
-//                     
-//                _servVctrl.modalPresentationStyle=UIModalPresentationPageSheet;
-//                _servVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-//                [self presentViewController:_servVctrl
-//                                   animated:YES completion:NULL];
-//                 }
-//                if (indexPath.row==1) {
-//                    if (!self.sitevisitVctrl) {
-//                        self.sitevisitVctrl=[[SitevisitViewController alloc]initWithNibName:@"SitevisitViewController" bundle:nil];
-//                    }
-//                    _sitevisitVctrl.modalPresentationStyle=UIModalPresentationPageSheet;
-//                    _sitevisitVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-//                    [self presentViewController:_sitevisitVctrl
-//                                       animated:YES completion:NULL];
-//                }
-//                if (indexPath.row==2) {
-//                    if (!self.DetailplanVctrl) {
-//                        self.DetailplanVctrl=[[DetailplanViewController alloc]initWithNibName:@"DetailplanViewController" bundle:nil];
-//                    }
-//                    _DetailplanVctrl.modalPresentationStyle=UIModalPresentationPageSheet;
-//                    _DetailplanVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-//                    [self presentViewController:_DetailplanVctrl
-//                                       animated:YES completion:NULL];
-//                }
-//                
-//
-//                
-//
-//
-//                
-//                break;
             default:
                 break;
         }
@@ -312,7 +296,7 @@
         
     }
     
-
+    
     
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -524,12 +508,12 @@
     else
     {
         UIViewController* popoverContent = [[UIViewController alloc]init];
-        UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 5, 130, 43)];
+        UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 130, 43)];
        // popoverView.backgroundColor = [UIColor whiteColor];
-        _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 5, 130, 43)];
+        _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 130, 43)];
         _popovertableview.delegate=(id)self;
         _popovertableview.dataSource=(id)self;
-        _popovertableview.rowHeight= 43;
+        _popovertableview.rowHeight= 40;
         _popovertableview.separatorStyle=UITableViewCellSeparatorStyleNone;
         //_popovertableview.separatorColor=[UIColor blackColor];
         [popoverView addSubview:_popovertableview];
