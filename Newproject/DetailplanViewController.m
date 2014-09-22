@@ -2559,6 +2559,7 @@
 {
     [self GeneralSelect];
     [self TotalManHoursSelect];
+    _searchbar.text=@"";
 }
 #pragma mark - SearchBar
 
