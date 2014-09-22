@@ -1830,6 +1830,19 @@
             
         }
     }
+    if ([alertView.message isEqualToString:@"Invalid Location"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _loctntxtfld.text=@"";
+            
+        }
+    }
+
+   
 
 
     
@@ -1867,19 +1880,19 @@
         }
         
     }
-//    if(textField==_)
-//    {
-//        Validation*val=[[Validation alloc]init];
-//        int value1=[val isNumeric:_ziptxtfld.text];
-//        if(value1==0)
-//        {
-//            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Zip" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//            [alert1 show];
-//            
-//            
-//        }
-//        
-//    }
+    if(textField==_loctntxtfld)
+    {
+        Validation*val=[[Validation alloc]init];
+        int value1=[val validatespecialcharacters:_loctntxtfld.text];
+        if(value1==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Location" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
 
        if(textField==_sitefactortxtfld)
     {
