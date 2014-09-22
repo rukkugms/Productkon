@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "DetailplanViewController.h"
 @interface PServiceViewController : UIViewController{
     BOOL recordResults;
     NSString*servicestrg;
@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UIView *titleview;
 @property (strong, nonatomic)NSMutableDictionary*servicedict;
 @property (strong, nonatomic)NSMutableArray*servicearray;
+@property (strong, nonatomic)DetailplanViewController*detailVCtrl;
 
 @property (strong, nonatomic)NSString*planID;
 /* xmlparser*/
