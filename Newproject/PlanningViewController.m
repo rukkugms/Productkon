@@ -39,7 +39,15 @@
     _tabletitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _plangtable.layer.borderWidth=2.0f;
     _plangtable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
-    _disclosurearry=[[NSMutableArray alloc]initWithObjects:@"Add Services",@"Site Visit",@"Plan",nil];
+    if (_plntype==1) {
+        
+    
+    _disclosurearry=[[NSMutableArray alloc]initWithObjects:@"Add Services",@"Site Visit",nil];
+    }
+    else
+    {
+        _disclosurearry=[[NSMutableArray alloc]initWithObjects:@"Services",nil];
+    }
     _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
     _searchbar.delegate=(id)self;
     _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
@@ -236,21 +244,21 @@
                     [self presentViewController:_sitevisitVctrl
                                        animated:YES completion:NULL];
                                   }
-                if (indexPath.row==2) {
-                    if (!self.DetailplanVctrl) {
-                        self.DetailplanVctrl=[[DetailplanViewController alloc]initWithNibName:@"DetailplanViewController" bundle:nil];
-                    }
-                     planmodel*planmdl=(planmodel *)[_planlistarray objectAtIndex:btnindex];
-                    _DetailplanVctrl.planid=planmdl.planid;
-                    _DetailplanVctrl.modalPresentationStyle=UIModalPresentationFullScreen;
-                    _DetailplanVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-//                    [self dismissViewControllerAnimated:YES completion:^{ [self presentViewController:_DetailplanVctrl
-//                                                                                             animated:YES completion:NULL];
-//                    }];
-                    [self presentViewController:_DetailplanVctrl
-                                       animated:YES completion:NULL];
-                    
-                }
+//                if (indexPath.row==2) {
+//                    if (!self.DetailplanVctrl) {
+//                        self.DetailplanVctrl=[[DetailplanViewController alloc]initWithNibName:@"DetailplanViewController" bundle:nil];
+//                    }
+//                     planmodel*planmdl=(planmodel *)[_planlistarray objectAtIndex:btnindex];
+//                    _DetailplanVctrl.planid=planmdl.planid;
+//                    _DetailplanVctrl.modalPresentationStyle=UIModalPresentationFullScreen;
+//                    _DetailplanVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+////                    [self dismissViewControllerAnimated:YES completion:^{ [self presentViewController:_DetailplanVctrl
+////                                                                                             animated:YES completion:NULL];
+////                    }];
+//                    [self presentViewController:_DetailplanVctrl
+//                                       animated:YES completion:NULL];
+//                    
+//                }
                 
                 
                 
@@ -467,16 +475,16 @@
     poptype=1;
     newpoptype=2;
     UIViewController *popovercontent=[[UIViewController alloc]init];
-    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 120)];
+    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 5, 210, 100)];
     popoverview.backgroundColor=[UIColor whiteColor];
-    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 210, 120)];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 5, 210, 100)];
     _popovertableview.delegate=(id)self;
     _popovertableview.dataSource=(id)self;
     _popovertableview.rowHeight=32;
     _popovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
     [popoverview addSubview:_popovertableview];
     popovercontent.view=popoverview;
-    popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 120);
+    popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 100);
     self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
     [self.popovercontroller presentPopoverFromRect:_planselectionbtn.frame inView:_addplanview permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
@@ -486,17 +494,21 @@
 -(IBAction)selectdisclosure:(id)sender
 {
     poptype=2;
+    if (_plntype==1) {
+        
+    
     UIViewController* popoverContent = [[UIViewController alloc]init];
-    UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 130, 100)];
+    UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 130, 75)];
     popoverView.backgroundColor = [UIColor whiteColor];
-    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 130, 100)];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 130, 75)];
     _popovertableview.delegate=(id)self;
     _popovertableview.dataSource=(id)self;
     _popovertableview.rowHeight= 36;
     //_popovertableview.separatorColor=[UIColor blackColor];
     [popoverView addSubview:_popovertableview];
     popoverContent.view = popoverView;
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(130, 100);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(130, 75);
+    
     button = (UIButton *)sender;
     UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
     CGPoint center= button.center;
@@ -504,9 +516,38 @@
     NSIndexPath *textFieldIndexPath = [self.plangtable indexPathForRowAtPoint:rootViewPoint];
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
     btnindex=textFieldIndexPath.row;
+    
     //UITableView *table = (UITableView *)[cell superview];
     self.popovercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
     [self.popovercontroller presentPopoverFromRect:_disclosurebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    }
+    else
+    {
+        UIViewController* popoverContent = [[UIViewController alloc]init];
+        UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 130, 35)];
+        popoverView.backgroundColor = [UIColor whiteColor];
+        _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 130, 35)];
+        _popovertableview.delegate=(id)self;
+        _popovertableview.dataSource=(id)self;
+        _popovertableview.rowHeight= 32;
+        //_popovertableview.separatorColor=[UIColor blackColor];
+        [popoverView addSubview:_popovertableview];
+        popoverContent.view = popoverView;
+        popoverContent.contentSizeForViewInPopover = CGSizeMake(130, 35);
+        
+        button = (UIButton *)sender;
+        UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+        CGPoint center= button.center;
+        CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.plangtable];
+        NSIndexPath *textFieldIndexPath = [self.plangtable indexPathForRowAtPoint:rootViewPoint];
+        NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+        btnindex=textFieldIndexPath.row;
+        
+        //UITableView *table = (UITableView *)[cell superview];
+        self.popovercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
+        [self.popovercontroller presentPopoverFromRect:_disclosurebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+
+    }
     //[_popovertableview reloadData];
 }
 
