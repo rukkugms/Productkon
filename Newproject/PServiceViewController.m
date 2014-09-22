@@ -33,7 +33,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self SelectAllServices];
+    [self SelectPlanServices];
 }
 - (void)didReceiveMemoryWarning
 {
@@ -42,8 +42,8 @@
 }
 #pragma mark-Webservices
 
--(void)SelectAllServices{
-   
+-(void)SelectPlanServices{
+    _planID=@"Pl-00001";
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -56,11 +56,11 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllServices xmlns=\"http://testUSA.kontract360.com/\">\n"
-                   
-                   "</SelectAllServices>\n"
+                   "<SelectPlanServices xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<planid>%@</planid>"
+                   "</SelectPlanServices>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n"];
+                   "</soap:Envelope>\n",_planID];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -73,7 +73,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllServices" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SelectPlanServices" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -132,7 +132,7 @@
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
-    if([elementName isEqualToString:@"SelectAllServicesResult"])
+    if([elementName isEqualToString:@"SelectPlanServicesResponse"])
     {
         _servicearray=[[NSMutableArray alloc]init];
         _servicedict=[[NSMutableDictionary alloc]init];
@@ -143,7 +143,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"SkillId"])
+    if([elementName isEqualToString:@"EntryId"])
     {
         
         if(!_soapResults)
@@ -152,7 +152,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"SkillName"])
+    if([elementName isEqualToString:@"PlanId"])
     {
         
         if(!_soapResults)
@@ -161,6 +161,26 @@
         }
         recordResults = TRUE;
     }
+
+    if([elementName isEqualToString:@"ServiceId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"PSItemCode"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
@@ -177,21 +197,29 @@
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-    if([elementName isEqualToString:@"SelectAllServicesResult"])
+    if([elementName isEqualToString:@"EntryId"])
     {
         
         recordResults = FALSE;
         
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"SkillId"])
+    if([elementName isEqualToString:@"PlanId"])
+    {
+        
+        recordResults = FALSE;
+        
+        _soapResults = nil;
+    }
+
+    if([elementName isEqualToString:@"ServiceId"])
     {
         
         recordResults = FALSE;
         servicestrg=_soapResults;
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"SkillName"])
+    if([elementName isEqualToString:@"PSItemCode"])
     {
         
         recordResults = FALSE;
