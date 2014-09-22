@@ -253,7 +253,7 @@
                             self.psctrlr=[[PServiceViewController alloc]initWithNibName:@"PServiceViewController" bundle:nil];
                        // }
                         planmodel*planmdl=(planmodel *)[_planlistarray objectAtIndex:btnindex];
-                        //_psctrlr.planID=planmdl.planid;
+                        _psctrlr.planID=planmdl.planid;
                         NSLog(@"%@",planmdl.planid);
                         _psctrlr.modalPresentationStyle=UIModalPresentationFormSheet;
                         _psctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;

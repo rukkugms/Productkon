@@ -33,7 +33,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self SelectPlanServices];
+    [self Workentryserviceselect];
 }
 - (void)didReceiveMemoryWarning
 {
@@ -42,8 +42,8 @@
 }
 #pragma mark-Webservices
 
--(void)SelectPlanServices{
-    _planID=@"Pl-00001";
+-(void)Workentryserviceselect{
+   // _planID=@"Pl-00001";
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -56,16 +56,16 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectPlanServices xmlns=\"http://testUSA.kontract360.com/\">\n"
-                   "<planid>%@</planid>"
-                   "</SelectPlanServices>\n"
+                   "<Workentryserviceselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planid>%@</planid>\n"
+                   "</Workentryserviceselect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",_planID];
     NSLog(@"soapmsg%@",soapMessage);
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -73,7 +73,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SelectPlanServices" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/Workentryserviceselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -132,7 +132,7 @@
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
-    if([elementName isEqualToString:@"SelectPlanServicesResponse"])
+    if([elementName isEqualToString:@"WorkentryserviceselectResult"])
     {
         _servicearray=[[NSMutableArray alloc]init];
         _servicedict=[[NSMutableDictionary alloc]init];
@@ -172,6 +172,15 @@
         recordResults = TRUE;
     }
     if([elementName isEqualToString:@"PSItemCode"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"SkillName"])
     {
         
         if(!_soapResults)
@@ -224,13 +233,23 @@
         
         recordResults = FALSE;
         
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"SkillName"])
+    {
+        
+        recordResults = FALSE;
+        
         [_servicedict setObject:servicestrg forKey:_soapResults];
-     
+        
         
         [_servicearray addObject:_soapResults];
         _soapResults = nil;
     }
-}
+    
+
+    }
 #pragma mark-tableview datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -293,6 +312,16 @@
 
 
 - (IBAction)wrkbtn:(id)sender {
+    self.detailVCtrl=[[DetailplanViewController alloc]initWithNibName:@"DetailplanViewController" bundle:nil];
+    // }
+    
+  _detailVCtrl.modalPresentationStyle=UIModalPresentationCustom;
+    _detailVCtrl.planid=_planID;
+                     _detailVCtrl.modalPresentationStyle=UIModalPresentationFullScreen;
+                        _detailVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    [self presentViewController:_detailVCtrl
+                       animated:YES completion:NULL];
+    
 }
 
 - (IBAction)clsebtn:(id)sender {

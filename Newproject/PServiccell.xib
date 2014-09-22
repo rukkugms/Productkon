@@ -34,7 +34,6 @@
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3t8-Kd-DM1">
                         <rect key="frame" x="323" y="9" width="112" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                         <state key="normal" title="Add Work" backgroundImage="textbox.png">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
