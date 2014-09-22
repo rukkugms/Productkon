@@ -447,6 +447,7 @@
 		D4A338EC18F3EEEF00E53FAC /* billingcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A338E218F3EEEF00E53FAC /* billingcell.xib */; };
 		D4A3977719CFE8DE00E2514C /* PServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A3977519CFE8DE00E2514C /* PServiceViewController.m */; };
 		D4A3977819CFE8DE00E2514C /* PServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A3977619CFE8DE00E2514C /* PServiceViewController.xib */; };
+		D4A3977A19CFF12F00E2514C /* PServiccell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A3977919CFF12F00E2514C /* PServiccell.xib */; };
 		D4A5317819CD822B0056EBC1 /* login-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4A5317719CD822B0056EBC1 /* login-1.jpg */; };
 		D4A6748C19345E6C00D5A77E /* IconPubHol.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A6748619345E6C00D5A77E /* IconPubHol.png */; };
 		D4A6748D19345E6C00D5A77E /* IconPubHol@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A6748719345E6C00D5A77E /* IconPubHol@2x.png */; };
@@ -1159,6 +1160,7 @@
 		D4A3977419CFE8DE00E2514C /* PServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PServiceViewController.h; sourceTree = "<group>"; };
 		D4A3977519CFE8DE00E2514C /* PServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PServiceViewController.m; sourceTree = "<group>"; };
 		D4A3977619CFE8DE00E2514C /* PServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PServiceViewController.xib; sourceTree = "<group>"; };
+		D4A3977919CFF12F00E2514C /* PServiccell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PServiccell.xib; sourceTree = "<group>"; };
 		D4A5317719CD822B0056EBC1 /* login-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "login-1.jpg"; sourceTree = "<group>"; };
 		D4A6748619345E6C00D5A77E /* IconPubHol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconPubHol.png; sourceTree = "<group>"; };
 		D4A6748719345E6C00D5A77E /* IconPubHol@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IconPubHol@2x.png"; sourceTree = "<group>"; };
@@ -1856,6 +1858,7 @@
 				D4A3977419CFE8DE00E2514C /* PServiceViewController.h */,
 				D4A3977519CFE8DE00E2514C /* PServiceViewController.m */,
 				D4A3977619CFE8DE00E2514C /* PServiceViewController.xib */,
+				D4A3977919CFF12F00E2514C /* PServiccell.xib */,
 			);
 			name = Planning;
 			sourceTree = "<group>";
@@ -2675,6 +2678,7 @@
 				64A3B81618DFEE980015887F /* CommentsCells.xib in Resources */,
 				D47A9B2E19407D3A001CC416 /* groupsetupicon.png in Resources */,
 				D4F0008818D2C478005A50A9 /* CompanyCmntscell.xib in Resources */,
+				D4A3977A19CFF12F00E2514C /* PServiccell.xib in Resources */,
 				64A1EA161918E709002DC384 /* SettngsViewController.xib in Resources */,
 				D4F7D9D8196E647300B8F4D4 /* hremployemangement.png in Resources */,
 				D4FEF52418FE895E0047E6BD /* Matrixcell.xib in Resources */,
