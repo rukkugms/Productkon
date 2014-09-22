@@ -43,10 +43,16 @@
         
     
     _disclosurearry=[[NSMutableArray alloc]initWithObjects:@"Add Services",@"Site Visit",nil];
+        _addbtn.hidden=NO;
+        _deletebtn.hidden=NO;
+       // _editbtn.hidden=NO;
     }
     else
     {
         _disclosurearry=[[NSMutableArray alloc]initWithObjects:@"Services",nil];
+        _addbtn.hidden=YES;
+        _deletebtn.hidden=YES;
+       // _editbtn.hidden=YES;
     }
     _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
     _searchbar.delegate=(id)self;
@@ -171,6 +177,15 @@
 //         _leadlabel.text=led;
          _planidlabel=(UILabel*)[cell viewWithTag:3];
        _planidlabel.text=planmdl.planid;
+         if (_plntype==1) {
+             _editbtn.hidden=NO;
+             _seperatorview.hidden=NO;
+         }
+         else
+         {
+             _editbtn.hidden=YES;
+             _seperatorview.hidden=YES;
+         }
              }
     
     return cell;

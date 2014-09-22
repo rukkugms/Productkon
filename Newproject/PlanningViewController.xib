@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -7,10 +7,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlanningViewController">
             <connections>
+                <outlet property="addbtn" destination="mq0-CB-zcp" id="3Rz-qU-7hO"/>
                 <outlet property="addplanview" destination="1sr-eH-f7a" id="Rsr-Pb-MWk"/>
                 <outlet property="cancelbtn" destination="0xA-8o-8iB" id="5i2-Pr-gSO"/>
                 <outlet property="cmplexitybtnlbl" destination="cH2-Vi-3mK" id="f9R-sM-azl"/>
                 <outlet property="custcheckbtn" destination="FlS-2L-LZz" id="9Q2-cQ-O3L"/>
+                <outlet property="deletebtn" destination="Fiu-Pm-TsG" id="Mft-s3-DsL"/>
                 <outlet property="leadcheckbtn" destination="N0w-R8-PPz" id="DUX-eh-ztV"/>
                 <outlet property="loctntxtfld" destination="AVH-RM-59x" id="8yw-9Z-DdE"/>
                 <outlet property="navabar" destination="wMZ-FX-GhQ" id="xeo-xw-hom"/>
@@ -60,7 +62,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organization" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="971-RU-Rm0">
-                                    <rect key="frame" x="341" y="11" width="92" height="21"/>
+                                    <rect key="frame" x="436" y="11" width="92" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
