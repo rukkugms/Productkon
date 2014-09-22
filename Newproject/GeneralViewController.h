@@ -30,6 +30,7 @@
     NSInteger dragbutnindx;
     NSString *p;
     }
+@property(strong,nonatomic)NSString*psitemcode;
 @property(nonatomic, weak)id<newgenralDelgate> delegate;
 @property (strong, nonatomic) IBOutlet UINavigationItem *navitm;
 @property(strong,nonatomic) DequipViewController *deqctrl;
