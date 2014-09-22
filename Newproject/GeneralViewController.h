@@ -29,6 +29,7 @@
      NSString *jobsequnce;
     NSInteger dragbutnindx;
     NSString *p;
+    NSString *msgstrg;
     }
 @property(strong,nonatomic)NSString*psitemcode;
 @property(nonatomic, weak)id<newgenralDelgate> delegate;
