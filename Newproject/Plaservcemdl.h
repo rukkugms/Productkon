@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Planservcemdl : NSObject
+@interface Plaservcemdl : NSObject
 @property(strong,nonatomic)NSString*entryid;
 @property(strong,nonatomic)NSString*planid;
 @property(strong,nonatomic)NSString*serviceid;

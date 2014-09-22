@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 GMSIndia1. All rights reserved.
 //
 
-#import "Planservcemdl.h"
+#import "Plaservcemdl.h"
 
-@implementation Planservcemdl
+@implementation Plaservcemdl
 
 @end
