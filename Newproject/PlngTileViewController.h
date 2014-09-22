@@ -14,11 +14,13 @@
 {
     NSString*userid;
     BOOL recordResults;
+    NSInteger plntype;
 }
 
 
 -(IBAction)closethistilepage:(id)sender;
 @property (strong, nonatomic) IBOutlet UIView *planngview;
+@property (strong, nonatomic) IBOutlet UIView *workentryview;
 @property(strong,nonatomic)PlanningViewController *PlangVCtrl;
 
 @property(strong,nonatomic)Rightscheck *rights;

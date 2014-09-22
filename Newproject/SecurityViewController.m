@@ -565,7 +565,7 @@
             answertype=1;
         }
         else{
-        _answertxtfld.text=_soapResults;
+        _answertxtfld.text=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
             
         }
         _soapResults = nil;

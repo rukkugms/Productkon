@@ -35,11 +35,36 @@
     doubleTap1.numberOfTapsRequired=1;
     doubleTap1.delegate=(id)self;
     [self.planngview addGestureRecognizer:doubleTap1];
+    UITapGestureRecognizer *doubleTap2 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(workentrypage)];
+    doubleTap2.numberOfTapsRequired=1;
+    doubleTap2.delegate=(id)self;
+    [self.workentryview addGestureRecognizer:doubleTap2];
     // Do any additional setup after loading the view from its nib.
 }
 -(void)plangpage{
+    plntype=1;
     _ModuleID=43;
     [self UserRightsforparticularmoduleselect];
+    
+    
+}
+-(void)workentrypage{
+    plntype=2;
+    //if (!self.PlangVCtrl) {
+        self.PlangVCtrl=[[PlanningViewController alloc]initWithNibName:@"PlanningViewController" bundle:nil];
+   // }
+    
+    _PlangVCtrl.modalPresentationStyle=UIModalPresentationCustom;
+    _PlangVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    _PlangVCtrl.userrightsarray=_userrightsarray;
+    _PlangVCtrl.plntype=plntype;
+    [self presentViewController:_PlangVCtrl
+                       animated:YES completion:NULL];
+
+   // _ModuleID=43;
+    //[self UserRightsforparticularmoduleselect];
     
     
 }
@@ -169,6 +194,7 @@
                 _PlangVCtrl.modalPresentationStyle=UIModalPresentationCustom;
                 _PlangVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
                 _PlangVCtrl.userrightsarray=_userrightsarray;
+                _PlangVCtrl.plntype=plntype;
                 [self presentViewController:_PlangVCtrl
                                    animated:YES completion:NULL];
             }
