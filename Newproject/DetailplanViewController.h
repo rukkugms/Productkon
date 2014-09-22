@@ -15,6 +15,7 @@
 #import <sqlite3.h>
 
 
+
 @interface DetailplanViewController : UIViewController<animatndelegate,newgenralDelgate>
 {
     BOOL recordResults;
@@ -36,7 +37,7 @@
 @property(strong,nonatomic)AllDetailsplandisplayViewController *allctrlr;
 @property(strong,nonatomic)GeneralViewController *generalworkctrlr;
 @property(strong,nonatomic)Generalmodel *gmodel;
-
+@property(strong,nonatomic)NSString *pscode;
 @property (strong, nonatomic) IBOutlet UISearchBar * searchbar;
 @property(strong,nonatomic)NSString *searchstring;
 @property (strong, nonatomic) IBOutlet UISearchBar * searchbar1;

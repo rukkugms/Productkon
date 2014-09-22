@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "DetailplanViewController.h"
+#import "Planservcemdl.h"
+
 @interface PServiceViewController : UIViewController{
     BOOL recordResults;
     NSString*servicestrg;
+    UIButton *button;
 }
 @property (strong, nonatomic) IBOutlet UITableView *servicetable;
 @property (strong, nonatomic) IBOutlet UIView *titleview;
@@ -19,6 +22,9 @@
 @property (strong, nonatomic)DetailplanViewController*detailVCtrl;
 
 @property (strong, nonatomic)NSString*planID;
+@property (strong, nonatomic)Planservcemdl *servicemdl;
+@property (strong, nonatomic)NSMutableArray*servicemdlarray;
+
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;

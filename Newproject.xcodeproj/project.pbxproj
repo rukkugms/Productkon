@@ -448,6 +448,7 @@
 		D4A3977719CFE8DE00E2514C /* PServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A3977519CFE8DE00E2514C /* PServiceViewController.m */; };
 		D4A3977819CFE8DE00E2514C /* PServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A3977619CFE8DE00E2514C /* PServiceViewController.xib */; };
 		D4A3977A19CFF12F00E2514C /* PServiccell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A3977919CFF12F00E2514C /* PServiccell.xib */; };
+		D4A3977D19D0191A00E2514C /* Planservcemdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A3977C19D0191A00E2514C /* Planservcemdl.m */; };
 		D4A5317819CD822B0056EBC1 /* login-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4A5317719CD822B0056EBC1 /* login-1.jpg */; };
 		D4A6748C19345E6C00D5A77E /* IconPubHol.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A6748619345E6C00D5A77E /* IconPubHol.png */; };
 		D4A6748D19345E6C00D5A77E /* IconPubHol@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A6748719345E6C00D5A77E /* IconPubHol@2x.png */; };
@@ -1161,6 +1162,8 @@
 		D4A3977519CFE8DE00E2514C /* PServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PServiceViewController.m; sourceTree = "<group>"; };
 		D4A3977619CFE8DE00E2514C /* PServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PServiceViewController.xib; sourceTree = "<group>"; };
 		D4A3977919CFF12F00E2514C /* PServiccell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PServiccell.xib; sourceTree = "<group>"; };
+		D4A3977B19D0191A00E2514C /* Planservcemdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Planservcemdl.h; sourceTree = "<group>"; };
+		D4A3977C19D0191A00E2514C /* Planservcemdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Planservcemdl.m; sourceTree = "<group>"; };
 		D4A5317719CD822B0056EBC1 /* login-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "login-1.jpg"; sourceTree = "<group>"; };
 		D4A6748619345E6C00D5A77E /* IconPubHol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconPubHol.png; sourceTree = "<group>"; };
 		D4A6748719345E6C00D5A77E /* IconPubHol@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IconPubHol@2x.png"; sourceTree = "<group>"; };
@@ -2136,6 +2139,8 @@
 				D4A123D119A6FE1100A4ED9B /* UserRightsmdl.m */,
 				D4ACE56B19C1B12D0060A352 /* Craftreqmtmdl.h */,
 				D4ACE56C19C1B12D0060A352 /* Craftreqmtmdl.m */,
+				D4A3977B19D0191A00E2514C /* Planservcemdl.h */,
+				D4A3977C19D0191A00E2514C /* Planservcemdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -2879,6 +2884,7 @@
 				D49F875718EEA36B00413CAD /* listusermdl.m in Sources */,
 				D4FEF52218FE85560047E6BD /* Fmodel.m in Sources */,
 				D4FED40F17F16EEE004BE242 /* VerificationViewController.m in Sources */,
+				D4A3977D19D0191A00E2514C /* Planservcemdl.m in Sources */,
 				D42505CA19A46830001D16A2 /* SecurityViewController.m in Sources */,
 				D47A9B0B19402B89001CC416 /* EmpJobViewController.m in Sources */,
 				D4DEEDDA17F40BE70096A908 /* UploadDocViewController.m in Sources */,
