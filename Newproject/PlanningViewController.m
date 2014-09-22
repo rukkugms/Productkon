@@ -358,6 +358,7 @@
 }
 
 - (IBAction)addplan:(id)sender {
+    _plangtable.userInteractionEnabled=NO;
     _planslectionarray=[[NSMutableArray alloc]init];
     optionidentifier=1;
     self.navabar.title = @"Create";
@@ -381,6 +382,7 @@
 {
     _addplanview.hidden=YES;
      _selectionlabel.hidden=YES;
+    _plangtable.userInteractionEnabled=YES;
     
 }
 -(IBAction)deleteplan:(id)sender
@@ -592,7 +594,7 @@
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Lead/Customer is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
-    else if([_typebtnlbl.titleLabel.text isEqualToString:@"Select"]||[_planselectionbtn.titleLabel.text isEqualToString:@""])
+    else if([_typebtnlbl.titleLabel.text isEqualToString:@"Select"]||[_typebtnlbl.titleLabel.text isEqualToString:@""])
     {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Work Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
@@ -628,6 +630,7 @@
 -(IBAction)Editaction:(id)sender
 {
     optionidentifier=2;
+    _plangtable.userInteractionEnabled=NO;
     self.navabar.title = @"Edit";
       _addplanview.hidden=NO;
      _selectionlabel.hidden=NO;
@@ -1259,6 +1262,7 @@
     if(webtype==1||webtype==3)
     {
         [self SelectAllPlans];
+        _searchbar.text=@"";
         webtype=0;
     }
     
@@ -1795,6 +1799,13 @@
         _loctntxtfld.text=@"";
         _ziptxtfld.text=@"";
         [_cmplexitybtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        if(optionidentifier==2)
+        {
+            _addplanview.hidden=YES;
+            _plangtable.userInteractionEnabled=YES;
+            
+        }
+        _searchbar.text=@"";
         
     }
     if ([alertView.message isEqualToString:@"Invalid Zip"]) {
@@ -1856,6 +1867,20 @@
         }
         
     }
+//    if(textField==_)
+//    {
+//        Validation*val=[[Validation alloc]init];
+//        int value1=[val isNumeric:_ziptxtfld.text];
+//        if(value1==0)
+//        {
+//            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Zip" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//            [alert1 show];
+//            
+//            
+//        }
+//        
+//    }
+
        if(textField==_sitefactortxtfld)
     {
         Validation*val=[[Validation alloc]init];
