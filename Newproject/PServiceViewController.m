@@ -136,6 +136,7 @@
     {
         _servicearray=[[NSMutableArray alloc]init];
         _servicedict=[[NSMutableDictionary alloc]init];
+        _servicemdlarray=[[NSMutableArray alloc]init];
       
         if(!_soapResults)
         {
@@ -208,8 +209,9 @@
 {
     if([elementName isEqualToString:@"EntryId"])
     {
-        
+        _servicemdl=[[Planservcemdl alloc]init];
         recordResults = FALSE;
+        _servicemdl.entryid=_soapResults;
         
         _soapResults = nil;
     }
@@ -217,7 +219,7 @@
     {
         
         recordResults = FALSE;
-        
+            _servicemdl.planid=_soapResults;
         _soapResults = nil;
     }
 
@@ -226,6 +228,7 @@
         
         recordResults = FALSE;
         servicestrg=_soapResults;
+            _servicemdl.serviceid=_soapResults;
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"PSItemCode"])
@@ -233,14 +236,15 @@
         
         recordResults = FALSE;
         
-        
+            _servicemdl.psitemcode=_soapResults;
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"SkillName"])
     {
         
         recordResults = FALSE;
-        
+            _servicemdl.skillname=_soapResults;
+        [_servicemdlarray addObject:_servicemdl];
         [_servicedict setObject:servicestrg forKey:_soapResults];
         
         
@@ -312,13 +316,22 @@
 
 
 - (IBAction)wrkbtn:(id)sender {
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.servicetable];
+    NSIndexPath *textFieldIndexPath = [self.servicetable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    Planservcemdl *planservcemdl=(Planservcemdl *)[_servicemdlarray objectAtIndex:textFieldIndexPath.row];
+
     self.detailVCtrl=[[DetailplanViewController alloc]initWithNibName:@"DetailplanViewController" bundle:nil];
     // }
     
-  _detailVCtrl.modalPresentationStyle=UIModalPresentationCustom;
+    _detailVCtrl.modalPresentationStyle=UIModalPresentationCustom;
     _detailVCtrl.planid=_planID;
-                     _detailVCtrl.modalPresentationStyle=UIModalPresentationFullScreen;
-                        _detailVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    _detailVCtrl.pscode=planservcemdl.psitemcode;
+    _detailVCtrl.modalPresentationStyle=UIModalPresentationFullScreen;
+    _detailVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+
     [self presentViewController:_detailVCtrl
                        animated:YES completion:NULL];
     
