@@ -125,5 +125,10 @@
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
 
+@property(strong,nonatomic)IBOutlet UIButton *addbtn;
+@property(strong,nonatomic)IBOutlet UIButton *deletebtn;
+@property(strong,nonatomic)IBOutlet UIButton *editbtn;
+@property(strong,nonatomic)IBOutlet UIView *seperatorview;
+
 
 @end
