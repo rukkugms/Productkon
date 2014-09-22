@@ -26,6 +26,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+        // Do any additional setup after loading the view from its nib.
+}
+-(void)viewWillAppear:(BOOL)animated
+{
     _result=@"";
     _ModuleID=0;
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
@@ -41,7 +45,7 @@
     doubleTap2.numberOfTapsRequired=1;
     doubleTap2.delegate=(id)self;
     [self.workentryview addGestureRecognizer:doubleTap2];
-    // Do any additional setup after loading the view from its nib.
+
 }
 -(void)plangpage{
     plntype=1;
@@ -187,9 +191,9 @@
             if (rightsmodel.ViewModule==1) {
                 
                 
-                if (!self.PlangVCtrl) {
+               // if (!self.PlangVCtrl) {
                     self.PlangVCtrl=[[PlanningViewController alloc]initWithNibName:@"PlanningViewController" bundle:nil];
-                }
+               // }
                 
                 _PlangVCtrl.modalPresentationStyle=UIModalPresentationCustom;
                 _PlangVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
