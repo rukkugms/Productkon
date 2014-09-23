@@ -53,6 +53,7 @@
      self.openviewindex=NSNotFound;
     
     [self SelectAllServices];
+    _disclosurearray=[[NSMutableArray alloc]initWithObjects:@"Job Sequence", nil];
 //    disbtn=[UIButton buttonWithType:UIButtonTypeCustom];
 //    [disbtn setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
 //    [disbtn setImage:[UIImage imageNamed:@"carat-open.png"] forState:UIControlStateSelected];
@@ -70,6 +71,39 @@
     _addserview.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
+-(IBAction)selectdisclosure:(id)sender
+{
+    
+    UIViewController* popoverContent = [[UIViewController alloc]init];
+    UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 130, 43)];
+    // popoverView.backgroundColor = [UIColor whiteColor];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 130, 43)];
+    _popovertableview.delegate=(id)self;
+    _popovertableview.dataSource=(id)self;
+    _popovertableview.rowHeight= 40;
+    _popovertableview.separatorStyle=UITableViewCellSeparatorStyleNone;
+    //_popovertableview.separatorColor=[UIColor blackColor];
+    [popoverView addSubview:_popovertableview];
+    popoverContent.view = popoverView;
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(130, 43);
+    
+    button = (UIButton *)sender;
+    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.servicesTable];
+    NSIndexPath *textFieldIndexPath = [self.servicesTable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
+    
+    //UITableView *table = (UITableView *)[cell superview];
+    self.popovercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
+    [self.popovercontroller presentPopoverFromRect:_disclosurebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    
+    
+    //[_popovertableview reloadData];
+}
+
+
 #pragma mark-tableview datasources
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -79,7 +113,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (tableView==_popovertableview) {
+        return [_disclosurearray count];
+    }
+    else
+    {
     return [_servicelistarray count];
+    }
+    return YES;
     }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -90,162 +131,182 @@
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        if (tableView==_servicesTable) {
+            
+        
         [[NSBundle mainBundle]loadNibNamed:@"customservicescell" owner:self options:nil];
         cell=_servicecell;
+    }
            }
+    if (tableView==_popovertableview) {
+        cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+        cell.textLabel.font = [UIFont systemFontOfSize:12.0];
+        cell.textLabel.text=[_disclosurearray objectAtIndex:indexPath.row];
+    }
+
     Servicemdl*semdl=(Servicemdl *)[_servicelistarray objectAtIndex:indexPath.row];
     _servicelabel=(UILabel *)[cell viewWithTag:1];
     _servicelabel.text=semdl.servname;
     _abbrvtnlabel=(UILabel*)[cell viewWithTag:2];
     _abbrvtnlabel.text=semdl.abbrevtn;
-     disbtn=[UIButton buttonWithType:UIButtonTypeCustom];
-   [disbtn setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
-  //  [disbtn setImage:[UIImage imageNamed:@"carat-open.png"] forState:UIControlStateSelected];
-    disbtn.tag=indexPath.row;
-    [disbtn addTarget:self action:@selector(disaction:) forControlEvents:UIControlEventTouchUpInside];
-    disbtn.frame = CGRectMake(310.0, 0.0, 50.0, 50.0);
-    [cell.contentView addSubview:disbtn];
+   //  disbtn=[UIButton buttonWithType:UIButtonTypeCustom];
+//   [disbtn setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
+//  //  [disbtn setImage:[UIImage imageNamed:@"carat-open.png"] forState:UIControlStateSelected];
+//    disbtn.tag=indexPath.row;
+//    [disbtn addTarget:self action:@selector(disaction:) forControlEvents:UIControlEventTouchUpInside];
+//    disbtn.frame = CGRectMake(310.0, 0.0, 50.0, 50.0);
+//    [cell.contentView addSubview:disbtn];
     
        return cell;
 }
--(void)disaction:(UIButton*)sender{
-    
-    // [_animatedview removeFromSuperview];
-    _commentlabel.hidden=YES;
-    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
-        .frame =  CGRectMake(340, 11, 0, 0);} completion:nil];
-    
-    _animatedview.hidden=YES;
-    //Empmdl *empmdl=(Empmdl *)[_employeelistarray objectAtIndex:sender.tag];
-    
-    
-    
-    
-    button = (UIButton *)sender;
-    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
-    CGPoint center= button.center;
-    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.servicesTable];
-    NSIndexPath *textFieldIndexPath = [self.servicesTable indexPathForRowAtPoint:rootViewPoint];
-    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
-    btnindex=textFieldIndexPath.row;
-    
-    
-    
-    //create uiview
-    _animatedview=[[UIView alloc]initWithFrame:CGRectMake(340, 11, 0, 25)];
-    _animatedview.backgroundColor=[UIColor colorWithRed:99.0/255.0f green:184.0/255.0f blue:255.0/255.0f alpha:1.0f];
-    _commentlabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
-    _commentlabel.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
-    _commentlabel.textColor=[UIColor blackColor];
-    _commentlabel.text=@"Job Sequence";
-    [self.animatedview addSubview:_commentlabel];
-    
-    _commentlabel.hidden=YES;
-    
-    UITapGestureRecognizer *tap= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tothejobsequence)];
-    [self.animatedview addGestureRecognizer:tap];
-    [cell addSubview:_animatedview];
-    
-    _animatedview.hidden=NO;
-    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
-        .frame =  CGRectMake(340, 11, 79, 25);} completion:nil];
-    
-    _commentlabel.hidden=NO;
-    
-    //    NSLog(@"%@",empmdl.badgeflag);
-    //    if ([empmdl.badgeflag isEqualToString:@"true"]) {
-    //        //_badgelbl.enabled=NO;
-    //        _animatedview.userInteractionEnabled=NO;
-    //        //_animatedview.
-    //
-    //    }
-    
-    [self showviewWithUserAction:YES];
-}
--(void)tothejobsequence
-{   Servicemdl*smdl=(Servicemdl *)[_servicelistarray objectAtIndex:btnindex];
+//-(void)disaction:(UIButton*)sender{
+//    
+//    // [_animatedview removeFromSuperview];
+//    _commentlabel.hidden=YES;
+//    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
+//        .frame =  CGRectMake(340, 11, 0, 0);} completion:nil];
+//    
+//    _animatedview.hidden=YES;
+//    //Empmdl *empmdl=(Empmdl *)[_employeelistarray objectAtIndex:sender.tag];
+//    
+//    
+//    
+//    
+//    button = (UIButton *)sender;
+//    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+//    CGPoint center= button.center;
+//    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.servicesTable];
+//    NSIndexPath *textFieldIndexPath = [self.servicesTable indexPathForRowAtPoint:rootViewPoint];
+//    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+//    btnindex=textFieldIndexPath.row;
+//    
+//    
+//    
+//    //create uiview
+//    _animatedview=[[UIView alloc]initWithFrame:CGRectMake(340, 11, 0, 25)];
+//    _animatedview.backgroundColor=[UIColor colorWithRed:99.0/255.0f green:184.0/255.0f blue:255.0/255.0f alpha:1.0f];
+//    _commentlabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
+//    _commentlabel.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
+//    _commentlabel.textColor=[UIColor blackColor];
+//    _commentlabel.text=@"Job Sequence";
+//    [self.animatedview addSubview:_commentlabel];
+//    
+//    _commentlabel.hidden=YES;
+//    
+//    UITapGestureRecognizer *tap= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tothejobsequence)];
+//    [self.animatedview addGestureRecognizer:tap];
+//    [cell addSubview:_animatedview];
+//    
+//    _animatedview.hidden=NO;
+//    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
+//        .frame =  CGRectMake(340, 11, 79, 25);} completion:nil];
+//    
+//    _commentlabel.hidden=NO;
+//    
+//    //    NSLog(@"%@",empmdl.badgeflag);
+//    //    if ([empmdl.badgeflag isEqualToString:@"true"]) {
+//    //        //_badgelbl.enabled=NO;
+//    //        _animatedview.userInteractionEnabled=NO;
+//    //        //_animatedview.
+//    //
+//    //    }
+//    
+//    [self showviewWithUserAction:YES];
+//}
+//-(void)tothejobsequence
+//{   Servicemdl*smdl=(Servicemdl *)[_servicelistarray objectAtIndex:btnindex];
+//
+//    if (!self.jobseqctrl) {
+//        self.jobseqctrl=[[SerialViewController alloc]initWithNibName:@"SerialViewController" bundle:nil];
+//    }
+//    _jobseqctrl.skillid=smdl.servid;
+//    _jobseqctrl.modalPresentationStyle=UIModalPresentationFormSheet;
+//    [self presentViewController:_jobseqctrl animated:YES completion:nil];
+// self.openviewindex=NSNotFound;
+//}
 
-    if (!self.jobseqctrl) {
-        self.jobseqctrl=[[SerialViewController alloc]initWithNibName:@"SerialViewController" bundle:nil];
-    }
-    _jobseqctrl.skillid=smdl.servid;
-    _jobseqctrl.modalPresentationStyle=UIModalPresentationFormSheet;
-    [self presentViewController:_jobseqctrl animated:YES completion:nil];
- self.openviewindex=NSNotFound;
-}
-
--(void)showviewWithUserAction:(BOOL)userAction{
-    
-    // Toggle the disclosure button state.
-   
-    disbtn.selected = !disbtn.selected;
-    
-    if (userAction) {
-        if (disbtn.selected) {
-            
-            _animatedview.hidden=NO;
-            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
-                .frame =  CGRectMake(340, 11, 79, 25);} completion:nil];
-            [self viewopened:btnindex];
-           
-            _commentlabel.hidden=NO;
-            
-            
-            
-        }
-        else{
-            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
-                .frame =  CGRectMake(340, 11, 79, 25);} completion:nil];
-            [self viewclosed:btnindex];
-            //_venderlbl.hidden=YES;
-            
-        }
-        
-        
-    }
-}
--(void)viewopened:(NSInteger)viewopened{
-    
-    
-    selectedcell=viewopened;
-    NSInteger previousOpenviewIndex = self.openviewindex;
-    
-    if (previousOpenviewIndex != NSNotFound) {
-        [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{  _animatedview
-            .frame =  CGRectMake(340, 10, 0, 0);} completion:nil];
-        
-        _animatedview.hidden=YES;
-        
-        
-        // }
-        
-        
-    }
-    
-    self.openviewindex=viewopened;
-    
-    
-    
-    
-    
-    
-}
--(void)viewclosed:(NSInteger)viewclosed
-{
-    
-    viewclosed=btnindex;
-    _animatedview.hidden=YES;
-
-    self.openviewindex = NSNotFound;
-    
-    
-}
-
+//-(void)showviewWithUserAction:(BOOL)userAction{
+//    
+//    // Toggle the disclosure button state.
+//   
+//    disbtn.selected = !disbtn.selected;
+//    
+//    if (userAction) {
+//        if (disbtn.selected) {
+//            
+//            _animatedview.hidden=NO;
+//            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
+//                .frame =  CGRectMake(340, 11, 79, 25);} completion:nil];
+//            [self viewopened:btnindex];
+//           
+//            _commentlabel.hidden=NO;
+//            
+//            
+//            
+//        }
+//        else{
+//            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
+//                .frame =  CGRectMake(340, 11, 79, 25);} completion:nil];
+//            [self viewclosed:btnindex];
+//            //_venderlbl.hidden=YES;
+//            
+//        }
+//        
+//        
+//    }
+//}
+//-(void)viewopened:(NSInteger)viewopened{
+//    
+//    
+//    selectedcell=viewopened;
+//    NSInteger previousOpenviewIndex = self.openviewindex;
+//    
+//    if (previousOpenviewIndex != NSNotFound) {
+//        [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{  _animatedview
+//            .frame =  CGRectMake(340, 10, 0, 0);} completion:nil];
+//        
+//        _animatedview.hidden=YES;
+//        
+//        
+//        // }
+//        
+//        
+//    }
+//    
+//    self.openviewindex=viewopened;
+//    
+//    
+//    
+//    
+//    
+//    
+//}
+//-(void)viewclosed:(NSInteger)viewclosed
+//{
+//    
+//    viewclosed=btnindex;
+//    _animatedview.hidden=YES;
+//
+//    self.openviewindex = NSNotFound;
+//    
+//    
+//}
+//
 
 #pragma mark - Table View delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (tableView==_popovertableview) {
+        Servicemdl*smdl=(Servicemdl *)[_servicelistarray objectAtIndex:btnindex];
+        //if (!self.jobseqctrl) {
+                    self.jobseqctrl=[[SerialViewController alloc]initWithNibName:@"SerialViewController" bundle:nil];
+              // }
+               _jobseqctrl.skillid=smdl.servid;
+               _jobseqctrl.modalPresentationStyle=UIModalPresentationFormSheet;
+               [self presentViewController:_jobseqctrl animated:YES completion:nil];
+         [self.popovercontroller dismissPopoverAnimated:YES];
+    }
+   
     
     
 }
@@ -715,7 +776,6 @@
     }
     
 }
-
 
 
 #pragma mark - Connection

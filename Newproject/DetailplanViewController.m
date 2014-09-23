@@ -809,9 +809,10 @@
                    "<GeneralSearch xmlns=\"http://ios.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "<PlanId>%@</PlanId>\n"
+                    "<GenPSItemCode>%@</GenPSItemCode>\n"
                    "</GeneralSearch>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_searchstring,_planid];
+                   "</soap:Envelope>\n",_searchstring,_planid,_pscode];
     NSLog(@"soapmsg%@",soapMessage);
     
     

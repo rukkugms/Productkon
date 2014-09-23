@@ -74,8 +74,9 @@
 {
     [super viewWillAppear:animated];
     _basicreqtable.userInteractionEnabled=YES;
+    _disclosurearray=[[NSMutableArray alloc]initWithObjects:@"Add Vendor", nil];
     [self SelectAllRequirements];
-    [self SelectAllCraft];
+    //[self SelectAllCraft];
     [self SelectAllItemType];
    
     
@@ -251,6 +252,9 @@
             case 3:
                 return [_typelistarray count];
                 break;
+            case 4:
+                return [_disclosurearray count];
+                break;
             case 5:
                 return [_brcraftarray count];
                 break;
@@ -298,6 +302,9 @@
                     cell.textLabel.text=[_typelistarray objectAtIndex:indexPath.row];
                     break;
                 case 4:
+                    cell.textLabel.text=[_disclosurearray objectAtIndex:indexPath.row];
+                    break;
+                case 5:
                 
                     cell.textLabel.text=crftreqmdl.Brdescriptn;
                     break;
@@ -365,6 +372,15 @@
             
             
         }
+//        if (reqmdl.inhouse==1) {
+//            _popOverTableView.userInteractionEnabled=NO;
+//            
+//        }
+//        else if(reqmdl.inhouse==0)
+//        {
+//            _popOverTableView.userInteractionEnabled=NO;
+//        }
+
 
      
 
@@ -374,17 +390,17 @@
          NSLog(@"%@",reqmdl.jobname);
         _venderlabel=(UILabel *)[cell viewWithTag:11];
         _venderlabel.text=reqmdl.vendername;
-       butt=[UIButton buttonWithType:UIButtonTypeCustom];
-        [butt setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
-        //[butt setImage:[UIImage imageNamed:@"carat-open.png"] forState:UIControlStateSelected];
-        butt.tag=indexPath.row;
-        [butt addTarget:self
-                   action:@selector(showaction:) forControlEvents:UIControlEventTouchUpInside];
+//       butt=[UIButton buttonWithType:UIButtonTypeCustom];
+//        [butt setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
+//        //[butt setImage:[UIImage imageNamed:@"carat-open.png"] forState:UIControlStateSelected];
+//        butt.tag=indexPath.row;
 //        [butt addTarget:self
-//                 action:@selector(noaction:) forControlEvents:UIControlEventTouchUpOutside];
-        //[butt setTitle:@"cellButton" forState:UIControlStateNormal];
-        butt.frame = CGRectMake(120.0, 0.0, 50.0, 40.0);
-        [cell.contentView addSubview:butt];
+//                   action:@selector(showaction:) forControlEvents:UIControlEventTouchUpInside];
+////        [butt addTarget:self
+////                 action:@selector(noaction:) forControlEvents:UIControlEventTouchUpOutside];
+//        //[butt setTitle:@"cellButton" forState:UIControlStateNormal];
+//        butt.frame = CGRectMake(120.0, 0.0, 50.0, 40.0);
+//        [cell.contentView addSubview:butt];
         
     }
     return cell;
@@ -399,189 +415,191 @@
 //    _animatedview.hidden=YES;
 //
 //}
--(void)showaction:(UIButton*)sender{
-   // [_animatedview removeFromSuperview];
-    _venderlbl.hidden=YES;
-    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
-        .frame =  CGRectMake(150, 10, 0, 0);} completion:nil];
-    
-    _animatedview.hidden=YES;
-    basicreqmdl*reqmdl=(basicreqmdl *)[_allrequirementarray objectAtIndex:sender.tag];
-    
-    button = (UIButton *)sender;
-    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
-    CGPoint center= button.center;
-    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.basicreqtable];
-    NSIndexPath *textFieldIndexPath = [self.basicreqtable indexPathForRowAtPoint:rootViewPoint];
-    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
-    btnindex=textFieldIndexPath.row;
-    
-    //create uiview
-    _animatedview=[[UIView alloc]initWithFrame:CGRectMake(150, 10, 0, 25)];
-    _animatedview.backgroundColor=[UIColor colorWithRed:99.0/255.0f green:184.0/255.0f blue:255.0/255.0f alpha:1.0f];
-    _venderlbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
-    _venderlbl.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
-    _venderlbl.textColor=[UIColor blackColor];
-    _venderlbl.text=@"Add Vendor";
-    [self.animatedview addSubview:_venderlbl];
-    _venderlbl.hidden=YES;
-    UITapGestureRecognizer *tap= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toVender)];
-    [self.animatedview addGestureRecognizer:tap];
-    
-    [cell addSubview:_animatedview];
-    
-    NSLog(@"I Clicked a button %d",sender.tag);
-    _animatedview.hidden=NO;
-    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
-        .frame =  CGRectMake(150, 10, 70, 25);} completion:nil];
-    
-    _venderlbl.hidden=NO;
-    if (reqmdl.inhouse==1) {
-        _venderlbl.enabled=NO;
-        _animatedview.userInteractionEnabled=NO;
-        
-    }
-
-    [self showviewWithUserAction:YES];
-}
-
--(void)showviewWithUserAction:(BOOL)userAction{
-    
-    // Toggle the disclosure button state.
-    
-    butt.selected = !butt.selected;
-    
-    if (userAction) {
-        if (butt.selected) {
-            _animatedview.hidden=NO;
-            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
-                .frame =  CGRectMake(150, 10, 70, 25);} completion:nil];
-            [self viewopened:btnindex];
-            _venderlbl.hidden=NO;
-            
-            
-            
-        }
-        else{
-            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
-                .frame =  CGRectMake(150, 10, 70, 25);} completion:nil];
-            [self viewclosed:btnindex];
-            //_venderlbl.hidden=YES;
-            
-        }
-        
-        
-    }
-}
--(void)viewopened:(NSInteger)viewopened{    
-
-    
-    selectedcell=viewopened;
-    NSInteger previousOpenviewIndex = self.openviewindex;
-    
-    if (previousOpenviewIndex != NSNotFound) {
-////        Section *previousOpenSection=[sectionArray objectAtIndex:previousOpenviewIndex];
-////        previousOpenSection.open=NO;
-        [self showviewWithUserAction:NO];
-//        NSInteger countOfRowsToDelete = selectedcell;
-//        for (NSInteger i = 0; i < countOfRowsToDelete; i++) {
-            _venderlbl.hidden=YES;
-            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{  _animatedview
-                .frame =  CGRectMake(100, 10, 0, 0);} completion:nil];
-            
-            _animatedview.hidden=YES;
-            
-            
-       //}
-        
-        
-    }
-    
-    self.openviewindex=viewopened;
-    
-    
- 
-    
-    
-
-}
--(void)viewclosed:(NSInteger)viewclosed
-{
-    
-    viewclosed=btnindex;
-    _animatedview.hidden=YES;
-    self.openviewindex = NSNotFound;
-    
-    
-}
-
-
+//-(void)showaction:(UIButton*)sender{
+//   // [_animatedview removeFromSuperview];
+//    _venderlbl.hidden=YES;
+//    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
+//        .frame =  CGRectMake(150, 10, 0, 0);} completion:nil];
+//    
+//    _animatedview.hidden=YES;
+//    basicreqmdl*reqmdl=(basicreqmdl *)[_allrequirementarray objectAtIndex:sender.tag];
+//    
+//    button = (UIButton *)sender;
+//    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+//    CGPoint center= button.center;
+//    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.basicreqtable];
+//    NSIndexPath *textFieldIndexPath = [self.basicreqtable indexPathForRowAtPoint:rootViewPoint];
+//    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+//    btnindex=textFieldIndexPath.row;
+//    
+//    //create uiview
+//    _animatedview=[[UIView alloc]initWithFrame:CGRectMake(150, 10, 0, 25)];
+//    _animatedview.backgroundColor=[UIColor colorWithRed:99.0/255.0f green:184.0/255.0f blue:255.0/255.0f alpha:1.0f];
+//    _venderlbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
+//    _venderlbl.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
+//    _venderlbl.textColor=[UIColor blackColor];
+//    _venderlbl.text=@"Add Vendor";
+//    [self.animatedview addSubview:_venderlbl];
+//    _venderlbl.hidden=YES;
+//    UITapGestureRecognizer *tap= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toVender)];
+//    [self.animatedview addGestureRecognizer:tap];
+//    
+//    [cell addSubview:_animatedview];
+//    
+//    NSLog(@"I Clicked a button %d",sender.tag);
+//    _animatedview.hidden=NO;
+//    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
+//        .frame =  CGRectMake(150, 10, 70, 25);} completion:nil];
+//    
+//    _venderlbl.hidden=NO;
+//    if (reqmdl.inhouse==1) {
+//        _venderlbl.enabled=NO;
+//        _animatedview.userInteractionEnabled=NO;
+//        
+//    }
+//
+//    [self showviewWithUserAction:YES];
+//}
+//
+//-(void)showviewWithUserAction:(BOOL)userAction{
+//    
+//    // Toggle the disclosure button state.
+//    
+//    butt.selected = !butt.selected;
+//    
+//    if (userAction) {
+//        if (butt.selected) {
+//            _animatedview.hidden=NO;
+//            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
+//                .frame =  CGRectMake(150, 10, 70, 25);} completion:nil];
+//            [self viewopened:btnindex];
+//            _venderlbl.hidden=NO;
+//            
+//            
+//            
+//        }
+//        else{
+//            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
+//                .frame =  CGRectMake(150, 10, 70, 25);} completion:nil];
+//            [self viewclosed:btnindex];
+//            //_venderlbl.hidden=YES;
+//            
+//        }
+//        
+//        
+//    }
+//}
+//-(void)viewopened:(NSInteger)viewopened{    
+//
+//    
+//    selectedcell=viewopened;
+//    NSInteger previousOpenviewIndex = self.openviewindex;
+//    
+//    if (previousOpenviewIndex != NSNotFound) {
+//////        Section *previousOpenSection=[sectionArray objectAtIndex:previousOpenviewIndex];
+//////        previousOpenSection.open=NO;
+//        [self showviewWithUserAction:NO];
+////        NSInteger countOfRowsToDelete = selectedcell;
+////        for (NSInteger i = 0; i < countOfRowsToDelete; i++) {
+//            _venderlbl.hidden=YES;
+//            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{  _animatedview
+//                .frame =  CGRectMake(100, 10, 0, 0);} completion:nil];
+//            
+//            _animatedview.hidden=YES;
+//            
+//            
+//       //}
+//        
+//        
+//    }
+//    
+//    self.openviewindex=viewopened;
+//    
+//    
+// 
+//    
+//    
+//
+//}
+//-(void)viewclosed:(NSInteger)viewclosed
+//{
+//    
+//    viewclosed=btnindex;
+//    _animatedview.hidden=YES;
+//    self.openviewindex = NSNotFound;
+//    
+//    
+//}
 
 
--(void)aMethod:(UIButton*)sender
-{
-    _venderlbl.hidden=YES;
-    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
-        .frame =  CGRectMake(200, 5, 0, 0);} completion:nil];
-    
-    _animatedview.hidden=YES;
-    basicreqmdl*reqmdl=(basicreqmdl *)[_allrequirementarray objectAtIndex:sender.tag];
-    
-    button = (UIButton *)sender;
-    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
-    CGPoint center= button.center;
-    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.basicreqtable];
-    NSIndexPath *textFieldIndexPath = [self.basicreqtable indexPathForRowAtPoint:rootViewPoint];
-    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
-    btnindex=textFieldIndexPath.row;
 
-    //create uiview
-    _animatedview=[[UIView alloc]initWithFrame:CGRectMake(200, 5, 0, 25)];
-    _animatedview.backgroundColor=[UIColor colorWithRed:110.0/255.0f green:123.0/255.0f blue:139.0/255.0f alpha:1.0f];
-    _venderlbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
-    _venderlbl.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
-    _venderlbl.textColor=[UIColor blackColor];
-    _venderlbl.text=@"Process Applicant";
-    [self.animatedview addSubview:_venderlbl];
-    _venderlbl.hidden=YES;
-    UITapGestureRecognizer *tap= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toVender)];
-    [self.animatedview addGestureRecognizer:tap];
-    
-    [cell addSubview:_animatedview];
 
-    NSLog(@"I Clicked a button %d",sender.tag);
-    _animatedview.hidden=NO;
-    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
-        .frame =  CGRectMake(200, 5, 70, 25);} completion:nil];
-    
-    _venderlbl.hidden=NO;
-    if (reqmdl.inhouse==1) {
-        _venderlbl.enabled=NO;
-        _animatedview.userInteractionEnabled=NO;
-    
-    }
-
-    }
--(void)toVender
-{
-
-    basicreqmdl*reqmdl=(basicreqmdl *)[_allrequirementarray objectAtIndex:btnindex];
-    NSLog(@"%d",reqmdl.eid);
-    if(!_venderVCtrl)
-    {
-        _venderVCtrl=[[venderViewController alloc]initWithNibName:@"venderViewController" bundle:nil];
-    }
-    _venderVCtrl.delegate=self;
-    _venderVCtrl.itemid=reqmdl.eid;
-    _venderVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
-    [self presentViewController:_venderVCtrl animated:YES completion:NULL];
-}
+//-(void)aMethod:(UIButton*)sender
+//{
+//    _venderlbl.hidden=YES;
+//    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
+//        .frame =  CGRectMake(200, 5, 0, 0);} completion:nil];
+//    
+//    _animatedview.hidden=YES;
+//    basicreqmdl*reqmdl=(basicreqmdl *)[_allrequirementarray objectAtIndex:sender.tag];
+//    
+//    button = (UIButton *)sender;
+//    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+//    CGPoint center= button.center;
+//    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.basicreqtable];
+//    NSIndexPath *textFieldIndexPath = [self.basicreqtable indexPathForRowAtPoint:rootViewPoint];
+//    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+//    btnindex=textFieldIndexPath.row;
+//
+//    //create uiview
+//    _animatedview=[[UIView alloc]initWithFrame:CGRectMake(200, 5, 0, 25)];
+//    _animatedview.backgroundColor=[UIColor colorWithRed:110.0/255.0f green:123.0/255.0f blue:139.0/255.0f alpha:1.0f];
+//    _venderlbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
+//    _venderlbl.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
+//    _venderlbl.textColor=[UIColor blackColor];
+//    _venderlbl.text=@"Process Applicant";
+//    [self.animatedview addSubview:_venderlbl];
+//    _venderlbl.hidden=YES;
+//    UITapGestureRecognizer *tap= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toVender)];
+//    [self.animatedview addGestureRecognizer:tap];
+//    
+//    [cell addSubview:_animatedview];
+//
+//    NSLog(@"I Clicked a button %d",sender.tag);
+//    _animatedview.hidden=NO;
+//    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
+//        .frame =  CGRectMake(200, 5, 70, 25);} completion:nil];
+//    
+//    _venderlbl.hidden=NO;
+//    if (reqmdl.inhouse==1) {
+//        _venderlbl.enabled=NO;
+//        _animatedview.userInteractionEnabled=NO;
+//    
+//    }
+//
+//    }
+//-(void)toVender
+//{
+//
+//    basicreqmdl*reqmdl=(basicreqmdl *)[_allrequirementarray objectAtIndex:btnindex];
+//    NSLog(@"%d",reqmdl.eid);
+//    if(!_venderVCtrl)
+//    {
+//        _venderVCtrl=[[venderViewController alloc]initWithNibName:@"venderViewController" bundle:nil];
+//    }
+//    _venderVCtrl.delegate=self;
+//    _venderVCtrl.itemid=reqmdl.eid;
+//    _venderVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+//    [self presentViewController:_venderVCtrl animated:YES completion:NULL];
+//}
 
 #pragma mark - Table View delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     if (tableView==_popOverTableView) {
+        basicreqmdl*reqmdl=(basicreqmdl *)[_allrequirementarray objectAtIndex:btnindex];
+
         switch (poptype) {
             case 1:
                 [_jobbtn setTitle:[_joblistarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
@@ -596,6 +614,29 @@
             case 3:
                 [_typebtn setTitle:[_typelistarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
                 
+                
+                break;
+            case 4:
+                NSLog(@"%dre",reqmdl.inhouse);
+                if (reqmdl.inhouse==1) {
+                    _popOverTableView.userInteractionEnabled=NO;
+                   
+                    
+                }
+                else if(reqmdl.inhouse==0)
+                {
+                    _popOverTableView.userInteractionEnabled=YES;
+                
+
+                                    NSLog(@"%d",reqmdl.eid);
+                
+                        _venderVCtrl=[[venderViewController alloc]initWithNibName:@"venderViewController" bundle:nil];
+                
+                    _venderVCtrl.delegate=self;
+                    _venderVCtrl.itemid=reqmdl.eid;
+                   _venderVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+                   [self presentViewController:_venderVCtrl animated:YES completion:NULL];
+                }
                 
                 break;
             default:
@@ -675,6 +716,13 @@
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Item Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
+    else if ([_codetextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Code is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+
     
    else if ([_typebtn.titleLabel.text isEqualToString:@"Select"]||[_typebtn.titleLabel.text isEqualToString:@""])
     {
@@ -699,6 +747,12 @@
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Item Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+        }
+        else if ([_codetextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Code is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+
         }
         
       else if ([_typebtn.titleLabel.text isEqualToString:@"Select"]||[_typebtn.titleLabel.text isEqualToString:@""])
@@ -1059,6 +1113,39 @@
     
 
 }
+-(IBAction)selectdisclosure:(id)sender
+{
+    poptype=4;
+    UIViewController* popoverContent = [[UIViewController alloc]init];
+    UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 130, 43)];
+    // popoverView.backgroundColor = [UIColor whiteColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 130, 43)];
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 40;
+    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+    //_popovertableview.separatorColor=[UIColor blackColor];
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(130, 43);
+    
+    button = (UIButton *)sender;
+    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.basicreqtable];
+    NSIndexPath *textFieldIndexPath = [self.basicreqtable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
+    
+    //UITableView *table = (UITableView *)[cell superview];
+    self.popOverController = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
+    [self.popOverController presentPopoverFromRect:_vendorbtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    
+    
+    //[_popovertableview reloadData];
+}
+
+
 
 #pragma mark- WebService
 -(void)SelectAllRequirements
