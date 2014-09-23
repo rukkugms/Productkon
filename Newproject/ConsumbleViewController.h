@@ -11,6 +11,9 @@
 #import "Validation.h"
 #import "Rightscheck.h"
 #import "RSTViewController.h"
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+#import "Base64.h"
 @interface ConsumbleViewController : UIViewController<UITextFieldDelegate>
 {
     BOOL   recordResults;
@@ -20,9 +23,20 @@
     UIButton *button;
     NSInteger webtype,checksub,moduleid,saftycheck,createsub,createsfty;
     NSString *msgstrg;
-    NSString*skill;
+    NSString*skill,*consumblecode;
+    
     
 }
+
+/*cameraAction*/
+@property (nonatomic) BOOL newMedia;
+@property(strong,nonatomic)NSData*basedata;
+@property(strong,nonatomic)NSString*encodedString;
+@property(strong,nonatomic)NSString*picturelocation;
+@property(strong,nonatomic)NSString*uplodpiclctn;
+@property(strong,nonatomic)NSString*imgstring;
+
+
 @property(strong,nonatomic)NSMutableDictionary *skilldict;
 @property(strong,nonatomic)NSMutableDictionary *revskilldict;
 
@@ -73,6 +87,7 @@
 - (IBAction)updatebtn:(id)sender;
 - (IBAction)cancelbtn:(id)sender;
 - (IBAction)deletebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIImageView *brimgview;
 
 
 -(IBAction)closeconsume:(id)sender;
@@ -90,5 +105,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *checksaftybtn;
 
 - (IBAction)checksfty:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UIImageView *imageview;
+
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activitybtn;
 
 @end

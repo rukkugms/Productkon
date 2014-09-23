@@ -45,21 +45,133 @@
     searchController.searchResultsDataSource = (id)self;
     searchController.searchResultsDelegate =(id)self;
     searchController.delegate = (id)self;
+    _imageview.layer.borderColor=[UIColor blackColor].CGColor;
+    _imageview.layer.borderWidth=2;
+    _imageview.userInteractionEnabled = YES;
 
+    UITapGestureRecognizer *pgr = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self action:@selector(handlePinch:)];
+    pgr.delegate = (id)self;
+    [_imageview addGestureRecognizer:pgr];
     
 }
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self AllSkills];
-
-   // [self SelectAllConsumables];
+- (void)handlePinch:(UITapGestureRecognizer *)pinchGestureRecognizer
+{
+    //handle pinch...
+    if ([UIImagePickerController isSourceTypeAvailable:
+         UIImagePickerControllerSourceTypeCamera])
+    {
+        
+        
+        UIImagePickerController *imagePicker =
+        [[UIImagePickerController alloc] init];
+        imagePicker.delegate =(id) self;
+        imagePicker.sourceType =
+        UIImagePickerControllerSourceTypeCamera;
+        imagePicker.showsCameraControls=YES;
+        
+        imagePicker.mediaTypes = [NSArray arrayWithObjects:
+                                  (NSString *) kUTTypeImage,
+                                  nil];
+        imagePicker.allowsEditing = NO;
+        // imagePicker.cameraCaptureMode=YES;
+        [self presentViewController:imagePicker animated:YES completion:nil];
+        _newMedia = YES;
+    }
 }
+#pragma mark-ImagePicker
+-(void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    // [self.popoverController dismissPopoverAnimated:true];
+    NSString *mediaType = [info
+                           objectForKey:UIImagePickerControllerMediaType];
+    
+    
+    
+    
+    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
+        UIImage *image = [info
+                          objectForKey:UIImagePickerControllerOriginalImage];
+        NSLog(@"dict%@",info);
+        switch (image.imageOrientation) {
+            case UIImageOrientationDown:
+            case UIImageOrientationDownMirrored:
+            case UIImageOrientationLeft:
+            case UIImageOrientationLeftMirrored:
+            case UIImageOrientationRight:
+            case UIImageOrientationRightMirrored:
+                image = [UIImage imageWithCGImage:image.CGImage
+                                            scale:image.scale
+                                      orientation:UIImageOrientationUp]; // change this if you need another orientation
+                break;
+            case UIImageOrientationUp:
+            case UIImageOrientationUpMirrored:
+                // The image is already in correct orientation
+                break;
+        }
+        
+        _imageview.image=nil;
+        
+        
+        
+        _imageview.image =image;
+        [self dismissViewControllerAnimated:YES completion:nil];
+        if (_newMedia)
+            UIImageWriteToSavedPhotosAlbum(image,
+                                           self,
+                                           @selector(image:finishedSavingWithError:contextInfo:),
+                                           nil);
+    }
+    
+    
+    
+}
+
+-(void)image:(UIImage *)image
+finishedSavingWithError:(NSError *)error
+ contextInfo:(void *)contextInfo
+{
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Save failed"
+                              message: @"Failed to save image"
+                              delegate: nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    else{
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    }
+}
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+        _activitybtn.hidden=YES;
+    [self AllSkills];
+
+   // [self SelectAllConsumables];
+}
+
 #pragma mark-Popover
 -(void)createpopover{
     UIViewController* popoverContent = [[UIViewController alloc]
@@ -496,7 +608,233 @@
     
 }
 
+-(void)FetchAnyImage{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    _activitybtn.hidden=NO;
+    [_activitybtn startAnimating];
+    //NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxtfld.text];
+    NSString *type=@"Consumable";
+    
+    //Equpmntmdl*eqmdl=(Equpmntmdl *)[_Assetarray objectAtIndex:path];
+    //NSString*filename=eqmdl.PictureLocation;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<FetchAnyImage xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<filename>%@</filename>\n"
+                   "<type1>%@</type1>\n"
+                   "</FetchAnyImage>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_uplodpiclctn,type];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://testUSA.kontract360.com/FetchAnyImage" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)UploadAnyImage{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    NSString *imagename;
+    
+    imagename=[NSString stringWithFormat:@"Photo_%@.jpg",_codetxtfld.text];
+    
+    //NSString *imagename=[NSString stringWithFormat:@"Newimage.jpg"];
+    NSString *type=@"Consumable";
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UploadAnyImage xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<f>%@</f>\n"
+                   "<fileName>%@</fileName>\n"
+                   "<type>%@</type>\n"
+                   "<itemcode>%@</itemcode>\n"
+                   "</UploadAnyImage>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_encodedString,imagename,type,_codetxtfld.text];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://testUSA.kontract360.com/UploadAnyImage" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)Insertanyimage{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    NSString *imagename=[NSString stringWithFormat:@"Photo_%@.jpg",consumblecode];
+    // NSString *imagename=[NSString stringWithFormat:@"Newimage.jpg"];
+    NSString *type=@"Consumable";
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UploadAnyImage xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<f>%@</f>\n"
+                   "<fileName>%@</fileName>\n"
+                   "<type>%@</type>\n"
+                   "<itemcode>%@</itemcode>\n"
+                   "</UploadAnyImage>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_encodedString,imagename,type,consumblecode];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://testUSA.kontract360.com/UploadAnyImage" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
+//-(void)Insertanyimage{
+//    recordResults = FALSE;
+//    NSString *soapMessage;
+//    
+//    NSString *imagename=[NSString stringWithFormat:@"Photo_%@.jpg",thirdpatrycode];
+//    // NSString *imagename=[NSString stringWithFormat:@"Newimage.jpg"];
+//    NSString *type=@"ThirdParty";
+//    
+//    soapMessage = [NSString stringWithFormat:
+//                   
+//                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+//                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+//                   
+//                   
+//                   "<soap:Body>\n"
+//                   
+//                   "<UploadAnyImage xmlns=\"http://testUSA.kontract360.com/\">\n"
+//                   "<f>%@</f>\n"
+//                   "<fileName>%@</fileName>\n"
+//                   "<type>%@</type>\n"
+//                   "<itemcode>%@</itemcode>\n"
+//                   "</UploadAnyImage>\n"
+//                   "</soap:Body>\n"
+//                   "</soap:Envelope>\n",_encodedString,imagename,type,thirdpatrycode];
+//    NSLog(@"soapmsg%@",soapMessage);
+//    
+//    
+//    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+//    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+//    
+//    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+//    
+//    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+//    
+//    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+//    
+//    [theRequest addValue: @"http://testUSA.kontract360.com/UploadAnyImage" forHTTPHeaderField:@"Soapaction"];
+//    
+//    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+//    [theRequest setHTTPMethod:@"POST"];
+//    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+//    
+//    
+//    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+//    
+//    if( theConnection )
+//    {
+//        _webData = [NSMutableData data];
+//    }
+//    else
+//    {
+//        ////NSLog(@"theConnection is NULL");
+//    }
+//    
+//}
+//
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -597,6 +935,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"PictureLocation"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"qtyinstock"])
     {
         
@@ -673,6 +1021,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"Consumablecode"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"result"])
     {
         
@@ -714,6 +1072,15 @@
         
     }
     
+    if([elementName isEqualToString:@"url"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
     
 }
@@ -776,6 +1143,14 @@
         NSLog(@"%@", _Consublemdl.subtype);
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"PictureLocation"])
+    {
+        
+        recordResults = FALSE;
+        _Consublemdl.picturelocation=_soapResults;
+        _soapResults = nil;
+    }
+
     if([elementName isEqualToString:@"qtyinstock"])
     {
         
@@ -814,22 +1189,59 @@
         
         
     }
-    
+    if([elementName isEqualToString:@"Consumablecode"])
+    {
+        
+        recordResults = FALSE;
+        consumblecode=_soapResults;
+          _soapResults = nil;
+    }
+
     if([elementName isEqualToString:@"result"])
     {  recordResults = FALSE;
         
        
+        
+        if ([_soapResults isEqualToString:@"Inserted Successfully"]) {
+            
+            [self Insertanyimage];
+            webtype=0;
+            msgstrg=_soapResults;
+            
+        }
+        if ([_soapResults isEqualToString:@"Updated Successfully"]) {
+            
+            [self UploadAnyImage];
+            webtype=0;
+            msgstrg=_soapResults;
+            
+        }
+        
+        if ([_soapResults isEqualToString:@"Already Exists"]) {
+            
+            msgstrg=_soapResults;
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            _activitybtn.hidden=YES;
+            [_activitybtn stopAnimating];
+            
+        }
+        
         if (webtype==3) {
             
         }
-        else{
+
+        else if ([_soapResults isEqualToString:@"Consumables Picture Updated"]) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            _activitybtn.hidden=YES;
+            [_activitybtn stopAnimating];
             
-         msgstrg=_soapResults;
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-        
+            [self SelectAllConsumables];
         }
-    
+
+
+        
         
         _soapResults = nil;
         
@@ -853,6 +1265,30 @@
         
     }
     
+    if([elementName isEqualToString:@"url"])
+    {
+        recordResults = FALSE;
+        
+        _activitybtn.hidden=YES;
+        [_activitybtn stopAnimating];
+        NSData *data1=[_soapResults base64DecodedData];
+        
+        UIImage *image1=  [[UIImage alloc]initWithData:data1];
+        
+        //[NSData dataWithData:UIImagePNGRepresentation(image.image)];
+        
+        
+        _imageview.image=image1;
+        NSLog(@"img%@",image1);
+        
+        
+        
+        
+        
+        _soapResults = nil;
+        
+        
+    }
 
 }
 
@@ -1021,7 +1457,15 @@
     else
     {
 
-    
+        UIImage *imagename =_imageview.image;
+        // NSData *data = UIImagePNGRepresentation(imagename);
+        
+        NSData *data = UIImageJPEGRepresentation(imagename, 1.0);
+        
+        
+        _encodedString = [data base64EncodedString];
+        NSLog(@"%@",_encodedString);
+
     if (butntype==1) {
         if([_destxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ].length==0)
         {
@@ -1039,6 +1483,9 @@
 
         else
         {
+            _activitybtn.hidden=NO;
+            [_activitybtn startAnimating];
+
         [self InsertConsumables];
         }
         
@@ -1061,6 +1508,8 @@
 
         else
         {
+            _activitybtn.hidden=NO;
+            [_activitybtn startAnimating];
 
         [self UpdateConsumables];
         }
@@ -1157,9 +1606,11 @@
 
     _unitcosttxtfld.text=[NSString stringWithFormat:@"$%@",toolmdl.unitcost];
     _cancelbtn.enabled=NO;
+    _uplodpiclctn=toolmdl.picturelocation;
     _stckinhandtxtfld.text=toolmdl.stckinhand;
     _addView.hidden=NO;
     _navItem.title=@"Edit";
+     [self FetchAnyImage];
     if ([toolmdl.allsubtype isEqualToString:@"true"]) {
         
         [_checksubtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
