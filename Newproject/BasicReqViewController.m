@@ -716,6 +716,13 @@
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Item Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
+    else if ([_codetextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Code is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+
     
    else if ([_typebtn.titleLabel.text isEqualToString:@"Select"]||[_typebtn.titleLabel.text isEqualToString:@""])
     {
@@ -740,6 +747,12 @@
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Item Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+        }
+        else if ([_codetextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Code is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+
         }
         
       else if ([_typebtn.titleLabel.text isEqualToString:@"Select"]||[_typebtn.titleLabel.text isEqualToString:@""])
