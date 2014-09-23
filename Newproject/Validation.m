@@ -19,15 +19,30 @@
     }
 }
 -(BOOL)isNumeric:(NSString *)input{
-    for(int i=0;i<[input length];i++){
-        char c=[input characterAtIndex:i];
-        if((c=='-' && c=='0')||((!(c>='0' && c<='9')) && (!(c=='.'))&&(!(c=='$')))){
-            
+//    for(int i=0;i<[input length];i++){
+//        char c=[input characterAtIndex:i];
+//        if((c=='-' && c=='0')||((!(c>='0' && c<='9'&& c==' ')) && (!(c=='.'))&&(!(c=='$')))){
+//            
+//            return NO;
+//        }
+//        
+//    }
+//    return YES;
+    
+    NSCharacterSet *myCharSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789 "];
+    for (int i = 0; i < [input length]; i++)
+    {
+        unichar c = [input characterAtIndex:i];
+        if (![myCharSet characterIsMember:c])
+        {
             return NO;
         }
-        
     }
+    
     return YES;
+
+    
+    
     
 }
 //-(BOOL)isCharcter:(NSString *)input{
