@@ -78,5 +78,11 @@
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
 
+@property(strong,nonatomic)UIPopoverController *popovercontroller;
+@property(strong,nonatomic)IBOutlet UITableView *popovertableview;
+@property(strong,nonatomic)IBOutlet UIButton *disclosurebtn;
+-(IBAction)selectdisclosure:(id)sender;
+@property(strong,nonatomic)NSMutableArray *disclosurearray;
+
 
 @end

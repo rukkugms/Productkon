@@ -149,5 +149,7 @@
 
 - (IBAction)allcraftbtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *allcraftbtnlbl;
-
+@property(strong,nonatomic)IBOutlet UIButton *vendorbtn;
+-(IBAction)selectdisclosure:(id)sender;
+@property(strong,nonatomic)NSMutableArray *disclosurearray;
 @end

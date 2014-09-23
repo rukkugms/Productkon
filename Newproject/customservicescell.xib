@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ServiceViewController">
             <connections>
                 <outlet property="abbrvtnlabel" destination="k32-Dv-x0b" id="ayS-Z5-PAi"/>
+                <outlet property="disclosurebtn" destination="Gsg-jV-InK" id="NBh-c6-NLa"/>
                 <outlet property="servicecell" destination="oUM-NJ-QTA" id="o2o-ew-tnd"/>
                 <outlet property="servicelabel" destination="RKL-U1-R9M" id="9M5-zX-BtV"/>
             </connections>
@@ -40,7 +41,7 @@
                         </connections>
                     </button>
                     <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="k32-Dv-x0b">
-                        <rect key="frame" x="364" y="15" width="112" height="21"/>
+                        <rect key="frame" x="364" y="14" width="112" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                         <nil key="highlightedColor"/>
@@ -51,15 +52,26 @@
                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <view contentMode="scaleToFill" id="Byf-fY-f7L">
-                        <rect key="frame" x="437" y="-3" width="1" height="50"/>
+                        <rect key="frame" x="405" y="-3" width="1" height="50"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Gsg-jV-InK">
+                        <rect key="frame" x="328" y="-1" width="69" height="45"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" image="carat.png">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="selectdisclosure:" destination="-1" eventType="touchUpInside" id="id7-6H-fbS"/>
+                        </connections>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
         </tableViewCell>
     </objects>
     <resources>
         <image name="appbar.edit.png" width="52" height="52"/>
+        <image name="carat.png" width="11" height="11"/>
     </resources>
 </document>
