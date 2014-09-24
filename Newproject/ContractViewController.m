@@ -308,6 +308,7 @@
 #pragma mark-Webservices
 -(void)SelectContractManagement
 {
+    _searchbar.text=@"";
     recordResults = FALSE;
     NSString *soapMessage;
     

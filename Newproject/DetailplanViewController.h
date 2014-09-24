@@ -29,6 +29,7 @@
     NSInteger sec;
     NSInteger third;
     NSInteger searchtype;
+   
 }
 @property(strong,nonatomic)IBOutlet UINavigationItem *navabar;
 
@@ -41,7 +42,7 @@
 @property (strong, nonatomic) IBOutlet UISearchBar * searchbar;
 @property(strong,nonatomic)NSString *searchstring;
 @property (strong, nonatomic) IBOutlet UISearchBar * searchbar1;
-
+@property (readwrite)NSInteger skillsid;
 /*IBActions*/
 -(IBAction)closeplan:(id)sender;
 - (IBAction)Scaffoldslection:(id)sender;

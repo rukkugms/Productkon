@@ -53,6 +53,7 @@
     searchController.searchResultsDataSource = (id)self;
     searchController.searchResultsDelegate =(id)self;
     searchController.delegate = (id)self;
+    _popoverdisarray=[[NSMutableArray alloc]initWithObjects:@"verification",@"Send To Employee", nil];
     
 
 }

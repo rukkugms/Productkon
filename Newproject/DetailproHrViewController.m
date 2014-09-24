@@ -1080,7 +1080,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
         
     }
     if([elementName isEqualToString:@"ApplicantrequirementselectResponse"])
-    {
+    { newwebtype=4;
         _requirmntarray=[[NSMutableArray alloc]init];
         if(!_soapResults)
         {
