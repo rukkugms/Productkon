@@ -103,6 +103,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    _sarry=[[NSMutableArray alloc]initWithObjects:@"Process Applicant", nil];
    // [self ListAllApplicants];
     [self AllSkills];
 
@@ -196,7 +197,7 @@
         NSLog(@"sectn%@",empdetls2.Inproceesstatus);
         if ([empdetls2.Inproceesstatus isEqualToString:@"true"]) {
             
-            aSection.sectionHeaderView.animatedview.userInteractionEnabled=NO;
+           // aSection.sectionHeaderView.animatedview.userInteractionEnabled=NO;
             CAGradientLayer *gradient = [CAGradientLayer layer];
             gradient.frame =  aSection.sectionHeaderView.bounds;
             gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:255.0/255.0f green:174.0/255.0f blue:185.0/255.0f alpha:1.0f] CGColor], (id)[[UIColor whiteColor] CGColor], nil];
@@ -204,7 +205,7 @@
 
         }
         else{
-            aSection.sectionHeaderView.animatedview.userInteractionEnabled=YES;
+           // aSection.sectionHeaderView.animatedview.userInteractionEnabled=YES;
             CAGradientLayer *gradient = [CAGradientLayer layer];
             gradient.frame =  aSection.sectionHeaderView.bounds;
             gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f] CGColor],(id)[[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f] CGColor], (id)[[UIColor whiteColor] CGColor], nil];
@@ -236,6 +237,7 @@
     
     // Return the number of sections.
      if (tableView==_popOverTableView) {
+         
      }
      else{
     return [sectionArray count];
@@ -246,7 +248,16 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView==_popOverTableView) {
+        if (poptype==1) {
+            
+        
         return [_JobsiteArray count];
+        }
+        else
+            
+        {
+            return [_sarry count];
+        }
     }
     else{
         Section *aSection=[sectionArray objectAtIndex:section];
@@ -341,10 +352,20 @@
                 }
 
     if (tableView==_popOverTableView) {
+        if (poptype==1) {
+            
         
         cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12.0f];
 
+       
+
         cell.textLabel.text=[_JobsiteArray objectAtIndex:indexPath.row];
+        }
+        else
+        {
+             cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12.0f];
+            cell.textLabel.text=[_sarry objectAtIndex:indexPath.row];
+        }
     }
     return cell;
 }
@@ -353,12 +374,31 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    
+        NSLog(@"sectn%d",indexPath.section);
     if (tableView==_popOverTableView) {
-        [_jobsitebtnlbl setTitle:[_JobsiteArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+        if (poptype==1) {
+             [_jobsitebtnlbl setTitle:[_JobsiteArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+        }
+        else
+        {
+            Empdetails*empdetls2=(Empdetails *)[_empnameArray objectAtIndex:selectedsectn];
+
+            NSLog(@"sectn%@",empdetls2.Inproceesstatus);
+            if ([empdetls2.Inproceesstatus isEqualToString:@"true"]) {
+                _popOverTableView.userInteractionEnabled=NO;
+                _applicantprocessview.hidden=YES;
+            }else
+            {
+                _popOverTableView.userInteractionEnabled=YES;
+                _applicantprocessview.hidden=NO;
+
+            }
+        }
+       
         
        
             }
+    [self.popOverController dismissPopoverAnimated:YES];
     
 }
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -462,10 +502,12 @@
 }
 
 -(void)sectionHeaderView:(SectionHeaderView *)sectionHeaderView viewopened:(NSInteger)viewopened{
-    
+    poptype=2;
     //Section *aSection = [self.sectionArray objectAtIndex:viewopened];
-    
+    self.openviewIndex=viewopened;
     selectedsectn=viewopened;
+    NSLog(@"%d",viewopened);
+    NSLog(@"%d",self.openviewIndex);
     NSInteger previousOpenviewIndex = self.openviewIndex;
     
     if (previousOpenviewIndex != NSNotFound) {
@@ -474,12 +516,31 @@
         [previousOpenSection.sectionHeaderView showviewWithUserAction:NO];
         NSInteger countOfRowsToDelete = [previousOpenSection.sectionRows count];
         for (NSInteger i = 0; i < countOfRowsToDelete; i++) {
-            previousOpenSection.sectionHeaderView.proecsslbl.hidden=YES;
-            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{   previousOpenSection.sectionHeaderView.animatedview
-                .frame =  CGRectMake(250, 5, 0, 0);} completion:nil];
+//            previousOpenSection.sectionHeaderView.proecsslbl.hidden=YES;
+//            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{   previousOpenSection.sectionHeaderView.animatedview
+//                .frame =  CGRectMake(250, 5, 0, 0);} completion:nil];
+//            
+//            previousOpenSection.sectionHeaderView.animatedview.hidden=YES;
+//            rectview=previousOpenSection.sectionHeaderView;
             
-            previousOpenSection.sectionHeaderView.animatedview.hidden=YES;
-
+            UIViewController* popoverContent = [[UIViewController alloc]init];
+            UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 130, 43)];
+            // popoverView.backgroundColor = [UIColor whiteColor];
+            _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 130, 43)];
+            _popOverTableView.delegate=(id)self;
+            _popOverTableView.dataSource=(id)self;
+            _popOverTableView.rowHeight= 25;
+            _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+            //_popovertableview.separatorColor=[UIColor blackColor];
+            [popoverView addSubview:_popOverTableView];
+            popoverContent.view = popoverView;
+            popoverContent.contentSizeForViewInPopover = CGSizeMake(130, 43);
+            // NSLog(@"%@",s);
+            
+            
+            //UITableView *table = (UITableView *)[cell superview];
+            self.popOverController = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
+            [self.popOverController presentPopoverFromRect:sectionHeaderView.disclosureButton.frame inView:sectionHeaderView permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
           
         }
         
@@ -1578,6 +1639,7 @@
 
 
 -(void)jobsitepopover{
+    poptype=1;
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
     
@@ -1620,6 +1682,8 @@
     
 }
 -(void)hideview:(NSString *)s{
+   
+
     _applicantprocessview.hidden=NO;
 }
 
@@ -1690,6 +1754,28 @@ chektouch++;
 
 - (IBAction)clsehrbtn:(id)sender {
      [self dismissViewControllerAnimated:YES completion:NULL];
+}
+-(void)popover:(CGRect *)s :(SectionHeaderView *)v
+{
+    Section *aSection;
+    UIViewController* popoverContent = [[UIViewController alloc]init];
+    UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 130, 43)];
+    // popoverView.backgroundColor = [UIColor whiteColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 130, 43)];
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 40;
+    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+    //_popovertableview.separatorColor=[UIColor blackColor];
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(130, 43);
+   // NSLog(@"%@",s);
+  
+   
+    //UITableView *table = (UITableView *)[cell superview];
+    self.popOverController = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
+    [self.popOverController presentPopoverFromRect:aSection.sectionHeaderView.disclosureButton.frame inView:v permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
 }
 
 

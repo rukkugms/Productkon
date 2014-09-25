@@ -68,22 +68,22 @@
             [button addTarget:self action:@selector(showaction) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
         _disclosureButton = button;
-        
+        CGRect frame=button.frame;
         
         
         //create uiview
-        _animatedview=[[UIView alloc]initWithFrame:CGRectMake(250, 5, 0, 25)];
-        _animatedview.backgroundColor=[UIColor colorWithRed:99.0/255.0f green:184.0/255.0f blue:255.0/255.0f alpha:1.0f];
-        proecsslbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
-        proecsslbl.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
-        proecsslbl.textColor=[UIColor blackColor];
-        proecsslbl.text=@"Process Applicant";
-        [self.animatedview addSubview:proecsslbl];
-        proecsslbl.hidden=YES;
-        UITapGestureRecognizer *tap= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(nextpage)];
-        [self.animatedview addGestureRecognizer:tap];
-
-         [self addSubview:_animatedview];
+//        _animatedview=[[UIView alloc]initWithFrame:CGRectMake(250, 5, 0, 25)];
+//        _animatedview.backgroundColor=[UIColor colorWithRed:99.0/255.0f green:184.0/255.0f blue:255.0/255.0f alpha:1.0f];
+//        proecsslbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
+//        proecsslbl.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
+//        proecsslbl.textColor=[UIColor blackColor];
+//        proecsslbl.text=@"Process Applicant";
+//        [self.animatedview addSubview:proecsslbl];
+//        proecsslbl.hidden=YES;
+//        UITapGestureRecognizer *tap= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(nextpage)];
+//        [self.animatedview addGestureRecognizer:tap];
+//
+//         [self addSubview:_animatedview];
        
 //       //create Namelabel
 //        UILabel *namelabel = [[UILabel alloc] initWithFrame:CGRectMake(220, 0.0, 210, 45)];
@@ -167,26 +167,39 @@
    
     if (userAction) {
         if (self.disclosureButton.selected) {
-            _animatedview.hidden=NO;
-            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
-                .frame =  CGRectMake(250, 5, 100, 25);} completion:nil];
-            [self.delegate sectionHeaderView:self viewopened:self.section];
-            proecsslbl.hidden=NO;
+//            _animatedview.hidden=NO;
+//            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
+//                .frame =  CGRectMake(250, 5, 100, 25);} completion:nil];
+           [self.delegate sectionHeaderView:self viewopened:self.section];
+//            proecsslbl.hidden=NO;
+//            
+//            SectionHeaderView *as=(SectionHeaderView *)[[_disclosureButton superview] superview];
+//            //CGPoint rootViewPoint = [_disclosureButton.superview convertPoint:center toView:self];
+//            
+//            CGPoint center=as.center;
+//            CGRect frame=as.frame;
+//            SectionHeaderView *section = (SectionHeaderView *)[[_disclosureButton superview] superview];
+//
+//            [self.delegate popover:&frame :section];
             
             
 
                 }
         else{
-            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
-                .frame =  CGRectMake(250, 5, 0, 25);} completion:nil];
-            [self.delegate sectionHeaderView:self viewclosed:self.section];
-              proecsslbl.hidden=YES;
+//            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
+//                .frame =  CGRectMake(250, 5, 0, 25);} completion:nil];
+//            [self.delegate sectionHeaderView:self viewclosed:self.section];
+//              proecsslbl.hidden=YES;
 
         }
 
     
 }
 }
+//-(void)popover:(NSString *)s
+//{
+//    
+//}
 
 
 

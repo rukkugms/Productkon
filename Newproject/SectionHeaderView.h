@@ -37,6 +37,6 @@
 -(void)hideview:(NSString *)s;
 -(void)sectionHeaderView:(SectionHeaderView *)sectionHeaderView viewopened:(NSInteger)section;
 -(void)sectionHeaderView:(SectionHeaderView *)sectionHeaderView viewclosed:(NSInteger)section;
-
+-(void)popover:(CGRect *)s :(SectionHeaderView *)v;
 @end
 
