@@ -39,6 +39,7 @@
 /*variables*/
 @property(strong,nonatomic)Generalmodel *generalmdl;
 @property(readwrite) NSInteger  optionidentfr;
+@property(readwrite) NSInteger skillsid;
 @property(strong,nonatomic)NSString *genralid;
 @property(strong,nonatomic)NSString *Planid;
 @property(strong,nonatomic)NSString *insertedgeneralid;

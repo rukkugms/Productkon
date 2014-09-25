@@ -23,7 +23,7 @@
 @property(strong,nonatomic)UIPopoverController *popOverController;
 @property(strong,nonatomic)UITableView *popOverTableView;
 
-
+@property(strong,nonatomic)NSMutableArray *popoverdisarray;
 
 
 @property(readwrite)NSInteger Applicantid;

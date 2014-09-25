@@ -1766,14 +1766,14 @@ else
 -(IBAction)savecomment:(id)sender
 {    butnidtfr=3;
     
-    if (_cmttxtbox.text.length==0) {
+    if ([_cmttxtbox.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Comment is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         _savebtnlbl.enabled=YES;
     }
     else
     {
-_savebtnlbl.enabled=NO;
+ _savebtnlbl.enabled=NO;
     [self saveComment];
     }
 }

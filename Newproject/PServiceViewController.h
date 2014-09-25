@@ -14,6 +14,7 @@
     BOOL recordResults;
     NSString*servicestrg;
     UIButton *button;
+    NSInteger skillid;
 }
 @property (strong, nonatomic) IBOutlet UITableView *servicetable;
 @property (strong, nonatomic) IBOutlet UIView *titleview;
