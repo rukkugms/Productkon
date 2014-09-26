@@ -8,11 +8,13 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SerialViewController">
             <connections>
                 <outlet property="addview" destination="T71-0V-DGM" id="iOj-EV-pmu"/>
+                <outlet property="cancelbtn" destination="TGL-fZ-hwM" id="mdv-aF-B6X"/>
                 <outlet property="jobtasktextfld" destination="Rk0-sn-W6x" id="ErB-1c-8Rg"/>
                 <outlet property="navbar" destination="GxZ-Ir-9rg" id="7lv-kC-uYR"/>
                 <outlet property="seqnotextfld" destination="kE9-HZ-Nv5" id="se2-9b-V4R"/>
                 <outlet property="sequencetable" destination="ebW-SG-kqp" id="nMe-PB-0tj"/>
                 <outlet property="titleview" destination="3bZ-Cu-ka0" id="vcj-bh-9K0"/>
+                <outlet property="updatebtn" destination="uu5-xK-vfw" id="7qQ-d9-6t1"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>
@@ -138,7 +140,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uu5-xK-vfw">
-                            <rect key="frame" x="142" y="194" width="59" height="30"/>
+                            <rect key="frame" x="131" y="192" width="59" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                             <state key="normal" title="Update">
@@ -158,7 +160,7 @@
                             </connections>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGL-fZ-hwM">
-                            <rect key="frame" x="215" y="194" width="61" height="30"/>
+                            <rect key="frame" x="235" y="192" width="61" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                             <state key="normal" title="Cancel">

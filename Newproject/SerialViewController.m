@@ -534,10 +534,14 @@
 
 - (IBAction)addclsebtn:(id)sender {
     _addview.hidden=YES;
+    _updatebtn.enabled=YES;
+      _cancelbtn.enabled=NO;
       _sequencetable.userInteractionEnabled=YES;
 }
 
 - (IBAction)editbtn:(id)sender {
+    _updatebtn.enabled=YES;
+    _cancelbtn.enabled=NO;
     //[super setEditing:NO animated:NO];
     //[_sequencetable setEditing:NO animated:NO];
    // [_sequencetable reloadData];
@@ -560,6 +564,8 @@
 }
 -(IBAction)addsequence:(id)sender
 {
+    _updatebtn.enabled=YES;
+  _cancelbtn.enabled=YES;
     //[super setEditing:NO animated:NO];
   //  [_sequencetable setEditing:NO animated:NO];
       _sequencetable.userInteractionEnabled=NO;
@@ -572,6 +578,8 @@
     
 }
 - (IBAction)clsebtn:(id)sender {
+    _updatebtn.enabled=YES;
+
     _seqnotextfld.text=@"";
     _jobtasktextfld.text=@"";
 _addview.hidden=YES;
@@ -614,11 +622,13 @@ _addview.hidden=YES;
     
     if (optionidentifier==1)
     {
+        _updatebtn.enabled=NO;
         [self JobSequenceInsert];
     }
     
     else if (optionidentifier==2)
     {
+        _updatebtn.enabled=NO;
         [self JobSequenceUpdate];
         
     }
@@ -653,11 +663,12 @@ _addview.hidden=YES;
             if (optionidentifier==1) {
                 
             
-            
+                _updatebtn.enabled=YES;
+
             
             _seqnotextfld.text=@"";
             _jobtasktextfld.text=@"";
-                 _sequencetable.userInteractionEnabled=YES;
+            _sequencetable.userInteractionEnabled=YES;
             }
             
             else if(optionidentifier==2)
@@ -666,6 +677,8 @@ _addview.hidden=YES;
                 _jobtasktextfld.text=@"";
                 _addview.hidden=YES;
                   _sequencetable.userInteractionEnabled=YES;
+                _updatebtn.enabled=YES;
+
             }
             
         }
