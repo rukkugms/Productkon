@@ -528,6 +528,7 @@
         [alert show];
         [_qustnbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
         _answertxtfld.text=@"";
+        _savebtnlbl.enabled=YES;
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"Column1"])
@@ -620,6 +621,7 @@
     }
     else{
    
+        _savebtnlbl.enabled=NO;
      [self QuestioncountSelect];
     }
 }
