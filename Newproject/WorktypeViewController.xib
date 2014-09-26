@@ -12,6 +12,7 @@
                 <outlet property="titleview" destination="vSW-vh-qEz" id="x5B-VQ-NRD"/>
                 <outlet property="typetable" destination="8pW-wA-oGW" id="SoI-aZ-ozU"/>
                 <outlet property="typetxtfld" destination="gEu-ca-JWv" id="Wzh-v9-Wx4"/>
+                <outlet property="updatebtn" destination="Pne-X5-ipS" id="i5n-es-lGR"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>

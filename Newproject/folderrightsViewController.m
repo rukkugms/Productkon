@@ -137,6 +137,7 @@
 }
 -(IBAction)editfolderrights:(id)sender
 {
+    _updatebtn.enabled=YES;
     _editview.hidden=NO;
     button = (UIButton *)sender;
     CGPoint center= button.center;
@@ -176,6 +177,7 @@
 -(IBAction)closeeditview:(id)sender
 {
     _editview.hidden=YES;
+    _updatebtn.enabled=YES;
 }
 -(IBAction)createaction:(id)sender
 { createstring=@"create";
@@ -236,7 +238,7 @@
     }
     else
     {
-
+        _updatebtn.enabled=NO;
     [self UpdateFolderRights];
     }
     
@@ -670,6 +672,7 @@
                 [_editdwnldcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
                 [_editupldcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
                 _editview.hidden=YES;
+                _updatebtn.enabled=YES;
                 
                 
             }

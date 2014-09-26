@@ -15,6 +15,7 @@
                 <outlet property="headrtxtfld" destination="l1i-hN-VuN" id="Q8O-bD-sQ8"/>
                 <outlet property="navbar" destination="OTz-Z8-I2P" id="Cgf-mp-Zjj"/>
                 <outlet property="titileview" destination="9vs-lC-kXn" id="x1i-vg-dlV"/>
+                <outlet property="updatebtn" destination="IrR-XJ-E70" id="VWp-qw-2Bi"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>

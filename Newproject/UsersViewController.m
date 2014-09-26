@@ -1068,6 +1068,7 @@
         [_type1btnlbl setTitle:@"Select" forState:UIControlStateNormal];
         [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
         _searchbar.text=@"";
+        _updatebtn.enabled=YES;
     }
         else if (optionIdentifier==2)
         {
@@ -1078,6 +1079,7 @@
             _addview.hidden=YES;
             _usertable.userInteractionEnabled=YES;
             _searchbar.text=@"";
+            _updatebtn.enabled=YES;
         }
 
     }
@@ -1102,13 +1104,13 @@
 
 #pragma mark-actios
 -(IBAction)closeuser:(id)sender
-{
+{_updatebtn.enabled=YES;
      _addview.hidden=YES;
     _usertable.userInteractionEnabled=YES;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)adduserview:(id)sender
-{
+{_updatebtn.enabled=YES;
      _usertable.userInteractionEnabled=NO;
     optionIdentifier=1;
     _resultdisplaylabel.hidden=YES;
@@ -1125,7 +1127,7 @@
 }
 -(IBAction)edituserview:(id)sender
 {
-   
+   _updatebtn.enabled=YES;
     _usertable.userInteractionEnabled=NO;
     optionIdentifier=2;
     _addview.hidden=NO;
@@ -1187,6 +1189,7 @@
 }
 -(IBAction)closeuserview:(id)sender
 {
+    _updatebtn.enabled=YES;
     _addview.hidden=YES;
     _usertable.userInteractionEnabled=YES;
 //    [_type2btnlbl setTitle:@"" forState:UIControlStateNormal];
@@ -1313,6 +1316,7 @@
         
         else
         {
+            _updatebtn.enabled=NO;
 
         [self InsertUsers];
        
@@ -1356,6 +1360,7 @@
         
         else
         {
+            _updatebtn.enabled=NO;
 
         [self UpdateUsers];
         

@@ -36,6 +36,7 @@
 @property(strong,nonatomic)NSMutableString *soapResults;
 @property(strong,nonatomic)NSMutableData *webData;
 @property (strong, nonatomic) IBOutlet UIButton *cancelbtn;
+@property (strong, nonatomic) IBOutlet UIButton *updatebtn;
 
 
 /*IBaction*/

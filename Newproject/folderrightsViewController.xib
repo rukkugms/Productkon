@@ -14,6 +14,7 @@
                 <outlet property="editview" destination="ATe-VL-Ncb" id="iaN-3q-HuU"/>
                 <outlet property="folderrighttable" destination="yvH-0o-rWe" id="RHq-SF-5ho"/>
                 <outlet property="titleview" destination="ILk-yI-fES" id="glX-6y-L2m"/>
+                <outlet property="updatebtn" destination="gC1-DM-UnA" id="aX6-c8-zuN"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>

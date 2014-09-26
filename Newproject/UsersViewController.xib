@@ -16,6 +16,7 @@
                 <outlet property="titleview" destination="Yz6-Dz-zHJ" id="gAG-L0-tDG"/>
                 <outlet property="type1btnlbl" destination="WCj-jt-ffQ" id="xsA-jg-ax6"/>
                 <outlet property="type2btnlbl" destination="C0T-so-9wv" id="zag-TB-2PD"/>
+                <outlet property="updatebtn" destination="uYF-GG-iZH" id="aoD-IA-vhS"/>
                 <outlet property="usertable" destination="nqJ-ud-EOE" id="kbV-Zr-rO1"/>
                 <outlet property="usrnametextfld" destination="1K7-L4-u4g" id="oaP-fz-UrB"/>
                 <outlet property="view" destination="2" id="3"/>
