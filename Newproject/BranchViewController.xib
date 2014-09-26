@@ -17,6 +17,7 @@
                 <outlet property="navbar" destination="Bns-FW-wGL" id="5xj-AC-3a4"/>
                 <outlet property="phonetextfield" destination="Voe-0Q-a3c" id="vMw-NL-bdQ"/>
                 <outlet property="tabletitleview" destination="HcX-a8-YDb" id="ezp-KS-q9W"/>
+                <outlet property="updatebtn" destination="BIF-zS-LnL" id="2xg-lL-dw4"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>

@@ -14,6 +14,7 @@
                 <outlet property="servicesTable" destination="LTX-1G-6o2" id="GU4-Xj-aZt"/>
                 <outlet property="servicetextfld" destination="FL8-EB-abT" id="mda-c5-aYn"/>
                 <outlet property="titleview" destination="sXb-kP-SIL" id="m6W-5M-Nol"/>
+                <outlet property="updatebtn" destination="IST-cD-lKF" id="XbO-9u-Apt"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>

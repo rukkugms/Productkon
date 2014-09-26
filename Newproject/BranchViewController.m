@@ -62,7 +62,7 @@
 }
 #pragma mark-Actions
 - (IBAction)Closebranchpage:(id)sender
-{
+{ _updatebtn.enabled=YES;
     _branchview.hidden=YES;
     _branchtable.userInteractionEnabled=YES;
     [self dismissViewControllerAnimated:YES completion:NULL];
@@ -70,7 +70,7 @@
 -(IBAction)addbranchaction:(id)sender
 {
    // [super setEditing:NO animated:NO];
-    
+     _updatebtn.enabled=YES;
     _branchtable.userInteractionEnabled=NO;
   //  [_branchtable reloadData];
     _branchview.hidden=NO;
@@ -119,7 +119,7 @@
 -(IBAction)editbranchaction:(id)sender
 {
 //    [super setEditing:NO animated:NO];
- 
+  _updatebtn.enabled=YES;
     _branchtable.userInteractionEnabled=NO;
     //[_branchtable reloadData];
     _branchview.hidden=NO;
@@ -145,7 +145,8 @@
 }
 
 -(IBAction)closebranch:(id)sender
-{
+{   _updatebtn.enabled=YES;
+
     _branchview.hidden=YES;
     _branchtable.userInteractionEnabled=YES;
 }
@@ -196,14 +197,14 @@ else
             }
             else if (optionidentifier==1) {
                 
-                
+                 _updatebtn.enabled=NO;
                 [self BranchInsert];
                 
                 
             }
             else if (optionidentifier==2) {
                 
-                
+                 _updatebtn.enabled=NO;
                 [self BranchUpdate];
                 
                 
@@ -218,7 +219,7 @@ else
     
        else if (optionidentifier==1) {
 
-          
+           _updatebtn.enabled=NO;
         [self BranchInsert];
            
            
@@ -228,6 +229,7 @@ else
     {
         
         
+        _updatebtn.enabled=NO;
 
         
        [self BranchUpdate];
@@ -1141,7 +1143,7 @@ if(textField==_emailtextfield){
         if (buttonIndex==0) {
             
             if (optionidentifier==1) {
-           
+            _updatebtn.enabled=YES;
             _branchnametextfld.text=@"";
             _addresstextview.text=@"";
             _phonetextfield.text=@"";
@@ -1151,6 +1153,7 @@ if(textField==_emailtextfield){
             }
             else if(optionidentifier==2)
             {
+                 _updatebtn.enabled=YES;
                 _branchnametextfld.text=@"";
                 _addresstextview.text=@"";
                 _phonetextfield.text=@"";

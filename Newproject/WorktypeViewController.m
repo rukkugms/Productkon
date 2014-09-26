@@ -36,7 +36,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-   
+   _updatebtn.enabled=YES;
     [self WorkTypeSelect];
 }
 
@@ -474,10 +474,11 @@
         if (buttonIndex==0) {
             if (optionidentifier==1) {
                 _typetxtfld.text=@"";
+                _updatebtn.enabled=YES;
             }
             else if(optionidentifier==2)
             {
-            
+            _updatebtn.enabled=YES;
             
             _typetxtfld.text=@"";
                 _addview.hidden=YES;
@@ -505,6 +506,7 @@
 #pragma mark-Actions
 
 - (IBAction)addbtn:(id)sender {
+    _updatebtn.enabled=YES;
    // [_typetable setEditing:NO animated:NO];
     _typetable.userInteractionEnabled=NO;
     webtype=1;
@@ -580,9 +582,11 @@
     else{
 
     if (webtype==1) {
+        _updatebtn.enabled=NO;
         [self WorkTypeInsert];
     }
     else if (webtype==2){
+         _updatebtn.enabled=NO;
         [self WorkTypeupdate];
     }
     }
@@ -590,16 +594,19 @@
 }
 
 - (IBAction)clsebtn:(id)sender {
+     _updatebtn.enabled=YES;
     _typetable.userInteractionEnabled=YES;
     _addview.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)addclsebtn:(id)sender {
+    _updatebtn.enabled=YES;
     _addview.hidden=YES;
     _typetable.userInteractionEnabled=YES;
 }
 - (IBAction)editbtn:(id)sender {
+    _updatebtn.enabled=YES;
     // [_typetable setEditing:NO animated:NO];
     _typetable.userInteractionEnabled=NO;
     _navtitle.title=@"Edit";

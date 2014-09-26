@@ -83,6 +83,7 @@
 @property(strong,nonatomic)IBOutlet UIButton *disclosurebtn;
 -(IBAction)selectdisclosure:(id)sender;
 @property(strong,nonatomic)NSMutableArray *disclosurearray;
+@property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 
 
 @end

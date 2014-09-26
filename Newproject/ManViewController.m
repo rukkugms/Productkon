@@ -853,6 +853,7 @@
     }
     if (webtype==0) {
         [self Selectallmanpower];
+        _result=@"";
         webtype=5;
     }
     [_manpowerTable reloadData];

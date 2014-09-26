@@ -47,7 +47,7 @@
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewWillAppear:(BOOL)animated
-{
+{_updatebtn.enabled=YES;
     _servicesTable.userInteractionEnabled=YES;
     [super viewWillAppear:animated];
      self.openviewindex=NSNotFound;
@@ -345,7 +345,8 @@
 #pragma mark-IBActions
 
 -(IBAction)Addservices:(id)sender
-{//[super setEditing:NO animated:NO];
+{_updatebtn.enabled=YES;
+    //[super setEditing:NO animated:NO];
   
     _servicesTable.userInteractionEnabled=NO;
    // [_servicesTable reloadData];
@@ -361,6 +362,7 @@
 }
 -(IBAction)editservices:(id)sender
 {   optionidentifier=2;
+    _updatebtn.enabled=YES;
     //[super setEditing:NO animated:NO];
   
      _servicesTable.userInteractionEnabled=NO;
@@ -385,7 +387,7 @@
     _animatedview.hidden=YES;
 }
 -(IBAction)closeaddview:(id)sender
-{
+{_updatebtn.enabled=YES;
     _resultdispalylabel.hidden=YES;
     _addserview.hidden=YES;
      self.openviewindex=NSNotFound;
@@ -440,7 +442,7 @@
     else
     {
         
-    
+        _updatebtn.enabled=NO;
 
     [self InsertServices];
 //    _servicetextfld.text=@"";
@@ -471,7 +473,7 @@
 
         else
         {
-
+ _updatebtn.enabled=NO;
         [self UpdateServices];
 //        _servicetextfld.text=@"";
 //        _abbreviatintextfld.text=@"";
@@ -1039,6 +1041,7 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if ([alertView.message isEqualToString:msgstr]) {
         if (optionidentifier==1) {
+             _updatebtn.enabled=YES;
         _servicetextfld.text=@"";
         _abbreviatintextfld.text=@"";
         [_servicetextfld resignFirstResponder];
@@ -1046,6 +1049,7 @@
             _searchbar.text=@"";
         }
         else if(optionidentifier==2){
+            _updatebtn.enabled=YES;
             _servicetextfld.text=@"";
             _abbreviatintextfld.text=@"";
             [_servicetextfld resignFirstResponder];

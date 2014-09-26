@@ -502,12 +502,14 @@
 }
 
 - (IBAction)clsebtn:(id)sender {
+     _updatebtn.enabled=YES;
     _addview.hidden=YES;
     _addresstable.userInteractionEnabled=YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)addbtn:(id)sender {
+    _updatebtn.enabled=YES;
     _addresstable.userInteractionEnabled=NO;
    
 
@@ -562,9 +564,11 @@
         
     }
     else if(webtype==1){
+        _updatebtn.enabled=NO;
         [self AddressmasterInsert];
     }
     else if(webtype==2){
+         _updatebtn.enabled=NO;
         [self AddressMasterUpdate];
     }
     
@@ -580,7 +584,7 @@
         if (buttonIndex==0) {
             if (optionidentifier==1) {
                 
-            
+             _updatebtn.enabled=YES;
             
             _headrtxtfld.text=@"";
             _adrsstxtview.text=@"";
@@ -591,6 +595,7 @@
                 _adrsstxtview.text=@"";
                 _addview.hidden=YES;
                 _addresstable.userInteractionEnabled=YES;
+                 _updatebtn.enabled=YES;
             }
 
             
@@ -628,12 +633,14 @@
 
 
 - (IBAction)addclsebtn:(id)sender {
+     _updatebtn.enabled=YES;
     _addview.hidden=YES;
       _addresstable.userInteractionEnabled=YES;
     
 }
 
 - (IBAction)editbtn:(id)sender {
+     _updatebtn.enabled=YES;
     _addresstable.userInteractionEnabled=NO;
    // _.enabled=NO;
     optionidentifier=2;
