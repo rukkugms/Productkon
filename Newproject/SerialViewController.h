@@ -52,4 +52,7 @@
 - (IBAction)clsebtn:(id)sender;
 - (IBAction)updatebtn:(id)sender;
 -(IBAction)deleteAction:(id)sender;
+
+@property(strong,nonatomic)IBOutlet UIButton *updatebtn;
+@property(strong,nonatomic)IBOutlet UIButton *cancelbtn;
 @end
