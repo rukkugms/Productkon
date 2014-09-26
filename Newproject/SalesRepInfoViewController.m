@@ -730,7 +730,7 @@
     if ([elementName isEqualToString:@"EmpId"]) {
         
         recordResults=FALSE;
-        _rmodel.EmpId=_soapResults;
+        _rmodel.EmpId=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         _soapResults=nil;
     }
     if ([elementName isEqualToString:@"EmpName"]) {
@@ -740,7 +740,7 @@
         _soapResults=nil;
     }
     if ([elementName isEqualToString:@"PhoneOffice"]) {
-       
+    
         recordResults=FALSE;
         _rmodel.PhoneOffice=_soapResults;
         _soapResults=nil;
@@ -834,16 +834,17 @@
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
-        else if([_mobiletextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
-        {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Mobile Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-        }
         else if([_phoneofficetextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+        else if([_mobiletextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Mobile Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    
         else if([_emailtextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length!=0)
         {
             Validation *val=[[Validation alloc]init];

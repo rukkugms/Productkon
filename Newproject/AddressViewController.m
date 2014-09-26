@@ -650,6 +650,7 @@
     _headrtxtfld.text=addmdl.header;
     _adrsstxtview.text=addmdl.address;
     _cancelbtn.enabled=NO;
+    _cancelbtn.titleLabel.textColor=[UIColor grayColor];
 
 }
 @end

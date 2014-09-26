@@ -374,6 +374,7 @@
     _sitefactortxtfld.text=@"";
     _loctntxtfld.text=@"";
     _ziptxtfld.text=@"";
+    _selectionlabel.hidden=YES;
     
   
 
@@ -418,7 +419,9 @@
 
 }
 -(IBAction)checkleadaction:(id)sender
-{   leadclicked=@"Clicked";
+{
+    [_planselectionbtn setTitle:@"Select" forState:UIControlStateNormal];
+    leadclicked=@"Clicked";
     if(leadcheck==0)
     {
         [_popovertableview reloadData];
@@ -440,12 +443,14 @@
         [_leadcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         leadcheck=0;
         _planselectionbtn.enabled=NO;
+        _selectionlabel.hidden=YES;
         //_customerselectionBtn.enabled=YES;
     }
     
 }
 -(IBAction)checkcustomeraction:(id)sender
-{ customerclicked=@"clicked";
+{    [_planselectionbtn setTitle:@"Select" forState:UIControlStateNormal];
+    customerclicked=@"clicked";
     if(customercheck==0)
     {      [_popovertableview reloadData];
         [_custcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
@@ -466,13 +471,14 @@
         customercheck=0;
         //_leadselectionBtn.enabled=YES;
           _planselectionbtn.enabled=NO;
+        _selectionlabel.hidden=YES;
     }
     
 }
 -(IBAction)planselection:(id)sender
 {
     //[self SelectAllLeads];
-   
+   [_planselectionbtn setTitle:@"Select" forState:UIControlStateNormal];
     poptype=1;
     newpoptype=2;
     UIViewController *popovercontent=[[UIViewController alloc]init];
@@ -623,6 +629,8 @@
     [_planselectionbtn setTitle:@"Select" forState:UIControlStateNormal];
       [_typebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
     _sitefactortxtfld.text=@"";
+    _ziptxtfld.text=@"";
+    [_cmplexitybtnlbl setTitle:@"Select" forState:UIControlStateNormal];
 
 
 
@@ -638,11 +646,16 @@
     CGPoint center= button.center;
     _planselectionbtn.enabled=YES;
     _cancelbtn.enabled=NO;
+   
+    _cancelbtn.titleLabel.textColor=[UIColor grayColor];
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.plangtable];
     NSIndexPath *textFieldIndexPath = [self.plangtable indexPathForRowAtPoint:rootViewPoint];
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
     btnindex=textFieldIndexPath.row;
+    
     planmodel*planmdl=(planmodel *)[_planlistarray objectAtIndex:textFieldIndexPath.row];
+    NSLog(@"ld%d",planmdl.leadid);
+    NSLog(@"cust%d",planmdl.customerid);
     if (planmdl.leadid==0) {
         [_leadcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         
@@ -1461,6 +1474,7 @@
         
         
     }
+    
     if([elementName isEqualToString:@"result"])
     {
         

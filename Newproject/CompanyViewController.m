@@ -41,12 +41,15 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [_statebtn setTitle:[_statearray objectAtIndex:0] forState:UIControlStateNormal];
+    [_coutryBtn setTitle:[_countryarray objectAtIndex:214] forState:UIControlStateNormal];
    
     [self countryselect];
     [self Stateselect];
 
 
    [self Getbasicinfo];
+   
    
 }
 - (void)viewWillLayoutSubviews{
@@ -90,6 +93,7 @@
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -149,13 +153,13 @@
                    "<FederalEmployerId>%@</FederalEmployerId>\n"
                    "<StateEmployerId>%@</StateEmployerId>\n"
                    "<StateUnemploymentId>%@</StateUnemploymentId>\n"
-                   "<LetterHead>%@</LetterHead>\n"
+                   
                    "</SaveBasicInfo>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_companynametxtfld.text,_addresstxtfld.text,_citytxtfld.text,stid,_ziptextfld.text,ctid,_phonetxtfld.text,_faxtxtfld.text,_mailtxtfld.text,_webtxtfld.text,_fedraltxtfld.text,_stateempIdtxtfld.text,_stateunempidtxtfld.text,letter];
+                   "</soap:Envelope>\n",_companynametxtfld.text,_addresstxtfld.text,_citytxtfld.text,stid,_ziptextfld.text,ctid,_phonetxtfld.text,_faxtxtfld.text,_mailtxtfld.text,_webtxtfld.text,_fedraltxtfld.text,_stateempIdtxtfld.text,_stateunempidtxtfld.text];
     NSLog(@"soapmsg%@",soapMessage);
     
-    
+    //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
@@ -676,7 +680,7 @@
     {
         
         recordResults = FALSE;
-        NSString *fullURL =[NSString stringWithFormat:@"http://test1.kontract360.com/Files/Docs/BasicInfo/%@",_soapResults]  ;
+        NSString *fullURL =[NSString stringWithFormat:@"http://testUSA.kontract360.com/Files/Docs/BasicInfo/%@",_soapResults]  ;
         NSURL *url = [NSURL URLWithString:fullURL];
         NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
         [_logoweb loadRequest:requestObj];
@@ -1584,7 +1588,7 @@
         switch (poptype) {
             case 1:
                 [_statebtn setTitle:[_statearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-                    [_coutryBtn setTitle:@"Select" forState:UIControlStateNormal];
+                    [_coutryBtn setTitle:[_countryarray objectAtIndex:214] forState:UIControlStateNormal];
                 
                 break;
             case 2:

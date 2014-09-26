@@ -74,6 +74,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     [[self.cmttxtbox layer] setCornerRadius:10];
     _cmttable.layer.borderWidth = 2.0;
     _cmttable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    _disclosurearray=[[NSMutableArray alloc]initWithObjects:@"Comments", nil];
 
        // Do any additional setup after loading the view from its nib.
    
@@ -108,9 +109,16 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     // Return the number of rows in the section.
     if (tableView==_popOverTableView) {
         
+        if (poptype==1) {
+            
         
                 
                 return [_folloarray count];
+        }
+        else
+        {
+            return [_disclosurearray count];
+        }
         
 
        
@@ -149,11 +157,22 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     }
     //cell.textLabel.text=@"Leads";
       if (tableView==_popOverTableView) {
+          if (poptype==1) {
+              
+          
             Craftreqmtmdl*submdl=(Craftreqmtmdl *)[_folloarray objectAtIndex:indexPath.row];
           cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
           cell.textLabel.font = [UIFont systemFontOfSize:12.0];
           
           cell.textLabel.text=submdl.Brdescriptn;
+          }
+          else{
+              cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+              cell.textLabel.font = [UIFont systemFontOfSize:12.0];
+              
+              cell.textLabel.text=[_disclosurearray objectAtIndex:indexPath.row];
+
+          }
           
                   
           
@@ -186,12 +205,12 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         
         _status=(UILabel*)[cell viewWithTag:5];
         _status.text=info.status;
-        carbtn=[UIButton buttonWithType:UIButtonTypeCustom];
-        [carbtn setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
-        carbtn.tag=indexPath.row;
-        [carbtn addTarget:self action:@selector(showactions:) forControlEvents:UIControlEventTouchUpInside];
-        carbtn.frame = CGRectMake(270.0, 1.0, 50.0, 40.0);
-        [cell.contentView addSubview:carbtn];
+//        carbtn=[UIButton buttonWithType:UIButtonTypeCustom];
+//        [carbtn setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
+//        carbtn.tag=indexPath.row;
+//        [carbtn addTarget:self action:@selector(showactions:) forControlEvents:UIControlEventTouchUpInside];
+//        carbtn.frame = CGRectMake(270.0, 1.0, 50.0, 40.0);
+//        [cell.contentView addSubview:carbtn];
 
     }
     if (tableView==_cmttable) {
@@ -211,122 +230,122 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
 }
 
--(void)showactions:(UIButton*)sender{
-    // [_animatedview removeFromSuperview];
-    _commentlabel.hidden=YES;
-    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
-        .frame =  CGRectMake(300, 10, 0, 0);} completion:nil];
-    
-    _animatedview.hidden=YES;
-    //Empmdl *empmdl=(Empmdl *)[_employeelistarray objectAtIndex:sender.tag];
-    
-    
-    
-    
-      button = (UIButton *)sender;
-    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
-    CGPoint center= button.center;
-    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.activityTable];
-    NSIndexPath *textFieldIndexPath = [self.activityTable indexPathForRowAtPoint:rootViewPoint];
-    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
-    btnindex=textFieldIndexPath.row;
-    
-    
-    
-    //create uiview
-    _animatedview=[[UIView alloc]initWithFrame:CGRectMake(300, 10, 0, 25)];
-    _animatedview.backgroundColor=[UIColor colorWithRed:99.0/255.0f green:184.0/255.0f blue:255.0/255.0f alpha:1.0f];
-    _commentlabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
-    _commentlabel.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
-    _commentlabel.textColor=[UIColor blackColor];
-    _commentlabel.text=@"Comments";
-    [self.animatedview addSubview:_commentlabel];
-    
-    _commentlabel.hidden=YES;
-    
-    UITapGestureRecognizer *tap= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(commentpopover)];
-    [self.animatedview addGestureRecognizer:tap];
-   [cell addSubview:_animatedview];
-    
-    _animatedview.hidden=NO;
-    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
-        .frame =  CGRectMake(300, 10, 70, 25);} completion:nil];
-    
-    _commentlabel.hidden=NO;
-//    NSLog(@"%@",empmdl.badgeflag);
-//    if ([empmdl.badgeflag isEqualToString:@"true"]) {
-//        //_badgelbl.enabled=NO;
-//        _animatedview.userInteractionEnabled=NO;
-//        //_animatedview.
+//-(void)showactions:(UIButton*)sender{
+//    // [_animatedview removeFromSuperview];
+//    _commentlabel.hidden=YES;
+//    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
+//        .frame =  CGRectMake(300, 10, 0, 0);} completion:nil];
+//    
+//    _animatedview.hidden=YES;
+//    //Empmdl *empmdl=(Empmdl *)[_employeelistarray objectAtIndex:sender.tag];
+//    
+//    
+//    
+//    
+//      button = (UIButton *)sender;
+//    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+//    CGPoint center= button.center;
+//    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.activityTable];
+//    NSIndexPath *textFieldIndexPath = [self.activityTable indexPathForRowAtPoint:rootViewPoint];
+//    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+//    btnindex=textFieldIndexPath.row;
+//    
+//    
+//    
+//    //create uiview
+//    _animatedview=[[UIView alloc]initWithFrame:CGRectMake(300, 10, 0, 25)];
+//    _animatedview.backgroundColor=[UIColor colorWithRed:99.0/255.0f green:184.0/255.0f blue:255.0/255.0f alpha:1.0f];
+//    _commentlabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
+//    _commentlabel.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
+//    _commentlabel.textColor=[UIColor blackColor];
+//    _commentlabel.text=@"Comments";
+//    [self.animatedview addSubview:_commentlabel];
+//    
+//    _commentlabel.hidden=YES;
+//    
+//    UITapGestureRecognizer *tap= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(commentpopover)];
+//    [self.animatedview addGestureRecognizer:tap];
+//   [cell addSubview:_animatedview];
+//    
+//    _animatedview.hidden=NO;
+//    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
+//        .frame =  CGRectMake(300, 10, 70, 25);} completion:nil];
+//    
+//    _commentlabel.hidden=NO;
+////    NSLog(@"%@",empmdl.badgeflag);
+////    if ([empmdl.badgeflag isEqualToString:@"true"]) {
+////        //_badgelbl.enabled=NO;
+////        _animatedview.userInteractionEnabled=NO;
+////        //_animatedview.
+////        
+////    }
+//    
+//    [self showviewWithUserAction:YES];
+//}
+//
+//-(void)showviewWithUserAction:(BOOL)userAction{
+//    
+//    // Toggle the disclosure button state.
+//    
+//    carbtn.selected = !carbtn.selected;
+//    
+//    if (userAction) {
+//        if (carbtn.selected) {
+//            _animatedview.hidden=NO;
+//            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
+//                .frame =  CGRectMake(300, 10, 70, 25);} completion:nil];
+//            [self viewopened:btnindex];
+//            _commentlabel.hidden=NO;
+//            
+//            
+//            
+//        }
+//        else{
+//            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
+//                .frame =  CGRectMake(300, 10, 70, 25);} completion:nil];
+//            [self viewclosed:btnindex];
+//            //_venderlbl.hidden=YES;
+//            
+//        }
+//        
 //        
 //    }
-    
-    [self showviewWithUserAction:YES];
-}
-
--(void)showviewWithUserAction:(BOOL)userAction{
-    
-    // Toggle the disclosure button state.
-    
-    carbtn.selected = !carbtn.selected;
-    
-    if (userAction) {
-        if (carbtn.selected) {
-            _animatedview.hidden=NO;
-            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
-                .frame =  CGRectMake(300, 10, 70, 25);} completion:nil];
-            [self viewopened:btnindex];
-            _commentlabel.hidden=NO;
-            
-            
-            
-        }
-        else{
-            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
-                .frame =  CGRectMake(300, 10, 70, 25);} completion:nil];
-            [self viewclosed:btnindex];
-            //_venderlbl.hidden=YES;
-            
-        }
-        
-        
-    }
-}
--(void)viewopened:(NSInteger)viewopened{
-    
-    
-    selectedcell=viewopened;
-    NSInteger previousOpenviewIndex = self.openviewindex;
-    
-    if (previousOpenviewIndex != NSNotFound) {
-        [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{  _animatedview
-            .frame =  CGRectMake(300, 10, 0, 0);} completion:nil];
-        
-        _animatedview.hidden=YES;
-        
-        
-        // }
-        
-        
-    }
-    
-    self.openviewindex=viewopened;
-    
-    
-    
-    
-    
-    
-}
--(void)viewclosed:(NSInteger)viewclosed
-{
-    
-    viewclosed=btnindex;
-    _animatedview.hidden=YES;
-    self.openviewindex = NSNotFound;
-    
-    
-}
+//}
+//-(void)viewopened:(NSInteger)viewopened{
+//    
+//    
+//    selectedcell=viewopened;
+//    NSInteger previousOpenviewIndex = self.openviewindex;
+//    
+//    if (previousOpenviewIndex != NSNotFound) {
+//        [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{  _animatedview
+//            .frame =  CGRectMake(300, 10, 0, 0);} completion:nil];
+//        
+//        _animatedview.hidden=YES;
+//        
+//        
+//        // }
+//        
+//        
+//    }
+//    
+//    self.openviewindex=viewopened;
+//    
+//    
+//    
+//    
+//    
+//    
+//}
+//-(void)viewclosed:(NSInteger)viewclosed
+//{
+//    
+//    viewclosed=btnindex;
+//    _animatedview.hidden=YES;
+//    self.openviewindex = NSNotFound;
+//    
+//    
+//}
 
 #pragma mark - Table View delegate
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -346,7 +365,8 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     }
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if(tableView==_activityTable)
+    {
     if (editingStyle==UITableViewCellEditingStyleDelete)
     {
        path =indexPath.row;
@@ -362,17 +382,41 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         
         
     }
-    
+    }
+    }
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView==_cmttable)
+        
+    {
+        return self.editing ;
+    }
+    return YES;
+
 }
 
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     if (tableView==_popOverTableView) {
+        if (poptype==1) {
+            
         
          Craftreqmtmdl*submdl=(Craftreqmtmdl *)[_folloarray objectAtIndex:indexPath.row];
         [_activityTypeBtn setTitle:submdl.Brdescriptn forState:UIControlStateNormal];
+        [self.popOverController dismissPopoverAnimated:YES];
+        }
+        else if (poptype==2)
+        {
+            [self.popOverController dismissPopoverAnimated:YES];
+            [self commentpopover];
+        }
+        else
+        {
+            
+        }
         
         
         
@@ -381,7 +425,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         
     
     }
-   [self.popOverController dismissPopoverAnimated:YES];
+  // [self.popOverController dismissPopoverAnimated:YES];
     
     
     }
@@ -389,19 +433,22 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 - (IBAction)Addcmtbtn:(id)sender {
   
     _composecmtview.backgroundColor= [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
-    
+     _savebtnlbl.enabled=YES;
     _composecmtview.hidden=NO;
     
         
 }
 -(IBAction)selectActivityType:(id)sender
-{    
+{     poptype=1;
+
     [self createPopover];
     [self FollowuptypeSelect];
 }
 
 -(void)createPopover
 {
+    
+    poptype=1;
        UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
     UIView* popoverView = [[UIView alloc]
@@ -588,6 +635,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     butnidtfr=2;
     self.activityNav.title = @"Edit";
     _cancelbtnlbl.enabled=NO;
+    _cancelbtnlbl.titleLabel.textColor=[UIColor grayColor];
     _activityTable.userInteractionEnabled=NO;
     _newviewactivity.hidden=NO;
 
@@ -1716,6 +1764,7 @@ else
 }
 #pragma mark;popover
 -(void)commentpopover{
+    poptype=3;
     _composecmtview.hidden=YES;
      [self getcomments];
     UIViewController* popoverContent = [[UIViewController alloc]
@@ -1764,7 +1813,9 @@ else
     
 }
 -(IBAction)savecomment:(id)sender
-{    butnidtfr=3;
+{
+    butnidtfr=3;
+    
     
     if ([_cmttxtbox.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Comment is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -1778,9 +1829,40 @@ else
     }
 }
 -(IBAction)cancelcomment:(id)sender
-{self.openviewindex=NSNotFound;
+{
+    _savebtnlbl.enabled=YES;
+    self.openviewindex=NSNotFound;
     _cmttxtbox.text=@"";
     _composecmtview.hidden=YES;
+
+}
+-(IBAction)disclosure:(id)sender
+{
+    poptype=2;
+    UIViewController* popoverContent = [[UIViewController alloc]init];
+    UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 130, 43)];
+    // popoverView.backgroundColor = [UIColor whiteColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 130, 43)];
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 40;
+    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+    //_popovertableview.separatorColor=[UIColor blackColor];
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(130, 43);
+    
+    button = (UIButton *)sender;
+    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.activityTable];
+    NSIndexPath *textFieldIndexPath = [self.activityTable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
+    
+    //UITableView *table = (UITableView *)[cell superview];
+    self.popOverController = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
+    [self.popOverController presentPopoverFromRect:_disclosurebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
 
 }
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
@@ -1863,6 +1945,7 @@ else
     //_subtypctrlr.moduleid=moduleid;
     [self presentViewController:self.flpctrl
                        animated:YES completion:NULL];
+    [_activityTypeBtn setTitle:@"Select" forState:UIControlStateNormal];
     
 }
 

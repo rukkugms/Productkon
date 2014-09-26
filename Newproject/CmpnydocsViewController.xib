@@ -14,6 +14,7 @@
                 <outlet property="docutyebtn" destination="85P-YW-LwJ" id="u53-d6-BIg"/>
                 <outlet property="navbar" destination="C4D-O3-gk5" id="leo-am-Bjw"/>
                 <outlet property="newcmntview" destination="sVi-Lk-eEl" id="SNb-RN-Bfy"/>
+                <outlet property="savecmntbtn" destination="1Ap-ED-Rhz" id="zSx-my-Lav"/>
                 <outlet property="titleview" destination="e3o-eZ-XQW" id="QHl-Or-lCI"/>
                 <outlet property="view" destination="7ON-PR-zjo" id="bUm-cq-fGb"/>
             </connections>
