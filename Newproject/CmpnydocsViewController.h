@@ -66,6 +66,7 @@
 @property (strong, nonatomic)NSMutableArray*documntarray;
 @property (strong, nonatomic)NSMutableDictionary *docdict;
 @property (strong, nonatomic)NSMutableDictionary *fileiddict;
+
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
@@ -73,8 +74,10 @@
 
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
-@property (strong, nonatomic) IBOutlet UITextView *newcmmnttxtview;
+
 @property(strong,nonatomic)IBOutlet UIButton *savecmntbtn;
+@property (strong, nonatomic) IBOutlet UITextView *Cmmntgtextview;
+
 
 
 @end

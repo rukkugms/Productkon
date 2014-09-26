@@ -49,6 +49,7 @@
 
 
    [self Getbasicinfo];
+  //  _logoweb.scrollView.scrollEnabled=NO;
    
    
 }
@@ -72,6 +73,7 @@
 
 
 -(void)Getbasicinfo{
+    [_activitybtn startAnimating];
     recordResults = FALSE;
     NSString *soapMessage;
 
@@ -684,6 +686,7 @@
         NSURL *url = [NSURL URLWithString:fullURL];
         NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
         [_logoweb loadRequest:requestObj];
+        [_activitybtn stopAnimating];
 
         
         _soapResults = nil;

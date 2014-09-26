@@ -354,6 +354,11 @@
         }
 
         else {
+            
+            NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+            [defaults setObject:_soapResults forKey:@"UserNameId"];
+            [defaults synchronize];
+
             if (!self.hmeVCtrl) {
                 self.hmeVCtrl=[[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
             }

@@ -1470,12 +1470,12 @@
     if(textField==_usrnametextfld)
     {
         NSUInteger newLength = [_usrnametextfld.text length] + [string length] - range.length;
-        return (newLength > 100) ? NO : YES;
+        return (newLength > 10) ? NO : YES;
     }
     if(textField==_pswdtextfld)
     {
         NSUInteger newLength = [_pswdtextfld.text length] + [string length] - range.length;
-        return (newLength > 50) ? NO : YES;
+        return (newLength > 10) ? NO : YES;
     }
 
     return YES;

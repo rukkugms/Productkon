@@ -24,6 +24,7 @@
     NSString*Naddress;
   
 }
+@property(strong,nonatomic)NSString *usernamestrg;
 @property(strong,nonatomic)CLLocationManager*locationmanager;
 @property(strong,nonatomic)CLGeocoder *geocoder;
 @property(strong,nonatomic)CLPlacemark *placemark;
