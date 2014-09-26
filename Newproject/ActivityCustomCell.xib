@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -11,6 +11,7 @@
                 <outlet property="actvityCell" destination="2" id="8"/>
                 <outlet property="datetext" destination="4" id="17"/>
                 <outlet property="description" destination="6" id="19"/>
+                <outlet property="disclosurebtn" destination="jnd-d4-KDD" id="rOS-3v-Adl"/>
                 <outlet property="employee" destination="5" id="18"/>
                 <outlet property="status" destination="7" id="20"/>
             </connections>
@@ -98,11 +99,22 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jnd-d4-KDD">
+                        <rect key="frame" x="234" y="12" width="66" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" image="carat.png">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="disclosure:" destination="-1" eventType="touchUpInside" id="5cq-LY-1gm"/>
+                        </connections>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
         </tableViewCell>
     </objects>
     <resources>
         <image name="appbar.edit.png" width="52" height="52"/>
+        <image name="carat.png" width="11" height="11"/>
     </resources>
 </document>

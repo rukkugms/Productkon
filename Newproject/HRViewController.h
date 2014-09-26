@@ -24,6 +24,9 @@
       NSInteger chektouch;
     NSString *jobstring;
     NSInteger selectedsectn;
+    NSInteger btnindex;
+    UIView*rectview;
+    NSInteger poptype;
     
 
 }
@@ -105,7 +108,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView *applicantprocessview;
 @property (strong, nonatomic) IBOutlet UIView *view1;
-
+@property(strong,nonatomic)NSMutableArray *sarry;
 
 
 

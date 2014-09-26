@@ -129,6 +129,7 @@
     [_leadstatusBtn setTitle:@"Select" forState:UIControlStateNormal];
     
     _view2.hidden=NO;
+    
 //    _view2.frame = CGRectMake(512, 384, 0, 0);
 //    //    CGPoint origin = _hidenview.frame.origin;
 //    [UIView animateWithDuration: 1.0f animations:^{
@@ -526,9 +527,22 @@ if (tableView==_leadTable) {
     
     
 }
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView==_cmttable)
+        
+    {
+        return self.editing ;
+    }
+    return YES;
+    
+}
+
 
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (tableView==_leadTable) {
+        
     
     if (editingStyle==UITableViewCellEditingStyleDelete) {
         path=indexPath.row;
@@ -541,6 +555,7 @@ if (tableView==_leadTable) {
         //[self getLeads];
         
         
+    }
     }
     
 }
@@ -555,6 +570,7 @@ if (tableView==_leadTable) {
     _leadTable.userInteractionEnabled=NO;
     //[_leadTable setEditing:NO animated:NO];
     _ancelbtnlbl.enabled=NO;
+    _ancelbtnlbl.titleLabel.textColor=[UIColor grayColor];
     
      self.navbaritem.title = @"Edit";
     _view2.hidden=NO;
@@ -924,7 +940,7 @@ if (tableView==_leadTable) {
 
     _composecmtview.hidden=NO;
     
-    
+     _savebtnlbl.enabled=YES;
     
     _cmttxtbox.text=@"";
 //   _composecmtview.frame = CGRectMake(512, 384, 0, 0);
@@ -942,7 +958,7 @@ if (tableView==_leadTable) {
          butnidtfr=3;
    
 
-       if (_cmttxtbox.text.length==0) {
+       if ([_cmttxtbox.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Comment is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
            
@@ -961,6 +977,7 @@ else
     _cmttxtbox.text=@"";
      butnidtfr=0;
     _composecmtview.hidden=YES;
+    _savebtnlbl.enabled=YES;
 
 }
 
@@ -2994,6 +3011,7 @@ else
     //_subtypctrlr.moduleid=moduleid;
     [self presentViewController:self.projectctl
                        animated:YES completion:NULL];
+     [_projecttype setTitle:@"Select" forState:UIControlStateNormal];
 }
 -(IBAction)toindustrytype:(id)sender
 {
@@ -3002,6 +3020,7 @@ else
     //_subtypctrlr.moduleid=moduleid;
     [self presentViewController:self.industryctl
                        animated:YES completion:NULL];
+     [_industrytypetxtfld setTitle:@"Select" forState:UIControlStateNormal];
     
 }
 -(IBAction)toleadtype:(id)sender
@@ -3011,6 +3030,7 @@ else
     //_subtypctrlr.moduleid=moduleid;
     [self presentViewController:self.typctrl
                        animated:YES completion:NULL];
+     [_leadtypebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
 }
 -(IBAction)toleadstatus:(id)sender{
     _statusctrl=[[STViewController alloc]initWithNibName:@"STViewController" bundle:nil];
@@ -3018,6 +3038,7 @@ else
     //_subtypctrlr.moduleid=moduleid;
     [self presentViewController:self.statusctrl
                        animated:YES completion:NULL];
+     [_leadstatusBtn setTitle:@"Select" forState:UIControlStateNormal];
 
 }
 

@@ -27,6 +27,7 @@
     NSInteger webtype;
     NSInteger selectedcell;
     UIButton *carbtn;
+    //NSInteger poptype;
 }
 @property(strong,nonatomic)FLPViewController *flpctrl;
 @property(strong,nonatomic)Craftreqmtmdl *followmdl;
@@ -124,5 +125,10 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *cancelbtnlbl;
 @property (strong, nonatomic) IBOutlet UIButton *savebtnlbl;
+
+-(IBAction)disclosure:(id)sender;
+@property(strong,nonatomic)IBOutlet UIButton *disclosurebtn;
+@property(strong,nonatomic)NSMutableArray *disclosurearray;
+
 
 @end

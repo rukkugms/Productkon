@@ -237,6 +237,16 @@ return cell;
     
     
 }
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView==_cmmnttable)
+        
+    {
+        return self.editing ;
+    }
+    return YES;
+    
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -728,12 +738,13 @@ return cell;
     
 }
 - (IBAction)cmntsavebtn:(id)sender {
-    if (_cmmnttxtview.text.length==0) {
+    if ([_cmmnttxtview.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Comment is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else
     {
+        _savecmntbtn.enabled=NO;
     [self FileCommentsInsert];
     }
 }
@@ -741,6 +752,7 @@ return cell;
 - (IBAction)cancelbtn:(id)sender {
     _cmmnttxtview.text=@"";
      _newcmntview.hidden=YES;
+     _savecmntbtn.enabled=YES;
 }
 - (IBAction)cmntbtn:(id)sender {
     
@@ -759,6 +771,7 @@ return cell;
 }
 
 - (IBAction)addcmt:(id)sender {
+     _savecmntbtn.enabled=YES;
     _newcmntview.hidden=NO;
 }
 - (IBAction)closebtn:(id)sender

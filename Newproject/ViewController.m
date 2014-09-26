@@ -498,7 +498,19 @@
                                animated:YES completion:NULL];
             break;
          case 1:
+            if ([_usernametxt.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+                UIAlertView *Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please enter your username" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [Alert show];
+            }
+            else if([_passwrdtxt.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
+            {
+                UIAlertView *Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please enter your password" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [Alert show];
+            }
+            else
+            {
             [self LogoutFromAll];
+            }
 //            if (!self.forgetVCtrl) {
 //                self.forgetVCtrl=[[forgetViewController alloc]initWithNibName:@"forgetViewController" bundle:nil];
 //            }

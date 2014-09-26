@@ -593,9 +593,14 @@
     {
         
         recordResults = FALSE;
-        if([_soapResults isEqualToString:@"Already Exists"])
+        _resultstring=_soapResults;
+        if([_resultstring isEqualToString:@"inserted"]||[_soapResults isEqualToString:@"deletedplanservice"])
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+           
+        }
+        else
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_resultstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         
