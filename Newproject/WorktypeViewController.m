@@ -171,7 +171,7 @@
     
 }
 -(void)WorkTypeInsert{
-    
+    webtype=1;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -221,7 +221,7 @@
 }
 
 -(void)WorkTypeupdate{
-    
+    webtype=2;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -560,10 +560,10 @@
     
     
     if (rightsmodel.EditModule==0) {
-        if (webtype==1) {
+        if (optionidentifier==1) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to add a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
-        }else if(webtype==2)
+        }else if(optionidentifier==2)
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
@@ -581,11 +581,11 @@
     }
     else{
 
-    if (webtype==1) {
+    if (optionidentifier==1) {
         _updatebtn.enabled=NO;
         [self WorkTypeInsert];
     }
-    else if (webtype==2){
+    else if (optionidentifier==2){
          _updatebtn.enabled=NO;
         [self WorkTypeupdate];
     }
