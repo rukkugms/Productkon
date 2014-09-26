@@ -44,5 +44,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *forgetbtn;
 -(IBAction)toforgetaction:(id)sender;
 - (IBAction)lctnbtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *loginbtn;
 
 @end

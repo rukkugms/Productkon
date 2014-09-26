@@ -14,6 +14,7 @@
                 <outlet property="titleview" destination="ndP-Eo-4Lo" id="BcS-AG-v9c"/>
                 <outlet property="typetable" destination="GvD-NH-1G5" id="Cba-tQ-fsS"/>
                 <outlet property="typetxtfld" destination="vQg-WN-T68" id="N9v-8T-cyp"/>
+                <outlet property="updatebtn" destination="9Vu-LR-ccR" id="kbh-R6-nIF"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>

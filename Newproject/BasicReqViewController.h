@@ -13,6 +13,7 @@
 #import "Rightscheck.h"
 #import "Craftreqmtmdl.h"
 #import "CraftViewController.h"
+#import "TypeViewController.h"
 
 @interface BasicReqViewController : UIViewController<myDelegate>
 {
@@ -35,11 +36,14 @@
     NSString *checkstring;
     UIButton *butt;
     NSInteger selectedcell;
+    NSString *userid;
+    NSInteger x;
     
      
 }
 -(void)newaction;
 @property(strong,nonatomic)CraftViewController*craftVCtrl;
+@property(strong,nonatomic)TypeViewController *typctl;
 @property(strong,nonatomic)NSMutableArray *brcraftarray;
 @property(strong,nonatomic)Craftreqmtmdl*craftmdl;
 @property(strong,nonatomic)NSString *soapstring;
@@ -152,4 +156,8 @@
 @property(strong,nonatomic)IBOutlet UIButton *vendorbtn;
 -(IBAction)selectdisclosure:(id)sender;
 @property(strong,nonatomic)NSMutableArray *disclosurearray;
+-(IBAction)toreqtype:(id)sender;
+@property(readwrite)NSInteger moduleid;
+@property(strong,nonatomic)NSString *result;
+@property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 @end
