@@ -43,4 +43,6 @@
 - (IBAction)savebtn:(id)sender;
 - (IBAction)removebtn:(id)sender;
 - (IBAction)closebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *savebtnlbl;
+
 @end

@@ -17,14 +17,17 @@
 #import "Rightscheck.h"
 #import "TLLeadsViewController.h"
 #import "PlngTileViewController.h"
+#import "AppDelegate.h"
 
-@interface HomeViewController : UIViewController{
+@interface HomeViewController : UIViewController<mynewDelegate>{
     
 NSString*userid;
 BOOL recordResults;
    
 
 }
+-(void)inactivelogoutaction;
+
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
