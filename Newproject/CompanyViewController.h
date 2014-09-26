@@ -86,4 +86,7 @@
 
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activitybtn;
+
+
 @end

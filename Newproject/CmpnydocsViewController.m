@@ -165,12 +165,12 @@
     if (tableView==_popOverTableView) {
        
             return [_popovrdict count];
-    }
+     }
        if (tableView==_cmmnttable){
              return [_commentarray count];
         }
     
-    else{
+     if ( tableView==_docutable){
     return [_documntarray count];
     }
     return YES;
@@ -209,13 +209,15 @@
               cell.textLabel.text=[_popoverArry objectAtIndex:indexPath.row];
             
         }
-            if (tableView==_cmmnttable){
+    if (tableView==_cmmnttable){
                 commentmdl *cmnt1=(commentmdl *)[_commentarray objectAtIndex:indexPath.row];
-                //_newcmmnttxtview=(UITextView *)[cell viewWithTag:1];
+                
+        
 //                [[self.newcmmnttxtview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
 //                [[self.newcmmnttxtview layer] setBorderWidth:2];
 //                [[self.newcmmnttxtview layer] setCornerRadius:10];
-                _newcmmnttxtview.text=cmnt1.comments;
+                    _Cmmntgtextview=(UITextView *)[cell viewWithTag:5];
+                _Cmmntgtextview.text=cmnt1.comments;
                 _cmttype=(UILabel *)[cell viewWithTag:2];
                 _cmttype.text=cmnt1.commentdate;
 
@@ -387,6 +389,8 @@ return cell;
 }
 -(void)FileCommentsInsert
 {
+    
+    
     NSDate*curntdate=[NSDate date];
     NSLog(@"%@",curntdate);
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
@@ -396,6 +400,10 @@ return cell;
     [dateFormat setDateFormat:@"MM/dd/ yyyy"];
     NSString*date1=[dateFormat stringFromDate:curntdate];
     NSString*today=[NSString stringWithFormat:@"%@ %@",date1,time];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString*usernameid = [defaults objectForKey:@"UserNameId"];
+
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -414,7 +422,7 @@ return cell;
                    "<CommentDate>%@</CommentDate>\n"
                    "</FileCommentsInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[newfieldid integerValue],_cmmnttxtview.text,1,today];
+                   "</soap:Envelope>\n",[newfieldid integerValue],_cmmnttxtview.text,[usernameid integerValue],today];
     NSLog(@"soapmsg%@",soapMessage);
     
     
