@@ -57,6 +57,7 @@
 @property(strong,nonatomic)NSMutableArray *craftlistarray;
 @property(strong,nonatomic)NSMutableDictionary *craftlistdictionary;
 - (IBAction)addmanpwrbtn:(id)sender;
+@property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 
 
 @end

@@ -592,7 +592,7 @@ if([elementName isEqualToString:@"BRDescription"])
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if([alertView.message isEqualToString:msgstrg]){
-        
+        _updatebtn.enabled=YES;
     [self CraftBasicRequirementsselect];
     
      [_craftbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
@@ -661,6 +661,7 @@ if([elementName isEqualToString:@"BRDescription"])
 }
 
 - (IBAction)clsebtn:(id)sender {
+    _updatebtn.enabled=YES;
     _crafttable.userInteractionEnabled=YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -670,6 +671,7 @@ if([elementName isEqualToString:@"BRDescription"])
         [alert show];
     }
     else{
+    _updatebtn.enabled=NO;
     [self CraftBasicrequirementsinsert];
     }
     
@@ -678,6 +680,7 @@ if([elementName isEqualToString:@"BRDescription"])
 
 - (IBAction)addclsebtn:(id)sender {
     _addview.hidden=YES;
+    _updatebtn.enabled=YES;
     _crafttable.userInteractionEnabled=YES;
     
 }

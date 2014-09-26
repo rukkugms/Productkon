@@ -24,6 +24,7 @@
                 <outlet property="seperatorview" destination="9Hl-rp-zhN" id="Skc-uL-07K"/>
                 <outlet property="titleview" destination="kOk-rM-g7N" id="Y6h-hA-MIe"/>
                 <outlet property="typebtn" destination="lCP-u7-Sd0" id="O8w-Hr-IBa"/>
+                <outlet property="updatebtn" destination="cPb-l9-wGY" id="p3o-Q2-UkR"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>
@@ -360,6 +361,16 @@
                                     <color key="textColor" red="0.0" green="0.40000000000000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="5JT-XS-uXI">
+                                    <rect key="frame" x="350" y="56" width="22" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="toreqtype:" destination="-1" eventType="touchUpInside" id="ccb-cM-cn2"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                         </view>

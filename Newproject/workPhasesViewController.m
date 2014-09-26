@@ -228,7 +228,7 @@
     _navItem.title=@"Create";
     _phasetextfld.text=@"";
     _cancelbtn.enabled=YES;
-
+    _updatebtn.enabled=YES;
     [_servicebtn setTitle:@"Select" forState:UIControlStateNormal];
     [_phasebtn setTitle:@"Select" forState:UIControlStateNormal];
     
@@ -237,7 +237,7 @@
 {
  
     _phasetable.userInteractionEnabled=NO;
-
+    _updatebtn.enabled=YES;
     optionIdentifier=2;
     _workphasesview.hidden=NO;
     _cancelbtn.enabled=NO;
@@ -272,11 +272,11 @@
     _updatebtn.enabled=YES;
 }
 -(IBAction)update_phases:(id)sender
-{_updatebtn.enabled=NO;
+{
     _result=@"";
     x=1;
     _moduleid=19;
-    
+     _updatebtn.enabled=NO;
     [self UserRightsforparticularmoduleselect];
     
 }
@@ -317,12 +317,13 @@
             {
                 
                 
-                
+               
                 
                 [self InsertPhases];
             }
             else if(optionIdentifier==2)
             {
+               
                 [self UpdatePhases];
             }
             

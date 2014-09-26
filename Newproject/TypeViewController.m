@@ -446,11 +446,12 @@
 - (IBAction)clsebtn:(id)sender {
    
      _addview.hidden=YES;
+    _updatebtn.enabled=YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)updatebtn:(id)sender {
-    
+   
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
     if (rightsmodel.EditModule==0) {
@@ -475,9 +476,11 @@
     }
 
     else if (webtype==1) {
+         _updatebtn.enabled=NO;
         [self ItemRequirementInsert];
     }
     else if (webtype==2) {
+         _updatebtn.enabled=NO;
         [self Itemmasterupdate];
     }
 
@@ -525,10 +528,12 @@
 
 - (IBAction)addclsebtn:(id)sender {
      _addview.hidden=YES;
+    _updatebtn.enabled=YES;
      _typetable.userInteractionEnabled=YES;
 }
 
 - (IBAction)editbtn:(id)sender {
+    _updatebtn.enabled=YES;
   //  [_typetable setEditing:NO animated:NO];
     _typetable.userInteractionEnabled=NO;
     optionidentifier=2;
@@ -547,6 +552,7 @@
 }
 
 - (IBAction)addbtn:(id)sender {
+    _updatebtn.enabled=YES;
        _typetable.userInteractionEnabled=NO;
     optionidentifier=1;
     webtype=1;
@@ -567,12 +573,14 @@
             
             if (optionidentifier==1) {
                 _typetxtfld.text=@"";
+                _updatebtn.enabled=YES;
             }
             else if(optionidentifier==2)
             {
                 _typetxtfld.text=@"";
                 _addview.hidden=YES;
                 _typetable.userInteractionEnabled=YES;
+                _updatebtn.enabled=YES;
             }
             
             

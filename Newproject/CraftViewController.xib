@@ -11,6 +11,7 @@
                 <outlet property="craftbtnlbl" destination="86G-BF-QsB" id="StI-QP-2sZ"/>
                 <outlet property="crafttable" destination="A4N-n4-5gS" id="ICK-qz-2Gp"/>
                 <outlet property="titleview" destination="T66-AL-Eez" id="1Hv-fl-h2l"/>
+                <outlet property="updatebtn" destination="rlL-Cb-xls" id="GjT-bK-3wj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -83,9 +84,9 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlL-Cb-xls">
-                            <rect key="frame" x="148" y="147" width="55" height="30"/>
+                            <rect key="frame" x="130" y="147" width="79" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                             <state key="normal" title="Update">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
