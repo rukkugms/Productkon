@@ -64,6 +64,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    _loginbtn.enabled=YES;
     _usernametxt.text=@"";
     _passwrdtxt.text=@"";
      locationmanager=[[CLLocationManager alloc]init];
@@ -335,6 +336,7 @@
             UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Username or Password" delegate:self
         cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _loginbtn.enabled=YES;
         }
         else if([_soapResults isEqualToString:@"-1"]){
             
@@ -342,6 +344,7 @@
           UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:msg delegate:self
                                               cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _loginbtn.enabled=YES;
            
         }
        else if([_soapResults isEqualToString:@"-2"]){
@@ -350,6 +353,7 @@
             UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"User is not activated please contact admin" delegate:self
                                               cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+           _loginbtn.enabled=YES;
             
         }
 
@@ -423,6 +427,7 @@
         
     }
     else{
+        _loginbtn.enabled=NO;
   [self Loginselect];
 //        if (!self.hmeVCtrl) {
 //            self.hmeVCtrl=[[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
@@ -433,6 +438,7 @@
   }
 -(IBAction)toforgetaction:(id)sender
 {
+    _loginbtn.enabled=YES;
 //    NSString *other1 = @"Other Button 1";
 //    NSString *other2 = @"Other Button 2";
 //    UIFont *changeFont = [UIFont fontWithName:@"Courier" size:12];

@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
             <connections>
                 <outlet property="forgetbtn" destination="8to-Ti-VM0" id="hvJ-OZ-ZQ4"/>
+                <outlet property="loginbtn" destination="4" id="SQp-wd-ATA"/>
                 <outlet property="passwrdtxt" destination="11" id="PAR-0X-e0m"/>
                 <outlet property="scroll" destination="L68-RP-kEK" id="GzV-5s-S9K"/>
                 <outlet property="usernametxt" destination="9" id="NLU-Hs-mKs"/>
