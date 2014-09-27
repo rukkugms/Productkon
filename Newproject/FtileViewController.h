@@ -32,4 +32,6 @@
 @property(readwrite)NSInteger Moduleid;
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)NSString *result;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *frightsindicator;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *Urightsindicator;
 @end

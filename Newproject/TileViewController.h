@@ -84,4 +84,15 @@
 @property(readwrite)NSInteger Moduleid;
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)NSString *result;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *compinfoindictr;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *branchindictr;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *docindictr;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *setngindictr;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *typeindicator;
+
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *usersindicator;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *basicindicatr;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *rightsindictr;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *secindictr;
+
 @end

@@ -32,9 +32,30 @@
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    _compinfoindictr.hidden=YES;
+    _branchindictr.hidden=YES;
+    _docindictr.hidden=YES;
+    _setngindictr.hidden=YES;
+    _typeindicator.hidden=YES;
+    _usersindicator.hidden=YES;
+    _rightsindictr.hidden=YES;
+    _basicindicatr.hidden=YES;
+    _secindictr.hidden=YES;
+
+    _companyinfoview.userInteractionEnabled=YES;
+    _Documentsview.userInteractionEnabled=YES;
+    _foldersview.userInteractionEnabled=YES;
+    _usersview.userInteractionEnabled=YES;
+    _wrksetngview.userInteractionEnabled=YES;
+    _securityview.userInteractionEnabled=YES;
+    _basicreqview.userInteractionEnabled=YES;
+    _jobsitereqview.userInteractionEnabled=YES;
+    _workprocedureview.userInteractionEnabled=YES;
+   
     _result=@"";
     _Moduleid=0;
-    [super viewWillAppear:animated];
+    
     
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc]
                                          initWithTarget:self
@@ -128,12 +149,18 @@
 
 -(void)companyPage
 {
+    _companyinfoview.userInteractionEnabled=NO;
+    _compinfoindictr.hidden=NO;
+    [_compinfoindictr startAnimating];
     _Moduleid=13;
     [self UserRightsforparticularmoduleselect];
    
 }
 -(void)branchpage
 {
+    _Documentsview.userInteractionEnabled=NO;
+    _branchindictr.hidden=NO;
+    [_branchindictr startAnimating];
     _Moduleid=14;
     [self UserRightsforparticularmoduleselect];
    
@@ -149,15 +176,27 @@
 //                       animated:YES completion:NULL];
 //}
 -(void)foldersPage
-{_Moduleid=22;
+{    _rightsindictr.hidden=NO;
+    _foldersview.userInteractionEnabled=NO;
+    
+    [_rightsindictr startAnimating];
+    _Moduleid=22;
     [self UserRightsforparticularmoduleselect];
     }
 -(void)usersPage
-{_Moduleid=21;
+{    _usersindicator.hidden=NO;
+    _usersview.userInteractionEnabled=NO;
+    
+    [_usersindicator startAnimating];
+    _Moduleid=21;
     [self UserRightsforparticularmoduleselect];
     }
 -(void)workProcedurePage
 {
+    _docindictr.hidden=NO;
+    _workprocedureview.userInteractionEnabled=NO;
+    
+    [_docindictr startAnimating];
     _Moduleid=15;
 [self UserRightsforparticularmoduleselect];
     
@@ -175,12 +214,21 @@
 //
 //}
 -(void)jobsitereqPage
-{_Moduleid=20;
+{ _typeindicator.hidden=NO;
+    _jobsitereqview.userInteractionEnabled=NO;
+    
+    [_typeindicator startAnimating];
+    _Moduleid=20;
     [self UserRightsforparticularmoduleselect];
     
 }
 -(void)basicReqPage
-{_Moduleid=23;
+{_basicindicatr.hidden=NO;
+    _basicreqview.userInteractionEnabled=NO;
+    
+    [_basicindicatr startAnimating];
+
+    _Moduleid=23;
     [self UserRightsforparticularmoduleselect];
     }
 
@@ -203,16 +251,26 @@
 //    [self presentViewController:_wrktypeVCtrl animated:YES completion:nil];
 //}
 -(void)wrksetngpage{
+    _setngindictr.hidden=NO;
+    _wrksetngview.userInteractionEnabled=NO;
+    
+    [_setngindictr startAnimating];
+
     _Moduleid=16;
      [self UserRightsforparticularmoduleselect];
     
 }
 -(void)securitypage{
+    _secindictr.hidden=NO;
+    _securityview.userInteractionEnabled=NO;
+    
+    [_secindictr startAnimating];
   //  if (!self.securityVCtrl) {
         self.securityVCtrl=[[SecurityViewController alloc]initWithNibName:@"SecurityViewController" bundle:nil];
     //}
     _securityVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_securityVCtrl animated:YES completion:nil];
+    [_secindictr stopAnimating];
     
 }
 
@@ -324,6 +382,35 @@
     if ([_result isEqualToString:@"Not yet set"]) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Your rights are not yet set" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+        _compinfoindictr.hidden=YES;
+        _branchindictr.hidden=YES;
+        _docindictr.hidden=YES;
+        _setngindictr.hidden=YES;
+        _typeindicator.hidden=YES;
+        _usersindicator.hidden=YES;
+        _rightsindictr.hidden=YES;
+        _basicindicatr.hidden=YES;
+        _secindictr.hidden=YES;
+        [_compinfoindictr stopAnimating];
+        [_branchindictr stopAnimating];
+        [_docindictr stopAnimating];
+        [_setngindictr stopAnimating];
+        [_typeindicator stopAnimating];
+        [_usersindicator stopAnimating];
+        [_rightsindictr stopAnimating];
+        [_basicindicatr stopAnimating];
+        [_secindictr stopAnimating];
+        _companyinfoview.userInteractionEnabled=YES;
+        _Documentsview.userInteractionEnabled=YES;
+        _foldersview.userInteractionEnabled=YES;
+        _usersview.userInteractionEnabled=YES;
+        _wrksetngview.userInteractionEnabled=YES;
+        _securityview.userInteractionEnabled=YES;
+        _basicreqview.userInteractionEnabled=YES;
+        _jobsitereqview.userInteractionEnabled=YES;
+        _workprocedureview.userInteractionEnabled=YES;
+        
+
     }
     
     
@@ -336,7 +423,10 @@
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
             
+            _compinfoindictr.hidden=YES;
+            _companyinfoview.userInteractionEnabled=YES;
             
+            [_compinfoindictr stopAnimating];
            // if (!self.compVCtrl) {
                 self.compVCtrl=[[CompanyViewController alloc]initWithNibName:@"CompanyViewController" bundle:nil];
            // }
@@ -349,6 +439,10 @@
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _compinfoindictr.hidden=YES;
+            _companyinfoview.userInteractionEnabled=YES;
+            
+            [_compinfoindictr stopAnimating];
             //You don’t have right to view this form
         }
         
@@ -358,7 +452,10 @@
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
             
+            _branchindictr.hidden=YES;
+            _Documentsview.userInteractionEnabled=YES;
             
+            [_branchindictr stopAnimating];
            // if (!self.branchVCtrl) {
                 self.branchVCtrl=[[BranchViewController alloc]initWithNibName:@"BranchViewController" bundle:nil];
             //}
@@ -371,6 +468,10 @@
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _branchindictr.hidden=YES;
+            _Documentsview.userInteractionEnabled=YES;
+            
+            [_branchindictr stopAnimating];
         }
         
     }
@@ -378,6 +479,10 @@
     {
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
+            _docindictr.hidden=YES;
+            _workprocedureview.userInteractionEnabled=YES;
+            
+            [_docindictr stopAnimating];
            // if (!self.cmpnyVCtrl) {
                 self.cmpnyVCtrl=[[CmpnydocsViewController alloc]initWithNibName:@"CmpnydocsViewController" bundle:nil];
            // }
@@ -389,6 +494,10 @@
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _docindictr.hidden=YES;
+            _workprocedureview.userInteractionEnabled=YES;
+            
+            [_docindictr stopAnimating];
         }
         
     }
@@ -396,6 +505,10 @@
     {
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
+            _setngindictr.hidden=YES;
+            _wrksetngview.userInteractionEnabled=YES;
+            
+            [_setngindictr stopAnimating];
            // if (!self.wrkstngVCtrlr) {
                 self.wrkstngVCtrlr=[[SettngsViewController alloc]initWithNibName:@"SettngsViewController" bundle:nil];
            // }
@@ -406,6 +519,11 @@
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _setngindictr.hidden=YES;
+            _wrksetngview.userInteractionEnabled=YES;
+            
+            [_setngindictr stopAnimating];
+           
         }
         
     }
@@ -413,6 +531,10 @@
     {
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
+            _typeindicator.hidden=YES;
+            _jobsitereqview.userInteractionEnabled=YES;
+            
+            [_typeindicator stopAnimating];
            // if (!self.typeVCtrl) {
                 self.typeVCtrl=[[TypeViewController alloc]initWithNibName:@"TypeViewController" bundle:nil];
            // }
@@ -425,12 +547,20 @@
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _typeindicator.hidden=YES;
+            _jobsitereqview.userInteractionEnabled=YES;
+            
+            [_typeindicator stopAnimating];
         }
     }
     if (_Moduleid==21)
     {
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
+            _usersindicator.hidden=YES;
+            _usersview.userInteractionEnabled=YES;
+            
+            [_usersindicator stopAnimating];
            // if (!self.usersVctrl) {
                 self.usersVctrl=[[UsersViewController alloc]initWithNibName:@"UsersViewController" bundle:nil];
            // }
@@ -451,6 +581,10 @@
     {
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
+            _rightsindictr.hidden=YES;
+            _foldersview.userInteractionEnabled=YES;
+            
+            [_rightsindictr stopAnimating];
            // if (!self.ftileVCtrl) {
                 self.ftileVCtrl=[[FtileViewController alloc]initWithNibName:@"FtileViewController" bundle:nil];
            // }
@@ -464,12 +598,20 @@
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _rightsindictr.hidden=YES;
+            _foldersview.userInteractionEnabled=YES;
+            
+            [_rightsindictr stopAnimating];
         }
     }
     if (_Moduleid==23)
     {
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
+            _basicindicatr.hidden=YES;
+            _basicreqview.userInteractionEnabled=YES;
+            
+            [_basicindicatr stopAnimating];
            // if (!self.basicreqVctrl) {
                 self.basicreqVctrl=[[BasicReqViewController alloc]initWithNibName:@"BasicReqViewController" bundle:nil];
             //}
@@ -484,6 +626,10 @@
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _basicindicatr.hidden=YES;
+            _basicreqview.userInteractionEnabled=YES;
+            
+            [_basicindicatr stopAnimating];
         }
     }
     }

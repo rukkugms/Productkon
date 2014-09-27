@@ -39,6 +39,13 @@
 {
     
     [super viewWillAppear:animated];
+    _servcindicator.hidden=YES;
+    _wrktypeindicator.hidden=YES;
+    _phaseindicator.hidden=YES;
+    _serviceview.userInteractionEnabled=YES;
+    _worktypeview.userInteractionEnabled=YES;
+    _workphaseview.userInteractionEnabled=YES;
+   
     _result=@"";
     _Moduleid=0;
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc]
@@ -74,17 +81,27 @@
     
 }
 -(void)servicesPage
-{_Moduleid=17;
+{   _servcindicator.hidden=NO;
+    [_servcindicator startAnimating];
+    _serviceview.userInteractionEnabled=NO;
+    _Moduleid=17;
     [self UserRightsforparticularmoduleselect];
+    
    }
 -(void)workphasePage
 {
+    _phaseindicator.hidden=NO;
+    [_phaseindicator startAnimating];
+    _workphaseview.userInteractionEnabled=NO;
     _Moduleid=19;
     [self UserRightsforparticularmoduleselect];
  
     
 }
 -(void)worktypepage{
+    _wrktypeindicator.hidden=NO;
+    [_wrktypeindicator startAnimating];
+    _worktypeview.userInteractionEnabled=NO;
     _Moduleid=18;
     [self UserRightsforparticularmoduleselect];
    
@@ -201,6 +218,15 @@
     if ([_result isEqualToString:@"Not yet set"]) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Your rights are not yet set" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+        _serviceview.userInteractionEnabled=YES;
+        _worktypeview.userInteractionEnabled=YES;
+        _workphaseview.userInteractionEnabled=YES;
+        _servcindicator.hidden=YES;
+        _phaseindicator.hidden=YES;
+        _wrktypeindicator.hidden=YES;
+        [_servcindicator stopAnimating];
+        [_phaseindicator stopAnimating];
+        [_wrktypeindicator stopAnimating];
     }
     
     
@@ -212,7 +238,12 @@
         
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
-            
+            _serviceview.userInteractionEnabled=YES;
+           
+            _servcindicator.hidden=YES;
+           
+            [_servcindicator stopAnimating];
+         
             
             //if (!self.serviceVCtrl) {
             self.serviceVCtrl=[[ServiceViewController alloc]initWithNibName:@"ServiceViewController" bundle:nil];
@@ -227,6 +258,11 @@
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _serviceview.userInteractionEnabled=YES;
+            
+            _servcindicator.hidden=YES;
+            
+            [_servcindicator stopAnimating];
             //You don’t have right to view this form
         }
         
@@ -236,7 +272,11 @@
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
             
+            _worktypeview.userInteractionEnabled=YES;
             
+            _wrktypeindicator.hidden=YES;
+            
+            [_wrktypeindicator stopAnimating];
             // if (!self.wrktypeVCtrl) {
             self.wrktypeVCtrl=[[WorktypeViewController alloc]initWithNibName:@"WorktypeViewController" bundle:nil];
             //  }
@@ -247,6 +287,12 @@
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _worktypeview.userInteractionEnabled=YES;
+            
+            _wrktypeindicator.hidden=YES;
+            
+            [_wrktypeindicator stopAnimating];
+
         }
         
     }
@@ -254,6 +300,12 @@
     {
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
+            _workphaseview.userInteractionEnabled=YES;
+            
+            _phaseindicator.hidden=YES;
+            
+            [_phaseindicator stopAnimating];
+
             //  if (!self.workVCtrl) {
             self.workVCtrl=[[workPhasesViewController alloc]initWithNibName:@"workPhasesViewController" bundle:nil];
             //  }
@@ -266,6 +318,12 @@
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _workphaseview.userInteractionEnabled=YES;
+            
+            _phaseindicator.hidden=YES;
+            
+            [_phaseindicator stopAnimating];
+
         }
         
     }

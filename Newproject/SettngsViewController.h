@@ -41,5 +41,8 @@
 @property(strong,nonatomic)Rightscheck *rights;
 @property(readwrite)NSInteger Moduleid;
 @property(strong,nonatomic)NSString *result;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *servcindicator;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *wrktypeindicator;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *phaseindicator;
 
 @end
