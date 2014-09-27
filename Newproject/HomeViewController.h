@@ -19,14 +19,14 @@
 #import "PlngTileViewController.h"
 #import "AppDelegate.h"
 
-@interface HomeViewController : UIViewController<mynewDelegate>{
+@interface HomeViewController : UIViewController{
     
 NSString*userid;
 BOOL recordResults;
    
 
 }
--(void)inactivelogoutaction;
+
 
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
@@ -76,5 +76,5 @@ BOOL recordResults;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *custindictr;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *hrindicator;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *promgmtindicatr;
-
+-(void)inactivelogoutaction;
 @end

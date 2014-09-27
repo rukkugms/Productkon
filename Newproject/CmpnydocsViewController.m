@@ -78,10 +78,10 @@
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 200, 100)];
+                           initWithFrame:CGRectMake(0, 0, 250, 400)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 100)];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 250, 400)];
     
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
@@ -95,7 +95,7 @@
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 100);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(250, 400);
     
     //create a popover controller
     
