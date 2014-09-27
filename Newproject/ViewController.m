@@ -20,7 +20,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.ViewController = self;
    
     [self getIPAddress];
     
@@ -60,7 +61,10 @@
 
 }
 
-
+-(void)newaction{
+    [self LogoutFromAll];
+    
+}
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
