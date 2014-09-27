@@ -8,6 +8,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GPSetupTileViewController">
             <connections>
                 <outlet property="equipview" destination="n1F-Vu-VCS" id="Wmo-l3-6Ql"/>
+                <outlet property="gpequactivity" destination="wPD-bM-SkB" id="REM-18-yqD"/>
+                <outlet property="gpmanactivity" destination="SJS-JR-b16" id="6P0-y2-mMc"/>
+                <outlet property="gpmateractivity" destination="oNf-zf-7KS" id="v6z-Qr-gXi"/>
                 <outlet property="manview" destination="cRA-LT-RkS" id="gfi-fH-bBk"/>
                 <outlet property="materview" destination="DO1-2D-JUb" id="JQm-M4-kfx"/>
                 <outlet property="view" destination="2" id="3"/>
@@ -33,6 +36,11 @@
                             <rect key="frame" x="51" y="36" width="75" height="75"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="SJS-JR-b16">
+                            <rect key="frame" x="70" y="61" width="37" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.80942062043795615" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
@@ -51,6 +59,11 @@
                             <rect key="frame" x="51" y="36" width="75" height="75"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="wPD-bM-SkB">
+                            <rect key="frame" x="72" y="61" width="37" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.80942062039999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
@@ -69,6 +82,11 @@
                             <rect key="frame" x="44" y="36" width="75" height="75"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="oNf-zf-7KS">
+                            <rect key="frame" x="63" y="61" width="37" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.80942062039999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
