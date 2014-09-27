@@ -365,6 +365,13 @@
             
             [alert show];
         }
+        if ([_soapResults isEqualToString:@"Already Used"]) {
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        
+
         _soapResults = nil;
 
     }

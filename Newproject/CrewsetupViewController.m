@@ -1538,7 +1538,7 @@
             
             
         }
-       else if ([_soapResults isEqualToString:@"Already Exists"]) {
+       else if ([_soapResults isEqualToString:@"This Man Power is Already Exists"]) {
            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
            [alert show];
            [self Selectcrewname];

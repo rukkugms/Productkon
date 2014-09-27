@@ -521,6 +521,12 @@
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+        if ([_soapResults isEqualToString:@"Already Used"]) {
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_displaystring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+
         _soapResults=nil;
     }
 
