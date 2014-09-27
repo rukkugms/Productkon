@@ -30,6 +30,7 @@
                 <outlet property="serialtxtfld" destination="THR-0Z-lh9" id="nLe-74-EM4"/>
                 <outlet property="shiftwisetxtfld" destination="SO8-db-SU0" id="t2O-Xf-SbD"/>
                 <outlet property="stckinhandtxtfld" destination="wEI-Nh-emq" id="xBK-Zs-cgg"/>
+                <outlet property="updatebtn" destination="95Y-77-Aix" id="ApW-LO-feC"/>
                 <outlet property="view" destination="vyg-IP-iZe" id="gqL-iD-vqD"/>
                 <outlet property="view1" destination="R3l-CD-Nfe" id="K08-P3-NHQ"/>
                 <outlet property="weeklytxtfld" destination="XpC-Pd-FrO" id="ouB-tq-fkN"/>

@@ -167,6 +167,7 @@ finishedSavingWithError:(NSError *)error
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
         _activitybtn.hidden=YES;
+    _updatebtn.enabled=YES;
     [self AllSkills];
 
    // [self SelectAllConsumables];
@@ -1485,6 +1486,7 @@ finishedSavingWithError:(NSError *)error
         {
             _activitybtn.hidden=NO;
             [_activitybtn startAnimating];
+            _updatebtn.enabled=NO;
 
         [self InsertConsumables];
         }
@@ -1510,6 +1512,7 @@ finishedSavingWithError:(NSError *)error
         {
             _activitybtn.hidden=NO;
             [_activitybtn startAnimating];
+            _updatebtn.enabled=NO;
 
         [self UpdateConsumables];
         }
@@ -1565,13 +1568,16 @@ finishedSavingWithError:(NSError *)error
 
 -(IBAction)closeconsume:(id)sender{
       _addView.hidden=YES;
-    
+    _updatebtn.enabled=YES;
+
     [self dismissViewControllerAnimated:YES completion:nil];
     
     
 }
 -(IBAction)addconsume:(id)sender
 {
+    _updatebtn.enabled=YES;
+
     _addView.hidden=NO;
     _codetxtfld.text=@"";
     _resultdisplaylabel.hidden=YES;
@@ -1589,6 +1595,7 @@ finishedSavingWithError:(NSError *)error
     
 }
 -(IBAction)editconsume:(id)sender{
+    _updatebtn.enabled=YES;
      butntype=2;
       _consumbleTable.userInteractionEnabled=NO;
     button = (UIButton *)sender;
@@ -1638,6 +1645,7 @@ finishedSavingWithError:(NSError *)error
 
 -(IBAction)closeaddview:(id)sender{
     _addView.hidden=YES;
+    _updatebtn.enabled=YES;
     _resultdisplaylabel.hidden=YES;
     _consumbleTable.userInteractionEnabled=YES;
     
@@ -1725,6 +1733,7 @@ finishedSavingWithError:(NSError *)error
         if (butntype==2){
             _addView.hidden=YES;
             _consumbleTable.userInteractionEnabled=YES;
+            _updatebtn.enabled=YES;
         }
         _codetxtfld.text=@"";
         _resultdisplaylabel.hidden=NO;
@@ -1735,6 +1744,7 @@ finishedSavingWithError:(NSError *)error
         _stckinhandtxtfld.text=@"";
         [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
         _searchbar.text=@"";
+        _updatebtn.enabled=YES;
 
         
     }

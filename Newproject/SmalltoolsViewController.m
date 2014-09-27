@@ -1251,6 +1251,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
 
 
 - (IBAction)addtoolbtn:(id)sender {
+    _updatebtn.enabled=YES;
      butntype=1;
     _codetxtfld.text=@"";
     _resultdisplaylabel.hidden=YES;
@@ -1307,6 +1308,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
 }
 
 - (IBAction)closebtn:(id)sender {
+    _updatebtn.enabled=YES;
     _addview.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -1357,6 +1359,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
   {
       _activitybtn.hidden=NO;
       [_activitybtn startAnimating];
+      _updatebtn.enabled=NO;
         [self InsertSmallTools];
      }
         
@@ -1380,6 +1383,7 @@ else
 {
     _activitybtn.hidden=NO;
     [_activitybtn startAnimating];
+    _updatebtn.enabled=NO;
         [self UpdateSmallTools];
 }
         
@@ -1408,10 +1412,12 @@ else
 - (IBAction)closeaddbtn:(id)sender {
     _addview.hidden=YES;
      _Tooltable.userInteractionEnabled=YES;
+    _updatebtn.enabled=YES;
     
 }
 
 - (IBAction)editbtn:(id)sender {
+    _updatebtn.enabled=YES;
     butntype=2;
      _Tooltable.userInteractionEnabled=NO;
     _cancelbtnlbl.enabled=NO;
@@ -1514,6 +1520,7 @@ else
          if (butntype==2){
              _addview.hidden=YES;
              _Tooltable.userInteractionEnabled=YES;
+             _updatebtn.enabled=YES;
          }
         _codetxtfld.text=@"";
         
@@ -1521,7 +1528,7 @@ else
         _subtypetxtfld.text=@"";
         _costtxtfld.text=@"";
         _stockinhandtxtfld.text=@"";
-        
+        _updatebtn.enabled=YES;
         _soapResults = nil;
         [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
         _searchbar.text=@"";

@@ -130,5 +130,6 @@ NSInteger popvr;
 @property (strong, nonatomic) IBOutlet UIButton *checksubtypebtnlbl;
 - (IBAction)checksubtypebtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activitybtn;
+@property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 
 @end

@@ -31,6 +31,13 @@
    
     // Do any additional setup after loading the view from its nib.
 }
+-(void)viewWillDisappear:(BOOL)animated
+{
+     _secindictr.hidden=YES;
+    [_secindictr stopAnimating];
+    _securityview.userInteractionEnabled=YES;
+
+}
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     _compinfoindictr.hidden=YES;
@@ -52,7 +59,7 @@
     _basicreqview.userInteractionEnabled=YES;
     _jobsitereqview.userInteractionEnabled=YES;
     _workprocedureview.userInteractionEnabled=YES;
-   
+    [_secindictr stopAnimating];
     _result=@"";
     _Moduleid=0;
     
@@ -271,6 +278,8 @@
     _securityVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_securityVCtrl animated:YES completion:nil];
     [_secindictr stopAnimating];
+    _secindictr.hidden=YES;
+    _securityview.userInteractionEnabled=YES;
     
 }
 

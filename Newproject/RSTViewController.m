@@ -105,6 +105,7 @@
 
 -(IBAction)closesubtype:(id)sender
 {
+     _updatebtn.enabled=YES;
     _subtypetable.userInteractionEnabled=YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -117,27 +118,32 @@
     else{
         if (_moduleid==27) {
             
-        
+            _updatebtn.enabled=NO;
         [self Equipmentsubtypeinsert];
         }
         else if (_moduleid==28)
         {
+             _updatebtn.enabled=NO;
             [self Materialsubtypeinsert];
         }
         else if (_moduleid==34)
         {
+             _updatebtn.enabled=NO;
             [self ThirdPartysubtypeinsert];
         }
         else if (_moduleid==35)
         {
+             _updatebtn.enabled=NO;
             [self Consumablesubtypeinsert];
         }
         else if (_moduleid==36)
         {
+             _updatebtn.enabled=NO;
             [self SmallToolsubtypeinsert];
         }
         else if (_moduleid==37)
         {
+             _updatebtn.enabled=NO;
             [self OtherCompanysubtypeinsert];
         }
 
@@ -147,6 +153,7 @@
 - (IBAction)addclsebtn:(id)sender
 {
     _addview.hidden=YES;
+     _updatebtn.enabled=YES;
     _subtypetable.userInteractionEnabled=YES;
 
 }
@@ -186,7 +193,7 @@
 {
     //[_subtypetable setEditing:NO animated:NO];
     _subtypetable.userInteractionEnabled=NO;
-
+ _updatebtn.enabled=YES;
     _addview.hidden=NO;
 }
 - (IBAction)deletebtn:(id)sender
@@ -2078,6 +2085,7 @@
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if([alertView.message isEqualToString:msgstring]){
+        _updatebtn.enabled=YES;
         if (_moduleid==27) {
             
         

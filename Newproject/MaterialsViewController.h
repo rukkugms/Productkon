@@ -118,5 +118,6 @@
 @property(readwrite)NSInteger moduleid;
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activitybtn;
+@property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 
 @end

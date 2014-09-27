@@ -228,6 +228,7 @@ finishedSavingWithError:(NSError *)error
 
 
 -(void)viewWillAppear:(BOOL)animated{
+     _updatebtn.enabled=YES;
     [super viewWillAppear:animated];
     [self AllSkills];
     //[self SelectAllThirdParty];
@@ -1740,11 +1741,13 @@ finishedSavingWithError:(NSError *)error
 }
 
 - (IBAction)closebtn:(id)sender {
+     _updatebtn.enabled=YES;
       _addview.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)Addclosebtn:(id)sender {
+     _updatebtn.enabled=YES;
     _addview.hidden=YES;
     _updatelbl.hidden=YES;
     _thirdprtyTable.userInteractionEnabled=YES;
@@ -1798,9 +1801,11 @@ finishedSavingWithError:(NSError *)error
 
 
     if (btntype==1) {
+        _updatebtn.enabled=NO;
         [self InsertThirdParty];
     }
     else if (btntype==2){
+         _updatebtn.enabled=NO;
         [self UpdateThirdParty];
     }
     }
@@ -1844,6 +1849,7 @@ finishedSavingWithError:(NSError *)error
 }
 
 - (IBAction)addbtn:(id)sender {
+     _updatebtn.enabled=YES;
        _thirdprtyTable.userInteractionEnabled=NO;
     _cancelbtn.enabled=YES;
     _codetxtfld.text=@"";
@@ -1876,6 +1882,7 @@ finishedSavingWithError:(NSError *)error
 }
 
 - (IBAction)editbtn:(id)sender {
+     _updatebtn.enabled=YES;
     btntype=2;
  _thirdprtyTable.userInteractionEnabled=NO;
     button = (UIButton *)sender;
@@ -2148,10 +2155,11 @@ finishedSavingWithError:(NSError *)error
      if ([alertView.message isEqualToString:msgstrg])
      {
          if(btntype==2){
+              _updatebtn.enabled=YES;
              _addview.hidden=YES;
              _thirdprtyTable.userInteractionEnabled=YES;
          }
-        
+         _updatebtn.enabled=YES;
          _codetxtfld.text=@"";
          _destxtfld.text=@"";
          _subtypetxtfld.text=@"";

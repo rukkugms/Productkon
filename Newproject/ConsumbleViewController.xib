@@ -21,6 +21,7 @@
                 <outlet property="stckinhandtxtfld" destination="VXI-BE-d84" id="Y49-TA-Xwt"/>
                 <outlet property="titleView" destination="4y6-yL-p0C" id="hx5-hu-egI"/>
                 <outlet property="unitcosttxtfld" destination="qmK-ob-W9z" id="jKK-vd-8xo"/>
+                <outlet property="updatebtn" destination="Apz-Cr-tJq" id="n5F-QV-dtO"/>
                 <outlet property="view" destination="QjL-nf-DkL" id="B8o-Zn-VHk"/>
             </connections>
         </placeholder>
