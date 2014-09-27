@@ -57,6 +57,19 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    _manview.userInteractionEnabled=YES;
+    _gpmanactivity.hidden=YES;
+    _equipview.userInteractionEnabled=YES;
+    _gpequactivity.hidden=YES;
+    _materview.userInteractionEnabled=YES;
+    _gpmateractivity.hidden=YES;
+
+    
+    
+
+}
 -(IBAction)closethegroup:(id)sender
 
 {
@@ -65,7 +78,9 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(void)crewpage
-{
+{ _manview.userInteractionEnabled=NO;
+    _gpmanactivity.hidden=NO;
+    [_gpmanactivity startAnimating];
     _ModuleID=31;
     [self UserRightsforparticularmoduleselect];
 
@@ -73,6 +88,10 @@
 }
 
 -(void)equipPage{
+    _equipview.userInteractionEnabled=NO;
+    _gpequactivity.hidden=NO;
+      [_gpequactivity startAnimating];
+
     _ModuleID=32;
     [self UserRightsforparticularmoduleselect];
 
@@ -80,6 +99,10 @@
 }
 -(void)materialsPage
 {
+    _materview.userInteractionEnabled=NO;
+    _gpmateractivity.hidden=NO;
+    [_gpmateractivity startAnimating];
+
     _ModuleID=33;
     [self UserRightsforparticularmoduleselect];
 
@@ -181,6 +204,18 @@
     if ([_result isEqualToString:@"Not yet set"]) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Your rights are not yet set" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+        _manview.userInteractionEnabled=YES;
+        _gpmanactivity.hidden=YES;
+        [_gpmanactivity stopAnimating];
+        
+        _equipview.userInteractionEnabled=YES;
+        _gpequactivity.hidden=YES;
+           [_gpequactivity stopAnimating];
+        
+        _materview.userInteractionEnabled=YES;
+        _gpmateractivity.hidden=YES;
+           [_gpmateractivity stopAnimating];
+        
     }
     
     
@@ -210,7 +245,9 @@
                 [alert show];
                 //You don’t have right to view this form
             }
-            
+            _manview.userInteractionEnabled=YES;
+            _gpmanactivity.hidden=YES;
+            [_gpmanactivity stopAnimating];
             
         }
         if (_ModuleID==32) {
@@ -232,7 +269,10 @@
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
             }
-            
+            _equipview.userInteractionEnabled=YES;
+            _gpequactivity.hidden=YES;
+            [_gpequactivity stopAnimating];
+
         }
         if (_ModuleID==33)
         {
@@ -251,6 +291,10 @@
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
             }
+            _materview.userInteractionEnabled=YES;
+            _gpmateractivity.hidden=YES;
+            [_gpmateractivity stopAnimating];
+
             
         }
         
@@ -354,13 +398,7 @@
         recordResults = TRUE;
     }
     
-    
-    
-    
-    
-    
-    
-}
+    }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
     

@@ -41,5 +41,11 @@
 @property(strong,nonatomic)NSMutableData *webData;
 
 
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *gpmanactivity;
+
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *gpequactivity;
+
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *gpmateractivity;
+
 
 @end

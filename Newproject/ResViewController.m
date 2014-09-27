@@ -143,8 +143,8 @@
 -(void)materialsPage
 {
     _materialView.userInteractionEnabled=NO;
-    _manactivity.hidden=NO;
-    [_manactivity startAnimating];
+    _matactivity.hidden=NO;
+    [_matactivity startAnimating];
     
     _ModuleID=28;
     [self UserRightsforparticularmoduleselect];
