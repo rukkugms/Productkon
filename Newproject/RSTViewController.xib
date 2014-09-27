@@ -5,12 +5,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SubtypViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RSTViewController">
             <connections>
                 <outlet property="addview" destination="I33-AN-2M1" id="LHA-ut-q66"/>
                 <outlet property="subtypebutton" destination="TcL-42-uCt" id="068-lM-RlC"/>
                 <outlet property="subtypetable" destination="WDA-Cy-Smf" id="lSu-Tb-VmL"/>
                 <outlet property="titleview" destination="idu-i6-YYK" id="E7G-Fv-ZKN"/>
+                <outlet property="updatebtn" destination="Cg0-tp-djj" id="SwB-Db-MyH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

@@ -17,6 +17,7 @@
 
 
 @interface ThirdPartyViewController : UIViewController<UITextFieldDelegate,UIImagePickerControllerDelegate>
+
 {
     BOOL recordResults ;
     NSInteger btntype;
@@ -140,5 +141,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *checksubtypebtnlbl;
 - (IBAction)checksubtype:(id)sender;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activitybtn;
+@property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 
 @end

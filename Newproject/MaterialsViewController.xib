@@ -22,6 +22,7 @@
                 <outlet property="titleView" destination="i7x-iL-hoU" id="Euj-fF-vFL"/>
                 <outlet property="unitcosttxtfld" destination="hik-To-qcC" id="2m6-i0-1iN"/>
                 <outlet property="unitofmesuretxtfld" destination="cKB-3T-J9N" id="OEy-2a-Nme"/>
+                <outlet property="updatebtn" destination="Jpw-2m-GxA" id="I1v-D7-h5M"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>

@@ -1667,6 +1667,7 @@ recordResults = FALSE;
 
 - (IBAction)closebtn:(id)sender
 { _addview.hidden=YES;
+    _updatebtn.enabled=YES;
     
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
@@ -1696,12 +1697,14 @@ recordResults = FALSE;
     _addview.hidden=NO;
     _navItem.title=@"Create";
     _AssetTable.userInteractionEnabled=NO;
+    _updatebtn.enabled=YES;
 }
 
 
 
 
 - (IBAction)Addclosebtn:(id)sender{
+    _updatebtn.enabled=YES;
     _addview.hidden=YES;
     _updatelbl.hidden=YES;
     _AssetTable.userInteractionEnabled=YES;
@@ -1711,6 +1714,7 @@ recordResults = FALSE;
 - (IBAction)editbtn:(id)sender
 
 {
+     _updatebtn.enabled=YES;
     btntype=2;
     _AssetTable.userInteractionEnabled=NO;
 
@@ -1807,9 +1811,11 @@ recordResults = FALSE;
 
 
     if (btntype==1) {
+        _updatebtn.enabled=NO;
         [self InsertOther];
     }
     if (btntype==2) {
+         _updatebtn.enabled=NO;
         [self UpdateOther];
     }
     }
@@ -2056,10 +2062,11 @@ recordResults = FALSE;
      if(btntype==2){
          _addview.hidden=YES;
          _AssetTable.userInteractionEnabled=YES;
+         _updatebtn.enabled=YES;
      }
          
-        
-            
+     _updatebtn.enabled=YES;
+     
             _codetxtfld.text=@"";
             _destxtfld.text=@"";
             _subtypetxtfld.text=@"";

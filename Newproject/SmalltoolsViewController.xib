@@ -20,6 +20,7 @@
                 <outlet property="picimageview" destination="St6-P0-Hvp" id="xgW-Iw-kfV"/>
                 <outlet property="resultdisplaylabel" destination="FNS-yA-DTH" id="ahB-2b-nCU"/>
                 <outlet property="stockinhandtxtfld" destination="0l4-wj-wMA" id="Zfv-ib-eKw"/>
+                <outlet property="updatebtn" destination="TP2-y0-BI6" id="poK-t7-tfI"/>
                 <outlet property="view" destination="9N2-uw-8vf" id="kgk-1I-Tsb"/>
                 <outlet property="view1" destination="Ov6-Bx-oOC" id="oiL-CH-mih"/>
             </connections>

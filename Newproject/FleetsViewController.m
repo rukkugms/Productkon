@@ -1534,10 +1534,12 @@ if([elementName isEqualToString:@"url"])
 
 - (IBAction)closebtn:(id)sender
 {
+     _updatebtn.enabled=YES;
      _addview.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 - (IBAction)addbtn:(id)sender{
+     _updatebtn.enabled=YES;
     _fleetTable.userInteractionEnabled=NO;
     _codetxtfld.text=@"";
     _destxtfld.text=@"";
@@ -1571,6 +1573,7 @@ if([elementName isEqualToString:@"url"])
 
 
 {
+     _updatebtn.enabled=YES;
     _addview.hidden=YES;
       _updatelbl.hidden=YES;
       _fleetTable.userInteractionEnabled=YES;
@@ -1578,6 +1581,7 @@ if([elementName isEqualToString:@"url"])
 - (IBAction)editbtn:(id)sender
 
 {
+    _updatebtn.enabled=YES;
     btntype=2;
       _fleetTable.userInteractionEnabled=NO;
     button = (UIButton *)sender;
@@ -1666,9 +1670,11 @@ if([elementName isEqualToString:@"url"])
         [_activitybtn startAnimating];
 
     if (btntype==1) {
+        _updatebtn.enabled=NO;
         [self Insertfleet];
     }
     if (btntype==2) {
+        _updatebtn.enabled=NO;
         [self Updatefleet];
     }
     }
@@ -1879,7 +1885,9 @@ if([elementName isEqualToString:@"url"])
         if (btntype==2) {
             _addview.hidden=YES;
             _fleetTable.userInteractionEnabled=YES;
+             _updatebtn.enabled=YES;
         }
+        _updatebtn.enabled=YES;
 
         _codetxtfld.text=@"";
         _destxtfld.text=@"";

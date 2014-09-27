@@ -130,5 +130,5 @@ NSInteger popvr;
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activitybtn;
-
+@property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 @end

@@ -30,6 +30,7 @@
                 <outlet property="shiftwisetxtfld" destination="TVH-kP-s7b" id="kvY-oy-D2f"/>
                 <outlet property="stockinhndtxtfld" destination="8vF-9N-vYn" id="gaz-eI-Tzo"/>
                 <outlet property="titleview" destination="3Du-ib-4yv" id="hoP-HQ-C1A"/>
+                <outlet property="updatebtn" destination="QUZ-H9-Mx9" id="aCm-gJ-dIM"/>
                 <outlet property="view" destination="2" id="3"/>
                 <outlet property="weeklytxtfld" destination="h9f-q8-3Rm" id="cQF-ef-vCX"/>
                 <outlet property="yearlytxtfld" destination="CpO-8e-ocd" id="eBB-R7-gS1"/>

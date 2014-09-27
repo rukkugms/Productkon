@@ -32,6 +32,7 @@
                 <outlet property="thirdprtyTable" destination="Cnf-ej-VNh" id="Icg-lv-QB8"/>
                 <outlet property="typesearchlbl" destination="Ob8-oy-4z0" id="cYG-da-UQt"/>
                 <outlet property="unitcsttxtfld" destination="5Gc-Xb-iO3" id="w28-nI-fWj"/>
+                <outlet property="updatebtn" destination="SpO-jy-zI6" id="ubA-6z-dSQ"/>
                 <outlet property="view" destination="ekO-eU-pon" id="YoR-0w-VLG"/>
                 <outlet property="view1" destination="1h7-4f-Jph" id="jfj-Hf-zLQ"/>
                 <outlet property="weeklytxtfld" destination="feL-cg-MNC" id="C6M-YM-QeU"/>

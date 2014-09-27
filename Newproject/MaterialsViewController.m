@@ -1643,6 +1643,7 @@
         {
             _activitybtn.hidden=NO;
             [_activitybtn startAnimating];
+             _updatebtn.enabled=NO;
         [self InserteMaterials];
             [self UnitOfMeasureInsert];
 
@@ -1667,6 +1668,7 @@ else
 {
     _activitybtn.hidden=NO;
     [_activitybtn startAnimating];
+     _updatebtn.enabled=NO;
         [self UpdateMaterials];
      [self UnitOfMeasureInsert];
     
@@ -1727,11 +1729,13 @@ else
 
 -(IBAction)closeMaterials:(id)sender
 {
+      _updatebtn.enabled=YES;
     _addmatView.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)addmaterial:(id)sender
 {
+      _updatebtn.enabled=YES;
     _materialTable.userInteractionEnabled=NO;
     _resultdispalylabel.hidden=YES;
     _codetxtfld.text=@"";
@@ -1752,6 +1756,7 @@ else
 }
 -(IBAction)editmaterial:(id)sender
 {
+      _updatebtn.enabled=YES;
      _materialTable.userInteractionEnabled=NO;
     butntype=2;
     _resultdispalylabel.hidden=YES;
@@ -1797,6 +1802,7 @@ else
 }
 -(IBAction)closeaddview:(id)sender
 {
+      _updatebtn.enabled=YES;
     _addmatView.hidden=YES;
      _materialTable.userInteractionEnabled=YES;
    }
@@ -1852,11 +1858,12 @@ else
     if ([alertView.message isEqualToString:msgstrg]) {
         
         if(butntype==2){
+             _updatebtn.enabled=YES;
             _addmatView.hidden=YES;
              _materialTable.userInteractionEnabled=YES;
         }
         _codetxtfld.text=@"";
-        
+          _updatebtn.enabled=YES;
         _destxtfld.text=@"";
         _subtyptxtfld.text=@"";
         _unitcosttxtfld.text=@"";

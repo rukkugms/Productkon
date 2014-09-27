@@ -57,6 +57,7 @@
 
 //Materials
 @property(readwrite)NSInteger materialmainid;
+@property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 
 
 

@@ -67,6 +67,7 @@ _scroll_addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255
     _equipmenttbl.userInteractionEnabled=YES;
     //[self SelectAllEquipment];
     _activitybtn.hidden=YES;
+     _updatebtn.enabled=YES;
 }
 
 
@@ -1692,11 +1693,13 @@ finishedSavingWithError:(NSError *)error
 
 -(IBAction)closeEqupment:(id)sender
 {
+     _updatebtn.enabled=YES;
     _addequipmentview.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)addEquipment:(id)sender
 {
+     _updatebtn.enabled=YES;
     [_equipmenttbl setEditing:NO animated:NO];
     _codetxfld.text=@"";
     _destxtfld.text=@"";
@@ -1727,6 +1730,7 @@ finishedSavingWithError:(NSError *)error
 }
 -(IBAction)closeaddview:(id)sender
 {
+     _updatebtn.enabled=YES;
     _addequipmentview.hidden=YES;
      _equipmenttbl.userInteractionEnabled=YES;
       _updatelbl.hidden=YES;
@@ -1735,6 +1739,7 @@ finishedSavingWithError:(NSError *)error
 -(IBAction)editequipview:(id)sender
 {
     btntype=2;
+     _updatebtn.enabled=YES;
      _equipmenttbl.userInteractionEnabled=NO;
     [_equipmenttbl setEditing:NO animated:NO];
     _cancelbtnlbl.enabled=NO;
@@ -1842,10 +1847,12 @@ _addequipmentview.hidden=NO;
         _activitybtn.hidden=NO;
         [_activitybtn startAnimating];
     if (btntype==1) {
+        _updatebtn.enabled=NO;
         [self InsertEquipment];
         //[self UploadAnyImage];
     }
     if (btntype==2) {
+         _updatebtn.enabled=NO;
         [self UpdateEquipment];
        // [self UploadAnyImage];
     }
@@ -2071,7 +2078,7 @@ _addequipmentview.hidden=NO;
     if ([alertView.message isEqualToString:mesgstrg]) {
         if (btntype==1) {
             
-        
+         _updatebtn.enabled=YES;
         _codetxfld.text=@"";
         _destxtfld.text=@"";
         _subtypetxtfld.text=@"";
@@ -2116,6 +2123,7 @@ _addequipmentview.hidden=NO;
             _addequipmentview.hidden=YES;
              _equipmenttbl.userInteractionEnabled=YES;
             _SearchingBar.text=@"";
+             _updatebtn.enabled=YES;
             
         }
 
