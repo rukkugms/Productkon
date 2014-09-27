@@ -1688,7 +1688,7 @@ recordResults = FALSE;
     _monthlytxtfld.text=@"";
     _yearlytxtfld.text=@"";
     _stckinhandtxtfld.text=@"";
-    _pictureimgview.image=[UIImage imageNamed:@"NoImage"];
+    _pictureimgview.image=[UIImage imageNamed:@"mNoImage"];
     _cancelbtn.enabled=YES;
     [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
 
@@ -1742,7 +1742,7 @@ recordResults = FALSE;
     _stckinhandtxtfld.text=eqmdl.stockinhand;
     _uplodpiclctn=eqmdl.PictureLocation;
     _cancelbtn.enabled=NO;
-      [_pictureimgview setImage:[UIImage imageNamed:@"NoImage"]];
+      [_pictureimgview setImage:[UIImage imageNamed:@"mNoImage"]];
     [self FetchAnyImage];
     _addview.hidden=NO;
     _navItem.title=@"Edit";

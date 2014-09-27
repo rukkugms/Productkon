@@ -236,7 +236,7 @@
                                     <rect key="frame" x="382" y="223" width="196" height="108"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoImage.png" id="St6-P0-Hvp">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mNoImage.png" id="St6-P0-Hvp">
                                     <rect key="frame" x="391" y="228" width="178" height="97"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
@@ -278,10 +278,10 @@
         </view>
     </objects>
     <resources>
-        <image name="NoImage.png" width="512" height="512"/>
         <image name="appbar.addblack.png" width="76" height="76"/>
         <image name="appbar.close.png" width="76" height="76"/>
         <image name="appbar.delete.png" width="76" height="76"/>
         <image name="cb_mono_off.png" width="22" height="21"/>
+        <image name="mNoImage.png" width="512" height="512"/>
     </resources>
 </document>

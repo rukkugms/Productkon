@@ -1865,7 +1865,7 @@ finishedSavingWithError:(NSError *)error
     _typetxtfld.text=@"";
     _unitcsttxtfld.text=@"";
     _stckinhandtxtdfld.text=@"";
-    _pictureimgvw.image=[UIImage imageNamed:@"NoImage"];
+    _pictureimgvw.image=[UIImage imageNamed:@"mNoImage"];
     [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
         [_typesearchlbl setTitle:@"Select" forState:UIControlStateNormal];
 
