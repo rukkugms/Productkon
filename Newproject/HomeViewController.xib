@@ -7,13 +7,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
+                <outlet property="compactivityindctr" destination="uv9-pn-bAp" id="WH8-jA-tNv"/>
                 <outlet property="companyView" destination="26" id="28"/>
+                <outlet property="custindictr" destination="VhO-jB-hVg" id="NlA-EQ-DQI"/>
                 <outlet property="customerview" destination="4" id="21"/>
+                <outlet property="estactvityindicator" destination="iMu-MA-vyt" id="GmU-Nz-hoe"/>
                 <outlet property="estimtnview" destination="d8t-0b-D1U" id="YAe-RB-j6C"/>
+                <outlet property="hrindicator" destination="ISX-qw-0yz" id="0dZ-HM-bFi"/>
                 <outlet property="hrview" destination="29" id="31"/>
                 <outlet property="leadView" destination="23" id="25"/>
+                <outlet property="ledactvtyindctr" destination="a3Z-rW-S3h" id="q2d-8O-EBn"/>
+                <outlet property="planactivityindctr" destination="pGN-wf-TLO" id="9zC-em-og8"/>
                 <outlet property="planngview" destination="Pjb-zn-1HX" id="eZv-oU-lvZ"/>
                 <outlet property="projectview" destination="EPr-1o-t3c" id="qcr-DD-gOR"/>
+                <outlet property="promgmtindicatr" destination="VRk-wf-DHu" id="jW8-CQ-hgy"/>
+                <outlet property="resactivtyindictr" destination="hZq-KF-JMm" id="HKs-UE-HAe"/>
                 <outlet property="reurceview" destination="QcF-Qj-Fym" id="Svq-Rg-yJM"/>
                 <outlet property="view" destination="2" id="3"/>
                 <outlet property="wlcmelbl" destination="RLz-RO-y48" id="pgd-8Z-2Ve"/>
@@ -144,6 +152,11 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="iMu-MA-vyt">
+                            <rect key="frame" x="57" y="53" width="37" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.51582458941605835" blue="0.53142107664233573" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
@@ -162,6 +175,11 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="VRk-wf-DHu">
+                            <rect key="frame" x="54" y="53" width="37" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="0.50196078431372548" green="0.0" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
@@ -180,6 +198,11 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="VhO-jB-hVg">
+                            <rect key="frame" x="51" y="58" width="37" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="0.88195711678832112" green="0.20643248175182483" blue="0.31797445255474371" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
@@ -198,6 +221,11 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="a3Z-rW-S3h">
+                            <rect key="frame" x="58" y="60" width="37" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="0.093407846715328466" green="0.49116104014598538" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
@@ -216,6 +244,11 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="uv9-pn-bAp">
+                            <rect key="frame" x="57" y="50" width="37" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.77183681029999995" blue="0.043825061339999999" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
@@ -234,6 +267,11 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="ISX-qw-0yz">
+                            <rect key="frame" x="62" y="61" width="37" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
@@ -252,6 +290,11 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="hZq-KF-JMm">
+                            <rect key="frame" x="54" y="53" width="37" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
@@ -270,6 +313,11 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="pGN-wf-TLO">
+                            <rect key="frame" x="57" y="61" width="37" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="0.80000000000000004" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </view>

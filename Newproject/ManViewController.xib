@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="addscrollview" destination="s0X-SZ-WZc" id="NN5-Wh-3Ap"/>
                 <outlet property="addview" destination="doX-z8-Lxc" id="lIa-yK-EAo"/>
+                <outlet property="cancelbtn" destination="V9q-Vt-aCG" id="m8N-8n-lgf"/>
                 <outlet property="checkbtnlbl" destination="Rxt-0O-sSo" id="RKF-xU-h8T"/>
                 <outlet property="craftcodetextfld" destination="y3T-6o-hPt" id="Gui-bz-gaK"/>
                 <outlet property="eduactiontextview" destination="WqL-IN-USY" id="n3c-mW-xAi"/>
@@ -23,6 +24,7 @@
                 <outlet property="titleview" destination="Kpb-PR-Psi" id="3B0-Go-RXm"/>
                 <outlet property="trainingtextview" destination="i0v-g5-5yP" id="Iya-Sz-yTS"/>
                 <outlet property="unitcosttxtfld" destination="cPY-Mk-QzU" id="es7-tt-0cb"/>
+                <outlet property="updatebtn" destination="RJi-p7-zg3" id="5oE-6Q-f59"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>

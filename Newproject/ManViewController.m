@@ -126,6 +126,7 @@
     _addview.hidden=YES;
     _result=@"";
     moduleid=0;
+      _updatebtn.enabled=YES;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -1556,6 +1557,7 @@
 
 #pragma mark-Action
 - (IBAction)addmanpwer:(id)sender {
+    _updatebtn.enabled=YES;
     _manpowerTable.userInteractionEnabled=NO;
   
     _itemcodetxtfld.text=@"";
@@ -1563,7 +1565,7 @@
     _itemdestxtfld.text=@"";
     _subtypetxtfld.text=@"";
     _unitcosttxtfld.text=@"";
-
+    _cancelbtn.enabled=YES;
     btnidtfr=22;
     _navitem.title=@"Create";
     _addview.hidden=NO;
@@ -1581,6 +1583,7 @@
     checkbtnclick=0;
 }
 - (IBAction)clsebtn:(id)sender {
+      _updatebtn.enabled=YES;
     moduleid=26;
     _addview.hidden=YES;
     _manpowerTable.userInteractionEnabled=YES;
@@ -1589,6 +1592,9 @@
 }
 -(IBAction)editmanpower:(id)sender
 {
+      _updatebtn.enabled=YES;
+      _cancelbtn.enabled=NO;
+    _cancelbtn.titleLabel.textColor=[UIColor grayColor];
     btnidtfr=11;
        _manpowerTable.userInteractionEnabled=NO;
      _cancelbtnlbl.enabled=NO;
@@ -1713,6 +1719,7 @@
             
             else
             {
+                _updatebtn.enabled=NO;
                 [self UpdateManpower];
             }
         }
@@ -1741,6 +1748,7 @@
             
             else
             {
+                _updatebtn.enabled=NO;
                 [self InsertManpower];
             }
             
@@ -1880,6 +1888,7 @@
 if ([alertView.message isEqualToString:msgstrg]) {
     
     if(btnidtfr==11){
+          _updatebtn.enabled=YES;
         _addview.hidden=YES;
         _manpowerTable.userInteractionEnabled=YES;
         //[self Selectallmanpower];
@@ -1900,6 +1909,7 @@ if ([alertView.message isEqualToString:msgstrg]) {
     _billingratetextfield.text=@"";
     [_searchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
     _SearchingBar.text=@"";
+      _updatebtn.enabled=YES;
            }
 
     if ([alertView.message isEqualToString:@"Invalid Billing Rate"]) {
