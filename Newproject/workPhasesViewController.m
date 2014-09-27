@@ -1484,6 +1484,14 @@
         [alert show];
         
     }
+        if ([_soapResults isEqualToString:@"Already Used"]) {
+            _soapstring=_soapResults;
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        
+
         if (webtype==5) {
             _result=@"Not yet set";
         }

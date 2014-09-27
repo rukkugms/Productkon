@@ -96,19 +96,56 @@
 
 
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    _manpwrview.userInteractionEnabled=YES;
+    _manactivity.hidden=YES;
+    _eqpView.userInteractionEnabled=YES;
+    _eqactivity.hidden=YES;
+    _materialView.userInteractionEnabled=YES;
+    _matactivity.hidden=YES;
+    _fleetview.userInteractionEnabled=YES;
+    _fleetactivity.hidden=YES;
+    _crewview.userInteractionEnabled=YES;
+    _gpactivity.hidden=YES;
+    _thirdpartyview.userInteractionEnabled=YES;
+    _tpactivity.hidden=YES;
+    _consumbleview.userInteractionEnabled=YES;
+    _conactivity.hidden=YES;
+    _smalltoolview.userInteractionEnabled=YES;
+    _stactivity.hidden=YES;
+    _cmpanyassetview.userInteractionEnabled=YES;
+    _assetactivity.hidden=YES;
+    
+    
+    
+    
+    
+}
 -(void)equipPage
 {
+    _eqpView.userInteractionEnabled=NO;
+    _eqactivity.hidden=NO;
+    [_eqactivity startAnimating];
     _ModuleID=27;
     [self UserRightsforparticularmoduleselect];
    
 }
 
 -(void)manpwrpage{
+    _manpwrview.userInteractionEnabled=NO;
+    _manactivity.hidden=NO;
+    [_matactivity startAnimating];
+    
     _ModuleID=26;
     [self UserRightsforparticularmoduleselect];
    }
 -(void)materialsPage
 {
+    _materialView.userInteractionEnabled=NO;
+    _manactivity.hidden=NO;
+    [_manactivity startAnimating];
+    
     _ModuleID=28;
     [self UserRightsforparticularmoduleselect];
    
@@ -116,12 +153,18 @@
 
 
 -(void)fleetPage{
+    _fleetview.userInteractionEnabled=NO;
+    _fleetactivity.hidden=NO;
+    [_fleetactivity startAnimating];
     _ModuleID=29;
     [self UserRightsforparticularmoduleselect];
   
     
 }
 -(void)toolPage{
+    _smalltoolview.userInteractionEnabled=NO;
+    _stactivity.hidden=NO;
+    [_stactivity startAnimating];
     _ModuleID=36;
     [self UserRightsforparticularmoduleselect];
    
@@ -129,23 +172,36 @@
     
 }
 -(void)ThirdPage{
+    _thirdpartyview.userInteractionEnabled=NO;
+    _tpactivity.hidden=NO;
+    [_tpactivity startAnimating];
     _ModuleID=34;
     [self UserRightsforparticularmoduleselect];
    
 
 }
 -(void)ConsumPage{
+    _consumbleview.userInteractionEnabled=NO;
+    _conactivity.hidden=NO;
+    [_conactivity startAnimating];
     _ModuleID=35;
     [self UserRightsforparticularmoduleselect];
     
     
 }
 -(void)AssetPage{
+    _cmpanyassetview.userInteractionEnabled=NO;
+    _assetactivity.hidden=NO;
+    [_assetactivity startAnimating];
     _ModuleID=37;
     [self UserRightsforparticularmoduleselect];
    
 }
 -(void)crewpage{
+    _crewview.userInteractionEnabled=NO;
+    _gpactivity.hidden=NO;
+    [_gpactivity startAnimating];
+
     _ModuleID=30;
     [self UserRightsforparticularmoduleselect];
     
@@ -259,6 +315,35 @@
     if ([_result isEqualToString:@"Not yet set"]) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Your rights are not yet set" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+        _manpwrview.userInteractionEnabled=YES;
+        _manactivity.hidden=YES;
+        [_manactivity stopAnimating];
+        _eqpView.userInteractionEnabled=YES;
+        _eqactivity.hidden=YES;
+        [_eqactivity stopAnimating];
+        _materialView.userInteractionEnabled=YES;
+        _matactivity.hidden=YES;
+        [_matactivity stopAnimating];
+        _fleetview.userInteractionEnabled=YES;
+        _fleetactivity.hidden=YES;
+           [_fleetactivity stopAnimating];
+        _crewview.userInteractionEnabled=YES;
+        _gpactivity.hidden=YES;
+           [_gpactivity stopAnimating];
+        _thirdpartyview.userInteractionEnabled=YES;
+        _tpactivity.hidden=YES;
+         [_tpactivity stopAnimating];
+        _consumbleview.userInteractionEnabled=YES;
+        _conactivity.hidden=YES;
+        [_conactivity stopAnimating];
+
+        _smalltoolview.userInteractionEnabled=YES;
+        _stactivity.hidden=YES;
+          [_stactivity stopAnimating];
+        _cmpanyassetview.userInteractionEnabled=YES;
+        _assetactivity.hidden=YES;
+          [_assetactivity stopAnimating];
+
     }
     
     
@@ -279,12 +364,18 @@
             _manVCtrl.userrightsarray=_userrightsarray;
             [self presentViewController:_manVCtrl
                                animated:YES completion:NULL];
+            _manpwrview.userInteractionEnabled=YES;
+            _manactivity.hidden=YES;
+            [_manactivity stopAnimating];
 
         }
         else
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _manpwrview.userInteractionEnabled=YES;
+            _manactivity.hidden=YES;
+            [_manactivity stopAnimating];
             //You don’t have right to view this form
         }
         
@@ -309,6 +400,10 @@
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+        _eqpView.userInteractionEnabled=YES;
+        _eqactivity.hidden=YES;
+        [_eqactivity stopAnimating];
+
         
     }
     if (_ModuleID==28)
@@ -327,7 +422,10 @@
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
-        
+        _materialView.userInteractionEnabled=YES;
+        _matactivity.hidden=YES;
+        [_matactivity stopAnimating];
+
     }
     if (_ModuleID==29)
     {
@@ -345,7 +443,9 @@
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
-        
+        _fleetview.userInteractionEnabled=YES;
+        _fleetactivity.hidden=YES;
+        [_fleetactivity stopAnimating];
     }
     if (_ModuleID==30)
     {
@@ -363,6 +463,11 @@
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+        _crewview.userInteractionEnabled=YES;
+        _gpactivity.hidden=YES;
+        [_gpactivity stopAnimating];
+
+        
     }
     if (_ModuleID==34)
     {
@@ -381,6 +486,10 @@
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+        _thirdpartyview.userInteractionEnabled=YES;
+        _tpactivity.hidden=YES;
+        [_tpactivity stopAnimating];
+
     }
     if (_ModuleID==35)
     {
@@ -399,6 +508,10 @@
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+        _consumbleview.userInteractionEnabled=YES;
+        _conactivity.hidden=YES;
+        [_conactivity stopAnimating];
+
     }
     if (_ModuleID==36)
     {
@@ -418,6 +531,10 @@
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+        _smalltoolview.userInteractionEnabled=YES;
+        _stactivity.hidden=YES;
+        [_stactivity stopAnimating];
+       
     }
     if (_ModuleID==37)
     {
@@ -437,6 +554,10 @@
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+        
+        _cmpanyassetview.userInteractionEnabled=YES;
+        _assetactivity.hidden=YES;
+        [_assetactivity stopAnimating];
     }
 
     }

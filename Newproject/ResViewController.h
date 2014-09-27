@@ -63,4 +63,19 @@
 @property(strong,nonatomic)NSMutableData *webData;
 
 
+/*activity*/
+
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *manactivity;
+
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *eqactivity;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *matactivity;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *fleetactivity;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *gpactivity;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *tpactivity;
+
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *conactivity;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *stactivity;
+
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *assetactivity;
+
 @end

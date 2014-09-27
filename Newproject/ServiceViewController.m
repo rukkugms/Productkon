@@ -314,9 +314,11 @@
     
     if (editingStyle==UITableViewCellEditingStyleDelete) {
         path=indexPath.row;
+       
         
         [self DeleteServices];
-        [_servicelistarray removeObject:indexPath];
+           [_servicelistarray removeObject:indexPath];
+      
         
         
         
@@ -981,12 +983,16 @@
         msgstr=_soapResults;
         if (webtype==1) {
             
-        
-        
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstr delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         }
         
+        if ([_soapResults isEqualToString:@"Already Used"]) {
+           
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstr delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+
 
         _soapResults = nil;
     }
