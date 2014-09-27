@@ -68,5 +68,13 @@ BOOL recordResults;
 
 
 @property (strong, nonatomic) IBOutlet UILabel *wlcmelbl;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *compactivityindctr;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *resactivtyindictr;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *estactvityindicator;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *planactivityindctr;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *ledactvtyindctr;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *custindictr;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *hrindicator;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *promgmtindicatr;
 
 @end
