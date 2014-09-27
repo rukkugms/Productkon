@@ -29,8 +29,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     /*new comment*/
-    AppDelegate *appController = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-   // appController.mynewDelegate = self;
+    
+
     
 }
 -(IBAction)logout:(id)sender
