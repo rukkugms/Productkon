@@ -278,8 +278,8 @@
     _securityVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_securityVCtrl animated:YES completion:nil];
     [_secindictr stopAnimating];
-    _secindictr.hidden=NO;
-    _securityview.userInteractionEnabled=NO;
+    _secindictr.hidden=YES;
+    _securityview.userInteractionEnabled=YES;
     
 }
 
