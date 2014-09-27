@@ -1860,12 +1860,12 @@ finishedSavingWithError:(NSError *)error
     _dailytxtfld.text=@"";
     _shiftwisetxtfld.text=@"";
     _weeklytxtfld.text=@"";
-    _monthlytxtfld.text=@"";
+    _monthlytxtfld.text=@""; 
     _yearlytxtfld.text=@"";
     _typetxtfld.text=@"";
     _unitcsttxtfld.text=@"";
     _stckinhandtxtdfld.text=@"";
-    _pictureimgvw.image=[UIImage imageNamed:@"ios7-camera-icon"];
+    _pictureimgvw.image=[UIImage imageNamed:@"NoImage"];
     [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
         [_typesearchlbl setTitle:@"Select" forState:UIControlStateNormal];
 

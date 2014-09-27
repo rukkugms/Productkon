@@ -398,7 +398,7 @@
                                             <rect key="frame" x="361" y="530" width="200" height="114"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios7-camera-icon.png" id="xiO-yc-RWt">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoImage.png" id="xiO-yc-RWt">
                                             <rect key="frame" x="369" y="539" width="184" height="95"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -508,11 +508,11 @@
         </view>
     </objects>
     <resources>
+        <image name="NoImage.png" width="512" height="512"/>
         <image name="appbar.addblack.png" width="76" height="76"/>
         <image name="appbar.close.png" width="76" height="76"/>
         <image name="appbar.delete.png" width="76" height="76"/>
         <image name="cb_mono_off.png" width="22" height="21"/>
-        <image name="ios7-camera-icon.png" width="128" height="128"/>
         <image name="textbox.png" width="298" height="64"/>
     </resources>
 </document>

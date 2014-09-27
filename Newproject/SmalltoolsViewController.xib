@@ -41,7 +41,7 @@
                                 <navigationItem title="Small Tools" id="rgn-2U-FPY">
                                     <barButtonItem key="rightBarButtonItem" id="9CR-lD-HMO">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="AB4-7N-aG6">
-                                            <rect key="frame" x="713" y="-3" width="50" height="50"/>
+                                            <rect key="frame" x="969" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" image="appbar.close.png">
@@ -236,7 +236,7 @@
                                     <rect key="frame" x="382" y="223" width="196" height="108"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios7-camera-icon.png" id="St6-P0-Hvp">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoImage.png" id="St6-P0-Hvp">
                                     <rect key="frame" x="391" y="228" width="178" height="97"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
@@ -278,10 +278,10 @@
         </view>
     </objects>
     <resources>
+        <image name="NoImage.png" width="512" height="512"/>
         <image name="appbar.addblack.png" width="76" height="76"/>
         <image name="appbar.close.png" width="76" height="76"/>
         <image name="appbar.delete.png" width="76" height="76"/>
         <image name="cb_mono_off.png" width="22" height="21"/>
-        <image name="ios7-camera-icon.png" width="128" height="128"/>
     </resources>
 </document>

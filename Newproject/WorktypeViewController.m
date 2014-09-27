@@ -459,6 +459,15 @@
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+        if (webtype==3) {
+            
+            if ([_soapResults isEqualToString:@"Already Used"]) {
+                msgstrg=_soapResults;
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+            
+        }
         _soapResults = nil;
     }
 

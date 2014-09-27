@@ -452,6 +452,7 @@
 		D4A3977819CFE8DE00E2514C /* PServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A3977619CFE8DE00E2514C /* PServiceViewController.xib */; };
 		D4A3977A19CFF12F00E2514C /* PServiccell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A3977919CFF12F00E2514C /* PServiccell.xib */; };
 		D4A3977D19D0191A00E2514C /* Plaservcemdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A3977C19D0191A00E2514C /* Plaservcemdl.m */; };
+		D4A3DC9419D66D64007A77DC /* NoImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A3DC9319D66D64007A77DC /* NoImage.png */; };
 		D4A5317819CD822B0056EBC1 /* login-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4A5317719CD822B0056EBC1 /* login-1.jpg */; };
 		D4A6748C19345E6C00D5A77E /* IconPubHol.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A6748619345E6C00D5A77E /* IconPubHol.png */; };
 		D4A6748D19345E6C00D5A77E /* IconPubHol@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A6748719345E6C00D5A77E /* IconPubHol@2x.png */; };
@@ -1171,6 +1172,7 @@
 		D4A3977919CFF12F00E2514C /* PServiccell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PServiccell.xib; sourceTree = "<group>"; };
 		D4A3977B19D0191A00E2514C /* Plaservcemdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plaservcemdl.h; sourceTree = "<group>"; };
 		D4A3977C19D0191A00E2514C /* Plaservcemdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plaservcemdl.m; sourceTree = "<group>"; };
+		D4A3DC9319D66D64007A77DC /* NoImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NoImage.png; sourceTree = "<group>"; };
 		D4A5317719CD822B0056EBC1 /* login-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "login-1.jpg"; sourceTree = "<group>"; };
 		D4A6748619345E6C00D5A77E /* IconPubHol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconPubHol.png; sourceTree = "<group>"; };
 		D4A6748719345E6C00D5A77E /* IconPubHol@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IconPubHol@2x.png"; sourceTree = "<group>"; };
@@ -1880,6 +1882,7 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D4A3DC9319D66D64007A77DC /* NoImage.png */,
 				D4A5317719CD822B0056EBC1 /* login-1.jpg */,
 				D4A14A4B19CBEC96003C1193 /* search.png */,
 				D410CC5319AB4C8F0093DDE6 /* userrights.png */,
@@ -2517,6 +2520,7 @@
 				D4FE170A1918ED0800C8DA58 /* drop.png in Resources */,
 				D49F8A4D18EEBAD700413CAD /* Basewagecell.xib in Resources */,
 				642F93011872870E0059101A /* customjobcell.xib in Resources */,
+				D4A3DC9419D66D64007A77DC /* NoImage.png in Resources */,
 				649B1F8B18C9CE800081B1F1 /* SendEmployeeview.xib in Resources */,
 				D42D8C3818D2E3E3009D8085 /* UsersViewController.xib in Resources */,
 				D4A16B4B1974EEA8002CA2A2 /* Outlookrecordaddview.xib in Resources */,

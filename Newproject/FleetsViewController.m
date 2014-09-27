@@ -1557,7 +1557,7 @@ if([elementName isEqualToString:@"url"])
     _monthlytxtfld.text=@"";
     _yearlytxtfld.text=@"";
       _stockinhandtxtfld.text=@"";
-    _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+    _picimageview.image=[UIImage imageNamed:@"NoImage"];
     _cancelbtn.enabled=YES;
     btntype=1;
     _addview.hidden=NO;
@@ -1606,7 +1606,7 @@ if([elementName isEqualToString:@"url"])
     _monthlytxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.MonthlyRate];
     _yearlytxtfld.text=[NSString stringWithFormat:@"%@",eqmdl.YearlyRate];
     _stockinhandtxtfld.text=[NSString stringWithFormat:@"%@",eqmdl.stockinhand];
-      [_picimageview setImage:[UIImage imageNamed:@"ios7-camera-icon"]];
+      [_picimageview setImage:[UIImage imageNamed:@"NoImage"]];
     _uplodpiclctn=eqmdl.PictureLocation;
     _cancelbtn.enabled=NO;
     [self FetchAnyImage];
