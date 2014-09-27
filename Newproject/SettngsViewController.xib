@@ -7,10 +7,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettngsViewController">
             <connections>
+                <outlet property="phaseindicator" destination="7c5-wg-IWf" id="R74-bH-jn2"/>
+                <outlet property="servcindicator" destination="pVx-Xn-o8k" id="NnE-q3-4eP"/>
                 <outlet property="serviceview" destination="t28-7c-DHF" id="ybm-FT-yWm"/>
                 <outlet property="view" destination="dmW-df-sww" id="69m-DO-xn8"/>
                 <outlet property="workphaseview" destination="EmI-2r-Wq1" id="c5B-Yg-H3l"/>
                 <outlet property="worktypeview" destination="fUQ-a3-XBT" id="su7-91-dQp"/>
+                <outlet property="wrktypeindicator" destination="5dY-ja-MQ2" id="Rdk-1j-AF8"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -55,6 +58,11 @@
                             <rect key="frame" x="54" y="34" width="75" height="75"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="pVx-Xn-o8k">
+                            <rect key="frame" x="63" y="54" width="37" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.88871464416058399" blue="0.42814781021897808" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
@@ -73,6 +81,11 @@
                             <rect key="frame" x="54" y="34" width="75" height="75"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5dY-ja-MQ2">
+                            <rect key="frame" x="69" y="51" width="37" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.88871464420000001" blue="0.42814781019999998" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
@@ -91,6 +104,11 @@
                             <rect key="frame" x="54" y="34" width="75" height="75"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="7c5-wg-IWf">
+                            <rect key="frame" x="69" y="52" width="37" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.88871464420000001" blue="0.42814781019999998" alpha="1" colorSpace="calibratedRGB"/>
                 </view>

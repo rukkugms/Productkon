@@ -7,7 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FtileViewController">
             <connections>
+                <outlet property="Urightsindicator" destination="7O9-SP-A4Z" id="e5y-CU-g8M"/>
                 <outlet property="fldrview" destination="qxY-9u-pgp" id="Oq3-oR-cB8"/>
+                <outlet property="frightsindicator" destination="W5a-Uh-lDj" id="bdx-LK-uMG"/>
                 <outlet property="usrview" destination="tGU-RL-jX6" id="tKb-zQ-LY0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -54,6 +56,11 @@
                             <rect key="frame" x="47" y="28" width="100" height="81"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="W5a-Uh-lDj">
+                            <rect key="frame" x="76" y="55" width="37" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.88871464420000001" blue="0.42814781019999998" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
@@ -72,6 +79,11 @@
                             <rect key="frame" x="54" y="38" width="87" height="81"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="7O9-SP-A4Z">
+                            <rect key="frame" x="73" y="60" width="37" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" red="1" green="0.88871464420000001" blue="0.42814781019999998" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
