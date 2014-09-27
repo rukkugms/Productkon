@@ -1715,7 +1715,7 @@ finishedSavingWithError:(NSError *)error
     _monthlytxtfld.text=@"";
     _yearlytxtfld.text=@"";
     _stockinhndtxtfld.text=@"";
-  _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+  _picimageview.image=[UIImage imageNamed:@"NoImage"];
     [_subsearchlbl setTitle:@"Select" forState:UIControlStateNormal];
     [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     _equipmenttbl.userInteractionEnabled=NO;
@@ -1765,7 +1765,7 @@ finishedSavingWithError:(NSError *)error
     _yearlytxtfld.text=[NSString stringWithFormat:@"%@",eqmdl.YearlyRate];
     _stockinhndtxtfld.text=[NSString stringWithFormat:@"%@",eqmdl.stockinhand];
     _uplodpiclctn=[NSString stringWithFormat:@"%@",eqmdl.PictureLocation];
-    [_picimageview setImage:[UIImage imageNamed:@"ios7-camera-icon"]];
+    [_picimageview setImage:[UIImage imageNamed:@"NoImage"]];
     if ([eqmdl.EqAllSubTypes isEqualToString:@"true"]) {
         
         [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];

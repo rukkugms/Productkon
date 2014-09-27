@@ -1580,6 +1580,7 @@ finishedSavingWithError:(NSError *)error
     _unitcosttxtfld.text=@"";
     _stckinhandtxtfld.text=@"";
      [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+         _imageview.image=[UIImage imageNamed:@"NoImage"];
     butntype=1;
     _cancelbtn.enabled=YES;
        _navItem.title=@"Create";
@@ -1602,6 +1603,7 @@ finishedSavingWithError:(NSError *)error
     NSLog(@"toolmdl.itemcode%@",toolmdl.itemcode);
     _destxtfld.text=toolmdl.itemdescptn;
     _subtyptxtfld.text=toolmdl.subtype;
+        _imageview.image=[UIImage imageNamed:@"NoImage"];
    // [_subsearchbtnlbl setTitle:toolmdl.subtype forState:UIControlStateNormal];
 
     _unitcosttxtfld.text=[NSString stringWithFormat:@"$%@",toolmdl.unitcost];

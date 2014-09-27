@@ -1740,7 +1740,7 @@ else
     _subtyptxtfld.text=@"";
     _unitcosttxtfld.text=@"";
     _stockinhandtxtfld.text=@"";
-        _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+        _picimageview.image=[UIImage imageNamed:@"NoImage"];
     [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
     [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
 
@@ -1774,7 +1774,7 @@ else
     _stockinhandtxtfld.text=pwrmdl.stckinhand;
     _uplodpiclctn=pwrmdl.picturelocation;
     _unitofmesuretxtfld.text=pwrmdl.unitofmeasure;
-      [_picimageview setImage:[UIImage imageNamed:@"ios7-camera-icon"]];
+      [_picimageview setImage:[UIImage imageNamed:@"NoImage"]];
     if ([pwrmdl.allsubtype isEqualToString:@"true"]) {
         
         [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];

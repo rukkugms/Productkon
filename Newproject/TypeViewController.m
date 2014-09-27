@@ -95,6 +95,7 @@
     
 }
 -(void)ItemRequirementInsert{
+    webtype=1;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -143,6 +144,7 @@
     
 }
 -(void)Itemmasterupdate{
+    webtype=2;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -455,10 +457,10 @@
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
     if (rightsmodel.EditModule==0) {
-        if (webtype==1) {
+        if (optionidentifier==1) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to add a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
-        }else if(webtype==2)
+        }else if(optionidentifier==2)
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
@@ -475,11 +477,11 @@
         [alert show];
     }
 
-    else if (webtype==1) {
+    else if (optionidentifier==1) {
          _updatebtn.enabled=NO;
         [self ItemRequirementInsert];
     }
-    else if (webtype==2) {
+    else if (optionidentifier==2) {
          _updatebtn.enabled=NO;
         [self Itemmasterupdate];
     }
