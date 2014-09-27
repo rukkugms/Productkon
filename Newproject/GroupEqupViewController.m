@@ -1490,6 +1490,7 @@
                
                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                [alert show];
+                [_crewbtnlbl setTitle:_crewnametxtfld.text forState:UIControlStateNormal];
            }
 
             _crewnametxtfld.text=@"";
