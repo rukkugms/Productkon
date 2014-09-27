@@ -1259,7 +1259,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     _costtxtfld.text=@"";
     _stockinhandtxtfld.text=@"";
     [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
-  [_picimageview setImage:[UIImage imageNamed:@"NoImage"]];
+  [_picimageview setImage:[UIImage imageNamed:@"mNoImage"]];
      _Tooltable.userInteractionEnabled=NO;
     _addview.hidden=NO;
     _cancelbtnlbl.enabled=YES;
@@ -1429,7 +1429,7 @@ else
     _subtypetxtfld.text=toolmdl.subtype;
     [_subsearchbtnlbl setTitle:toolmdl.subtype forState:UIControlStateNormal];
      _costtxtfld.text=[NSString stringWithFormat:@"$%@",toolmdl.unitcost];
-     [_picimageview setImage:[UIImage imageNamed:@"NoImage"]];
+     [_picimageview setImage:[UIImage imageNamed:@"mNoImage"]];
     _stockinhandtxtfld.text=toolmdl.stckinhand;
    picturelocation=toolmdl.picturelocation;
     [self FetchAnyImage];

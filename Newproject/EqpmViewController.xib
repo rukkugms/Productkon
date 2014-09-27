@@ -389,7 +389,7 @@
                                             <rect key="frame" x="51" y="505" width="206" height="129"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoImage.png" id="cUw-aR-J0q">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mNoImage.png" id="cUw-aR-J0q">
                                             <rect key="frame" x="58" y="514" width="192" height="110"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -469,10 +469,10 @@
         </view>
     </objects>
     <resources>
-        <image name="NoImage.png" width="512" height="512"/>
         <image name="appbar.addblack.png" width="76" height="76"/>
         <image name="appbar.close.png" width="76" height="76"/>
         <image name="appbar.delete.png" width="76" height="76"/>
         <image name="cb_mono_off.png" width="22" height="21"/>
+        <image name="mNoImage.png" width="512" height="512"/>
     </resources>
 </document>

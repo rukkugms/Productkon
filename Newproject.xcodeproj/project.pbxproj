@@ -292,6 +292,7 @@
 		D499D29A196AB39A008D248A /* Timesheetmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D499D299196AB39A008D248A /* Timesheetmdl.m */; };
 		D49BF6A119540450000226FD /* IssueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49BF6A01954044F000226FD /* IssueCell.xib */; };
 		D49BF6A419540B61000226FD /* Issuemdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49BF6A319540B61000226FD /* Issuemdl.m */; };
+		D49C216719D69EB800DB022A /* mNoImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D49C216619D69EB800DB022A /* mNoImage.png */; };
 		D49DE838185EB391006F1CDA /* closebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = D49DE836185EB391006F1CDA /* closebutton.png */; };
 		D49DE839185EB391006F1CDA /* closebutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D49DE837185EB391006F1CDA /* closebutton@2x.png */; };
 		D49E056018C7022800AF6330 /* CrewsetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49E055E18C7022800AF6330 /* CrewsetupViewController.m */; };
@@ -937,6 +938,7 @@
 		D49BF6A01954044F000226FD /* IssueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssueCell.xib; sourceTree = "<group>"; };
 		D49BF6A219540B60000226FD /* Issuemdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Issuemdl.h; sourceTree = "<group>"; };
 		D49BF6A319540B61000226FD /* Issuemdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Issuemdl.m; sourceTree = "<group>"; };
+		D49C216619D69EB800DB022A /* mNoImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mNoImage.png; sourceTree = "<group>"; };
 		D49DE836185EB391006F1CDA /* closebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closebutton.png; sourceTree = "<group>"; };
 		D49DE837185EB391006F1CDA /* closebutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closebutton@2x.png"; sourceTree = "<group>"; };
 		D49E055D18C7022800AF6330 /* CrewsetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrewsetupViewController.h; sourceTree = "<group>"; };
@@ -1880,6 +1882,7 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D49C216619D69EB800DB022A /* mNoImage.png */,
 				D4A5317719CD822B0056EBC1 /* login-1.jpg */,
 				D4A14A4B19CBEC96003C1193 /* search.png */,
 				D410CC5319AB4C8F0093DDE6 /* userrights.png */,
@@ -2505,6 +2508,7 @@
 				D41708FA19A5B24900F55599 /* UserRightViewController.xib in Resources */,
 				64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */,
 				D4A16B471974EEA8002CA2A2 /* EqaddRecordview.xib in Resources */,
+				D49C216719D69EB800DB022A /* mNoImage.png in Resources */,
 				649EB48C18A8DF4700CDBE28 /* DetailproHrViewController.xib in Resources */,
 				D42D8C2818D2DD79009D8085 /* custommanapowercell.xib in Resources */,
 				D4FED40917F15B07004BE242 /* HRViewController.xib in Resources */,
