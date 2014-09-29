@@ -22,6 +22,7 @@
                 <outlet property="phonetxtfld" destination="fxn-ve-ZlM" id="qUb-Az-AFB"/>
                 <outlet property="statebtnlbl" destination="Ssw-H4-tDO" id="dM3-aS-yXq"/>
                 <outlet property="titleview" destination="qu7-cd-mjl" id="kta-M0-3TN"/>
+                <outlet property="updatebtn" destination="OpI-yp-p9f" id="XAt-XH-Lkm"/>
                 <outlet property="view" destination="2" id="3"/>
                 <outlet property="websitetxtfld" destination="cWI-XZ-vph" id="GhY-Xy-E7Y"/>
                 <outlet property="zipbtnlbl" destination="K2x-AA-e4Q" id="DrE-Es-iPB"/>

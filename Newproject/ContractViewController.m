@@ -49,6 +49,8 @@
      self.openviewindex=NSNotFound;
     [super viewWillAppear:animated];
     [self SelectContractManagement];
+     _searchbar.text=@"";
+    _disclosurearray=[[NSMutableArray alloc]initWithObjects:@"Details", nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,12 +59,43 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 #pragma mark-IBActions
 -(IBAction)closethecontractpage:(id)sender
 {
      self.openviewindex=NSNotFound;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
+-(IBAction)disclosure:(id)sender
+{
+    
+    UIViewController* popoverContent = [[UIViewController alloc]init];
+    UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 100, 43)];
+    // popoverView.backgroundColor = [UIColor whiteColor];
+    _popOvertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 100, 43)];
+    _popOvertableview.delegate=(id)self;
+    _popOvertableview.dataSource=(id)self;
+    _popOvertableview.rowHeight= 40;
+    _popOvertableview.separatorStyle=UITableViewCellSeparatorStyleNone;
+    //_popovertableview.separatorColor=[UIColor blackColor];
+    [popoverView addSubview:_popOvertableview];
+    popoverContent.view = popoverView;
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(100, 43);
+    
+    button = (UIButton *)sender;
+    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.contracttable];
+    NSIndexPath *textFieldIndexPath = [self.contracttable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    buttonindex=textFieldIndexPath.row;
+    
+    //UITableView *table = (UITableView *)[cell superview];
+    self.popOverController = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
+    [self.popOverController presentPopoverFromRect:_disclosurebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    
+}
+
 #pragma mark-Tableview datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -71,8 +104,14 @@
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{ if(tableView==_popOvertableview)
 {
+    return [_disclosurearray count];
+}
+    else
+    {
     return [_contractlistarray count];
+    }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -85,6 +124,15 @@
         cell=_contrctcell;
         
     }
+    if (tableView==_popOvertableview) {
+        cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+        cell.textLabel.font = [UIFont systemFontOfSize:12.0];
+        
+        cell.textLabel.text=[_disclosurearray objectAtIndex:indexPath.row];
+
+    }
+    else
+    {
     subcontract*submdl=(subcontract *)[_contractlistarray objectAtIndex:indexPath.row];
     _namelabel=(UILabel*)[cell viewWithTag:1];
     _namelabel.text=submdl.CustomerName;
@@ -116,15 +164,15 @@
 //    _subcontractlabel=(UILabel*)[cell viewWithTag:6];
 //    _subcontractlabel.text=submdl.SubContractorMarkup;
     
-    disbutton=[UIButton buttonWithType:UIButtonTypeCustom];
-    [disbutton setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
-    
-    disbutton.tag=indexPath.row;
-    [disbutton addTarget:self action:@selector(showactions:) forControlEvents:UIControlEventTouchUpInside];
-    disbutton.frame = CGRectMake(230.0, 1.0, 50.0, 40.0);
-    [cell.contentView addSubview:disbutton];
+//    disbutton=[UIButton buttonWithType:UIButtonTypeCustom];
+//    [disbutton setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
+//    
+//    disbutton.tag=indexPath.row;
+//    [disbutton addTarget:self action:@selector(showactions:) forControlEvents:UIControlEventTouchUpInside];
+//    disbutton.frame = CGRectMake(230.0, 1.0, 50.0, 40.0);
+//    [cell.contentView addSubview:disbutton];
 
-    
+    }
     
     return cell;
 }
@@ -145,138 +193,157 @@
         }
     }
 }
--(void)showactions:(UIButton*)sender{
-    _detailslabel.hidden=YES;
-    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
-        .frame =  CGRectMake(260, 10, 0, 0);} completion:nil];
-    
-    _animatedview.hidden=YES;
-    //Empmdl *empmdl=(Empmdl *)[_employeelistarray objectAtIndex:sender.tag];
-    
-    
-    
-    
-    button = (UIButton *)sender;
-    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
-    CGPoint center= button.center;
-    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.contracttable];
-    NSIndexPath *textFieldIndexPath = [self.contracttable indexPathForRowAtPoint:rootViewPoint];
-    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
-    buttonindex=textFieldIndexPath.row;
-    
-    
-    
-    //create uiview
-    _animatedview=[[UIView alloc]initWithFrame:CGRectMake(260, 10, 0, 25)];
-    _animatedview.backgroundColor=[UIColor colorWithRed:99.0/255.0f green:184.0/255.0f blue:255.0/255.0f alpha:1.0f];
-    _detailslabel=[[UILabel alloc]initWithFrame:CGRectMake(12, 0, 160, 25)];
-    _detailslabel.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
-    _detailslabel.textColor=[UIColor blackColor];
-    _detailslabel.text=@"Details";
-    [self.animatedview addSubview:_detailslabel];
-    
-    _detailslabel.hidden=YES;
-    
-    UITapGestureRecognizer *tap= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gotomanagementdetails)];
-    [self.animatedview addGestureRecognizer:tap];
-    [cell addSubview:_animatedview];
-    
-    _animatedview.hidden=NO;
-    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
-        .frame =  CGRectMake(260, 10, 70, 25);} completion:nil];
-    
-    _detailslabel.hidden=NO;
-    //    NSLog(@"%@",empmdl.badgeflag);
-    //    if ([empmdl.badgeflag isEqualToString:@"true"]) {
-    //        //_badgelbl.enabled=NO;
-    //        _animatedview.userInteractionEnabled=NO;
-    //        //_animatedview.
-    //
-    //    }
-    
-    [self showviewWithUserAction:YES];
-}
-
--(void)showviewWithUserAction:(BOOL)userAction{
-    
-    // Toggle the disclosure button state.
-    
-    disbutton.selected = !disbutton.selected;
-    
-    if (userAction) {
-        if (disbutton.selected) {
-            _animatedview.hidden=NO;
-            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
-                .frame =  CGRectMake(260, 10, 70, 25);} completion:nil];
-            [self viewopened:buttonindex];
-            _detailslabel.hidden=NO;
-            
-            
-            
-        }
-        else{
-            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
-                .frame =  CGRectMake(260, 10, 70, 25);} completion:nil];
-            [self viewclosed:buttonindex];
-            //_venderlbl.hidden=YES;
-            
-        }
-        
-        
-    }
-}
--(void)viewopened:(NSInteger)viewopened{
-    
-    
-    selectedcell=viewopened;
-    NSInteger previousOpenviewIndex = self.openviewindex;
-    
-    if (previousOpenviewIndex != NSNotFound) {
-        [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{  _animatedview
-            .frame =  CGRectMake(260, 10, 0, 0);} completion:nil];
-        
-        _animatedview.hidden=YES;
-        
-        
-        // }
-        
-        
-    }
-    
-    self.openviewindex=viewopened;
-    
-    
-    
-    
-    
-    
-}
-
--(void)viewclosed:(NSInteger)viewclosed
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    viewclosed=buttonindex;
-    _animatedview.hidden=YES;
-    self.openviewindex = NSNotFound;
-    
-    
-}
--(void)gotomanagementdetails
-{
-    
+     //selectedcell=indexPath.row;
     _passingarray=[[NSMutableArray alloc]init];
-    subcontract*smdl=(subcontract *)[_contractlistarray objectAtIndex:selectedcell];
+    subcontract*smdl=(subcontract *)[_contractlistarray objectAtIndex:buttonindex];
     [_passingarray addObject:smdl];
 
-  //  if (!self.mgmtdetails) {
+    if (tableView==_popOvertableview) {
+        
+       
+        
+        //  if (!self.mgmtdetails) {
         self.mgmtdetails=[[MangmntdetailsViewController alloc]initWithNibName:@"MangmntdetailsViewController" bundle:nil];
-  //  }
-    _mgmtdetails.detailsarray=_passingarray;
-    //_custmrVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+        //  }
+        _mgmtdetails.detailsarray=_passingarray;
+        //_custmrVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+        
+        [self presentViewController:_mgmtdetails
+                           animated:YES completion:NULL];
+                }
+    [self.popOverController dismissPopoverAnimated:YES];
     
-    [self presentViewController:_mgmtdetails
-                       animated:YES completion:NULL];
 }
+        
+        
+
+
+    
+
+
+//-(void)showactions:(UIButton*)sender{
+//    _detailslabel.hidden=YES;
+//    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
+//        .frame =  CGRectMake(260, 10, 0, 0);} completion:nil];
+//    
+//    _animatedview.hidden=YES;
+//    //Empmdl *empmdl=(Empmdl *)[_employeelistarray objectAtIndex:sender.tag];
+//    
+//    
+//    
+//    
+//    button = (UIButton *)sender;
+//    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+//    CGPoint center= button.center;
+//    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.contracttable];
+//    NSIndexPath *textFieldIndexPath = [self.contracttable indexPathForRowAtPoint:rootViewPoint];
+//    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+//    buttonindex=textFieldIndexPath.row;
+//    
+//    
+//    
+//    //create uiview
+//    _animatedview=[[UIView alloc]initWithFrame:CGRectMake(260, 10, 0, 25)];
+//    _animatedview.backgroundColor=[UIColor colorWithRed:99.0/255.0f green:184.0/255.0f blue:255.0/255.0f alpha:1.0f];
+//    _detailslabel=[[UILabel alloc]initWithFrame:CGRectMake(12, 0, 160, 25)];
+//    _detailslabel.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
+//    _detailslabel.textColor=[UIColor blackColor];
+//    _detailslabel.text=@"Details";
+//    [self.animatedview addSubview:_detailslabel];
+//    
+//    _detailslabel.hidden=YES;
+//    
+//    UITapGestureRecognizer *tap= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gotomanagementdetails)];
+//    [self.animatedview addGestureRecognizer:tap];
+//    [cell addSubview:_animatedview];
+//    
+//    _animatedview.hidden=NO;
+//    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
+//        .frame =  CGRectMake(260, 10, 70, 25);} completion:nil];
+//    
+//    _detailslabel.hidden=NO;
+//    //    NSLog(@"%@",empmdl.badgeflag);
+//    //    if ([empmdl.badgeflag isEqualToString:@"true"]) {
+//    //        //_badgelbl.enabled=NO;
+//    //        _animatedview.userInteractionEnabled=NO;
+//    //        //_animatedview.
+//    //
+//    //    }
+//    
+//    [self showviewWithUserAction:YES];
+//}
+//
+//-(void)showviewWithUserAction:(BOOL)userAction{
+//    
+//    // Toggle the disclosure button state.
+//    
+//    disbutton.selected = !disbutton.selected;
+//    
+//    if (userAction) {
+//        if (disbutton.selected) {
+//            _animatedview.hidden=NO;
+//            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
+//                .frame =  CGRectMake(260, 10, 70, 25);} completion:nil];
+//            [self viewopened:buttonindex];
+//            _detailslabel.hidden=NO;
+//            
+//            
+//            
+//        }
+//        else{
+//            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
+//                .frame =  CGRectMake(260, 10, 70, 25);} completion:nil];
+//            [self viewclosed:buttonindex];
+//            //_venderlbl.hidden=YES;
+//            
+//        }
+//        
+//        
+//    }
+//}
+//-(void)viewopened:(NSInteger)viewopened{
+//    
+//    
+//    selectedcell=viewopened;
+//    NSInteger previousOpenviewIndex = self.openviewindex;
+//    
+//    if (previousOpenviewIndex != NSNotFound) {
+//        [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{  _animatedview
+//            .frame =  CGRectMake(260, 10, 0, 0);} completion:nil];
+//        
+//        _animatedview.hidden=YES;
+//        
+//        
+//        // }
+//        
+//        
+//    }
+//    
+//    self.openviewindex=viewopened;
+//    
+//    
+//    
+//    
+//    
+//    
+//}
+//
+//-(void)viewclosed:(NSInteger)viewclosed
+//{
+//    
+//    viewclosed=buttonindex;
+//    _animatedview.hidden=YES;
+//    self.openviewindex = NSNotFound;
+//    
+//    
+//}
+//-(void)gotomanagementdetails
+//{
+//    
+//   
+//}
 
 #pragma mark-Searchbar
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
