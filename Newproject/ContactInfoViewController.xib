@@ -20,6 +20,7 @@
                 <outlet property="pstntxtfld" destination="47" id="r1H-LL-IQJ"/>
                 <outlet property="scroll" destination="54" id="R9R-c5-t6a"/>
                 <outlet property="titlenav" destination="NlE-Ge-dCq" id="ei1-ei-0JO"/>
+                <outlet property="updatebtn" destination="31" id="xx2-hq-74E"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>

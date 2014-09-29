@@ -71,6 +71,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *mobiletextfield;
 - (IBAction)update:(id)sender;
 - (IBAction)cancel:(id)sender;
-
+@property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 
 @end

@@ -60,9 +60,11 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    _SearchingBar.text=@"";
     _addview.hidden=YES;
     [self Stateselect];
     [self countryselect];
+    //[_cuntrybtnlbl setTitle:[_countryarray objectAtIndex:214] forState:UIControlStateNormal];
 
     [self CustomerMasterselect];
 }
@@ -239,7 +241,7 @@
         switch (poptype) {
             case 1:
                 [_statebtnlbl setTitle:[_statearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-                 [_cuntrybtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+                //[_cuntrybtnlbl setTitle:[_countryarray objectAtIndex:214] forState:UIControlStateNormal];
                
                 break;
             case 2:
@@ -1104,10 +1106,10 @@
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 200, 100)];
+                           initWithFrame:CGRectMake(0, 0, 220, 300)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 100)];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 220, 300)];
     
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
@@ -1121,7 +1123,7 @@
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 100);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(220, 300);
     
     //create a popover controller
     
@@ -1173,10 +1175,12 @@
 #pragma mark-Button Actions
 
 - (IBAction)clsebtn:(id)sender {
+    _updatebtn.enabled=YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)addcustmrbtn:(id)sender {
+    _updatebtn.enabled=YES;
     webtype=1;
     
     optionidentifier=1;
@@ -1277,6 +1281,14 @@
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Address is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
+   else  if ([_statebtnlbl.titleLabel.text isEqualToString:@"Select"]||[_statebtnlbl.titleLabel.text isEqualToString:@""]) {
+       UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"State is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+       [alert show];
+   }
+   else  if ([_cuntrybtnlbl.titleLabel.text isEqualToString:@"Select"]||[_cuntrybtnlbl.titleLabel.text isEqualToString:@""]) {
+       UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Country is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+       [alert show];
+   }
           else  if ([_phonetxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
@@ -1290,10 +1302,12 @@
        else{
            
         if (optionidentifier==1) {
+            _updatebtn.enabled=NO;
         [self CustomerMasterInsert];
 
     }
     else  if (optionidentifier==2){
+        _updatebtn.enabled=NO;
         [self CustomerMasterUpdate];
     }
     }
@@ -1316,6 +1330,7 @@
 }
 
 - (IBAction)clseviewbtn:(id)sender {
+    _updatebtn.enabled=YES;
     _addview.hidden=YES;
     
     _custmrtable.userInteractionEnabled=YES;
@@ -1323,6 +1338,7 @@
 }
 
 - (IBAction)editbtn:(id)sender {
+    _updatebtn.enabled=YES;
     //[_custmrtable setEditing:NO animated:NO];
     _custmrtable.userInteractionEnabled=NO;
     _cancelbtnlbl.enabled=NO;
@@ -1458,9 +1474,9 @@
     {
         faxnoString=_faxtxtfld.text;
         if ([faxnoString length]<10) {
-            if([faxnoString isEqualToString:@""])
+            if([faxnoString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
             {
-                
+               _faxtxtfld.text=@"";
             }
             else
             {
@@ -1580,9 +1596,9 @@
         
         
         if ([phnnostring length]<10) {
-            if([phnnostring isEqualToString:@""])
+            if([phnnostring stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
             {
-                
+                _phonetxtfld.text=@"";
             }
             else
             {
@@ -1729,7 +1745,11 @@
     
     if(textField==_websitetxtfld){
         
-        
+        if ([_websitetxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+            
+        }
+        else
+        {
         
         Validation *val=[[Validation alloc]init];
         BOOL webval=[val validateUrl:_websitetxtfld.text];
@@ -1742,6 +1762,7 @@
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Website" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+        }
         }
     }
     if(textField==_nametextfld){
@@ -1793,9 +1814,10 @@
             {
                 _addview.hidden=YES;
                 _custmrtable.userInteractionEnabled=YES;
+                _updatebtn.enabled=YES;
                 
             }
-            
+            _updatebtn.enabled=YES;
             
             _nametextfld.text=@"";
             _addresstxtview.text=@"";

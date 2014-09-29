@@ -20,6 +20,7 @@
                 <outlet property="phoneofficetextfield" destination="211" id="V9A-Mi-pZt"/>
                 <outlet property="salesRepTable" destination="181" id="192"/>
                 <outlet property="scroll" destination="179" id="180"/>
+                <outlet property="updatebtn" destination="204" id="5Fo-sL-4sh"/>
                 <outlet property="view" destination="177" id="178"/>
             </connections>
         </placeholder>

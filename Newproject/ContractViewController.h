@@ -20,6 +20,7 @@
     NSInteger buttonindex;
     NSInteger selectedcell;
     
+    
 }
 
 
@@ -66,5 +67,12 @@
 
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
+
+-(IBAction)disclosure:(id)sender;
+@property(strong,nonatomic)IBOutlet UIButton *disclosurebtn;
+@property(strong,nonatomic)NSMutableArray *disclosurearray;
+@property(strong,nonatomic)UIPopoverController *popOverController;
+@property(strong,nonatomic)UITableView *popOvertableview;
+
 
 @end

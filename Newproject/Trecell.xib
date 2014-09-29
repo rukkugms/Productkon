@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -30,7 +30,7 @@
                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cYa-6s-biK">
-                        <rect key="frame" x="348" y="0.0" width="1" height="49"/>
+                        <rect key="frame" x="348" y="-2" width="1" height="47"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -56,7 +56,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oce-3x-thl">
-                        <rect key="frame" x="496" y="-3" width="1" height="50"/>
+                        <rect key="frame" x="496" y="-2" width="1" height="48"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>

@@ -79,5 +79,6 @@
 - (IBAction)addbtn:(id)sender;
 
 - (IBAction)deletbtn:(id)sender;
+@property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 
 @end

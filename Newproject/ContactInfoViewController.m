@@ -57,6 +57,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     _SearchingBar.text=@"";
+    _updatebtn.enabled=YES;
     [super viewWillAppear:animated];
     [self CustomercontactInfoselect];
     
@@ -226,6 +227,7 @@
     
 }
 -(void)CustomerContactInfodelete{
+    webtype=3;
     recordResults = FALSE;
     NSString *soapMessage;
       Infomdl*infmdl=(Infomdl *)[_infoarray objectAtIndex:deletepath];
@@ -359,6 +361,7 @@
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
     if(webtype==1||webtype==2||webtype==3){
+        _SearchingBar.text=@"";
         [self CustomercontactInfoselect];
         webtype=0;
     }
@@ -562,6 +565,7 @@
 
 #pragma mark-Button
 - (IBAction)addbtn:(id)sender {
+    _updatebtn.enabled=YES;
       _cancelbtnlbl.enabled=YES;
     optionidentifier=1;
      _cancelbtnlbl.titleLabel.textColor=[UIColor colorWithRed:0/255.0f green:122.0/255.0f blue:255.0/255.0f alpha:1.0f];
@@ -582,6 +586,7 @@
 
 -(IBAction)closetheView:(id)sender
 {
+    _updatebtn.enabled=YES;
     self.addview.hidden=YES;
     _contactinfoTable.userInteractionEnabled=YES;
 }
@@ -619,10 +624,12 @@
         {
             if (webtype==1)
             {
+                _updatebtn.enabled=NO;
                 [self CustomerContactInfoInsert];
             }
             else
             {
+                _updatebtn.enabled=NO;
                 [self CustomerContactInfoUpdate];
             }
         }
@@ -632,10 +639,12 @@
     {
         if (webtype==1)
         {
+            _updatebtn.enabled=NO;
             [self CustomerContactInfoInsert];
         }
         else
         {
+            _updatebtn.enabled=NO;
             [self CustomerContactInfoUpdate];
         }
         
@@ -663,6 +672,7 @@
 }
 
 - (IBAction)editbtn:(id)sender {
+    _updatebtn.enabled=YES;
     optionidentifier=2;
     _contactinfoTable.userInteractionEnabled=NO;
    // [_contactinfoTable setEditing:NO animated:NO];
@@ -714,6 +724,7 @@
 
 }
 - (IBAction)clsebtn:(id)sender {
+    _updatebtn.enabled=YES;
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
@@ -806,6 +817,8 @@
             if (optionidentifier==2) {
                 _contactinfoTable.userInteractionEnabled=YES;
                 _addview.hidden=YES;
+                _updatebtn.enabled=YES;
+                _SearchingBar.text=@"";
             }
             
             _nametextfield.text=@"";
@@ -814,6 +827,8 @@
               _mobiletextfld.text=@"";
               _faxtxtfld.text=@"";
               _pstntxtfld.text=@"";
+            _updatebtn.enabled=YES;
+            _SearchingBar.text=@"";
             
         }
     }
@@ -966,7 +981,7 @@
     {
         faxnoString=_faxtxtfld.text;
         if ([faxnoString length]<10) {
-            if([faxnoString isEqualToString:@""])
+            if([faxnoString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
             {
                 
             }
@@ -1088,7 +1103,7 @@
         
         
         if ([phnnostring length]<10) {
-            if([phnnostring isEqualToString:@""])
+            if([phnnostring stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
             {
                 
             }
@@ -1209,7 +1224,7 @@
         
         
         if ([mobilestrg length]<10) {
-            if([mobilestrg isEqualToString:@""])
+            if([mobilestrg stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
             {
                 
             }

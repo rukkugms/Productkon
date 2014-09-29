@@ -97,6 +97,7 @@
 //}
 -(IBAction)closetheView:(id)sender
 {
+    _updatebtn.enabled=YES;
     self.addView.hidden=YES;
     _salesRepTable.userInteractionEnabled=YES;
     _custcodetextfield.text=@"";
@@ -111,6 +112,7 @@
 - (IBAction)editsalesaction:(id)sender
 {
     _cancelbtnlbl.enabled=NO;
+    _updatebtn.enabled=YES;
     _salesRepTable.userInteractionEnabled=NO;
    // [_salesRepTable setEditing:NO animated:NO];
        _cancelbtnlbl.titleLabel.textColor=[UIColor grayColor];
@@ -136,6 +138,7 @@
 }
 - (IBAction)addsalesaction:(id)sender
 {_cancelbtnlbl.enabled=YES;
+    _updatebtn.enabled=YES;
     _salesRepTable.userInteractionEnabled=NO;
    // [_salesRepTable setEditing:NO animated:NO];
    _cancelbtnlbl.titleLabel.textColor=[UIColor colorWithRed:0/255.0f green:122.0/255.0f blue:255.0/255.0f alpha:1.0f];
@@ -566,6 +569,7 @@
     [_salesRepTable reloadData];
     if (webtype==1||webtype==2) {
         [self CustomerSalesRepInfoselect];
+        _searchbar.text=@"";
         webtype=0;
     }
     
@@ -799,6 +803,8 @@
         if (optionidentifier==2) {
             _addView.hidden=YES;
             _salesRepTable.userInteractionEnabled=YES;
+            _updatebtn.enabled=YES;
+            _searchbar.text=@"";
         }
         _custcodetextfield.text=@"";
         _emailtextfield.text=@"";
@@ -807,6 +813,8 @@
         _phoneofficetextfield.text=@"";
         _nametextfield.text=@"";
         _empidtextfield.text=@"";
+         _updatebtn.enabled=YES;
+        _searchbar.text=@"";
     }
     if ([alertView.message isEqualToString:@"Invalid Phone Number"]) {
         _phoneofficetextfield.text=@"";
@@ -859,10 +867,12 @@
             {
                 if (optionidentifier==1)
                 {
+                    _updatebtn.enabled=NO;
                 [self CustomerSalesRepInfoInsert];
                 }
                 else
                 {
+                    _updatebtn.enabled=NO;
                      [self CustomerSalesRepInfoUpdate];
                 }
             }
@@ -872,10 +882,12 @@
     {
         if (optionidentifier==1)
         {
+            _updatebtn.enabled=NO;
             [self CustomerSalesRepInfoInsert];
         }
         else
         {
+            _updatebtn.enabled=NO;
             [self CustomerSalesRepInfoUpdate];
         }
 
@@ -998,7 +1010,7 @@
         
         
         if ([phonenostring length]<10) {
-            if([phonenostring isEqualToString:@""])
+            if([phonenostring stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
             {
                 
             }
@@ -1121,7 +1133,7 @@
         
         
         if ([mobilestring length]<10) {
-            if([mobilestring isEqualToString:@""])
+            if([mobilestring stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
             {
                 
             }

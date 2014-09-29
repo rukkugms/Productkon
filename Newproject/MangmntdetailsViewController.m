@@ -1786,9 +1786,9 @@
     if(tableView==_vlumetable){
     Vlumedismdl *vlmdl=(Vlumedismdl *)[_volumearray objectAtIndex:indexPath.row];
     _amuntfrmlbl=(UILabel *)[cell viewWithTag:1];
-    _amuntfrmlbl.text=vlmdl.amountfrom;
+    _amuntfrmlbl.text=[NSString stringWithFormat:@"$%@",vlmdl.amountfrom];
     _amunttolbl=(UILabel *)[cell viewWithTag:2];
-    _amunttolbl.text=vlmdl.amountto;
+    _amunttolbl.text=[NSString stringWithFormat:@"$%@",vlmdl.amountto];
     _percentagelbl=(UILabel *)[cell viewWithTag:3];
     _percentagelbl.text=vlmdl.percentage;
     }

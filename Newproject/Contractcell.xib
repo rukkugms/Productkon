@@ -10,6 +10,7 @@
                 <outlet property="billingdayslabel" destination="GEg-aB-Ewm" id="KHj-Ak-Vsd"/>
                 <outlet property="contrctcell" destination="fFu-i4-fei" id="SWR-hd-jyd"/>
                 <outlet property="datelabel" destination="F9G-W0-uBa" id="tsM-BW-10t"/>
+                <outlet property="disclosurebtn" destination="OeG-0K-qWw" id="NFD-oZ-Dkb"/>
                 <outlet property="namelabel" destination="ysi-mV-HHo" id="78V-Bc-Ex4"/>
                 <outlet property="numberlabel" destination="wJg-sw-Bf0" id="LLO-j4-2Nb"/>
                 <outlet property="subcontractlabel" destination="OWw-QB-5fb" id="y3K-Ga-nTg"/>
@@ -73,8 +74,21 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OeG-0K-qWw">
+                        <rect key="frame" x="210" y="0.0" width="66" height="43"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" image="carat.png">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="disclosure:" destination="-1" eventType="touchUpInside" id="vaw-l2-PAQ"/>
+                        </connections>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="carat.png" width="11" height="11"/>
+    </resources>
 </document>
