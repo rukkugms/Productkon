@@ -1182,7 +1182,9 @@
 - (IBAction)addcustmrbtn:(id)sender {
     _updatebtn.enabled=YES;
     webtype=1;
-    
+    [self Stateselect];
+    [self countryselect];
+
     optionidentifier=1;
      _cancelbtnlbl.enabled=YES;
     // [_custmrtable setEditing:NO animated:NO];
@@ -1338,6 +1340,9 @@
 }
 
 - (IBAction)editbtn:(id)sender {
+    [self Stateselect];
+    [self countryselect];
+
     _updatebtn.enabled=YES;
     //[_custmrtable setEditing:NO animated:NO];
     _custmrtable.userInteractionEnabled=NO;
