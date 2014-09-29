@@ -130,5 +130,7 @@
 @property(strong,nonatomic)IBOutlet UIButton *editbtn;
 @property(strong,nonatomic)IBOutlet UIView *seperatorview;
 
+@property(strong,nonatomic)IBOutlet UIButton *updatebtn;
+
 
 @end

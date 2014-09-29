@@ -32,6 +32,13 @@
 {
     _result=@"";
     _ModuleID=0;
+    _plnindictr.hidden=YES;
+    _wrkindctr.hidden=YES;
+   
+    
+    _planngview.userInteractionEnabled=YES;
+    _workentryview.userInteractionEnabled=YES;
+    
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     UITapGestureRecognizer *doubleTap1 = [[UITapGestureRecognizer alloc]
                                           initWithTarget:self
@@ -48,6 +55,10 @@
 
 }
 -(void)plangpage{
+    _plnindictr.hidden=NO;
+    _planngview.userInteractionEnabled=NO;
+    
+    [_plnindictr startAnimating];
     plntype=1;
     _ModuleID=43;
     [self UserRightsforparticularmoduleselect];
@@ -55,6 +66,10 @@
     
 }
 -(void)workentrypage{
+    _wrkindctr.hidden=NO;
+    _workentryview.userInteractionEnabled=NO;
+    
+    [_wrkindctr startAnimating];
     plntype=2;
     //if (!self.PlangVCtrl) {
         self.PlangVCtrl=[[PlanningViewController alloc]initWithNibName:@"PlanningViewController" bundle:nil];
@@ -66,6 +81,10 @@
     _PlangVCtrl.plntype=plntype;
     [self presentViewController:_PlangVCtrl
                        animated:YES completion:NULL];
+    _wrkindctr.hidden=YES;
+    _workentryview.userInteractionEnabled=YES;
+    
+    [_wrkindctr stopAnimating];
 
    // _ModuleID=43;
     //[self UserRightsforparticularmoduleselect];
@@ -180,6 +199,15 @@
     if ([_result isEqualToString:@"Not yet set"]) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Your rights are not yet set" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+        _wrkindctr.hidden=YES;
+        _plnindictr.hidden=YES;
+       
+        [_wrkindctr stopAnimating];
+        [_plnindictr stopAnimating];
+        
+        _planngview.userInteractionEnabled=YES;
+        _workentryview.userInteractionEnabled=YES;
+        
     }
     
     
@@ -189,7 +217,10 @@
             
             Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
             if (rightsmodel.ViewModule==1) {
+                _plnindictr.hidden=YES;
+                _planngview.userInteractionEnabled=YES;
                 
+                [_plnindictr stopAnimating];
                 
                // if (!self.PlangVCtrl) {
                     self.PlangVCtrl=[[PlanningViewController alloc]initWithNibName:@"PlanningViewController" bundle:nil];
@@ -207,6 +238,10 @@
                 
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
+                _plnindictr.hidden=YES;
+                _planngview.userInteractionEnabled=YES;
+                
+                [_plnindictr stopAnimating];
             }
             //You don’t have right to view this form
             

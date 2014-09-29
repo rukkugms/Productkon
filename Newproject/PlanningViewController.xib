@@ -22,6 +22,7 @@
                 <outlet property="sitefactortxtfld" destination="YIK-vB-IrJ" id="Po0-zi-SKv"/>
                 <outlet property="tabletitleview" destination="ldd-qP-mZc" id="130-0m-aYu"/>
                 <outlet property="typebtnlbl" destination="t7T-uN-JHF" id="Hws-mf-k2h"/>
+                <outlet property="updatebtn" destination="BHl-H8-Vf1" id="jk9-zh-9bR"/>
                 <outlet property="view" destination="2" id="3"/>
                 <outlet property="ziptxtfld" destination="oX5-ZR-hL5" id="fhC-Ni-o1h"/>
             </connections>
@@ -149,7 +150,7 @@
                                 <navigationBar contentMode="scaleToFill" id="FW8-gb-oke">
                                     <rect key="frame" x="0.0" y="0.0" width="571" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="barTintColor" red="0.0" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <items>
                                         <navigationItem title="Edit" id="wMZ-FX-GhQ">
                                             <barButtonItem key="rightBarButtonItem" id="P2Y-Sc-0OX">
@@ -248,7 +249,7 @@
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="AVH-RM-59x">
                                     <rect key="frame" x="303" y="212" width="247" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="oX5-ZR-hL5">
