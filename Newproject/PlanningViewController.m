@@ -243,6 +243,8 @@
 //                    }];
                     [self presentViewController:_servVctrl
                                        animated:YES completion:NULL];
+                    _searchbar.text=@"";
+                    [self SelectAllPlans];
                 }
 
                                    }
@@ -259,6 +261,8 @@
                         _psctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
                         [self presentViewController:_psctrlr
                                            animated:YES completion:NULL];
+                        _searchbar.text=@"";
+                        [self SelectAllPlans];
 
                 }
                 }
@@ -278,7 +282,10 @@
 //                    }];
                     [self presentViewController:_sitevisitVctrl
                                        animated:YES completion:NULL];
+                    
                                   }
+                _searchbar.text=@"";
+                [self SelectAllPlans];
 //                if (indexPath.row==2) {
 //                    if (!self.DetailplanVctrl) {
 //                        self.DetailplanVctrl=[[DetailplanViewController alloc]initWithNibName:@"DetailplanViewController" bundle:nil];
@@ -353,11 +360,13 @@
 
 #pragma mark-Button Actions
 - (IBAction)clseVCtrlbtn:(id)sender {
+    _updatebtn.enabled=YES;
      _addplanview.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)addplan:(id)sender {
+     _updatebtn.enabled=YES;
     _plangtable.userInteractionEnabled=NO;
     _planslectionarray=[[NSMutableArray alloc]init];
     optionidentifier=1;
@@ -381,6 +390,7 @@
 }
 -(IBAction)closeaddview:(id)sender
 {
+     _updatebtn.enabled=YES;
     _addplanview.hidden=YES;
      _selectionlabel.hidden=YES;
     _plangtable.userInteractionEnabled=YES;
@@ -611,10 +621,12 @@
         
   if(optionidentifier==1)
   {
+      _updatebtn.enabled=NO;
       [self insertplans];
   }
     else if(optionidentifier==2)
     {
+         _updatebtn.enabled=NO;
         [self UpdatePlan];
     }
     }
@@ -638,6 +650,7 @@
 -(IBAction)Editaction:(id)sender
 {
     optionidentifier=2;
+     _updatebtn.enabled=YES;
     _plangtable.userInteractionEnabled=NO;
     self.navabar.title = @"Edit";
       _addplanview.hidden=NO;
@@ -1813,11 +1826,12 @@
         _loctntxtfld.text=@"";
         _ziptxtfld.text=@"";
         [_cmplexitybtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        _updatebtn.enabled=YES;
         if(optionidentifier==2)
         {
             _addplanview.hidden=YES;
             _plangtable.userInteractionEnabled=YES;
-            
+            _updatebtn.enabled=YES;
         }
         _searchbar.text=@"";
         
