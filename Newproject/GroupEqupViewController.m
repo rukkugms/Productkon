@@ -1490,6 +1490,7 @@
                
                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                [alert show];
+                [_crewbtnlbl setTitle:_crewnametxtfld.text forState:UIControlStateNormal];
            }
 
             _crewnametxtfld.text=@"";
@@ -1558,7 +1559,8 @@
         
     }
     else{
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to delete equipment group" delegate:self cancelButtonTitle:@"YES" otherButtonTitles:@"NO", nil];
+        NSString*alertstrg=[NSString stringWithFormat:@"Are you sure you want to delete %@ group",_crewbtnlbl.titleLabel.text];
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:alertstrg delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
         [alert show];
     }
     }
@@ -1650,8 +1652,8 @@
     }
     else{
 
-    
-    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to delete all items" delegate:self cancelButtonTitle:@"YES" otherButtonTitles:@"NO", nil];
+        NSString*alertstrg=[NSString stringWithFormat:@"Are you sure you want to delete all items in %@ group",_crewbtnlbl.titleLabel.text];
+    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:alertstrg delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
     [alert show];
     }
     }

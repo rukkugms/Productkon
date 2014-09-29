@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProjecttypeViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NLProjecttypeViewController">
             <connections>
                 <outlet property="projectcell" destination="rcm-4R-kwS" id="L4p-eQ-m41"/>
                 <outlet property="projecttypelbl" destination="kho-Ta-BtX" id="tZt-5h-XY0"/>

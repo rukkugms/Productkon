@@ -554,7 +554,9 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     [dateFormat setDateFormat:@"MM/dd/YYYY"];
     
     NSString *dateString = [dateFormat stringFromDate:date];
-    [_dateBtn setTitle:dateString forState:UIControlStateNormal];}
+    [_dateBtn setTitle:dateString forState:UIControlStateNormal];
+      [self.popOverController dismissPopoverAnimated:YES];
+}
 
 
 

@@ -37,7 +37,12 @@
     [self.leadView addGestureRecognizer:doubleTap1];
     // Do any additional setup after loading the view from its nib.
 }
-                                                                             
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    _leadView.userInteractionEnabled=YES;
+    _leadactivity.hidden=YES;
+    [_leadactivity stopAnimating];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -52,6 +57,10 @@
 }
 -(void)LeadPage
 {
+    _leadView.userInteractionEnabled=NO;
+    _leadactivity.hidden=NO;
+    [_leadactivity startAnimating];
+
     _ModuleID=42;
     [self UserRightsforparticularmoduleselect];
     
@@ -154,6 +163,9 @@
     if ([_result isEqualToString:@"Not yet set"]) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Your rights are not yet set" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+        _leadView.userInteractionEnabled=YES;
+        _leadactivity.hidden=YES;
+        [_leadactivity stopAnimating];
     }
     
     
@@ -181,7 +193,10 @@
             }
             //You don’t have right to view this form
             
-            
+            _leadView.userInteractionEnabled=YES;
+            _leadactivity.hidden=YES;
+            [_leadactivity stopAnimating];
+
             
         }
         

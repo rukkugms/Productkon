@@ -178,5 +178,8 @@
 -(IBAction)toleadstatus:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *savebtnlbl;
 @property(strong,nonatomic)IBOutlet UIButton *cancelbtn;
+@property (strong, nonatomic) IBOutlet UIButton *updatebtnlbl;
+
+
 
 @end

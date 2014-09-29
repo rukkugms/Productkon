@@ -1505,7 +1505,6 @@
 				D4D570151772BE4A00671A35 /* images */,
 				D40D1EB0176B086F00379DD5 /* Newproject */,
 				D40D1EA9176B086F00379DD5 /* Frameworks */,
-				D40D1EA8176B086F00379DD5 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1515,6 +1514,7 @@
 				D40D1EA7176B086F00379DD5 /* Newproject.app */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		D40D1EA9176B086F00379DD5 /* Frameworks */ = {
@@ -1543,6 +1543,7 @@
 				D44BEA7818E0257400719ED5 /* others */,
 				D4FED40417F15AC5004BE242 /* hr */,
 				D4F19DCC18D03AA4007617F0 /* Leads */,
+				D40D1EA8176B086F00379DD5 /* Products */,
 				D4B7017C18AB3E490060BE0A /* Planning */,
 				D4F34351191C9C2E0023D715 /* Estimation */,
 				D41499AB19457312001E9146 /* Project Management */,

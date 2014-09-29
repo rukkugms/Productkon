@@ -34,6 +34,7 @@
                 <outlet property="savebtnlbl" destination="139" id="syK-xf-ygn"/>
                 <outlet property="scroll" destination="mN5-Qf-jG7" id="aNC-KC-FxJ"/>
                 <outlet property="statebutton" destination="3GX-ff-ncp" id="LRr-AL-Ytj"/>
+                <outlet property="updatebtnlbl" destination="PkY-Xv-PGv" id="wjh-1b-LbM"/>
                 <outlet property="view" destination="2" id="3"/>
                 <outlet property="view2" destination="37" id="83"/>
                 <outlet property="view3" destination="110" id="111"/>
