@@ -130,5 +130,7 @@
 @property(strong,nonatomic)IBOutlet UIButton *disclosurebtn;
 @property(strong,nonatomic)NSMutableArray *disclosurearray;
 
+@property (strong, nonatomic) IBOutlet UIButton *updatebtnlbl;
+
 
 @end

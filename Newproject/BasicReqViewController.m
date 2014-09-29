@@ -74,6 +74,7 @@
 {
     [super viewWillAppear:animated];
     _result=@"";
+     _searchbar.text=@"";
     _basicreqtable.userInteractionEnabled=YES;
     _disclosurearray=[[NSMutableArray alloc]initWithObjects:@"Add Vendor", nil];
     [self SelectAllRequirements];
@@ -630,7 +631,7 @@
                 else if(reqmdl.inhouse==0)
                 {
                     _popOverTableView.userInteractionEnabled=YES;
-                
+                 _searchbar.text=@"";
 
                                     NSLog(@"%d",reqmdl.eid);
                 
@@ -1901,7 +1902,7 @@
                 Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
                 if (rightsmodel.ViewModule==1) {
                     
-                    
+                    _searchbar.text=@"";
                     // if (!self.wrktypeVCtrl) {
                     self.typctl=[[TypeViewController alloc]initWithNibName:@"TypeViewController" bundle:nil];
                     //  }

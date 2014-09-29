@@ -24,6 +24,7 @@
                 <outlet property="savebtnlbl" destination="101" id="oLw-uU-9MK"/>
                 <outlet property="scroll" destination="4" id="25"/>
                 <outlet property="statusTxtFld" destination="42" id="85"/>
+                <outlet property="updatebtnlbl" destination="48" id="QRN-bD-klH"/>
                 <outlet property="view" destination="2" id="3"/>
                 <outlet property="view2" destination="64" id="77"/>
             </connections>
