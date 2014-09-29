@@ -70,11 +70,11 @@
     _btnArray=[[NSMutableArray alloc]initWithObjects:@"Create LeadInfo",@"Edit Leads",@"Delete Leads" ,nil];
     
     
-    _leadtypeArray=[[NSMutableArray alloc]initWithObjects:@"Referral",@"Database",@"Repeat Customer",@"Phone Request", nil];
-    _projecttypeArray=[[NSMutableArray alloc]initWithObjects:@"TurnAround",@"Maintenance",@"Capital Work",@"New Construction",@"Unknown", nil];
+  //  _leadtypeArray=[[NSMutableArray alloc]initWithObjects:@"Referral",@"Database",@"Repeat Customer",@"Phone Request", nil];
+   // _projecttypeArray=[[NSMutableArray alloc]initWithObjects:@"TurnAround",@"Maintenance",@"Capital Work",@"New Construction",@"Unknown", nil];
    // _industrytypeArray=[[NSMutableArray alloc]initWithObjects:@"Chemical",@"Refining",@"Pulp",@"Paper",@"Power" ,nil];
     _prjctexcutnArray=[[NSMutableArray alloc]initWithObjects:@"Immediate",@"First Quarter", @"Second Quarter",@"Third Quarter",@"Fourth Quarter of that calender year", nil];
-    _leadStatusArray=[[NSMutableArray alloc]initWithObjects:@"Open",@"Close",@"Active",@"Hot",@"Cold", nil];
+  //  _leadStatusArray=[[NSMutableArray alloc]initWithObjects:@"Open",@"Close",@"Active",@"Hot",@"Cold", nil];
     
     _view2.hidden=YES;
 
@@ -84,13 +84,15 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
    [self Stateselect];
     [self getLeads];
    
     
     _view2.hidden=YES;
         _savebtnlbl.enabled=YES;
-
+    
+   _SearchingBar.text=@"";
     
 }
 
@@ -699,6 +701,7 @@ if (tableView==_leadTable) {
                                             inView:self.scroll
                           permittedArrowDirections:UIPopoverArrowDirectionUp
                                           animated:YES];
+    [self TypeofLeadSelect];
     
 
 }
@@ -730,11 +733,14 @@ if (tableView==_leadTable) {
                                             inView:self.scroll
                           permittedArrowDirections:UIPopoverArrowDirectionUp
                                           animated:YES];
+    [self ProjecttypeSelect];
     
 
 }
 -(IBAction)selectLeadStatus:(id)sender
-{   poptype=6;
+{
+    
+    poptype=6;
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
     UIView* popoverView = [[UIView alloc]
@@ -747,7 +753,7 @@ if (tableView==_leadTable) {
     _popOverTableView.rowHeight= 32;
     
     [popoverView addSubview:_popOverTableView];
-    popoverContent.view = popoverView;
+     popoverContent.view = popoverView;
     
     //resize the popover view shown
     //in the current view to the view's size
@@ -760,7 +766,7 @@ if (tableView==_leadTable) {
                                             inView:self.scroll
                           permittedArrowDirections:UIPopoverArrowDirectionUp
                                           animated:YES];
-    
+    [self LeadStatusSelect];
 
 }
 
@@ -984,6 +990,7 @@ else
 
 
 - (IBAction)updatebtn:(id)sender {
+  
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
     if (rightsmodel.EditModule==0) {
@@ -1040,11 +1047,12 @@ else
 else
         {
             if (butnidtfr==1) {
+                  _updatebtnlbl.enabled=NO;
                 [self Addlead];
             }
             else // if(butnidtfr==2)
             {
-                
+                  _updatebtnlbl.enabled=NO;
                 [self updatelead];
             }
 
@@ -1168,6 +1176,7 @@ else
 
 
 -(void)getLeads{
+       _SearchingBar.text=@"";
     recordResults = FALSE;
     NSString *soapMessage;
       
@@ -1694,6 +1703,154 @@ else
     }
     
 }
+-(void)TypeofLeadSelect{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<TypeofLeadSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "</TypeofLeadSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://testUSA.kontract360.com/TypeofLeadSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)ProjecttypeSelect{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<ProjecttypeSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   
+                   "</ProjecttypeSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://testUSA.kontract360.com/ProjecttypeSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)LeadStatusSelect{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<LeadStatusSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "</LeadStatusSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://testUSA.kontract360.com/LeadStatusSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -2180,10 +2337,129 @@ else
     }
 
 
+    if([elementName isEqualToString:@"TypeofLeadSelectResponse"])
+    {
+         _leadtypeArray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"TOLEntryId"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"TOLItemCode"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"TOLTypeofLead"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
 
+    if([elementName isEqualToString:@"ProjecttypeSelectResponse"])
+    {
+        _projecttypeArray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"PTEntryId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"PTCode"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"PTName"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
     
-    
+    if([elementName isEqualToString:@"LeadStatusSelectResponse"])
+    {
+        _leadStatusArray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"LSEntryId"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"LSCode"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"LSName"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
     
 
@@ -2544,14 +2820,92 @@ else
         
     }
 
-    
+    if([elementName isEqualToString:@"TOLEntryId"])
+    {
+        
+        recordResults=FALSE;
+        
+            _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"TOLItemCode"])
+    {
+        
+        recordResults=FALSE;
+        
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"TOLTypeofLead"])
+    {
+        
+        recordResults=FALSE;
+        
+      [_leadtypeArray addObject:_soapResults];
+        
+        _soapResults = nil;
+        
+    }
 
+    if([elementName isEqualToString:@"PTEntryId"])
+    {
     
+        recordResults = FALSE;
+      
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"PTCode"])
+    {
+        recordResults = FALSE;
+      
+        _soapResults = nil;
+    }
+    
+    if([elementName isEqualToString:@"PTName"])
+    {
+        recordResults = FALSE;
+     
+        [_projecttypeArray addObject:_soapResults];
+        _soapResults = nil;
+    }
+
+    if([elementName isEqualToString:@"LSEntryId"])
+    {
+        
+        recordResults=FALSE;
+        
+            _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"LSCode"])
+    {
+        
+        recordResults=FALSE;
+        
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"LSName"])
+    {
+        
+        recordResults=FALSE;
+        
+     
+        
+        [_leadStatusArray addObject:_soapResults];
+        
+        _soapResults = nil;
+        
+    }
+
 }
 -(void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    
+    
    if([alertView.message isEqualToString:_msgstring])
    {
+       _updatebtnlbl.enabled=YES;
        if (butnidtfr==2) {
            _view2.hidden=YES;
            _leadTable.userInteractionEnabled=YES;

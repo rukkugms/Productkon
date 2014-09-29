@@ -1611,8 +1611,9 @@
     }
     else{
        
+        NSString*alertstrg=[NSString stringWithFormat:@"Are you sure you want to delete %@ crew",_crewbtnlbl.titleLabel.text];
             
-            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to delete crew" delegate:self cancelButtonTitle:@"YES" otherButtonTitles:@"NO", nil];
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:alertstrg delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
             [alert show];
       
 
@@ -1709,8 +1710,9 @@
         
     }
     else{
+         NSString*alertstrg=[NSString stringWithFormat:@"Are you sure you want to delete all items in %@ crew",_crewbtnlbl.titleLabel.text];
     
-    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to delete all items" delegate:self cancelButtonTitle:@"YES" otherButtonTitles:@"NO", nil];
+    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:alertstrg delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
     [alert show];
     }
     }

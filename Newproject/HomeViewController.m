@@ -36,7 +36,7 @@
 -(IBAction)logout:(id)sender
 {   _ModuleID=0;
     _result=@"";
-    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to logout" delegate:self cancelButtonTitle:@"YES" otherButtonTitles:@"NO", nil];
+    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to logout" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
     [alert show];
    
     

@@ -17,6 +17,8 @@
     NSString*userid;
     BOOL recordResults;
 }
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *leadactivity;
+
 
 
 @property (strong, nonatomic) IBOutlet UIView *leadView;
