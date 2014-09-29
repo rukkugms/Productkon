@@ -1546,6 +1546,7 @@
     {
         
         recordResults = FALSE;
+        [_soapResults stringByReplacingOccurrencesOfString:@"~" withString:@""];
         [_documntdict setObject:_soapResults forKey:docuname];
         _soapResults=nil;
 

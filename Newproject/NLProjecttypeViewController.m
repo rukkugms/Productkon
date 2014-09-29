@@ -65,7 +65,7 @@
         cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
         if(tableView==_typetable){
             
-            [[NSBundle mainBundle]loadNibNamed:@"Projecttypecell" owner:self options:nil];
+            [[NSBundle mainBundle]loadNibNamed:@"NLProjecttypecell" owner:self options:nil];
             cell=_projectcell;
         }
         
