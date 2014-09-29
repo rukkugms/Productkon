@@ -563,7 +563,8 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 #pragma mark - Buttons
 
 -(IBAction)addNewActivity:(id)sender
-{ self.openviewindex=NSNotFound;
+{
+    self.openviewindex=NSNotFound;
     _activityTable.userInteractionEnabled=NO;
     _cancelbtnlbl.enabled=YES;
     butnidtfr=1;
@@ -594,7 +595,8 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 
 }
 -(IBAction)closetheView:(id)sender
-{   self.openviewindex=NSNotFound;
+{
+    self.openviewindex=NSNotFound;
     _dateBtn.enabled=YES;
     _activityTxtFld.userInteractionEnabled=YES;
     _employerTxtfld.userInteractionEnabled=YES;
@@ -717,7 +719,8 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 
 }
 - (IBAction)closeactivity:(id)sender
-{self.openviewindex=NSNotFound;
+{
+    self.openviewindex=NSNotFound;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
@@ -1697,6 +1700,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 -(void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if ([alertView.message isEqualToString:_resultmsg]) {
+         _updatebtnlbl.enabled=YES;
         if (butnidtfr==2) {
             _newviewactivity.hidden=YES;
             _activityTable.userInteractionEnabled=YES;
@@ -1740,7 +1744,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         }
         else
         {
-    
+            _updatebtnlbl.enabled=NO;
       [self saveActivity];
         }
 }
@@ -1758,7 +1762,8 @@ else
             [alert show];
         }
         else{
-
+            
+     _updatebtnlbl.enabled=NO;
          [self updateActivity];
         }
     }
