@@ -59,6 +59,7 @@
 //    [disbtn setImage:[UIImage imageNamed:@"carat-open.png"] forState:UIControlStateSelected];
 }
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -306,6 +307,8 @@
                [self presentViewController:_jobseqctrl animated:YES completion:nil];
          [self.popovercontroller dismissPopoverAnimated:YES];
     }
+    _searchbar.text=@"";
+    [self SelectAllServices];
    
     
     
