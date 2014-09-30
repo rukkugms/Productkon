@@ -10,6 +10,7 @@
                 <outlet property="Accibltylblview" destination="OlD-e6-xsq" id="rfh-2u-dsj"/>
                 <outlet property="ESAtble" destination="nkB-Lz-kTY" id="uIB-v6-kgk"/>
                 <outlet property="EstggAreabtnlbl" destination="8EW-gK-0kf" id="IK6-Nx-Ghx"/>
+                <outlet property="accebilitybtnlbl" destination="Phu-I8-eHt" id="y8Y-Nu-C2B"/>
                 <outlet property="accebilitytable" destination="EBk-cq-fO3" id="I4N-do-Lia"/>
                 <outlet property="accebiltytitleview" destination="KHR-qP-Y8g" id="KK7-nU-v8b"/>
                 <outlet property="accesbltybtnlbl" destination="cxS-8e-ojO" id="jAP-8D-KnZ"/>
@@ -23,9 +24,11 @@
                 <outlet property="docutypebtnlbl" destination="Jkw-ff-kSx" id="0nL-Wv-Y02"/>
                 <outlet property="equipmentview" destination="yH7-LT-N8m" id="A9V-Nt-nTW"/>
                 <outlet property="equipmnttxtview" destination="MLV-Y7-tSs" id="Gq4-HT-fOT"/>
+                <outlet property="equpdatebtnlbl" destination="ddc-CF-ODf" id="ayu-LF-XTT"/>
                 <outlet property="equpmntslbl" destination="egx-hO-R4Q" id="DYk-CM-d6J"/>
                 <outlet property="esatitleview" destination="c08-s2-leD" id="pDv-5j-qoq"/>
                 <outlet property="facilitytxtview" destination="MGX-iK-94e" id="OTF-JM-82p"/>
+                <outlet property="genralbtnlbl" destination="h1n-MT-2Ns" id="EZU-6v-Kus"/>
                 <outlet property="gernalbtnlbl" destination="a3h-G4-w0u" id="d7c-3A-hEr"/>
                 <outlet property="gernalview" destination="Gcq-hx-B5r" id="sMX-XN-iaT"/>
                 <outlet property="jobsitebtnlbl" destination="r4h-Sx-0E2" id="oBR-WA-ziQ"/>
@@ -118,7 +121,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                             <state key="normal" title="Update">
-                                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="0.27450980392156865" green="0.50980392156862742" blue="0.70588235294117641" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="updatebtn:" destination="-1" eventType="touchUpInside" id="dad-TI-Lva"/>
@@ -286,7 +289,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                             <state key="normal" title="Update">
-                                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="0.27450980390000002" green="0.50980392159999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
@@ -359,7 +362,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                             <state key="normal" title="Update">
-                                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleColor" red="0.27450980390000002" green="0.50980392159999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>

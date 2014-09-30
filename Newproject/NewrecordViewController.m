@@ -896,10 +896,10 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 120, 120)];
+                           initWithFrame:CGRectMake(0, 0, 200, 200)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 120, 120)];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
     
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
@@ -913,7 +913,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(120, 120);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 200);
     
     //create a popover controller
     
@@ -1184,7 +1184,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         
     }
     
-
+   
 
 }
 
@@ -1256,6 +1256,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         [_notedatebtnlbl setTitle:dateString forState:UIControlStateNormal];
     }
 
+    [self.popOverController dismissPopoverAnimated:YES];
 
 }
 
