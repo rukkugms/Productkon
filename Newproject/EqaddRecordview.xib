@@ -11,6 +11,7 @@
                 <outlet property="equpareatxtfld" destination="MUV-s3-543" id="XoZ-oJ-qRX"/>
                 <outlet property="equpdscptn" destination="HFN-YL-U3A" id="wAp-V8-ZGh"/>
                 <outlet property="equpnotxtfld" destination="dpp-hd-J7h" id="K8u-Of-G8P"/>
+                <outlet property="equupdatebtn" destination="jHY-m6-8Ia" id="Ddq-ha-nsQ"/>
                 <outlet property="view" destination="1" id="0Uf-gl-tMr"/>
             </connections>
         </placeholder>
@@ -84,7 +85,7 @@
                 <navigationBar contentMode="scaleToFill" id="w3H-PI-B3e">
                     <rect key="frame" x="0.0" y="0.0" width="540" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="barTintColor" red="0.67843137249999996" green="0.84705882349999995" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
                         <navigationItem title="Create New Record" id="fRs-Hf-Tve">
                             <barButtonItem key="rightBarButtonItem" image="appbar.close.png" id="3QJ-SM-4g9">

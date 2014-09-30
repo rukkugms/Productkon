@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DequipViewController">
             <connections>
+                <outlet property="EQdgupdate" destination="ale-aL-GIn" id="IDI-lD-iks"/>
                 <outlet property="dratecheckbutton" destination="lya-WD-1vI" id="bej-uM-9fr"/>
                 <outlet property="equipdesttable" destination="dyP-bP-1K2" id="bap-R1-Mrr"/>
                 <outlet property="equipdesttitleview" destination="WiP-T3-cPX" id="7Ac-nd-lFX"/>
@@ -131,7 +132,7 @@
                         <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Was-Ca-qZj">
                             <rect key="frame" x="0.0" y="0.0" width="529" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="barTintColor" red="0.0" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="barTintColor" red="0.67843137249999996" green="0.84705882349999995" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Edit" id="hXm-1t-LsM">
                                     <barButtonItem key="rightBarButtonItem" id="6nZ-TA-taW">

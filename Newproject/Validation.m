@@ -29,7 +29,7 @@
 //    }
 //    return YES;
     
-    NSCharacterSet *myCharSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789 "];
+    NSCharacterSet *myCharSet = [NSCharacterSet characterSetWithCharactersInString:@".$0123456789 "];
     for (int i = 0; i < [input length]; i++)
     {
         unichar c = [input characterAtIndex:i];

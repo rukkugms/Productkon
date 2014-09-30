@@ -90,6 +90,7 @@
 }
 - (IBAction)editequip:(id)sender
 {
+    _EQdgupdate.enabled=YES;
     _equipeditview.hidden=NO;
     equipbtn = (UIButton *)sender;
     CGPoint center= equipbtn.center;
@@ -141,6 +142,7 @@
 }
 - (IBAction)closeequipeditview:(id)sender
 {
+    _EQdgupdate.enabled=YES;
     _equipeditview.hidden=YES;
 }
 - (IBAction)updateequip:(id)sender
@@ -168,6 +170,7 @@
         
     else
     {
+        _EQdgupdate.enabled=NO;
 
     [self GeneralResourceDetailUpdate];
     }
@@ -1434,6 +1437,7 @@
         
         recordResults = FALSE;
         _result=_soapResults;
+        _EQdgupdate.enabled=YES;
         if (webtype==1||webtype==2) {
             [self EquipmentHoursSelect];
             [self GeneralResourceDetailselect];
@@ -1551,6 +1555,7 @@
 
 - (void)equipstartDraggingFromSrcAtPoint:(CGPoint)point
 {
+    _EQdgupdate.enabled=YES;
     NSIndexPath* indexPath = [_equipsourcetable indexPathForRowAtPoint:point];
     UITableViewCell* cell = [_equipsourcetable cellForRowAtIndexPath:indexPath];
     

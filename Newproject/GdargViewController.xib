@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GdargViewController">
             <connections>
+                <outlet property="MPdgUpdate" destination="JQa-g7-Rrm" id="1yW-ua-OWk"/>
                 <outlet property="editview" destination="VvZ-52-xnM" id="1G0-9F-gr1"/>
                 <outlet property="generaltable" destination="Opk-lZ-8ZR" id="5F8-hv-1TW"/>
                 <outlet property="genraltabletitle" destination="hGD-M6-qat" id="tPP-FT-PHN"/>
@@ -177,7 +178,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="532" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="barTintColor" red="0.67843137249999996" green="0.84705882349999995" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Edit" id="nuF-Nk-h6B">
                                     <barButtonItem key="rightBarButtonItem" style="plain" id="46m-CX-RFz">

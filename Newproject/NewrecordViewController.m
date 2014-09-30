@@ -27,6 +27,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _proupdatebtn.enabled=YES;
+    _jobupdatebtn.enabled=YES;
+    _equupdatebtn.enabled=YES;
+    _wrkschedupdatebtn.enabled=YES;
+    _meetupdatebtn.enabled=YES;
+    _bidupdatebtn.enabled=YES;
+    _weathrupdatebtn.enabled=YES;
+    _notupdatebtn.enabled=YES;
     if (_viewtype==4) {
         _meetgdetailslbl.text=_details;
         [_datebtnlbl setTitle:_datendtime forState:UIControlStateNormal];
@@ -864,6 +872,15 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         result=_soapResults;
         UIAlertView *alertview=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alertview show];
+        _proupdatebtn.enabled=YES;
+        _jobupdatebtn.enabled=YES;
+        _ruleupdatebtn.enabled=YES;
+        _equupdatebtn.enabled=YES;
+        _wrkschedupdatebtn.enabled=YES;
+        _meetupdatebtn.enabled=YES;
+        _bidupdatebtn.enabled=YES;
+        _weathrupdatebtn.enabled=YES;
+        _notupdatebtn.enabled=YES;
         _soapResults = nil;
 
     
@@ -1285,6 +1302,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     else
     {
+        _proupdatebtn.enabled=NO;
     [self InsertSitevisitProductionRates];
     }
 }
@@ -1309,7 +1327,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     }
     else
     {
-
+        _jobupdatebtn.enabled=NO;
     [self SitevisitInsertjobsiterequirements];
     }
 }
@@ -1330,6 +1348,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     }
     else
     {
+        _ruleupdatebtn.enabled=NO;
         [self SitevisitInsertsafetyrules];
     }
 
@@ -1349,6 +1368,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     }
     else
     {
+        _equupdatebtn.enabled=NO;
     [self SitevisitInsertequipment];
     }
 }
@@ -1383,7 +1403,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         [alert show];
     }
     else{
-        
+        _wrkschedupdatebtn.enabled=NO;
         [self SitevisitInsertworkschedule];
           }
 
@@ -1408,6 +1428,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     }
     else
     {
+    _meetupdatebtn.enabled=NO;
     [self SitevisitInsertmeetingnotes];
     }
 }
@@ -1426,6 +1447,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     }
     else
     {
+        _bidupdatebtn.enabled=NO;
     [self SitevisitInsertotherbidders];
     }
 }
@@ -1457,7 +1479,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         [alert show];
     }
     else{
-
+        _weathrupdatebtn.enabled=NO;
     [self SitevisitInsertweatheroutlook];
     }
 }
@@ -1482,6 +1504,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     }
     else
     {
+        _notupdatebtn.enabled=NO;
     [self SitevisitInsertNotes];
     }
 }

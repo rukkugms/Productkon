@@ -968,17 +968,17 @@
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
-        _unittxtfld.text=@"";
-        _subunittxtfld.text=@"";
-        _equipmnttxtfld.text=@"";
-        _prjcthdrtxtfld.text=@"";
-        //_quantytxtfld.text=@"";
-        _destextview.text=@"";
+//        _unittxtfld.text=@"";
+//        _subunittxtfld.text=@"";
+//        _equipmnttxtfld.text=@"";
+//        _prjcthdrtxtfld.text=@"";
+//        //_quantytxtfld.text=@"";
+//        _destextview.text=@"";
         _manbtn.hidden=NO;
-        _matbtn.hidden=NO;
+       _matbtn.hidden=NO;
         _eqmntbtn.hidden=NO;
-        [_phasebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
-        [_projectheaderbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+//        [_phasebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+//        [_projectheaderbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
                _soapResults = nil;
     }
     if([elementName isEqualToString:@"mainId"])

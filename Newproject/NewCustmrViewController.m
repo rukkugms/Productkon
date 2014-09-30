@@ -631,9 +631,10 @@
                    
                    "<CustomerMaster1Delete xmlns=\"http://testUSA.kontract360.com/\">\n"
                     "<Id>%d</Id>\n"
+                   "<CustomerId>%@</CustomerId>\n"
                    "</CustomerMaster1Delete>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[custmd.customerid integerValue]];
+                   "</soap:Envelope>\n",[custmd.customerid integerValue],custmd.customercode];
     NSLog(@"soapmsg%@",soapMessage);
     
    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];

@@ -60,6 +60,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *valuetxtfld;
 - (IBAction)updatepratebtn:(id)sender;
 - (IBAction)pratecancel:(id)sender;
+@property(strong,nonatomic)IBOutlet UIButton *proupdatebtn;
 
 /*jobsite requirmnt*/
 @property (strong, nonatomic)NSMutableDictionary * JobtypeDic;
@@ -74,6 +75,7 @@
 - (IBAction)jobupdatebtn:(id)sender;
 
 - (IBAction)cancelbtn:(id)sender;
+@property(strong,nonatomic)IBOutlet UIButton *jobupdatebtn;
 
 
 /*Safty rules */
@@ -83,6 +85,7 @@
 
 - (IBAction)ruleupdte:(id)sender;
 - (IBAction)rulecancel:(id)sender;
+@property(strong,nonatomic)IBOutlet UIButton *ruleupdatebtn;
 
 /*Equpment */
 @property (strong, nonatomic) IBOutlet UITextField *equpnotxtfld;
@@ -93,6 +96,7 @@
 
 - (IBAction)equupdtebtn:(id)sender;
 - (IBAction)equcancelbtn:(id)sender;
+@property(strong,nonatomic)IBOutlet UIButton *equupdatebtn;
 
 
 /*wrkschedule*/
@@ -105,6 +109,7 @@
 - (IBAction)wrkupdtebtn:(id)sender;
 
 - (IBAction)wrkschdlecancel:(id)sender;
+@property(strong,nonatomic)IBOutlet UIButton *wrkschedupdatebtn;
 
 /*meetingnotes*/
 
@@ -117,11 +122,14 @@
 - (IBAction)meetgupdatebt:(id)sender;
 - (IBAction)meetgcancelbtn:(id)sender;
 
+@property(strong,nonatomic)IBOutlet UIButton *meetupdatebtn;
+
 /*otherbidders*/
 @property (strong, nonatomic) IBOutlet UITextField *bidnamelbl;
 
 - (IBAction)bidupdatebtn:(id)sender;
 - (IBAction)bidcancelbtn:(id)sender;
+@property(strong,nonatomic)IBOutlet UIButton *bidupdatebtn;
 
 /*weather outlook*/
 @property (strong, nonatomic) IBOutlet UIButton *wethrfrmdatebtnlbl;
@@ -133,6 +141,7 @@
 - (IBAction)wethrupdatebtn:(id)sender;
 
 - (IBAction)weathrcancelbtn:(id)sender;
+@property(strong,nonatomic)IBOutlet UIButton *weathrupdatebtn;
 /*Notes*/
 @property (strong, nonatomic) IBOutlet UIButton *notedatebtnlbl;
 - (IBAction)notedatebtn:(id)sender;
@@ -141,6 +150,7 @@
 
 - (IBAction)notesupdatebtn:(id)sender;
 - (IBAction)notescancelbtn:(id)sender;
+@property(strong,nonatomic)IBOutlet UIButton *notupdatebtn;
 - (IBAction)drawactn:(id)sender;
 - (IBAction)drawnotesactn:(id)sender;
 -(void) updatingtables;

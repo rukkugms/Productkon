@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewrecordViewController">
             <connections>
                 <outlet property="bidnamelbl" destination="NpY-SZ-KC2" id="LBy-cb-128"/>
+                <outlet property="bidupdatebtn" destination="gjL-n4-nx8" id="gxo-rW-DaD"/>
                 <outlet property="view" destination="1" id="iN4-rp-CTI"/>
             </connections>
         </placeholder>
@@ -19,7 +20,7 @@
                 <navigationBar contentMode="scaleToFill" id="bIS-ui-juC">
                     <rect key="frame" x="0.0" y="0.0" width="540" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="barTintColor" red="0.67843137249999996" green="0.84705882349999995" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
                         <navigationItem title="Create New Record" id="fYh-XI-sIC">
                             <barButtonItem key="rightBarButtonItem" id="s2z-Db-GoA">
