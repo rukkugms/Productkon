@@ -1266,7 +1266,7 @@ else
                    "<ID>%@</ID>\n"
                    "</UpdateCLMDemo>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",info2.leadid,_cmpnttxtfld.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,stid,_leadtypebtnlbl.titleLabel.text,_industrytypetxtfld.titleLabel.text,_projecttype.titleLabel.text,_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,_leadstatusBtn.titleLabel.text,[info2.bidstatus integerValue ],info2.idvalue];
+                   "</soap:Envelope>\n",info2.leadid,_cmpnttxtfld.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,stid,[_leadtypedict objectForKey:_leadtypebtnlbl.titleLabel.text],[_industrytypedict objectForKey:_industrytypetxtfld.titleLabel.text],[_projcttypedict objectForKey:_projecttype.titleLabel.text],_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,[_leadtypedict objectForKey:_leadstatusBtn.titleLabel.text],[info2.bidstatus integerValue ],info2.idvalue];
                                                                                                                                                                                                                                     
     NSLog(@"soapmsg%@",soapMessage);
     
@@ -1345,7 +1345,7 @@ else
                    "<ID>%@</ID>\n"
                    "</SaveLead>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",Leadid,_cmpnttxtfld.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,stid,_leadtypebtnlbl.titleLabel.text,_industrytypetxtfld.titleLabel.text,_projecttype.titleLabel.text,_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,_leadstatusBtn.titleLabel.text,[bidstatus integerValue],idvalue];
+                   "</soap:Envelope>\n",Leadid,_cmpnttxtfld.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,stid,[_leadtypedict objectForKey:_leadtypebtnlbl.titleLabel.text],[_industrytypedict objectForKey:_industrytypetxtfld.titleLabel.text],[_projcttypedict objectForKey:_projecttype.titleLabel.text],_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,[_leadtypedict objectForKey:_leadstatusBtn.titleLabel.text],[bidstatus integerValue],idvalue];
     
     NSLog(@"soapmsg%@",soapMessage);
     
@@ -2084,6 +2084,42 @@ else
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"LITName"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"LPTName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"LLSName"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"LTOLTypeofLead"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"ID"])
     {
         if(!_soapResults)
@@ -2106,6 +2142,7 @@ else
     if([elementName isEqualToString:@"IndustrytypeSelectResponse"])
     {
         _industrytypeArray=[[NSMutableArray alloc]init];
+        _industrytypedict=[[NSMutableDictionary alloc]init];
         
         if(!_soapResults)
         {
@@ -2340,6 +2377,7 @@ else
     if([elementName isEqualToString:@"TypeofLeadSelectResponse"])
     {
          _leadtypeArray=[[NSMutableArray alloc]init];
+        _leadtypedict=[[NSMutableDictionary alloc]init];
         
         if(!_soapResults)
         {
@@ -2382,6 +2420,8 @@ else
     if([elementName isEqualToString:@"ProjecttypeSelectResponse"])
     {
         _projecttypeArray=[[NSMutableArray alloc]init];
+        _projcttypedict=[[NSMutableDictionary alloc]init];
+
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -2422,6 +2462,7 @@ else
     if([elementName isEqualToString:@"LeadStatusSelectResponse"])
     {
         _leadStatusArray=[[NSMutableArray alloc]init];
+         _leadStatusdict=[[NSMutableDictionary alloc]init];
         
         if(!_soapResults)
         {
@@ -2568,7 +2609,7 @@ else
     {
         
         recordResults = FALSE;
-         _infoleads.Typeoflead=_soapResults;
+        
         _soapResults = nil;
     }
 
@@ -2577,7 +2618,7 @@ else
     {
         
         recordResults = FALSE;
-         _infoleads.Industrytype=_soapResults;
+        
         _soapResults = nil;
     }
     
@@ -2585,7 +2626,7 @@ else
     {
         
         recordResults = FALSE;
-         _infoleads.projecttype=_soapResults;
+    
         _soapResults = nil;
     }
     
@@ -2624,7 +2665,7 @@ else
     {
         
         recordResults = FALSE;
-        _infoleads.leadstatus=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+     
         _soapResults = nil;
     }
 
@@ -2636,6 +2677,35 @@ else
         //[_leadinfoArray addObject:_infoleads];
         _soapResults = nil;
     }
+   
+    if([elementName isEqualToString:@"LITName"])
+    {
+        
+        recordResults = FALSE;
+        _infoleads.Industrytype=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"LPTName"])
+    {
+        
+        recordResults = FALSE;
+        _infoleads.projecttype=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"LLSName"])
+    {
+        
+        recordResults = FALSE;
+           _infoleads.leadstatus=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"LTOLTypeofLead"])
+    {
+        
+        recordResults = FALSE;
+        _infoleads.Typeoflead=_soapResults;
+        _soapResults = nil;
+    }
     if([elementName isEqualToString:@"ID"])
     {
         
@@ -2644,7 +2714,6 @@ else
         [_leadinfoArray addObject:_infoleads];
         _soapResults = nil;
     }
-
 
     if([elementName isEqualToString:@"SaveLeadResult"])
     {
@@ -2802,6 +2871,7 @@ else
         
         recordResults=FALSE;
         
+        industrystg=_soapResults;
         
         
         _soapResults = nil;
@@ -2815,6 +2885,7 @@ else
       
         
         [_industrytypeArray addObject:_soapResults];
+        [_industrytypedict setObject:industrystg forKey:_soapResults];
         
         _soapResults = nil;
         
@@ -2832,7 +2903,7 @@ else
     {
         
         recordResults=FALSE;
-        
+        leadstg=_soapResults;
         _soapResults = nil;
         
     }
@@ -2842,6 +2913,7 @@ else
         recordResults=FALSE;
         
       [_leadtypeArray addObject:_soapResults];
+        [_leadStatusdict setObject:leadstg forKey:_soapResults];
         
         _soapResults = nil;
         
@@ -2857,7 +2929,7 @@ else
     if([elementName isEqualToString:@"PTCode"])
     {
         recordResults = FALSE;
-      
+        prjcttypestg=_soapResults;
         _soapResults = nil;
     }
     
@@ -2866,6 +2938,7 @@ else
         recordResults = FALSE;
      
         [_projecttypeArray addObject:_soapResults];
+        [_projcttypedict setObject:prjcttypestg forKey:_soapResults];
         _soapResults = nil;
     }
 
@@ -2882,6 +2955,7 @@ else
         
         recordResults=FALSE;
         
+        statustype=_soapResults;
         _soapResults = nil;
         
     }
@@ -2893,6 +2967,7 @@ else
      
         
         [_leadStatusArray addObject:_soapResults];
+        [_leadStatusdict setObject:statustype forKey:_soapResults];
         
         _soapResults = nil;
         
