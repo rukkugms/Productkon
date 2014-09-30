@@ -515,6 +515,7 @@
 #pragma mark-Actions
 
 - (IBAction)addbtn:(id)sender {
+    _cancelbtn.enabled=YES;
     _updatebtn.enabled=YES;
    // [_typetable setEditing:NO animated:NO];
     _typetable.userInteractionEnabled=NO;
@@ -615,7 +616,9 @@
     _typetable.userInteractionEnabled=YES;
 }
 - (IBAction)editbtn:(id)sender {
+    _cancelbtn.enabled=NO;
     _updatebtn.enabled=YES;
+    _cancelbtn.titleLabel.textColor=[UIColor grayColor];
     // [_typetable setEditing:NO animated:NO];
     _typetable.userInteractionEnabled=NO;
     _navtitle.title=@"Edit";

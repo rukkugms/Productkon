@@ -1743,6 +1743,7 @@ finishedSavingWithError:(NSError *)error
      _equipmenttbl.userInteractionEnabled=NO;
     [_equipmenttbl setEditing:NO animated:NO];
     _cancelbtnlbl.enabled=NO;
+    _cancelbtnlbl.titleLabel.textColor=[UIColor grayColor];
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.equipmenttbl];

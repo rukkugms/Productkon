@@ -850,7 +850,7 @@
     [self SelectAllCourseVendor];
     _addreqview.hidden=NO;
     _cancelbtn.enabled=YES;
-    _cancelbtn.titleLabel.textColor=[UIColor colorWithRed:0.0/255.0f green:122.0/255.0f blue:255.0/255.0f alpha:1.0f];
+    _cancelbtn.titleLabel.textColor=[UIColor colorWithRed:70.0/255.0f green:130.0/255.0f blue:180.0/255.0f alpha:1.0f];
     _navItem.title=@"Create";
     inhouse=0;
     _craftview.hidden=NO;

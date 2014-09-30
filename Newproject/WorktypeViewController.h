@@ -58,5 +58,6 @@
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
 @property(strong,nonatomic)IBOutlet UIButton *updatebtn;
+@property(strong,nonatomic)IBOutlet UIButton *cancelbtn;
 
 @end
