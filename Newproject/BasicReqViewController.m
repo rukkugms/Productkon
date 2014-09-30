@@ -346,7 +346,7 @@
         _crftlabel.text=reqmdl.des;
         
         _expirylbl.text=reqmdl.hrs;
-       
+           _venderlabel=(UILabel *)[cell viewWithTag:11];
             if (reqmdl.def==0) {
             [_defbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             
@@ -357,10 +357,12 @@
         }
         if (reqmdl.inhouse==0) {
             [_inhousebtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+              _venderlabel.text=reqmdl.vendername;
             
         }
         else if(reqmdl.inhouse==1){
             [_inhousebtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+              //_venderlabel.text=reqmdl.vendername;
             
             
         }
@@ -377,6 +379,12 @@
             
             
         }
+        
+        _joblabel=(UILabel *)[cell viewWithTag:10];
+        _joblabel.text=reqmdl.jobname;
+        NSLog(@"%@",reqmdl.jobname);
+    
+      
 //        if (reqmdl.inhouse==1) {
 //            _popOverTableView.userInteractionEnabled=NO;
 //            
@@ -390,11 +398,7 @@
      
 
         
-        _joblabel=(UILabel *)[cell viewWithTag:10];
-        _joblabel.text=reqmdl.jobname;
-         NSLog(@"%@",reqmdl.jobname);
-        _venderlabel=(UILabel *)[cell viewWithTag:11];
-        _venderlabel.text=reqmdl.vendername;
+   
 //       butt=[UIButton buttonWithType:UIButtonTypeCustom];
 //        [butt setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
 //        //[butt setImage:[UIImage imageNamed:@"carat-open.png"] forState:UIControlStateSelected];
@@ -883,7 +887,20 @@
     _codetextfield.text=reqmdl.code;
     _hourstextfield.text=reqmdl.hrs;
     _vendertextfield.text=reqmdl.vendername;
-    [_typebtn setTitle:reqmdl.typname forState:UIControlStateNormal];
+    
+//    if ([reqmdl.vendername stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length!=0) {
+//        
+//        _inhousecheckbtn.enabled=NO;
+//        
+////        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Vendor Exist" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+////        [alert show];
+//    }
+//    else{
+//        _inhousecheckbtn.enabled=YES;
+//        
+//    }
+
+      [_typebtn setTitle:reqmdl.typname forState:UIControlStateNormal];
     [_jobbtn setTitle:reqmdl.jobname forState:UIControlStateNormal];
     [_craftbtn setTitle:reqmdl.des forState:UIControlStateNormal];
     if (reqmdl.haveexpirydate==0) {
