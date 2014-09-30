@@ -439,9 +439,10 @@
                    
                    "<Vendordelete xmlns=\"http://testUSA.kontract360.com/\">\n"
                     "<EntryId>%d</EntryId>\n"
+                   "<ReqID>%d</ReqID\n"
                    "</Vendordelete>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",vmdl.VEntryId];
+                   "</soap:Envelope>\n",vmdl.VEntryId,_itemid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
