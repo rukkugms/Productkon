@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="view" destination="1" id="WNb-oe-Jhq"/>
                 <outlet property="wathrcndtnlbl" destination="D2f-vF-i8k" id="hBo-Ca-WpB"/>
+                <outlet property="weathrupdatebtn" destination="joq-Qg-9xc" id="4RN-QB-qgj"/>
                 <outlet property="wethrendbtnlbl" destination="cMT-Hn-dd2" id="pcD-to-lpG"/>
                 <outlet property="wethrfrmdatebtnlbl" destination="8n6-bp-m7E" id="cMf-DP-giP"/>
             </connections>
@@ -21,7 +22,7 @@
                 <navigationBar contentMode="scaleToFill" id="0rQ-EM-CiM">
                     <rect key="frame" x="0.0" y="-1" width="540" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="barTintColor" red="0.67843137249999996" green="0.84705882349999995" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
                         <navigationItem title="Create New Record" id="7mg-R9-1Fu">
                             <barButtonItem key="rightBarButtonItem" id="4Bd-to-iNz">

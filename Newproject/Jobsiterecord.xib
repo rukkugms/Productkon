@@ -10,6 +10,7 @@
                 <outlet property="jobcodetxtfld" destination="ppJ-zV-IFb" id="jCn-Pk-fNH"/>
                 <outlet property="jobcosttxtfld" destination="lIQ-vA-aJq" id="96P-C8-oh9"/>
                 <outlet property="jobnametxtfld" destination="sb7-2Z-aGH" id="pWW-9p-Pal"/>
+                <outlet property="jobupdatebtn" destination="E8s-ac-b6J" id="7Rd-wY-dBR"/>
                 <outlet property="typeidbtnlbl" destination="SVq-GH-vfq" id="M8L-T6-Uqq"/>
                 <outlet property="view" destination="1" id="F4d-NE-DsR"/>
                 <outlet property="view2" destination="SbC-Ot-guU" id="LKU-nK-H49"/>
@@ -45,7 +46,7 @@
                         <navigationBar contentMode="scaleToFill" id="htP-P1-s6d">
                             <rect key="frame" x="0.0" y="0.0" width="540" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="barTintColor" red="0.67843137249999996" green="0.84705882349999995" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Create New Record" id="hFa-Z4-SA0">
                                     <barButtonItem key="rightBarButtonItem" image="appbar.close.png" id="gI7-WL-gZy">

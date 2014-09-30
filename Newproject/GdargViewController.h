@@ -145,5 +145,9 @@
 - (IBAction)mateditbtn:(id)sender;
 - (IBAction)metdeltebtn:(id)sender;
 
+@property(strong,nonatomic)IBOutlet UIButton *MPdgUpdate;
+@property(strong,nonatomic)IBOutlet UIButton *MTdgupdate;
+
+
 
 @end

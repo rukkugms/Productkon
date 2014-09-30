@@ -1184,6 +1184,8 @@
     {
         
         recordResults = FALSE;
+         _MPdgUpdate.enabled=YES;
+        _MTdgupdate.enabled=YES;
         
          if ([_soapResults isEqualToString:@"Insert Successfully"]||[_soapResults isEqualToString:@"delete"]) {
              
@@ -1615,7 +1617,7 @@
 
 - (void)startDraggingFromSrcAtPoint:(CGPoint)point
 {
-    
+      _MPdgUpdate.enabled=YES;
     
     NSIndexPath* indexPath = [_manpwrtable indexPathForRowAtPoint:point];
     UITableViewCell* cell = [_manpwrtable cellForRowAtIndexPath:indexPath];
@@ -1879,7 +1881,8 @@
 - (void)materialstartDraggingFromSrcAtPoint:(CGPoint)point
 {
     
-    
+  
+    _MTdgupdate.enabled=YES;
     NSIndexPath* indexPath = [_materialtable indexPathForRowAtPoint:point];
     UITableViewCell* cell = [_materialtable cellForRowAtIndexPath:indexPath];
     
@@ -2083,6 +2086,7 @@
 
     else
     {
+        _MPdgUpdate.enabled=NO;
     [self GeneralDetailUpdate];
     }
     
@@ -2090,6 +2094,7 @@
 
 - (IBAction)editbtn:(id)sender {
     
+     _MPdgUpdate.enabled=YES;
       _editview.hidden=NO;
        button = (UIButton *)sender;
        CGPoint center= button.center;
@@ -2117,12 +2122,13 @@
     }
     else
     {
-
+        _MTdgupdate.enabled=NO;
     [self GeneralResourceDetailUpdate];
     }
 }
 
 - (IBAction)editmatrlbtn:(id)sender {
+    _MTdgupdate.enabled=YES;
     _materleditview.hidden=NO;
     button = (UIButton *)sender;
     CGPoint center= button.center;

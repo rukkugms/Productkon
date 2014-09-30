@@ -112,6 +112,7 @@
 @property(strong,nonatomic)NSXMLParser     *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
 @property(strong,nonatomic)NSMutableData   * webData;
+@property(strong,nonatomic)IBOutlet UIButton *EQdgupdate;
 
 @end
 
