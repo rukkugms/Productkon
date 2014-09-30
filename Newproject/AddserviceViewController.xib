@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddserviceViewController">
             <connections>
+                <outlet property="addbtn" destination="96i-05-ORr" id="ENq-4S-iHS"/>
                 <outlet property="navabar" destination="eVs-t8-Zlv" id="Ldu-Ic-6e9"/>
                 <outlet property="servicebtn" destination="Ita-1W-N8K" id="8mm-nV-vIr"/>
                 <outlet property="servicelisttable" destination="y6P-Ln-Zqc" id="DYo-aL-nKj"/>

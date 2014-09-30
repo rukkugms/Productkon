@@ -1712,7 +1712,7 @@
         
         
         recordResults = FALSE;
-        _plnmdl.zip=_soapResults;
+        _plnmdl.zip=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         
         _soapResults = nil;
     }

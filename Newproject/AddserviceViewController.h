@@ -45,5 +45,6 @@
 @property(strong,nonatomic)NSMutableString *soapResults;
 @property(strong,nonatomic)NSMutableData *webData;
 @property(strong,nonatomic)NSString *resultstring;
+@property(strong,nonatomic)IBOutlet UIButton *addbtn;
 
 @end

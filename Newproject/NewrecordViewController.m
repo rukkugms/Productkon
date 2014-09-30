@@ -1278,7 +1278,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         
     
 
-  else if ([_ratetxtfld.text isEqualToString:@""]) {
+  else if ([_ratetxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Rate is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
@@ -1303,7 +1303,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 
 - (IBAction)jobupdatebtn:(id)sender {
     _reloadtype=2;
-    if ([_jobnametxtfld.text isEqualToString:@""]) {
+    if ([_jobnametxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
@@ -1324,7 +1324,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 }
 - (IBAction)ruleupdte:(id)sender {
     _reloadtype=3;
-    if ([_ruletxtfld.text isEqualToString:@""]) {
+    if ([_ruletxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Rule is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
@@ -1343,7 +1343,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 }
 - (IBAction)equupdtebtn:(id)sender {
     _reloadtype=4;
-    if ([_equpnotxtfld.text isEqualToString:@""]) {
+    if ([_equpnotxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Equipment Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
@@ -1377,7 +1377,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"From date should be less than or equal to end date" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
-    else if([_wrkdesctxtfld.text isEqualToString:@""])
+    else if([_wrkdesctxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
     {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
@@ -1402,7 +1402,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 }
 - (IBAction)meetgupdatebt:(id)sender {
     _reloadtype=11;
-    if ([_meetgdetailslbl.text isEqualToString:@""]) {
+    if ([_meetgdetailslbl.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Detail is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
@@ -1420,7 +1420,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 }
 - (IBAction)bidupdatebtn:(id)sender {
     _reloadtype=7;
-    if ([_bidnamelbl.text isEqualToString:@""]) {
+    if ([_bidnamelbl.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Bidder Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
@@ -1451,7 +1451,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Weather from date should be less than or equal to Weather to date" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
-    else if([_wathrcndtnlbl.text isEqualToString:@""])
+    else if([_wathrcndtnlbl.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
     {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Weather Description is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
@@ -1476,7 +1476,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 }
 - (IBAction)notesupdatebtn:(id)sender {
      _reloadtype=10;
-    if ([_notestxtfld.text isEqualToString:@""]) {
+    if ([_notestxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Notes is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
