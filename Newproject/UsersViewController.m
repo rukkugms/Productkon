@@ -1133,6 +1133,7 @@
     _addview.hidden=NO;
     _navitem.title=@"Edit";
     _cancelbtn.enabled=NO;
+    _cancelbtn.titleLabel.textColor=[UIColor grayColor];
      _resultdisplaylabel.hidden=YES;
     button = (UIButton *)sender;
     CGPoint center= button.center;

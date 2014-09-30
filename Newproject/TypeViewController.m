@@ -542,7 +542,9 @@
 }
 
 - (IBAction)editbtn:(id)sender {
+    _cancelbtn.enabled=NO;
     _updatebtn.enabled=YES;
+    _cancelbtn.titleLabel.textColor=[UIColor grayColor];
   //  [_typetable setEditing:NO animated:NO];
     _typetable.userInteractionEnabled=NO;
     optionidentifier=2;
@@ -562,6 +564,7 @@
 
 - (IBAction)addbtn:(id)sender {
     _updatebtn.enabled=YES;
+    _cancelbtn.enabled=YES;
        _typetable.userInteractionEnabled=NO;
     optionidentifier=1;
     webtype=1;

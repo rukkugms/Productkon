@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WorktypeViewController">
             <connections>
                 <outlet property="addview" destination="yTP-sF-jj5" id="xlm-7g-ujb"/>
+                <outlet property="cancelbtn" destination="RFN-Q2-G1u" id="7nW-fV-YbG"/>
                 <outlet property="navtitle" destination="tWW-jN-bAR" id="RTk-dy-9CC"/>
                 <outlet property="titleview" destination="vSW-vh-qEz" id="x5B-VQ-NRD"/>
                 <outlet property="typetable" destination="8pW-wA-oGW" id="SoI-aZ-ozU"/>
@@ -95,6 +96,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                             <state key="normal" title="Update">
+                                <color key="titleColor" red="0.27450980390000002" green="0.50980392159999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -106,6 +108,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                             <state key="normal" title="Cancel">
+                                <color key="titleColor" red="0.27450980390000002" green="0.50980392159999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>

@@ -231,6 +231,7 @@
     UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
+    _loginbtn.enabled=YES;
 }
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
@@ -450,9 +451,9 @@
     
         UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
                                @"Change My Password",
-                               @"Logout from all other devices",
                                @"Cancel",
                                nil];
+   // @"Logout from all other devices",
    // popup.actionSheetStyle=UIActionSheetStyleBlackOpaque;
     popup.backgroundColor=UIColor.blackColor;
      popup.tintColor=UIColor.blackColor;

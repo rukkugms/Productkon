@@ -374,6 +374,7 @@
    // [_servicesTable reloadData];
 
     _cancelbtn.enabled=NO;
+    _cancelbtn.titleLabel.textColor=[UIColor grayColor];
      self.navabar.title = @"Edit";
     _resultdispalylabel.hidden=YES;
     _addserview.hidden=NO;
