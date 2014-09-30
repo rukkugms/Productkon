@@ -124,7 +124,7 @@
     _contacttiletxtfld.text=@"";
     _emailidtxtfld.text=@"";
    
-    [_statebutton setTitle:@"Select" forState:UIControlStateNormal];
+    [_statebutton setTitle:[_statearray objectAtIndex:0] forState:UIControlStateNormal];
     [_industrytypetxtfld setTitle:@"Select" forState:UIControlStateNormal];
     [_prjctexcutntxtfld setTitle:@"Select" forState:UIControlStateNormal];
     _leadassigntotextfld.text=@"";
@@ -1266,7 +1266,7 @@ else
                    "<ID>%@</ID>\n"
                    "</UpdateCLMDemo>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",info2.leadid,_cmpnttxtfld.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,stid,[_leadtypedict objectForKey:_leadtypebtnlbl.titleLabel.text],[_industrytypedict objectForKey:_industrytypetxtfld.titleLabel.text],[_projcttypedict objectForKey:_projecttype.titleLabel.text],_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,[_leadtypedict objectForKey:_leadstatusBtn.titleLabel.text],[info2.bidstatus integerValue ],info2.idvalue];
+                   "</soap:Envelope>\n",info2.leadid,_cmpnttxtfld.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,stid,[_leadtypedict objectForKey:_leadtypebtnlbl.titleLabel.text],[_industrytypedict objectForKey:_industrytypetxtfld.titleLabel.text],[_projcttypedict objectForKey:_projecttype.titleLabel.text],_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,[_leadStatusdict objectForKey:_leadstatusBtn.titleLabel.text],[info2.bidstatus integerValue ],info2.idvalue];
                                                                                                                                                                                                                                     
     NSLog(@"soapmsg%@",soapMessage);
     
@@ -1345,7 +1345,7 @@ else
                    "<ID>%@</ID>\n"
                    "</SaveLead>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",Leadid,_cmpnttxtfld.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,stid,[_leadtypedict objectForKey:_leadtypebtnlbl.titleLabel.text],[_industrytypedict objectForKey:_industrytypetxtfld.titleLabel.text],[_projcttypedict objectForKey:_projecttype.titleLabel.text],_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,[_leadtypedict objectForKey:_leadstatusBtn.titleLabel.text],[bidstatus integerValue],idvalue];
+                   "</soap:Envelope>\n",Leadid,_cmpnttxtfld.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,stid,[_leadtypedict objectForKey:_leadtypebtnlbl.titleLabel.text],[_industrytypedict objectForKey:_industrytypetxtfld.titleLabel.text],[_projcttypedict objectForKey:_projecttype.titleLabel.text],_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,[_leadStatusdict objectForKey:_leadstatusBtn.titleLabel.text],[bidstatus integerValue],idvalue];
     
     NSLog(@"soapmsg%@",soapMessage);
     
@@ -2913,7 +2913,7 @@ else
         recordResults=FALSE;
         
       [_leadtypeArray addObject:_soapResults];
-        [_leadStatusdict setObject:leadstg forKey:_soapResults];
+        [_leadtypedict setObject:leadstg forKey:_soapResults];
         
         _soapResults = nil;
         
