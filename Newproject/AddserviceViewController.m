@@ -72,16 +72,16 @@
 {
    
     UIViewController *popovercontent=[[UIViewController alloc]init];
-    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 200)];
+    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 235, 250)];
     popoverview.backgroundColor=[UIColor whiteColor];
-    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 210, 200)];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 235, 250)];
     _popovertableview.delegate=(id)self;
     _popovertableview.dataSource=(id)self;
     _popovertableview.rowHeight=32;
     _popovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
     [popoverview addSubview:_popovertableview];
     popovercontent.view=popoverview;
-    popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 200);
+    popovercontent.contentSizeForViewInPopover=CGSizeMake(235, 250);
     self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
     [self.popovercontroller presentPopoverFromRect:_servicebtn.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
@@ -96,6 +96,7 @@
     }
     else
     {
+        _addbtn.enabled=NO;
     [self InsertPlanService];
     }
 }
@@ -445,7 +446,7 @@
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
-    if([elementName isEqualToString:@"SelectAllServicesResult"])
+    if([elementName isEqualToString:@"SelectAllServicesResponse"])
     {   
         _allservicearray=[[NSMutableArray alloc]init];
        _servicedict=[[NSMutableDictionary alloc]init];
@@ -538,7 +539,7 @@
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-    if([elementName isEqualToString:@"SelectAllServicesResult"])
+    if([elementName isEqualToString:@"SelectAllServicesResponse"])
     {
         
         recordResults = FALSE;
@@ -596,12 +597,13 @@
         _resultstring=_soapResults;
         if([_resultstring isEqualToString:@"inserted"]||[_soapResults isEqualToString:@"deletedplanservice"])
         {
-           
+            _addbtn.enabled=YES;
         }
         else
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_resultstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _addbtn.enabled=YES;
         }
         
         _soapResults = nil;

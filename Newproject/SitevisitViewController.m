@@ -2935,7 +2935,7 @@ _passingdate=dateString;
     if([elementName isEqualToString:@"FacilityDetails"])
     {
         recordResults = FALSE;
-        _facilitytxtview.text=_soapResults;
+        _facilitytxtview.text=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         
         _soapResults = nil;
     }
