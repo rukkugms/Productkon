@@ -30,6 +30,7 @@
     NSInteger path;
     NSString *phonenostring;
     NSInteger fmt;
+    NSString *leadstg,*prjcttypestg,*industrystg,*statustype;
   }
 @property(strong,nonatomic)IndustrytpeViewController *industryctl;
 @property(strong,nonatomic)STViewController *statusctrl;
@@ -135,6 +136,10 @@
 @property(strong,nonatomic)NSMutableDictionary *statedict;
 @property(strong,nonatomic)NSMutableDictionary *reversedict;
 
+@property(strong,nonatomic)NSMutableDictionary *projcttypedict;
+@property(strong,nonatomic)NSMutableDictionary *industrytypedict;
+@property(strong,nonatomic)NSMutableDictionary *leadStatusdict;
+@property(strong,nonatomic)NSMutableDictionary *leadtypedict;
 
 
 @property(strong,nonatomic)NSMutableString *companystring;
