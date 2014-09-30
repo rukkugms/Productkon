@@ -122,7 +122,7 @@
     [super viewWillAppear:animated];
     
     [self Checknetavailabilty];
-  
+   [self JobsequenceSelect];
 
 }
 

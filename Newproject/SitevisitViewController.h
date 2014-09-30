@@ -289,5 +289,10 @@
 
 - (IBAction)accebiltydraw:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UIButton *genralbtnlbl;
+
+@property (strong, nonatomic) IBOutlet UIButton *accebilitybtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *equpdatebtnlbl;
+
 
 @end

@@ -347,6 +347,7 @@
     _generalworkctrlr.optionidentfr=optionidentifier;
     _generalworkctrlr.generalarray=garray;
     _generalworkctrlr.delegate=self;
+      _generalworkctrlr.skillsid=_skillsid;
      _generalworkctrlr.psitemcode=_pscode;
 
     NSLog(@"textFieldIndexPath%d",_generalworkctrlr.optionidentfr);

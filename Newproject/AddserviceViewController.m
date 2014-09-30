@@ -72,9 +72,9 @@
 {
    
     UIViewController *popovercontent=[[UIViewController alloc]init];
-    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 235, 250)];
+    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 235, 300)];
     popoverview.backgroundColor=[UIColor whiteColor];
-    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 235, 250)];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 235,300)];
     _popovertableview.delegate=(id)self;
     _popovertableview.dataSource=(id)self;
     _popovertableview.rowHeight=32;

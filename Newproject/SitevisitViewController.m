@@ -3006,6 +3006,10 @@ _passingdate=dateString;
         else{
         UIAlertView *alertview=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alertview show];
+              _genralbtnlbl.enabled=YES;
+            _accebilitybtnlbl.enabled=YES;
+            _equpdatebtnlbl.enabled=YES;
+            
         }
      _soapResults = nil;
     }
@@ -3472,10 +3476,10 @@ _passingdate=dateString;
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 120, 120)];
+                           initWithFrame:CGRectMake(0, 0, 200, 200)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 120, 120)];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
     
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
@@ -3489,7 +3493,7 @@ _passingdate=dateString;
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(120, 120);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 200);
     
     //create a popover controller
     
@@ -4044,6 +4048,12 @@ _passingdate=dateString;
 }
 
 - (IBAction)updatebtn:(id)sender {
+    if ([_facilitytxtview.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+
+    _genralbtnlbl.enabled=NO;
     [self SaveSiteVisitGeneral];
     
  
@@ -4097,26 +4107,28 @@ _passingdate=dateString;
     
 }
 - (IBAction)accebilityupdate:(id)sender {
-    if (_Accibltylblview.text.length==0) {
+    if ([_Accibltylblview.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else
     {
+        
+        _accebilitybtnlbl.enabled=NO;
     [self SaveSiteVisitAccessibility];
     }
     
     
 }
 - (IBAction)equpmntupdatebtn:(id)sender {
-    if (_equipmnttxtview.text.length==0) {
+    if ([_equipmnttxtview.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else
     {
 
-    
+    _equpdatebtnlbl.enabled=YES;
     [self SaveSiteVisitEquipments];
     }
     
