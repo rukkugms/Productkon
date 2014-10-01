@@ -41,6 +41,11 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
+    if (_moduleid==26) {
+        
+        
+        [self ManPowersubtypeselect];
+    }
     if (_moduleid==27) {
         
     
@@ -49,6 +54,10 @@
     else if (_moduleid==28)
     {
        [self Materialsubtypeselect];
+    }
+    else if (_moduleid==29)
+    {
+        [self FleetmultipleSubtypeselect];
     }
     else if (_moduleid==34)
     {
@@ -116,6 +125,12 @@
         [alert show];
     }
     else{
+        if (_moduleid==26) {
+            
+            _updatebtn.enabled=NO;
+            [self ManpowerSubtypeinsert];
+        }
+
         if (_moduleid==27) {
             
             _updatebtn.enabled=NO;
@@ -126,6 +141,12 @@
              _updatebtn.enabled=NO;
             [self Materialsubtypeinsert];
         }
+        else if (_moduleid==29)
+        {
+            _updatebtn.enabled=NO;
+            [self FleetmultiSubtypeinsert];
+        }
+
         else if (_moduleid==34)
         {
              _updatebtn.enabled=NO;
@@ -160,14 +181,24 @@
 - (IBAction)subtpebtn:(id)sender
 {
     [self createpopover];
+    if (_moduleid==26) {
+        
+        
+        [self MultiManpowersubtypeselect];
+    }
     if (_moduleid==27) {
         
     
     [self Multiequsubtypeselect];
     }
+    
     else if(_moduleid==28)
     {
         [self MultiMaterialsubtypeselect];
+    }
+    else if(_moduleid==29)
+    {
+        [self Multifleetsubtypeselect];
     }
     else if(_moduleid==34)
     {
@@ -301,6 +332,11 @@
     
     if (editingStyle==UITableViewCellEditingStyleDelete) {
         deletepath=indexPath.row;
+        if (_moduleid==26) {
+            [self ManpowerSubTypeDelete];
+            [_selectedsubtypearray removeObject:indexPath];
+        }
+
         if (_moduleid==27) {
             [self EquipmentsubtypeDelete];
              [_selectedsubtypearray removeObject:indexPath];
@@ -310,6 +346,12 @@
             [self MaterialsubtypeDelete];
              [_selectedsubtypearray removeObject:indexPath];
         }
+        else if (_moduleid==29)
+        {
+            [self FleetmultiSubTypeDelete];
+            [_selectedsubtypearray removeObject:indexPath];
+        }
+
         else if (_moduleid==34)
         {
             [self ThirdPartysubtypeDelete];
@@ -337,7 +379,207 @@
     }
     
 }
-#pragma mark- WebService
+#pragma mark- Manpwr
+-(void)ManPowersubtypeselect{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   "<ManPowersubtypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MPStManpowerId>%d</MPStManpowerId>\n"
+                   "</ManPowersubtypeselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_equipmainid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/ManPowersubtypeselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)MultiManpowersubtypeselect{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<MultiManpowersubtypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MPStManpowerId>%d</MPStManpowerId>\n"
+                   "</MultiManpowersubtypeselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_equipmainid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/MultiManpowersubtypeselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)ManpowerSubtypeinsert{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<ManpowerSubtypeinsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MPStManpowerId>%d</MPStManpowerId>\n"
+                   "<MPStSubTypeId>%d</MPStSubTypeId>\n"
+                   "<MPStDescription>%@</MPStDescription>\n"
+                   "</ManpowerSubtypeinsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_equipmainid,[[_subtypelistdictionary objectForKey:[_Subtypelistarray objectAtIndex:path]]integerValue],[_Subtypelistarray objectAtIndex:path]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/ManpowerSubtypeinsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)ManpowerSubTypeDelete{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    Craftreqmtmdl*subtypemdl=(Craftreqmtmdl *)[_selectedsubtypearray objectAtIndex:deletepath];
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<ManpowerSubTypeDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MPStManpowerId>%d</MPStManpowerId>\n"
+                   "</ManpowerSubTypeDelete>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[subtypemdl.Brentryid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/ManpowerSubTypeDelete" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+
+#pragma mark- Equipment
 -(void)Equipmentsubtypeselect{
     recordResults = FALSE;
     NSString *soapMessage;
@@ -736,6 +978,208 @@
     }
     
 }
+#pragma mark-Fleet
+-(void)FleetmultipleSubtypeselect{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<FleetmultipleSubtypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<FLStEquipmentId>%d</FLStEquipmentId>\n"
+                   "</FleetmultipleSubtypeselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_equipmainid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/FleetmultipleSubtypeselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)Multifleetsubtypeselect{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Multifleetsubtypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                  "<FLStEquipmentId>%d</FLStEquipmentId>\n"
+                   "</Multifleetsubtypeselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_equipmainid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+       NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Multifleetsubtypeselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+-(void)FleetmultiSubtypeinsert{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<FleetmultiSubtypeinsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<FLStEquipmentId>%d</FLStEquipmentId>\n"
+                   "<FLStSubTypeId>%d</FLStSubTypeId>\n"
+                   "<FLStDescription>%@</FLStDescription>\n"
+                   "</FleetmultiSubtypeinsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_equipmainid,[[_subtypelistdictionary objectForKey:[_Subtypelistarray objectAtIndex:path]]integerValue],[_Subtypelistarray objectAtIndex:path]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/FleetmultiSubtypeinsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)FleetmultiSubTypeDelete{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    Craftreqmtmdl*subtypemdl=(Craftreqmtmdl *)[_selectedsubtypearray objectAtIndex:deletepath];
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<FleetmultiSubTypeDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<FLStEquipmentId>%d</FLStEquipmentId>\n"
+                   "</FleetmultiSubTypeDelete>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[subtypemdl.Brentryid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/FleetmultiSubTypeDelete" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 #pragma mark-Thirdparty
 
 -(void)ThirdpartySubTypeselect{
@@ -1597,6 +2041,16 @@
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
     
+    if([elementName isEqualToString:@"ManPowersubtypeselectResponse"])
+    {
+        _selectedsubtypearray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     if([elementName isEqualToString:@"EquipmentsubtypeselectResponse"])
     {
         _selectedsubtypearray=[[NSMutableArray alloc]init];
@@ -1607,6 +2061,7 @@
         }
         recordResults = TRUE;
     }
+    
     if([elementName isEqualToString:@"MaterialsubtypeselectResponse"])
     {
         _selectedsubtypearray=[[NSMutableArray alloc]init];
@@ -1617,6 +2072,17 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"FleetmultipleSubtypeselectResponse"])
+    {
+        _selectedsubtypearray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"ThirdpartySubTypeselectResponse"])
     {
         _selectedsubtypearray=[[NSMutableArray alloc]init];
@@ -1700,6 +2166,17 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"MultiManpowersubtypeselectResponse"])
+    {
+        
+        _Subtypelistarray=[[NSMutableArray alloc]init];
+        _subtypelistdictionary=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     if([elementName isEqualToString:@"MultiequsubtypeselectResponse"])
     {
         
@@ -1722,7 +2199,19 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"MultiThirdpartysubtypeselectResponse"])
+    if([elementName isEqualToString:@"MultiMaterialsubtypeselectResponse"])
+    {
+        
+        _Subtypelistarray=[[NSMutableArray alloc]init];
+        _subtypelistdictionary=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"MultifleetsubtypeselectResponse"])
     {
         
         _Subtypelistarray=[[NSMutableArray alloc]init];
@@ -1808,8 +2297,15 @@
             _soapResults = [[NSMutableString alloc] init];
         }
         recordResults = TRUE;
+    }  if([elementName isEqualToString:@"ManpowerSubtypeinsertResponse"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
     }
-
 
     if([elementName isEqualToString:@"EquipmentsubtypeinsertResponse"])
     {
@@ -1829,6 +2325,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"FleetmultiSubtypeinsertResponse"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"ThirdPartysubtypeinsertResponse"])
     {
         
@@ -1865,6 +2371,15 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"ManpowerSubTypeDeleteResponse"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
     if([elementName isEqualToString:@"EquipmentsubtypeDeleteResponse"])
     {
@@ -1884,6 +2399,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"FleetmultiSubTypeDeleteResponse"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"ThirdPartysubtypeDeleteResponse"])
     {
         
@@ -2045,6 +2570,12 @@
     {
         recordResults = FALSE;
         if([_soapResults isEqualToString:@"deleted"]){
+            if (_moduleid==26) {
+                
+                
+                [self ManPowersubtypeselect];
+            }
+
             if (_moduleid==27) {
                 
             
@@ -2053,6 +2584,10 @@
             else if (_moduleid==28)
             {
                 [self Materialsubtypeselect];
+            }
+            else if (_moduleid==29)
+            {
+                [self FleetmultipleSubtypeselect];
             }
             else if (_moduleid==34)
             {
@@ -2086,6 +2621,11 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if([alertView.message isEqualToString:msgstring]){
         _updatebtn.enabled=YES;
+        if (_moduleid==26) {
+            
+            
+            [self ManPowersubtypeselect];
+        }
         if (_moduleid==27) {
             
         
@@ -2094,6 +2634,10 @@
         else if (_moduleid==28)
         {
               [self Materialsubtypeselect];
+        }
+        else if (_moduleid==29)
+        {
+            [self FleetmultipleSubtypeselect];
         }
         else if (_moduleid==34)
         {

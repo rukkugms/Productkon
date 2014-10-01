@@ -994,7 +994,7 @@
     if([elementName isEqualToString:@"State"])
     {
         recordResults = FALSE;
-          _custmdl.state=[_soapResults uppercaseString];
+          _custmdl.state=_soapResults;
         _soapResults = nil;
 
     }
@@ -1010,7 +1010,7 @@
     if([elementName isEqualToString:@"Country"])
     {
         recordResults = FALSE;
-        _custmdl.country=[_soapResults uppercaseString];
+        _custmdl.country=_soapResults;
         _soapResults = nil;
 
     }
@@ -1065,9 +1065,9 @@
     if([elementName isEqualToString:@"state_name"])
     {
         recordResults = FALSE;
-        [_statearray addObject:[_soapResults uppercaseString]];
-        [_statedict setObject:stateid forKey:[_soapResults uppercaseString]];
-        [_revstatedict setObject:[_soapResults uppercaseString] forKey:stateid];
+        [_statearray addObject:_soapResults];
+        [_statedict setObject:stateid forKey:_soapResults];
+        [_revstatedict setObject:_soapResults forKey:stateid];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"CountryCode"])
@@ -1079,9 +1079,9 @@
     if([elementName isEqualToString:@"CountryName"])
     {
         recordResults = FALSE;
-        [_countryarray addObject:[_soapResults uppercaseString]];
-        [_countrydict setObject:cuntryid forKey:[_soapResults uppercaseString]];
-        [_revcountrydict setObject:[_soapResults uppercaseString] forKey:cuntryid];
+        [_countryarray addObject:_soapResults];
+        [_countrydict setObject:cuntryid forKey:_soapResults];
+        [_revcountrydict setObject:_soapResults forKey:cuntryid];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"result"])

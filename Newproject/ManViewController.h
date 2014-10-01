@@ -12,6 +12,7 @@
 #import "sqlite3.h"
 #import "ServiceViewController.h"
 #import "Rightscheck.h"
+#import "RSTViewController.h"
 
 @interface ManViewController : UIViewController{
     
@@ -30,6 +31,8 @@
     NSString *userid;
     NSString *checkstring;
     NSInteger x;
+    NSString *createstring;
+    NSInteger createcheck;
     
 }
 @property(strong,nonatomic)ServiceViewController *serviceVCtrl;
@@ -138,5 +141,10 @@
 @property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 @property(strong,nonatomic)IBOutlet UIButton *cancelbtn;
 
-
+@property(strong,nonatomic)IBOutlet UIButton *cellsubtypebtn;
+-(IBAction)cellsubtypeselection:(id)sender;
+@property(readwrite)NSInteger moduleid;
+@property(strong,nonatomic)RSTViewController *rstctrlr;
+- (IBAction)checksubtypebtn:(id)sender;
+@property(strong,nonatomic)IBOutlet UIButton *subcheckbtn;
 @end
