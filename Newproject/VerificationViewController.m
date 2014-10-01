@@ -68,9 +68,9 @@
       [_tabbar setSelectedItem:[_tabbar.items objectAtIndex:0]];
     __requirmentview.hidden=NO;
 
-    [_ssnbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
-    [_i9btnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
-    [_bgbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+    [_ssnbtnlbl setImage:[UIImage imageNamed:@"RadioButton-UnSelected"] forState:UIControlStateNormal];
+    [_i9btnlbl setImage:[UIImage imageNamed:@"RadioButton-UnSelected"] forState:UIControlStateNormal];
+    [_bgbtnlbl setImage:[UIImage imageNamed:@"RadioButton-UnSelected"] forState:UIControlStateNormal];
     [self FetchApplicantId];
     NSLog(@"Applicnt %d",_applicantid);
 
@@ -112,7 +112,7 @@
     i9clck ++;
     if (!i9clck%2) {
         
-       [_i9btnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+       [_i9btnlbl setImage:[UIImage imageNamed:@"RadioButton-UnSelected"] forState:UIControlStateNormal];
         
     }
     
@@ -120,8 +120,8 @@
        _type=@"I9";
        
          [_i9btnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
-          [_bgbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
-          [_ssnbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+          [_bgbtnlbl setImage:[UIImage imageNamed:@"RadioButton-UnSelected"] forState:UIControlStateNormal];
+          [_ssnbtnlbl setImage:[UIImage imageNamed:@"RadioButton-UnSelected"] forState:UIControlStateNormal];
          [self SelectVerificationcomment];
         
     }
@@ -134,7 +134,7 @@
     bgclck++;
     if (!bgclck%2) {
         
-        [_bgbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+        [_bgbtnlbl setImage:[UIImage imageNamed:@"RadioButton-UnSelected"] forState:UIControlStateNormal];
         
     }
     
@@ -142,8 +142,8 @@
         _type=@"BackGround";
 
         [_bgbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
-        [_i9btnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
-        [_ssnbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+        [_i9btnlbl setImage:[UIImage imageNamed:@"RadioButton-UnSelected"] forState:UIControlStateNormal];
+        [_ssnbtnlbl setImage:[UIImage imageNamed:@"RadioButton-UnSelected"] forState:UIControlStateNormal];
 
  [self SelectVerificationcomment];
         
@@ -158,7 +158,7 @@
 ssnclck++;
     if (!ssnclck%2) {
         
-        [_ssnbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+        [_ssnbtnlbl setImage:[UIImage imageNamed:@"RadioButton-UnSelected"] forState:UIControlStateNormal];
         
         
     }
@@ -167,8 +167,8 @@ ssnclck++;
         _type=@"SSN";
         
         [_ssnbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
-        [_i9btnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
-        [_bgbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+        [_i9btnlbl setImage:[UIImage imageNamed:@"RadioButton-UnSelected"] forState:UIControlStateNormal];
+        [_bgbtnlbl setImage:[UIImage imageNamed:@"RadioButton-UnSelected"] forState:UIControlStateNormal];
         [self SelectVerificationcomment];
         
     }

@@ -32,6 +32,7 @@
     
     NSInteger webtype;
     NSInteger activate;
+  
 }
 
 
@@ -117,5 +118,24 @@
 
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
+
+@property (strong, nonatomic) IBOutlet UIView *editview;
+
+- (IBAction)updatebtn:(id)sender;
+
+
+//@property (strong, nonatomic) IBOutlet UIButton *editbtn;
+- (IBAction)celleditbtn:(id)sender;
+
+- (IBAction)editclsebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UILabel *editnamelbl;
+
+@property (strong, nonatomic) IBOutlet UIButton *editviewbtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *editeditbtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *editdeletebtnlbl;
+
+@property (strong, nonatomic) IBOutlet UIButton *editprintbtnlbl;
+
+@property (strong, nonatomic) IBOutlet UIButton *editupdatebtnlbl;
 
 @end

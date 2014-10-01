@@ -40,8 +40,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-  viewcheck=0;
-    
+viewcheck=0;
+    _editupdatebtnlbl.enabled=YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -687,9 +687,11 @@
         viewcheck=[usrmdl.viewrights integerValue];
     }
     if (editclck==0) {
+        
         editcheck=[usrmdl.editrights integerValue];
     }
     if (deleteclck==0) {
+        
         deletecheck=[usrmdl.deleterights integerValue];
     }
     if (printclck==0) {
@@ -1082,46 +1084,46 @@
          // [cell.contentView addSubview:_newbtn];
         //  _viewbtnlbl=(UIButton *)[cell viewWithTag:3];
           
-          if ([usrmdl.viewonly isEqualToString:@"true"]) {
-              _editbtnlbl.enabled=NO;
-              _deletebtnlbl.enabled=NO;
-              _printbtnlbl.enabled=NO;
-          }
-          else{
-              _editbtnlbl.enabled=YES;
-              _deletebtnlbl.enabled=YES;
-              _printbtnlbl.enabled=YES;
-          }
-                 
+//          if ([usrmdl.viewonly isEqualToString:@"true"]) {
+//              _editbtnlbl.enabled=NO;
+//              _deletebtnlbl.enabled=NO;
+//              _printbtnlbl.enabled=NO;
+//          }
+//          else{
+//              _editbtnlbl.enabled=YES;
+//              _deletebtnlbl.enabled=YES;
+//              _printbtnlbl.enabled=YES;
+//          }
+          
           if ([usrmdl.viewrights isEqualToString:@"1"]) {
               // [_newbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
              
-               [_viewbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+               [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
               viewcheck=1;
               
           }
           else{
              // [_newbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-              [_viewbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+              [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
                viewcheck=0;
           }
           if ([usrmdl.editrights isEqualToString:@"1"]) {
-              [_editbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+              [_editbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
           }
           else{
-              [_editbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+              [_editbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
           }
           if ([usrmdl.deleterights isEqualToString:@"1"]) {
-              [_deletebtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+              [_deletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
           }
           else{
-              [_deletebtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+              [_deletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
           }
           if ([usrmdl.printrightes isEqualToString:@"1"]) {
-              [_printbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+              [_printbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
           }
           else{
-              [_printbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+              [_printbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
           }
 
           
@@ -1130,13 +1132,13 @@
               
           
           if (checkviewstrg==1) {
-               [_viewbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+               [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
 //              for (int i=0; i<[_usertablearray count]; i++) {
 //                  
 //              }
           }
           else{
-               [_viewbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+               [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
           }
 
           
@@ -1145,13 +1147,13 @@
               
               
               if (checkeditstrg==1) {
-                  [_editbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+                  [_editbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
                   //              for (int i=0; i<[_usertablearray count]; i++) {
                   //
                   //              }
               }
               else{
-                  [_editbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+                  [_editbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
               }
               
               
@@ -1160,13 +1162,13 @@
               
               
               if (checkdeletestrg==1) {
-                  [_deletebtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+                  [_deletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
                   //              for (int i=0; i<[_usertablearray count]; i++) {
                   //
                   //              }
               }
               else{
-                  [_deletebtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+                  [_deletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
               }
               
               
@@ -1175,13 +1177,13 @@
               
               
               if (checkprintstrg==1) {
-                  [_printbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+                  [_printbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
                   //              for (int i=0; i<[_usertablearray count]; i++) {
                   //
                   //              }
               }
               else{
-                  [_printbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+                  [_printbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
               }
               
               
@@ -1802,6 +1804,15 @@
                _subsubbtnlbl.enabled=YES;
                 [self SubUserRightsforsubTileselect];
         }
+        
+        
+        else  if ([_soapResults isEqualToString:@"Updated Successfully"]) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+               [self UserRightsselect];
+            
+        }
+
               else{
                   
                   
@@ -1830,9 +1841,11 @@
                   }
               
         }
-      
-          _soapResults = nil;
+    
+    
+              _soapResults = nil;
     }
+    
 
     if([elementName isEqualToString:@"Activate"])
     {
@@ -2048,156 +2061,106 @@
 }
 
 - (IBAction)viewbtn:(id)sender {
-    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
-    
-    if (rightsmodel.EditModule==0) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-        
-        
-    }
-    else
-    {
-   [_Allviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    [_Allviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     viewclck=1;
-      Allviewclckd=0;
-    button = (UIButton *)sender;
-    CGPoint center= button.center;
-    //touchedpath=button.tag;
-    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.usertable];
-    NSIndexPath *textFieldIndexPath = [self.usertable indexPathForRowAtPoint:rootViewPoint];
-    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
-    btnindex=textFieldIndexPath.row;
+    Allviewclckd=0;
     
-//    btnclck++;
-//    if(btnclck%2!=0){
-//       // [_newbtn setImage:[UIImage imageNamed:@"cb_mono_off.png"] forState:UIControlStateNormal];
-//          [_viewbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
-//        
-//    }
-//    else{
-//           //[_newbtn setImage:[UIImage imageNamed:@"cb_mono_on.png"] forState:UIControlStateNormal];
-//           [_viewbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
-//    }
-    
-    
-   UserRightsmdl*usrmdl=(UserRightsmdl *)[_usertablearray objectAtIndex:textFieldIndexPath.row];
-    if ([usrmdl.viewrights isEqualToString:@"1"])
+  
+    if (viewcheck==1)
         
         
     {
-       // [_newbtn setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
-           [_viewbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+                [_editviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         viewcheck=0;
        
     }
     else{
         
         
-       [_viewbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
-        //[_newbtn setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
-        viewcheck=1;
+       [_editviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+               viewcheck=1;
     }
-    [_usertable reloadData];
-    [self Userrightssave];
-    
-    //[_usertable reloadData];
+
     }
-}
+
 
 - (IBAction)editbtn:(id)sender {
-    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
-    
-    if (rightsmodel.EditModule==0) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-        
-        
-    }
-    else
-    {
-[_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+  [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     editclck=1;
     Alleditclckd=0;
-    button = (UIButton *)sender;
-    CGPoint center= button.center;
-    //touchedpath=button.tag;
-    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.usertable];
-    NSIndexPath *textFieldIndexPath = [self.usertable indexPathForRowAtPoint:rootViewPoint];
-    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
-     btnindex=textFieldIndexPath.row;
-    
-    // btnclck++;
-    //if(btnclck%2!=0)
-    UserRightsmdl*usrmdl=(UserRightsmdl *)[_usertablearray objectAtIndex:textFieldIndexPath.row];
-    if ([usrmdl.editrights isEqualToString:@"1"])
+ 
+    if (editcheck==1)
         
         
     {
-        [_editbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
-        // [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_editeditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    
         editcheck=0;
     }
     else{
         
         
-        //   [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-        [_editbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+      
+        [_editeditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         editcheck=1;
     }
-    [_usertable reloadData];
-     [self Userrightssave];
-    }
+  
+    
 
 }
 
 - (IBAction)deletebtn:(id)sender {
-    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
-    
-    if (rightsmodel.EditModule==0) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-        
-        
-    }
-    else
-    {
-[_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+  [_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     deleteclck=1;
     Alldeleteclckd=0;
-    button = (UIButton *)sender;
-    CGPoint center= button.center;
-    //touchedpath=button.tag;
-    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.usertable];
-    NSIndexPath *textFieldIndexPath = [self.usertable indexPathForRowAtPoint:rootViewPoint];
-    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
-     btnindex=textFieldIndexPath.row;
     
-    // btnclck++;
-    //if(btnclck%2!=0)
-    UserRightsmdl*usrmdl=(UserRightsmdl *)[_usertablearray objectAtIndex:textFieldIndexPath.row];
-    if ([usrmdl.deleterights isEqualToString:@"1"])
+  
+    if (deletecheck==1)
         
         
     {
-        [_deletebtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
-        // [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_editdeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+       
         deletecheck=0;
         
     }
     else{
         
         
-        //   [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-        [_deletebtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+      
+        [_editdeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         deletecheck=1;
     }
-    [_usertable reloadData];
-    [self Userrightssave];
-    }
+   
+    
 }
 
 - (IBAction)printbtn:(id)sender {
+   [_Allprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    printclck=1;
+    Allprintclckd=0;
+    
+       if (printcheck==1)
+        
+        
+    {
+        [_editprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+                printcheck=0;
+    }
+    else{
+        
+        
+                [_editprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+         printcheck=1;
+    }
+   
+    
+
+
+}
+- (IBAction)newbtn:(id)sender {
+}
+- (IBAction)updatebtn:(id)sender {
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
     if (rightsmodel.EditModule==0) {
@@ -2208,41 +2171,109 @@
     }
     else
     {
-[_Allprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-    printclck=1;
-    Allprintclckd=0;
+        _editupdatebtnlbl.enabled=NO;
+
+      [self Userrightssave];
+    [_usertable reloadData];
+    }
+    
+}
+- (IBAction)celleditbtn:(id)sender {
+    
+    _editview.hidden=NO;
+    viewclck=0;
+    editclck=0;
+    deleteclck=0;
+    printclck=0;
     button = (UIButton *)sender;
     CGPoint center= button.center;
-    //touchedpath=button.tag;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.usertable];
     NSIndexPath *textFieldIndexPath = [self.usertable indexPathForRowAtPoint:rootViewPoint];
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
-     btnindex=textFieldIndexPath.row;
-    
-    // btnclck++;
-    //if(btnclck%2!=0)
     UserRightsmdl*usrmdl=(UserRightsmdl *)[_usertablearray objectAtIndex:textFieldIndexPath.row];
+    btnindex=textFieldIndexPath.row;
+    _editnamelbl.text=usrmdl.modulename;
+    if ([usrmdl.viewrights isEqualToString:@"1"])
+        
+        
+    {
+        [_editviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+     
+        viewcheck=0;
+        
+    }
+    else{
+        
+    [_editviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        
+        
+        viewcheck=1;
+    }
+    
+    if ([usrmdl.editrights isEqualToString:@"1"])
+        
+        
+    {
+          [_editeditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        
+        editcheck=0;
+    }
+    else{
+         [_editeditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+     
+        editcheck=1;
+    }
+    
+    if ([usrmdl.deleterights isEqualToString:@"1"])
+        
+        
+    {
+       
+          [_editdeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        deletecheck=0;
+        
+    }
+    else{
+      
+         [_editdeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        deletecheck=1;
+    }
     if ([usrmdl.printrightes isEqualToString:@"1"])
         
         
     {
-        [_printbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
-        // [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+         [_editprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+       
         printcheck=0;
     }
     else{
-        
-        
-        //   [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-        [_printbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
-         printcheck=1;
-    }
-    [_usertable reloadData];
-    [self Userrightssave];
+        [_editprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        printcheck=1;
     }
 
+    }
 
+- (IBAction)editclsebtn:(id)sender {
+    _editview.hidden=YES;
+  
 }
-- (IBAction)newbtn:(id)sender {
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    ////NSLog(@"buttonIndex%d",buttonIndex);
+    
+    if ([alertView.message isEqualToString:@"Updated Successfully"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _editview.hidden=YES;
+            
+            _editupdatebtnlbl.enabled=YES;
+        }
+    }
+    
+    
 }
+
 @end
