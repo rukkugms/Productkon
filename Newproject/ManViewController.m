@@ -205,6 +205,20 @@
                  [_overhdchecklbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
                  
              }
+         if ([pwrmdl.allsubtype isEqualToString:@"true"]) {
+             _cellsubtypebtn.enabled=NO;
+             // [_allcrftbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+             [_cellsubtypebtn setTitle:@"All Sub Types" forState:UIControlStateNormal];
+             
+         }
+         else if([pwrmdl.allsubtype isEqualToString:@"false"]){
+             _cellsubtypebtn.enabled=YES;
+             // [_allcrftbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+             [_cellsubtypebtn setTitle:@"Sub Types" forState:UIControlStateNormal];
+             
+             
+         }
+
 
         // }
 //         else if([_Availablityresult isEqualToString:@"No"]){
@@ -351,7 +365,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllManpower xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SelectAllManpower xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</SelectAllManpower>\n"
                    "</soap:Body>\n"
@@ -359,8 +373,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-   NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+  // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -368,7 +382,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllManpower" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SelectAllManpower" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -574,10 +588,9 @@
                    
                    "<soap:Body>\n"
                    
-                   "<InsertManpower xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<InsertManpower xmlns=\"http://ios.kontract360.com/\">\n"
                    "<itemcode>%@</itemcode>\n"
                    "<description>%@</description>\n"
-                   "<subtype>%@</subtype>\n"
                    "<unitcost>%f</unitcost>\n"
                    "<overhead>%d</overhead>\n"
                    "<craftcode>%@</craftcode>\n"
@@ -588,14 +601,15 @@
                    "<Experiance>%@</Experiance>\n"
                    "<JobTasks>%@</JobTasks>\n"
                    "<EducationReq>%@</EducationReq>\n"
+                   "<MPAllSubTypes>%d</MPAllSubTypes>\n"
                    "</InsertManpower>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_itemdestxtfld.text,[_skilldict objectForKey:_searchbtnlbl.titleLabel.text],[_unitcosttxtfld.text floatValue],overhead,_craftcodetextfld.text,[_billingratetextfield.text floatValue],[_payratetextfield.text floatValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text];
+                   "</soap:Envelope>\n",@"abc",_itemdestxtfld.text,[_unitcosttxtfld.text floatValue],overhead,_craftcodetextfld.text,[_billingratetextfield.text floatValue],[_payratetextfield.text floatValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text,createcheck];
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-   NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+  // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -603,7 +617,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/InsertManpower" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/InsertManpower" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -698,6 +712,35 @@
     {
         overhead=pwrmdl.overhead;
     }
+    NSInteger check;
+    
+    if([createstring isEqualToString:@"create"])
+    {
+        if (createcheck==0) {
+            check=0;
+        }
+        else{
+            check=1;
+            
+        }
+        createstring=@"";
+    }
+    else
+    {
+        if ([pwrmdl.allsubtype isEqualToString:@"true"]) {
+            
+            check=1;
+        }
+        else //if([eqmdl.EqAllSubTypes isEqualToString:@"false"])
+        {
+            
+            check=0;
+            
+        }
+        
+        
+    }
+
     
     
  //  NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
@@ -714,11 +757,10 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UpdateManpower xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<UpdateManpower xmlns=\"http://ios.kontract360.com/\">\n"
                     "<entryid>%d</entryid>\n"
                     "<itemcode>%@</itemcode>\n"
                     "<description>%@</description>\n"
-                    "<subtype>%@</subtype>\n"
                     "<unitcost>%f</unitcost>\n"
                     "<overhead>%d</overhead>\n"
                     "<craftcode>%@</craftcode>\n"
@@ -729,14 +771,15 @@
                     "<Experiance>%@</Experiance>\n"
                     "<JobTasks>%@</JobTasks>\n"
                     "<EducationReq>%@</EducationReq>\n"
+                   "<MPAllSubTypes>%d</MPAllSubTypes>\n"
                     "</UpdateManpower>\n"
                     "</soap:Body>\n"
-                    "</soap:Envelope>\n",pwrmdl.entryid,_itemcodetxtfld.text,_itemdestxtfld.text,[_skilldict objectForKey:_searchbtnlbl.titleLabel.text],[unitcost floatValue],overhead,_craftcodetextfld.text,[_billingratetextfield.text floatValue],[_payratetextfield.text floatValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text];
+                    "</soap:Envelope>\n",pwrmdl.entryid,_itemcodetxtfld.text,_itemdestxtfld.text,[unitcost floatValue],overhead,_craftcodetextfld.text,[_billingratetextfield.text floatValue],[_payratetextfield.text floatValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text,check];
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-   NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   //NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -744,7 +787,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/UpdateManpower" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/UpdateManpower" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -949,15 +992,15 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"SubType"])
-    {
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
+//    if([elementName isEqualToString:@"SubType"])
+//    {
+//        
+//        if(!_soapResults)
+//        {
+//            _soapResults = [[NSMutableString alloc] init];
+//        }
+//        recordResults = TRUE;
+//    }
     if([elementName isEqualToString:@"UnitCost"])
     {
         
@@ -1043,6 +1086,15 @@
         recordResults = TRUE;
     }
     if([elementName isEqualToString:@"EducationReq"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"AllSubTypes"])
     {
         
         if(!_soapResults)
@@ -1259,14 +1311,14 @@
         _manpwrmdl.itemdescptn=_soapResults;
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"SubType"])
-    {
-        
-        recordResults = FALSE;
-        _manpwrmdl.subtype=[_revskilldict objectForKey:_soapResults];;
-        
-        _soapResults = nil;
-    }
+//    if([elementName isEqualToString:@"SubType"])
+//    {
+//        
+//        recordResults = FALSE;
+//        _manpwrmdl.subtype=[_revskilldict objectForKey:_soapResults];;
+//        
+//        _soapResults = nil;
+//    }
     if([elementName isEqualToString:@"UnitCost"])
     {
         
@@ -1359,9 +1411,19 @@
         recordResults = FALSE;
         
         _manpwrmdl.EducationReq=_soapResults;
-         [_Allmanpwrarry addObject:_manpwrmdl];
+//         [_Allmanpwrarry addObject:_manpwrmdl];
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"AllSubTypes"])
+    {
+        
+        recordResults = FALSE;
+        
+        _manpwrmdl.allsubtype=_soapResults;
+        [_Allmanpwrarry addObject:_manpwrmdl];
+        _soapResults = nil;
+    }
+
 
 
 
@@ -1579,6 +1641,7 @@
     _craftcodetextfld.text=@"";
     [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     [_searchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    [_subcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
 
     checkbtnclick=0;
 }
@@ -1631,6 +1694,21 @@
         [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         
     }
+    if ([pwrmdl.allsubtype isEqualToString:@"true"]) {
+        
+        [_subcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        createcheck=1;
+        
+    }
+    else if([pwrmdl.allsubtype isEqualToString:@"false"]){
+        
+        [_subcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        createcheck=0;
+        
+        
+        
+    }
+
     
 
     //webtype=2;
@@ -2224,6 +2302,41 @@ if ([alertView.message isEqualToString:msgstrg]) {
         ////NSLog(@"theConnection is NULL");
     }
     
+}
+-(IBAction)cellsubtypeselection:(id)sender
+{
+    _moduleid=26;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.manpowerTable];
+    NSIndexPath *textFieldIndexPath = [self.manpowerTable indexPathForRowAtPoint:rootViewPoint];
+
+    Manpwr *pmdl=(Manpwr *)[_Allmanpwrarry objectAtIndex:textFieldIndexPath.row];
+
+    self.rstctrlr=[[RSTViewController alloc]initWithNibName:@"RSTViewController" bundle:nil];
+
+
+    self.rstctrlr.modalPresentationStyle = UIModalPresentationFormSheet;
+    _rstctrlr.equipmainid=pmdl.entryid;
+    _rstctrlr.moduleid=_moduleid;
+    [self presentViewController:self.rstctrlr
+                   animated:YES completion:NULL];
+}
+- (IBAction)checksubtypebtn:(id)sender
+{
+    createstring=@"create";
+    if (createcheck==0) {
+        [_subcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        createcheck=1;
+        
+    }
+    
+    else{
+        [_subcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        createcheck=0;
+        
+    }
+
 }
 
 @end

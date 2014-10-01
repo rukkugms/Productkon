@@ -13,6 +13,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "Rightscheck.h"
+#import "RSTViewController.h"
 
 @interface FleetsViewController : UIViewController{
 
@@ -28,6 +29,8 @@ NSInteger popvr;
     NSString *msgstrg;
     NSString*skill;
     NSString *fleetcode;
+    NSString *createstring;
+    NSInteger createcheck;
     
 }
 @property(strong,nonatomic)NSMutableDictionary *skilldict;
@@ -131,4 +134,13 @@ NSInteger popvr;
 @property(strong,nonatomic)Rightscheck *rights;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activitybtn;
 @property(strong,nonatomic)IBOutlet UIButton *updatebtn;
+
+@property(strong,nonatomic)IBOutlet UIButton *cellsubtypebtn;
+-(IBAction)cellsubtypeselection:(id)sender;
+@property(readwrite)NSInteger moduleid;
+@property(strong,nonatomic)RSTViewController *rstctrlr;
+- (IBAction)checksubtypebtn:(id)sender;
+@property(strong,nonatomic)IBOutlet UIButton *subcheckbtn;
+
+
 @end

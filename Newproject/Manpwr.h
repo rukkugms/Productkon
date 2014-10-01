@@ -30,4 +30,5 @@
 @property(strong,nonatomic)NSString *allsubtype;
 @property(strong,nonatomic)NSString *relatedtosfty;
 
+
 @end
