@@ -451,6 +451,7 @@
     
         UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
                                @"Change My Password",
+                             @"Logout from all other devices",
                                @"Cancel",
                                nil];
    // @"Logout from all other devices",
