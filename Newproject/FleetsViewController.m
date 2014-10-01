@@ -1613,6 +1613,7 @@ if([elementName isEqualToString:@"url"])
       [_picimageview setImage:[UIImage imageNamed:@"mNoImage"]];
     _uplodpiclctn=eqmdl.PictureLocation;
     _cancelbtn.enabled=NO;
+    _cancelbtn.titleLabel.textColor=[UIColor grayColor];
     [self FetchAnyImage];
     _addview.hidden=NO;
     _navitem.title=@"Edit";
