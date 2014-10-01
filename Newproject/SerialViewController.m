@@ -552,7 +552,7 @@
     //[_sequencetable setEditing:NO animated:NO];
    // [_sequencetable reloadData];
     _sequencetable.userInteractionEnabled=NO;
-
+_cancelbtn.titleLabel.textColor=[UIColor grayColor];
     _addview.hidden=NO;
     optionidentifier=2;
     _navbar.title=@"Edit";
@@ -572,6 +572,7 @@
 {
     _updatebtn.enabled=YES;
   _cancelbtn.enabled=YES;
+    
     //[super setEditing:NO animated:NO];
   //  [_sequencetable setEditing:NO animated:NO];
       _sequencetable.userInteractionEnabled=NO;
