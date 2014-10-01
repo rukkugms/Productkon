@@ -658,7 +658,7 @@
                    "<soap:Body>\n"
                    
                    "<CrewManPowerSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
-                    "<SubType>%@</SubType>\n"
+                    "<MPStSubTypeId>%@</MPStSubTypeId>\n"
                     "<Overhead>%d</Overhead>\n"
                    "</CrewManPowerSelect>\n"
                    "</soap:Body>\n"

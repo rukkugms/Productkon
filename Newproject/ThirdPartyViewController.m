@@ -1931,6 +1931,7 @@ finishedSavingWithError:(NSError *)error
     _addview.hidden=NO;
     _navitem.title=@"Edit";
     _cancelbtn.enabled=NO;
+    _cancelbtn.titleLabel.textColor=[UIColor grayColor];
     
 
    }

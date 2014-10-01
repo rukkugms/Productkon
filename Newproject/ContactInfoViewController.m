@@ -568,7 +568,7 @@
     _updatebtn.enabled=YES;
       _cancelbtnlbl.enabled=YES;
     optionidentifier=1;
-     _cancelbtnlbl.titleLabel.textColor=[UIColor colorWithRed:0/255.0f green:122.0/255.0f blue:255.0/255.0f alpha:1.0f];
+     _cancelbtnlbl.titleLabel.textColor=[UIColor colorWithRed:70/255.0f green:130.0/255.0f blue:180.0/255.0f alpha:1.0f];
     _navitem.title=@"Create";
     webtype=1;
     _addview.hidden=NO;
