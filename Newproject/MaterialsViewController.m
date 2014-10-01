@@ -1761,6 +1761,7 @@ else
     butntype=2;
     _resultdispalylabel.hidden=YES;
     _cancelbtnlbl.enabled=NO;
+    _cancelbtnlbl.titleLabel.textColor=[UIColor grayColor];
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.materialTable];

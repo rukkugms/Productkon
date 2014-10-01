@@ -1615,6 +1615,7 @@ finishedSavingWithError:(NSError *)error
 
     _unitcosttxtfld.text=[NSString stringWithFormat:@"$%@",toolmdl.unitcost];
     _cancelbtn.enabled=NO;
+    _cancelbtn.titleLabel.textColor=[UIColor grayColor];
     _uplodpiclctn=toolmdl.picturelocation;
     _stckinhandtxtfld.text=toolmdl.stckinhand;
     _addView.hidden=NO;

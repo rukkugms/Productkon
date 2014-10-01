@@ -1746,6 +1746,7 @@ recordResults = FALSE;
     _stckinhandtxtfld.text=eqmdl.stockinhand;
     _uplodpiclctn=eqmdl.PictureLocation;
     _cancelbtn.enabled=NO;
+    _cancelbtn.titleLabel.textColor=[UIColor grayColor];
       [_pictureimgview setImage:[UIImage imageNamed:@"mNoImage"]];
     [self FetchAnyImage];
     _addview.hidden=NO;
