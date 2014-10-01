@@ -991,7 +991,7 @@
         [alert show];
         }
         
-        if ([_soapResults isEqualToString:@"Already Used"]) {
+        if ([_soapResults isEqualToString:@"Already In Use"]) {
            
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstr delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
