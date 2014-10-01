@@ -618,8 +618,8 @@
     {
         
         recordResults = FALSE;
-          NSString*abc=  [_soapResults uppercaseString];
-       [_coutryBtn setTitle:abc forState:UIControlStateNormal];
+         // NSString*abc=  [_soapResults uppercaseString];
+       [_coutryBtn setTitle:_soapResults forState:UIControlStateNormal];
         
         _soapResults = nil;
     }
@@ -718,9 +718,9 @@
     if([elementName isEqualToString:@"CountryName"])
     {
         recordResults = FALSE;
-          NSString*abc=  [_soapResults uppercaseString];
-        [_countryarray addObject:abc];
-        [_countrydict setObject:cuntryid forKey:abc];
+        //  NSString*abc=  [_soapResults uppercaseString];
+        [_countryarray addObject:_soapResults];
+        [_countrydict setObject:cuntryid forKey:_soapResults];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"result"])
