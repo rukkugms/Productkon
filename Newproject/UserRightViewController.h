@@ -30,7 +30,7 @@
     
     NSString*subbtnstrg,*masterbtnstrg,*subsubbtnstrg;
     
-    NSInteger webtype;
+    NSInteger webtype,optnidntfr;
     NSInteger activate;
   
 }

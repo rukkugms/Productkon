@@ -31,6 +31,7 @@
 
     
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+     _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _usertable.layer.borderWidth=3.0;
     _usertable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
     _titleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f];
@@ -1807,9 +1808,15 @@ viewcheck=0;
         
         
         else  if ([_soapResults isEqualToString:@"Updated Successfully"]) {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-               [self UserRightsselect];
+            if (optnidntfr==1) {
+                
+            
+          UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+           [alert show];
+            [self UserRightsselect];
+            }
+           
+            
             
         }
 
@@ -1930,6 +1937,7 @@ viewcheck=0;
 }
 
 - (IBAction)allviewcheckbtn:(id)sender {
+      optnidntfr=2;
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
     if (rightsmodel.EditModule==0) {
@@ -1962,6 +1970,7 @@ viewcheck=0;
 }
 
 - (IBAction)alleditcheckbtn:(id)sender {
+     optnidntfr=2;
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
     if (rightsmodel.EditModule==0) {
@@ -1995,6 +2004,7 @@ viewcheck=0;
 }
 
 - (IBAction)Alldeletecheckbtn:(id)sender {
+     optnidntfr=2;
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
     if (rightsmodel.EditModule==0) {
@@ -2028,6 +2038,7 @@ viewcheck=0;
 }
 
 - (IBAction)Allprintcheckbtn:(id)sender {
+     optnidntfr=2;
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
     if (rightsmodel.EditModule==0) {
@@ -2061,7 +2072,7 @@ viewcheck=0;
 }
 
 - (IBAction)viewbtn:(id)sender {
-    [_Allviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+  
     viewclck=1;
     Allviewclckd=0;
     
@@ -2085,7 +2096,7 @@ viewcheck=0;
 
 
 - (IBAction)editbtn:(id)sender {
-  [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    
     editclck=1;
     Alleditclckd=0;
  
@@ -2110,7 +2121,7 @@ viewcheck=0;
 }
 
 - (IBAction)deletebtn:(id)sender {
-  [_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+  
     deleteclck=1;
     Alldeleteclckd=0;
     
@@ -2136,7 +2147,7 @@ viewcheck=0;
 }
 
 - (IBAction)printbtn:(id)sender {
-   [_Allprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+  
     printclck=1;
     Allprintclckd=0;
     
@@ -2172,7 +2183,7 @@ viewcheck=0;
     else
     {
         _editupdatebtnlbl.enabled=NO;
-
+     optnidntfr=1;
       [self Userrightssave];
     [_usertable reloadData];
     }
@@ -2180,7 +2191,12 @@ viewcheck=0;
 }
 - (IBAction)celleditbtn:(id)sender {
     
+  
     _editview.hidden=NO;
+    [_Allviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    [_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    [_Allprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     viewclck=0;
     editclck=0;
     deleteclck=0;
@@ -2266,10 +2282,9 @@ viewcheck=0;
         
         if (buttonIndex==0) {
             
-            
             _editview.hidden=YES;
-            
             _editupdatebtnlbl.enabled=YES;
+           
         }
     }
     
