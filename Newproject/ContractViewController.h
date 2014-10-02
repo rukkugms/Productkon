@@ -79,5 +79,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *infoclse;
 
 - (IBAction)infoclsebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIView *infoview;
+
 
 @end

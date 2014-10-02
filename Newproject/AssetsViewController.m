@@ -1536,6 +1536,11 @@ recordResults = FALSE;
             msgstrg=_soapResults;
             
         }
+        if ([_soapResults isEqualToString:@"Already In Use"]) {
+            msgstrg=_soapResults;
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
         if ([_soapResults isEqualToString:@"Updated Successfully"]) {
             
             [self UploadAnyImage];

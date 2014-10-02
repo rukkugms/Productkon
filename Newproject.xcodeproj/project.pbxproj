@@ -529,6 +529,7 @@
 		D4F19DF518D03F47007617F0 /* ContractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F19DF318D03F47007617F0 /* ContractViewController.m */; };
 		D4F19DF618D03F47007617F0 /* ContractViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19DF418D03F47007617F0 /* ContractViewController.xib */; };
 		D4F19E0218D03FBA007617F0 /* Contractcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19E0118D03FBA007617F0 /* Contractcell.xib */; };
+		D4F29B0E19DD19FF009A30F8 /* 070537-glossy-black-3d-button-icon-alphanumeric-information2-ps copy@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F29B0D19DD19FF009A30F8 /* 070537-glossy-black-3d-button-icon-alphanumeric-information2-ps copy@2X.png */; };
 		D4F2F91E193C41F300B732E9 /* iconleftblack.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F2F91D193C41F200B732E9 /* iconleftblack.png */; };
 		D4F2F920193C439100B732E9 /* iconarrowright.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F2F91F193C439100B732E9 /* iconarrowright.png */; };
 		D4F34360191CCD220023D715 /* ModlEstimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F3435F191CCD220023D715 /* ModlEstimation.m */; };
@@ -1281,6 +1282,7 @@
 		D4F19DF318D03F47007617F0 /* ContractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContractViewController.m; sourceTree = "<group>"; };
 		D4F19DF418D03F47007617F0 /* ContractViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContractViewController.xib; sourceTree = "<group>"; };
 		D4F19E0118D03FBA007617F0 /* Contractcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Contractcell.xib; sourceTree = "<group>"; };
+		D4F29B0D19DD19FF009A30F8 /* 070537-glossy-black-3d-button-icon-alphanumeric-information2-ps copy@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "070537-glossy-black-3d-button-icon-alphanumeric-information2-ps copy@2X.png"; sourceTree = "<group>"; };
 		D4F2F91D193C41F200B732E9 /* iconleftblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconleftblack.png; path = ../iconleftblack.png; sourceTree = "<group>"; };
 		D4F2F91F193C439100B732E9 /* iconarrowright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconarrowright.png; sourceTree = "<group>"; };
 		D4F3435E191CCD220023D715 /* ModlEstimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModlEstimation.h; sourceTree = "<group>"; };
@@ -1888,6 +1890,7 @@
 			isa = PBXGroup;
 			children = (
 				D4109A1619DC1EE2008E9949 /* 070537-glossy-black-3d-button-icon-alphanumeric-information2-ps.png */,
+				D4F29B0D19DD19FF009A30F8 /* 070537-glossy-black-3d-button-icon-alphanumeric-information2-ps copy@2X.png */,
 				D4109A1419DC1B8B008E9949 /* ICON_Biz_P_info-grey.png */,
 				D49C216619D69EB800DB022A /* mNoImage.png */,
 				D4A5317719CD822B0056EBC1 /* login-1.jpg */,
@@ -2696,6 +2699,7 @@
 				D40A663B187131CA00AB7496 /* cb_mono_on.png in Resources */,
 				64A3B81E18DFEEC90015887F /* ActivityCustomCell.xib in Resources */,
 				D47A9B2A19407D09001CC416 /* materialsicon.png in Resources */,
+				D4F29B0E19DD19FF009A30F8 /* 070537-glossy-black-3d-button-icon-alphanumeric-information2-ps copy@2X.png in Resources */,
 				D43DAA3718D1B62700280AA6 /* cmpnydocucell.xib in Resources */,
 				D41708FE19A5B94C00F55599 /* Userrightscell.xib in Resources */,
 				64A654B5192F1F14004DDB84 /* GPSetupTileViewController.xib in Resources */,

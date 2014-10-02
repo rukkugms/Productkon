@@ -10,7 +10,7 @@
                 <outlet property="contracttable" destination="0K1-pc-En1" id="mUO-bq-BhB"/>
                 <outlet property="contracttitleview" destination="L9s-sf-5Pz" id="W7x-Ma-02i"/>
                 <outlet property="infoclse" destination="RIF-Xc-iq0" id="tpa-Kv-qHH"/>
-                <outlet property="infotext" destination="3Ul-Rh-dKc" id="ubq-kN-WX2"/>
+                <outlet property="infoview" destination="EYO-d5-g91" id="LV6-3K-KGL"/>
                 <outlet property="scroll" destination="yhA-nQ-VXL" id="6l5-wU-H1R"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
@@ -88,32 +88,37 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cYx-Bk-20Z">
-                            <rect key="frame" x="982" y="49" width="34" height="34"/>
+                            <rect key="frame" x="983" y="52" width="34" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" image="070537-glossy-black-3d-button-icon-alphanumeric-information2-ps.png">
+                            <state key="normal" image="ICON_Biz_P_info-grey.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="infobtn:" destination="-1" eventType="touchUpInside" id="VVv-tx-XY3"/>
                             </connections>
                         </button>
-                        <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="Edit option only in windows version" id="3Ul-Rh-dKc">
-                            <rect key="frame" x="878" y="78" width="121" height="45"/>
+                        <view hidden="YES" contentMode="scaleToFill" id="EYO-d5-g91">
+                            <rect key="frame" x="864" y="86" width="131" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit option only in windows version" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ee2-xv-U7m">
+                                    <rect key="frame" x="7" y="0.0" width="103" height="34"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="12"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RIF-Xc-iq0">
+                                    <rect key="frame" x="102" y="0.0" width="29" height="28"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="appbar.close.png"/>
+                                    <connections>
+                                        <action selector="infoclsebtn:" destination="-1" eventType="touchUpInside" id="8rd-9e-Yvg"/>
+                                    </connections>
+                                </button>
+                            </subviews>
                             <color key="backgroundColor" red="0.67843137249999996" green="0.84705882349999995" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="12"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                        </textView>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RIF-Xc-iq0">
-                            <rect key="frame" x="982" y="78" width="16" height="13"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" image="closebutton.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="infoclsebtn:" destination="-1" eventType="touchUpInside" id="8rd-9e-Yvg"/>
-                            </connections>
-                        </button>
+                        </view>
                     </subviews>
                 </scrollView>
             </subviews>
@@ -123,8 +128,7 @@
         </view>
     </objects>
     <resources>
-        <image name="070537-glossy-black-3d-button-icon-alphanumeric-information2-ps.png" width="512" height="512"/>
+        <image name="ICON_Biz_P_info-grey.png" width="128" height="128"/>
         <image name="appbar.close.png" width="76" height="76"/>
-        <image name="closebutton.png" width="30" height="30"/>
     </resources>
 </document>

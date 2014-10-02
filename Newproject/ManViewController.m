@@ -651,7 +651,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<DeleteManpower xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<DeleteManpower xmlns=\"http://ios.kontract360.com/\">\n"
                    
                     "<entryid>%d</entryid>\n"
                    "</DeleteManpower>\n"
@@ -660,8 +660,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-   NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+  // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -669,7 +669,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/DeleteManpower" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/DeleteManpower" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1267,6 +1267,17 @@
         recordResults = TRUE;
     }
     
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
 
     
 
@@ -1450,6 +1461,12 @@
 
         if (newtype==3) {
             newtype=0;
+            if ([_soapResults isEqualToString:@"Already In Use"]) {
+                msgstrg=_soapResults;
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+
             
         }
         else{
