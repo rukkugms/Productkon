@@ -41,6 +41,10 @@
     searchdisplaycontroller.searchResultsDataSource=(id)self;
     searchdisplaycontroller.searchResultsDelegate=(id)self;
     searchdisplaycontroller.delegate=(id)self;
+   // [[self.infotext layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+    [[self.infoview layer] setBorderColor:[UIColor blackColor].CGColor];
+    [[self.infoview layer] setBorderWidth:2];
+    [[self.infoview layer] setCornerRadius:10];
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -50,6 +54,7 @@
     [super viewWillAppear:animated];
     [self SelectContractManagement];
      _searchbar.text=@"";
+     _infoview.hidden=YES;
     _disclosurearray=[[NSMutableArray alloc]initWithObjects:@"Details", nil];
 }
 
@@ -1123,13 +1128,13 @@
 
 
 - (IBAction)infobtn:(id)sender {
-    _infotext.hidden=NO;
-    _infoclse.hidden=NO;
+    _infoview.hidden=NO;
+   // _infoclse.hidden=NO;
     
 }
 - (IBAction)infoclsebtn:(id)sender {
-    _infotext.hidden=YES;
-    _infoclse.hidden=YES;
+    _infoview.hidden=YES;
+   // _infoclse.hidden=YES;
 
 }
 @end

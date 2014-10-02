@@ -1569,6 +1569,12 @@ finishedSavingWithError:(NSError *)error
             mesgstrg=_soapResults;
             
         }
+        if ([_soapResults isEqualToString:@"Already In Use"]) {
+            mesgstrg=_soapResults;
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:mesgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+
         else if ([_soapResults isEqualToString:@"Eqp Picture Updated"]){
             
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:mesgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
