@@ -73,6 +73,11 @@
 @property(strong,nonatomic)NSMutableArray *disclosurearray;
 @property(strong,nonatomic)UIPopoverController *popOverController;
 @property(strong,nonatomic)UITableView *popOvertableview;
+- (IBAction)infobtn:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UITextView *infotext;
+@property (strong, nonatomic) IBOutlet UIButton *infoclse;
+
+- (IBAction)infoclsebtn:(id)sender;
 
 @end

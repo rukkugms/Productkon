@@ -183,6 +183,8 @@
 		D40DD2611873D29B00E7BC2C /* SmalltoolsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40DD25F1873D29B00E7BC2C /* SmalltoolsViewController.m */; };
 		D40DD2621873D29B00E7BC2C /* SmalltoolsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40DD2601873D29B00E7BC2C /* SmalltoolsViewController.xib */; };
 		D40DD2661873ED0800E7BC2C /* Smalltoolcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40DD2651873ED0800E7BC2C /* Smalltoolcell.xib */; };
+		D4109A1519DC1B8B008E9949 /* ICON_Biz_P_info-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = D4109A1419DC1B8B008E9949 /* ICON_Biz_P_info-grey.png */; };
+		D4109A1719DC1EE2008E9949 /* 070537-glossy-black-3d-button-icon-alphanumeric-information2-ps.png in Resources */ = {isa = PBXBuildFile; fileRef = D4109A1619DC1EE2008E9949 /* 070537-glossy-black-3d-button-icon-alphanumeric-information2-ps.png */; };
 		D410CC5119AB4AE50093DDE6 /* FtileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D410CC4F19AB4AE50093DDE6 /* FtileViewController.m */; };
 		D410CC5219AB4AE50093DDE6 /* FtileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D410CC5019AB4AE50093DDE6 /* FtileViewController.xib */; };
 		D410CC5419AB4C8F0093DDE6 /* userrights.png in Resources */ = {isa = PBXBuildFile; fileRef = D410CC5319AB4C8F0093DDE6 /* userrights.png */; };
@@ -802,6 +804,8 @@
 		D40DD25F1873D29B00E7BC2C /* SmalltoolsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmalltoolsViewController.m; sourceTree = "<group>"; };
 		D40DD2601873D29B00E7BC2C /* SmalltoolsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmalltoolsViewController.xib; sourceTree = "<group>"; };
 		D40DD2651873ED0800E7BC2C /* Smalltoolcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Smalltoolcell.xib; sourceTree = "<group>"; };
+		D4109A1419DC1B8B008E9949 /* ICON_Biz_P_info-grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON_Biz_P_info-grey.png"; sourceTree = "<group>"; };
+		D4109A1619DC1EE2008E9949 /* 070537-glossy-black-3d-button-icon-alphanumeric-information2-ps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "070537-glossy-black-3d-button-icon-alphanumeric-information2-ps.png"; sourceTree = "<group>"; };
 		D410CC4E19AB4AE50093DDE6 /* FtileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FtileViewController.h; sourceTree = "<group>"; };
 		D410CC4F19AB4AE50093DDE6 /* FtileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FtileViewController.m; sourceTree = "<group>"; };
 		D410CC5019AB4AE50093DDE6 /* FtileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FtileViewController.xib; sourceTree = "<group>"; };
@@ -1883,6 +1887,8 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D4109A1619DC1EE2008E9949 /* 070537-glossy-black-3d-button-icon-alphanumeric-information2-ps.png */,
+				D4109A1419DC1B8B008E9949 /* ICON_Biz_P_info-grey.png */,
 				D49C216619D69EB800DB022A /* mNoImage.png */,
 				D4A5317719CD822B0056EBC1 /* login-1.jpg */,
 				D4A14A4B19CBEC96003C1193 /* search.png */,
@@ -2373,6 +2379,7 @@
 				D40D1EBD176B086F00379DD5 /* Default.png in Resources */,
 				D40D1EBF176B086F00379DD5 /* Default@2x.png in Resources */,
 				D47A9B3619407DD3001CC416 /* consumablesicon.png in Resources */,
+				D4109A1719DC1EE2008E9949 /* 070537-glossy-black-3d-button-icon-alphanumeric-information2-ps.png in Resources */,
 				D44BEA6D18E0243500719ED5 /* AddressViewController.xib in Resources */,
 				D49DE838185EB391006F1CDA /* closebutton.png in Resources */,
 				D40D1EC1176B086F00379DD5 /* Default-568h@2x.png in Resources */,
@@ -2662,6 +2669,7 @@
 				D48B608117F941AE001A53C8 /* RadioButton-Unselected.png in Resources */,
 				D4A338E618F3EEEF00E53FAC /* DetailmarkupsectionViewController.xib in Resources */,
 				D40A99CD18C5A9B5005384F9 /* EmplyhrmgntViewController.xib in Resources */,
+				D4109A1519DC1B8B008E9949 /* ICON_Biz_P_info-grey.png in Resources */,
 				D400405C185B178F00C38E12 /* DocmntViewController.xib in Resources */,
 				6426F5F518C062F6002471AC /* payroll.png in Resources */,
 				D4A338E418F3EEEF00E53FAC /* MarkupViewController.xib in Resources */,
