@@ -17,6 +17,7 @@
 {
     BOOL recordResults;
     NSString *userid;
+    
 }
 @property (strong, nonatomic) IBOutlet UIView *masterview;
 @property (strong, nonatomic) IBOutlet UIView *processview;

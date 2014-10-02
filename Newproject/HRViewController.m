@@ -219,12 +219,12 @@
     }
     
     
-    else if (tableView==_popOverTableView){
-        
-        
-    }
+//    else if (tableView==_popOverTableView){
+//        
+//        
+//    }
     
-           return aSection.sectionHeaderView;
+        return aSection.sectionHeaderView;
     //}
     
  
@@ -236,13 +236,13 @@
 {
     
     // Return the number of sections.
-     if (tableView==_popOverTableView) {
-         
-     }
-     else{
+//     if (tableView==_popOverTableView) {
+//         
+//     }
+     //else{
     return [sectionArray count];
-     }
-    return YES;
+   //  }
+    //return YES;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -253,11 +253,11 @@
         
         return [_JobsiteArray count];
         }
-        else
-            
-        {
-            return [_sarry count];
-        }
+//        else
+//            
+//        {
+//            return [_sarry count];
+//        }
     }
     else{
         Section *aSection=[sectionArray objectAtIndex:section];
@@ -363,8 +363,8 @@
         }
         else
         {
-             cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12.0f];
-            cell.textLabel.text=[_sarry objectAtIndex:indexPath.row];
+//             cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12.0f];
+//            cell.textLabel.text=[_sarry objectAtIndex:indexPath.row];
         }
     }
     return cell;
@@ -381,18 +381,18 @@
         }
         else
         {
-            Empdetails*empdetls2=(Empdetails *)[_empnameArray objectAtIndex:selectedsectn];
-
-            NSLog(@"sectn%@",empdetls2.Inproceesstatus);
-            if ([empdetls2.Inproceesstatus isEqualToString:@"true"]) {
-                _popOverTableView.userInteractionEnabled=NO;
-                _applicantprocessview.hidden=YES;
-            }else
-            {
-                _popOverTableView.userInteractionEnabled=YES;
-                _applicantprocessview.hidden=NO;
-
-            }
+//            Empdetails*empdetls2=(Empdetails *)[_empnameArray objectAtIndex:selectedsectn];
+//
+//            NSLog(@"sectn%@",empdetls2.Inproceesstatus);
+//            if ([empdetls2.Inproceesstatus isEqualToString:@"true"]) {
+//                _popOverTableView.userInteractionEnabled=NO;
+//                _applicantprocessview.hidden=YES;
+//            }else
+//            {
+////                _popOverTableView.userInteractionEnabled=YES;
+////                _applicantprocessview.hidden=NO;
+//
+//            }
         }
        
         
@@ -524,19 +524,29 @@
 //            rectview=previousOpenSection.sectionHeaderView;
             
             UIViewController* popoverContent = [[UIViewController alloc]init];
-            UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 130, 43)];
-            // popoverView.backgroundColor = [UIColor whiteColor];
-            _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 130, 43)];
-            _popOverTableView.delegate=(id)self;
-            _popOverTableView.dataSource=(id)self;
-            _popOverTableView.rowHeight= 25;
-            _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleNone;
-            //_popovertableview.separatorColor=[UIColor blackColor];
-            [popoverView addSubview:_popOverTableView];
-            popoverContent.view = popoverView;
-            popoverContent.contentSizeForViewInPopover = CGSizeMake(130, 43);
-            // NSLog(@"%@",s);
+            UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 150, 43)];
+             popoverView.backgroundColor = [UIColor whiteColor];
+            _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 150, 43)];
+//            _popOverTableView.delegate=(id)self;
+//            _popOverTableView.dataSource=(id)self;
+//            _popOverTableView.rowHeight= 20;
+//            _popOverTableView.backgroundColor=[UIColor blackColor];
+//            _popOverTableView.sectionIndexBackgroundColor=[UIColor blackColor];
+//            _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+//            //_popovertableview.separatorColor=[UIColor blackColor];
+//            [popoverView addSubview:_popOverTableView];
             
+                    processlabel=[[UILabel alloc]initWithFrame:CGRectMake(10, 10, 155, 25)];
+                    processlabel.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
+                    processlabel.textColor=[UIColor blackColor];
+                    processlabel.text=@"Process Applicant";
+            [popoverView addSubview:processlabel];
+            popoverContent.view = popoverView;
+            popoverContent.contentSizeForViewInPopover = CGSizeMake(150, 43);
+            // NSLog(@"%@",s);
+            _popOverController.backgroundColor=[UIColor whiteColor];
+            UITapGestureRecognizer *tap= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(nextpage)];
+            [popoverView addGestureRecognizer:tap];
             
             //UITableView *table = (UITableView *)[cell superview];
             self.popOverController = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
@@ -562,6 +572,23 @@
        self.openviewIndex = NSNotFound;
 
     
+}
+-(void)nextpage
+{
+    Empdetails*empdetls2=(Empdetails *)[_empnameArray objectAtIndex:selectedsectn];
+    
+    NSLog(@"sectn%@",empdetls2.Inproceesstatus);
+    if ([empdetls2.Inproceesstatus isEqualToString:@"true"]) {
+        _popOverTableView.userInteractionEnabled=NO;
+        _applicantprocessview.hidden=YES;
+    }else
+    {
+                       _popOverTableView.userInteractionEnabled=YES;
+                    _applicantprocessview.hidden=NO;
+        
+    }
+    [self.popOverController dismissPopoverAnimated:YES];
+
 }
 
 

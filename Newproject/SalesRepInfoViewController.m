@@ -740,7 +740,7 @@
     if ([elementName isEqualToString:@"EmpName"]) {
         
         recordResults=FALSE;
-        _rmodel.EmpName=_soapResults;
+        _rmodel.EmpName=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         _soapResults=nil;
     }
     if ([elementName isEqualToString:@"PhoneOffice"]) {

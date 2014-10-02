@@ -27,6 +27,7 @@
     NSInteger btnindex;
     UIView*rectview;
     NSInteger poptype;
+    UILabel *processlabel;
     
 
 }
