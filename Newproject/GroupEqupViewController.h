@@ -81,4 +81,6 @@
 
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
+@property(strong,nonatomic)NSString *deletegpstring;
+@property(strong,nonatomic)NSString *deleteitemstring;
 @end
