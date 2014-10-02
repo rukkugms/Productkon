@@ -1122,4 +1122,14 @@
 
 
 
+- (IBAction)infobtn:(id)sender {
+    _infotext.hidden=NO;
+    _infoclse.hidden=NO;
+    
+}
+- (IBAction)infoclsebtn:(id)sender {
+    _infotext.hidden=YES;
+    _infoclse.hidden=YES;
+
+}
 @end
