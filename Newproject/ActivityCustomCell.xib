@@ -75,27 +75,27 @@
                         </connections>
                     </button>
                     <view contentMode="scaleToFill" id="gj4-8z-qaf">
-                        <rect key="frame" x="310" y="-1" width="1" height="52"/>
+                        <rect key="frame" x="310" y="-3" width="1" height="52"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <view contentMode="scaleToFill" id="Pbe-Za-IEr">
-                        <rect key="frame" x="473" y="-2" width="1" height="54"/>
+                        <rect key="frame" x="473" y="-5" width="1" height="54"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <view contentMode="scaleToFill" id="wNG-1X-fBg">
-                        <rect key="frame" x="631" y="-2" width="1" height="54"/>
+                        <rect key="frame" x="631" y="-5" width="1" height="54"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <view contentMode="scaleToFill" id="Yms-oi-r0h">
-                        <rect key="frame" x="782" y="-2" width="1" height="54"/>
+                        <rect key="frame" x="782" y="-5" width="1" height="54"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <view contentMode="scaleToFill" id="UrX-iu-ci9">
-                        <rect key="frame" x="915" y="-5" width="1" height="56"/>
+                        <rect key="frame" x="915" y="-8" width="1" height="56"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>

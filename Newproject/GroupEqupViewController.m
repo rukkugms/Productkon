@@ -1488,8 +1488,8 @@
        else  if ([_soapResults isEqualToString:@"Inserted Crew"]||[_soapResults isEqualToString:@"Deleted All Members"]||[_soapResults isEqualToString:@"deletedcrew"]) {
            if ([_soapResults isEqualToString:@"Inserted Crew"]){
                
-               UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-               [alert show];
+//               UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//               [alert show];
                 [_crewbtnlbl setTitle:_crewnametxtfld.text forState:UIControlStateNormal];
            }
 
@@ -1560,6 +1560,7 @@
     }
     else{
         NSString*alertstrg=[NSString stringWithFormat:@"Are you sure you want to delete %@ group",_crewbtnlbl.titleLabel.text];
+        _deletegpstring=alertstrg;
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:alertstrg delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
         [alert show];
     }
@@ -1653,6 +1654,7 @@
     else{
 
         NSString*alertstrg=[NSString stringWithFormat:@"Are you sure you want to delete all items in %@ group",_crewbtnlbl.titleLabel.text];
+        _deleteitemstring=alertstrg;
     UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:alertstrg delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
     [alert show];
     }
@@ -1662,7 +1664,7 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     
-    if ([alertView.message isEqualToString:@"Are you sure you want to delete equipment group"]) {
+    if ([alertView.message isEqualToString:_deletegpstring]) {
         
         
         if (buttonIndex==[alertView cancelButtonIndex]){
@@ -1675,7 +1677,7 @@
             
         }
     }
-    if ([alertView.message isEqualToString:@"Are you sure you want to delete all items"]) {
+    if ([alertView.message isEqualToString:_deleteitemstring]) {
         
         
         if (buttonIndex==[alertView cancelButtonIndex]){
