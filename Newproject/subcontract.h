@@ -14,6 +14,10 @@
 @property(readwrite)NSInteger contractid;
 
 @property(readwrite)NSInteger custid;
+@property(readwrite)NSInteger indemntyflag;
+@property(readwrite)NSInteger  labrflag;
+@property(readwrite)NSInteger  paymntflag;
+@property(readwrite)NSInteger  vlumeflag;
 
 @property(strong,nonatomic)NSString *CustomerName;
 
@@ -74,4 +78,6 @@
 @property(strong,nonatomic)NSString *SpecialRatesStructure;
 @property(strong,nonatomic)NSString *ExpiryDate;
 @property(strong,nonatomic)NSString *TempworkerMarkup;
+
+
 @end
