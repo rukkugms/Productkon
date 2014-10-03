@@ -365,7 +365,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllManpower xmlns=\"  http://test.kontract360.com/\">\n"
+                   "<SelectAllManpower xmlns=\"http://test.kontract360.com/\">\n"
                    
                    "</SelectAllManpower>\n"
                    "</soap:Body>\n"
@@ -382,7 +382,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"  http://test.kontract360.com/SelectAllManpower" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/SelectAllManpower" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -588,7 +588,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<InsertManpower xmlns=\"  http://test.kontract360.com/\">\n"
+                   "<InsertManpower xmlns=\"http://test.kontract360.com/\">\n"
                    "<itemcode>%@</itemcode>\n"
                    "<description>%@</description>\n"
                    "<unitcost>%f</unitcost>\n"
@@ -617,7 +617,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"  http://test.kontract360.com/InsertManpower" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/InsertManpower" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -651,7 +651,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<DeleteManpower xmlns=\"  http://test.kontract360.com/\">\n"
+                   "<DeleteManpower xmlns=\"http://test.kontract360.com/\">\n"
                    
                     "<entryid>%d</entryid>\n"
                    "</DeleteManpower>\n"
@@ -669,7 +669,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"  http://test.kontract360.com/DeleteManpower" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/DeleteManpower" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -757,7 +757,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UpdateManpower xmlns=\"  http://test.kontract360.com/\">\n"
+                   "<UpdateManpower xmlns=\"http://test.kontract360.com/\">\n"
                     "<entryid>%d</entryid>\n"
                     "<itemcode>%@</itemcode>\n"
                     "<description>%@</description>\n"
@@ -787,7 +787,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"  http://test.kontract360.com/UpdateManpower" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/UpdateManpower" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
