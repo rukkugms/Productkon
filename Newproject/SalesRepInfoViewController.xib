@@ -15,6 +15,7 @@
                 <outlet property="extensiontextfield" destination="208" id="U2r-fU-3UF"/>
                 <outlet property="infoview" destination="182" id="201"/>
                 <outlet property="mobiletextfield" destination="212" id="tbA-k4-elR"/>
+                <outlet property="namebtn" destination="ZtY-0Z-f7e" id="xpc-8a-cKc"/>
                 <outlet property="nametextfield" destination="207" id="uhw-s4-PAM"/>
                 <outlet property="navbar" destination="HkM-a2-gpB" id="gZa-nY-l6M"/>
                 <outlet property="phoneofficetextfield" destination="211" id="V9A-Mi-pZt"/>
@@ -154,7 +155,7 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="207">
-                                    <rect key="frame" x="50" y="155" width="252" height="30"/>
+                                    <rect key="frame" x="50" y="143" width="252" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -180,9 +181,10 @@
                                         <outlet property="delegate" destination="-1" id="2G3-8R-Byl"/>
                                     </connections>
                                 </textField>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="210">
+                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="210">
                                     <rect key="frame" x="402" y="155" width="252" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
@@ -243,7 +245,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="218">
-                                    <rect key="frame" x="50" y="136" width="42" height="21"/>
+                                    <rect key="frame" x="50" y="125" width="42" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -279,6 +281,18 @@
                                         </navigationItem>
                                     </items>
                                 </navigationBar>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZtY-0Z-f7e">
+                                    <rect key="frame" x="50" y="175" width="252" height="36"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                    <state key="normal" title="Select" backgroundImage="textbox.png">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="selectnameaction:" destination="-1" eventType="touchUpInside" id="Ecv-nJ-Ra7"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
@@ -315,5 +329,6 @@
         <image name="appbar.addblack.png" width="76" height="76"/>
         <image name="appbar.close.png" width="76" height="76"/>
         <image name="appbar.delete.png" width="76" height="76"/>
+        <image name="textbox.png" width="298" height="64"/>
     </resources>
 </document>

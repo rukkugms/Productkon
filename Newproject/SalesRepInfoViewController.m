@@ -129,6 +129,7 @@
     
     _custcodetextfield.text=rmdl.CustomerCode;
     _empidtextfield.text=rmdl.EmpId;
+    [_namebtn setTitle:rmdl.EmpName forState:UIControlStateNormal];
     _nametextfield.text=rmdl.EmpName;
     _phoneofficetextfield.text=rmdl.PhoneOffice;
     _emailtextfield.text=rmdl.Email;
@@ -153,6 +154,43 @@
     _nametextfield.text=@"";
     _empidtextfield.text=@"";
 
+}
+- (IBAction)selectnameaction:(id)sender
+{
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 220, 300)];
+    
+    popoverView.backgroundColor = [UIColor whiteColor];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 220, 300)];
+    
+    _popovertableview.delegate=(id)self;
+    _popovertableview.dataSource=(id)self;
+    _popovertableview.rowHeight= 32;
+    _popovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    
+    
+    // CGRect rect = frame;
+    [popoverView addSubview:_popovertableview];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(220, 300);
+    
+    //create a popover controller
+    
+    self.popovercontroller = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    
+    
+        
+        [self.popovercontroller presentPopoverFromRect:_namebtn.frame
+                                                inView:self.addView permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    
+    
 }
 - (IBAction)deletesalesaction:(id)sender
 {
@@ -183,7 +221,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (tableView==_salesRepTable) {
+        
+    
     return [_salesarray count];
+    }
+    if (tableView==_popovertableview) {
+        //return [_namelistarray count];
+    }
+    return YES;
     // Return the number of rows in the section.
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -193,13 +239,19 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        if (tableView==_salesRepTable) {
+            
+        
         
                    [[NSBundle mainBundle]loadNibNamed:@"Srepcell" owner:self options:nil];
                     cell=_salescell;
+        }
         
         
         
     }
+    if (tableView==_salesRepTable) {
+        
     
     
     Rsalesmdl*rmdl=(Rsalesmdl *)[_salesarray objectAtIndex:indexPath.row];
@@ -217,13 +269,39 @@
     _mobilelabel.text=rmdl.Mobile;
     _email=(UILabel*)[cell viewWithTag:7];
     _email.text=rmdl.Email;
+    }
+    if (tableView==_popovertableview) {
+        cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+        cell.textLabel.font = [UIFont systemFontOfSize:12.0];
+        //cell.textLabel.text=[_namelistarray objectAtIndex:indexPath.row];
 
+    }
     
     
     return cell;
     
     
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+   
+    
+    if (tableView==_popovertableview) {
+        
+        
+        
+       
+             //   [_namebtn setTitle:[_namelistarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+        
+        
+    }
+    
+    
+    [self.popovercontroller dismissPopoverAnimated:YES];
+    
+}
+
+
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //alternating cell back ground color

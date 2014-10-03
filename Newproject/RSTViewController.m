@@ -392,7 +392,7 @@
                    
                    
                    "<soap:Body>\n"
-                   "<ManPowersubtypeselect xmlns=\"  http://test.kontract360.com/\">\n"
+                   "<ManPowersubtypeselect xmlns=\"http://test.kontract360.com/\">\n"
                    "<MPStManpowerId>%d</MPStManpowerId>\n"
                    "</ManPowersubtypeselect>\n"
                    "</soap:Body>\n"
@@ -409,7 +409,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"  http://test.kontract360.com/ManPowersubtypeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/ManPowersubtypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -441,7 +441,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<MultiManpowersubtypeselect xmlns=\"  http://test.kontract360.com/\">\n"
+                   "<MultiManpowersubtypeselect xmlns=\"http://test.kontract360.com/\">\n"
                    "<MPStManpowerId>%d</MPStManpowerId>\n"
                    "</MultiManpowersubtypeselect>\n"
                    "</soap:Body>\n"
@@ -458,7 +458,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"  http://test.kontract360.com/MultiManpowersubtypeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/MultiManpowersubtypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -490,7 +490,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ManpowerSubtypeinsert xmlns=\"  http://test.kontract360.com/\">\n"
+                   "<ManpowerSubtypeinsert xmlns=\"http://test.kontract360.com/\">\n"
                    "<MPStManpowerId>%d</MPStManpowerId>\n"
                    "<MPStSubTypeId>%d</MPStSubTypeId>\n"
                    "<MPStDescription>%@</MPStDescription>\n"
@@ -509,7 +509,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"  http://test.kontract360.com/ManpowerSubtypeinsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/ManpowerSubtypeinsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -541,7 +541,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ManpowerSubTypeDelete xmlns=\"  http://test.kontract360.com/\">\n"
+                   "<ManpowerSubTypeDelete xmlns=\"http://test.kontract360.com/\">\n"
                    "<MPStManpowerId>%d</MPStManpowerId>\n"
                    "</ManpowerSubTypeDelete>\n"
                    "</soap:Body>\n"
@@ -558,7 +558,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"  http://test.kontract360.com/ManpowerSubTypeDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/ManpowerSubTypeDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -992,7 +992,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<FleetmultipleSubtypeselect xmlns=\"  http://test.kontract360.com/\">\n"
+                   "<FleetmultipleSubtypeselect xmlns=\"http://test.kontract360.com/\">\n"
                    "<FLStEquipmentId>%d</FLStEquipmentId>\n"
                    "</FleetmultipleSubtypeselect>\n"
                    "</soap:Body>\n"
@@ -1010,7 +1010,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"  http://test.kontract360.com/FleetmultipleSubtypeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/FleetmultipleSubtypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1042,7 +1042,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Multifleetsubtypeselect xmlns=\"  http://test.kontract360.com/\">\n"
+                   "<Multifleetsubtypeselect xmlns=\"http://test.kontract360.com/\">\n"
                   "<FLStEquipmentId>%d</FLStEquipmentId>\n"
                    "</Multifleetsubtypeselect>\n"
                    "</soap:Body>\n"
@@ -1059,7 +1059,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"  http://test.kontract360.com/Multifleetsubtypeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/Multifleetsubtypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1092,7 +1092,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<FleetmultiSubtypeinsert xmlns=\"  http://test.kontract360.com/\">\n"
+                   "<FleetmultiSubtypeinsert xmlns=\"http://test.kontract360.com/\">\n"
                    "<FLStEquipmentId>%d</FLStEquipmentId>\n"
                    "<FLStSubTypeId>%d</FLStSubTypeId>\n"
                    "<FLStDescription>%@</FLStDescription>\n"
@@ -1111,7 +1111,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"  http://test.kontract360.com/FleetmultiSubtypeinsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/FleetmultiSubtypeinsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1143,7 +1143,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<FleetmultiSubTypeDelete xmlns=\"  http://test.kontract360.com/\">\n"
+                   "<FleetmultiSubTypeDelete xmlns=\"http://test.kontract360.com/\">\n"
                    "<FLStEquipmentId>%d</FLStEquipmentId>\n"
                    "</FleetmultiSubTypeDelete>\n"
                    "</soap:Body>\n"
@@ -1160,7 +1160,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"  http://test.kontract360.com/FleetmultiSubTypeDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/FleetmultiSubTypeDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

@@ -597,6 +597,11 @@
         [alert show];
 
     }
+   else if([_emailtextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Email is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
     else if ([_phonetextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
@@ -610,31 +615,31 @@
 
         
     }
-       else if(![_emailtextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
-    {
-        Validation *val=[[Validation alloc]init];
-        int value2 = [val validEmailAddress:[_emailtextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
-        if(value2==0)
-        {
-            
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert1 show];
-        }
-        else
-        {
-            if (webtype==1)
-            {
-                _updatebtn.enabled=NO;
-                [self CustomerContactInfoInsert];
-            }
-            else
-            {
-                _updatebtn.enabled=NO;
-                [self CustomerContactInfoUpdate];
-            }
-        }
-        
-    }
+//    else if(![_emailtextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
+//    {
+//        Validation *val=[[Validation alloc]init];
+//        int value2 = [val validEmailAddress:[_emailtextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+//        if(value2==0)
+//        {
+//            
+//            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//            [alert1 show];
+//        }
+//        else
+//        {
+//            if (webtype==1)
+//            {
+//                _updatebtn.enabled=NO;
+//                [self CustomerContactInfoInsert];
+//            }
+//            else
+//            {
+//                _updatebtn.enabled=NO;
+//                [self CustomerContactInfoUpdate];
+//            }
+//        }
+//        
+//    }
     else
     {
         if (webtype==1)
@@ -651,14 +656,7 @@
     }
 
 
-//   else if(webtype==1){
-//        [self CustomerContactInfoInsert];
-//    }
-//  else   if(webtype==2)
-//    {
-//        [self CustomerContactInfoUpdate];
-//    }
-//        
+
     
 }
 
