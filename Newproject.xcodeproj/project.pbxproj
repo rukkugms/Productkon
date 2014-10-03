@@ -779,7 +779,7 @@
 		D40B268E1953F86300217323 /* IssuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssuesViewController.h; sourceTree = "<group>"; };
 		D40B268F1953F86300217323 /* IssuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssuesViewController.m; sourceTree = "<group>"; };
 		D40B26901953F86300217323 /* IssuesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssuesViewController.xib; sourceTree = "<group>"; };
-		D40D1EA7176B086F00379DD5 /* Newproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newproject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D40D1EA7176B086F00379DD5 /* Newproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Newproject.app; path = 0..app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40D1EAA176B086F00379DD5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D40D1EAC176B086F00379DD5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D40D1EAE176B086F00379DD5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1549,13 +1549,13 @@
 				D44BEA7818E0257400719ED5 /* others */,
 				D4FED40417F15AC5004BE242 /* hr */,
 				D4F19DCC18D03AA4007617F0 /* Leads */,
-				D40D1EA8176B086F00379DD5 /* Products */,
 				D4B7017C18AB3E490060BE0A /* Planning */,
 				D4F34351191C9C2E0023D715 /* Estimation */,
 				D41499AB19457312001E9146 /* Project Management */,
 				D4A6748519345E1400D5A77E /* Estimation Calendar */,
 				D4EC7E38192A09BA00C60BA9 /* Drawpad */,
 				D40D1EB1176B086F00379DD5 /* Supporting Files */,
+				D40D1EA8176B086F00379DD5 /* Products */,
 			);
 			path = Newproject;
 			sourceTree = "<group>";
