@@ -37,6 +37,7 @@
 @property(strong,nonatomic)NSString*encodedString;
 @property(strong,nonatomic)NSString*picturelocation;
 @property(strong,nonatomic)NSString*uplodpiclctn;
+@property(strong,nonatomic)UIImagePickerController *imagePicker;
 
 @property(strong,nonatomic)NSString*itemcode;
 @property (strong, nonatomic) IBOutlet UIImageView *picimageview;

@@ -79,20 +79,20 @@ _scroll_addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255
     {
         
         
-        UIImagePickerController *imagePicker =
+        _imagePicker =
         [[UIImagePickerController alloc] init];
-        imagePicker.delegate =(id) self;
-        imagePicker.sourceType =
+        _imagePicker.delegate =(id) self;
+        _imagePicker.sourceType =
         UIImagePickerControllerSourceTypeCamera;
-        imagePicker.showsCameraControls=YES;
+        _imagePicker.showsCameraControls=YES;
         
-        imagePicker.mediaTypes = [NSArray arrayWithObjects:
+        _imagePicker.mediaTypes = [NSArray arrayWithObjects:
                                   (NSString *) kUTTypeImage,
                                   nil];
-        imagePicker.allowsEditing = NO;
+        _imagePicker.allowsEditing = NO;
         
         // imagePicker.cameraCaptureMode=YES;
-        [self presentViewController:imagePicker animated:YES completion:nil];
+        [self presentViewController:_imagePicker animated:YES completion:nil];
         _newMedia = YES;
     }
 }
@@ -133,7 +133,10 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         
         
         _picimageview.image =image;
-        [self dismissViewControllerAnimated:YES completion:nil];
+       // [self dismissViewControllerAnimated:YES completion:nil];
+       [self.navigationController dismissViewControllerAnimated: YES completion: nil];
+        //[self.imagePicker dismissViewControllerAnimated:YES completion:nil];
+       
         if (_newMedia)
             UIImageWriteToSavedPhotosAlbum(image,
                                            self,

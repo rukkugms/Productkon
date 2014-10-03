@@ -2002,7 +2002,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         
         
         _picimageview.image =image;
-        [self dismissViewControllerAnimated:YES completion:nil];
+       // [self dismissViewControllerAnimated:YES completion:nil];
+          [self.navigationController dismissViewControllerAnimated: YES completion: nil];
         if (_newMedia)
             UIImageWriteToSavedPhotosAlbum(image,
                                            self,

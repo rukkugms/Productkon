@@ -122,7 +122,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         
         
         _pictureimgvw.image =image;
-        [self dismissViewControllerAnimated:YES completion:nil];
+       // [self dismissViewControllerAnimated:YES completion:nil];
+           [self.navigationController dismissViewControllerAnimated: YES completion: nil];
         if (_newMedia)
             UIImageWriteToSavedPhotosAlbum(image,
                                            self,

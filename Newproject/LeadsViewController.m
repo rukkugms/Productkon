@@ -96,88 +96,6 @@
     
 }
 
--(IBAction)addnewlead:(id)sender
-{
-       _ancelbtnlbl.enabled=YES;
-    [self SelectAllCustomer];
-    _leadTable.userInteractionEnabled=NO;
-   // [_leadTable setEditing:NO animated:NO];
-     self.navbaritem.title = @"Create";
-    
-    butnidtfr=1;
-    
-    //[_companybtn setTitle:@"Select" forState:UIControlStateNormal];
-     _cmpnttxtfld.text=@"";
-    _contactnametxtfld.text=@"";
-    _phonetxtfld.text=@"";
-    
-    _citytxtfld.text=@"";
-    [_leadtypebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
-    [_projecttype setTitle:@"Select" forState:UIControlStateNormal];
-    
-    
-    _prjctyeartxtfld.text=@"";
-    
-    _prjctdscptntxtfld.text=@"";
-    
-    _locationtxtfld.text=@"";
-    _contacttiletxtfld.text=@"";
-    _emailidtxtfld.text=@"";
-   
-    [_statebutton setTitle:[_statearray objectAtIndex:0] forState:UIControlStateNormal];
-    [_industrytypetxtfld setTitle:@"Select" forState:UIControlStateNormal];
-    [_prjctexcutntxtfld setTitle:@"Select" forState:UIControlStateNormal];
-    _leadassigntotextfld.text=@"";
-    [_leadstatusBtn setTitle:@"Select" forState:UIControlStateNormal];
-    
-    _view2.hidden=NO;
-    
-//    _view2.frame = CGRectMake(512, 384, 0, 0);
-//    //    CGPoint origin = _hidenview.frame.origin;
-//    [UIView animateWithDuration: 1.0f animations:^{
-//        _view2.frame = CGRectMake(195, 100, 692, 816);
-//        //        _hidenview.center = origin;
-//        _view2.alpha = 1.0;
-//        
-//    }];
-    
-
-}
--(IBAction)deletelead:(id)sender
-{
-    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
-    
-    
-    if (rightsmodel.DeleteModule==0) {
-        
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-        
-    }
-    else
-    {
-
-    if (self.editing) {
-        [super setEditing:NO animated:NO];
-        [_leadTable setEditing:NO animated:NO];
-        [_leadTable reloadData];
-        
-        
-        
-    }
-    
-    else{
-        [super setEditing:YES animated:YES];
-        [_leadTable setEditing:YES animated:YES];
-        [_leadTable reloadData];
-        
-        
-        
-        
-    }
-    }
-
-}
 
 
 
@@ -564,6 +482,92 @@ if (tableView==_leadTable) {
 
 
 #pragma mark - Buttons
+-(IBAction)addnewlead:(id)sender
+{
+   // self.view2.bounds=CGRectMake(0, 0, 715, 807);
+
+    _ancelbtnlbl.enabled=YES;
+    [self SelectAllCustomer];
+    _leadTable.userInteractionEnabled=NO;
+    // [_leadTable setEditing:NO animated:NO];
+    self.navbaritem.title = @"Create";
+    
+    butnidtfr=1;
+    
+    //[_companybtn setTitle:@"Select" forState:UIControlStateNormal];
+    _cmpnttxtfld.text=@"";
+    _contactnametxtfld.text=@"";
+    _phonetxtfld.text=@"";
+    
+    _citytxtfld.text=@"";
+    [_leadtypebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    [_projecttype setTitle:@"Select" forState:UIControlStateNormal];
+    
+    
+    _prjctyeartxtfld.text=@"";
+    
+    _prjctdscptntxtfld.text=@"";
+    
+    _locationtxtfld.text=@"";
+    _contacttiletxtfld.text=@"";
+    _emailidtxtfld.text=@"";
+    
+    [_statebutton setTitle:[_statearray objectAtIndex:0] forState:UIControlStateNormal];
+    [_industrytypetxtfld setTitle:@"Select" forState:UIControlStateNormal];
+    [_prjctexcutntxtfld setTitle:@"Select" forState:UIControlStateNormal];
+    _leadassigntotextfld.text=@"";
+    [_leadstatusBtn setTitle:@"Select" forState:UIControlStateNormal];
+    
+    _view2.hidden=NO;
+    
+    //    _view2.frame = CGRectMake(512, 384, 0, 0);
+    //    //    CGPoint origin = _hidenview.frame.origin;
+    //    [UIView animateWithDuration: 1.0f animations:^{
+    //        _view2.frame = CGRectMake(195, 100, 692, 816);
+    //        //        _hidenview.center = origin;
+    //        _view2.alpha = 1.0;
+    //
+    //    }];
+    
+    
+}
+-(IBAction)deletelead:(id)sender
+
+{
+    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+    
+    
+    if (rightsmodel.DeleteModule==0) {
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else
+    {
+        
+        if (self.editing) {
+            [super setEditing:NO animated:NO];
+            [_leadTable setEditing:NO animated:NO];
+            [_leadTable reloadData];
+            
+            
+            
+        }
+        
+        else{
+            [super setEditing:YES animated:YES];
+            [_leadTable setEditing:YES animated:YES];
+            [_leadTable reloadData];
+            
+            
+            
+            
+        }
+    }
+    
+}
+
 
 - (IBAction)editcellbtn:(id)sender {
     butnidtfr=2;
@@ -2985,7 +2989,7 @@ else
            _view2.hidden=YES;
            _leadTable.userInteractionEnabled=YES;
        }
-       [_companybtn setTitle:@"Select" forState:UIControlStateNormal];
+      // [_companybtn setTitle:@"Select" forState:UIControlStateNormal];
        _contactnametxtfld.text=@"";
        _phonetxtfld.text=@"";
        

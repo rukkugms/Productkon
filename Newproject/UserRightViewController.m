@@ -2191,8 +2191,9 @@ viewcheck=0;
 }
 - (IBAction)celleditbtn:(id)sender {
     
-  
+    optnidntfr=1;
     _editview.hidden=NO;
+    _editupdatebtnlbl.enabled=YES;
     [_Allviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     [_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
