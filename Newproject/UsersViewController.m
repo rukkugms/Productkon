@@ -957,7 +957,7 @@
     {
         
         recordresults = FALSE;
-        _usrmdl.UserTypeName=_soapResults;
+        _usrmdl.UserTypeName=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"empname"])
@@ -1237,7 +1237,17 @@
 - (IBAction)usertype2btn:(id)sender {
     poptype=2;
       [self createpopover];
-    tyid=[[_Nametypeusrdict objectForKey:_type1btnlbl.titleLabel.text]integerValue];
+    //tyid=[[_Nametypeusrdict objectForKey:_type1btnlbl.titleLabel.text]integerValue];
+    if ([_type1btnlbl.titleLabel.text isEqualToString:@"Employee"]) {
+        tyid=1;
+    }
+    else if (([_type1btnlbl.titleLabel.text isEqualToString:@"Customer"])){
+        tyid=2;
+    }
+    else if (([_type1btnlbl.titleLabel.text isEqualToString:@"Vendor"])){
+        tyid=3;
+    }
+
     
     switch (tyid) {
         case 1:

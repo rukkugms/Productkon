@@ -82,4 +82,12 @@
 @property (strong, nonatomic) IBOutlet UIView *infoview;
 
 
+@property (strong, nonatomic) IBOutlet UIButton *indmntybtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *labrbtnlbl;
+
+@property (strong, nonatomic) IBOutlet UIButton *paymntbtmlbl;
+@property (strong, nonatomic) IBOutlet UIButton *vlumebtnlbl;
+@property (strong, nonatomic) IBOutlet UILabel *paymenttermslbl;
+
+
 @end

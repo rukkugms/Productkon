@@ -116,6 +116,7 @@
     else
     {
     return [_contractlistarray count];
+       
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -164,8 +165,8 @@
     [dateFormat2 setDateFormat:@"MM-dd-yyy"];
     NSString *myFormattedDate2 = [dateFormat2 stringFromDate:datess];
     _billingdayslabel.text=myFormattedDate2;
-    _weeklyhourslabel=(UILabel*)[cell viewWithTag:5];
-    _weeklyhourslabel.text=submdl.Payementclause;
+    _paymenttermslbl=(UILabel*)[cell viewWithTag:5];
+    _paymenttermslbl.text=submdl.NetDays;
 //    _subcontractlabel=(UILabel*)[cell viewWithTag:6];
 //    _subcontractlabel.text=submdl.SubContractorMarkup;
     
@@ -176,6 +177,38 @@
 //    [disbutton addTarget:self action:@selector(showactions:) forControlEvents:UIControlEventTouchUpInside];
 //    disbutton.frame = CGRectMake(230.0, 1.0, 50.0, 40.0);
 //    [cell.contentView addSubview:disbutton];
+        
+        if (submdl.indemntyflag==1) {
+         
+            
+            [_indmntybtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+         
+            
+        }
+        else{
+         
+            [_indmntybtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+          
+        }
+        if (submdl.labrflag==1) {
+            [_labrbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        }
+        else{
+            [_labrbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        }
+       if (submdl.paymntflag==1) {
+            [_paymntbtmlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        }
+        else{
+            [_paymntbtmlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        }
+         if (submdl.vlumeflag==1) {
+            [_vlumebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        }
+        else{
+            [_vlumebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        }
+
 
     }
     
@@ -926,6 +959,13 @@
     if ([elementName isEqualToString:@"IndemnityClause"]) {
         
         recordResults=FALSE;
+        if ([_soapresults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+            
+            _sub.indemntyflag=0;
+        }
+        else{
+             _sub.indemntyflag=1;
+        }
         _sub.IndemnityClause=_soapresults;
         _soapresults=nil;
     }
@@ -933,6 +973,14 @@
     if ([elementName isEqualToString:@"Payementclause"]) {
         
         recordResults=FALSE;
+        if ([_soapresults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+            
+            _sub.paymntflag=0;
+        }
+        else{
+            _sub.paymntflag=1;
+        }
+
         _sub.Payementclause=_soapresults;
         _soapresults=nil;
     }
@@ -947,6 +995,14 @@
     if ([elementName isEqualToString:@"VolumeDisClause"]) {
         
         recordResults=FALSE;
+        if ([_soapresults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+            
+            _sub.vlumeflag=0;
+        }
+        else{
+            _sub.vlumeflag=1;
+        }
+
         _sub.VolumeDisClause=_soapresults;
         _soapresults=nil;
     }
@@ -954,6 +1010,14 @@
     if ([elementName isEqualToString:@"LabourClause"]) {
         
         recordResults=FALSE;
+        if ([_soapresults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+            
+            _sub.labrflag=0;
+        }
+        else{
+            _sub.labrflag=1;
+        }
+
         _sub.LabourClause=_soapresults;
         _soapresults=nil;
     }
