@@ -386,13 +386,15 @@
           recordResults = FALSE;
          NSArray*array=[_soapResults componentsSeparatedByString:@"+"];
          NSArray*array1=[[array objectAtIndex:0]componentsSeparatedByString:@"T"];
-         logintime=[NSString stringWithFormat:@"%@ %@",[array1 objectAtIndex:1],[array1 objectAtIndex:0]];
-          _soapResults = nil;
+         
+   logintime=[NSString stringWithFormat:@"%@ %@",[array1 objectAtIndex:1],[array1 objectAtIndex:0]];
+         
+         _soapResults = nil;
          
      }
     if([elementName isEqualToString:@"device"]){
         recordResults = FALSE;
-        devicename=_soapResults;
+        devicename=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         _soapResults = nil;
         
     }
