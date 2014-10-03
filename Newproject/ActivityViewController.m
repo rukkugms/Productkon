@@ -564,6 +564,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 
 -(IBAction)addNewActivity:(id)sender
 {
+    _updatebtnlbl.enabled=YES;
     self.openviewindex=NSNotFound;
     _activityTable.userInteractionEnabled=NO;
     _cancelbtnlbl.enabled=YES;

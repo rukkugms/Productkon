@@ -39,6 +39,7 @@
 @property(strong,nonatomic)IBOutlet UIView *infoview;
 @property(strong,nonatomic)IBOutlet UITableViewCell *salescell;
 
+
 - (IBAction)closesalesreppage:(id)sender;
 - (IBAction)addsalesaction:(id)sender;
 - (IBAction)deletesalesaction:(id)sender;
@@ -72,5 +73,11 @@
 - (IBAction)update:(id)sender;
 - (IBAction)cancel:(id)sender;
 @property(strong,nonatomic)IBOutlet UIButton *updatebtn;
+
+@property(strong,nonatomic)IBOutlet UITableView *popovertableview;
+@property(strong,nonatomic)UIPopoverController *popovercontroller;
+- (IBAction)selectnameaction:(id)sender;
+@property(strong,nonatomic)IBOutlet UIButton *namebtn;
+@property(strong,nonatomic)NSMutableArray *namelistarray;
 
 @end
