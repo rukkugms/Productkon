@@ -736,7 +736,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                    "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
                    "<soap:Body>\n"
-                    "<GetLeadActivity xmlns=\"http://testUSA.kontract360.com/\">\n"
+                    "<GetLeadActivity xmlns=\"http://test.kontract360.com/\">\n"
                    "<Id>%d</Id>\n"
                    "</GetLeadActivity>\n"
                    "</soap:Body>\n"
@@ -744,7 +744,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -752,7 +752,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/GetLeadActivity" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/GetLeadActivity" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -785,7 +785,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    
                    "<soap:Body>\n"
                    
-                   "<FollowuptypeSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<FollowuptypeSelect xmlns=\"http://test.kontract360.com/\">\n"
                    "</FollowuptypeSelect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
@@ -793,8 +793,8 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
-   NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+   NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -802,7 +802,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/FollowuptypeSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/FollowuptypeSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -836,7 +836,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    
                    "<soap:Body>\n"
                    
-                   "<ActivityCommentsList xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<ActivityCommentsList xmlns=\"http://test.kontract360.com/\">\n"
                    "<activityid>%d</activityid>\n"
                    
                    "</ActivityCommentsList>\n"
@@ -846,14 +846,14 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
     NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/ActivityCommentsList" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/ActivityCommentsList" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -895,7 +895,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                    "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
                    "<soap:Body>\n"
-                   "<SaveActivity xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SaveActivity xmlns=\"http://test.kontract360.com/\">\n"
                    "<LeadId>%d</LeadId>\n"
                    "<Date>%@</Date>\n"
                    "<Activity>%@</Activity>\n"
@@ -911,7 +911,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -919,7 +919,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue:@"http://testUSA.kontract360.com/SaveActivity" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue:@"http://test.kontract360.com/SaveActivity" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -962,7 +962,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                    "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
                    "<soap:Body>\n"
-                   "<UpdateLeadActivity xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<UpdateLeadActivity xmlns=\"http://test.kontract360.com/\">\n"
                    "<ActivityId>%d</ActivityId>\n"
                    "<LeadId>%d</LeadId>\n"
                    "<Date>%@</Date>\n"
@@ -978,7 +978,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -986,7 +986,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/UpdateLeadActivity" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/UpdateLeadActivity" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1019,7 +1019,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                    "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
                    "<soap:Body>\n"
-                    "<DeleteActivity xmlns=\"http://testUSA.kontract360.com/\">\n"
+                    "<DeleteActivity xmlns=\"http://test.kontract360.com/\">\n"
                    "<activityid>%d</activityid>\n"
                    "</DeleteActivity>\n"
                    "</soap:Body>\n"
@@ -1028,14 +1028,14 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
     NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/DeleteActivity" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/DeleteActivity" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1080,7 +1080,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                    "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
                    "<soap:Body>\n"
-                   "<SaveActivityComment xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SaveActivityComment xmlns=\"http://test.kontract360.com/\">\n"
                       "<ActivityId>%d</ActivityId>\n"
                       "<Comments>%@</Comments>\n"
                       "<UserId>%d</UserId>\n"
@@ -1092,14 +1092,14 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
     NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SaveActivityComment" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/SaveActivityComment" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1132,7 +1132,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    
                    "<soap:Body>\n"
                    
-                   "<SearchLeadActivity xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SearchLeadActivity xmlns=\"http://test.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "<LeadId>%d</LeadId>\n"
                    "</SearchLeadActivity>\n"
@@ -1142,7 +1142,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1150,7 +1150,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue:@"http://testUSA.kontract360.com/SearchLeadActivity" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue:@"http://test.kontract360.com/SearchLeadActivity" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
