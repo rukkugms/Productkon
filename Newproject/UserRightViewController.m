@@ -74,7 +74,7 @@ viewcheck=0;
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 120);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(300, 120);
     
     //create a popover controller
     
