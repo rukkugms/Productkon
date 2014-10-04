@@ -957,7 +957,7 @@
     {
         
         recordresults = FALSE;
-        _usrmdl.UserTypeName=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        _usrmdl.UserTypeName=_soapResults;
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"empname"])
@@ -990,7 +990,8 @@
     if([elementName isEqualToString:@"userTypeName"])
     {
         recordresults = FALSE;
-        [_Nametypeusrdict setObject:usertypename forKey:_soapResults];
+     
+        [_Nametypeusrdict setObject:usertypename forKey:[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
         _soapResults = nil;
 
     }
@@ -1238,6 +1239,7 @@
     poptype=2;
       [self createpopover];
     //tyid=[[_Nametypeusrdict objectForKey:_type1btnlbl.titleLabel.text]integerValue];
+    NSLog(@"ty%@",_type1btnlbl.titleLabel.text);
     if ([_type1btnlbl.titleLabel.text isEqualToString:@"Employee"]) {
         tyid=1;
     }

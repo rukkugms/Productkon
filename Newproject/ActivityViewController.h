@@ -28,6 +28,7 @@
     NSInteger selectedcell;
     UIButton *carbtn;
     //NSInteger poptype;
+    NSString*empid,*empname;
 }
 @property(strong,nonatomic)FLPViewController *flpctrl;
 @property(strong,nonatomic)Craftreqmtmdl *followmdl;
@@ -38,7 +39,8 @@
 @property(strong,nonatomic)IBOutlet UIView *animatedview;
 @property(strong,nonatomic)IBOutlet UILabel *commentlabel;
 
-
+@property(strong,nonatomic)NSMutableDictionary*empdict;
+@property(strong,nonatomic)NSMutableDictionary*revempdict;
 @property(strong,nonatomic)IBOutlet UITableView *activityTable;
 @property(strong,nonatomic)IBOutlet UITableViewCell *actvityCell;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
@@ -131,6 +133,8 @@
 @property(strong,nonatomic)NSMutableArray *disclosurearray;
 
 @property (strong, nonatomic) IBOutlet UIButton *updatebtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *empbtnlbl;
+- (IBAction)empbtn:(id)sender;
 
 
 @end
