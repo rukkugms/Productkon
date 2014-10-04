@@ -77,12 +77,14 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     _disclosurearray=[[NSMutableArray alloc]initWithObjects:@"Comments", nil];
 
        // Do any additional setup after loading the view from its nib.
+    
    
 }
 -(void)viewWillAppear:(BOOL)animated{
     self.openviewindex=NSNotFound;
     [super viewWillAppear:animated];
    
+    [self Employeeselect];
      [self getLeadActivity];
         _savebtnlbl.enabled=YES;
     
@@ -114,6 +116,9 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         
                 
                 return [_folloarray count];
+        }
+        else if (poptype==13){
+            return [_empdict count];
         }
         else
         {
@@ -157,25 +162,38 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     }
     //cell.textLabel.text=@"Leads";
       if (tableView==_popOverTableView) {
+             Craftreqmtmdl*submdl=(Craftreqmtmdl *)[_folloarray objectAtIndex:indexPath.row];
           if (poptype==1) {
               
           
-            Craftreqmtmdl*submdl=(Craftreqmtmdl *)[_folloarray objectAtIndex:indexPath.row];
+         
           cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
           cell.textLabel.font = [UIFont systemFontOfSize:12.0];
           
           cell.textLabel.text=submdl.Brdescriptn;
           }
-          else{
-              cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
-              cell.textLabel.font = [UIFont systemFontOfSize:12.0];
-              
-              cell.textLabel.text=[_disclosurearray objectAtIndex:indexPath.row];
-
-          }
           
+          
+            else if (poptype==13) {
                   
-          
+                  cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+                  cell.textLabel.font = [UIFont systemFontOfSize:12.0];
+                NSArray*values=[_empdict allValues];
+                NSArray*keys=[_empdict allKeys];
+                
+                  
+               cell.textLabel.text=[NSString stringWithFormat:@"%@-%@",[values objectAtIndex:indexPath.row],[keys objectAtIndex:indexPath.row]];
+
+                
+              }
+              else{
+                  cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+                  cell.textLabel.font = [UIFont systemFontOfSize:12.0];
+                  
+                  cell.textLabel.text=[_disclosurearray objectAtIndex:indexPath.row];
+                  
+              }
+
 
           
       }
@@ -413,9 +431,14 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
             [self.popOverController dismissPopoverAnimated:YES];
             [self commentpopover];
         }
-        else
+        else if (poptype==13)
         {
-            
+            NSArray*values=[_empdict allValues];
+            NSArray*keys=[_empdict allKeys];
+              NSString*name=[NSString stringWithFormat:@"%@-%@",[values objectAtIndex:indexPath.row],[keys objectAtIndex:indexPath.row]];
+              [_empbtnlbl setTitle:name forState:UIControlStateNormal];
+        
+
         }
         
         
@@ -452,10 +475,10 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
        UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 150, 200)];
+                           initWithFrame:CGRectMake(0, 0, 239, 200)];
     
     popoverView.backgroundColor = [UIColor lightTextColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 150, 200)];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 239, 200)];
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
     _popOverTableView.rowHeight= 32;
@@ -465,7 +488,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(150, 200);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(239, 200);
     
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
@@ -890,7 +913,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     [dateFormat1 setDateFormat:@"yyyy-MM-dd"];
     NSString* sqldate=[dateFormat1 stringFromDate:dateString];
 
-   
+    NSArray*newarray=[_empbtnlbl.titleLabel.text componentsSeparatedByString:@"-"];
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -907,7 +930,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    "<CommunicationType>%@</CommunicationType>"
                    "</SaveActivity>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_leadid,sqldate,_activityTxtFld.text,_employerTxtfld.text,_descptionTextview.text,_statusTxtFld.text,activityId,_activityTypeBtn.titleLabel.text];
+                   "</soap:Envelope>\n",_leadid,sqldate,_activityTxtFld.text,[newarray objectAtIndex:0],_descptionTextview.text,_statusTxtFld.text,activityId,_activityTypeBtn.titleLabel.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -956,7 +979,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc]init];
     [dateFormat1 setDateFormat:@"yyyy-MM-dd"];
     NSString* sqldate=[dateFormat1 stringFromDate:dateString];
-    
+      NSArray*newarray=[_empbtnlbl.titleLabel.text componentsSeparatedByString:@"-"];
 
     soapMessage = [NSString stringWithFormat:
                    
@@ -974,7 +997,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    "<CommunicationType>%@</CommunicationType>\n"
                    "</UpdateLeadActivity>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",info2.activityId,_leadid,sqldate,_activityTxtFld.text,_employerTxtfld.text,_descptionTextview.text,_statusTxtFld.text,_activityTypeBtn.titleLabel.text];
+                   "</soap:Envelope>\n",info2.activityId,_leadid,sqldate,_activityTxtFld.text,[newarray objectAtIndex:0],_descptionTextview.text,_statusTxtFld.text,_activityTypeBtn.titleLabel.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1172,6 +1195,56 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
 }
+-(void)Employeeselect
+{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Employeeselect xmlns=\"http://test.kontract360.com/\">\n"
+                   "</Employeeselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://test.kontract360.com/Employeeselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 #pragma mark-Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -1486,6 +1559,42 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 
 
     
+    if([elementName isEqualToString:@"EmployeeselectResult"])
+    {
+        _empdict=[[NSMutableDictionary alloc]init];
+        _revempdict=[[NSMutableDictionary alloc]init];
+
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"cemp_id"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"vf_name"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"vl_name"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
 
 
@@ -1583,7 +1692,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     {
         
         recordResults = FALSE;
-        _act.employer=_soapResults;
+        _act.employer=[_revempdict objectForKey:_soapResults];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"Description"])
@@ -1686,16 +1795,29 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         _soapResults = nil;
         
     }
+    if([elementName isEqualToString:@"cemp_id"])
+    {
+        recordResults = FALSE;
+        empid=_soapResults;
+        _soapResults = nil;
+        
+        
+    }
+    if([elementName isEqualToString:@"vf_name"])
+    {
+        recordResults = FALSE;
+        empname=_soapResults;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"vl_name"])
+    {
+        recordResults = FALSE;
+        [_empdict setObject:empid forKey:[NSString stringWithFormat:@"%@%@",empname,_soapResults]];
+        [_revempdict setObject:[NSString stringWithFormat:@"%@%@",empname,_soapResults] forKey:empid];
+        _soapResults = nil;
+    }
 
-
-    
-
-
-    
-
-
-
-    
 
 }
 -(void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -1957,4 +2079,34 @@ else
     
 }
 
+- (IBAction)empbtn:(id)sender {
+    poptype=13;
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 239, 200)];
+    
+    popoverView.backgroundColor = [UIColor lightTextColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 239, 200)];
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(239, 200);
+    
+    //create a popover controller
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    [self.popOverController presentPopoverFromRect:_empbtnlbl.frame
+                                            inView:_newviewactivity
+                          permittedArrowDirections:UIPopoverArrowDirectionUp
+                                          animated:YES];
+    [self Employeeselect];
+
+}
 @end
