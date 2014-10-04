@@ -57,7 +57,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+    [self Employeeselect];
     [self CustomerSalesRepInfoselect];
 
     
@@ -131,6 +131,7 @@
     _empidtextfield.text=rmdl.EmpId;
     [_namebtn setTitle:rmdl.EmpName forState:UIControlStateNormal];
     _nametextfield.text=rmdl.EmpName;
+    [_namebtn setTitle:[NSString stringWithFormat:@"%@-%@",rmdl.EmpId,[_reversedict objectForKey:rmdl.EmpName]] forState:UIControlStateNormal];
     _phoneofficetextfield.text=rmdl.PhoneOffice;
     _emailtextfield.text=rmdl.Email;
     _mobiletextfield.text=rmdl.Mobile;
@@ -151,7 +152,7 @@
     _extensiontextfield.text=@"";
     _mobiletextfield.text=@"";
     _phoneofficetextfield.text=@"";
-    _nametextfield.text=@"";
+    [_namebtn setTitle:@"Select" forState:UIControlStateNormal];
     _empidtextfield.text=@"";
 
 }
@@ -227,7 +228,7 @@
     return [_salesarray count];
     }
     if (tableView==_popovertableview) {
-        //return [_namelistarray count];
+        return [_employeedct count];
     }
     return YES;
     // Return the number of rows in the section.
@@ -260,7 +261,8 @@
     _empidlabel=(UILabel*)[cell viewWithTag:2];
     _empidlabel.text=rmdl.EmpId;
     _namelabel=(UILabel*)[cell viewWithTag:3];
-    _namelabel.text=rmdl.EmpName;
+    _namelabel.text=[_reversedict objectForKey:rmdl.EmpName];
+
     _phonelabel=(UILabel*)[cell viewWithTag:4];
     _phonelabel.text=rmdl.PhoneOffice;
     _extensionlabel=(UILabel*)[cell viewWithTag:5];
@@ -273,7 +275,9 @@
     if (tableView==_popovertableview) {
         cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
         cell.textLabel.font = [UIFont systemFontOfSize:12.0];
-        //cell.textLabel.text=[_namelistarray objectAtIndex:indexPath.row];
+        _namelistarray=[_employeedct allKeys];
+       // cell.textLabel.text=[_namelistarray objectAtIndex:indexPath.row];
+        cell.textLabel.text=[NSString stringWithFormat:@"%@-%@",[_employeedct objectForKey:[_namelistarray objectAtIndex:indexPath.row]],[_namelistarray objectAtIndex:indexPath.row]];
 
     }
     
@@ -291,7 +295,8 @@
         
         
        
-             //   [_namebtn setTitle:[_namelistarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                [_namebtn setTitle:[NSString stringWithFormat:@"%@-%@",[_employeedct objectForKey:[_namelistarray objectAtIndex:indexPath.row]],[_namelistarray objectAtIndex:indexPath.row]] forState:UIControlStateNormal];
+        _empidtextfield.text=[_employeedct objectForKey:[_namelistarray objectAtIndex:indexPath.row]];
         
         
     }
@@ -387,8 +392,63 @@
     
     
 }
+-(void)Employeeselect
+{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Employeeselect xmlns=\"http://test.kontract360.com/\">\n"
+                   "</Employeeselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://test.kontract360.com/Employeeselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+
 -(void)CustomerSalesRepInfoInsert
-{  webtype=1;
+{
+    NSArray *array=[_namebtn.titleLabel.text componentsSeparatedByString:@"-"];
+    NSString *namestring=[array objectAtIndex:1];
+    NSLog(@"%@",namestring);
+    webtype=1;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -411,7 +471,7 @@
                    "<Email>%@</Email>\n"
                    "</CustomerSalesRepInfoInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_ccode,_empidtextfield.text,_nametextfield.text,_phoneofficetextfield.text,_extensiontextfield.text,_mobiletextfield.text,_emailtextfield.text];
+                   "</soap:Envelope>\n",_ccode,_empidtextfield.text,_empidtextfield.text,_phoneofficetextfield.text,_extensiontextfield.text,_mobiletextfield.text,_emailtextfield.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -446,6 +506,10 @@
 }
 -(void)CustomerSalesRepInfoUpdate
 {
+    NSArray *array=[_namebtn.titleLabel.text componentsSeparatedByString:@"-"];
+    NSString *namestring=[array objectAtIndex:1];
+    NSLog(@"%@",namestring);
+
     webtype=1;
     recordResults = FALSE;
     Rsalesmdl*rmdl=(Rsalesmdl *)[_salesarray objectAtIndex:btnindex];
@@ -471,7 +535,7 @@
                    "<Email>%@</Email>\n"
                    "</CustomerSalesRepInfoUpdate>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",rmdl.entryid,rmdl.CustomerCode,_empidtextfield.text,_nametextfield.text,_phoneofficetextfield.text,_extensiontextfield.text,_mobiletextfield.text,_emailtextfield.text];
+                   "</soap:Envelope>\n",rmdl.entryid,rmdl.CustomerCode,_empidtextfield.text,_empidtextfield.text,_phoneofficetextfield.text,_extensiontextfield.text,_mobiletextfield.text,_emailtextfield.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -650,6 +714,7 @@
         _searchbar.text=@"";
         webtype=0;
     }
+    [_popovertableview reloadData];
     
 }
 #pragma mark-xml parser
@@ -775,6 +840,42 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"EmployeeselectResponse"])
+    {
+        _employeedct=[[NSMutableDictionary alloc]init];
+        _reversedict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"cemp_id"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"vf_name"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"vl_name"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
 
     
@@ -867,6 +968,29 @@
         }
         _soapResults=nil;
     }
+    if([elementName isEqualToString:@"cemp_id"])
+    {
+        recordResults = FALSE;
+        empid=_soapResults;
+        _soapResults = nil;
+        
+        
+    }
+    if([elementName isEqualToString:@"vf_name"])
+    {
+        recordResults = FALSE;
+        empname=_soapResults;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"vl_name"])
+    {
+        recordResults = FALSE;
+        [_employeedct setObject:empid forKey:[NSString stringWithFormat:@"%@ %@",empname,_soapResults]];
+        [_reversedict setObject:[NSString stringWithFormat:@"%@ %@",empname,_soapResults]forKey:empid];
+        _soapResults = nil;
+    }
+
 
     
 
@@ -915,7 +1039,7 @@
 }
 - (IBAction)update:(id)sender {
    
-        if([_nametextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
+        if([_namebtn.titleLabel.text isEqualToString:@"Select"]||[_namebtn.titleLabel.text isEqualToString:@""])
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];

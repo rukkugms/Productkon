@@ -20,6 +20,9 @@
     NSInteger path;
     NSString *phonenostring;
      NSString *mobilestring;
+    NSString *empid;
+    NSString *empname;
+    NSInteger employeeid;
     
 }
 
@@ -78,6 +81,9 @@
 @property(strong,nonatomic)UIPopoverController *popovercontroller;
 - (IBAction)selectnameaction:(id)sender;
 @property(strong,nonatomic)IBOutlet UIButton *namebtn;
-@property(strong,nonatomic)NSMutableArray *namelistarray;
+@property(strong,nonatomic)NSArray *namelistarray;
+@property(strong,nonatomic)NSMutableDictionary *employeedct;
+@property(strong,nonatomic)NSMutableDictionary *reversedict;
+@property(strong,nonatomic)NSString *name;
 
 @end
