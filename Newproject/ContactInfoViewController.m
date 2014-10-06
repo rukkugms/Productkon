@@ -762,7 +762,7 @@
     _mblelbl=(UILabel *)[cell viewWithTag:4];
     _mblelbl.text=infmdl.mobile;
     _faxlbl=(UILabel *)[cell viewWithTag:5];
-    _faxlbl.text=infmdl.fax;
+    _faxlbl.text=infmdl.position;
     
 
     
