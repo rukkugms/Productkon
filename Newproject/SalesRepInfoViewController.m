@@ -131,7 +131,7 @@
     _empidtextfield.text=rmdl.EmpId;
     [_namebtn setTitle:rmdl.EmpName forState:UIControlStateNormal];
     _nametextfield.text=rmdl.EmpName;
-    [_namebtn setTitle:[NSString stringWithFormat:@"%@-%@",rmdl.EmpId,[_reversedict objectForKey:rmdl.EmpName]] forState:UIControlStateNormal];
+    [_namebtn setTitle:[NSString stringWithFormat:@"%@-%@",rmdl.EmpId,rmdl.EmpName] forState:UIControlStateNormal];
     _phoneofficetextfield.text=rmdl.PhoneOffice;
     _emailtextfield.text=rmdl.Email;
     _mobiletextfield.text=rmdl.Mobile;
@@ -261,7 +261,8 @@
     _empidlabel=(UILabel*)[cell viewWithTag:2];
     _empidlabel.text=rmdl.EmpId;
     _namelabel=(UILabel*)[cell viewWithTag:3];
-    _namelabel.text=[_reversedict objectForKey:rmdl.EmpName];
+        _namelabel.text=rmdl.EmpName;
+        //[_reversedict objectForKey:rmdl.EmpName];
 
     _phonelabel=(UILabel*)[cell viewWithTag:4];
     _phonelabel.text=rmdl.PhoneOffice;
@@ -777,6 +778,16 @@
         
     }
     
+    if ([elementName isEqualToString:@"name"]) {
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+    
     if ([elementName isEqualToString:@"PhoneOffice"]) {
         
         if(!_soapResults)
@@ -916,12 +927,19 @@
         _rmodel.EmpId=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         _soapResults=nil;
     }
-    if ([elementName isEqualToString:@"EmpName"]) {
+    if ([elementName isEqualToString:@"name"]) {
         
         recordResults=FALSE;
         _rmodel.EmpName=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         _soapResults=nil;
     }
+    if ([elementName isEqualToString:@"EmpName"]) {
+        
+        recordResults=FALSE;
+       // _rmodel.EmpName=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        _soapResults=nil;
+    }
+
     if ([elementName isEqualToString:@"PhoneOffice"]) {
     
         recordResults=FALSE;
