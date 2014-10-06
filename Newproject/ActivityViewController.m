@@ -162,10 +162,10 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     }
     //cell.textLabel.text=@"Leads";
       if (tableView==_popOverTableView) {
-             Craftreqmtmdl*submdl=(Craftreqmtmdl *)[_folloarray objectAtIndex:indexPath.row];
+          
           if (poptype==1) {
               
-          
+           Craftreqmtmdl*submdl=(Craftreqmtmdl *)[_folloarray objectAtIndex:indexPath.row];
          
           cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
           cell.textLabel.font = [UIFont systemFontOfSize:12.0];
@@ -1094,6 +1094,10 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     [dateFormat setDateFormat:@"MM/dd/ yyyy"];
     NSString*date1=[dateFormat stringFromDate:curntdate];
     NSString*today=[NSString stringWithFormat:@"%@ %@",date1,time];
+    NSString*newstrg=  [_cmttxtbox.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
       
     NSInteger userid=100;
     activityInfo*info=(activityInfo*)[_activityArray objectAtIndex:btnindex];
@@ -1111,7 +1115,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                       "<CommentDate>%@</CommentDate>\n"
                    "</SaveActivityComment>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",info.activityId,_cmttxtbox.text,userid,today];
+                   "</soap:Envelope>\n",info.activityId,newstrg,userid,today];
     NSLog(@"soapmsg%@",soapMessage);
     
     
