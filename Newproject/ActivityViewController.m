@@ -218,8 +218,8 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         _employee=(UILabel*)[cell viewWithTag:3];
         _employee.text=info.employer;
         
-        _description=(UILabel*)[cell viewWithTag:4];
-        _description.text=info.description;
+        _detailslbl=(UILabel*)[cell viewWithTag:4];
+        _detailslbl.text=info.description;
         
         _status=(UILabel*)[cell viewWithTag:5];
         _status.text=info.status;

@@ -82,7 +82,8 @@
 @property(strong,nonatomic)IBOutlet UILabel *activityname;
 @property(strong,nonatomic)IBOutlet UILabel *datetext;
 @property(strong,nonatomic)IBOutlet UILabel *employee;
-@property(strong,nonatomic)IBOutlet UILabel *description;
+@property (strong, nonatomic) IBOutlet UILabel *detailslbl;
+
 @property(strong,nonatomic)IBOutlet UILabel *status;
 @property(readwrite)  NSInteger activityid;
 
