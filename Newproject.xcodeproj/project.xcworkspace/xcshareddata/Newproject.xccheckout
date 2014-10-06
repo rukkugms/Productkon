@@ -12,20 +12,24 @@
 	<dict>
 		<key>D87CCF89-3DE1-4A88-AE78-487500405FCE</key>
 		<string>ssh://github.com/rukkugms/360kont.git</string>
+		<key>FBA2B664619B5DD4205E0C2C8EA63D1200B0A823</key>
+		<string>https://github.com/Riagms/360kont.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Newproject.xcodeproj/project.xcworkspace</string>
+	<string>Newproject.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>D87CCF89-3DE1-4A88-AE78-487500405FCE</key>
+		<string>../../../360kont</string>
+		<key>FBA2B664619B5DD4205E0C2C8EA63D1200B0A823</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/rukkugms/360kont.git</string>
+	<string>https://github.com/Riagms/360kont.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>D87CCF89-3DE1-4A88-AE78-487500405FCE</string>
+	<string>FBA2B664619B5DD4205E0C2C8EA63D1200B0A823</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -35,6 +39,14 @@
 			<string>D87CCF89-3DE1-4A88-AE78-487500405FCE</string>
 			<key>IDESourceControlWCCName</key>
 			<string>360kont</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FBA2B664619B5DD4205E0C2C8EA63D1200B0A823</string>
+			<key>IDESourceControlWCCName</key>
+			<string>gitRepokontract</string>
 		</dict>
 	</array>
 </dict>

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActivityViewController">
@@ -10,7 +9,7 @@
                 <outlet property="activityname" destination="3" id="16"/>
                 <outlet property="actvityCell" destination="2" id="8"/>
                 <outlet property="datetext" destination="4" id="17"/>
-                <outlet property="description" destination="6" id="19"/>
+                <outlet property="detailslbl" destination="6" id="8Kb-AJ-ls2"/>
                 <outlet property="disclosurebtn" destination="jnd-d4-KDD" id="rOS-3v-Adl"/>
                 <outlet property="employee" destination="5" id="18"/>
                 <outlet property="status" destination="7" id="20"/>
@@ -117,4 +116,9 @@
         <image name="appbar.edit.png" width="52" height="52"/>
         <image name="carat.png" width="11" height="11"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
 </document>

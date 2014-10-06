@@ -98,16 +98,13 @@
     //resize the popover view shown
     //in the current view to the view's size
     popoverContent.contentSizeForViewInPopover = CGSizeMake(250, 400);
-    
-    //create a popover controller
+      //create a popover controller
     
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     
           [self.popOverController presentPopoverFromRect:_docutyebtn.frame
                                                 inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
-        
-    
     
     
     
