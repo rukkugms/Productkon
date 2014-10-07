@@ -68,12 +68,16 @@ _scroll_addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255
     //[self SelectAllEquipment];
     _activitybtn.hidden=YES;
      _updatebtn.enabled=YES;
+      _addequipmentview.userInteractionEnabled=YES;
+    imagechecker=1;
 }
 
 
 - (void)handlePinch:(UITapGestureRecognizer *)pinchGestureRecognizer
 {
+   
      //handle pinch...
+     imagechecker=2;
     if ([UIImagePickerController isSourceTypeAvailable:
          UIImagePickerControllerSourceTypeCamera])
     {
@@ -1560,7 +1564,13 @@ finishedSavingWithError:(NSError *)error
         
         if ([_soapResults isEqualToString:@"Inserted Successfully"]) {
             
-               [self Insertanyimage];
+//            if (imagechecker==1) {
+//                
+//            }
+//            else if (imagechecker==2){
+//                 [self Insertanyimage];
+//            }
+             [self Insertanyimage];
             webtype=0;
             mesgstrg=_soapResults;
 
@@ -1585,6 +1595,7 @@ finishedSavingWithError:(NSError *)error
             _activitybtn.hidden=YES;
 
               [_activitybtn stopAnimating];
+              _addequipmentview.userInteractionEnabled=YES;
             [self SelectAllEquipment];
         }
          if ([_soapResults isEqualToString:@"Already Exists"])
@@ -1592,6 +1603,7 @@ finishedSavingWithError:(NSError *)error
                   mesgstrg=_soapResults;
                   _activitybtn.hidden=YES;
                    [_activitybtn stopAnimating];
+                   _addequipmentview.userInteractionEnabled=YES;
                  UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:mesgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                  [alert show];
                  
@@ -1708,6 +1720,7 @@ finishedSavingWithError:(NSError *)error
 }
 -(IBAction)addEquipment:(id)sender
 {
+     imagechecker=1;
      _updatebtn.enabled=YES;
     [_equipmenttbl setEditing:NO animated:NO];
     _codetxfld.text=@"";
@@ -1742,12 +1755,14 @@ finishedSavingWithError:(NSError *)error
      _updatebtn.enabled=YES;
     _addequipmentview.hidden=YES;
      _equipmenttbl.userInteractionEnabled=YES;
+      _addequipmentview.userInteractionEnabled=YES;
       _updatelbl.hidden=YES;
 
 }
 -(IBAction)editequipview:(id)sender
 {
     btntype=2;
+     imagechecker=1;
      _updatebtn.enabled=YES;
      _equipmenttbl.userInteractionEnabled=NO;
     [_equipmenttbl setEditing:NO animated:NO];
@@ -1856,6 +1871,7 @@ _addequipmentview.hidden=NO;
         
         _activitybtn.hidden=NO;
         [_activitybtn startAnimating];
+        _addequipmentview.userInteractionEnabled=NO;
     if (btntype==1) {
         _updatebtn.enabled=NO;
         [self InsertEquipment];
@@ -2106,7 +2122,7 @@ _addequipmentview.hidden=NO;
         _monthlytxtfld.text=@"";
         _yearlytxtfld.text=@"";
         _stockinhndtxtfld.text=@"";
-        _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+        _picimageview.image=[UIImage imageNamed:@"mNoImage"];
         [_subsearchlbl setTitle:@"Select" forState:UIControlStateNormal];
          _SearchingBar.text=@"";
         }
@@ -2128,7 +2144,7 @@ _addequipmentview.hidden=NO;
             _monthlytxtfld.text=@"";
             _yearlytxtfld.text=@"";
             _stockinhndtxtfld.text=@"";
-            _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+            _picimageview.image=[UIImage imageNamed:@"mNoImage"];
             [_subsearchlbl setTitle:@"Select" forState:UIControlStateNormal];
             _addequipmentview.hidden=YES;
              _equipmenttbl.userInteractionEnabled=YES;

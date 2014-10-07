@@ -440,7 +440,7 @@
                    
                    "<Vendordelete xmlns=\"http://test.kontract360.com/\">\n"
                     "<EntryId>%d</EntryId>\n"
-                   "<ReqID>%d</ReqID\n"
+                   "<ItemId>%d</ItemId>\n"
                    "</Vendordelete>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",vmdl.VEntryId,_itemid];

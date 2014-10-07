@@ -27,6 +27,7 @@
     NSString*skill;
     NSInteger createcheck;
      NSString  *createstring;
+    NSInteger imagechecker;
     
 }
 @property(strong,nonatomic)NSMutableDictionary *skilldict;
