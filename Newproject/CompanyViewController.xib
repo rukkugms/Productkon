@@ -203,7 +203,7 @@
                             </connections>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="35">
-                            <rect key="frame" x="328" y="889" width="112" height="35"/>
+                            <rect key="frame" x="328" y="898" width="112" height="35"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                             <state key="normal" title="Save">
                                 <color key="titleColor" red="0.27450980392156865" green="0.50980392156862742" blue="0.70588235294117641" alpha="1" colorSpace="calibratedRGB"/>
@@ -247,7 +247,7 @@
                             </connections>
                         </button>
                         <webView contentMode="top" scalesPageToFit="YES" id="Dv6-Jl-OEs">
-                            <rect key="frame" x="438" y="713" width="265" height="144"/>
+                            <rect key="frame" x="438" y="744" width="265" height="144"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <outlet property="delegate" destination="-1" id="IYn-bJ-w3f"/>
