@@ -346,9 +346,21 @@ finishedSavingWithError:(NSError *)error
     
     if (editingStyle==UITableViewCellEditingStyleDelete) {
         deltepath=indexPath.row;
+        Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         
+        
+        if (rightsmodel.DeleteModule==0) {
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
+        }
+        else
+        {
+
         [self DeleteEquipment];
         [_Equpntarray removeObject:indexPath];
+        }
         
         
         
@@ -1703,18 +1715,7 @@ finishedSavingWithError:(NSError *)error
 
 - (IBAction)deletebtn:(id)sender {
     btntype=3;
-    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
-    
-    
-    if (rightsmodel.DeleteModule==0) {
-        
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-        
-    }
-    else
-    {
-
+   
     if (self.editing) {
         [super setEditing:NO animated:NO];
         [_equipmenttbl setEditing:NO animated:NO];
@@ -1733,7 +1734,7 @@ finishedSavingWithError:(NSError *)error
         
         
     }
-    }
+    
     
 
 }

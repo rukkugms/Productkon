@@ -291,8 +291,22 @@
     
     if (editingStyle==UITableViewCellEditingStyleDelete) {
         path=indexPath.row;
+        Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+        
+        
+        if (rightsmodel.DeleteModule==0) {
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
+        }
+        else
+        {
+            
+
         [self DeleteMaterials];
         [_materialarray removeObject:indexPath];
+        }
         
         
     }
@@ -1737,19 +1751,7 @@ else
 
 - (IBAction)deletebtn:(id)sender {
     butntype=3;
-    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
-    
-    if (rightsmodel.DeleteModule==0) {
-        
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-        
-    }
-    else
-    {
-        
-
     if (self.editing) {
         [super setEditing:NO animated:NO];
         [_materialTable setEditing:NO animated:NO];
@@ -1767,7 +1769,7 @@ else
         
         
         
-    }
+    
     }
 
     
@@ -1785,7 +1787,7 @@ else
     _materialTable.userInteractionEnabled=NO;
     _resultdispalylabel.hidden=YES;
     _codetxtfld.text=@"";
-    
+    imagechecker=1;
     _destxtfld.text=@"";
     _subtyptxtfld.text=@"";
     _unitcosttxtfld.text=@"";
@@ -1802,6 +1804,7 @@ else
 }
 -(IBAction)editmaterial:(id)sender
 {
+    imagechecker=1;
       _updatebtn.enabled=YES;
      _materialTable.userInteractionEnabled=NO;
     butntype=2;

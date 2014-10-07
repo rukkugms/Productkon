@@ -256,13 +256,24 @@
     
     if (editingStyle==UITableViewCellEditingStyleDelete) {
         deltepath=indexPath.row;
+        Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         
+        
+        if (rightsmodel.DeleteModule==0) {
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
+        }
+        else
+        {
+
         [self Deletefleet];
         [_fleetarray removeObject:indexPath];
         
         
         
-        
+        }
         
     }
     
@@ -1591,18 +1602,7 @@ if([elementName isEqualToString:@"url"])
 
 - (IBAction)deletebtn:(id)sender {
     btntype=3;
-    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
-    
-    if (rightsmodel.DeleteModule==0) {
-        
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-        
-    }
-    else
-    {
-        
 
     if (self.editing) {
         [super setEditing:NO animated:NO];
@@ -1621,7 +1621,7 @@ if([elementName isEqualToString:@"url"])
         
         
         
-    }
+    
     
     }
 }
@@ -1633,6 +1633,7 @@ if([elementName isEqualToString:@"url"])
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 - (IBAction)addbtn:(id)sender{
+    imagechecker=1;
      _updatebtn.enabled=YES;
     _fleetTable.userInteractionEnabled=NO;
     _codetxtfld.text=@"";
@@ -1676,6 +1677,7 @@ if([elementName isEqualToString:@"url"])
 - (IBAction)editbtn:(id)sender
 
 {
+    imagechecker=1;
     _updatebtn.enabled=YES;
     btntype=2;
       _fleetTable.userInteractionEnabled=NO;
