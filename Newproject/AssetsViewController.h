@@ -29,6 +29,7 @@ NSInteger popvr;
     NSString *msgstrg;
     NSString *OtherCode;
     NSString*skill;
+     NSInteger imagechecker;
     
 }
 @property(strong,nonatomic)NSMutableDictionary *skilldict;

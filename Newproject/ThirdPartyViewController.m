@@ -232,6 +232,7 @@ finishedSavingWithError:(NSError *)error
      _updatebtn.enabled=YES;
     [super viewWillAppear:animated];
     [self AllSkills];
+    imagechecker=1;
     //[self SelectAllThirdParty];
     _activitybtn.hidden=YES;
 }
@@ -693,6 +694,7 @@ finishedSavingWithError:(NSError *)error
     NSString *soapMessage;
     _activitybtn.hidden=NO;
     [_activitybtn startAnimating];
+    _addview.userInteractionEnabled=NO;
     //NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxtfld.text];
     NSString *type=@"ThirdParty";
     
@@ -1457,18 +1459,43 @@ finishedSavingWithError:(NSError *)error
         
         
         if ([_soapResults isEqualToString:@"Inserted Successfully"]) {
-            
-            [self Insertanyimage];
+             msgstrg=_soapResults;
+            if(imagechecker==1){
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                _activitybtn.hidden=YES;
+                [_activitybtn stopAnimating];
+                _addview.userInteractionEnabled=YES;
+                
+                [self SelectAllThirdParty];
+
+            }else{
+                   [self Insertanyimage];
+            }
+         
             webtype=0;
-            msgstrg=_soapResults;
+           
             
         }
          if ([_soapResults isEqualToString:@"Updated Successfully"]) {
-            
-            [self UploadAnyImage];
-            webtype=0;
-            msgstrg=_soapResults;
-            
+             msgstrg=_soapResults;
+             if(imagechecker==1){
+                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                 [alert show];
+                 _activitybtn.hidden=YES;
+                 [_activitybtn stopAnimating];
+                 _addview.userInteractionEnabled=YES;
+                 
+                 [self SelectAllThirdParty];
+                 
+             }else{
+                  [self UploadAnyImage];
+             }
+             
+             webtype=0;
+
+           
+             
         }
         if ([_soapResults isEqualToString:@"Already In Use"]) {
             msgstrg=_soapResults;
@@ -1482,6 +1509,7 @@ finishedSavingWithError:(NSError *)error
             [alert show];
             _activitybtn.hidden=YES;
             [_activitybtn stopAnimating];
+           _addview.userInteractionEnabled=YES;
             
         }
 
@@ -1491,6 +1519,7 @@ finishedSavingWithError:(NSError *)error
             [alert show];
                     _activitybtn.hidden=YES;
                     [_activitybtn stopAnimating];
+                      _addview.userInteractionEnabled=YES;
 
             [self SelectAllThirdParty];
         }
@@ -1505,6 +1534,7 @@ finishedSavingWithError:(NSError *)error
         
         _activitybtn.hidden=YES;
         [_activitybtn stopAnimating];
+        _addview.userInteractionEnabled=YES;
         NSData *data1=[_soapResults base64DecodedData];
         
         UIImage *image1=  [[UIImage alloc]initWithData:data1];
@@ -1855,6 +1885,7 @@ finishedSavingWithError:(NSError *)error
 }
 
 - (IBAction)addbtn:(id)sender {
+    imagechecker=1;
      _updatebtn.enabled=YES;
        _thirdprtyTable.userInteractionEnabled=NO;
     _cancelbtn.enabled=YES;
@@ -1888,6 +1919,7 @@ finishedSavingWithError:(NSError *)error
 }
 
 - (IBAction)editbtn:(id)sender {
+    imagechecker=1;
      _updatebtn.enabled=YES;
     btntype=2;
  _thirdprtyTable.userInteractionEnabled=NO;
@@ -1933,7 +1965,14 @@ finishedSavingWithError:(NSError *)error
         checksub=0;
     }
    // [_picimageview setImage:[UIImage imageNamed:@"ios7-camera-icon"]];
-   [self FetchAnyImage];
+    if(eqmdl.PictureLocation.length==0){
+        imagechecker=1;
+    }
+    else{
+        imagechecker=2;
+         [self FetchAnyImage];
+    }
+  
     _addview.hidden=NO;
     _navitem.title=@"Edit";
     _cancelbtn.enabled=NO;

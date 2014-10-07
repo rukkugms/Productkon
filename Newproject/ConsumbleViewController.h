@@ -24,7 +24,7 @@
     NSInteger webtype,checksub,moduleid,saftycheck,createsub,createsfty;
     NSString *msgstrg;
     NSString*skill,*consumblecode;
-    
+      NSInteger imagechecker;
     
 }
 

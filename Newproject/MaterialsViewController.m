@@ -798,6 +798,7 @@
         NSString *soapMessage;
     _activitybtn.hidden=NO;
     [_activitybtn startAnimating];
+    _addmatView.userInteractionEnabled=NO;
         // NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxfld.text];
         NSString *type=@"Materials";
         //NSString*filename=@"818191.jpg";
@@ -1575,6 +1576,7 @@
         NSLog(@"img%@",image1);
         _activitybtn.hidden=YES;
         [_activitybtn stopAnimating];
+        _addmatView.userInteractionEnabled=YES;
         // _picturelocation=_soapResults;
         _soapResults = nil;
         

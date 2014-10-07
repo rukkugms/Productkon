@@ -797,6 +797,7 @@
     NSString *soapMessage;
     _activitybtn.hidden=NO;
     [_activitybtn startAnimating];
+    _addview.userInteractionEnabled=NO;
     // NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxfld.text];
     NSString *type=@"Fleets";
     //NSString*filename=@"818191.jpg";
@@ -1569,6 +1570,7 @@ if([elementName isEqualToString:@"url"])
     NSLog(@"img%@",image1);
     _activitybtn.hidden=YES;
     [_activitybtn stopAnimating];
+    _addview.userInteractionEnabled=YES;
     _soapResults = nil;
     
     
