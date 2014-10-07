@@ -55,5 +55,6 @@
 @property(strong,nonatomic)NSMutableDictionary *industrylistdictionary;
 -(IBAction)Editindustrytype:(id)sender;
 @property(strong,nonatomic)NSString *result;
+@property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 
 @end

@@ -662,6 +662,7 @@ if (tableView==_leadTable) {
 }
 
 - (IBAction)clsebtn:(id)sender {
+    [self getLeads];
     butnidtfr=0;
     _leadTable.userInteractionEnabled=YES;
    

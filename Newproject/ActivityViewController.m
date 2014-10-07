@@ -620,7 +620,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 
 }
 -(IBAction)closetheView:(id)sender
-{
+{ [self getLeadActivity];
     self.openviewindex=NSNotFound;
     _dateBtn.enabled=YES;
     _activityTxtFld.userInteractionEnabled=YES;
@@ -702,13 +702,13 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     _statusTxtFld.text=info1.status;
     _activityTxtFld.text=info1.activity;
     _descptionTextview.text=info1.description;
-    _dateBtn.enabled=NO;
-    _dateBtn.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
-    _activityTxtFld.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
-   _employerTxtfld.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    //_dateBtn.enabled=NO;
+    //_dateBtn.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+   // _activityTxtFld.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+   //_employerTxtfld.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
 
-    _activityTxtFld.userInteractionEnabled=NO;
-    _employerTxtfld.userInteractionEnabled=NO;
+    //_activityTxtFld.userInteractionEnabled=NO;
+    //_employerTxtfld.userInteractionEnabled=NO;
     [_activityTypeBtn setTitle:info1.communicationtype forState:UIControlStateNormal];
     NSLog(@"%@",info1.employer);
      [_empbtnlbl setTitle:[NSString stringWithFormat:@"%@-%@",info1.employer,info1.ename] forState:UIControlStateNormal];
@@ -1911,6 +1911,18 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Activity is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+       else if ([_activityTypeBtn.titleLabel.text isEqualToString:@"Select"]||[_activityTypeBtn.titleLabel.text isEqualToString:@""])
+       {
+           UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Follow Up Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+           [alert show];
+       }
+       else if ([_empbtnlbl.titleLabel.text isEqualToString:@"Select"]||[_empbtnlbl.titleLabel.text isEqualToString:@""])
+       {
+           UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Employee is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+           [alert show];
+       }
+       
+
         else
         {
             _updatebtnlbl.enabled=NO;
@@ -1930,6 +1942,18 @@ else
                                                cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+        else if ([_activityTypeBtn.titleLabel.text isEqualToString:@"Select"]||[_activityTypeBtn.titleLabel.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Follow Up Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else if ([_empbtnlbl.titleLabel.text isEqualToString:@"Select"]||[_empbtnlbl.titleLabel.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Employee is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+       
+
         else{
             
      _updatebtnlbl.enabled=NO;

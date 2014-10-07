@@ -62,10 +62,12 @@
     }
     else{
         if (optionidentifier==1) {
+            _updatebtn.enabled=NO;
             [self TypeofLeadInsert];
         }
         else
         {
+             _updatebtn.enabled=NO;
             [self TypeofLeadUpdate];
         }
     }
@@ -74,6 +76,7 @@
 
 - (IBAction)addclsebtn:(id)sender
 {
+     _updatebtn.enabled=YES;
     _addview.hidden=YES;
     _leadtypetable.userInteractionEnabled=YES;
 }
@@ -81,6 +84,7 @@
 - (IBAction)addbtn:(id)sender
 {
     optionidentifier=1;
+     _updatebtn.enabled=YES;
     _leadtypetable.userInteractionEnabled=NO;
     _navitem.title=@"Create";
     _addview.hidden=NO;
@@ -90,6 +94,7 @@
 -(IBAction)Editleadtype:(id)sender
 {
     optionidentifier=2;
+     _updatebtn.enabled=YES;
     _addview.hidden=NO;
     _navitem.title=@"Edit";
     _leadtypetable.userInteractionEnabled=NO;
@@ -345,6 +350,7 @@
 }
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
+    
     NSLog(@"DONE. Received Bytes: %d", [_webData length]);
 	NSString *theXML = [[NSString alloc] initWithBytes: [_webData mutableBytes] length:[_webData length] encoding:NSUTF8StringEncoding];
 	NSLog(@"xml===== %@",theXML);
@@ -526,8 +532,10 @@
         if (optionidentifier==2) {
             _addview.hidden=YES;
             _leadtypetable.userInteractionEnabled=YES;
+             _updatebtn.enabled=YES;
         }
         _leadtxtfld.text=@"";
+         _updatebtn.enabled=YES;
     }
 }
 #pragma mark-tableview datasource

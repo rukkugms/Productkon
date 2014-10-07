@@ -5,13 +5,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StatusViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="STViewController">
             <connections>
                 <outlet property="addview" destination="UoJ-H4-cgJ" id="AHC-SH-loG"/>
                 <outlet property="navitem" destination="uFT-xH-cew" id="E33-6y-wxq"/>
                 <outlet property="statustable" destination="HBB-kz-oOa" id="8xN-HV-KhF"/>
                 <outlet property="statustxtfld" destination="oKi-7u-EkM" id="YLx-cR-LMl"/>
                 <outlet property="titleview" destination="1lx-51-zKX" id="dzN-QI-gXV"/>
+                <outlet property="updatebtn" destination="iou-Hl-kmc" id="35b-hX-UKo"/>
                 <outlet property="view" destination="8CH-Dr-0L4" id="iW3-fV-an3"/>
             </connections>
         </placeholder>

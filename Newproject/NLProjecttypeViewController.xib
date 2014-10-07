@@ -11,6 +11,7 @@
                 <outlet property="prjcttypetxtfld" destination="X8l-iI-m6a" id="bda-bK-NIp"/>
                 <outlet property="titleview" destination="Unc-zj-zxw" id="1bi-xu-QmL"/>
                 <outlet property="typetable" destination="16q-sK-geu" id="YVo-6a-Zg6"/>
+                <outlet property="updatebtn" destination="iir-v0-drP" id="gML-Wu-8dp"/>
                 <outlet property="view" destination="pLh-cD-ndH" id="CVW-1E-N6Q"/>
             </connections>
         </placeholder>

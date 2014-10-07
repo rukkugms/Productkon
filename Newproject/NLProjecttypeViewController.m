@@ -474,7 +474,7 @@
     _typetable.userInteractionEnabled=NO;
     _addview.hidden=NO;
     optnidfr=2;
-
+_updatebtn.enabled=YES;
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.typetable];
@@ -487,12 +487,14 @@
     }
 
 - (IBAction)addclsebtn:(id)sender {
+    _updatebtn.enabled=YES;
        _typetable.userInteractionEnabled=YES;
     
     _addview.hidden=YES;
 }
 
 - (IBAction)addbtn:(id)sender {
+    _updatebtn.enabled=YES;
        _typetable.userInteractionEnabled=NO;
     _addview.hidden=NO;
     optnidfr=1;
@@ -530,9 +532,11 @@
     }
     else{
     if (optnidfr==1) {
+        _updatebtn.enabled=NO;
          [self ProjectTypeInsert];
     }
     else{
+        _updatebtn.enabled=NO;
           [self ProjectTypeUpdate];
     }
         
@@ -544,8 +548,13 @@
 }
 #pragma mark-Alertview
 -(void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    
+{   if(optnidfr==2)
+    {
+     _prjcttypetxtfld.text=@"";
+        _updatebtn.enabled=YES;
+        _addview.hidden=YES;
+    }
+    _updatebtn.enabled=YES;
     _prjcttypetxtfld.text=@"";
 }
 @end

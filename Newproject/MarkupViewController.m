@@ -135,11 +135,11 @@
         _stpercentlabel=(UILabel*)[cell viewWithTag:2];
         _stpercentlabel.text=markmdl.STPer;
         _stdollerlabel=(UILabel*)[cell viewWithTag:3];
-        _stdollerlabel.text=markmdl.STDoll;
+        _stdollerlabel.text=[NSString stringWithFormat:@"$%@",markmdl.STDoll];
         _otpercentlabel=(UILabel*)[cell viewWithTag:4];
         _otpercentlabel.text=markmdl.OTPer;
         _otdollerlabel=(UILabel*)[cell viewWithTag:5];
-        _otdollerlabel.text=markmdl.OTDoll;
+        _otdollerlabel.text=[NSString stringWithFormat:@"$%@",markmdl.OTDoll];
        
 
     }
@@ -149,17 +149,17 @@
         _mainheaderlabel=(UILabel*)[cell viewWithTag:1];
         _mainheaderlabel.text=mainmark.MainHeader;
         _variablepercentlabel=(UILabel*)[cell viewWithTag:2];
-        _variablepercentlabel.text=mainmark.STPer;
+        _variablepercentlabel.text=mainmark.VariablePercent;
         _fixeddollerlabel=(UILabel*)[cell viewWithTag:3];
-        _fixeddollerlabel.text=mainmark.STDoll;
+        _fixeddollerlabel.text=[NSString stringWithFormat:@"$%@",mainmark.FixedDollar];
         _STPERlabel=(UILabel*)[cell viewWithTag:4];
-        _STPERlabel.text=mainmark.OTPer;
+        _STPERlabel.text=mainmark.STPer;
         _STDOLLlabel=(UILabel*)[cell viewWithTag:5];
-        _STDOLLlabel.text=mainmark.OTDoll;
+        _STDOLLlabel.text=[NSString stringWithFormat:@"$%@",mainmark.STDoll];
         _OTPERlabel=(UILabel*)[cell viewWithTag:6];
         _OTPERlabel.text=mainmark.OTPer;
         _STDOLLlabel=(UILabel*)[cell viewWithTag:7];
-        _STDOLLlabel.text=mainmark.OTDoll;
+        _STDOLLlabel.text=[NSString stringWithFormat:@"$%@",mainmark.OTDoll];
         carbutton=[UIButton buttonWithType:UIButtonTypeCustom];
         [carbutton setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
         carbutton.tag=indexPath.row;

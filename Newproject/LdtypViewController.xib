@@ -12,6 +12,7 @@
                 <outlet property="leadtypetable" destination="ceh-l0-bqD" id="4aB-i7-VfV"/>
                 <outlet property="navitem" destination="O5S-mc-yDu" id="JzC-zN-goE"/>
                 <outlet property="titleview" destination="Wnq-EH-o6C" id="szz-Jk-woO"/>
+                <outlet property="updatebtn" destination="k9b-dm-pD9" id="JHR-ks-oOA"/>
                 <outlet property="view" destination="kOj-f5-LZg" id="Qrl-OT-bLQ"/>
             </connections>
         </placeholder>

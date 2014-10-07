@@ -43,6 +43,7 @@
 - (IBAction)deletebtn:(id)sender;
 -(IBAction)Editleadstatus:(id)sender;
 @property(strong,nonatomic)NSString *result;
+@property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 
 
 @end
