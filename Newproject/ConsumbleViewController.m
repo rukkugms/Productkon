@@ -883,7 +883,7 @@ finishedSavingWithError:(NSError *)error
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
-    if([elementName isEqualToString:@"SelectAllConsumablesResult"])
+    if([elementName isEqualToString:@"SelectAllConsumablesResponse"])
     {
         _cnsumblearray=[[NSMutableArray alloc]init];
         if(!_soapResults)
@@ -986,7 +986,7 @@ finishedSavingWithError:(NSError *)error
         recordResults = TRUE;
     }
     
-    if([elementName isEqualToString:@"SelectAllSubtypeConsumablesResult"])
+    if([elementName isEqualToString:@"SelectAllSubtypeConsumablesResponse"])
     {
         _subtypearray=[[NSMutableArray alloc]init];
         if(!_soapResults)
@@ -1005,7 +1005,7 @@ finishedSavingWithError:(NSError *)error
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"UpdateConsumablesResult"])
+    if([elementName isEqualToString:@"UpdateConsumablesResponse"])
     {
         
         if(!_soapResults)
@@ -1014,7 +1014,7 @@ finishedSavingWithError:(NSError *)error
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"InsertConsumablesResult"])
+    if([elementName isEqualToString:@"InsertConsumablesResponse"])
     {
         
         if(!_soapResults)
@@ -1043,7 +1043,7 @@ finishedSavingWithError:(NSError *)error
         recordResults = TRUE;
     }
 
-    if([elementName isEqualToString:@"AllSkillsResult"])
+    if([elementName isEqualToString:@"AllSkillsResponse"])
     {
         _skilldict=[[NSMutableDictionary alloc]init];
         _subtypearray=[[NSMutableArray alloc]init];

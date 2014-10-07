@@ -1148,29 +1148,29 @@
     _pswdtextfld.text=usrmdl.pwd;
     _titlenamelabel.hidden=NO;
     _type2btnlbl.enabled=NO;
-   if([usrmdl.UserTypeId isEqualToString:@"1"])
+   if([usrmdl.UserTypeId isEqualToString:@"2"])
    {
         NSLog(@"%@",usrmdl.empname);
       // _type2btnlbl.titleLabel.text=usrmdl.empname;
 //_type1btnlbl.titleLabel.text=@"Employee            ";
        [_type2btnlbl setTitle:usrmdl.empname forState:UIControlStateDisabled];
-       [_type1btnlbl setTitle:@"Employee            " forState:UIControlStateNormal];
+       [_type1btnlbl setTitle:@"Employee" forState:UIControlStateNormal];
        _titlenamelabel.text=_type1btnlbl.titleLabel.text;
    }
-   else if ([usrmdl.UserTypeId isEqualToString:@"2"])
+   else if ([usrmdl.UserTypeId isEqualToString:@"3"])
    {
        // _type2btnlbl.titleLabel.text=usrmdl.customername;
        //_type1btnlbl.titleLabel.text=@"Customer            ";
        [_type2btnlbl setTitle:usrmdl.customername forState:UIControlStateDisabled];
-        [_type1btnlbl setTitle:@"Customer            " forState:UIControlStateNormal];
+        [_type1btnlbl setTitle:@"Customer" forState:UIControlStateNormal];
         _titlenamelabel.text=_type1btnlbl.titleLabel.text;
    }
-   else if ([usrmdl.UserTypeId isEqualToString:@"3"])
+   else if ([usrmdl.UserTypeId isEqualToString:@"4"])
    {
        
        //_type2btnlbl.titleLabel.text=usrmdl.v;
        //_type1btnlbl.titleLabel.text=@"Customer            ";
-       [_type1btnlbl setTitle:@"Vendor              " forState:UIControlStateNormal];
+       [_type1btnlbl setTitle:@"Vendor" forState:UIControlStateNormal];
         [_type2btnlbl setTitle:@"Select" forState:UIControlStateDisabled];
         _titlenamelabel.text=_type1btnlbl.titleLabel.text;
    }
@@ -1180,12 +1180,12 @@
         [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
          _titlenamelabel.text=@"";
     }
-   else if([usrmdl.UserTypeId isEqualToString:@"4"])
-   {
-       [_type1btnlbl setTitle:@"Select" forState:UIControlStateNormal];
-       [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
-       _titlenamelabel.text=@"";
-   }
+//   else if([usrmdl.UserTypeId isEqualToString:@"4"])
+//   {
+//       [_type1btnlbl setTitle:@"Select" forState:UIControlStateNormal];
+//       [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
+//       _titlenamelabel.text=@"";
+//   }
 
 
 }

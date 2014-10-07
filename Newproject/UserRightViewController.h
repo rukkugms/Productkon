@@ -12,6 +12,7 @@
 
 @interface UserRightViewController : UIViewController{
      BOOL recordResults;
+    int j;
     NSString*userid;
     NSInteger popover;
     NSString* mainid;
@@ -31,7 +32,7 @@
     NSString*subbtnstrg,*masterbtnstrg,*subsubbtnstrg;
     
     NSInteger webtype,optnidntfr;
-    NSInteger activate;
+    NSInteger activate,msgcount;
   
 }
 
@@ -137,5 +138,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *editprintbtnlbl;
 
 @property (strong, nonatomic) IBOutlet UIButton *editupdatebtnlbl;
+
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *actvtybtn;
 
 @end

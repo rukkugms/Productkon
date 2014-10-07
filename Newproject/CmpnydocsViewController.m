@@ -403,6 +403,13 @@ return cell;
     
     NSString*usernameid = [defaults objectForKey:@"UserNameId"];
 
+  NSString*newstrg=  [_cmmnttxtview.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+    
+    
+    
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -421,7 +428,7 @@ return cell;
                    "<CommentDate>%@</CommentDate>\n"
                    "</FileCommentsInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[newfieldid integerValue],_cmmnttxtview.text,[usernameid integerValue],today];
+                   "</soap:Envelope>\n",[newfieldid integerValue],newstrg,[usernameid integerValue],today];
     NSLog(@"soapmsg%@",soapMessage);
     
     
