@@ -41,6 +41,7 @@
 - (IBAction)updatebtn:(id)sender;
 
 - (IBAction)clsebtn:(id)sender;
+@property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 
 
 @end

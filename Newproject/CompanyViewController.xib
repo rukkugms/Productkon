@@ -247,7 +247,7 @@
                             </connections>
                         </button>
                         <webView contentMode="top" scalesPageToFit="YES" id="Dv6-Jl-OEs">
-                            <rect key="frame" x="438" y="732" width="265" height="144"/>
+                            <rect key="frame" x="438" y="713" width="265" height="144"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <outlet property="delegate" destination="-1" id="IYn-bJ-w3f"/>

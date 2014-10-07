@@ -684,9 +684,15 @@
         
         recordResults = FALSE;
         NSString *fullURL =[NSString stringWithFormat:@"http://test.kontract360.com/Files/Docs/BasicInfo/%@",_soapResults]  ;
-        NSURL *url = [NSURL URLWithString:fullURL];
-        NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-        [_logoweb loadRequest:requestObj];
+       // NSURL *url = [NSURL URLWithString:fullURL];
+        //NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+        //[_logoweb loadRequest:requestObj];
+        
+        
+       NSString *htmlString = @"<html><body><img src='%@' width='965%' height='518%'></body></html>";
+        NSString *imageHTML  = [[NSString alloc] initWithFormat:htmlString, fullURL];
+        _logoweb.scalesPageToFit = YES;
+        [_logoweb loadHTMLString:imageHTML baseURL:nil];
         [_activitybtn stopAnimating];
 
         

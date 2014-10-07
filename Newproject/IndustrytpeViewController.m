@@ -56,10 +56,12 @@
     }
     else{
         if (optionidentifier==1) {
+            _updatebtn.enabled=NO;
             [self IndustryTypeInsert];
         }
         else
         {
+            _updatebtn.enabled=NO;
             [self IndustrytypeUpdate];
         }
     }
@@ -73,6 +75,7 @@
 - (IBAction)addbtn:(id)sender
 {
     optionidentifier=1;
+    _updatebtn.enabled=YES;
     _industrytypetable.userInteractionEnabled=NO;
     _navitem.title=@"Create";
     _addview.hidden=NO;
@@ -81,6 +84,7 @@
 -(IBAction)Editindustrytype:(id)sender
 {
     optionidentifier=2;
+    _updatebtn.enabled=YES;
      _addview.hidden=NO;
     _navitem.title=@"Edit";
     _industrytypetable.userInteractionEnabled=NO;
@@ -519,10 +523,12 @@
     if([alertView.message isEqualToString:_result])
     {
         if (optionidentifier==2) {
+            _updatebtn.enabled=YES;
             _addview.hidden=YES;
             _industrytypetable.userInteractionEnabled=YES;
         }
         _industrytextfld.text=@"";
+        _updatebtn.enabled=YES;
     }
 }
 #pragma mark-tableview datasource

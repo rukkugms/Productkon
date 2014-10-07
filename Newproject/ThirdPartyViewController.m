@@ -920,7 +920,7 @@ finishedSavingWithError:(NSError *)error
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"SelectAllThirdPartyResult"])
+    if([elementName isEqualToString:@"SelectAllThirdPartyResponse"])
     {
         _thirdprtyarray=[[NSMutableArray alloc]init];
         if(!_soapResults)

@@ -62,10 +62,12 @@
     }
     else{
         if (optionidentifier==1) {
+            _updatebtn.enabled=NO;
             [self LeadstatusInsert];
         }
         else
         {
+            _updatebtn.enabled=NO;
             [self LeadStatusUpdate];
         }
     }
@@ -75,12 +77,14 @@
 - (IBAction)addclsebtn:(id)sender
 {
     _addview.hidden=YES;
+    _updatebtn.enabled=YES;
     _statustable.userInteractionEnabled=YES;
 }
 
 - (IBAction)addbtn:(id)sender
 {
     optionidentifier=1;
+    _updatebtn.enabled=YES;
     _statustable.userInteractionEnabled=NO;
     _navitem.title=@"Create";
     _addview.hidden=NO;
@@ -90,6 +94,7 @@
 -(IBAction)Editleadstatus:(id)sender
 {
     optionidentifier=2;
+    _updatebtn.enabled=YES;
     _addview.hidden=NO;
     _navitem.title=@"Edit";
     _statustable.userInteractionEnabled=NO;
@@ -526,8 +531,10 @@
         if (optionidentifier==2) {
             _addview.hidden=YES;
             _statustable.userInteractionEnabled=YES;
+            _updatebtn.enabled=YES;
         }
         _statustxtfld.text=@"";
+        _updatebtn.enabled=YES;
     }
 }
 #pragma mark-tableview datasource
