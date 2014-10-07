@@ -1873,6 +1873,7 @@ viewcheck=0;
                 _Alleditbtnlbl.enabled=NO;
                 _Allprintbtnlbl.enabled=NO;
                 _Allviewbtnlbl.enabled=NO;
+                _activatebtnlbl.enabled=NO;
                 
 //                UIView *dimView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 768, 768)];
 //                dimView.backgroundColor = [UIColor clearColor];
@@ -1894,6 +1895,7 @@ viewcheck=0;
                     _Alleditbtnlbl.enabled=YES;
                     _Allprintbtnlbl.enabled=YES;
                     _Allviewbtnlbl.enabled=YES;
+                      _activatebtnlbl.enabled=YES;
 
                     
                     
