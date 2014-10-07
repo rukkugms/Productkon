@@ -310,6 +310,9 @@
 
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (tableView==_salesRepTable) {
+        
+    
     //alternating cell back ground color
     if (indexPath.row%2 == 0) {
         [cell setBackgroundColor:[UIColor whiteColor]];
@@ -320,6 +323,7 @@
         
         //[cell setBackgroundColor:[UIColor colorWithRed:247.0/255.0f green:247.0/255.0f blue:247.0/255.0f alpha:1.0f]];
         [cell setBackgroundColor:[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f]];
+    }
     }
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{

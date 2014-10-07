@@ -272,9 +272,22 @@
     
     if (editingStyle==UITableViewCellEditingStyleDelete) {
          path=indexPath.row;
+        Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+        
+        
+        if (rightsmodel.DeleteModule==0) {
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
+        }
+        else
+        {
+
         
         [self DeleteManpower];
         [_Allmanpwrarry removeObject:indexPath];
+        }
         
         
         
@@ -1887,18 +1900,7 @@
 }
 -(void)deleteaction
 {
-    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
-    
-    if (rightsmodel.DeleteModule==0) {
-        
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-        
-    }
-    else
-    {
-        
         if (self.editing) {
             [super setEditing:NO animated:NO];
             [_manpowerTable setEditing:NO animated:NO];
@@ -1916,7 +1918,7 @@
             
             
             
-        }
+        
     }
 
 }
