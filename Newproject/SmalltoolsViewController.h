@@ -26,6 +26,7 @@
     NSString *msgstrg;
     NSString*skill;
     NSString*smallcode,*picturelocation;
+     NSInteger imagechecker;
 
       
 }
