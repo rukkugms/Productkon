@@ -1769,7 +1769,7 @@
                    "<inhouse>%d</inhouse>\n"
                    "</UpdateRequirements>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",rmdl.eid,_itemnametextfield.text,_codetextfield.text,[_ratetextfield.text floatValue],exp,[typid integerValue],def,[craftid integerValue],allcraft,[_hourstextfield.text doubleValue],house];
+                   "</soap:Envelope>\n",rmdl.eid,_itemnametextfield.text,_codetextfield.text,[_ratetextfield.text doubleValue],exp,[typid integerValue],def,[craftid integerValue],allcraft,[_hourstextfield.text doubleValue],house];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -2572,7 +2572,7 @@
         recordresults=FALSE;
         
         
-        _basicmdl.code=_soapResults;
+        _basicmdl.code=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];;
         _soapResults = nil;
         
         

@@ -179,6 +179,10 @@
     
 }
 -(void)AddressmasterInsert{
+    NSString*newstrg=  [_adrsstxtview.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
       recordResults = FALSE;
     NSString *soapMessage;
     
@@ -196,7 +200,7 @@
                    "<AddAddress>%@</AddAddress>\n"
                    "</AddressmasterInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_headrtxtfld.text,_adrsstxtview.text];
+                   "</soap:Envelope>\n",_headrtxtfld.text,newstrg];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -230,7 +234,10 @@
 -(void)AddressMasterUpdate{
     recordResults = FALSE;
     NSString *soapMessage;
-    
+    NSString*newstrg=  [_adrsstxtview.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
     Mdladdress*ad1=(Mdladdress*)[_addesslistarray objectAtIndex:path];
     soapMessage = [NSString stringWithFormat:
                    
@@ -247,7 +254,7 @@
                    "<AddAddress>%@</AddAddress>\n"
                    "</AddressMasterUpdate>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[ad1.entryid integerValue],ad1.code,_headrtxtfld.text,_adrsstxtview.text];
+                   "</soap:Envelope>\n",[ad1.entryid integerValue],ad1.code,_headrtxtfld.text,newstrg];
     NSLog(@"soapmsg%@",soapMessage);
     
     

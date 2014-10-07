@@ -378,6 +378,10 @@ else
 }
 -(void)BranchInsert
 {  webtype=1;
+    NSString*newstrg=  [_addresstextview.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -398,7 +402,7 @@ else
                    "<Email>%@</Email>\n"
                    "</BranchInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_branchnametextfld.text,_addresstextview.text,_phonetextfield.text,_faxtextfield.text,_emailtextfield.text];
+                   "</soap:Envelope>\n",_branchnametextfld.text,newstrg,_phonetextfield.text,_faxtextfield.text,_emailtextfield.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -435,6 +439,10 @@ else
 {
     webtype=1;
     recordResults = FALSE;
+    NSString*newstrg=  [_addresstextview.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
     Cbranch*bmdl=(Cbranch *)[_brancharray objectAtIndex:btnindex];
     NSString *soapMessage;
     
@@ -456,7 +464,7 @@ else
                    "<Email>%@</Email>\n"
                    "</BranchUpdate>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",bmdl.branchid,_branchnametextfld.text,_addresstextview.text,_phonetextfield.text,_faxtextfield.text,_emailtextfield.text];
+                   "</soap:Envelope>\n",bmdl.branchid,_branchnametextfld.text,newstrg,_phonetextfield.text,_faxtextfield.text,_emailtextfield.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     

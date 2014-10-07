@@ -162,10 +162,10 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     }
     //cell.textLabel.text=@"Leads";
       if (tableView==_popOverTableView) {
-             Craftreqmtmdl*submdl=(Craftreqmtmdl *)[_folloarray objectAtIndex:indexPath.row];
+          
           if (poptype==1) {
               
-          
+           Craftreqmtmdl*submdl=(Craftreqmtmdl *)[_folloarray objectAtIndex:indexPath.row];
          
           cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
           cell.textLabel.font = [UIFont systemFontOfSize:12.0];
@@ -216,7 +216,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         _datetext.text=myFormattedDate;
         
         _employee=(UILabel*)[cell viewWithTag:3];
-        _employee.text=info.employer;
+        _employee.text=info.ename;
         
         _detailslbl=(UILabel*)[cell viewWithTag:4];
         _detailslbl.text=info.description;
@@ -437,7 +437,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
             NSArray*keys=[_empdict allKeys];
               NSString*name=[NSString stringWithFormat:@"%@-%@",[values objectAtIndex:indexPath.row],[keys objectAtIndex:indexPath.row]];
               [_empbtnlbl setTitle:name forState:UIControlStateNormal];
-        
+          [self.popOverController dismissPopoverAnimated:YES];
 
         }
         
@@ -594,6 +594,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     butnidtfr=1;
     [_dateBtn setTitle:@"Select" forState:UIControlStateNormal];
     [_activityTypeBtn setTitle:@"Select" forState:UIControlStateNormal];
+    [_empbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
     
      self.activityNav.title = @"Create";
     _employerTxtfld.text=@"";
@@ -709,6 +710,8 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     _activityTxtFld.userInteractionEnabled=NO;
     _employerTxtfld.userInteractionEnabled=NO;
     [_activityTypeBtn setTitle:info1.communicationtype forState:UIControlStateNormal];
+    NSLog(@"%@",info1.employer);
+     [_empbtnlbl setTitle:[NSString stringWithFormat:@"%@-%@",info1.employer,info1.ename] forState:UIControlStateNormal];
 
 }
 -(IBAction)cancelaction:(id)sender
@@ -914,6 +917,8 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     NSString* sqldate=[dateFormat1 stringFromDate:dateString];
 
     NSArray*newarray=[_empbtnlbl.titleLabel.text componentsSeparatedByString:@"-"];
+    NSString *idvalue=[_empdict objectForKey:[newarray objectAtIndex:1]];
+    NSLog(@"%@",idvalue);
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -923,16 +928,16 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    "<LeadId>%d</LeadId>\n"
                    "<Date>%@</Date>\n"
                    "<Activity>%@</Activity>\n"
-                   "<Employer>%@</Employer>\n"
+                   "<Employer>%d</Employer>\n"
                    "<Description>%@</Description>\n"
                    "<Status>%@</Status>\n"
                    "<activityid>%d</activityid>\n"
                    "<CommunicationType>%@</CommunicationType>"
                    "</SaveActivity>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_leadid,sqldate,_activityTxtFld.text,[newarray objectAtIndex:0],_descptionTextview.text,_statusTxtFld.text,activityId,_activityTypeBtn.titleLabel.text];
+                   "</soap:Envelope>\n",_leadid,sqldate,_activityTxtFld.text,[idvalue integerValue],_descptionTextview.text,_statusTxtFld.text,activityId,[_followdict objectForKey:_activityTypeBtn.titleLabel.text]];
     NSLog(@"soapmsg%@",soapMessage);
-    
+
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
      NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
@@ -980,7 +985,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     [dateFormat1 setDateFormat:@"yyyy-MM-dd"];
     NSString* sqldate=[dateFormat1 stringFromDate:dateString];
       NSArray*newarray=[_empbtnlbl.titleLabel.text componentsSeparatedByString:@"-"];
-
+ NSString *idvalue=[_empdict objectForKey:[newarray objectAtIndex:1]];
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -991,13 +996,13 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    "<LeadId>%d</LeadId>\n"
                    "<Date>%@</Date>\n"
                    "<Activity>%@</Activity>\n"
-                   "<Employer>%@</Employer>\n"
+                   "<Employer>%d</Employer>\n"
                    "<Description>%@</Description>\n"
                    "<Status>%@</Status>\n"
                    "<CommunicationType>%@</CommunicationType>\n"
                    "</UpdateLeadActivity>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",info2.activityId,_leadid,sqldate,_activityTxtFld.text,[newarray objectAtIndex:0],_descptionTextview.text,_statusTxtFld.text,_activityTypeBtn.titleLabel.text];
+                   "</soap:Envelope>\n",info2.activityId,_leadid,sqldate,_activityTxtFld.text,[idvalue integerValue],_descptionTextview.text,_statusTxtFld.text,[_followdict objectForKey:_activityTypeBtn.titleLabel.text]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1094,6 +1099,10 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     [dateFormat setDateFormat:@"MM/dd/ yyyy"];
     NSString*date1=[dateFormat stringFromDate:curntdate];
     NSString*today=[NSString stringWithFormat:@"%@ %@",date1,time];
+    NSString*newstrg=  [_cmttxtbox.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
       
     NSInteger userid=100;
     activityInfo*info=(activityInfo*)[_activityArray objectAtIndex:btnindex];
@@ -1111,7 +1120,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                       "<CommentDate>%@</CommentDate>\n"
                    "</SaveActivityComment>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",info.activityId,_cmttxtbox.text,userid,today];
+                   "</soap:Envelope>\n",info.activityId,newstrg,userid,today];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1300,6 +1309,8 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     if([elementName isEqualToString:@"FollowuptypeSelectResponse"])
     {
         _folloarray=[[NSMutableArray alloc]init];
+        _followdict=[[NSMutableDictionary alloc]init];
+        _reversefollwdict=[[NSMutableDictionary alloc]init];
         
         if(!_soapResults)
         {
@@ -1388,6 +1399,17 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"name"])
+    {
+        
+       
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+
+            }
     if([elementName isEqualToString:@"Description"])
     {
         if(!_soapResults)
@@ -1412,6 +1434,15 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"followname"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
     if ([elementName isEqualToString:@"SaveActivityResult"])
     {
@@ -1635,7 +1666,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         
         
         _followmdl.BRreqid=_soapResults;
-        
+        _followstring=_soapResults;
         _soapResults = nil;
         
     }
@@ -1645,6 +1676,8 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         recordResults=FALSE;
         
         _followmdl.Brdescriptn=_soapResults;
+        [_followdict setObject:_followstring forKey:_soapResults];
+         [_reversefollwdict setObject:_soapResults forKey:_followstring];
         
         [_folloarray addObject:_followmdl];
         
@@ -1692,7 +1725,14 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     {
         
         recordResults = FALSE;
-        _act.employer=[_revempdict objectForKey:_soapResults];
+        _act.employer=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"name"])
+    {
+        
+        recordResults = FALSE;
+        _act.ename=_soapResults;
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"Description"])
@@ -1710,6 +1750,12 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"CommunicationType"])
+    {     recordResults = FALSE;
+         _soapResults = nil;
+        
+    }
+
+    if([elementName isEqualToString:@"followname"])
     {
         
         recordResults = FALSE;
@@ -1813,8 +1859,8 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     if([elementName isEqualToString:@"vl_name"])
     {
         recordResults = FALSE;
-        [_empdict setObject:empid forKey:[NSString stringWithFormat:@"%@%@",empname,_soapResults]];
-        [_revempdict setObject:[NSString stringWithFormat:@"%@%@",empname,_soapResults] forKey:empid];
+        [_empdict setObject:empid forKey:[NSString stringWithFormat:@"%@ %@",empname,_soapResults]];
+        [_revempdict setObject:[NSString stringWithFormat:@"%@ %@",empname,_soapResults] forKey:empid];
         _soapResults = nil;
     }
 

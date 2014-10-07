@@ -1606,6 +1606,10 @@ else
     recordResults = FALSE;
     NSString *soapMessage;
     NSInteger userid=100;
+    NSString*newstrg=  [_cmttxtbox.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
     Infoleads*info=(Infoleads*)[_leadinfoArray objectAtIndex:btnindex];
     soapMessage = [NSString stringWithFormat:
                    
@@ -1622,7 +1626,7 @@ else
                    "<CommentDate>%@</CommentDate>\n"
                    "</SaveLeadComment>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",info.leadid,_cmttxtbox.text,userid,today];
+                   "</soap:Envelope>\n",info.leadid,newstrg,userid,today];
     NSLog(@"soapmsg%@",soapMessage);
     
     
