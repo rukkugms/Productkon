@@ -63,7 +63,7 @@
     if ([UIImagePickerController isSourceTypeAvailable:
          UIImagePickerControllerSourceTypeCamera])
     {
-        
+           imagechecker=2;
         
         UIImagePickerController *imagePicker =
         [[UIImagePickerController alloc] init];
@@ -93,6 +93,8 @@
     [super viewWillAppear:animated];
     [self FleetSubTypeSelect];
     _activitybtn.hidden=YES;
+    _addview.userInteractionEnabled=YES;
+    imagechecker=1;
 
     //[self SelectAllfleet];
 }
@@ -1456,15 +1458,7 @@
          _soapResults = nil;
         
     }
-    if([elementName isEqualToString:@"qtyinstock"])
-    {
-        recordResults = FALSE;
-        _Fleetmdl.stockinhand=_soapResults;
-        //[_fleetarray addObject:_Fleetmdl];
-        _soapResults = nil;
-        
-    }
-    if([elementName isEqualToString:@"FLAllCrafts"])
+        if([elementName isEqualToString:@"FLAllCrafts"])
     {
         recordResults = FALSE;
         _Fleetmdl.EqAllSubTypes=_soapResults;
@@ -1483,9 +1477,24 @@
         }
         if ([_soapResults isEqualToString:@"Inserted Successfully"]) {
             
-            [self Insertanyimage];
-            webtype=0;
             msgstrg=_soapResults;
+            if(imagechecker==1){
+                
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                _activitybtn.hidden=YES;
+                [_activitybtn stopAnimating];
+                 _addview.userInteractionEnabled=YES;
+                [self SelectAllfleet];
+
+            }
+            else{
+                  [self Insertanyimage];
+            }
+                
+          
+            webtype=0;
+            
             
         }
         if ([_soapResults isEqualToString:@"Already Exists"]) {
@@ -1495,13 +1504,29 @@
             [alert show];
             _activitybtn.hidden=YES;
             [_activitybtn stopAnimating];
+             _addview.userInteractionEnabled=YES;
         }
 
         if ([_soapResults isEqualToString:@"Updated Successfully"]) {
+              msgstrg=_soapResults;
             
-            [self UploadAnyImage];
-            webtype=0;
-            msgstrg=_soapResults;
+            if(imagechecker==1){
+                
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                _activitybtn.hidden=YES;
+                [_activitybtn stopAnimating];
+                 _addview.userInteractionEnabled=YES;
+                [self SelectAllfleet];
+                
+            }
+            else{
+                [self UploadAnyImage];
+
+            }
+
+                webtype=0;
+          
             
         }
 
@@ -1510,6 +1535,7 @@
             [alert show];
                     _activitybtn.hidden=YES;
                     [_activitybtn stopAnimating];
+                     _addview.userInteractionEnabled=YES;
             [self SelectAllfleet];
         }
        
@@ -1659,7 +1685,7 @@ if([elementName isEqualToString:@"url"])
     NSIndexPath *textFieldIndexPath = [self.fleetTable indexPathForRowAtPoint:rootViewPoint];
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
     path=textFieldIndexPath.row;
- Equpmntmdl*eqmdl=(Equpmntmdl *)[_fleetarray objectAtIndex:textFieldIndexPath.row];
+     Equpmntmdl*eqmdl=(Equpmntmdl *)[_fleetarray objectAtIndex:textFieldIndexPath.row];
     _codetxtfld.text=eqmdl.itemcode;
     _destxtfld.text=eqmdl.itemdescptn;
     _subtypetxtfld.text=eqmdl.subtype;
@@ -1696,8 +1722,15 @@ if([elementName isEqualToString:@"url"])
         
         
     }
+    if(eqmdl.PictureLocation.length==0){
+        imagechecker=1;
+    }
+    else{
+        imagechecker=2;
+      [self FetchAnyImage];
+    }
 
-    [self FetchAnyImage];
+
     _addview.hidden=NO;
     _navitem.title=@"Edit";
     
@@ -1752,6 +1785,7 @@ if([elementName isEqualToString:@"url"])
     else{
         _activitybtn.hidden=NO;
         [_activitybtn startAnimating];
+         _addview.userInteractionEnabled=NO;
 
     if (btntype==1) {
         _updatebtn.enabled=NO;
@@ -1783,7 +1817,7 @@ if([elementName isEqualToString:@"url"])
     _monthlytxtfld.text=@"";
     _yearlytxtfld.text=@"";
     _stockinhandtxtfld.text=@"";
-    _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+    _picimageview.image=[UIImage imageNamed:@"mNoImage"];
     [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
 
 
@@ -1990,7 +2024,7 @@ if([elementName isEqualToString:@"url"])
         _monthlytxtfld.text=@"";
         _yearlytxtfld.text=@"";
         _stockinhandtxtfld.text=@"";
-        _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+        _picimageview.image=[UIImage imageNamed:@"mNoImage"];
         [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
         _searchbar.text=@"";
 
