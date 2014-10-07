@@ -31,6 +31,8 @@ NSInteger popvr;
     NSString *fleetcode;
     NSString *createstring;
     NSInteger createcheck;
+    NSInteger imagechecker;
+
     
 }
 @property(strong,nonatomic)NSMutableDictionary *skilldict;

@@ -58,7 +58,8 @@
     [super viewWillAppear:animated];
     [self AllSkills];
     _activitybtn.hidden=YES;
-
+    imagechecker=1;
+    _addmatView.userInteractionEnabled=YES;
     //[self SelectAllMaterials];
 }
 
@@ -778,6 +779,7 @@
 }
     
 -(void)FetchAnyImage{
+   
         recordResults = FALSE;
         NSString *soapMessage;
     _activitybtn.hidden=NO;
@@ -1470,18 +1472,53 @@
         }
         
         if ([_soapResults isEqualToString:@"Inserted Successfully"]) {
-            
-            [self Insertanyimage];
-            webtype=0;
             msgstrg=_soapResults;
-            
+            if(imagechecker==1){
+                
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                _activitybtn.hidden=YES;
+                [_activitybtn stopAnimating];
+                 _addmatView.userInteractionEnabled=YES;
+                [self SelectAllMaterials];
+
+                
+                
+            }
+            else{
+                [self Insertanyimage];
+                
+            }
+           
+            webtype=0;
+
         }
         
         if ([_soapResults isEqualToString:@"Updated Successfully"]) {
+              msgstrg=_soapResults;
             
-            [self UploadAnyImage];
-            webtype=0;
-            msgstrg=_soapResults;
+            if(imagechecker==1){
+               
+                
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                _activitybtn.hidden=YES;
+                [_activitybtn stopAnimating];
+                 _addmatView.userInteractionEnabled=YES;
+                [self SelectAllMaterials];
+                
+               
+                
+            }
+            else{
+                [self UploadAnyImage];
+
+           
+                
+            }
+
+             webtype=0;
+           
             
         }
         if ([_soapResults isEqualToString:@"Material Picture Updated"]){
@@ -1490,6 +1527,7 @@
             [alert show];
             _activitybtn.hidden=YES;
             [_activitybtn stopAnimating];
+             _addmatView.userInteractionEnabled=YES;
             [self SelectAllMaterials];
         }
        else if ([_soapResults isEqualToString:@"Already Exists"])
@@ -1499,6 +1537,7 @@
             [alert show];
             _activitybtn.hidden=YES;
             [_activitybtn stopAnimating];
+             _addmatView.userInteractionEnabled=YES;
         }
 
         
@@ -1649,6 +1688,7 @@
         {
             _activitybtn.hidden=NO;
             [_activitybtn startAnimating];
+            _addmatView.userInteractionEnabled=NO;
              _updatebtn.enabled=NO;
         [self InserteMaterials];
             [self UnitOfMeasureInsert];
@@ -1690,7 +1730,7 @@ else
     _subtyptxtfld.text=@"";
     _unitcosttxtfld.text=@"";
     _stockinhandtxtfld.text=@"";
-    _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+    _picimageview.image=[UIImage imageNamed:@"mNoImage"];
     [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
 
 }
@@ -1801,7 +1841,14 @@ else
         
     }
 
-    [self FetchAnyImage];
+    if(pwrmdl.picturelocation.length==0){
+         imagechecker=1;
+    }
+    else{
+         imagechecker=2;
+         [self FetchAnyImage];
+    }
+   
 
 
     _addmatView.hidden=NO;
@@ -1875,7 +1922,7 @@ else
         _subtyptxtfld.text=@"";
         _unitcosttxtfld.text=@"";
         _stockinhandtxtfld.text=@"";
-        _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+        _picimageview.image=[UIImage imageNamed:@"mNoImage"];
         [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
         _searchbar.text=@"";
         
@@ -1946,7 +1993,7 @@ else
     if ([UIImagePickerController isSourceTypeAvailable:
          UIImagePickerControllerSourceTypeCamera])
     {
-        
+        imagechecker=2;
         
         UIImagePickerController *imagePicker =
         [[UIImagePickerController alloc] init];

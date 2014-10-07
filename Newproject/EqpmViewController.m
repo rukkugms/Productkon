@@ -884,6 +884,7 @@ finishedSavingWithError:(NSError *)error
     NSString *soapMessage;
     _activitybtn.hidden=NO;
     [_activitybtn startAnimating];
+    _addequipmentview.userInteractionEnabled=NO;
    // NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxfld.text];
     NSString *type=@"Equipments";
    //NSString*filename=@"818191.jpg";
@@ -1564,22 +1565,46 @@ finishedSavingWithError:(NSError *)error
         
         if ([_soapResults isEqualToString:@"Inserted Successfully"]) {
             
-//            if (imagechecker==1) {
-//                
-//            }
-//            else if (imagechecker==2){
-//                 [self Insertanyimage];
-//            }
-             [self Insertanyimage];
+            if (imagechecker==1) {
+                 mesgstrg=_soapResults;
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:mesgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                _activitybtn.hidden=YES;
+                
+                [_activitybtn stopAnimating];
+                _addequipmentview.userInteractionEnabled=YES;
+                [self SelectAllEquipment];
+
+            }
+            else if (imagechecker==2){
+                  mesgstrg=_soapResults;
+                 [self Insertanyimage];
+            }
+            // [self Insertanyimage];
             webtype=0;
-            mesgstrg=_soapResults;
+           
 
                    }
         if ([_soapResults isEqualToString:@"Updated Successfully"]) {
-            
-            [self UploadAnyImage];
-            webtype=0;
             mesgstrg=_soapResults;
+
+           // [self UploadAnyImage];
+            if (imagechecker==1) {
+                
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:mesgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                _activitybtn.hidden=YES;
+                
+                [_activitybtn stopAnimating];
+                _addequipmentview.userInteractionEnabled=YES;
+                [self SelectAllEquipment];
+                
+            }
+            else if (imagechecker==2){
+               [self UploadAnyImage];
+            }
+
+            webtype=0;
             
         }
         if ([_soapResults isEqualToString:@"Already In Use"]) {
@@ -1624,6 +1649,7 @@ finishedSavingWithError:(NSError *)error
         //[NSData dataWithData:UIImagePNGRepresentation(image.image)];
         _activitybtn.hidden=YES;
         [_activitybtn stopAnimating];
+         _addequipmentview.userInteractionEnabled=YES;
         
         _picimageview.image=image1;
         NSLog(@"img%@",image1);
@@ -1811,8 +1837,15 @@ finishedSavingWithError:(NSError *)error
         
     }
 
-    
-    [self FetchAnyImage];
+    if(eqmdl.PictureLocation.length==0){
+         imagechecker=1;
+        
+    }
+    else{
+        imagechecker=2;
+          [self FetchAnyImage];
+    }
+  
 
 _addequipmentview.hidden=NO;
     _navItem.title=@"Edit";
@@ -1905,7 +1938,7 @@ _addequipmentview.hidden=NO;
     _monthlytxtfld.text=@"";
     _yearlytxtfld.text=@"";
     _stockinhndtxtfld.text=@"";
-      _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+      _picimageview.image=[UIImage imageNamed:@"mNoImage"];
 [_subsearchlbl setTitle:@"Select" forState:UIControlStateNormal];
 }
 

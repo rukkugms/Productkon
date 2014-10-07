@@ -29,7 +29,7 @@
     NSInteger poptype;
     NSInteger createcheck;
     NSString *createstring;
-    
+      NSInteger imagechecker;
 }
 @property(strong,nonatomic)RSTViewController *rstctrlr;
 @property(strong,nonatomic)NSMutableDictionary *skilldict;

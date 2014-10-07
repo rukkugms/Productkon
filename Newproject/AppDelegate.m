@@ -46,12 +46,12 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    self.navgcntrl=[[UINavigationController alloc]initWithRootViewController:_viewController];
-    self.window.rootViewController = self.navgcntrl;
-    [self.window makeKeyAndVisible];
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    // Override point for customization after application launch.
+//    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+//    self.navgcntrl=[[UINavigationController alloc]initWithRootViewController:_viewController];
+//    self.window.rootViewController = self.navgcntrl;
+//    [self.window makeKeyAndVisible];
    
 }
 

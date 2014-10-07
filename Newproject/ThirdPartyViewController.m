@@ -1838,7 +1838,7 @@ finishedSavingWithError:(NSError *)error
     _typetxtfld.text=@"";
     _unitcsttxtfld.text=@"";
     _stckinhandtxtdfld.text=@"";
-    _pictureimgvw.image=[UIImage imageNamed:@"ios7-camera-icon"];
+    _pictureimgvw.image=[UIImage imageNamed:@"mNoImage"];
     [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
     [_typesearchlbl setTitle:@"Select" forState:UIControlStateNormal];
 
@@ -2184,7 +2184,7 @@ finishedSavingWithError:(NSError *)error
          _monthlytxtfld.text=@"";
          _yearlytxtfld.text=@"";
          _stckinhandtxtdfld.text=@"";
-         _pictureimgvw.image=[UIImage imageNamed:@"ios7-camera-icon"];
+         _pictureimgvw.image=[UIImage imageNamed:@"mNoImage"];
          [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
          _searchbar.text=@"";
 
