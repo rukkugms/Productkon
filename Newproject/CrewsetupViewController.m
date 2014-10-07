@@ -567,6 +567,7 @@
 
 - (void)stopDragging:(UIPanGestureRecognizer *)gestureRecognizer
 {
+    _existstring=@"";
     if(draggedCell != nil && draggedData != nil)
     {
         
@@ -586,6 +587,20 @@
 
               //  [_crewmembersarray insertObject:draggedData atIndex:indexPath.row];
                 [_crewnametable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+                Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+
+                if (rightsmodel.EditModule==0) {
+                    
+                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to drag this item" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [alert show];
+                }
+                else
+                {
+                    
+                    
+                    [self crewinsert];
+                }
+
             }
             else
             {
@@ -624,6 +639,18 @@
             //[pathFromDstTable release];
             pathFromDstTable = nil;
         }
+        if ([_existstring isEqualToString:@"This Man Power is  Already Exists"]) {
+            
+            [draggedCell removeFromSuperview];
+            //[draggedCell release];
+            draggedCell = nil;
+            
+            //[draggedData release];
+            draggedData = nil;
+        }
+        
+        else
+        {
         
         [UIView animateWithDuration:0.3 animations:^
          {
@@ -638,6 +665,7 @@
         
         //[draggedData release];
         draggedData = nil;
+        }
     }
 }
 
@@ -1540,6 +1568,7 @@
             
         }
        else if ([_soapResults isEqualToString:@"This Man Power is  Already Exists"]) {
+           _existstring=@"This Man Power is  Already Exists";
            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
            [alert show];
            [self Selectcrewname];
