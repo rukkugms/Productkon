@@ -62,7 +62,7 @@
     if ([UIImagePickerController isSourceTypeAvailable:
          UIImagePickerControllerSourceTypeCamera])
     {
-        
+        imagechecker=2;
         
         UIImagePickerController *imagePicker =
         [[UIImagePickerController alloc] init];
@@ -179,6 +179,7 @@ finishedSavingWithError:(NSError *)error
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     _activitybtn.hidden=YES;
+    imagechecker=1;
     [self AllSkills];
 
     //[self SelectAllOther];
@@ -861,7 +862,7 @@ finishedSavingWithError:(NSError *)error
     
     recordResults = FALSE;
     _activitybtn.hidden=NO;
-
+    _addview.userInteractionEnabled=NO;
     [_activitybtn startAnimating];
    
     NSString *soapMessage;
@@ -1543,10 +1544,23 @@ recordResults = FALSE;
         NSLog(@"%@",_soapResults);
       
         if ([_soapResults isEqualToString:@"Inserted Successfully"]) {
-            
-            [self InsertAnyImage];
-            webtype=0;
             msgstrg=_soapResults;
+            if(imagechecker==1){
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                [_activitybtn stopAnimating];
+                _addview.userInteractionEnabled=YES;
+                _activitybtn.hidden=YES;
+                
+                [self SelectAllOther];
+
+            }
+            else{
+                  [self InsertAnyImage];
+            }
+          
+            webtype=0;
+            
             
         }
         if ([_soapResults isEqualToString:@"Already In Use"]) {
@@ -1555,10 +1569,26 @@ recordResults = FALSE;
             [alert show];
         }
         if ([_soapResults isEqualToString:@"Updated Successfully"]) {
-            
-            [self UploadAnyImage];
-            webtype=0;
             msgstrg=_soapResults;
+            if(imagechecker==1){
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                [_activitybtn stopAnimating];
+                _addview.userInteractionEnabled=YES;
+                _activitybtn.hidden=YES;
+                
+                [self SelectAllOther];
+                
+            }
+            else{
+                [self UploadAnyImage];
+            }
+            
+            webtype=0;
+
+          
+         
+            
             
         }
         if ([_soapResults isEqualToString:@"Already Exists"]) {
@@ -1568,6 +1598,7 @@ recordResults = FALSE;
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             [_activitybtn stopAnimating];
+             _addview.userInteractionEnabled=YES;
             _activitybtn.hidden=YES;
           
             
@@ -1579,6 +1610,7 @@ recordResults = FALSE;
             [alert show];
             [_activitybtn stopAnimating];
             _activitybtn.hidden=YES;
+             _addview.userInteractionEnabled=YES;
 
             [self SelectAllOther];
         }
@@ -1590,6 +1622,7 @@ recordResults = FALSE;
         recordResults = FALSE;
 
         [_activitybtn stopAnimating];
+         _addview.userInteractionEnabled=YES;
         _activitybtn.hidden=YES;
 
             NSData *data1=[_soapResults base64DecodedData];
@@ -1678,6 +1711,7 @@ recordResults = FALSE;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 - (IBAction)addbtn:(id)sender{
+    imagechecker=1;
     _codetxtfld.text=@"";
     _destxtfld.text=@"";
     _subtypetxtfld.text=@"";
@@ -1720,6 +1754,7 @@ recordResults = FALSE;
 - (IBAction)editbtn:(id)sender
 
 {
+    imagechecker=2;
      _updatebtn.enabled=YES;
     btntype=2;
     _AssetTable.userInteractionEnabled=NO;
@@ -1754,8 +1789,7 @@ recordResults = FALSE;
     _cancelbtn.enabled=NO;
     _cancelbtn.titleLabel.textColor=[UIColor grayColor];
       [_pictureimgview setImage:[UIImage imageNamed:@"mNoImage"]];
-    [self FetchAnyImage];
-    _addview.hidden=NO;
+      _addview.hidden=NO;
     _navItem.title=@"Edit";
     if ([eqmdl.EqAllSubTypes isEqualToString:@"true"]) {
         
@@ -1767,6 +1801,14 @@ recordResults = FALSE;
         checksub=0;
     }
 
+    if(eqmdl.PictureLocation.length==0){
+        imagechecker=1;
+    }
+    else{
+        imagechecker=2;
+        [self FetchAnyImage];
+
+    }
 }
 
 
@@ -1814,6 +1856,7 @@ recordResults = FALSE;
     else{
         _activitybtn.hidden=NO;
         [_activitybtn startAnimating];
+         _addview.userInteractionEnabled=YES;
         
 
 

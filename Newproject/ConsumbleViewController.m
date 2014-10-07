@@ -61,7 +61,7 @@
     if ([UIImagePickerController isSourceTypeAvailable:
          UIImagePickerControllerSourceTypeCamera])
     {
-        
+        imagechecker=2;
         
         UIImagePickerController *imagePicker =
         [[UIImagePickerController alloc] init];
@@ -168,7 +168,9 @@ finishedSavingWithError:(NSError *)error
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
         _activitybtn.hidden=YES;
+    _addView.userInteractionEnabled=YES;
     _updatebtn.enabled=YES;
+    imagechecker=1;
     [self AllSkills];
 
    // [self SelectAllConsumables];
@@ -616,6 +618,7 @@ finishedSavingWithError:(NSError *)error
     NSString *soapMessage;
     _activitybtn.hidden=NO;
     [_activitybtn startAnimating];
+    _addView.userInteractionEnabled=NO;
     //NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxtfld.text];
     NSString *type=@"Consumable";
     
@@ -1209,17 +1212,42 @@ finishedSavingWithError:(NSError *)error
         }
         
         if ([_soapResults isEqualToString:@"Inserted Successfully"]) {
-            
-            [self Insertanyimage];
-            webtype=0;
             msgstrg=_soapResults;
+
+            if(imagechecker==1){
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                _activitybtn.hidden=YES;
+                [_activitybtn stopAnimating];
+                _addView.userInteractionEnabled=YES;
+                
+                [self SelectAllConsumables];
+            }else{
+                 [self Insertanyimage];
+            }
+           
+            webtype=0;
             
         }
         if ([_soapResults isEqualToString:@"Updated Successfully"]) {
-            
-            [self UploadAnyImage];
-            webtype=0;
             msgstrg=_soapResults;
+            
+            if(imagechecker==1){
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                _activitybtn.hidden=YES;
+                [_activitybtn stopAnimating];
+                _addView.userInteractionEnabled=YES;
+                
+                [self SelectAllConsumables];
+            }else{
+               [self UploadAnyImage];
+            }
+            
+            webtype=0;
+            
+
+           
             
         }
         
@@ -1230,6 +1258,7 @@ finishedSavingWithError:(NSError *)error
             [alert show];
             _activitybtn.hidden=YES;
             [_activitybtn stopAnimating];
+                _addView.userInteractionEnabled=YES;
             
         }
         
@@ -1242,7 +1271,7 @@ finishedSavingWithError:(NSError *)error
             [alert show];
             _activitybtn.hidden=YES;
             [_activitybtn stopAnimating];
-            
+                _addView.userInteractionEnabled=YES;
             [self SelectAllConsumables];
         }
 
@@ -1277,6 +1306,7 @@ finishedSavingWithError:(NSError *)error
         
         _activitybtn.hidden=YES;
         [_activitybtn stopAnimating];
+            _addView.userInteractionEnabled=YES;
         NSData *data1=[_soapResults base64DecodedData];
         
         UIImage *image1=  [[UIImage alloc]initWithData:data1];
@@ -1583,6 +1613,7 @@ finishedSavingWithError:(NSError *)error
 }
 -(IBAction)addconsume:(id)sender
 {
+    imagechecker=1;
     _updatebtn.enabled=YES;
 
     _addView.hidden=NO;
@@ -1602,6 +1633,7 @@ finishedSavingWithError:(NSError *)error
     
 }
 -(IBAction)editconsume:(id)sender{
+    imagechecker=1;
     _updatebtn.enabled=YES;
      butntype=2;
       _consumbleTable.userInteractionEnabled=NO;
@@ -1627,7 +1659,7 @@ finishedSavingWithError:(NSError *)error
     _stckinhandtxtfld.text=toolmdl.stckinhand;
     _addView.hidden=NO;
     _navItem.title=@"Edit";
-     [self FetchAnyImage];
+   
     if ([toolmdl.allsubtype isEqualToString:@"true"]) {
         
         [_checksubtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
@@ -1648,6 +1680,16 @@ finishedSavingWithError:(NSError *)error
         saftycheck=0;
     }
     
+     if(toolmdl.picturelocation.length==0){
+         
+         imagechecker=1;
+     }
+     else{
+         imagechecker=2;
+           [self FetchAnyImage];
+         
+         
+     }
 
 }
 
