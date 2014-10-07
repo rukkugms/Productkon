@@ -949,7 +949,7 @@
     if ([elementName isEqualToString:@"Extension"]) {
         
         recordResults=FALSE;
-        _rmodel.Extension=_soapResults;
+        _rmodel.Extension=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         _soapResults=nil;
     }
     if ([elementName isEqualToString:@"Mobile"]) {

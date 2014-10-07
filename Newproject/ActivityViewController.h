@@ -135,6 +135,9 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *updatebtnlbl;
 @property (strong, nonatomic) IBOutlet UIButton *empbtnlbl;
+@property(strong,nonatomic)NSMutableDictionary *followdict;
+@property(strong,nonatomic)NSMutableDictionary *reversefollwdict;
+@property(strong,nonatomic)NSString *followstring;
 - (IBAction)empbtn:(id)sender;
 
 

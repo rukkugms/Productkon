@@ -12,6 +12,7 @@
 @property(readwrite)NSInteger activityId;
 @property(strong,nonatomic)NSString *LeadId;
 @property(strong,nonatomic)NSString *activity;
+@property(strong,nonatomic)NSString *ename;
 @property(strong,nonatomic)NSString *employer;
 @property(strong,nonatomic)NSString *status;
 @property(strong,nonatomic)NSString *description;
