@@ -12,6 +12,7 @@
                 <outlet property="Allprintbtnlbl" destination="8iU-Cu-lBb" id="kY7-dV-qlo"/>
                 <outlet property="Allviewbtnlbl" destination="QYA-Am-HPh" id="bL7-4k-W64"/>
                 <outlet property="activatebtnlbl" destination="5qZ-7b-a9B" id="qRs-ys-EPS"/>
+                <outlet property="actvtybtn" destination="KiX-cJ-ieX" id="oka-TK-YsF"/>
                 <outlet property="editdeletebtnlbl" destination="fnN-sa-G3I" id="ecN-oT-zuB"/>
                 <outlet property="editeditbtnlbl" destination="8pX-Aj-xEj" id="LGp-PN-QcZ"/>
                 <outlet property="editnamelbl" destination="7Xc-HL-z5T" id="cg2-fd-czD"/>
@@ -387,6 +388,11 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="KiX-cJ-ieX">
+                    <rect key="frame" x="419" y="315" width="37" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

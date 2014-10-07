@@ -43,6 +43,8 @@
     [super viewWillAppear:animated];
 viewcheck=0;
     _editupdatebtnlbl.enabled=YES;
+    _actvtybtn.hidden=YES;
+    [_actvtybtn stopAnimating];
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,6 +77,7 @@ viewcheck=0;
     //resize the popover view shown
     //in the current view to the view's size
     popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 200);
+    popoverContent.preferredContentSize=CGSizeMake(200, 200);
     
     //create a popover controller
     
@@ -752,10 +755,12 @@ viewcheck=0;
     recordResults = FALSE;
     NSString *soapMessage;
     
-    
+    j=0;
+     msgcount=[_usertablearray count];
     for (int i=0; i<[_usertablearray count]; i++) {
         
-    
+       
+      _usertable.userInteractionEnabled=NO;
     UserRightsmdl*usrmdl=(UserRightsmdl *)[_usertablearray objectAtIndex:i];
         if (Allviewclckd==1) {
             if (checkviewstrg==1) {
@@ -1085,16 +1090,40 @@ viewcheck=0;
          // [cell.contentView addSubview:_newbtn];
         //  _viewbtnlbl=(UIButton *)[cell viewWithTag:3];
           
-//          if ([usrmdl.viewonly isEqualToString:@"true"]) {
-//              _editbtnlbl.enabled=NO;
-//              _deletebtnlbl.enabled=NO;
-//              _printbtnlbl.enabled=NO;
-//          }
-//          else{
-//              _editbtnlbl.enabled=YES;
-//              _deletebtnlbl.enabled=YES;
-//              _printbtnlbl.enabled=YES;
-//          }
+          if ([usrmdl.viewonly isEqualToString:@"true"]) {
+              _viewbtnlbl.enabled=YES;
+              _editbtnlbl.enabled=NO;
+              _deletebtnlbl.enabled=NO;
+              _printbtnlbl.enabled=NO;
+              [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+              [_editbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+              [_deletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+              [_printbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+              if (Allviewclckd==1) {
+                  
+                  
+                  if (checkviewstrg==1) {
+                      [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+                      //              for (int i=0; i<[_usertablearray count]; i++) {
+                      //
+                      //              }
+                      
+                  }
+                  else{
+                      [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+                  }
+                  
+
+              
+          }
+          }
+          else{
+              
+              _viewbtnlbl.enabled=YES;
+              _editbtnlbl.enabled=YES;
+              _deletebtnlbl.enabled=YES;
+              _printbtnlbl.enabled=YES;
+          
           
           if ([usrmdl.viewrights isEqualToString:@"1"]) {
               // [_newbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
@@ -1126,7 +1155,8 @@ viewcheck=0;
           else{
               [_printbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
           }
-
+              
+          
           
           
           if (Allviewclckd==1) {
@@ -1137,6 +1167,7 @@ viewcheck=0;
 //              for (int i=0; i<[_usertablearray count]; i++) {
 //                  
 //              }
+              
           }
           else{
                [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
@@ -1189,8 +1220,10 @@ viewcheck=0;
               
               
           }
-
+          
+          }
       }
+              
     
     return cell;
     
@@ -1240,7 +1273,7 @@ viewcheck=0;
                [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
                [_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
                [_Allprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-              [self UserRightsselect];
+            
               
           }
         
@@ -1546,15 +1579,25 @@ viewcheck=0;
         recordResults = TRUE;
     }
 
-    if([elementName isEqualToString:@"result"])
+    if([elementName isEqualToString:@"UserrightssaveResponse"])
     {
-       
+        j++;
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"UserRightsforparticularmodule2selectResponse"])
     {
         _usertablearray=[[NSMutableArray alloc]init];
@@ -1575,6 +1618,7 @@ viewcheck=0;
     }
     if([elementName isEqualToString:@"UseractivateselectResponse"])
     {
+          [self UserRightsselect];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -1808,12 +1852,76 @@ viewcheck=0;
         
         
         else  if ([_soapResults isEqualToString:@"Updated Successfully"]) {
+            
+            
             if (optnidntfr==1) {
                 
             
           UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
            [alert show];
             [self UserRightsselect];
+            }
+            else{
+                
+                _actvtybtn.hidden=NO;
+                [_actvtybtn startAnimating];
+                _userbtn.enabled=NO;
+                _masterbtn.enabled=NO;
+                _subbtnlbl.enabled=NO;
+                _subsubbtnlbl.enabled=NO;
+                _Alldeletebtnlbl.enabled=NO;
+                _Alleditbtnlbl.enabled=NO;
+                _Allprintbtnlbl.enabled=NO;
+                _Allviewbtnlbl.enabled=NO;
+                
+//                UIView *dimView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 768, 768)];
+//                dimView.backgroundColor = [UIColor clearColor];
+//                dimView.alpha = 0.5f;
+//                dimView.tag = 1111;
+//                dimView.userInteractionEnabled = NO;
+//                [self.view addSubview:dimView];
+                
+                if(j==msgcount){
+                    _usertable.userInteractionEnabled=YES;
+                    j=0;
+                    _actvtybtn.hidden=YES;
+                    [_actvtybtn stopAnimating];
+                    _userbtn.enabled=YES;
+                    _masterbtn.enabled=YES;
+                    _subbtnlbl.enabled=YES;
+                    _subsubbtnlbl.enabled=YES;
+                    _Alldeletebtnlbl.enabled=YES;
+                    _Alleditbtnlbl.enabled=YES;
+                    _Allprintbtnlbl.enabled=YES;
+                    _Allviewbtnlbl.enabled=YES;
+
+                    
+                    
+//                    for (UIView *view in [self.view subviews]) {
+//                        if (view.tag == 1111) {
+//                            [dimView removeFromSuperview];
+//                        }
+//                    }
+                   
+                    
+//                    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+//                    CGRect maskRect = CGRectMake(0, 0, 50, 100);
+//                    
+//                    // Create a path with the rectangle in it.
+//                    CGPathRef path1 = CGPathCreateWithRect(maskRect, NULL);
+//                    
+//                    // Set the path to the mask layer.
+//                    maskLayer.path = path1;
+//                    
+//                    // Release the path since it's not covered by ARC.
+//                    CGPathRelease(path1);
+//                    
+//                    // Set the mask of the view.
+//                self.view.layer.mask = maskLayer;
+                      [self UserRightsselect];
+                    
+                }
+
             }
            
             
@@ -2210,6 +2318,27 @@ viewcheck=0;
     UserRightsmdl*usrmdl=(UserRightsmdl *)[_usertablearray objectAtIndex:textFieldIndexPath.row];
     btnindex=textFieldIndexPath.row;
     _editnamelbl.text=usrmdl.modulename;
+    
+    if ([usrmdl.viewonly isEqualToString:@"true"]){
+        
+        _editviewbtnlbl.enabled=YES;
+        _editeditbtnlbl.enabled=NO;
+        _editdeletebtnlbl.enabled=NO;
+        _editprintbtnlbl.enabled=NO;
+          [_editviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+         [_editeditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+          [_editdeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_editprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        
+        }
+    else{
+        _editviewbtnlbl.enabled=YES;
+        _editeditbtnlbl.enabled=YES;
+        _editdeletebtnlbl.enabled=YES;
+        _editprintbtnlbl.enabled=YES;
+    
+        
+    
     if ([usrmdl.viewrights isEqualToString:@"1"])
         
         
@@ -2267,7 +2396,9 @@ viewcheck=0;
         [_editprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         printcheck=1;
     }
-
+    }
+    
+    
     }
 
 - (IBAction)editclsebtn:(id)sender {
@@ -2285,6 +2416,9 @@ viewcheck=0;
             
             _editview.hidden=YES;
             _editupdatebtnlbl.enabled=YES;
+            [_masterbtn setTitle:@"Select" forState:UIControlStateNormal];
+            [_subbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+            [_subsubbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
            
         }
     }
