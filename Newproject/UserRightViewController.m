@@ -1095,10 +1095,23 @@ viewcheck=0;
               _editbtnlbl.enabled=NO;
               _deletebtnlbl.enabled=NO;
               _printbtnlbl.enabled=NO;
-              [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+             
               [_editbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
               [_deletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
               [_printbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+              if ([usrmdl.viewrights isEqualToString:@"1"]) {
+                  // [_newbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+                  
+                  [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+                  viewcheck=1;
+                  
+              }
+              else{
+                  // [_newbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+                  [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+                  viewcheck=0;
+              }
+
               if (Allviewclckd==1) {
                   
                   

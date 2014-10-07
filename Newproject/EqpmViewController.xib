@@ -455,8 +455,9 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="zXL-Vy-8Fx">
-                                            <rect key="frame" x="130" y="550" width="37" height="37"/>
+                                            <rect key="frame" x="314" y="249" width="37" height="37"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </activityIndicatorView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.78902264030000002" green="0.78902264030000002" blue="0.78902264030000002" alpha="1" colorSpace="calibratedRGB"/>
