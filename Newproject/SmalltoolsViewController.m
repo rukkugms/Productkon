@@ -60,7 +60,7 @@
     if ([UIImagePickerController isSourceTypeAvailable:
          UIImagePickerControllerSourceTypeCamera])
     {
-        
+         imagechecker=2;
         
         UIImagePickerController *imagePicker =
         [[UIImagePickerController alloc] init];
@@ -83,6 +83,8 @@
     [super viewWillAppear:animated];
      [self AllSkills];
     _activitybtn.hidden=YES;
+      _addview.userInteractionEnabled=YES;
+    imagechecker=1;
    // [self SelectAllSmallTools];
 }
 
@@ -518,6 +520,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     NSString *soapMessage;
     _activitybtn.hidden=NO;
     [_activitybtn startAnimating];
+     _addview.userInteractionEnabled=NO;
     //NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxtfld.text];
     NSString *type=@"SmallTools";
     
@@ -1030,17 +1033,40 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
         recordResults = FALSE;
         
         if ([_soapResults isEqualToString:@"Inserted Successfully"]) {
-            
-            [self Insertanyimage];
+             msgstrg=_soapResults;
+            if(imagechecker==1){
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                _activitybtn.hidden=YES;
+                [_activitybtn stopAnimating];
+                _addview.userInteractionEnabled=YES;
+                [self SelectAllSmallTools];
+            }
+            else{
+                 [self Insertanyimage];
+            }
+           
             webtype=0;
-            msgstrg=_soapResults;
+           
             
         }
         if ([_soapResults isEqualToString:@"Updated Successfully"]) {
+             msgstrg=_soapResults;
+            if(imagechecker==1){
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                _activitybtn.hidden=YES;
+                [_activitybtn stopAnimating];
+                _addview.userInteractionEnabled=YES;
+                [self SelectAllSmallTools];
+            }
+            else{
+              [self UploadAnyImage];
+            }
+
             
-            [self UploadAnyImage];
             webtype=0;
-            msgstrg=_soapResults;
+           
             
         }
         if ([_soapResults isEqualToString:@"Already Exists"]) {
@@ -1050,6 +1076,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
             [alert show];
             _activitybtn.hidden=YES;
             [_activitybtn stopAnimating];
+            _addview.userInteractionEnabled=YES;
             
         }
         if ([_soapResults isEqualToString:@"Already In Use"]) {
@@ -1063,6 +1090,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
             [alert show];
             _activitybtn.hidden=YES;
             [_activitybtn stopAnimating];
+                  _addview.userInteractionEnabled=YES;
             [self SelectAllSmallTools];
         }
         
@@ -1098,6 +1126,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
         
         _activitybtn.hidden=YES;
         [_activitybtn stopAnimating];
+        _addview.userInteractionEnabled=YES;
         NSData *data1=[_soapResults base64DecodedData];
         
         UIImage *image1=  [[UIImage alloc]initWithData:data1];
@@ -1256,6 +1285,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
 
 
 - (IBAction)addtoolbtn:(id)sender {
+    imagechecker=1;
     _updatebtn.enabled=YES;
      butntype=1;
     _codetxtfld.text=@"";
@@ -1364,6 +1394,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
   {
       _activitybtn.hidden=NO;
       [_activitybtn startAnimating];
+      _addview.userInteractionEnabled=NO;
       _updatebtn.enabled=NO;
         [self InsertSmallTools];
      }
@@ -1422,6 +1453,7 @@ else
 }
 
 - (IBAction)editbtn:(id)sender {
+    imagechecker=1;
     _updatebtn.enabled=YES;
     butntype=2;
      _Tooltable.userInteractionEnabled=NO;
@@ -1444,7 +1476,7 @@ else
      [_picimageview setImage:[UIImage imageNamed:@"mNoImage"]];
     _stockinhandtxtfld.text=toolmdl.stckinhand;
    picturelocation=toolmdl.picturelocation;
-    [self FetchAnyImage];
+  
     _addview.hidden=NO;
     _navtitle.title=@"Edit";
     
@@ -1457,7 +1489,14 @@ else
         [_checksubbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         checksub=0;
     }
-
+    if(toolmdl.picturelocation.length==0){
+        imagechecker=1;
+    }
+    else{
+        imagechecker=2;
+          [self FetchAnyImage];
+        
+    }
 }
 - (IBAction)subtypebtn:(id)sender {
     moduleid=36;
