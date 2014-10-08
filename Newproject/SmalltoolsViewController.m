@@ -84,7 +84,7 @@
      [self AllSkills];
     _activitybtn.hidden=YES;
       _addview.userInteractionEnabled=YES;
-    imagechecker=1;
+
    // [self SelectAllSmallTools];
 }
 

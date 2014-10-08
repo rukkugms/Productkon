@@ -170,7 +170,7 @@ finishedSavingWithError:(NSError *)error
         _activitybtn.hidden=YES;
     _addView.userInteractionEnabled=YES;
     _updatebtn.enabled=YES;
-    imagechecker=1;
+   
     [self AllSkills];
 
    // [self SelectAllConsumables];

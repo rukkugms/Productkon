@@ -58,7 +58,7 @@
     [super viewWillAppear:animated];
     [self AllSkills];
     _activitybtn.hidden=YES;
-    imagechecker=1;
+  
     _addmatView.userInteractionEnabled=YES;
     //[self SelectAllMaterials];
 }

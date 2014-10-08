@@ -69,7 +69,8 @@ _scroll_addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255
     _activitybtn.hidden=YES;
      _updatebtn.enabled=YES;
       _addequipmentview.userInteractionEnabled=YES;
-    imagechecker=1;
+  
+   
 }
 
 
@@ -77,12 +78,12 @@ _scroll_addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255
 {
    
      //handle pinch...
-     imagechecker=2;
+    
     if ([UIImagePickerController isSourceTypeAvailable:
          UIImagePickerControllerSourceTypeCamera])
     {
         
-        
+       
         _imagePicker =
         [[UIImagePickerController alloc] init];
         _imagePicker.delegate =(id) self;
@@ -131,13 +132,15 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                 // The image is already in correct orientation
                 break;
         }
-
-        _picimageview.image=nil;
+           _picimageview.image=nil;
         
         
         
         _picimageview.image =image;
-       // [self dismissViewControllerAnimated:YES completion:nil];
+        imagechecker=2;
+
+        
+              // [self dismissViewControllerAnimated:YES completion:nil];
        [self.navigationController dismissViewControllerAnimated: YES completion: nil];
         //[self.imagePicker dismissViewControllerAnimated:YES completion:nil];
        
@@ -1577,6 +1580,8 @@ finishedSavingWithError:(NSError *)error
         
         if ([_soapResults isEqualToString:@"Inserted Successfully"]) {
             
+          
+            
             if (imagechecker==1) {
                  mesgstrg=_soapResults;
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:mesgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -1599,7 +1604,7 @@ finishedSavingWithError:(NSError *)error
                    }
         if ([_soapResults isEqualToString:@"Updated Successfully"]) {
             mesgstrg=_soapResults;
-
+           
            // [self UploadAnyImage];
             if (imagechecker==1) {
                 
@@ -1908,11 +1913,12 @@ _addequipmentview.hidden=NO;
         _addequipmentview.userInteractionEnabled=NO;
     if (btntype==1) {
         _updatebtn.enabled=NO;
-        [self InsertEquipment];
+               [self InsertEquipment];
         //[self UploadAnyImage];
     }
     if (btntype==2) {
          _updatebtn.enabled=NO;
+     
         [self UpdateEquipment];
        // [self UploadAnyImage];
     }

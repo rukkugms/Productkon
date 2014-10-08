@@ -232,8 +232,7 @@ finishedSavingWithError:(NSError *)error
      _updatebtn.enabled=YES;
     [super viewWillAppear:animated];
     [self AllSkills];
-    imagechecker=1;
-    //[self SelectAllThirdParty];
+       //[self SelectAllThirdParty];
     _activitybtn.hidden=YES;
 }
 #pragma mark- WebService
