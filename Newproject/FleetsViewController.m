@@ -94,7 +94,7 @@
     [self FleetSubTypeSelect];
     _activitybtn.hidden=YES;
     _addview.userInteractionEnabled=YES;
-    imagechecker=1;
+   
 
     //[self SelectAllfleet];
 }

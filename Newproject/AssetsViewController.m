@@ -179,7 +179,7 @@ finishedSavingWithError:(NSError *)error
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     _activitybtn.hidden=YES;
-    imagechecker=1;
+
     [self AllSkills];
 
     //[self SelectAllOther];
