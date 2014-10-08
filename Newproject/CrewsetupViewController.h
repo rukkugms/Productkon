@@ -27,6 +27,7 @@
     NSInteger poptype;
      NSString * crewid;
     NSInteger crewpath;
+    NSInteger setuptype;
 
 }
 

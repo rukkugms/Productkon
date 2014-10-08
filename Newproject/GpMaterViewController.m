@@ -1128,7 +1128,10 @@
         recordResults = TRUE;
     }
     if([elementName isEqualToString:@"MatrialCrewSetupSelectResponse"])
-    {_gpnamearray=[[NSMutableArray alloc]init];
+    {if (setuptype==1) {
+        setuptype=2;
+    }
+        _gpnamearray=[[NSMutableArray alloc]init];
         _crewdict=[[NSMutableDictionary alloc]init];
         _revcrewdict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
@@ -1340,6 +1343,7 @@
         }
 
         else if ([_soapResults isEqualToString:@"This Material is Already Exists"]) {
+            _existstring=@"This Material is Already Exists";
             UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             [self MaterialCrewNameSelect];
@@ -1356,11 +1360,17 @@
                 
 //                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 //                [alert show];
-                  [_groupbtn setTitle:_crewnametxtfld.text forState:UIControlStateNormal];
+                setuptype=1;
+                [self MatrialCrewSetupSelect];
+                 _crewnametxtfld.text=@"";
+                 // [_groupbtn setTitle:_crewnametxtfld.text forState:UIControlStateNormal];
             }
+            else
+            {
 
             _crewnametxtfld.text=@"";
             [self MaterialCrewNameSelect];
+            }
         }
         else{
             UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -1462,6 +1472,16 @@
 
 
 
+}
+- (void)parserDidEndDocument:(NSXMLParser *)parser
+{
+    
+    if (setuptype==2) {
+        [_groupbtn setTitle:[_gpnamearray lastObject] forState:UIControlStateNormal];
+        [self MaterialCrewNameSelect];
+        setuptype=0;
+    }
+    
 }
 
 #pragma mark UIGestureRecognizer
@@ -1659,6 +1679,7 @@
 
 - (void)stopDragging:(UIPanGestureRecognizer *)gestureRecognizer
 {
+    _existstring=@"";
     if(draggedCell != nil && draggedData != nil)
     {
         
@@ -1678,6 +1699,19 @@
                 
                 //  [_crewmembersarray insertObject:draggedData atIndex:indexPath.row];
                 [_crewnametable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+                Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+                
+                if (rightsmodel.EditModule==0) {
+                    
+                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to drag this item" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [alert show];
+                }
+                else
+                {
+                    
+                    [self MaterialCrewInsert];
+                }
+
             }
             else
             {
@@ -1715,6 +1749,19 @@
             //[pathFromDstTable release];
             pathFromDstTable = nil;
         }
+        if ([_existstring isEqualToString:@"This Material is Already Exists"]) {
+            [draggedCell removeFromSuperview];
+            //[draggedCell release];
+            draggedCell = nil;
+            
+            //[draggedData release];
+            draggedData = nil;
+
+        }
+        else
+        {
+            
+        
         
         [UIView animateWithDuration:0.3 animations:^
          {
@@ -1729,6 +1776,7 @@
         
         //[draggedData release];
         draggedData = nil;
+        }
     }
 }
 
