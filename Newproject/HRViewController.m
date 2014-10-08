@@ -343,7 +343,7 @@
         }
 
         
-        NSString *fullURL =[NSString stringWithFormat:@"http://arvin.kontract360.com/files/docs/hr/%@",empdetls1.photo]  ;
+        NSString *fullURL =[NSString stringWithFormat:@"http://test.kontract360.com/files/docs/hr/%@",empdetls1.photo]  ;
         NSURL *url = [NSURL URLWithString:fullURL];
         NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
         [_uiwebview loadRequest:requestObj];
