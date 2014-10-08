@@ -527,6 +527,7 @@
 
 - (void)stopDragging:(UIPanGestureRecognizer *)gestureRecognizer
 {
+    _existstring=@"";
     if(draggedCell != nil && draggedData != nil)
     {
         
@@ -546,6 +547,20 @@
                 
                 //  [_crewmembersarray insertObject:draggedData atIndex:indexPath.row];
                 [_crewtable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+                Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+                
+                if (rightsmodel.EditModule==0) {
+                    
+                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to drag this item" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [alert show];
+                }
+                else
+                {
+                    
+                    
+                    [self crewinsert];
+                }
+
             }
             else
             {
@@ -584,6 +599,16 @@
             //[pathFromDstTable release];
             pathFromDstTable = nil;
         }
+        if ([_existstring isEqualToString:@"This Equipment is  Already Exists"]) {
+            [draggedCell removeFromSuperview];
+            //[draggedCell release];
+            draggedCell = nil;
+            
+            //[draggedData release];
+            draggedData = nil;
+        }
+        else
+        {
         
         [UIView animateWithDuration:0.3 animations:^
          {
@@ -598,6 +623,7 @@
         
         //[draggedData release];
         draggedData = nil;
+        }
     }
 }
 #pragma mark- WebService
@@ -1170,7 +1196,11 @@
     
     
     if([elementName isEqualToString:@"EquipmentCrewSetUpSelectResponse"])
-    {_crenamearray=[[NSMutableArray alloc]init];
+    {
+        if (setuptype==1) {
+            setuptype=2;
+        }
+        _crenamearray=[[NSMutableArray alloc]init];
         _crewdict=[[NSMutableDictionary alloc]init];
         _revcrewdict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
@@ -1490,13 +1520,20 @@
                
 //               UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 //               [alert show];
-                [_crewbtnlbl setTitle:_crewnametxtfld.text forState:UIControlStateNormal];
+               setuptype=1;
+               [self CrewSetUpSelect];
+                _crewnametxtfld.text=@"";
+               // [_crewbtnlbl setTitle:_crewnametxtfld.text forState:UIControlStateNormal];
            }
+           else
+           {
 
             _crewnametxtfld.text=@"";
             [self Selectcrewname];
+           }
         }
        else if ([_soapResults isEqualToString:@"This Equipment is  Already Exists"]) {
+           _existstring=@"This Equipment is  Already Exists";
            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
            [alert show];
            [self Selectcrewname];
@@ -1532,6 +1569,16 @@
         
     }
     
+    
+}
+- (void)parserDidEndDocument:(NSXMLParser *)parser
+{
+    
+    if (setuptype==2) {
+        [_crewbtnlbl setTitle:[_crenamearray lastObject] forState:UIControlStateNormal];
+        [self Selectcrewname];
+        setuptype=0;
+    }
     
 }
 

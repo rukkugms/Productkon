@@ -27,6 +27,8 @@
     NSString * crewid;
     NSInteger crewpath;
     NSInteger Deletepath;
+    NSInteger setuptype;
+
 }
 
 @property (strong, nonatomic)Manpwr *manpwrmdl;
@@ -86,5 +88,6 @@
 @property(strong,nonatomic)Rightscheck *rights;
 @property(strong,nonatomic)NSString *deletegpstring;
 @property(strong,nonatomic)NSString *deleteitemstring;
+@property(strong,nonatomic)NSString *existstring;
 
 @end

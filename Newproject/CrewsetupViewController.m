@@ -250,6 +250,7 @@
                 break;
             case 2:
                 cell.textLabel.text = [_crenamearray objectAtIndex:indexPath.row];
+                
                 break;
             default:
                 break;
@@ -725,6 +726,7 @@
 
 -(void)CrewSave{
     
+    
     recordResults = FALSE;
     
     
@@ -777,8 +779,7 @@
 }
 
 -(void)CrewSetUpSelect{
-    
-    recordResults = FALSE;
+       recordResults = FALSE;
     NSString *soapMessage;
     
     
@@ -1186,6 +1187,7 @@
     }
    // [_autocompleteTableView reloadData];
        [_popOverTableView reloadData];
+    
     }
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
@@ -1247,7 +1249,11 @@
 
 
     if([elementName isEqualToString:@"CrewSetUpSelectResponse"])
-    {_crenamearray=[[NSMutableArray alloc]init];
+    { if (setuptype==1) {
+        setuptype=2;
+    }
+
+        _crenamearray=[[NSMutableArray alloc]init];
         _crewdict=[[NSMutableDictionary alloc]init];
         _revcrewdict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
@@ -1428,6 +1434,7 @@
         
         _manpwrmdl.entryid=[_soapResults integerValue];
         _soapResults = nil;
+        
     }
     if([elementName isEqualToString:@"ItemCode"])
     {
@@ -1482,6 +1489,7 @@
         recordResults = FALSE;
         [_crenamearray addObject:_soapResults];
         [_crewdict setObject:crewid forKey:_soapResults];
+       
         [_revcrewdict setObject:_soapResults forKey:crewid];
         _soapResults = nil;
     }
@@ -1580,14 +1588,21 @@
        else if ([_soapResults isEqualToString:@"Inserted Crew"]||[_soapResults isEqualToString:@"Deleted All Members"]||[_soapResults isEqualToString:@"deletedcrew"]||[_soapResults isEqualToString:@"insert"]) {
           
            if ([_soapResults isEqualToString:@"Inserted Crew"]){
+              // UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+             // [alert show];
+               setuptype=1;
+               [self CrewSetUpSelect];
+               _crewnametxtfld.text=@"";
                
-//               UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//               [alert show];
-                       [_crewbtnlbl setTitle:_crewnametxtfld.text forState:UIControlStateNormal];
+
+                      // [_crewbtnlbl setTitle:_crewnametxtfld.text forState:UIControlStateNormal];
            }
+           else
+           {
             
             _crewnametxtfld.text=@"";
             [self Selectcrewname];
+           }
         }
         else{
             UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -1616,6 +1631,17 @@
   
 
 }
+- (void)parserDidEndDocument:(NSXMLParser *)parser
+{
+   
+    if (setuptype==2) {
+        [_crewbtnlbl setTitle:[_crenamearray lastObject] forState:UIControlStateNormal];
+        [self Selectcrewname];
+        setuptype=0;
+    }
+    
+}
+
 #pragma mark-buttons
 
 - (IBAction)clsebtn:(id)sender {
