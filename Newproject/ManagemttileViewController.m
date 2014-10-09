@@ -76,22 +76,34 @@
 
 }
 -(void)Resourcepage{
+    _resurceactivitybtn.hidden=NO;
+    [_resurceactivitybtn startAnimating];
+    
     _Moduleid=48;
     [self UserRightsforparticularmoduleselect];
     }
 -(void)Issuepage{
+    _iactivitybtn.hidden=NO;
+    [_iactivitybtn startAnimating];
     _Moduleid=51;
     [self UserRightsforparticularmoduleselect];
+   
    
     
 }
 -(void)Timesheetpage{
+    _timeactivitybtn.hidden=NO;
+    [_timeactivitybtn startAnimating];
+
     _Moduleid=54;
     [self UserRightsforparticularmoduleselect];
     
     
 }
 -(void)labourPage{
+    _laboractivitybtn.hidden=NO;
+    [_laboractivitybtn startAnimating];
+
     _Moduleid=52;
     [self UserRightsforparticularmoduleselect];
   
@@ -100,12 +112,16 @@
 }
 
 -(void)Sitereqpage{
+    _siteactivitybtn.hidden=NO;
+    [_siteactivitybtn startAnimating];
     _Moduleid=47;
     [self UserRightsforparticularmoduleselect];
 
     
     }
 -(void)Absentpage{
+    _absentactivitybtn.hidden=NO;
+    [_absentactivitybtn startAnimating];
     _Moduleid=53;
     [self UserRightsforparticularmoduleselect];
     
@@ -115,6 +131,25 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    _iactivitybtn.hidden=YES;
+    [_iactivitybtn stopAnimating];
+    _resurceactivitybtn.hidden=YES;
+    [_resurceactivitybtn stopAnimating];
+    _timeactivitybtn.hidden=YES;
+    [_timeactivitybtn stopAnimating];
+    _laboractivitybtn.hidden=YES;
+    [_laboractivitybtn stopAnimating];
+    _siteactivitybtn.hidden=YES;
+    [_siteactivitybtn stopAnimating];
+    _absentactivitybtn.hidden=YES;
+    [_absentactivitybtn stopAnimating];
+
+
+
 }
 
 - (IBAction)clsebtn:(id)sender {
@@ -239,12 +274,19 @@
                 _SitereqVCtrl.userrightsarray=_userrightsarray;
                 [self presentViewController:_SitereqVCtrl
                                    animated:YES completion:NULL];
+             
+                _siteactivitybtn.hidden=YES;
+                [_siteactivitybtn stopAnimating];
+                
             }
             else
             {
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
                 //You don’t have right to view this form
+                _siteactivitybtn.hidden=YES;
+                [_siteactivitybtn stopAnimating];
+
             }
             
             
@@ -261,12 +303,20 @@
                 _movemtVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
                 [self presentViewController:_movemtVCtrl
                                    animated:YES completion:NULL];
+                
+                _resurceactivitybtn.hidden=YES;
+                [_resurceactivitybtn stopAnimating];
+             
+
+
 
             }
             else
             {
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
+                _resurceactivitybtn.hidden=YES;
+                [_resurceactivitybtn stopAnimating];
             }
             
         }
@@ -282,12 +332,16 @@
                 _issueVCtrl.userrightsarray=_userrightsarray;
                 [self presentViewController:_issueVCtrl
                                    animated:YES completion:NULL];
+                _iactivitybtn.hidden=YES;
+                [_iactivitybtn stopAnimating];
 
             }
             else
             {
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
+                _iactivitybtn.hidden=YES;
+                [_iactivitybtn stopAnimating];
             }
             
         }
@@ -303,11 +357,16 @@
                 _lbrmgmtvctrl.userrightsarray=_userrightsarray;
                 [self presentViewController:_lbrmgmtvctrl
                                    animated:YES completion:NULL];
-            }
+              
+                _laboractivitybtn.hidden=YES;
+                [_laboractivitybtn stopAnimating];
+                           }
             else
             {
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
+                _laboractivitybtn.hidden=YES;
+                [_laboractivitybtn stopAnimating];
             }
             
         }
@@ -323,11 +382,19 @@
                 _absentVCtrl.userrightsarray=_userrightsarray;
                 [self presentViewController:_absentVCtrl
                                    animated:YES completion:NULL];
+                _absentactivitybtn.hidden=YES;
+                [_absentactivitybtn stopAnimating];
+               
+              
+
             }
             else
             {
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
+                _absentactivitybtn.hidden=YES;
+                [_absentactivitybtn stopAnimating];
+
             }
         }
         if (_Moduleid==54)
@@ -342,6 +409,8 @@
                 _timesheetVCtrl.userrightsarray=_userrightsarray;
                 [self presentViewController:_timesheetVCtrl
                                    animated:YES completion:NULL];
+                _timeactivitybtn.hidden=YES;
+                [_timeactivitybtn stopAnimating];
                 
                 
             }
@@ -349,6 +418,8 @@
             {
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
+                _timeactivitybtn.hidden=YES;
+                [_timeactivitybtn stopAnimating];
             }
         }
            }
