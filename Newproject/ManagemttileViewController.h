@@ -47,6 +47,16 @@
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)NSString *result;
 
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *iactivitybtn;
 
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *resurceactivitybtn;
+
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *siteactivitybtn;
+
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *laboractivitybtn;
+
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *absentactivitybtn;
+
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *timeactivitybtn;
 
 @end
