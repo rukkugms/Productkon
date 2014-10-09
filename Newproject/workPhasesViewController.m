@@ -374,9 +374,11 @@
 }
 
 - (IBAction)wrkphasebtn:(id)sender {
+    
     _result=@"";
     _moduleid=18;
     [self UserRightsforparticularmoduleselect];
+    _servicebtn.titleLabel.text=@"Select";
 //    if (!self.worktypeVCtrl) {
 //        self.worktypeVCtrl=[[WorktypeViewController alloc]initWithNibName:@"WorktypeViewController" bundle:nil];
 //    }

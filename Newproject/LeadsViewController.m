@@ -1595,14 +1595,15 @@ else
 
 -(void)Saveleadcomment{
     
-        
+  //  NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"Europe/London"];
     NSDate*curntdate=[NSDate date];
     NSLog(@"%@",curntdate);
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
     [dateFormat setDateFormat:@"HH:mm:ss a"];
     NSLog(@"curntdate%@",[dateFormat stringFromDate:curntdate]);
     NSString*time=[dateFormat stringFromDate:curntdate];
-    [dateFormat setDateFormat:@"MM/dd/ yyyy"];
+    [dateFormat setDateFormat:@"MM/dd/yyyy"];
+    //[dateFormat setTimeZone:timeZone];
     NSString*date1=[dateFormat stringFromDate:curntdate];
     NSString*today=[NSString stringWithFormat:@"%@ %@",date1,time];
     recordResults = FALSE;

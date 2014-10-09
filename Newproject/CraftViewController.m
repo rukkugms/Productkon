@@ -666,7 +666,7 @@ if([elementName isEqualToString:@"BRDescription"])
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)updatebtn:(id)sender {
-    if ([_craftbtnlbl.titleLabel.text isEqualToString:@"Select"]) {
+    if ([_craftbtnlbl.titleLabel.text isEqualToString:@"Select"]||[_craftbtnlbl.titleLabel.text isEqualToString:@""]) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Craft Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
@@ -691,6 +691,7 @@ if([elementName isEqualToString:@"BRDescription"])
     
 }
 - (IBAction)addmanpwrbtn:(id)sender {
+    _craftbtnlbl.titleLabel.text=@"";
     _manVCtrl=[[ManViewController alloc]initWithNibName:@"ManViewController" bundle:nil];
     // }
     _manVCtrl.modalPresentationStyle = UIModalPresentationFullScreen;
