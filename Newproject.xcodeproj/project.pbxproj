@@ -110,6 +110,9 @@
 		64A5ED5019C2D7D3002E0018 /* Subcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A5ED4F19C2D7D3002E0018 /* Subcell.xib */; };
 		64A654B4192F1F14004DDB84 /* GPSetupTileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A654B2192F1F14004DDB84 /* GPSetupTileViewController.m */; };
 		64A654B5192F1F14004DDB84 /* GPSetupTileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A654B3192F1F14004DDB84 /* GPSetupTileViewController.xib */; };
+		64A936AF19E63B8000C20D57 /* MstrHRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A936AD19E63B8000C20D57 /* MstrHRViewController.m */; };
+		64A936B019E63B8000C20D57 /* MstrHRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A936AE19E63B8000C20D57 /* MstrHRViewController.xib */; };
+		64A936B219E63BA400C20D57 /* MStrhrcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A936B119E63BA400C20D57 /* MStrhrcell.xib */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
 		64ACC62219A5E20E00FC3FD8 /* Rightscheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 64ACC62119A5E20E00FC3FD8 /* Rightscheck.m */; };
 		64AE02B61949AC56002D44B6 /* InOutSiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64AE02B41949AC56002D44B6 /* InOutSiteViewController.m */; };
@@ -707,6 +710,10 @@
 		64A654B1192F1F14004DDB84 /* GPSetupTileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSetupTileViewController.h; sourceTree = "<group>"; };
 		64A654B2192F1F14004DDB84 /* GPSetupTileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSetupTileViewController.m; sourceTree = "<group>"; };
 		64A654B3192F1F14004DDB84 /* GPSetupTileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPSetupTileViewController.xib; sourceTree = "<group>"; };
+		64A936AC19E63B8000C20D57 /* MstrHRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Mstr\U0010HRViewController.h"; sourceTree = "<group>"; };
+		64A936AD19E63B8000C20D57 /* MstrHRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Mstr\U0010HRViewController.m"; sourceTree = "<group>"; };
+		64A936AE19E63B8000C20D57 /* MstrHRViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Mstr\U0010HRViewController.xib"; sourceTree = "<group>"; };
+		64A936B119E63BA400C20D57 /* MStrhrcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MStrhrcell.xib; sourceTree = "<group>"; };
 		64ACC62019A5E20E00FC3FD8 /* Rightscheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rightscheck.h; sourceTree = "<group>"; };
 		64ACC62119A5E20E00FC3FD8 /* Rightscheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rightscheck.m; sourceTree = "<group>"; };
 		64AE02B31949AC56002D44B6 /* InOutSiteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InOutSiteViewController.h; sourceTree = "<group>"; };
@@ -779,7 +786,7 @@
 		D40B268E1953F86300217323 /* IssuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssuesViewController.h; sourceTree = "<group>"; };
 		D40B268F1953F86300217323 /* IssuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssuesViewController.m; sourceTree = "<group>"; };
 		D40B26901953F86300217323 /* IssuesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssuesViewController.xib; sourceTree = "<group>"; };
-		D40D1EA7176B086F00379DD5 /* Newproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Newproject.app; path = 0..app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D40D1EA7176B086F00379DD5 /* Newproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newproject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40D1EAA176B086F00379DD5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D40D1EAC176B086F00379DD5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D40D1EAE176B086F00379DD5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -2309,6 +2316,10 @@
 				D47A9B0A19402B89001CC416 /* EmpJobViewController.xib */,
 				D47A9B0D19403CA5001CC416 /* Empjobcell.xib */,
 				D47A9B0F1940405E001CC416 /* Jobdrag.xib */,
+				64A936AC19E63B8000C20D57 /* MstrHRViewController.h */,
+				64A936AD19E63B8000C20D57 /* MstrHRViewController.m */,
+				64A936AE19E63B8000C20D57 /* MstrHRViewController.xib */,
+				64A936B119E63BA400C20D57 /* MStrhrcell.xib */,
 			);
 			name = hr;
 			sourceTree = "<group>";
@@ -2383,6 +2394,7 @@
 				D40D1EBF176B086F00379DD5 /* Default@2x.png in Resources */,
 				D47A9B3619407DD3001CC416 /* consumablesicon.png in Resources */,
 				D4109A1719DC1EE2008E9949 /* 070537-glossy-black-3d-button-icon-alphanumeric-information2-ps.png in Resources */,
+				64A936B219E63BA400C20D57 /* MStrhrcell.xib in Resources */,
 				D44BEA6D18E0243500719ED5 /* AddressViewController.xib in Resources */,
 				D49DE838185EB391006F1CDA /* closebutton.png in Resources */,
 				D40D1EC1176B086F00379DD5 /* Default-568h@2x.png in Resources */,
@@ -2595,6 +2607,7 @@
 				64A41244194080D6003EE113 /* contract-mangement.png in Resources */,
 				D4AA4F8B1965535A00916138 /* AbsentViewController.xib in Resources */,
 				D4EBA8641978FD6C00B612E1 /* Trecell.xib in Resources */,
+				64A936B019E63B8000C20D57 /* MstrHRViewController.xib in Resources */,
 				D44DF4F019A5D88C00F3E9AB /* C2jN9.png in Resources */,
 				D42D8C2D18D2E126009D8085 /* customservicescell.xib in Resources */,
 				D44BEA8218E04D5100719ED5 /* cTypecell.xib in Resources */,
@@ -2902,6 +2915,7 @@
 				D44BEA7118E0252600719ED5 /* BranchViewController.m in Sources */,
 				649ED79E187FB8260086CDDE /* CompanyViewController.m in Sources */,
 				649316C119AB4629008CB7BF /* TLLeadsViewController.m in Sources */,
+				64A936AF19E63B8000C20D57 /* MstrHRViewController.m in Sources */,
 				D49F876118EEA36B00413CAD /* Scaffoldsubtypemodel.m in Sources */,
 				D4A338E518F3EEEF00E53FAC /* DetailmarkupsectionViewController.m in Sources */,
 				D49F874C18EEA36B00413CAD /* followupmodel.m in Sources */,

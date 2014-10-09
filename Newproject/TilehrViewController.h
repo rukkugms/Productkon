@@ -39,5 +39,9 @@
 @property(readwrite)NSInteger Moduleid;
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)NSString *result;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *hrindictr;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *processhrindictr;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *mgmtindictr;
+
 
 @end
