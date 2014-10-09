@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "AFHTTPClient.h"
+#import "AFJSONRequestOperation.h"
 
 @interface ViewController ()
 
@@ -44,6 +46,10 @@
       NSString*newid=[[[UIDevice currentDevice]identifierForVendor]UUIDString];
        NSLog(@"UDID%@",newid);
     _logindevice=newid;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:newid forKey:@"UDID"];
+    [defaults synchronize];
     
   //   UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:newid delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
   //   [alert show];
@@ -58,6 +64,9 @@
     NSString *deviceUDID = myDevice.UUIDString;
    // UIAlertView*alert1=[[UIAlertView alloc]initWithTitle:nil message:deviceUDID delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
   //[alert1 show];
+    [self externalipprocess];
+    
+    
 
 }
 
@@ -66,6 +75,56 @@
     
 }
 
+-(void)externalipprocess{
+    
+    NSURL *URL = [NSURL URLWithString:@"http://ip-api.com/json"];
+    
+    // Start Connection
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:URL];
+    
+    // Define the JSON header
+    [httpClient setDefaultHeader:@"Accept" value:@"text/json"];
+    
+    // Set the Request
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET" path:@"" parameters:nil];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        NSString *myIP = [JSON valueForKey:@"query"];
+        NSLog(@"IP: %@", myIP);
+        
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON){
+        
+        // Failed
+        NSLog(@"error: %@", error.description);
+        
+    }];
+    
+    // Run the Request
+    [operation start];
+    
+    
+    // *******************************
+    
+    
+    // Method 2 - External IP Without Geolocation
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSURL *theURL = [[NSURL alloc] initWithString:@"http://ip-api.com/line/?fields=query"];
+        NSString* myIP = [[NSString alloc] initWithData:[NSData dataWithContentsOfURL:theURL] encoding:NSUTF8StringEncoding];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // Manipulate the ip on the main queue
+            NSLog(@"IP: %@",myIP);
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            
+            [defaults setObject:myIP forKey:@"Externalip"];
+            [defaults synchronize];
+            
+
+        });
+    });
+
+}
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     _loginbtn.enabled=YES;
@@ -164,7 +223,7 @@
     }
     
 }
-#pragma mark- WebService
+
 -(void)LogoutFromAll{
     recordResults = FALSE;
     
@@ -637,6 +696,12 @@
     }
     NSString *addr = wifiAddress ? wifiAddress : cellAddress;
     Naddress= wifiAddress ? wifiAddress : cellAddress;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:Naddress forKey:@"Internalip"];
+    [defaults synchronize];
+    
+
     return addr ? addr : @"0.0.0.0";
     
 }

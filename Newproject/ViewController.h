@@ -13,6 +13,7 @@
 #import "HomeViewController.h"
 #import "forgetViewController.h"
 
+
 @interface ViewController : UIViewController<CLLocationManagerDelegate,UIActionSheetDelegate>{
      BOOL recordResults;
     NSString*logintime;
