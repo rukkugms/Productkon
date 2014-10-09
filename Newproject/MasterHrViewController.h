@@ -1,5 +1,5 @@
 //
-//  MstrHRViewController.h
+//  MasterHrViewController.h
 //  Newproject
 //
 //  Created by GMSIndia 2 on 09/10/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Mstr_HRViewController : UIViewController
+@interface MasterHrViewController : UIViewController
 
 @end
