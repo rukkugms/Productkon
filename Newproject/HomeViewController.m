@@ -192,7 +192,7 @@
 #pragma mark- WebService
 
 -(void)UserRightsforparticularmoduleselect{
-    recordResults = FALSE;
+       recordResults = FALSE;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     userid = [defaults objectForKey:@"Userid"];
@@ -247,6 +247,7 @@
     
 }
 -(void)UserLogmaininsert{
+   
     recordResults = FALSE;
     
     NSDate *date = [NSDate date];
@@ -258,7 +259,7 @@
     NSString*curntdate=[formatter stringFromDate:date];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    //NSString*userid = [defaults objectForKey:@"Userid"];
+NSString*useridname = [defaults objectForKey:@"Userid"];
     NSString*extnalip=[defaults objectForKey:@"Externalip"];
     NSString*intrnalip=[defaults objectForKey:@"Internalip"];
     NSString*Udid=[defaults objectForKey:@"UDID"];
@@ -286,7 +287,7 @@
                    "<devicenumber>%@</devicenumber>\n"
                    "</UserLogmaininsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",curntdate,[userid integerValue],_ModuleID,@"Create",@"iOS",extnalip,intrnalip,Udid];
+                   "</soap:Envelope>\n",curntdate,[useridname integerValue],_ModuleID,@"Create",@"iOS",extnalip,intrnalip,Udid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -356,6 +357,9 @@
     
     
 	[_xmlParser parse];
+    if (checkWS==2) {
+        
+    
     if ([_result isEqualToString:@"Not yet set"]) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Your rights are not yet set" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
@@ -609,7 +613,9 @@
    
 
     }
-    
+        checkWS=0;
+        
+    }
 }
 
 #pragma mark-xml parser
@@ -638,7 +644,7 @@
        if([elementName isEqualToString:@"UserRightsforparticularmoduleselectResponse"])
     {
         
-        
+        checkWS=2;
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];

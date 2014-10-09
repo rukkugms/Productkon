@@ -160,6 +160,7 @@
     _compinfoindictr.hidden=NO;
     [_compinfoindictr startAnimating];
     _Moduleid=13;
+    [self UserLogmaininsert];
     [self UserRightsforparticularmoduleselect];
    
 }
@@ -170,6 +171,8 @@
     _branchindictr.hidden=NO;
     [_branchindictr startAnimating];
     _Moduleid=14;
+       [self UserLogmaininsert];
+    
     [self UserRightsforparticularmoduleselect];
   
    
@@ -190,6 +193,7 @@
     
     [_rightsindictr startAnimating];
     _Moduleid=22;
+       [self UserLogmaininsert];
     [self UserRightsforparticularmoduleselect];
     }
 -(void)usersPage
@@ -198,6 +202,7 @@
     
     [_usersindicator startAnimating];
     _Moduleid=21;
+       [self UserLogmaininsert];
     [self UserRightsforparticularmoduleselect];
     }
 -(void)workProcedurePage
@@ -207,6 +212,7 @@
     
     [_docindictr startAnimating];
     _Moduleid=15;
+       [self UserLogmaininsert];
 [self UserRightsforparticularmoduleselect];
     
 
@@ -228,6 +234,7 @@
     
     [_typeindicator startAnimating];
     _Moduleid=20;
+       [self UserLogmaininsert];
     [self UserRightsforparticularmoduleselect];
     
 }
@@ -238,10 +245,12 @@
     [_basicindicatr startAnimating];
 
     _Moduleid=23;
+       [self UserLogmaininsert];
     [self UserRightsforparticularmoduleselect];
     }
 
 -(void)serailnumpage{
+      [self UserLogmaininsert];
    // if (!self.SerialVCtrl) {
         self.SerialVCtrl=[[SerialViewController alloc]initWithNibName:@"SerialViewController" bundle:nil];
    // }
@@ -260,6 +269,7 @@
 //    [self presentViewController:_wrktypeVCtrl animated:YES completion:nil];
 //}
 -(void)wrksetngpage{
+      [self UserLogmaininsert];
     _setngindictr.hidden=NO;
     _wrksetngview.userInteractionEnabled=NO;
     
@@ -270,6 +280,7 @@
     
 }
 -(void)securitypage{
+      [self UserLogmaininsert];
     _secindictr.hidden=NO;
     _securityview.userInteractionEnabled=NO;
     
@@ -299,6 +310,7 @@
 }
 #pragma mark- WebService
 -(void)UserLogmaininsert{
+    
     recordResults = FALSE;
     
     NSDate *date = [NSDate date];
@@ -310,7 +322,7 @@
     NSString*curntdate=[formatter stringFromDate:date];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    NSString*usernameid = [defaults objectForKey:@"Userid"];
+    NSString*useridname = [defaults objectForKey:@"Userid"];
     NSString*extnalip=[defaults objectForKey:@"Externalip"];
     NSString*intrnalip=[defaults objectForKey:@"Internalip"];
     NSString*Udid=[defaults objectForKey:@"UDID"];
@@ -338,7 +350,7 @@
                    "<devicenumber>%@</devicenumber>\n"
                    "</UserLogmaininsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",curntdate,[usernameid integerValue],14,@"View",@"iOS",extnalip,intrnalip,Udid];
+                   "</soap:Envelope>\n",curntdate,[useridname integerValue],_Moduleid,@"Create",@"iOS",extnalip,intrnalip,Udid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -463,6 +475,9 @@
     
     
 	[_xmlParser parse];
+    if (checkWS==2) {
+        
+    
     if ([_result isEqualToString:@"Not yet set"]) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Your rights are not yet set" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
@@ -717,6 +732,8 @@
         }
     }
     }
+        checkWS=0;
+    }
 
 }
 #pragma mark-xml parser
@@ -725,7 +742,7 @@
        if([elementName isEqualToString:@"UserRightsforparticularmoduleselectResponse"])
     {
         
-        
+        checkWS=2;
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
