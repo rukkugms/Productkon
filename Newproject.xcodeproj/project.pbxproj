@@ -186,6 +186,9 @@
 		D40DD2611873D29B00E7BC2C /* SmalltoolsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40DD25F1873D29B00E7BC2C /* SmalltoolsViewController.m */; };
 		D40DD2621873D29B00E7BC2C /* SmalltoolsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40DD2601873D29B00E7BC2C /* SmalltoolsViewController.xib */; };
 		D40DD2661873ED0800E7BC2C /* Smalltoolcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40DD2651873ED0800E7BC2C /* Smalltoolcell.xib */; };
+		D40DE0C019E64C9A008FFD15 /* InprocessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40DE0BE19E64C9A008FFD15 /* InprocessViewController.m */; };
+		D40DE0C119E64C9A008FFD15 /* InprocessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40DE0BF19E64C9A008FFD15 /* InprocessViewController.xib */; };
+		D40DE0C319E64CB5008FFD15 /* Inprocesscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40DE0C219E64CB5008FFD15 /* Inprocesscell.xib */; };
 		D4109A1519DC1B8B008E9949 /* ICON_Biz_P_info-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = D4109A1419DC1B8B008E9949 /* ICON_Biz_P_info-grey.png */; };
 		D4109A1719DC1EE2008E9949 /* 070537-glossy-black-3d-button-icon-alphanumeric-information2-ps.png in Resources */ = {isa = PBXBuildFile; fileRef = D4109A1619DC1EE2008E9949 /* 070537-glossy-black-3d-button-icon-alphanumeric-information2-ps.png */; };
 		D410CC5119AB4AE50093DDE6 /* FtileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D410CC4F19AB4AE50093DDE6 /* FtileViewController.m */; };
@@ -812,6 +815,10 @@
 		D40DD25F1873D29B00E7BC2C /* SmalltoolsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmalltoolsViewController.m; sourceTree = "<group>"; };
 		D40DD2601873D29B00E7BC2C /* SmalltoolsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmalltoolsViewController.xib; sourceTree = "<group>"; };
 		D40DD2651873ED0800E7BC2C /* Smalltoolcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Smalltoolcell.xib; sourceTree = "<group>"; };
+		D40DE0BD19E64C9A008FFD15 /* InprocessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InprocessViewController.h; sourceTree = "<group>"; };
+		D40DE0BE19E64C9A008FFD15 /* InprocessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InprocessViewController.m; sourceTree = "<group>"; };
+		D40DE0BF19E64C9A008FFD15 /* InprocessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InprocessViewController.xib; sourceTree = "<group>"; };
+		D40DE0C219E64CB5008FFD15 /* Inprocesscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Inprocesscell.xib; sourceTree = "<group>"; };
 		D4109A1419DC1B8B008E9949 /* ICON_Biz_P_info-grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON_Biz_P_info-grey.png"; sourceTree = "<group>"; };
 		D4109A1619DC1EE2008E9949 /* 070537-glossy-black-3d-button-icon-alphanumeric-information2-ps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "070537-glossy-black-3d-button-icon-alphanumeric-information2-ps.png"; sourceTree = "<group>"; };
 		D410CC4E19AB4AE50093DDE6 /* FtileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FtileViewController.h; sourceTree = "<group>"; };
@@ -2320,6 +2327,10 @@
 				64A936B419E640A600C20D57 /* MasterHrViewController.m */,
 				64A936B519E640A600C20D57 /* MasterHrViewController.xib */,
 				64A936B819E640C900C20D57 /* Customhrcell.xib */,
+				D40DE0BD19E64C9A008FFD15 /* InprocessViewController.h */,
+				D40DE0BE19E64C9A008FFD15 /* InprocessViewController.m */,
+				D40DE0BF19E64C9A008FFD15 /* InprocessViewController.xib */,
+				D40DE0C219E64CB5008FFD15 /* Inprocesscell.xib */,
 			);
 			name = hr;
 			sourceTree = "<group>";
@@ -2648,6 +2659,7 @@
 				64A11EE918683BE6008D20CC /* customphase.xib in Resources */,
 				D47A9B2319407AA2001CC416 /* worksettings.png in Resources */,
 				D4DEEDDB17F40BE70096A908 /* UploadDocViewController.xib in Resources */,
+				D40DE0C119E64C9A008FFD15 /* InprocessViewController.xib in Resources */,
 				D41499B0194573A2001E9146 /* ManagemttileViewController.xib in Resources */,
 				D4A3977819CFE8DE00E2514C /* PServiceViewController.xib in Resources */,
 				D4F7D9CE196E5B5200B8F4D4 /* ResourceMovement.png in Resources */,
@@ -2680,6 +2692,7 @@
 				D429C5EE1952A43D00CE73A6 /* Exceptioncell.xib in Resources */,
 				D4A6748D19345E6C00D5A77E /* IconPubHol@2x.png in Resources */,
 				D44BEA7A18E0360F00719ED5 /* Addresscell.xib in Resources */,
+				D40DE0C319E64CB5008FFD15 /* Inprocesscell.xib in Resources */,
 				6426F5E318C05C12002471AC /* bgmetro1.png in Resources */,
 				D4A16B8E1974EEE0002CA2A2 /* DisplayBidTableViewController.xib in Resources */,
 				D48B608117F941AE001A53C8 /* RadioButton-Unselected.png in Resources */,
@@ -2757,6 +2770,7 @@
 				D40720881772F38A0070629A /* SalesRepInfoViewController.m in Sources */,
 				D4A16B8A1974EEE0002CA2A2 /* BidViewController.m in Sources */,
 				64A2F9B419CBE72E009B1018 /* STViewController.m in Sources */,
+				D40DE0C019E64C9A008FFD15 /* InprocessViewController.m in Sources */,
 				D49F876818EEA36B00413CAD /* Cbranch.m in Sources */,
 				D49F874718EEA36B00413CAD /* NSData+Base64.m in Sources */,
 				D40720871772F37D0070629A /* ContactInfoViewController.m in Sources */,
