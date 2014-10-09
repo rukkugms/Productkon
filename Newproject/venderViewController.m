@@ -207,7 +207,7 @@
     _addresslabel=(UILabel *)[cell viewWithTag:2];
     _addresslabel.text=vmdl.vendoraddress;
     _phonelabel=(UILabel *)[cell viewWithTag:3];
-    _phonelabel.text=_vmodel.vendorphone;
+    _phonelabel.text=vmdl.vendorphone;
     _ratelabel=(UILabel *)[cell viewWithTag:4];
     _ratelabel.text=[NSString stringWithFormat:@"$%@",vmdl.vendorrate];
     return cell;
@@ -313,6 +313,7 @@
 -(void)VendorInsert
 {  webtype=1;
     recordResults = FALSE;
+    NSString *ratval=[_ratetextfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
     NSString *soapMessage;
     
     
@@ -332,7 +333,7 @@
                    "<VendorRate>%f</VendorRate>\n"
                    "</VendorInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_itemid,_nametextfld.text,_addresstextfld.text,_phonetextfld.text,[_ratetextfld.text floatValue]];
+                   "</soap:Envelope>\n",_itemid,_nametextfld.text,_addresstextfld.text,_phonetextfld.text,[ratval floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -369,6 +370,7 @@
 {  webtype=1;
     recordResults = FALSE;
     NSString *soapMessage;
+     NSString *ratval=[_ratetextfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
     
      vendermodel*vmdl=(vendermodel *)[_venderlistarray objectAtIndex:btnindex];
     soapMessage = [NSString stringWithFormat:
@@ -388,7 +390,7 @@
                    "<VendorRate>%f</VendorRate>\n"
                    "</UpdateVendor>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",vmdl.VEntryId,_itemid,_nametextfld.text,_addresstextfld.text,_phonetextfld.text,[_ratetextfld.text floatValue]];
+                   "</soap:Envelope>\n",vmdl.VEntryId,_itemid,_nametextfld.text,_addresstextfld.text,_phonetextfld.text,[ratval floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     

@@ -36,7 +36,7 @@
 }
 -(IBAction)CloseThisPAge:(id)sender
 {
-    
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 @end

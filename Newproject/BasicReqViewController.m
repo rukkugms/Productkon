@@ -948,7 +948,8 @@
 
 }
 -(IBAction)closeeditBasicreqview:(id)sender
-{ self.openviewindex=NSNotFound;
+{[self SelectAllRequirements];
+    self.openviewindex=NSNotFound;
      _basicreqtable.userInteractionEnabled=YES;
     _resultdisplaylabel.hidden=YES;
     _addreqview.hidden=YES;
@@ -1556,7 +1557,7 @@
 
 
     NSString *typid=[_typelistdictionary objectForKey:_typebtn.titleLabel.text];
-    
+    NSString*ratevl=   [_ratetextfield.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
     
     recordresults = FALSE;
     NSString *soapMessage;
@@ -1583,7 +1584,7 @@
                    "<inhouse>%d</inhouse>\n"
                    "</InsertRequirements>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_itemnametextfield.text,_codetextfield.text,[_ratetextfield.text doubleValue],exp,[typid integerValue],def,[craftid integerValue],allcraft,[_hourstextfield.text doubleValue],house];
+                   "</soap:Envelope>\n",_itemnametextfield.text,_codetextfield.text,[ratevl doubleValue],exp,[typid integerValue],def,[craftid integerValue],allcraft,[_hourstextfield.text doubleValue],house];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1744,7 +1745,12 @@
 //
 //        
 //    }
+    
+    NSString*ratevl=   [_ratetextfield.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    
     recordresults = FALSE;
+    
+    
     NSString *soapMessage;
     
     
@@ -1770,7 +1776,7 @@
                    "<inhouse>%d</inhouse>\n"
                    "</UpdateRequirements>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",rmdl.eid,_itemnametextfield.text,_codetextfield.text,[_ratetextfield.text doubleValue],exp,[typid integerValue],def,[craftid integerValue],allcraft,[_hourstextfield.text doubleValue],house];
+                   "</soap:Envelope>\n",rmdl.eid,_itemnametextfield.text,_codetextfield.text,[ratevl doubleValue],exp,[typid integerValue],def,[craftid integerValue],allcraft,[_hourstextfield.text doubleValue],house];
     NSLog(@"soapmsg%@",soapMessage);
     
     

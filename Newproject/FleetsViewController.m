@@ -1478,6 +1478,14 @@
         _soapResults = nil;
         
     }
+    if([elementName isEqualToString:@"FleetCode"])
+    {
+        
+       recordResults = FALSE;
+        fleetcode=_soapResults;
+       _soapResults = nil;
+    }
+
 
     if([elementName isEqualToString:@"result"])
     {
@@ -1509,7 +1517,7 @@
             
             
         }
-        if ([_soapResults isEqualToString:@"Already Exists"]) {
+        if ([_soapResults isEqualToString:@"Description Already Exists"]) {
             
             msgstrg=_soapResults;
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
