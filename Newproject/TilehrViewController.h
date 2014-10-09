@@ -13,6 +13,7 @@
 #import "EmpJobViewController.h"
 #import "Rightscheck.h"
 #import "MasterHrViewController.h"
+#import "InprocessViewController.h"
 
 @interface TilehrViewController : UIViewController
 {
@@ -29,6 +30,7 @@
 //@property (strong, nonatomic)HRViewController *hrVCtrl;
 @property (strong, nonatomic)ProcesshrViewController *prcsVCtrl;
 @property(strong,nonatomic)EmplyhrmgntViewController *mgmtVCtrl;
+@property(strong,nonatomic)InprocessViewController *inprcsVCtrl;
 @property(strong,nonatomic)EmpJobViewController*EmpVCtrl;
 @property (strong, nonatomic) IBOutlet UIView *jobview;
 

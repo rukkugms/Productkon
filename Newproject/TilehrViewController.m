@@ -286,14 +286,25 @@
                 [_processhrindictr stopAnimating];
                 _processview.userInteractionEnabled=YES;
                 
-                if (!self.prcsVCtrl ) {
-                    self.prcsVCtrl=[[ProcesshrViewController alloc]initWithNibName:@"ProcesshrViewController" bundle:nil];
+//                if (!self.prcsVCtrl ) {
+//                    self.prcsVCtrl=[[ProcesshrViewController alloc]initWithNibName:@"ProcesshrViewController" bundle:nil];
+//                }
+//                
+//                self.prcsVCtrl.modalPresentationStyle=UIModalPresentationFullScreen;
+//                
+//                [self presentViewController:self.prcsVCtrl
+//                                   animated:YES completion:NULL];
+                if (!self.inprcsVCtrl ) {
+                    self.inprcsVCtrl=[[InprocessViewController alloc]initWithNibName:@"InprocessViewController" bundle:nil];
                 }
                 
-                self.prcsVCtrl.modalPresentationStyle=UIModalPresentationFullScreen;
+                self.inprcsVCtrl.modalPresentationStyle=UIModalPresentationFullScreen;
                 
-                [self presentViewController:self.prcsVCtrl
+                [self presentViewController:self.inprcsVCtrl
                                    animated:YES completion:NULL];
+
+                
+                
                 
             }
             else
