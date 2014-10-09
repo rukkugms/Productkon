@@ -10,4 +10,12 @@
 
 @interface MasterHrViewController : UIViewController
 
+/*IBOutlets*/
+@property(strong,nonatomic)IBOutlet UIView *titleview;
+
+
+/*IBActions*/
+-(IBAction)CloseThisPAge:(id)sender;
+
+
 @end

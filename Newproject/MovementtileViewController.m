@@ -46,6 +46,16 @@
 
 
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    _EQothersindicator.hidden=YES;
+    [_EQothersindicator stopAnimating];
+    _equview.userInteractionEnabled=YES;
+    _LbrIndictr.hidden=YES;
+    [_LbrIndictr stopAnimating];
+    _labourview.userInteractionEnabled=YES;
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -54,6 +64,9 @@
 }
 
 -(void)labourpage{
+    _LbrIndictr.hidden=NO;
+    [_LbrIndictr startAnimating];
+    _labourview.userInteractionEnabled=NO;
     _Moduleid=49;
     [self UserRightsforparticularmoduleselect];
     
@@ -61,6 +74,10 @@
     
 }
 -(void)equpage{
+    _EQothersindicator.hidden=NO;
+    [_EQothersindicator startAnimating];
+    _equview.userInteractionEnabled=NO;
+   
     _Moduleid=50;
     [self UserRightsforparticularmoduleselect];
     

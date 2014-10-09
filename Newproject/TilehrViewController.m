@@ -249,13 +249,20 @@
                 [_hrindictr stopAnimating];
                 _masterview.userInteractionEnabled=YES;
                 
-                if (!self.hrVCtrl) {
-                    self.hrVCtrl=[[HRViewController alloc]initWithNibName:@"HRViewController" bundle:nil];
-                }
+               
+//                    self.hrVCtrl=[[HRViewController alloc]initWithNibName:@"HRViewController" bundle:nil];
+//                
+//                
+//                _hrVCtrl.modalPresentationStyle=UIModalPresentationFullScreen;
+//                
+//                [self presentViewController:_hrVCtrl
+//                                   animated:YES completion:NULL];
+                self.masterctl=[[MasterHrViewController alloc]initWithNibName:@"MasterHrViewController" bundle:nil];
                 
-                _hrVCtrl.modalPresentationStyle=UIModalPresentationFullScreen;
                 
-                [self presentViewController:_hrVCtrl
+                _masterctl.modalPresentationStyle=UIModalPresentationFullScreen;
+                
+                [self presentViewController:_masterctl
                                    animated:YES completion:NULL];
                
             }
