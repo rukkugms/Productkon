@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HRViewController.h"
+//#import "HRViewController.h"
 #import "ProcesshrViewController.h"
 #import "EmplyhrmgntViewController.h"
 #import "EmpJobViewController.h"
 #import "Rightscheck.h"
+#import "MasterHrViewController.h"
 
 @interface TilehrViewController : UIViewController
 {
@@ -19,10 +20,13 @@
     NSString *userid;
     
 }
+
+@property(strong,nonatomic)MasterHrViewController *masterctl;
 @property (strong, nonatomic) IBOutlet UIView *masterview;
 @property (strong, nonatomic) IBOutlet UIView *processview;
 @property (strong, nonatomic) IBOutlet UIView *mangmntview;
-@property (strong, nonatomic)HRViewController *hrVCtrl;
+
+//@property (strong, nonatomic)HRViewController *hrVCtrl;
 @property (strong, nonatomic)ProcesshrViewController *prcsVCtrl;
 @property(strong,nonatomic)EmplyhrmgntViewController *mgmtVCtrl;
 @property(strong,nonatomic)EmpJobViewController*EmpVCtrl;
@@ -39,5 +43,9 @@
 @property(readwrite)NSInteger Moduleid;
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)NSString *result;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *hrindictr;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *processhrindictr;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *mgmtindictr;
+
 
 @end

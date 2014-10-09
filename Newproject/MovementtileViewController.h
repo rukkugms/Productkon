@@ -30,5 +30,7 @@
 @property(readwrite)NSInteger Moduleid;
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)NSString *result;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *EQothersindicator;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *LbrIndictr;
 
 @end

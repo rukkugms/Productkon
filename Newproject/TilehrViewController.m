@@ -23,6 +23,15 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    _hrindictr.hidden=YES;
+    [_hrindictr stopAnimating];
+    _masterview.userInteractionEnabled=YES;
+    _mgmtindictr.hidden=YES;
+    [_mgmtindictr stopAnimating];
+    _mangmntview.userInteractionEnabled=YES;
+    _processhrindictr.hidden=YES;
+    [_processhrindictr stopAnimating];
+    _processview.userInteractionEnabled=YES;
     _result=@"";
     _Moduleid=0;
     
@@ -55,6 +64,9 @@
     
     }
 -(void)masterpage{
+    _hrindictr.hidden=NO;
+    [_hrindictr startAnimating];
+    _masterview.userInteractionEnabled=NO;
     _Moduleid=63;
     [self UserRightsforparticularmoduleselect];
    
@@ -63,6 +75,9 @@
 }
 
 -(void)processpage{
+    _processhrindictr.hidden=NO;
+    [_processhrindictr startAnimating];
+    _processview.userInteractionEnabled=NO;
     _Moduleid=64;
     [self UserRightsforparticularmoduleselect];
     
@@ -70,6 +85,9 @@
     
 }
 -(void)managmntPage{
+    _mgmtindictr.hidden=NO;
+    [_mgmtindictr startAnimating];
+    _mangmntview.userInteractionEnabled=NO;
     _Moduleid=65;
     [self UserRightsforparticularmoduleselect];
     
@@ -208,7 +226,15 @@
     if ([_result isEqualToString:@"Not yet set"]) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Your rights are not yet set" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
-    }
+        _hrindictr.hidden=YES;
+        [_hrindictr stopAnimating];
+        _masterview.userInteractionEnabled=YES;
+        _mgmtindictr.hidden=YES;
+        [_mgmtindictr stopAnimating];
+        _mangmntview.userInteractionEnabled=YES;
+        _processhrindictr.hidden=YES;
+        [_processhrindictr stopAnimating];
+        _processview.userInteractionEnabled=YES;    }
     
     
     else
@@ -219,21 +245,34 @@
             
             Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
             if (rightsmodel.ViewModule==1) {
+                _hrindictr.hidden=YES;
+                [_hrindictr stopAnimating];
+                _masterview.userInteractionEnabled=YES;
+                
+               
+//                    self.hrVCtrl=[[HRViewController alloc]initWithNibName:@"HRViewController" bundle:nil];
+//                
+//                
+//                _hrVCtrl.modalPresentationStyle=UIModalPresentationFullScreen;
+//                
+//                [self presentViewController:_hrVCtrl
+//                                   animated:YES completion:NULL];
+                self.masterctl=[[MasterHrViewController alloc]initWithNibName:@"MasterHrViewController" bundle:nil];
                 
                 
-                if (!self.hrVCtrl) {
-                    self.hrVCtrl=[[HRViewController alloc]initWithNibName:@"HRViewController" bundle:nil];
-                }
+                _masterctl.modalPresentationStyle=UIModalPresentationFullScreen;
                 
-                _hrVCtrl.modalPresentationStyle=UIModalPresentationFullScreen;
-                
-                [self presentViewController:_hrVCtrl
+                [self presentViewController:_masterctl
                                    animated:YES completion:NULL];
+               
             }
             else
             {
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
+                _hrindictr.hidden=YES;
+                [_hrindictr stopAnimating];
+                _masterview.userInteractionEnabled=YES;
                 //You don’t have right to view this form
             }
             
@@ -243,7 +282,9 @@
             Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
             if (rightsmodel.ViewModule==1) {
                 
-                
+                _processhrindictr.hidden=YES;
+                [_processhrindictr stopAnimating];
+                _processview.userInteractionEnabled=YES;
                 
                 if (!self.prcsVCtrl ) {
                     self.prcsVCtrl=[[ProcesshrViewController alloc]initWithNibName:@"ProcesshrViewController" bundle:nil];
@@ -259,6 +300,9 @@
             {
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
+                _processhrindictr.hidden=YES;
+                [_processhrindictr stopAnimating];
+                _processview.userInteractionEnabled=YES;
             }
             
         }
@@ -266,6 +310,9 @@
         {
             Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
             if (rightsmodel.ViewModule==1) {
+                _mgmtindictr.hidden=YES;
+                [_mgmtindictr stopAnimating];
+                _mangmntview.userInteractionEnabled=YES;
                 if (!self.mgmtVCtrl ) {
                     self.mgmtVCtrl=[[EmplyhrmgntViewController alloc]initWithNibName:@"EmplyhrmgntViewController" bundle:nil];
                 }
@@ -280,6 +327,9 @@
             {
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
+                _mgmtindictr.hidden=YES;
+                [_mgmtindictr stopAnimating];
+                _mangmntview.userInteractionEnabled=YES;
             }
             
         }

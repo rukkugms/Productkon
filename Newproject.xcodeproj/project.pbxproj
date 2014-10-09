@@ -110,6 +110,9 @@
 		64A5ED5019C2D7D3002E0018 /* Subcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A5ED4F19C2D7D3002E0018 /* Subcell.xib */; };
 		64A654B4192F1F14004DDB84 /* GPSetupTileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A654B2192F1F14004DDB84 /* GPSetupTileViewController.m */; };
 		64A654B5192F1F14004DDB84 /* GPSetupTileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A654B3192F1F14004DDB84 /* GPSetupTileViewController.xib */; };
+		64A936B619E640A600C20D57 /* MasterHrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A936B419E640A600C20D57 /* MasterHrViewController.m */; };
+		64A936B719E640A600C20D57 /* MasterHrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A936B519E640A600C20D57 /* MasterHrViewController.xib */; };
+		64A936B919E640C900C20D57 /* Customhrcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A936B819E640C900C20D57 /* Customhrcell.xib */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
 		64ACC62219A5E20E00FC3FD8 /* Rightscheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 64ACC62119A5E20E00FC3FD8 /* Rightscheck.m */; };
 		64AE02B61949AC56002D44B6 /* InOutSiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64AE02B41949AC56002D44B6 /* InOutSiteViewController.m */; };
@@ -707,6 +710,10 @@
 		64A654B1192F1F14004DDB84 /* GPSetupTileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSetupTileViewController.h; sourceTree = "<group>"; };
 		64A654B2192F1F14004DDB84 /* GPSetupTileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSetupTileViewController.m; sourceTree = "<group>"; };
 		64A654B3192F1F14004DDB84 /* GPSetupTileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPSetupTileViewController.xib; sourceTree = "<group>"; };
+		64A936B319E640A600C20D57 /* MasterHrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterHrViewController.h; sourceTree = "<group>"; };
+		64A936B419E640A600C20D57 /* MasterHrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterHrViewController.m; sourceTree = "<group>"; };
+		64A936B519E640A600C20D57 /* MasterHrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MasterHrViewController.xib; sourceTree = "<group>"; };
+		64A936B819E640C900C20D57 /* Customhrcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Customhrcell.xib; sourceTree = "<group>"; };
 		64ACC62019A5E20E00FC3FD8 /* Rightscheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rightscheck.h; sourceTree = "<group>"; };
 		64ACC62119A5E20E00FC3FD8 /* Rightscheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rightscheck.m; sourceTree = "<group>"; };
 		64AE02B31949AC56002D44B6 /* InOutSiteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InOutSiteViewController.h; sourceTree = "<group>"; };
@@ -779,7 +786,7 @@
 		D40B268E1953F86300217323 /* IssuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssuesViewController.h; sourceTree = "<group>"; };
 		D40B268F1953F86300217323 /* IssuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssuesViewController.m; sourceTree = "<group>"; };
 		D40B26901953F86300217323 /* IssuesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssuesViewController.xib; sourceTree = "<group>"; };
-		D40D1EA7176B086F00379DD5 /* Newproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Newproject.app; path = 0..app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D40D1EA7176B086F00379DD5 /* Newproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newproject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40D1EAA176B086F00379DD5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D40D1EAC176B086F00379DD5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D40D1EAE176B086F00379DD5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -2309,6 +2316,10 @@
 				D47A9B0A19402B89001CC416 /* EmpJobViewController.xib */,
 				D47A9B0D19403CA5001CC416 /* Empjobcell.xib */,
 				D47A9B0F1940405E001CC416 /* Jobdrag.xib */,
+				64A936B319E640A600C20D57 /* MasterHrViewController.h */,
+				64A936B419E640A600C20D57 /* MasterHrViewController.m */,
+				64A936B519E640A600C20D57 /* MasterHrViewController.xib */,
+				64A936B819E640C900C20D57 /* Customhrcell.xib */,
 			);
 			name = hr;
 			sourceTree = "<group>";
@@ -2506,6 +2517,7 @@
 				D4A16B8B1974EEE0002CA2A2 /* BidViewController.xib in Resources */,
 				D4F7D9CC196E5B4D00B8F4D4 /* ProjectSiteRequirement.png in Resources */,
 				64A41243194080D6003EE113 /* billing-matrix.png in Resources */,
+				64A936B719E640A600C20D57 /* MasterHrViewController.xib in Resources */,
 				D41A63D61961302A00FBDBC6 /* TimeSheetViewController.xib in Resources */,
 				D4A16B5B1974EEA8002CA2A2 /* scaffoldcell.xib in Resources */,
 				D4F19DF118D03AD1007617F0 /* newCommentCell.xib in Resources */,
@@ -2568,6 +2580,7 @@
 				D4A338EB18F3EEEF00E53FAC /* BillingViewController.xib in Resources */,
 				64A2F9B019CBE44D009B1018 /* TPcell.xib in Resources */,
 				D4FED40B17F16722004BE242 /* HRcellview.xib in Resources */,
+				64A936B919E640C900C20D57 /* Customhrcell.xib in Resources */,
 				649EE4C5196151A2008DEF02 /* Lbmgcell.xib in Resources */,
 				64F97983185ED60000E7722B /* appbar.addblack.png in Resources */,
 				D4FED41217F18CB9004BE242 /* btn.png in Resources */,
@@ -2921,6 +2934,7 @@
 				D4DEEDDA17F40BE70096A908 /* UploadDocViewController.m in Sources */,
 				D4A16B9A1974EEE0002CA2A2 /* CalEventDetailViewController.m in Sources */,
 				D49F875418EEA36B00413CAD /* Servicemdl.m in Sources */,
+				64A936B619E640A600C20D57 /* MasterHrViewController.m in Sources */,
 				D40367F018ED3A5200139E7D /* MangmntdetailsViewController.m in Sources */,
 				D4A674AB19345F7200D5A77E /* DPCalendarMonthlySingleMonthCell.m in Sources */,
 				64955C9B180E52D5000A86A1 /* WebViewController.m in Sources */,
