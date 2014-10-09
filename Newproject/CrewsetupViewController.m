@@ -1096,7 +1096,6 @@
     
     recordResults = FALSE;
     NSString *soapMessage;
-    
     //  Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:path];
     
     soapMessage = [NSString stringWithFormat:
