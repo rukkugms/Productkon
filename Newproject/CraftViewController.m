@@ -494,6 +494,63 @@
     }
     
 }
+-(void)UserRightsforparticularmoduleselect{
+    recordresults = FALSE;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    userid = [defaults objectForKey:@"Userid"];
+    
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UserRightsforparticularmoduleselect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<UserId>%d</UserId>\n"
+                   "<ModuleId>%d</ModuleId>\n"
+                   "</UserRightsforparticularmoduleselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[userid integerValue],_manpwrmoduleid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    //NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://test.kontract360.com/UserRightsforparticularmoduleselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -536,8 +593,51 @@
 //    }
 //    [_basicreqtable reloadData];
  
-//    
+//
     
+    if (type==1) {
+        
+    
+    
+    if ([_rightresult isEqualToString:@"Not yet set"]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Your rights are not yet set" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        
+    }
+    
+    
+    else
+    {
+       
+            
+            
+            Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+            if (rightsmodel.ViewModule==1) {
+                
+                
+                // if (!self.manVCtrl) {
+                _manVCtrl=[[ManViewController alloc]initWithNibName:@"ManViewController" bundle:nil];
+                // }
+                _manVCtrl.modalPresentationStyle = UIModalPresentationFullScreen;
+                _manVCtrl.userrightsarray=_userrightsarray;
+                [self presentViewController:_manVCtrl
+                                   animated:YES completion:NULL];
+                type=0;
+                
+                
+            }
+            else
+            {
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+               
+            }
+            
+            
+        }
+    }
+
     
     
 }
@@ -646,6 +746,90 @@ if([elementName isEqualToString:@"BRDescription"])
         }
         recordresults = TRUE;
     }
+    if([elementName isEqualToString:@"UserRightsforparticularmoduleselectResponse"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"EntryId"])
+    {
+        _userrightsarray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"UserId"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"ModuleId"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"ViewModule"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"EditModule"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"DeleteModule"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"PrintModule"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    
+    
+
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -669,6 +853,7 @@ if([elementName isEqualToString:@"BRDescription"])
         
         recordresults=FALSE;
         _craftmdl.Brentryid=_soapResults;
+        
         
         _soapResults = nil;
         
@@ -726,6 +911,12 @@ if([elementName isEqualToString:@"BRDescription"])
     if([elementName isEqualToString:@"result"])
     {
           recordresults = FALSE;
+        if (type==1) {
+             _rightresult=@"Not yet set";
+        }
+        else
+        {
+        
         if([_soapResults isEqualToString:@"deleted"]){
             [self CraftBasicRequirementsselect];
         }else{
@@ -733,10 +924,121 @@ if([elementName isEqualToString:@"BRDescription"])
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
          [alert show];
         }
+        }
 
           _soapResults = nil;
       
     }
+    if([elementName isEqualToString:@"message"]){
+        
+        recordresults = FALSE;
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        _soapResults=nil;
+    }
+    
+    if([elementName isEqualToString:@"EntryId"])
+    {
+        
+        
+        recordresults = FALSE;
+        _rights=[[Rightscheck alloc]init];
+        _rights.entryid=[_soapResults integerValue];
+        
+        _soapResults=nil;
+    }
+    if([elementName isEqualToString:@"UserId"])
+    {
+        
+        
+        recordresults = FALSE;
+        
+        _rights.userid=[_soapResults integerValue];
+        
+        _soapResults=nil;
+    }
+    if([elementName isEqualToString:@"ModuleId"])
+    {
+        
+        
+        recordresults = FALSE;
+        
+        _rights.moduleid=[_soapResults integerValue];
+        
+        _soapResults=nil;
+        
+    }
+    if([elementName isEqualToString:@"ViewModule"])
+    {
+        
+        recordresults = FALSE;
+        
+        if ([_soapResults isEqualToString:@"true"]) {
+            _rights.ViewModule=1;
+            
+            
+        }
+        else{
+            _rights.ViewModule=0;
+            
+        }
+        
+        
+        
+        _soapResults=nil;
+        
+        
+    }
+    if([elementName isEqualToString:@"EditModule"])
+    {
+        recordresults = FALSE;
+        if ([_soapResults isEqualToString:@"true"]) {
+            _rights.EditModule=1;
+            
+            
+        }
+        else{
+            _rights.EditModule=0;
+            
+        }
+        _soapResults=nil;
+        
+        
+    }
+    if([elementName isEqualToString:@"DeleteModule"])
+    {
+        recordresults = FALSE;
+        if ([_soapResults isEqualToString:@"true"]) {
+            _rights.DeleteModule=1;
+            
+            
+        }
+        else{
+            _rights.DeleteModule=0;
+            
+        }
+        _soapResults=nil;
+        
+    }
+    if([elementName isEqualToString:@"PrintModule"])
+    {
+        recordresults = FALSE;
+        if ([_soapResults isEqualToString:@"true"]) {
+            _rights.PrintModule=1;
+            
+            
+        }
+        else{
+            _rights.PrintModule=0;
+            
+        }
+        
+        
+        
+        [_userrightsarray addObject:_rights];
+        _soapResults=nil;
+        
+    }
+
 
 
 }
@@ -788,7 +1090,7 @@ if([elementName isEqualToString:@"BRDescription"])
 }
 
 - (IBAction)deletebtn:(id)sender {
-    
+    type=0;
     if (self.editing) {
         [super setEditing:NO animated:NO];
         [_crafttable setEditing:NO animated:NO];
@@ -821,6 +1123,7 @@ if([elementName isEqualToString:@"BRDescription"])
         [alert show];
     }
     else{
+        type=0;
         [self UserLogmaininsert];
     _updatebtn.enabled=NO;
     [self CraftBasicrequirementsinsert];
@@ -842,7 +1145,12 @@ if([elementName isEqualToString:@"BRDescription"])
     
 }
 - (IBAction)addmanpwrbtn:(id)sender {
+    type=1;
     _craftbtnlbl.titleLabel.text=@"";
+    
+    _manpwrmoduleid=26;
+    [self UserRightsforparticularmoduleselect];
+    
     _manVCtrl=[[ManViewController alloc]initWithNibName:@"ManViewController" bundle:nil];
     // }
     _manVCtrl.modalPresentationStyle = UIModalPresentationFullScreen;
