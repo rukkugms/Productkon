@@ -28,7 +28,7 @@
     //id<myDelegate>delegate;
 }
 
-
+@property(readwrite)NSInteger moduleid;
 @property(nonatomic,weak)id<myDelegate>delegate;
 @property(strong,nonatomic)NSString *soapstring;
 @property(strong,nonatomic)Validation *val;

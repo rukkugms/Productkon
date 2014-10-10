@@ -28,6 +28,7 @@
     NSString *empid;
     NSString *empname;
 }
+@property(readwrite)NSInteger moduleid;
 @property(strong,nonatomic)NSArray *custmrrarry;
 @property(strong,nonatomic)NSMutableDictionary *custmrdict;
 @property(strong,nonatomic)NSArray *empyarry;

@@ -285,9 +285,10 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
                    "<externalip>%@</externalip>\n"
                    "<internalip>%@</internalip>\n"
                    "<devicenumber>%@</devicenumber>\n"
+                    "<documentId>%d</documentId>\n"
                    "</UserLogmaininsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",curntdate,[useridname integerValue],_ModuleID,@"Create",@"iOS",extnalip,intrnalip,Udid];
+                   "</soap:Envelope>\n",curntdate,[useridname integerValue],_ModuleID,@"View",@"iOS",extnalip,intrnalip,Udid,0];
     NSLog(@"soapmsg%@",soapMessage);
     
     

@@ -85,6 +85,7 @@
     [_servcindicator startAnimating];
     _serviceview.userInteractionEnabled=NO;
     _Moduleid=17;
+    [self UserLogmaininsert];
     [self UserRightsforparticularmoduleselect];
     
    }
@@ -94,6 +95,7 @@
     [_phaseindicator startAnimating];
     _workphaseview.userInteractionEnabled=NO;
     _Moduleid=19;
+      [self UserLogmaininsert];
     [self UserRightsforparticularmoduleselect];
  
     
@@ -103,6 +105,7 @@
     [_wrktypeindicator startAnimating];
     _worktypeview.userInteractionEnabled=NO;
     _Moduleid=18;
+      [self UserLogmaininsert];
     [self UserRightsforparticularmoduleselect];
    
 }
@@ -178,6 +181,81 @@
     }
     
 }
+-(void)UserLogmaininsert{
+    
+    recordResults = FALSE;
+    
+    NSDate *date = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    NSTimeZone *zone = [NSTimeZone localTimeZone];
+    [formatter setTimeZone:zone];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    // NSLog(@"Date %@",[formatter stringFromDate:date]);
+    NSString*curntdate=[formatter stringFromDate:date];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString*useridname = [defaults objectForKey:@"Userid"];
+    NSString*extnalip=[defaults objectForKey:@"Externalip"];
+    NSString*intrnalip=[defaults objectForKey:@"Internalip"];
+    NSString*Udid=[defaults objectForKey:@"UDID"];
+    
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UserLogmaininsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<dateandtime>%@</dateandtime>\n"
+                   "<userid>%d</userid>\n"
+                   "<moduleid>%d</moduleid>\n"
+                   "<Action>%@</Action>\n"
+                   "<platform>%@</platform>\n"
+                   "<externalip>%@</externalip>\n"
+                   "<internalip>%@</internalip>\n"
+                   "<devicenumber>%@</devicenumber>\n"
+                    "<documentId>%d</documentId>\n"
+                   "</UserLogmaininsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",curntdate,[useridname integerValue],_Moduleid,@"View",@"iOS",extnalip,intrnalip,Udid,0];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -215,6 +293,9 @@
     
     
 	[_xmlParser parse];
+    if (checkWS==2) {
+        
+    
     if ([_result isEqualToString:@"Not yet set"]) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Your rights are not yet set" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
@@ -250,6 +331,7 @@
             // }
             _serviceVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
             _serviceVCtrl.userrightsarray=_userrightsarray;
+            _serviceVCtrl.moduleid=_Moduleid;
             [self presentViewController:_serviceVCtrl
                                animated:YES completion:NULL];
 
@@ -282,7 +364,9 @@
             //  }
             _wrktypeVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
             _wrktypeVCtrl.userrightsarray=_userrightsarray;
-            [self presentViewController:_wrktypeVCtrl animated:YES completion:nil];        }
+            _wrktypeVCtrl.moduleid=_Moduleid;
+            [self presentViewController:_wrktypeVCtrl animated:YES completion:nil];
+        }
         else
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -329,6 +413,7 @@
     }
        
     }
+    }
 }
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
@@ -336,7 +421,7 @@
     if([elementName isEqualToString:@"UserRightsforparticularmoduleselectResponse"])
     {
         
-        
+        checkWS=2;
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];

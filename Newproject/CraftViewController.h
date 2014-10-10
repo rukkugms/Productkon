@@ -17,6 +17,7 @@
     NSString *msgstrg;
 
 }
+@property(readwrite)NSInteger moduleid;
 @property(strong,nonatomic)ManViewController *manVCtrl;
 @property(readwrite)NSInteger reqid;
 @property(strong,nonatomic)Craftreqmtmdl*craftmdl;

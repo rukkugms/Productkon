@@ -21,7 +21,7 @@
 
 }
 
-
+@property(readwrite)NSInteger moduleid;
 
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;

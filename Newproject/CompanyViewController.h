@@ -24,6 +24,7 @@
   
     
 }
+@property(readwrite)NSInteger moduleid;
 @property(strong,nonatomic)UIViewController*popoverContent;
 @property(strong,nonatomic)AddressViewController *addrsVCtrl;
 @property(strong,nonatomic)Validation*validate;

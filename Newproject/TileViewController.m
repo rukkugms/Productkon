@@ -348,9 +348,10 @@
                    "<externalip>%@</externalip>\n"
                    "<internalip>%@</internalip>\n"
                    "<devicenumber>%@</devicenumber>\n"
+                    "<documentId>%d</documentId>\n"
                    "</UserLogmaininsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",curntdate,[useridname integerValue],_Moduleid,@"Create",@"iOS",extnalip,intrnalip,Udid];
+                   "</soap:Envelope>\n",curntdate,[useridname integerValue],_Moduleid,@"View",@"iOS",extnalip,intrnalip,Udid,0];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -531,6 +532,8 @@
            // }
             _compVCtrl.modalPresentationStyle = UIModalPresentationCustom;
             _compVCtrl.userrightsarray=_userrightsarray;
+            self.compVCtrl.moduleid=_Moduleid;
+       
             [self presentViewController:_compVCtrl
                                animated:YES completion:NULL];
         }
@@ -586,6 +589,7 @@
                 self.cmpnyVCtrl=[[CmpnydocsViewController alloc]initWithNibName:@"CmpnydocsViewController" bundle:nil];
            // }
             _cmpnyVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+            _cmpnyVCtrl.moduleid=_Moduleid;
             [self presentViewController:_cmpnyVCtrl
                                animated:YES completion:NULL];
         }
@@ -665,6 +669,7 @@
            // }
             _usersVctrl.modalPresentationStyle = UIModalPresentationPageSheet;
             _usersVctrl.userrightsarray=_userrightsarray;
+            _usersVctrl.moduleid=_Moduleid;
             [self presentViewController:_usersVctrl
                                animated:YES completion:NULL];
 

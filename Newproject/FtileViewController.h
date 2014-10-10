@@ -15,6 +15,7 @@
 {
     BOOL recordResults;
     NSString *userid;
+    NSInteger CheckWS;
 }
 - (IBAction)clsebtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIView *usrview;

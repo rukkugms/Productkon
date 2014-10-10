@@ -27,6 +27,7 @@
 
     
 }
+@property(readwrite)NSInteger moduleid;
 @property(strong,nonatomic)SerialViewController *jobseqctrl;
 @property(strong,nonatomic)Servicemdl *servmdl;
 @property(strong,nonatomic)Validation *val;

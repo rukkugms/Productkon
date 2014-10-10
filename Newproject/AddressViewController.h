@@ -18,6 +18,7 @@
     NSString * msgstrg;
      NSInteger optionidentifier;
 }
+@property(readwrite)NSInteger moduleid;
 @property (strong, nonatomic)Mdladdress *addressmdl;
 @property (strong, nonatomic)NSMutableArray *addesslistarray;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navbar;
