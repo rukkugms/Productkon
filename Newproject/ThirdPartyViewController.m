@@ -119,7 +119,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 
         _pictureimgvw.image=nil;
         
-        
+         imagechecker=2;
         
         _pictureimgvw.image =image;
        // [self dismissViewControllerAnimated:YES completion:nil];
@@ -1465,7 +1465,7 @@ finishedSavingWithError:(NSError *)error
                 _activitybtn.hidden=YES;
                 [_activitybtn stopAnimating];
                 _addview.userInteractionEnabled=YES;
-                
+                //[self Insertanyimage];
                 [self SelectAllThirdParty];
 
             }else{

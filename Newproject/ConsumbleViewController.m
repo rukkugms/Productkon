@@ -113,7 +113,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         
         _imageview.image=nil;
         
-        
+         imagechecker=2;
         
         _imageview.image =image;
         //[self dismissViewControllerAnimated:YES completion:nil];
@@ -1577,6 +1577,7 @@ finishedSavingWithError:(NSError *)error
     _unitcosttxtfld.text=@"";
     _stckinhandtxtfld.text=@"";
      [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+      _imageview.image=[UIImage imageNamed:@"mNoImage"];
     
 }
 - (IBAction)deletebtn:(id)sender{

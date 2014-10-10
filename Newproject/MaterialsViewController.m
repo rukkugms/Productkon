@@ -2051,7 +2051,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 
         _picimageview.image=nil;
         
-        
+         imagechecker=2;
         
         _picimageview.image =image;
        // [self dismissViewControllerAnimated:YES completion:nil];

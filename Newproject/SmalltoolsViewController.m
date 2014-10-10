@@ -1437,6 +1437,7 @@ else
     _costtxtfld.text=@"";
     _stockinhandtxtfld.text=@"";
     [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    _picimageview.image=[UIImage imageNamed:@"mNoImage"];
 
 
 }
@@ -1658,7 +1659,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 
         _picimageview.image=nil;
         
-        
+         imagechecker=2;
         
        _picimageview.image =image;
        // [self dismissViewControllerAnimated:YES completion:nil];

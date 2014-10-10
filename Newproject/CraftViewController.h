@@ -10,14 +10,19 @@
 #import "CraftViewController.h"
 #import "Craftreqmtmdl.h"
 #import "ManViewController.h"
+#import "Rightscheck.h"
 @interface CraftViewController : UIViewController{
      BOOL recordresults;
     NSInteger path;
     NSInteger deletepath;
     NSString *msgstrg;
+    NSString *userid;
+    NSInteger type;
 
 }
+@property(strong,nonatomic)Rightscheck *rights;
 @property(readwrite)NSInteger moduleid;
+@property(readwrite)NSInteger manpwrmoduleid;
 @property(strong,nonatomic)ManViewController *manVCtrl;
 @property(readwrite)NSInteger reqid;
 @property(strong,nonatomic)Craftreqmtmdl*craftmdl;
@@ -59,6 +64,9 @@
 @property(strong,nonatomic)NSMutableDictionary *craftlistdictionary;
 - (IBAction)addmanpwrbtn:(id)sender;
 @property(strong,nonatomic)IBOutlet UIButton *updatebtn;
+
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)NSString *rightresult;
 
 
 @end
