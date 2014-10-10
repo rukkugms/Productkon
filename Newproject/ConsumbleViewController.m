@@ -1264,15 +1264,17 @@ finishedSavingWithError:(NSError *)error
         
         if (webtype==3) {
             
+        
         }
+        
 
         else if ([_soapResults isEqualToString:@"Consumables Picture Updated"]) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             _activitybtn.hidden=YES;
             [_activitybtn stopAnimating];
-                _addView.userInteractionEnabled=YES;
-            [self SelectAllConsumables];
+            _addView.userInteractionEnabled=YES;
+             [self SelectAllConsumables];
         }
 
 
