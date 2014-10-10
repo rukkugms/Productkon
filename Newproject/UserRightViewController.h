@@ -32,7 +32,7 @@
     NSString*subbtnstrg,*masterbtnstrg,*subsubbtnstrg;
     
     NSInteger webtype,optnidntfr;
-    NSInteger activate,msgcount;
+    NSInteger activate,msgcount,tileschecking;
   
 }
 

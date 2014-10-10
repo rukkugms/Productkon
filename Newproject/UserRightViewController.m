@@ -1924,6 +1924,7 @@ viewcheck=0;
         recordResults = FALSE;
         if ([_soapResults isEqualToString:@"0"]) {
             if (webtype==7) {
+                tileschecking=1;
                 [self UserRightsforparticularmodule2select];
             }
             else
@@ -1933,6 +1934,7 @@ viewcheck=0;
             
         }
         else if ([_soapResults integerValue]>0){
+            tileschecking=2;
                _subsubbtnlbl.enabled=YES;
                 [self SubUserRightsforsubTileselect];
         }
@@ -1946,7 +1948,9 @@ viewcheck=0;
             
           UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
            [alert show];
-            [self UserRightsselect];
+           // [self UserRightsselect];
+            
+                
             }
             else{
                 
@@ -1968,6 +1972,7 @@ viewcheck=0;
 //                dimView.tag = 1111;
 //                dimView.userInteractionEnabled = NO;
 //                [self.view addSubview:dimView];
+                
                 
                 if(j==msgcount){
                     _usertable.userInteractionEnabled=YES;
@@ -2007,14 +2012,58 @@ viewcheck=0;
 //                    
 //                    // Set the mask of the view.
 //                self.view.layer.mask = maskLayer;
-                      [self UserRightsselect];
-                    
-                }
+                    //  [self UserRightsselect];
+                    if(![_subsubbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+                        
+                         [self SubUserRightsforparticularmoduleselect];
+                        
+                    }
+                    else{
+                        
+                        if(![_subbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+                            if(tileschecking==1){
+                                [self UserRightsforparticularmodule2select];
+                                
+                            }
+                            else{
+                                  [self SubUserRightsforsubTileselect];
+                            }
+                           
+                            
+                        }
+                         else{
+                             if(![_masterbtn.titleLabel.text isEqualToString:@"Select"]){
+                                 
+                                 if([_masterbtn.titleLabel.text isEqualToString:@"Master Tiles"]){
+                                     
+                                     [self UserRightsforMainTileselect];
+                                 }
+                                 else{
+                                     [self UserRightsforsubTileselect];
+                                 }}
 
-            }
+                             else{
+                                 
+                                 if(![_userbtn.titleLabel.text isEqualToString:@"Select"]){
+                                     
+                                     [self UserRightsselect];
+                                 }
+
+                                 
+                             }
+                         }
+
+                        
+                    }
+                    
+                    
+                        
+                        
+    }
            
             
             
+            }
         }
 
               else{
