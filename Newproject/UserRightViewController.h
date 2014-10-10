@@ -36,7 +36,7 @@
   
 }
 
-
+@property(readwrite)NSInteger moduleid;
 @property(strong,nonatomic)NSMutableDictionary*userdict;
 @property(strong,nonatomic)NSMutableArray*userarray;
 @property(strong,nonatomic)NSMutableDictionary*revuserdict;

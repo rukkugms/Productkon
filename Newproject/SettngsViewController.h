@@ -17,6 +17,7 @@
 {
     BOOL recordResults;
     NSString *userid;
+     NSInteger checkWS;
 
 }
 

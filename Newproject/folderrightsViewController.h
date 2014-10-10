@@ -24,6 +24,7 @@
     NSString *dwnldstring;
 
 }
+@property(readwrite)NSInteger moduleid;
 
 @property(strong,nonatomic)allfolderrights *fldrrights;
 @property(strong,nonatomic)NSString *soapstring;

@@ -19,8 +19,10 @@
     NSString *newfieldid;
     NSInteger poptype;
 
+    NSInteger USerdocid;
 
 }
+@property(readwrite)NSInteger moduleid;
 @property(strong,nonatomic)NSString *msgstring;
 @property (strong, nonatomic)commentmdl *cmntmdl1;
 @property (strong, nonatomic)NSMutableArray*commentarray;

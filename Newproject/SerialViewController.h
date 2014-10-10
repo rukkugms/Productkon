@@ -19,6 +19,7 @@
     NSInteger webtype;
     NSInteger path;
 }
+@property(readwrite)NSInteger moduleid;
 @property(strong,nonatomic)Validation *val;
 @property(strong,nonatomic)NumbrSerMdl *seqmdl;
 @property(readwrite)NSInteger skillid;

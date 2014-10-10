@@ -23,7 +23,7 @@
 
 
 
-
+@property(readwrite)NSInteger moduleid;
 @property(strong,nonatomic)NSMutableArray *worktypearray;
 @property(strong,nonatomic)NSMutableDictionary*worktypedict;
 /* xmlparser*/

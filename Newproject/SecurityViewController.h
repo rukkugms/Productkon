@@ -16,7 +16,7 @@
     NSInteger answertype;
 }
 
-
+@property(readwrite)NSInteger moduleid;
 @property (strong, nonatomic)NSMutableArray*qustnarray;
 @property (strong, nonatomic)NSMutableDictionary*qustndict;
 
