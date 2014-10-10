@@ -1793,6 +1793,7 @@ finishedSavingWithError:(NSError *)error
 }
 -(IBAction)editequipview:(id)sender
 {
+    _picimageview.image=[UIImage imageNamed:@"mNoImage"];
     btntype=2;
      imagechecker=1;
      _updatebtn.enabled=YES;

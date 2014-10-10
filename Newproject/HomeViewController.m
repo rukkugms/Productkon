@@ -78,6 +78,7 @@
     doubleTap.numberOfTapsRequired=1;
     doubleTap.delegate=(id)self;
     [self.customerview addGestureRecognizer:doubleTap];
+    [self.customerview setExclusiveTouch:YES];
     
     UITapGestureRecognizer *doubleTap1 = [[UITapGestureRecognizer alloc]
                                          initWithTarget:self
@@ -85,13 +86,14 @@
     doubleTap1.numberOfTapsRequired=1;
     doubleTap1.delegate=(id)self;
     [self.leadView addGestureRecognizer:doubleTap1];
+    [self.leadView setExclusiveTouch:YES];
     UITapGestureRecognizer *doubleTap2 = [[UITapGestureRecognizer alloc]
                                           initWithTarget:self
                                           action:@selector(companyPage)];
     doubleTap2.numberOfTapsRequired=1;
     doubleTap2.delegate=(id)self;
     [self.companyView addGestureRecognizer:doubleTap2];
-
+[self.companyView setExclusiveTouch:YES];
     
     UITapGestureRecognizer *doubleTap3 = [[UITapGestureRecognizer alloc]
                                           initWithTarget:self
@@ -99,26 +101,28 @@
     doubleTap3.numberOfTapsRequired=1;
     doubleTap3.delegate=(id)self;
     [self.hrview addGestureRecognizer:doubleTap3];
-    
+    [self.hrview setExclusiveTouch:YES];
     UITapGestureRecognizer *doubleTap4 = [[UITapGestureRecognizer alloc]
                                           initWithTarget:self
                                           action:@selector(repage)];
     doubleTap4.numberOfTapsRequired=1;
     doubleTap4.delegate=(id)self;
     [self.reurceview addGestureRecognizer:doubleTap4];
-    
+    [self.reurceview setExclusiveTouch:YES];
     UITapGestureRecognizer *doubleTap5 = [[UITapGestureRecognizer alloc]
                                           initWithTarget:self
                                           action:@selector(plangpage)];
     doubleTap5.numberOfTapsRequired=1;
     doubleTap5.delegate=(id)self;
     [self.planngview addGestureRecognizer:doubleTap5];
+    [self.planngview setExclusiveTouch:YES];
     UITapGestureRecognizer *doubleTap6 = [[UITapGestureRecognizer alloc]
                                           initWithTarget:self
                                           action:@selector(Estimationpage)];
     doubleTap6.numberOfTapsRequired=1;
     doubleTap6.delegate=(id)self;
     [self.estimtnview addGestureRecognizer:doubleTap6];
+    [self.estimtnview setExclusiveTouch:YES];
 
     UITapGestureRecognizer *doubleTap7 = [[UITapGestureRecognizer alloc]
                                           initWithTarget:self
@@ -126,6 +130,7 @@
     doubleTap7.numberOfTapsRequired=1;
     doubleTap7.delegate=(id)self;
     [self.projectview addGestureRecognizer:doubleTap7];
+    [self.projectview setExclusiveTouch:YES];
 
 }
 

@@ -1754,6 +1754,7 @@ recordResults = FALSE;
 - (IBAction)editbtn:(id)sender
 
 {
+    _pictureimgview.image=[UIImage imageNamed:@"mNoImage"];
     imagechecker=2;
      _updatebtn.enabled=YES;
     btntype=2;
