@@ -1918,6 +1918,7 @@ finishedSavingWithError:(NSError *)error
 }
 
 - (IBAction)editbtn:(id)sender {
+    _pictureimgvw.image=[UIImage imageNamed:@"mNoImage"];
     imagechecker=1;
      _updatebtn.enabled=YES;
     btntype=2;

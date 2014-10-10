@@ -332,7 +332,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
                    
                    "<DeleteSmallTools xmlns=\"http://test.kontract360.com/\">\n"
                    "<Entryid>%d</Entryid>\n"
-                   "</DeleteSmallTools >\n"
+                   "</DeleteSmallTools>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",pwrmdl.entryid];
     NSLog(@"soapmsg%@",soapMessage);
@@ -1456,6 +1456,7 @@ else
 }
 
 - (IBAction)editbtn:(id)sender {
+    _picimageview.image=[UIImage imageNamed:@"mNoImage"];
     imagechecker=1;
     _updatebtn.enabled=YES;
     butntype=2;

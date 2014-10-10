@@ -1806,6 +1806,7 @@ else
 }
 -(IBAction)editmaterial:(id)sender
 {
+    _picimageview.image=[UIImage imageNamed:@"mNoImage"];
     imagechecker=1;
       _updatebtn.enabled=YES;
      _materialTable.userInteractionEnabled=NO;
