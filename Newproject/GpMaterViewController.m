@@ -176,7 +176,8 @@
         
         
         if (buttonIndex==[alertView cancelButtonIndex]){
-          [self MaterialCrewSetUpDelete];
+            clear=1;
+          [self AllMaterialCrewDelete];
             
         }
         
@@ -1333,10 +1334,18 @@
         
         recordResults = FALSE;
         
-        if ([_soapResults isEqualToString:@"Deleted CrewSetUp"]) {
+        if ([_soapResults isEqualToString:@"Deleted All Members"]) {
+            if (clear==1) {
+                
             
-           [self AllMaterialCrewDelete];
+           [self MaterialCrewSetUpDelete];
             [_groupbtn setTitle:@"Select" forState:UIControlStateNormal];
+                clear=0;
+            }
+            else if(clear==0)
+            {
+                [self MaterialCrewNameSelect];
+            }
             
             
             
@@ -1354,7 +1363,7 @@
              [self MaterialCrewNameSelect];
         }
 
-       else if ([_soapResults isEqualToString:@"Inserted Crew"]||[_soapResults isEqualToString:@"Deleted All Members"]||[_soapResults isEqualToString:@"deletedcrew"])
+       else if ([_soapResults isEqualToString:@"Inserted Crew"]||[_soapResults isEqualToString:@"Deleted CrewSetUp"]||[_soapResults isEqualToString:@"deletedcrew"])
         {
             if ([_soapResults isEqualToString:@"Inserted Crew"]){
                 

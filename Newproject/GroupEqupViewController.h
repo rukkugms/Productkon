@@ -27,6 +27,7 @@
     NSString *skill;
     NSString * crewid;
     NSInteger setuptype;
+    NSInteger clear;
 
 
     

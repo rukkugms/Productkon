@@ -1506,16 +1506,23 @@
         
         recordResults = FALSE;
         
-        if ([_soapResults isEqualToString:@"Deleted CrewSetUp"]) {
-            
-            [self AllCrewDelete];
-            [_crewbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        if ([_soapResults isEqualToString:@"Deleted All Members"]) {
+            if (clear==1) {
+                [self CrewSetUpDelete];
+                [_crewbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+                clear=0;
+            }
+            else if(clear==0)
+            {
+                [self Selectcrewname];
+            }
+           
             
             
             
         }
         
-       else  if ([_soapResults isEqualToString:@"Inserted Crew"]||[_soapResults isEqualToString:@"Deleted All Members"]||[_soapResults isEqualToString:@"deletedcrew"]) {
+       else  if ([_soapResults isEqualToString:@"Inserted Crew"]||[_soapResults isEqualToString:@"Deleted CrewSetUp"]||[_soapResults isEqualToString:@"deletedcrew"]) {
            if ([_soapResults isEqualToString:@"Inserted Crew"]){
                
 //               UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -1715,7 +1722,8 @@
         
         
         if (buttonIndex==[alertView cancelButtonIndex]){
-            [self CrewSetUpDelete];
+            clear=1;
+            [self AllCrewDelete];
             
         }
         

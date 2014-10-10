@@ -28,6 +28,7 @@
     NSInteger crewpath;
     NSInteger Deletepath;
     NSInteger setuptype;
+    NSInteger clear;
 
 }
 

@@ -28,6 +28,7 @@
      NSString * crewid;
     NSInteger crewpath;
     NSInteger setuptype;
+    NSInteger clear;
 
 }
 

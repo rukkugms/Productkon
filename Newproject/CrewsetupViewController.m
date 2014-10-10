@@ -1558,10 +1558,17 @@
         
         recordResults = FALSE;
         
-           if ([_soapResults isEqualToString:@"Deleted CrewSetUp"]) {
+           if ([_soapResults isEqualToString:@"Deleted All Members"]) {
+               if (clear==1) {
+                   [self CrewSetUpDelete];
+                    [_crewbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+                   clear=0;
+               }
+               else if (clear==0)
+               {
+                   [self Selectcrewname];
+               }
                
-               [self AllCrewDelete];
-               [_crewbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
                
               
 
@@ -1584,7 +1591,7 @@
            }
 
         
-       else if ([_soapResults isEqualToString:@"Inserted Crew"]||[_soapResults isEqualToString:@"Deleted All Members"]||[_soapResults isEqualToString:@"deletedcrew"]||[_soapResults isEqualToString:@"insert"]) {
+       else if ([_soapResults isEqualToString:@"Inserted Crew"]||[_soapResults isEqualToString:@"Deleted CrewSetUp"]||[_soapResults isEqualToString:@"deletedcrew"]||[_soapResults isEqualToString:@"insert"]) {
           
            if ([_soapResults isEqualToString:@"Inserted Crew"]){
               // UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -1665,6 +1672,7 @@
 
     }
     else{
+       
        
         NSString*alertstrg=[NSString stringWithFormat:@"Are you sure you want to delete %@ crew",_crewbtnlbl.titleLabel.text];
         _deletegpstring=alertstrg;
@@ -1781,7 +1789,9 @@
         
     
     if (buttonIndex==[alertView cancelButtonIndex]){
-        [self CrewSetUpDelete];
+         clear=1;
+        [self AllCrewDelete];
+        //[self CrewSetUpDelete];
         
            }
     
@@ -1794,6 +1804,7 @@
         
         
         if (buttonIndex==[alertView cancelButtonIndex]){
+            
             [self AllCrewDelete];
             
         }
