@@ -2255,6 +2255,18 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"MultiThirdpartysubtypeselectResponse"])
+    {
+        
+        _Subtypelistarray=[[NSMutableArray alloc]init];
+        _subtypelistdictionary=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
 
 
