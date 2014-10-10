@@ -126,7 +126,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 
         _pictureimgview.image=nil;
         
-        
+         imagechecker=2;
         
         _pictureimgview.image =image;
         //[self dismissViewControllerAnimated:YES completion:nil];
