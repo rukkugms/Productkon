@@ -474,6 +474,17 @@
     
     
 }
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView==_materailtable)
+        
+    {
+        return self.editing ;
+    }
+    return YES;
+    
+}
+
 #pragma mark-Webservices
 -(void)selectskills
 {
