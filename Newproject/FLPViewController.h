@@ -46,5 +46,7 @@
 - (IBAction)deletebtn:(id)sender;
 -(IBAction)Edit:(id)sender;
 @property(strong,nonatomic)NSString *result;
+@property(readwrite)NSInteger moduleid;
+@property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 
 @end

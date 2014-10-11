@@ -186,7 +186,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *updatebtnlbl;
 
 
-
+@property(readwrite)NSInteger moduleid;
 
 
 @end

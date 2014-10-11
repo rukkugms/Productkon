@@ -16,6 +16,7 @@
 {
     NSString*userid;
     BOOL recordResults;
+     NSInteger checkWS;
 }
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *leadactivity;
 

@@ -116,6 +116,15 @@
     _stactivity.hidden=YES;
     _cmpanyassetview.userInteractionEnabled=YES;
     _assetactivity.hidden=YES;
+     [_conactivity stopAnimating];
+    [_manactivity stopAnimating];
+    [_eqactivity stopAnimating];
+    [_matactivity stopAnimating];
+    [_fleetactivity stopAnimating];
+    [_gpactivity stopAnimating];
+    [_tpactivity stopAnimating];
+    [_stactivity stopAnimating];
+    [_assetactivity stopAnimating];
     
     
     
