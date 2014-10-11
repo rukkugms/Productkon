@@ -1580,6 +1580,7 @@ else
         _updatebtn.enabled=YES;
         _soapResults = nil;
         [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        _picimageview.image=[UIImage imageNamed:@"mNoImage"];
         _searchbar.text=@"";
 
         

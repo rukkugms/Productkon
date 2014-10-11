@@ -1796,6 +1796,7 @@ finishedSavingWithError:(NSError *)error
         _unitcosttxtfld.text=@"";
         _stckinhandtxtfld.text=@"";
         [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        _imageview.image=[UIImage imageNamed:@"mNoImage"];
         _searchbar.text=@"";
         _updatebtn.enabled=YES;
 
