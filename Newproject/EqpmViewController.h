@@ -14,6 +14,7 @@
 #import "Base64.h"
 #import "Rightscheck.h"
 #import "RSTViewController.h"
+#import "AppDelegate.h"
 
 @interface EqpmViewController : UIViewController<UIImagePickerControllerDelegate>{
       BOOL recordResults;

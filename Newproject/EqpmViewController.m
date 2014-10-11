@@ -86,6 +86,9 @@ _scroll_addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255
        
         _imagePicker =
         [[UIImagePickerController alloc] init];
+        AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+        //[appDelegate.window addSubview:cameraOverlay];
+        _imagePicker.cameraOverlayView = appDelegate.window.superview;
         _imagePicker.delegate =(id) self;
         _imagePicker.sourceType =
         UIImagePickerControllerSourceTypeCamera;
@@ -105,6 +108,7 @@ _scroll_addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255
 -(void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+    
     // [self.popoverController dismissPopoverAnimated:true];
     NSString *mediaType = [info
                            objectForKey:UIImagePickerControllerMediaType];
@@ -115,6 +119,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
         UIImage *image = [info
                           objectForKey:UIImagePickerControllerOriginalImage];
+        
         NSLog(@"dict%@",info);
         switch (image.imageOrientation) {
             case UIImageOrientationDown:
@@ -841,7 +846,7 @@ finishedSavingWithError:(NSError *)error
     NSString *soapMessage;
     NSString *imagename;
     
-    imagename=[NSString stringWithFormat:@"Photo_%@.jpg",_codetxfld.text];
+    imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxfld.text];
     
    // NSString *imagename=[NSString stringWithFormat:@"Newimage.jpg"];
     NSString *type=@"Equipments";
@@ -1881,9 +1886,9 @@ _addequipmentview.hidden=NO;
     
 
         UIImage *imagename =_picimageview.image;
-       // NSData *data = UIImagePNGRepresentation(imagename);
+        NSData *data = UIImagePNGRepresentation(imagename);
         
-        NSData *data = UIImageJPEGRepresentation(imagename, 1.0);
+        //NSData *data = UIImageJPEGRepresentation(imagename, 1.0);
         
         
         _encodedString = [data base64EncodedString];
