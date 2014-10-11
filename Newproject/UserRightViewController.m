@@ -146,7 +146,7 @@ viewcheck=0;
                    
                    "<soap:Body>\n"
                    
-                   "<AllUsersselect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<AllUsersselect xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</AllUsersselect>\n"
                    "</soap:Body>\n"
@@ -154,8 +154,8 @@ viewcheck=0;
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -163,7 +163,7 @@ viewcheck=0;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/AllUsersselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/AllUsersselect" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -195,7 +195,7 @@ viewcheck=0;
                    
                    "<soap:Body>\n"
                    
-                   "<Mainmoduleselect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<Mainmoduleselect xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</Mainmoduleselect>\n"
                    "</soap:Body>\n"
@@ -204,7 +204,7 @@ viewcheck=0;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -212,7 +212,7 @@ viewcheck=0;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/Mainmoduleselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/Mainmoduleselect" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -244,7 +244,7 @@ viewcheck=0;
                    
                    "<soap:Body>\n"
                    
-                   "<Submoduleselect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<Submoduleselect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<subof>%d</subof>\n"
                    "</Submoduleselect>\n"
                    "</soap:Body>\n"
@@ -253,7 +253,7 @@ viewcheck=0;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -261,7 +261,7 @@ viewcheck=0;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/Submoduleselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/Submoduleselect" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -293,7 +293,7 @@ viewcheck=0;
                    
                    "<soap:Body>\n"
                    
-                   "<SubSubmoduleselect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<SubSubmoduleselect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<subof>%d</subof>\n"
                    "</SubSubmoduleselect>\n"
                    "</soap:Body>\n"
@@ -302,7 +302,7 @@ viewcheck=0;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -310,7 +310,7 @@ viewcheck=0;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/SubSubmoduleselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SubSubmoduleselect" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -342,7 +342,7 @@ viewcheck=0;
                    
                    "<soap:Body>\n"
                    
-                   "<UserRightsselect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<UserRightsselect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<UserId>%d</UserId>\n"
                    "</UserRightsselect>\n"
                    "</soap:Body>\n"
@@ -351,7 +351,7 @@ viewcheck=0;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -359,7 +359,7 @@ viewcheck=0;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/UserRightsselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/UserRightsselect" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -391,7 +391,7 @@ viewcheck=0;
                    
                    "<soap:Body>\n"
                    
-                   "<UserRightsforMainTileselect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<UserRightsforMainTileselect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<UserId>%d</UserId>\n"
                    "</UserRightsforMainTileselect>\n"
                    "</soap:Body>\n"
@@ -400,7 +400,7 @@ viewcheck=0;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -408,7 +408,7 @@ viewcheck=0;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/UserRightsforMainTileselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/UserRightsforMainTileselect" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -441,7 +441,7 @@ viewcheck=0;
                    
                    "<soap:Body>\n"
                    
-                   "<UserRightsforsubTileselect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<UserRightsforsubTileselect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<UserId>%d</UserId>\n"
                    "<subof>%d</subof>\n"
                    "</UserRightsforsubTileselect>\n"
@@ -451,7 +451,7 @@ viewcheck=0;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -459,7 +459,7 @@ viewcheck=0;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/UserRightsforsubTileselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/UserRightsforsubTileselect" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -491,7 +491,7 @@ viewcheck=0;
                    
                    "<soap:Body>\n"
                    
-                   "<Checksubmenuselect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<Checksubmenuselect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<moduleid>%d</moduleid>\n"
                  
                    "</Checksubmenuselect>\n"
@@ -501,7 +501,7 @@ viewcheck=0;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -509,7 +509,7 @@ viewcheck=0;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/Checksubmenuselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/Checksubmenuselect" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -542,7 +542,7 @@ viewcheck=0;
                    
                    "<soap:Body>\n"
                    
-                   "<UserRightsforsubTileselect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<UserRightsforsubTileselect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<UserId>%d</UserId>\n"
                    "<subof>%d</subof>\n"
                    "</UserRightsforsubTileselect>\n"
@@ -552,7 +552,7 @@ viewcheck=0;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -560,7 +560,7 @@ viewcheck=0;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/UserRightsforsubTileselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/UserRightsforsubTileselect" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -592,7 +592,7 @@ viewcheck=0;
                    
                    "<soap:Body>\n"
                    
-                   "<UserRightsforparticularmodule2select xmlns=\"http://test.kontract360.com/\">\n"
+                   "<UserRightsforparticularmodule2select xmlns=\"http://ios.kontract360.com/\">\n"
                    "<UserId>%d</UserId>\n"
                    "<ModuleId>%d</ModuleId>\n"
                    "</UserRightsforparticularmodule2select>\n"
@@ -602,7 +602,7 @@ viewcheck=0;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -610,7 +610,7 @@ viewcheck=0;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/UserRightsforparticularmodule2select" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/UserRightsforparticularmodule2select" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -642,7 +642,7 @@ viewcheck=0;
                    
                    "<soap:Body>\n"
                    
-                   "<UserRightsforparticularmodule2select xmlns=\"http://test.kontract360.com/\">\n"
+                   "<UserRightsforparticularmodule2select xmlns=\"http://ios.kontract360.com/\">\n"
                    "<UserId>%d</UserId>\n"
                    "<ModuleId>%d</ModuleId>\n"
                    "</UserRightsforparticularmodule2select>\n"
@@ -652,7 +652,7 @@ viewcheck=0;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -660,7 +660,7 @@ viewcheck=0;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/UserRightsforparticularmodule2select" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/UserRightsforparticularmodule2select" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -709,7 +709,7 @@ viewcheck=0;
                    
                    "<soap:Body>\n"
                    
-                   "<Userrightssave xmlns=\"http://test.kontract360.com/\">\n"
+                   "<Userrightssave xmlns=\"http://ios.kontract360.com/\">\n"
                    "<UserId>%d</UserId>\n"
                    "<ModuleId>%d</ModuleId>\n"
                    "<ViewModule>%d</ViewModule>\n"
@@ -724,7 +724,7 @@ viewcheck=0;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -732,7 +732,7 @@ viewcheck=0;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/Userrightssave" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/Userrightssave" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -830,7 +830,7 @@ viewcheck=0;
                    
                    "<soap:Body>\n"
                    
-                   "<Userrightssave xmlns=\"http://test.kontract360.com/\">\n"
+                   "<Userrightssave xmlns=\"http://ios.kontract360.com/\">\n"
                    "<UserId>%d</UserId>\n"
                    "<ModuleId>%d</ModuleId>\n"
                    "<ViewModule>%d</ViewModule>\n"
@@ -845,7 +845,7 @@ viewcheck=0;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -853,7 +853,7 @@ viewcheck=0;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/Userrightssave" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/Userrightssave" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -885,7 +885,7 @@ viewcheck=0;
                    
                    "<soap:Body>\n"
                    
-                   "<Useractivateselect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<Useractivateselect xmlns=\"http://ios.kontract360.com/\">\n"
                      "<UserId>%d</UserId>\n"
                    "</Useractivateselect>\n"
                    "</soap:Body>\n"
@@ -893,8 +893,8 @@ viewcheck=0;
     NSLog(@"soapmsg%@",soapMessage);
     
     
-     //NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+     //NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -902,7 +902,7 @@ viewcheck=0;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/Useractivateselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/Useractivateselect" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -934,7 +934,7 @@ viewcheck=0;
                    
                    "<soap:Body>\n"
                    
-                   "<UserActivateUpdate xmlns=\"http://test.kontract360.com/\">\n"
+                   "<UserActivateUpdate xmlns=\"http://ios.kontract360.com/\">\n"
                    "<UserId>%d</UserId>\n"
                    "<Activate>%d</Activate>\n"
                    "</UserActivateUpdate>\n"
@@ -943,8 +943,8 @@ viewcheck=0;
     NSLog(@"soapmsg%@",soapMessage);
     
     
-   // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -952,7 +952,7 @@ viewcheck=0;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/UserActivateUpdate" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/UserActivateUpdate" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -1016,7 +1016,7 @@ viewcheck=0;
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
@@ -1027,6 +1027,257 @@ viewcheck=0;
     
     [theRequest addValue: @"http://ios.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
     
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)Userrighttickselect{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Userrighttickselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserId>%d</UserId>\n"
+                   
+                   "</Userrighttickselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[[_userdict objectForKey:[_userarray objectAtIndex:userpath] ]integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Userrighttickselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)Userrightsuboftickselect{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Userrightsuboftickselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserId>%d</UserId>\n"
+                    "<subof>%d</subof>\n"
+                   "</Userrightsuboftickselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[[_userdict objectForKey:[_userarray objectAtIndex:userpath] ]integerValue],[[_maintiledict objectForKey:masterbtnstrg]integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Userrightsuboftickselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)SubUserrightsuboftickselect{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Userrightsuboftickselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserId>%d</UserId>\n"
+                   "<subof>%d</subof>\n"
+                   "</Userrightsuboftickselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[[_userdict objectForKey:[_userarray objectAtIndex:userpath] ]integerValue],[[_subtiledict objectForKey:subbtnstrg]integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Userrightsuboftickselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)SubSubUserrightsuboftickselect{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Userrightsuboftickselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserId>%d</UserId>\n"
+                   "<subof>%d</subof>\n"
+                   "</Userrightsuboftickselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[[_userdict objectForKey:[_userarray objectAtIndex:userpath] ]integerValue],[[_subsubtiledict objectForKey:subsubbtnstrg]integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Userrightsuboftickselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+-(void)Userrightsubofmastertickselect{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Userrightsubofmastertickselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserId>%d</UserId>\n"
+                  
+                   "</Userrightsubofmastertickselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[[_userdict objectForKey:[_userarray objectAtIndex:userpath] ]integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Userrightsubofmastertickselect" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -1167,8 +1418,8 @@ viewcheck=0;
           if ([usrmdl.viewonly isEqualToString:@"true"]) {
               _viewbtnlbl.enabled=YES;
               _editbtnlbl.enabled=NO;
-              _deletebtnlbl.enabled=NO;
-              _printbtnlbl.enabled=NO;
+             _deletebtnlbl.enabled=NO;
+             _printbtnlbl.enabled=NO;
              
               [_editbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
               [_deletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
@@ -1550,6 +1801,7 @@ viewcheck=0;
     }
     if([elementName isEqualToString:@"UserRightsselectResponse"])
     {
+        [self Userrighttickselect];
         _usertablearray=[[NSMutableArray alloc]init];
         if(!_soapResults)
         {
@@ -1648,7 +1900,7 @@ viewcheck=0;
     }
 
     if([elementName isEqualToString:@"UserRightsforMainTileselectResponse"])
-    {
+    {    [self Userrightsubofmastertickselect];
         _usertablearray=[[NSMutableArray alloc]init];
         if(!_soapResults)
         {
@@ -1658,6 +1910,18 @@ viewcheck=0;
     }
     if([elementName isEqualToString:@"UserRightsforsubTileselectResponse"])
     {
+        
+        if (popover==3) {
+            
+               [self SubUserrightsuboftickselect];
+        }
+        
+        else{
+       
+     [self Userrightsuboftickselect];
+         }
+        
+      
         _usertablearray=[[NSMutableArray alloc]init];
         if(!_soapResults)
         {
@@ -1687,6 +1951,19 @@ viewcheck=0;
 
     if([elementName isEqualToString:@"UserRightsforparticularmodule2selectResponse"])
     {
+       
+        if(popover==4){
+            
+            [self SubSubUserrightsuboftickselect];
+        }
+        else{
+            
+            [self SubUserrightsuboftickselect];
+        
+        }
+
+        
+       
         _usertablearray=[[NSMutableArray alloc]init];
         if(!_soapResults)
         {
@@ -1720,7 +1997,47 @@ viewcheck=0;
         }
         recordResults = TRUE;
     }
-  
+    if([elementName isEqualToString:@"UserrighttickselectResponse"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Tickview"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"TickEdit"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"TickDelete"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"TickPrint"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
@@ -1949,6 +2266,49 @@ viewcheck=0;
           UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
            [alert show];
            // [self UserRightsselect];
+                if(![_subsubbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+                    
+                    [self SubUserRightsforparticularmoduleselect];
+                    
+                }
+                else{
+                    
+                    if(![_subbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+                        if(tileschecking==1){
+                            [self UserRightsforparticularmodule2select];
+                            
+                        }
+                        else{
+                            [self SubUserRightsforsubTileselect];
+                        }
+                        
+                        
+                    }
+                    else{
+                        if(![_masterbtn.titleLabel.text isEqualToString:@"Select"]){
+                            
+                            if([_masterbtn.titleLabel.text isEqualToString:@"Master Tiles"]){
+                                
+                                [self UserRightsforMainTileselect];
+                            }
+                            else{
+                                [self UserRightsforsubTileselect];
+                            }}
+                        
+                        else{
+                            
+                            if(![_userbtn.titleLabel.text isEqualToString:@"Select"]){
+                                
+                                [self UserRightsselect];
+                            }
+                            
+                            
+                        }
+                    }
+                    
+                    
+                }
+
             
                 
             }
@@ -2115,6 +2475,59 @@ viewcheck=0;
         
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"Tickview"])
+    {
+       
+        [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_Allprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        recordResults = FALSE;
+        if ([_soapResults isEqualToString:@"0"]) {
+             [_Allviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        }
+        else{
+              [_Allviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        }
+        _soapResults = nil;
+}
+    if([elementName isEqualToString:@"TickEdit"])
+    {
+        recordResults = FALSE;
+        if ([_soapResults isEqualToString:@"0"]) {
+            [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        }
+        else{
+            [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        }
+
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"TickDelete"])
+    {
+        recordResults = FALSE;
+        if ([_soapResults isEqualToString:@"0"]) {
+            [_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        }
+        else{
+            [_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        }
+
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"TickPrint"])
+    {
+        recordResults = FALSE;
+        if ([_soapResults isEqualToString:@"0"]) {
+            [_Allprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        }
+        else{
+            [_Allprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        }
+
+        _soapResults = nil;
+    }
+
 
 }
 #pragma mark-IBActions
@@ -2554,9 +2967,9 @@ viewcheck=0;
             
             _editview.hidden=YES;
             _editupdatebtnlbl.enabled=YES;
-            [_masterbtn setTitle:@"Select" forState:UIControlStateNormal];
-            [_subbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
-            [_subsubbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+           // [_masterbtn setTitle:@"Select" forState:UIControlStateNormal];
+          //  [_subbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+           // [_subsubbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
            
         }
     }

@@ -69,6 +69,54 @@
     
 
 }
+//-(void)tuchsctn{
+//    
+//    if(_ModuleID==1){
+//        [self UserRightsforparticularmoduleselect];
+//    }
+//    else{
+//        if(_ModuleID==2){
+//            [self UserRightsforparticularmoduleselect];
+//        }
+//        else{
+//            if(_ModuleID==3){
+//                [self UserRightsforparticularmoduleselect];
+//            }
+//            else{
+//                if(_ModuleID==4){
+//                    [self UserRightsforparticularmoduleselect];
+//                }
+//                else{
+//                    if(_ModuleID==5){
+//                        [self UserRightsforparticularmoduleselect];
+//                    }
+//                    else{
+//                        if(_ModuleID==7){
+//                            [self UserRightsforparticularmoduleselect];
+//                        }
+//                        else{
+//                            
+//                        }
+//                        if(_ModuleID==8){
+//                            [self UserRightsforparticularmoduleselect];
+//                        }
+//                        
+//                        
+//                    }
+//                    
+//                }
+//                
+//                
+//                
+//                
+//            }
+//            
+//        }
+//        
+//        
+//    }
+//}
+
 
 -(void)newaction{
     [self LogoutFromAll];
