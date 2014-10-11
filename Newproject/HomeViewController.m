@@ -408,9 +408,9 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
         _companyView.userInteractionEnabled=YES;
       
         [_compactivityindctr stopAnimating];
-        if (!self.tileVCtrl) {
+       // if (!self.tileVCtrl) {
             self.tileVCtrl=[[TileViewController alloc]initWithNibName:@"TileViewController" bundle:nil];
-        }
+       // }
         _tileVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
         
         [self presentViewController:_tileVCtrl
@@ -437,9 +437,9 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
             _reurceview.userInteractionEnabled=YES;
             [_resactivtyindictr stopAnimating];
             
-            if (!self.ReVCtrl) {
+            //if (!self.ReVCtrl) {
                 self.ReVCtrl=[[ResViewController alloc]initWithNibName:@"ResViewController" bundle:nil];
-            }
+           // }
             _ReVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
             [self presentViewController:_ReVCtrl
                                animated:YES completion:NULL];
@@ -460,9 +460,9 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
     {
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
-        if (!self.custmrVCtrl) {
+        //if (!self.custmrVCtrl) {
             self.custmrVCtrl=[[TilecustmrViewController alloc]initWithNibName:@"TilecustmrViewController" bundle:nil];
-        }
+        //}
         _custmrVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
             _custindictr.hidden=YES;
             [_custindictr stopAnimating];
@@ -489,9 +489,9 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
             _ledactvtyindctr.hidden=YES;
             [_ledactvtyindctr stopAnimating];
              _leadView.userInteractionEnabled=YES;
-            if (!self.LCtrl) {
+            //if (!self.LCtrl) {
                 self.LCtrl=[[TLLeadsViewController alloc]initWithNibName:@"TLLeadsViewController" bundle:nil];
-            }
+           // }
              _LCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
             [self presentViewController:_LCtrl
                                animated:YES completion:NULL];
@@ -514,10 +514,10 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
             _planactivityindctr.hidden=YES;
             [_planactivityindctr stopAnimating];
              _planngview.userInteractionEnabled=YES;
-            if (!self.PlnCtrl) {
+            //if (!self.PlnCtrl) {
                 self.PlnCtrl=[[PlngTileViewController alloc]initWithNibName:@"PlngTileViewController" bundle:nil];
                 
-            }
+           // }
             // _PlangVCtrl.view.frame=CGRectMake(100, 171, 768, 768);
              _PlnCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
             [self presentViewController:_PlnCtrl
@@ -541,9 +541,9 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
             _estactvityindicator.hidden=YES;
             [_estactvityindicator stopAnimating];
              _estimtnview.userInteractionEnabled=YES;
-            if (!self.EstmVCtrl) {
+            //if (!self.EstmVCtrl) {
                 self.EstmVCtrl=[[EsttileViewController alloc]initWithNibName:@"EsttileViewController" bundle:nil];
-            }
+            //}
             _EstmVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
             _EstmVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
             [self presentViewController:_EstmVCtrl
@@ -568,9 +568,9 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
             _promgmtindicatr.hidden=YES;
             [_promgmtindicatr stopAnimating];
              _projectview.userInteractionEnabled=YES;
-            if (!_mangVCtrl) {
+           // if (!_mangVCtrl) {
                 _mangVCtrl=[[ManagemttileViewController alloc]initWithNibName:@"ManagemttileViewController" bundle:nil];
-            }
+            //}
             _mangVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
             _mangVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
             [self presentViewController:_mangVCtrl
@@ -594,9 +594,9 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
             _hrindicator.hidden=YES;
             _hrview.userInteractionEnabled=YES;
             [_hrindicator stopAnimating];
-            if (!self.TilehrVCtrl) {
+           // if (!self.TilehrVCtrl) {
                 self.TilehrVCtrl=[[TilehrViewController alloc]initWithNibName:@"TilehrViewController" bundle:nil];
-            }
+           // }
             
             _TilehrVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
             

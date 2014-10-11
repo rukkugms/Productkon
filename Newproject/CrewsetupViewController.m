@@ -349,6 +349,16 @@
 
     
 }
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView==_manpwrtable)
+        
+    {
+        return self.editing ;
+    }
+    return YES;
+    
+}
 
 
 - (void)searchAutocompleteEntriesWithSubstring:(NSString *)substring {

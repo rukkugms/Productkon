@@ -493,7 +493,7 @@ finishedSavingWithError:(NSError *)error
     NSString*daily=   [_dailytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
     NSString*weekly=   [_weeklytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
     NSString*monthly=   [_monthlytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
-    NSString*unitcost=[_unitcsttxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+   // NSString*unitcost=[_unitcsttxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
     NSString*yearly=[_yearlytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
 
     NSString *soapMessage;
@@ -565,12 +565,21 @@ finishedSavingWithError:(NSError *)error
     recordResults = FALSE;
     //NSString*picturelocatn=@"";
     NSString *soapMessage;
-    NSString*HourlyRate=_hurlytxtfld.text ;
-     NSString*DailyRate=_dailytxtfld.text;
-     NSString*ShiftwiseRate=_shiftwisetxtfld.text;
-     NSString*WeeklyRate=_weeklytxtfld.text;
-     NSString*MonthlyRate=_monthlytxtfld.text;
-     NSString*YearlyRate=_yearlytxtfld.text;
+//    NSString*HourlyRate=_hurlytxtfld.text ;
+//     NSString*DailyRate=_dailytxtfld.text;
+//     NSString*ShiftwiseRate=_shiftwisetxtfld.text;
+//     NSString*WeeklyRate=_weeklytxtfld.text;
+//     NSString*MonthlyRate=_monthlytxtfld.text;
+//     NSString*YearlyRate=_yearlytxtfld.text;
+    NSString*Purchase=   [_purchasetxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*insured=   [_insuredtxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*shiftwise=   [_shiftwisetxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*hourly=   [_hurlytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*daily=   [_dailytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*weekly=   [_weeklytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*monthly=   [_monthlytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+   // NSString*unitcost=[_unitcsttxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*yearly=[_yearlytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
   Equpmntmdl*eqmdl=(Equpmntmdl *)[_Assetarray objectAtIndex:path];
     if (createsub!=1) {
         if ([eqmdl.EqAllSubTypes isEqualToString:@"true"]) {
@@ -614,7 +623,7 @@ finishedSavingWithError:(NSError *)error
                     "<OCAllSubTypes>%d</OCAllSubTypes>\n"
                    "</UpdateOther>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,[_purchasetxtfld.text floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[HourlyRate floatValue],[DailyRate floatValue],[ShiftwiseRate floatValue],[WeeklyRate floatValue],[MonthlyRate floatValue],[YearlyRate floatValue],eqmdl.entryid,[_stckinhandtxtfld.text floatValue],checksub];
+                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[yearly floatValue],eqmdl.entryid,[_stckinhandtxtfld.text floatValue],checksub];
     NSLog(@"soapmsg%@",soapMessage);
     
     

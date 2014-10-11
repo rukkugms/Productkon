@@ -139,6 +139,7 @@
 @property(strong,nonatomic)NSMutableDictionary *reversefollwdict;
 @property(strong,nonatomic)NSString *followstring;
 - (IBAction)empbtn:(id)sender;
+@property(readwrite)NSInteger moduleid;
 
 
 @end

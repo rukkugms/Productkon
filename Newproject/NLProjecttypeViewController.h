@@ -42,6 +42,7 @@
 
 - (IBAction)clsebtn:(id)sender;
 @property(strong,nonatomic)IBOutlet UIButton *updatebtn;
+@property(readwrite)NSInteger moduleid;
 
 
 @end

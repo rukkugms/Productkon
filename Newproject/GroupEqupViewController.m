@@ -330,6 +330,17 @@
     
     
 }
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView==_equpmenttable)
+        
+    {
+        return self.editing ;
+    }
+    return YES;
+    
+}
+
 #pragma mark -
 #pragma mark UIGestureRecognizer
 
