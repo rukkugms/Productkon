@@ -1118,12 +1118,7 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-    if (webtype==1||webtype==2) {
-        [self SelectAllServices];
-        _searchbar.text=@"";
-        webtype=0;
-    }
-
+    
     [_servicesTable reloadData];
     
 }
@@ -1291,8 +1286,15 @@
             
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstr delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+            [self SelectAllServices];
+            _searchbar.text=@"";
         }
-        
+        if (webtype==2) {
+            [self SelectAllServices];
+            _searchbar.text=@"";
+            //webtype=0;
+        }
+
         if ([_soapResults isEqualToString:@"Already In Use"]) {
            
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstr delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
