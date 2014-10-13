@@ -81,32 +81,37 @@
     
 }
 -(void)servicesPage
-{   _servcindicator.hidden=NO;
+{ _serviceview.userInteractionEnabled=YES;
+    _servcindicator.hidden=NO;
     [_servcindicator startAnimating];
-    _serviceview.userInteractionEnabled=NO;
+   
     _Moduleid=17;
     [self UserLogmaininsert];
     [self UserRightsforparticularmoduleselect];
+     _serviceview.userInteractionEnabled=NO;
     
    }
 -(void)workphasePage
-{
+{_workphaseview.userInteractionEnabled=YES;
     _phaseindicator.hidden=NO;
     [_phaseindicator startAnimating];
-    _workphaseview.userInteractionEnabled=NO;
+    
     _Moduleid=19;
       [self UserLogmaininsert];
     [self UserRightsforparticularmoduleselect];
+    _workphaseview.userInteractionEnabled=NO;
  
     
 }
 -(void)worktypepage{
+    _worktypeview.userInteractionEnabled=YES;
     _wrktypeindicator.hidden=NO;
     [_wrktypeindicator startAnimating];
-    _worktypeview.userInteractionEnabled=NO;
+    
     _Moduleid=18;
       [self UserLogmaininsert];
     [self UserRightsforparticularmoduleselect];
+    _worktypeview.userInteractionEnabled=NO;
    
 }
 -(void)userpage{
@@ -324,6 +329,14 @@
             _servcindicator.hidden=YES;
            
             [_servcindicator stopAnimating];
+            
+            _worktypeview.userInteractionEnabled=YES;
+            _workphaseview.userInteractionEnabled=YES;
+           
+            _phaseindicator.hidden=YES;
+            _wrktypeindicator.hidden=YES;
+                       [_phaseindicator stopAnimating];
+            [_wrktypeindicator stopAnimating];
          
             
             //if (!self.serviceVCtrl) {
@@ -359,6 +372,15 @@
             _wrktypeindicator.hidden=YES;
             
             [_wrktypeindicator stopAnimating];
+            _serviceview.userInteractionEnabled=YES;
+           
+            _workphaseview.userInteractionEnabled=YES;
+            _servcindicator.hidden=YES;
+            _phaseindicator.hidden=YES;
+           
+            [_servcindicator stopAnimating];
+            [_phaseindicator stopAnimating];
+            
             // if (!self.wrktypeVCtrl) {
             self.wrktypeVCtrl=[[WorktypeViewController alloc]initWithNibName:@"WorktypeViewController" bundle:nil];
             //  }
@@ -389,6 +411,15 @@
             _phaseindicator.hidden=YES;
             
             [_phaseindicator stopAnimating];
+            _serviceview.userInteractionEnabled=YES;
+            _worktypeview.userInteractionEnabled=YES;
+           
+            _servcindicator.hidden=YES;
+            _phaseindicator.hidden=YES;
+            _wrktypeindicator.hidden=YES;
+            [_servcindicator stopAnimating];
+           
+            [_wrktypeindicator stopAnimating];
 
             //  if (!self.workVCtrl) {
             self.workVCtrl=[[workPhasesViewController alloc]initWithNibName:@"workPhasesViewController" bundle:nil];
