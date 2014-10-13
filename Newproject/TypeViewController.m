@@ -577,11 +577,7 @@
     {
         recordResults = FALSE;
         msgstrg=_soapResults;
-        if (webtype==1||webtype==2||webtype==3) {
-            [self Itemrequirementselect];
-            webtype=0;
-        }
-
+        
         if(webtype==1||webtype==2){
             
             
