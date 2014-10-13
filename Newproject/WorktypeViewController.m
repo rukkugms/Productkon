@@ -589,11 +589,7 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-    if (webtype==1||webtype==2||webtype==3) {
-        [self WorkTypeSelect];
-               webtype=0;
-    }
-    [_typetable reloadData];
+      [_typetable reloadData];
     
 }
 #pragma mark-xml parser
@@ -690,10 +686,12 @@
         
         
         recordResults = FALSE;
+     
         if (webtype==1||webtype==2) {
             msgstrg=_soapResults;
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+             [self WorkTypeSelect];
         }
         if (webtype==3) {
             
@@ -702,7 +700,8 @@
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
             }
-            
+            [self WorkTypeSelect];
+
         }
         _soapResults = nil;
     }

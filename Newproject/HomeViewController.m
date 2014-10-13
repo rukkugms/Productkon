@@ -46,6 +46,7 @@
     [self Logoutselect];
 }
 -(void)viewWillAppear:(BOOL)animated{
+      [super viewWillAppear:animated];
      _compactivityindctr.hidden=YES;
     _resactivtyindictr.hidden=YES;
     _companyView.userInteractionEnabled=YES;
@@ -63,7 +64,7 @@
     _hrindicator.hidden=YES;
     _promgmtindicatr.hidden=YES;
    
-    [super viewWillAppear:animated];
+  
     _result=@"";
     _wlcmelbl.text=_username;
 //    UIBarButtonItem *logoutbutton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"logout1"] style:UIBarButtonItemStylePlain target:self action:@selector(logoutAction)];
