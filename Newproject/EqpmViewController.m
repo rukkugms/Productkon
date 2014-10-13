@@ -119,22 +119,22 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                           objectForKey:UIImagePickerControllerOriginalImage];
         
         NSLog(@"dict%@",info);
-        switch (image.imageOrientation) {
-            case UIImageOrientationDown:
-            case UIImageOrientationDownMirrored:
-            case UIImageOrientationLeft:
-            case UIImageOrientationLeftMirrored:
-            case UIImageOrientationRight:
-            case UIImageOrientationRightMirrored:
-                image = [UIImage imageWithCGImage:image.CGImage
-                                            scale:image.scale
-                                      orientation:UIImageOrientationUp]; // change this if you need another orientation
-                break;
-            case UIImageOrientationUp:
-            case UIImageOrientationUpMirrored:
-                // The image is already in correct orientation
-                break;
-        }
+//        switch (image.imageOrientation) {
+//            case UIImageOrientationDown:
+//            case UIImageOrientationDownMirrored:
+//            case UIImageOrientationLeft:
+//            case UIImageOrientationLeftMirrored:
+//            case UIImageOrientationRight:
+//            case UIImageOrientationRightMirrored:
+//                image = [UIImage imageWithCGImage:image.CGImage
+//                                            scale:image.scale
+//                                      orientation:UIImageOrientationUp]; // change this if you need another orientation
+//                break;
+//            case UIImageOrientationUp:
+//            case UIImageOrientationUpMirrored:
+//                // The image is already in correct orientation
+//                break;
+//        }
            _picimageview.image=nil;
         
         
