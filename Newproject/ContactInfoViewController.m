@@ -328,6 +328,228 @@
     
     
 }
+-(void)UserLogmaininsert{
+    
+    recordResults = FALSE;
+    
+    NSDate *date = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    NSTimeZone *zone = [NSTimeZone localTimeZone];
+    [formatter setTimeZone:zone];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    // NSLog(@"Date %@",[formatter stringFromDate:date]);
+    NSString*curntdate=[formatter stringFromDate:date];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString*useridname = [defaults objectForKey:@"Userid"];
+    NSString*extnalip=[defaults objectForKey:@"Externalip"];
+    NSString*intrnalip=[defaults objectForKey:@"Internalip"];
+    NSString*Udid=[defaults objectForKey:@"UDID"];
+    
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UserLogmaininsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<dateandtime>%@</dateandtime>\n"
+                   "<userid>%d</userid>\n"
+                   "<moduleid>%d</moduleid>\n"
+                   "<Action>%@</Action>\n"
+                   "<platform>%@</platform>\n"
+                   "<externalip>%@</externalip>\n"
+                   "<internalip>%@</internalip>\n"
+                   "<devicenumber>%@</devicenumber>\n"
+                   "<documentId>%d</documentId>\n"
+                   "</UserLogmaininsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",curntdate,[useridname integerValue],0,@"Create",@"iOS",extnalip,intrnalip,Udid,0];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)UserLogmainupdate{
+    
+    recordResults = FALSE;
+    
+    NSDate *date = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    NSTimeZone *zone = [NSTimeZone localTimeZone];
+    [formatter setTimeZone:zone];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    // NSLog(@"Date %@",[formatter stringFromDate:date]);
+    NSString*curntdate=[formatter stringFromDate:date];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString*useridname = [defaults objectForKey:@"Userid"];
+    NSString*extnalip=[defaults objectForKey:@"Externalip"];
+    NSString*intrnalip=[defaults objectForKey:@"Internalip"];
+    NSString*Udid=[defaults objectForKey:@"UDID"];
+    
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UserLogmaininsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<dateandtime>%@</dateandtime>\n"
+                   "<userid>%d</userid>\n"
+                   "<moduleid>%d</moduleid>\n"
+                   "<Action>%@</Action>\n"
+                   "<platform>%@</platform>\n"
+                   "<externalip>%@</externalip>\n"
+                   "<internalip>%@</internalip>\n"
+                   "<devicenumber>%@</devicenumber>\n"
+                   "<documentId>%d</documentId>\n"
+                   "</UserLogmaininsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",curntdate,[useridname integerValue],0,@"Edit",@"iOS",extnalip,intrnalip,Udid,0];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)UserLogmaindelete{
+    
+    recordResults = FALSE;
+    
+    NSDate *date = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    NSTimeZone *zone = [NSTimeZone localTimeZone];
+    [formatter setTimeZone:zone];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    // NSLog(@"Date %@",[formatter stringFromDate:date]);
+    NSString*curntdate=[formatter stringFromDate:date];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString*useridname = [defaults objectForKey:@"Userid"];
+    NSString*extnalip=[defaults objectForKey:@"Externalip"];
+    NSString*intrnalip=[defaults objectForKey:@"Internalip"];
+    NSString*Udid=[defaults objectForKey:@"UDID"];
+    
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UserLogmaininsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<dateandtime>%@</dateandtime>\n"
+                   "<userid>%d</userid>\n"
+                   "<moduleid>%d</moduleid>\n"
+                   "<Action>%@</Action>\n"
+                   "<platform>%@</platform>\n"
+                   "<externalip>%@</externalip>\n"
+                   "<internalip>%@</internalip>\n"
+                   "<devicenumber>%@</devicenumber>\n"
+                   "<documentId>%d</documentId>\n"
+                   "</UserLogmaininsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",curntdate,[useridname integerValue],0,@"Delete",@"iOS",extnalip,intrnalip,Udid,0];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -360,11 +582,11 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-    if(webtype==1||webtype==2||webtype==3){
-        _SearchingBar.text=@"";
-        [self CustomercontactInfoselect];
-        webtype=0;
-    }
+//    if(webtype==1||webtype==2||webtype==3){
+//        _SearchingBar.text=@"";
+//        [self CustomercontactInfoselect];
+//        webtype=0;
+//    }
     
     [_contactinfoTable reloadData];
     
@@ -556,6 +778,12 @@
             UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             
             [alert show];
+            _SearchingBar.text=@"";
+            [self CustomercontactInfoselect];
+        }
+        if(webtype==3){
+            _SearchingBar.text=@"";
+            [self CustomercontactInfoselect];
         }
         _soapResults = nil;
         
@@ -592,6 +820,16 @@
 }
 
 - (IBAction)updatebtn:(id)sender {
+    
+    if (webtype==1)
+    {
+        [self UserLogmaininsert];
+          }
+    else{
+        
+        [self UserLogmainupdate];
+    }
+
     if([_nametextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
@@ -790,6 +1028,7 @@
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (editingStyle==UITableViewCellEditingStyleDelete) {
+        [self UserLogmaindelete];
         deletepath=indexPath.row;
         
        [self CustomerContactInfodelete];
