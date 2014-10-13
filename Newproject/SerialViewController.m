@@ -587,10 +587,6 @@
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
     [_sequencetable reloadData];
-    if (webtype==1||webtype==3) {
-        [self JobsequenceSelect];
-        webtype=0;
-    }
     
 }
 #pragma mark-xml parser
@@ -741,14 +737,21 @@
         
         recordResults=FALSE;
         _displaystring=_soapResults;
+        if (webtype==3) {
+            [self JobsequenceSelect];
+            
+        }
+
         if (webtype==1) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+             [self JobsequenceSelect];
         }
         if ([_soapResults isEqualToString:@"Already In Use"]) {
             
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_displaystring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+               [self JobsequenceSelect];
         }
 
         _soapResults=nil;

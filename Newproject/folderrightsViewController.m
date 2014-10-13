@@ -518,12 +518,7 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-    if(webtype==1)
-    {
-        [self SelectAllFolderRights];
-        webtype=0;
-    }
-    [_folderrighttable reloadData];
+        [_folderrighttable reloadData];
 
 
 }
@@ -732,6 +727,10 @@
             _soapstring=_soapResults;
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+                   [self SelectAllFolderRights];
+        
+        
+
                 _soapResults=nil;
     }
 }
