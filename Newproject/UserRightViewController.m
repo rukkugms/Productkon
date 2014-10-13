@@ -1295,6 +1295,107 @@ viewcheck=0;
     }
     
 }
+-(void)Userrightmoduletickselect{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Userrightmoduletickselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserId>%d</UserId>\n"
+                   "<ModuleId>%d</ModuleId>\n"
+                   "</Userrightmoduletickselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[[_userdict objectForKey:[_userarray objectAtIndex:userpath] ]integerValue],[[_subtiledict objectForKey:subbtnstrg]integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Userrightmoduletickselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+-(void)SubUserrightmoduletickselect{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Userrightmoduletickselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserId>%d</UserId>\n"
+                   "<ModuleId>%d</ModuleId>\n"
+                   "</Userrightmoduletickselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[[_userdict objectForKey:[_userarray objectAtIndex:userpath] ]integerValue],[[_subsubtiledict objectForKey:subsubbtnstrg]integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Userrightmoduletickselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -1951,14 +2052,15 @@ viewcheck=0;
 
     if([elementName isEqualToString:@"UserRightsforparticularmodule2selectResponse"])
     {
-       
+      
         if(popover==4){
-            
-            [self SubSubUserrightsuboftickselect];
+              [self SubUserrightmoduletickselect];
+            //[self SubSubUserrightsuboftickselect];
         }
         else{
             
-            [self SubUserrightsuboftickselect];
+              [self Userrightmoduletickselect];
+            //[self SubUserrightsuboftickselect];
         
         }
 

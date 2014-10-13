@@ -590,11 +590,7 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-    if(webtype==1||webtype==2||webtype==3){
-        [self Addressmasterselect];
-        webtype=0;
-    }
-    [_addresstable reloadData];
+        [_addresstable reloadData];
     
         
      
@@ -719,12 +715,19 @@
         
         recordResults = FALSE;
         msgstrg=_soapResults;
+       
         if(webtype==1||webtype==2){
             
       
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
            
             [alert show];
+              [self Addressmasterselect];
+            
+        }
+        else if (webtype==3){
+            
+              [self Addressmasterselect];
         }
           _soapResults = nil;
     }

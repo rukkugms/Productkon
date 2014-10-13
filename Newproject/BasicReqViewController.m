@@ -2126,13 +2126,7 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-    if(webtype==1||webtype==2)
-    {
-        [self SelectAllRequirements];
-        _searchbar.text=@"";
-        webtype=0;
-    }
-    if (webtype==3) {
+        if (webtype==3) {
         [_popOverTableView reloadData];
         webtype=6;
     }
@@ -3003,7 +2997,16 @@
             _soapstring=_soapResults;
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+            [self SelectAllRequirements];
+            _searchbar.text=@"";
         }
+        if(webtype==2)
+        {
+            [self SelectAllRequirements];
+            _searchbar.text=@"";
+            
+        }
+
         else if(webtype==5)
         {
             _result=@"Not yet set";

@@ -150,6 +150,16 @@
 }
 -(IBAction)savebranch:(id)sender
 {
+    
+    if (optionidentifier==1){
+         [self UserLogmaininsert];
+        
+    }
+    if (optionidentifier==2){
+          [self UserLogmainupdate];
+        
+    }
+
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
     
@@ -208,7 +218,7 @@ else
     
     
        else if (optionidentifier==1) {
-           [self UserLogmaininsert];
+          
 
            _updatebtn.enabled=NO;
         [self BranchInsert];
@@ -218,7 +228,7 @@ else
     
       else if(optionidentifier==2)
     {
-        [self UserLogmainupdate];
+      
         
         _updatebtn.enabled=NO;
 
@@ -332,6 +342,7 @@ else
 #pragma mark-Webservices
 -(void)SelectBranches
 {
+    //webtype=0;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -606,6 +617,7 @@ else
     
 }
 -(void)UserLogmaininsert{
+   
     recordResults = FALSE;
     
     NSDate *date = [NSDate date];
@@ -678,6 +690,7 @@ else
     
 }
 -(void)UserLogmainupdate{
+   
     recordResults = FALSE;
     
     NSDate *date = [NSDate date];
@@ -751,6 +764,7 @@ else
 }
 
 -(void)UserLogmaindelete{
+    
     recordResults = FALSE;
     
     NSDate *date = [NSDate date];
@@ -855,11 +869,8 @@ else
 	[_xmlparser setShouldResolveExternalEntities: YES];
 	[_xmlparser parse];
     [_branchtable reloadData];
-    if (webtype==1||webtype==2) {
-        [self SelectBranches];
-        _searchbar.text=@"";
-        webtype=0;
-    }
+    
+    
     
 }
 #pragma mark-xml parser
@@ -965,7 +976,7 @@ else
     }
 
 
-
+  
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -1031,8 +1042,19 @@ else
         if (webtype==1) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_displaystring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
-            [self UserLogmaininsert];
-        }
+         
+                [self SelectBranches];
+                _searchbar.text=@"";
+            
+            }
+             if (webtype==2) {
+                 [self SelectBranches];
+                 _searchbar.text=@"";
+                 
+             }
+
+           // [self UserLogmaininsert];
+        
 //        else if (webtype==3) {
 //            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_displaystring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 //            [alert show];

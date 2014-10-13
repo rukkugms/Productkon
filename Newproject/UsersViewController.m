@@ -935,13 +935,7 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-    if(webtype==1||webtype==2)
-    {
-        [self SelectAllUsers];
-        _searchbar.text=@"";
-        webtype=0;
-    }
-    [_usertable reloadData];
+       [_usertable reloadData];
     [_popOverTableView reloadData];
     
     
@@ -1286,7 +1280,17 @@
             _resultstring=_soapResults;
         UIAlertView *alert= [[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+            [self SelectAllUsers];
+            _searchbar.text=@"";
+
                 }
+        if(webtype==2)
+        {
+            [self SelectAllUsers];
+            _searchbar.text=@"";
+           
+        }
+
         _soapResults = nil;
         
     }

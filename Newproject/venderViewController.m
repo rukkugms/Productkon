@@ -751,11 +751,6 @@
 	[_xmlparser setShouldResolveExternalEntities: YES];
 	[_xmlparser parse];
     [_vendelisttable reloadData];
-    if(webtype==1||webtype==2)
-    {
-        [self Selectvendor];
-        webtype=0;
-    }
     
 }
 #pragma mark-xml parser
@@ -973,7 +968,12 @@
         
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapresults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
-               }
+             [self Selectvendor];
+        }
+        else if (webtype==2) {
+            
+             [self Selectvendor];
+        }
         _soapresults = nil;
     }
 
