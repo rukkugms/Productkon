@@ -381,7 +381,7 @@
     _result=@"";
     _moduleid=18;
     [self UserRightsforparticularmoduleselect];
-    _servicebtn.titleLabel.text=@"Select";
+    [_servicebtn setTitle:@"Select" forState:UIControlStateNormal];
 //    if (!self.worktypeVCtrl) {
 //        self.worktypeVCtrl=[[WorktypeViewController alloc]initWithNibName:@"WorktypeViewController" bundle:nil];
 //    }
@@ -1793,6 +1793,13 @@
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+        if ([_soapResults isEqualToString:@"Inserted Successfully"]||[_soapResults isEqualToString:@"Updated Successfully"]) {
+            _soapstring=_soapResults;
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+
         
 
         if (webtype==5) {
