@@ -62,6 +62,7 @@
     _estactvityindicator.hidden=YES;
     _hrindicator.hidden=YES;
     _promgmtindicatr.hidden=YES;
+   
     [super viewWillAppear:animated];
     _result=@"";
     _wlcmelbl.text=_username;
@@ -902,45 +903,81 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
 }
 -(void)customerpage{
     _ModuleID=3;
+    _customerview.userInteractionEnabled=YES;
     [self UserLogmaininsert];
     _custindictr.hidden=NO;
     [_custindictr startAnimating];
-    _customerview.userInteractionEnabled=NO;
+    
+        _ledactvtyindctr.hidden=YES;
+    _planactivityindctr.hidden=YES;
+    _estactvityindicator.hidden=YES;
+    _hrindicator.hidden=YES;
+    _promgmtindicatr.hidden=YES;
+    _compactivityindctr.hidden=YES;
+    _resactivtyindictr.hidden=YES;
    
      [self UserRightsforparticularmoduleselect];
+    _customerview.userInteractionEnabled=NO;
     
     
     
 }
 -(void)LeadPage
 {
+    
      _ModuleID=4;
+     _leadView.userInteractionEnabled=YES;
     [self UserLogmaininsert];
 
-  
+    _custindictr.hidden=YES;
+    
+    _planactivityindctr.hidden=YES;
+    _estactvityindicator.hidden=YES;
+    _hrindicator.hidden=YES;
+    _promgmtindicatr.hidden=YES;
+    _compactivityindctr.hidden=YES;
+    _resactivtyindictr.hidden=YES;
     _ledactvtyindctr.hidden=NO;
     [_ledactvtyindctr startAnimating];
-    _leadView.userInteractionEnabled=NO;
+   
      [self UserRightsforparticularmoduleselect];
+     _leadView.userInteractionEnabled=NO;
    
     
 
 }
 -(void)companyPage
 {   _ModuleID=1;
+     _companyView.userInteractionEnabled=YES;
     [self UserLogmaininsert];
-
+    _custindictr.hidden=YES;
+    _ledactvtyindctr.hidden=YES;
+    _planactivityindctr.hidden=YES;
+    _estactvityindicator.hidden=YES;
+    _hrindicator.hidden=YES;
+    _promgmtindicatr.hidden=YES;
+   
+    _resactivtyindictr.hidden=YES;
     _compactivityindctr.hidden=NO;
-    _companyView.userInteractionEnabled=NO;
+   
     [_compactivityindctr startAnimating];
  
     [self UserRightsforparticularmoduleselect];
+    _companyView.userInteractionEnabled=NO;
     
 }
 -(void)hrpage{
      _ModuleID=8;
+     _hrview.userInteractionEnabled=YES;
     [self UserLogmaininsert];
-
+    _custindictr.hidden=YES;
+    _ledactvtyindctr.hidden=YES;
+    _planactivityindctr.hidden=YES;
+    _estactvityindicator.hidden=YES;
+   
+    _promgmtindicatr.hidden=YES;
+    _compactivityindctr.hidden=YES;
+    _resactivtyindictr.hidden=YES;
    
     _hrindicator.hidden=NO;
     _hrview.userInteractionEnabled=NO;
@@ -950,22 +987,38 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
 }
 -(void)repage{
       _ModuleID=2;
+    _reurceview.userInteractionEnabled=YES;
     [self UserLogmaininsert];
-
-    _reurceview.userInteractionEnabled=NO;
+    _custindictr.hidden=YES;
+    _ledactvtyindctr.hidden=YES;
+    _planactivityindctr.hidden=YES;
+    _estactvityindicator.hidden=YES;
+    _hrindicator.hidden=YES;
+    _promgmtindicatr.hidden=YES;
+    _compactivityindctr.hidden=YES;
+    //_resactivtyindictr.hidden=YES;
+    
     _resactivtyindictr.hidden=NO;
     [_resactivtyindictr startAnimating];
  
     [self UserRightsforparticularmoduleselect];
-
+_reurceview.userInteractionEnabled=NO;
     
     
 }
 -(void)plangpage{
        _ModuleID=5;
+     _planngview.userInteractionEnabled=YES;
     [self UserLogmaininsert];
 
-
+    _custindictr.hidden=YES;
+    _ledactvtyindctr.hidden=YES;
+    //_planactivityindctr.hidden=YES;
+    _estactvityindicator.hidden=YES;
+    _hrindicator.hidden=YES;
+    _promgmtindicatr.hidden=YES;
+    _compactivityindctr.hidden=YES;
+    _resactivtyindictr.hidden=YES;
     _planactivityindctr.hidden=NO;
     [_planactivityindctr startAnimating];
     _planngview.userInteractionEnabled=NO;
@@ -974,23 +1027,43 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
 
 }
 -(void)Estimationpage{
+     _estimtnview.userInteractionEnabled=YES;
    _ModuleID=6;
       [self UserLogmaininsert];
+    _custindictr.hidden=YES;
+    _ledactvtyindctr.hidden=YES;
+    _planactivityindctr.hidden=YES;
+   
+    _hrindicator.hidden=YES;
+    _promgmtindicatr.hidden=YES;
+    _compactivityindctr.hidden=YES;
+    _resactivtyindictr.hidden=YES;
     _estactvityindicator.hidden=NO;
     [_estactvityindicator startAnimating];
-    _estimtnview.userInteractionEnabled=NO;
+   
      [self UserRightsforparticularmoduleselect];
+     _estimtnview.userInteractionEnabled=NO;
     
     
 }
 -(void)Managementpage{
+     _projectview.userInteractionEnabled=YES;
     _ModuleID=7;
      [self UserLogmaininsert];
-    _projectview.userInteractionEnabled=NO;
+    _custindictr.hidden=YES;
+    _ledactvtyindctr.hidden=YES;
+    _planactivityindctr.hidden=YES;
+    _estactvityindicator.hidden=YES;
+    _hrindicator.hidden=YES;
+    
+    _compactivityindctr.hidden=YES;
+    _resactivtyindictr.hidden=YES;
+   
     _promgmtindicatr.hidden=NO;
     [_promgmtindicatr startAnimating];
   
      [self UserRightsforparticularmoduleselect];
+     _projectview.userInteractionEnabled=NO;
     
 
 }

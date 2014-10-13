@@ -36,6 +36,17 @@
      _secindictr.hidden=YES;
     [_secindictr stopAnimating];
     _securityview.userInteractionEnabled=YES;
+    [_compinfoindictr stopAnimating];
+    [_branchindictr stopAnimating];
+    
+    _compinfoindictr.hidden=YES;
+    _branchindictr.hidden=YES;
+    
+    _basicindicatr.hidden=YES;
+  
+_companyinfoview.userInteractionEnabled=YES;
+    _basicreqview.userInteractionEnabled=YES;
+      _Documentsview.userInteractionEnabled=YES;
 
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -49,6 +60,15 @@
     _rightsindictr.hidden=YES;
     _basicindicatr.hidden=YES;
     _secindictr.hidden=YES;
+    [_compinfoindictr stopAnimating];
+    [_branchindictr stopAnimating];
+    [_docindictr stopAnimating];
+    [_setngindictr stopAnimating];
+    [_typeindicator stopAnimating];
+    [_usersindicator stopAnimating];
+    [_rightsindictr stopAnimating];
+    [_basicindicatr stopAnimating];
+    [_secindictr stopAnimating];
 
     _companyinfoview.userInteractionEnabled=YES;
     _Documentsview.userInteractionEnabled=YES;
@@ -188,22 +208,26 @@
 //                       animated:YES completion:NULL];
 //}
 -(void)foldersPage
-{    _rightsindictr.hidden=NO;
-    _foldersview.userInteractionEnabled=NO;
+{   _foldersview.userInteractionEnabled=YES;
+    _rightsindictr.hidden=NO;
+  
     
     [_rightsindictr startAnimating];
     _Moduleid=22;
        [self UserLogmaininsert];
     [self UserRightsforparticularmoduleselect];
+      _foldersview.userInteractionEnabled=NO;
     }
 -(void)usersPage
-{    _usersindicator.hidden=NO;
-    _usersview.userInteractionEnabled=NO;
+{_usersview.userInteractionEnabled=YES;
+    _usersindicator.hidden=NO;
+    
     
     [_usersindicator startAnimating];
     _Moduleid=21;
        [self UserLogmaininsert];
     [self UserRightsforparticularmoduleselect];
+    _usersview.userInteractionEnabled=NO;
     }
 -(void)workProcedurePage
 {
