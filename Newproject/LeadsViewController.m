@@ -972,6 +972,7 @@ if (tableView==_leadTable) {
 }
 
 - (IBAction)savecmtbtn:(id)sender {
+    [self UserLogsavecomments];
          butnidtfr=3;
    
 
@@ -982,7 +983,7 @@ if (tableView==_leadTable) {
 
     }
 else
-{[self UserLogsavecomments];
+{
      _savebtnlbl.enabled=NO;
     [self Saveleadcomment];
 }
@@ -1001,6 +1002,16 @@ else
 
 
 - (IBAction)updatebtn:(id)sender {
+    if (butnidtfr==1) {
+        [self UserLogmaininsert];
+      
+    }
+    else // if(butnidtfr==2)
+    {
+        [self UserLogmainupdate];
+        
+    }
+
   
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     

@@ -2302,6 +2302,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 {
     if(butnidtfr==1)
     {
+        [self UserLogActivityinsert];
         if ([_dateBtn.titleLabel.text isEqualToString:@"Select"]||[_dateBtn.titleLabel.text isEqualToString:@""])
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Date is required" delegate:self
@@ -2327,13 +2328,14 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 
         else
         {
-            [self UserLogActivityinsert];
+           
             _updatebtnlbl.enabled=NO;
       [self saveActivity];
         }
 }
 else
     {
+         [self Userlogactivityupdate];
         if ([_dateBtn.titleLabel.text isEqualToString:@"Select"]||[_dateBtn.titleLabel.text isEqualToString:@""])
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Date is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -2358,7 +2360,7 @@ else
        
 
         else{
-             [self Userlogactivityupdate];
+            
      _updatebtnlbl.enabled=NO;
          [self updateActivity];
         }
@@ -2419,7 +2421,7 @@ else
 {
     butnidtfr=3;
     
-    
+     [self UserLogsavecomments];
     if ([_cmttxtbox.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Comment is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
@@ -2427,7 +2429,7 @@ else
     }
     else
     {
-        [self UserLogsavecomments];
+       
  _savebtnlbl.enabled=NO;
     [self saveComment];
     }
