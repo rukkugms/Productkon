@@ -86,9 +86,7 @@ _scroll_addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255
        
         _imagePicker =
         [[UIImagePickerController alloc] init];
-        AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-        //[appDelegate.window addSubview:cameraOverlay];
-        _imagePicker.cameraOverlayView = appDelegate.window.superview;
+        
         _imagePicker.delegate =(id) self;
         _imagePicker.sourceType =
         UIImagePickerControllerSourceTypeCamera;
