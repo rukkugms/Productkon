@@ -62,25 +62,31 @@
     {
          imagechecker=2;
         
-        UIImagePickerController *imagePicker =
+    _imagePicker
+        =
         [[UIImagePickerController alloc] init];
-        imagePicker.delegate =(id) self;
-        imagePicker.sourceType =
+        _imagePicker.delegate =(id) self;
+        _imagePicker.sourceType =
         UIImagePickerControllerSourceTypeCamera;
-        imagePicker.showsCameraControls=YES;
+        _imagePicker.showsCameraControls=YES;
         
-        imagePicker.mediaTypes = [NSArray arrayWithObjects:
+        _imagePicker.mediaTypes = [NSArray arrayWithObjects:
                                   (NSString *) kUTTypeImage,
                                   nil];
-        imagePicker.allowsEditing = NO;
+        _imagePicker.allowsEditing = NO;
+        
         // imagePicker.cameraCaptureMode=YES;
-        [self presentViewController:imagePicker animated:YES completion:nil];
+        
+    
+        [self presentViewController:_imagePicker animated:YES completion:nil];
         _newMedia = YES;
-    }
+        }
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
      [self AllSkills];
     _activitybtn.hidden=YES;
       _addview.userInteractionEnabled=YES;
@@ -1861,9 +1867,17 @@ else
 -(void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+   
+    
     // [self.popoverController dismissPopoverAnimated:true];
+    
+    
     NSString *mediaType = [info
                            objectForKey:UIImagePickerControllerMediaType];
+    
+    
+   // [[UIDevice currentDevice]beginGeneratingDeviceOrientationNotifications];
+    
     
     
     
@@ -1888,6 +1902,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                 // The image is already in correct orientation
                 break;
         }
+        
 
         _picimageview.image=nil;
         
@@ -1906,6 +1921,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     
     
 }
+
 
 -(void)image:(UIImage *)image
 finishedSavingWithError:(NSError *)error

@@ -2230,19 +2230,19 @@ else
     {
         imagechecker=2;
         
-        UIImagePickerController *imagePicker =
+        _imagepicker =
         [[UIImagePickerController alloc] init];
-        imagePicker.delegate =(id) self;
-        imagePicker.sourceType =
+        _imagepicker.delegate =(id) self;
+        _imagepicker.sourceType =
         UIImagePickerControllerSourceTypeCamera;
-        imagePicker.showsCameraControls=YES;
+        _imagepicker.showsCameraControls=YES;
         
-        imagePicker.mediaTypes = [NSArray arrayWithObjects:
+        _imagepicker.mediaTypes = [NSArray arrayWithObjects:
                                   (NSString *) kUTTypeImage,
                                   nil];
-        imagePicker.allowsEditing = NO;
+        _imagepicker.allowsEditing = NO;
         // imagePicker.cameraCaptureMode=YES;
-        [self presentViewController:imagePicker animated:YES completion:nil];
+        [self presentViewController:_imagepicker animated:YES completion:nil];
         _newMedia = YES;
     }
 }
@@ -2278,6 +2278,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                 // The image is already in correct orientation
                 break;
         }
+        
 
         _picimageview.image=nil;
         

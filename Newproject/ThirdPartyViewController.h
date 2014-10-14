@@ -38,7 +38,7 @@
 }
 @property(strong,nonatomic)NSMutableDictionary *skilldict;
 @property(strong,nonatomic)NSMutableDictionary *revskilldict;
-
+@property(strong,nonatomic)UIImagePickerController *imagePicker;
     
 
 

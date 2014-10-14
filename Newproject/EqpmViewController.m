@@ -28,6 +28,7 @@
 {
   
     [super viewDidLoad];
+    
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _addequipmentview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
 _scroll_addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
@@ -88,18 +89,19 @@ _scroll_addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255
         [[UIImagePickerController alloc] init];
         
         _imagePicker.delegate =(id) self;
+       
         _imagePicker.sourceType =
         UIImagePickerControllerSourceTypeCamera;
         _imagePicker.showsCameraControls=YES;
+        
         
         _imagePicker.mediaTypes = [NSArray arrayWithObjects:
                                   (NSString *) kUTTypeImage,
                                   nil];
         _imagePicker.allowsEditing = NO;
         
+        
         // imagePicker.cameraCaptureMode=YES;
-        [self presentViewController:_imagePicker animated:YES completion:nil];
-        _newMedia = YES;
     }
 }
 #pragma mark-ImagePicker
@@ -119,25 +121,25 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                           objectForKey:UIImagePickerControllerOriginalImage];
         
         NSLog(@"dict%@",info);
-//        switch (image.imageOrientation) {
-//            case UIImageOrientationDown:
-//            case UIImageOrientationDownMirrored:
-//            case UIImageOrientationLeft:
-//            case UIImageOrientationLeftMirrored:
-//            case UIImageOrientationRight:
-//            case UIImageOrientationRightMirrored:
-//                image = [UIImage imageWithCGImage:image.CGImage
-//                                            scale:image.scale
-//                                      orientation:UIImageOrientationUp]; // change this if you need another orientation
-//                break;
-//            case UIImageOrientationUp:
-//            case UIImageOrientationUpMirrored:
-//                // The image is already in correct orientation
-//                break;
-//        }
+        switch (image.imageOrientation) {
+            case UIImageOrientationDown:
+            case UIImageOrientationDownMirrored:
+            case UIImageOrientationLeft:
+            case UIImageOrientationLeftMirrored:
+            case UIImageOrientationRight:
+            case UIImageOrientationRightMirrored:
+                image = [UIImage imageWithCGImage:image.CGImage
+                                            scale:image.scale
+                                      orientation:UIImageOrientationUp]; // change this if you need another orientation
+                break;
+            case UIImageOrientationUp:
+            case UIImageOrientationUpMirrored:
+                // The image is already in correct orientation
+                break;
+        }
            _picimageview.image=nil;
         
-        
+       
         
         _picimageview.image =image;
         imagechecker=2;

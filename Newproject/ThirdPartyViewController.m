@@ -69,19 +69,23 @@ _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:
     {
         
         
-        UIImagePickerController *imagePicker =
+       _imagePicker
+        =
         [[UIImagePickerController alloc] init];
-        imagePicker.delegate =(id) self;
-        imagePicker.sourceType =
-        UIImagePickerControllerSourceTypeCamera;
-        imagePicker.showsCameraControls=YES;
         
-        imagePicker.mediaTypes = [NSArray arrayWithObjects:
+        _imagePicker.delegate =(id) self;
+    _imagePicker.sourceType =
+        UIImagePickerControllerSourceTypeCamera;
+        _imagePicker.showsCameraControls=YES;
+        
+        _imagePicker.mediaTypes = [NSArray arrayWithObjects:
                                   (NSString *) kUTTypeImage,
                                   nil];
-        imagePicker.allowsEditing = NO;
+        _imagePicker.allowsEditing = NO;
         // imagePicker.cameraCaptureMode=YES;
-        [self presentViewController:imagePicker animated:YES completion:nil];
+        [self presentViewController:_imagePicker animated:YES completion:nil];
+        
+        
         _newMedia = YES;
     }
 }
@@ -89,7 +93,7 @@ _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:
 -(void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    // [self.popoverController dismissPopoverAnimated:true];
+    
     NSString *mediaType = [info
                            objectForKey:UIImagePickerControllerMediaType];
     
