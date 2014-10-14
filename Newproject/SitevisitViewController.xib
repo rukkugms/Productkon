@@ -975,7 +975,7 @@
                                 <barButtonItem width="49" style="plain" systemItem="fixedSpace" id="RRa-ci-U15">
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </barButtonItem>
-                                <barButtonItem title="Equipments" id="egx-hO-R4Q">
+                                <barButtonItem title="Site Unit Info" id="egx-hO-R4Q">
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <connections>
                                         <action selector="newequipmentbtn:" destination="-1" id="g1d-2x-Rgt"/>
@@ -1020,7 +1020,7 @@
                                 <barButtonItem width="38" style="plain" systemItem="fixedSpace" id="yfK-Rz-eQx">
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </barButtonItem>
-                                <barButtonItem title="Notes" width="51" id="Ykw-Ec-MDB">
+                                <barButtonItem title="Comments" id="Ykw-Ec-MDB">
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <connections>
                                         <action selector="notesbtn:" destination="-1" id="0xm-UE-FkR"/>

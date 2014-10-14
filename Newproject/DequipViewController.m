@@ -1610,10 +1610,11 @@
             {
                 Drageqmodel *dmdl=(Drageqmodel *)[_equipdestarray objectAtIndex:indexPath.row];
                 dmdl.EquipmentCrewName=equipdraggedData;
-               // [_equipdestarray addObject:dmdl];
+                [_equipdestarray addObject:dmdl];
 
                 //[_equipdestarray insertObject:equipdraggedData atIndex:indexPath.row];
-                //[_equipdesttable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+                [_equipdesttable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+                [self PlanHoursSelect];
             }
             else
             {

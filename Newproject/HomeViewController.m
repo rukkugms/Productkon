@@ -365,6 +365,7 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
     
     
 	[_xmlParser parse];
+   
     if (checkWS==2) {
         
     
@@ -410,6 +411,31 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
         _companyView.userInteractionEnabled=YES;
       
         [_compactivityindctr stopAnimating];
+        _compactivityindctr.hidden=YES;
+        [_compactivityindctr stopAnimating];
+        _resactivtyindictr.hidden=YES;
+        [_resactivtyindictr stopAnimating];
+        _custindictr.hidden=YES;
+        [_custindictr stopAnimating];
+        _ledactvtyindctr.hidden=YES;
+        [_ledactvtyindctr stopAnimating];
+        _planactivityindctr.hidden=YES;
+        [_planactivityindctr stopAnimating];
+        _estactvityindicator.hidden=YES;
+        [_estactvityindicator stopAnimating];
+        _hrindicator.hidden=YES;
+        [_hrindicator stopAnimating];
+        _promgmtindicatr.hidden=YES;
+        [_promgmtindicatr stopAnimating];
+        _companyView.userInteractionEnabled=YES;
+        _reurceview.userInteractionEnabled=YES;
+        _customerview.userInteractionEnabled=YES;
+        _leadView.userInteractionEnabled=YES;
+        _planngview.userInteractionEnabled=YES;
+        _estimtnview.userInteractionEnabled=YES;
+        _projectview.userInteractionEnabled=YES;
+        _hrview.userInteractionEnabled=YES;
+
        // if (!self.tileVCtrl) {
             self.tileVCtrl=[[TileViewController alloc]initWithNibName:@"TileViewController" bundle:nil];
        // }
@@ -426,6 +452,31 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
         _compactivityindctr.hidden=YES;
         [_compactivityindctr stopAnimating];
           _companyView.userInteractionEnabled=YES;
+        _compactivityindctr.hidden=YES;
+        [_compactivityindctr stopAnimating];
+        _resactivtyindictr.hidden=YES;
+        [_resactivtyindictr stopAnimating];
+        _custindictr.hidden=YES;
+        [_custindictr stopAnimating];
+        _ledactvtyindctr.hidden=YES;
+        [_ledactvtyindctr stopAnimating];
+        _planactivityindctr.hidden=YES;
+        [_planactivityindctr stopAnimating];
+        _estactvityindicator.hidden=YES;
+        [_estactvityindicator stopAnimating];
+        _hrindicator.hidden=YES;
+        [_hrindicator stopAnimating];
+        _promgmtindicatr.hidden=YES;
+        [_promgmtindicatr stopAnimating];
+        _companyView.userInteractionEnabled=YES;
+        _reurceview.userInteractionEnabled=YES;
+        _customerview.userInteractionEnabled=YES;
+        _leadView.userInteractionEnabled=YES;
+        _planngview.userInteractionEnabled=YES;
+        _estimtnview.userInteractionEnabled=YES;
+        _projectview.userInteractionEnabled=YES;
+        _hrview.userInteractionEnabled=YES;
+
         }
         //You don’t have right to view this form
     
@@ -438,6 +489,31 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
             _resactivtyindictr.hidden=YES;
             _reurceview.userInteractionEnabled=YES;
             [_resactivtyindictr stopAnimating];
+            _compactivityindctr.hidden=YES;
+            [_compactivityindctr stopAnimating];
+            _resactivtyindictr.hidden=YES;
+            [_resactivtyindictr stopAnimating];
+            _custindictr.hidden=YES;
+            [_custindictr stopAnimating];
+            _ledactvtyindctr.hidden=YES;
+            [_ledactvtyindctr stopAnimating];
+            _planactivityindctr.hidden=YES;
+            [_planactivityindctr stopAnimating];
+            _estactvityindicator.hidden=YES;
+            [_estactvityindicator stopAnimating];
+            _hrindicator.hidden=YES;
+            [_hrindicator stopAnimating];
+            _promgmtindicatr.hidden=YES;
+            [_promgmtindicatr stopAnimating];
+            _companyView.userInteractionEnabled=YES;
+            _reurceview.userInteractionEnabled=YES;
+            _customerview.userInteractionEnabled=YES;
+            _leadView.userInteractionEnabled=YES;
+            _planngview.userInteractionEnabled=YES;
+            _estimtnview.userInteractionEnabled=YES;
+            _projectview.userInteractionEnabled=YES;
+            _hrview.userInteractionEnabled=YES;
+
             
             //if (!self.ReVCtrl) {
                 self.ReVCtrl=[[ResViewController alloc]initWithNibName:@"ResViewController" bundle:nil];
@@ -469,6 +545,31 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
             _custindictr.hidden=YES;
             [_custindictr stopAnimating];
             _customerview.userInteractionEnabled=YES;
+            _compactivityindctr.hidden=YES;
+            [_compactivityindctr stopAnimating];
+            _resactivtyindictr.hidden=YES;
+            [_resactivtyindictr stopAnimating];
+            _custindictr.hidden=YES;
+            [_custindictr stopAnimating];
+            _ledactvtyindctr.hidden=YES;
+            [_ledactvtyindctr stopAnimating];
+            _planactivityindctr.hidden=YES;
+            [_planactivityindctr stopAnimating];
+            _estactvityindicator.hidden=YES;
+            [_estactvityindicator stopAnimating];
+            _hrindicator.hidden=YES;
+            [_hrindicator stopAnimating];
+            _promgmtindicatr.hidden=YES;
+            [_promgmtindicatr stopAnimating];
+            _companyView.userInteractionEnabled=YES;
+            _reurceview.userInteractionEnabled=YES;
+            _customerview.userInteractionEnabled=YES;
+            _leadView.userInteractionEnabled=YES;
+            _planngview.userInteractionEnabled=YES;
+            _estimtnview.userInteractionEnabled=YES;
+            _projectview.userInteractionEnabled=YES;
+            _hrview.userInteractionEnabled=YES;
+
         
         [self presentViewController:_custmrVCtrl
                            animated:YES completion:NULL];
@@ -481,6 +582,31 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
             _custindictr.hidden=YES;
             [_custindictr stopAnimating];
              _customerview.userInteractionEnabled=YES;
+            _compactivityindctr.hidden=YES;
+            [_compactivityindctr stopAnimating];
+            _resactivtyindictr.hidden=YES;
+            [_resactivtyindictr stopAnimating];
+            _custindictr.hidden=YES;
+            [_custindictr stopAnimating];
+            _ledactvtyindctr.hidden=YES;
+            [_ledactvtyindctr stopAnimating];
+            _planactivityindctr.hidden=YES;
+            [_planactivityindctr stopAnimating];
+            _estactvityindicator.hidden=YES;
+            [_estactvityindicator stopAnimating];
+            _hrindicator.hidden=YES;
+            [_hrindicator stopAnimating];
+            _promgmtindicatr.hidden=YES;
+            [_promgmtindicatr stopAnimating];
+            _companyView.userInteractionEnabled=YES;
+            _reurceview.userInteractionEnabled=YES;
+            _customerview.userInteractionEnabled=YES;
+            _leadView.userInteractionEnabled=YES;
+            _planngview.userInteractionEnabled=YES;
+            _estimtnview.userInteractionEnabled=YES;
+            _projectview.userInteractionEnabled=YES;
+            _hrview.userInteractionEnabled=YES;
+
         }
         
     }
@@ -491,6 +617,31 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
             _ledactvtyindctr.hidden=YES;
             [_ledactvtyindctr stopAnimating];
              _leadView.userInteractionEnabled=YES;
+            _compactivityindctr.hidden=YES;
+            [_compactivityindctr stopAnimating];
+            _resactivtyindictr.hidden=YES;
+            [_resactivtyindictr stopAnimating];
+            _custindictr.hidden=YES;
+            [_custindictr stopAnimating];
+            _ledactvtyindctr.hidden=YES;
+            [_ledactvtyindctr stopAnimating];
+            _planactivityindctr.hidden=YES;
+            [_planactivityindctr stopAnimating];
+            _estactvityindicator.hidden=YES;
+            [_estactvityindicator stopAnimating];
+            _hrindicator.hidden=YES;
+            [_hrindicator stopAnimating];
+            _promgmtindicatr.hidden=YES;
+            [_promgmtindicatr stopAnimating];
+            _companyView.userInteractionEnabled=YES;
+            _reurceview.userInteractionEnabled=YES;
+            _customerview.userInteractionEnabled=YES;
+            _leadView.userInteractionEnabled=YES;
+            _planngview.userInteractionEnabled=YES;
+            _estimtnview.userInteractionEnabled=YES;
+            _projectview.userInteractionEnabled=YES;
+            _hrview.userInteractionEnabled=YES;
+
             //if (!self.LCtrl) {
                 self.LCtrl=[[TLLeadsViewController alloc]initWithNibName:@"TLLeadsViewController" bundle:nil];
            // }
@@ -506,6 +657,31 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
             _ledactvtyindctr.hidden=YES;
             [_ledactvtyindctr stopAnimating];
              _leadView.userInteractionEnabled=YES;
+            _compactivityindctr.hidden=YES;
+            [_compactivityindctr stopAnimating];
+            _resactivtyindictr.hidden=YES;
+            [_resactivtyindictr stopAnimating];
+            _custindictr.hidden=YES;
+            [_custindictr stopAnimating];
+            _ledactvtyindctr.hidden=YES;
+            [_ledactvtyindctr stopAnimating];
+            _planactivityindctr.hidden=YES;
+            [_planactivityindctr stopAnimating];
+            _estactvityindicator.hidden=YES;
+            [_estactvityindicator stopAnimating];
+            _hrindicator.hidden=YES;
+            [_hrindicator stopAnimating];
+            _promgmtindicatr.hidden=YES;
+            [_promgmtindicatr stopAnimating];
+            _companyView.userInteractionEnabled=YES;
+            _reurceview.userInteractionEnabled=YES;
+            _customerview.userInteractionEnabled=YES;
+            _leadView.userInteractionEnabled=YES;
+            _planngview.userInteractionEnabled=YES;
+            _estimtnview.userInteractionEnabled=YES;
+            _projectview.userInteractionEnabled=YES;
+            _hrview.userInteractionEnabled=YES;
+
         
         }
     }
@@ -516,6 +692,31 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
             _planactivityindctr.hidden=YES;
             [_planactivityindctr stopAnimating];
              _planngview.userInteractionEnabled=YES;
+            _compactivityindctr.hidden=YES;
+            [_compactivityindctr stopAnimating];
+            _resactivtyindictr.hidden=YES;
+            [_resactivtyindictr stopAnimating];
+            _custindictr.hidden=YES;
+            [_custindictr stopAnimating];
+            _ledactvtyindctr.hidden=YES;
+            [_ledactvtyindctr stopAnimating];
+            _planactivityindctr.hidden=YES;
+            [_planactivityindctr stopAnimating];
+            _estactvityindicator.hidden=YES;
+            [_estactvityindicator stopAnimating];
+            _hrindicator.hidden=YES;
+            [_hrindicator stopAnimating];
+            _promgmtindicatr.hidden=YES;
+            [_promgmtindicatr stopAnimating];
+            _companyView.userInteractionEnabled=YES;
+            _reurceview.userInteractionEnabled=YES;
+            _customerview.userInteractionEnabled=YES;
+            _leadView.userInteractionEnabled=YES;
+            _planngview.userInteractionEnabled=YES;
+            _estimtnview.userInteractionEnabled=YES;
+            _projectview.userInteractionEnabled=YES;
+            _hrview.userInteractionEnabled=YES;
+
             //if (!self.PlnCtrl) {
                 self.PlnCtrl=[[PlngTileViewController alloc]initWithNibName:@"PlngTileViewController" bundle:nil];
                 
@@ -533,6 +734,31 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
             _planactivityindctr.hidden=YES;
             [_planactivityindctr stopAnimating];
             _planngview.userInteractionEnabled=YES;
+            _compactivityindctr.hidden=YES;
+            [_compactivityindctr stopAnimating];
+            _resactivtyindictr.hidden=YES;
+            [_resactivtyindictr stopAnimating];
+            _custindictr.hidden=YES;
+            [_custindictr stopAnimating];
+            _ledactvtyindctr.hidden=YES;
+            [_ledactvtyindctr stopAnimating];
+            _planactivityindctr.hidden=YES;
+            [_planactivityindctr stopAnimating];
+            _estactvityindicator.hidden=YES;
+            [_estactvityindicator stopAnimating];
+            _hrindicator.hidden=YES;
+            [_hrindicator stopAnimating];
+            _promgmtindicatr.hidden=YES;
+            [_promgmtindicatr stopAnimating];
+            _companyView.userInteractionEnabled=YES;
+            _reurceview.userInteractionEnabled=YES;
+            _customerview.userInteractionEnabled=YES;
+            _leadView.userInteractionEnabled=YES;
+            _planngview.userInteractionEnabled=YES;
+            _estimtnview.userInteractionEnabled=YES;
+            _projectview.userInteractionEnabled=YES;
+            _hrview.userInteractionEnabled=YES;
+
         }
         
     }
@@ -543,6 +769,31 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
             _estactvityindicator.hidden=YES;
             [_estactvityindicator stopAnimating];
              _estimtnview.userInteractionEnabled=YES;
+            _compactivityindctr.hidden=YES;
+            [_compactivityindctr stopAnimating];
+            _resactivtyindictr.hidden=YES;
+            [_resactivtyindictr stopAnimating];
+            _custindictr.hidden=YES;
+            [_custindictr stopAnimating];
+            _ledactvtyindctr.hidden=YES;
+            [_ledactvtyindctr stopAnimating];
+            _planactivityindctr.hidden=YES;
+            [_planactivityindctr stopAnimating];
+            _estactvityindicator.hidden=YES;
+            [_estactvityindicator stopAnimating];
+            _hrindicator.hidden=YES;
+            [_hrindicator stopAnimating];
+            _promgmtindicatr.hidden=YES;
+            [_promgmtindicatr stopAnimating];
+            _companyView.userInteractionEnabled=YES;
+            _reurceview.userInteractionEnabled=YES;
+            _customerview.userInteractionEnabled=YES;
+            _leadView.userInteractionEnabled=YES;
+            _planngview.userInteractionEnabled=YES;
+            _estimtnview.userInteractionEnabled=YES;
+            _projectview.userInteractionEnabled=YES;
+            _hrview.userInteractionEnabled=YES;
+
             //if (!self.EstmVCtrl) {
                 self.EstmVCtrl=[[EsttileViewController alloc]initWithNibName:@"EsttileViewController" bundle:nil];
             //}
@@ -560,6 +811,31 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
             _estactvityindicator.hidden=YES;
             [_estactvityindicator stopAnimating];
              _estimtnview.userInteractionEnabled=YES;
+            _compactivityindctr.hidden=YES;
+            [_compactivityindctr stopAnimating];
+            _resactivtyindictr.hidden=YES;
+            [_resactivtyindictr stopAnimating];
+            _custindictr.hidden=YES;
+            [_custindictr stopAnimating];
+            _ledactvtyindctr.hidden=YES;
+            [_ledactvtyindctr stopAnimating];
+            _planactivityindctr.hidden=YES;
+            [_planactivityindctr stopAnimating];
+            _estactvityindicator.hidden=YES;
+            [_estactvityindicator stopAnimating];
+            _hrindicator.hidden=YES;
+            [_hrindicator stopAnimating];
+            _promgmtindicatr.hidden=YES;
+            [_promgmtindicatr stopAnimating];
+            _companyView.userInteractionEnabled=YES;
+            _reurceview.userInteractionEnabled=YES;
+            _customerview.userInteractionEnabled=YES;
+            _leadView.userInteractionEnabled=YES;
+            _planngview.userInteractionEnabled=YES;
+            _estimtnview.userInteractionEnabled=YES;
+            _projectview.userInteractionEnabled=YES;
+            _hrview.userInteractionEnabled=YES;
+
         }
         
     }
@@ -586,6 +862,31 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
             _promgmtindicatr.hidden=YES;
              _projectview.userInteractionEnabled=YES;
             [_promgmtindicatr stopAnimating];
+            _compactivityindctr.hidden=YES;
+            [_compactivityindctr stopAnimating];
+            _resactivtyindictr.hidden=YES;
+            [_resactivtyindictr stopAnimating];
+            _custindictr.hidden=YES;
+            [_custindictr stopAnimating];
+            _ledactvtyindctr.hidden=YES;
+            [_ledactvtyindctr stopAnimating];
+            _planactivityindctr.hidden=YES;
+            [_planactivityindctr stopAnimating];
+            _estactvityindicator.hidden=YES;
+            [_estactvityindicator stopAnimating];
+            _hrindicator.hidden=YES;
+            [_hrindicator stopAnimating];
+            _promgmtindicatr.hidden=YES;
+            [_promgmtindicatr stopAnimating];
+            _companyView.userInteractionEnabled=YES;
+            _reurceview.userInteractionEnabled=YES;
+            _customerview.userInteractionEnabled=YES;
+            _leadView.userInteractionEnabled=YES;
+            _planngview.userInteractionEnabled=YES;
+            _estimtnview.userInteractionEnabled=YES;
+            _projectview.userInteractionEnabled=YES;
+            _hrview.userInteractionEnabled=YES;
+
         }
         
     }
@@ -596,6 +897,31 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
             _hrindicator.hidden=YES;
             _hrview.userInteractionEnabled=YES;
             [_hrindicator stopAnimating];
+            _compactivityindctr.hidden=YES;
+            [_compactivityindctr stopAnimating];
+            _resactivtyindictr.hidden=YES;
+            [_resactivtyindictr stopAnimating];
+            _custindictr.hidden=YES;
+            [_custindictr stopAnimating];
+            _ledactvtyindctr.hidden=YES;
+            [_ledactvtyindctr stopAnimating];
+            _planactivityindctr.hidden=YES;
+            [_planactivityindctr stopAnimating];
+            _estactvityindicator.hidden=YES;
+            [_estactvityindicator stopAnimating];
+            _hrindicator.hidden=YES;
+            [_hrindicator stopAnimating];
+            _promgmtindicatr.hidden=YES;
+            [_promgmtindicatr stopAnimating];
+            _companyView.userInteractionEnabled=YES;
+            _reurceview.userInteractionEnabled=YES;
+            _customerview.userInteractionEnabled=YES;
+            _leadView.userInteractionEnabled=YES;
+            _planngview.userInteractionEnabled=YES;
+            _estimtnview.userInteractionEnabled=YES;
+            _projectview.userInteractionEnabled=YES;
+            _hrview.userInteractionEnabled=YES;
+
            // if (!self.TilehrVCtrl) {
                 self.TilehrVCtrl=[[TilehrViewController alloc]initWithNibName:@"TilehrViewController" bundle:nil];
            // }
@@ -611,6 +937,31 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
             _hrindicator.hidden=YES;
             [_hrindicator stopAnimating];
             _hrview.userInteractionEnabled=YES;
+            _compactivityindctr.hidden=YES;
+            [_compactivityindctr stopAnimating];
+            _resactivtyindictr.hidden=YES;
+            [_resactivtyindictr stopAnimating];
+            _custindictr.hidden=YES;
+            [_custindictr stopAnimating];
+            _ledactvtyindctr.hidden=YES;
+            [_ledactvtyindctr stopAnimating];
+            _planactivityindctr.hidden=YES;
+            [_planactivityindctr stopAnimating];
+            _estactvityindicator.hidden=YES;
+            [_estactvityindicator stopAnimating];
+            _hrindicator.hidden=YES;
+            [_hrindicator stopAnimating];
+            _promgmtindicatr.hidden=YES;
+            [_promgmtindicatr stopAnimating];
+            _companyView.userInteractionEnabled=YES;
+            _reurceview.userInteractionEnabled=YES;
+            _customerview.userInteractionEnabled=YES;
+            _leadView.userInteractionEnabled=YES;
+            _planngview.userInteractionEnabled=YES;
+            _estimtnview.userInteractionEnabled=YES;
+            _projectview.userInteractionEnabled=YES;
+            _hrview.userInteractionEnabled=YES;
+
 
 
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -624,6 +975,7 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
         checkWS=0;
         
     }
+   
 }
 
 #pragma mark-xml parser
@@ -904,7 +1256,7 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
 }
 -(void)customerpage{
     _ModuleID=3;
-    _customerview.userInteractionEnabled=YES;
+   // _customerview.userInteractionEnabled=YES;
     [self UserLogmaininsert];
     _custindictr.hidden=NO;
     [_custindictr startAnimating];
@@ -927,7 +1279,7 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
 {
     
      _ModuleID=4;
-     _leadView.userInteractionEnabled=YES;
+     //_leadView.userInteractionEnabled=YES;
     [self UserLogmaininsert];
 
     _custindictr.hidden=YES;
@@ -949,7 +1301,7 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
 }
 -(void)companyPage
 {   _ModuleID=1;
-     _companyView.userInteractionEnabled=YES;
+     //_companyView.userInteractionEnabled=YES;
     [self UserLogmaininsert];
     _custindictr.hidden=YES;
     _ledactvtyindctr.hidden=YES;
@@ -969,7 +1321,7 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
 }
 -(void)hrpage{
      _ModuleID=8;
-     _hrview.userInteractionEnabled=YES;
+    // _hrview.userInteractionEnabled=YES;
     [self UserLogmaininsert];
     _custindictr.hidden=YES;
     _ledactvtyindctr.hidden=YES;
@@ -988,7 +1340,7 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
 }
 -(void)repage{
       _ModuleID=2;
-    _reurceview.userInteractionEnabled=YES;
+   // _reurceview.userInteractionEnabled=YES;
     [self UserLogmaininsert];
     _custindictr.hidden=YES;
     _ledactvtyindctr.hidden=YES;
@@ -1009,7 +1361,7 @@ _reurceview.userInteractionEnabled=NO;
 }
 -(void)plangpage{
        _ModuleID=5;
-     _planngview.userInteractionEnabled=YES;
+     //_planngview.userInteractionEnabled=YES;
     [self UserLogmaininsert];
 
     _custindictr.hidden=YES;
@@ -1028,7 +1380,7 @@ _reurceview.userInteractionEnabled=NO;
 
 }
 -(void)Estimationpage{
-     _estimtnview.userInteractionEnabled=YES;
+    // _estimtnview.userInteractionEnabled=YES;
    _ModuleID=6;
       [self UserLogmaininsert];
     _custindictr.hidden=YES;
@@ -1048,7 +1400,7 @@ _reurceview.userInteractionEnabled=NO;
     
 }
 -(void)Managementpage{
-     _projectview.userInteractionEnabled=YES;
+     //_projectview.userInteractionEnabled=YES;
     _ModuleID=7;
      [self UserLogmaininsert];
     _custindictr.hidden=YES;
