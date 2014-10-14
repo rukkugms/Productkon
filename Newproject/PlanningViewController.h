@@ -33,6 +33,7 @@
     
     
     
+    
 }
 
 /* newcomment*/
@@ -131,6 +132,7 @@
 @property(strong,nonatomic)IBOutlet UIView *seperatorview;
 
 @property(strong,nonatomic)IBOutlet UIButton *updatebtn;
+
 
 
 @end
