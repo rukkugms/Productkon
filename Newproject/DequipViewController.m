@@ -399,7 +399,16 @@
         
     }
 }
-
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView==_equipsourcetable)
+        
+    {
+        return self.editing ;
+    }
+    return YES;
+    
+}
 #pragma mark-webservices
 -(void)CrewSetUpSelect{
     

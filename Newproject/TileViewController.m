@@ -176,24 +176,26 @@ _companyinfoview.userInteractionEnabled=YES;
 
 -(void)companyPage
 {
-    _companyinfoview.userInteractionEnabled=NO;
+    
     _compinfoindictr.hidden=NO;
     [_compinfoindictr startAnimating];
     _Moduleid=13;
     [self UserLogmaininsert];
     [self UserRightsforparticularmoduleselect];
+    _companyinfoview.userInteractionEnabled=NO;
    
 }
 -(void)branchpage
 {
       [self UserLogmaininsert];
-    _Documentsview.userInteractionEnabled=NO;
+   
     _branchindictr.hidden=NO;
     [_branchindictr startAnimating];
     _Moduleid=14;
        [self UserLogmaininsert];
     
     [self UserRightsforparticularmoduleselect];
+     _Documentsview.userInteractionEnabled=NO;
   
    
 
@@ -208,7 +210,7 @@ _companyinfoview.userInteractionEnabled=YES;
 //                       animated:YES completion:NULL];
 //}
 -(void)foldersPage
-{   _foldersview.userInteractionEnabled=YES;
+{   //_foldersview.userInteractionEnabled=YES;
     _rightsindictr.hidden=NO;
   
     
@@ -219,7 +221,7 @@ _companyinfoview.userInteractionEnabled=YES;
       _foldersview.userInteractionEnabled=NO;
     }
 -(void)usersPage
-{_usersview.userInteractionEnabled=YES;
+{//_usersview.userInteractionEnabled=YES;
     _usersindicator.hidden=NO;
     
     
@@ -232,12 +234,13 @@ _companyinfoview.userInteractionEnabled=YES;
 -(void)workProcedurePage
 {
     _docindictr.hidden=NO;
-    _workprocedureview.userInteractionEnabled=NO;
+   
     
     [_docindictr startAnimating];
     _Moduleid=15;
        [self UserLogmaininsert];
 [self UserRightsforparticularmoduleselect];
+     _workprocedureview.userInteractionEnabled=NO;
     
 
     
@@ -264,13 +267,14 @@ _companyinfoview.userInteractionEnabled=YES;
 }
 -(void)basicReqPage
 {_basicindicatr.hidden=NO;
-    _basicreqview.userInteractionEnabled=NO;
+   
     
     [_basicindicatr startAnimating];
 
     _Moduleid=23;
        [self UserLogmaininsert];
     [self UserRightsforparticularmoduleselect];
+     _basicreqview.userInteractionEnabled=NO;
     }
 
 -(void)serailnumpage{
@@ -293,14 +297,16 @@ _companyinfoview.userInteractionEnabled=YES;
 //    [self presentViewController:_wrktypeVCtrl animated:YES completion:nil];
 //}
 -(void)wrksetngpage{
-      [self UserLogmaininsert];
+    _Moduleid=16;
+    
     _setngindictr.hidden=NO;
-    _wrksetngview.userInteractionEnabled=NO;
+  
     
     [_setngindictr startAnimating];
-
-    _Moduleid=16;
+    [self UserLogmaininsert];
+    
      [self UserRightsforparticularmoduleselect];
+    _wrksetngview.userInteractionEnabled=NO;
     
 }
 -(void)securitypage{
@@ -550,7 +556,35 @@ _companyinfoview.userInteractionEnabled=YES;
             _compinfoindictr.hidden=YES;
             _companyinfoview.userInteractionEnabled=YES;
             
+            [_compinfoindictr stopAnimating];_compinfoindictr.hidden=YES;
+            _branchindictr.hidden=YES;
+            _docindictr.hidden=YES;
+            _setngindictr.hidden=YES;
+            _typeindicator.hidden=YES;
+            _usersindicator.hidden=YES;
+            _rightsindictr.hidden=YES;
+            _basicindicatr.hidden=YES;
+            _secindictr.hidden=YES;
             [_compinfoindictr stopAnimating];
+            [_branchindictr stopAnimating];
+            [_docindictr stopAnimating];
+            [_setngindictr stopAnimating];
+            [_typeindicator stopAnimating];
+            [_usersindicator stopAnimating];
+            [_rightsindictr stopAnimating];
+            [_basicindicatr stopAnimating];
+            [_secindictr stopAnimating];
+            _companyinfoview.userInteractionEnabled=YES;
+            _Documentsview.userInteractionEnabled=YES;
+            _foldersview.userInteractionEnabled=YES;
+            _usersview.userInteractionEnabled=YES;
+            _wrksetngview.userInteractionEnabled=YES;
+            _securityview.userInteractionEnabled=YES;
+            _basicreqview.userInteractionEnabled=YES;
+            _jobsitereqview.userInteractionEnabled=YES;
+            _workprocedureview.userInteractionEnabled=YES;
+            
+
            // if (!self.compVCtrl) {
                 self.compVCtrl=[[CompanyViewController alloc]initWithNibName:@"CompanyViewController" bundle:nil];
            // }
@@ -569,6 +603,35 @@ _companyinfoview.userInteractionEnabled=YES;
             _companyinfoview.userInteractionEnabled=YES;
             
             [_compinfoindictr stopAnimating];
+            _compinfoindictr.hidden=YES;
+            _branchindictr.hidden=YES;
+            _docindictr.hidden=YES;
+            _setngindictr.hidden=YES;
+            _typeindicator.hidden=YES;
+            _usersindicator.hidden=YES;
+            _rightsindictr.hidden=YES;
+            _basicindicatr.hidden=YES;
+            _secindictr.hidden=YES;
+            [_compinfoindictr stopAnimating];
+            [_branchindictr stopAnimating];
+            [_docindictr stopAnimating];
+            [_setngindictr stopAnimating];
+            [_typeindicator stopAnimating];
+            [_usersindicator stopAnimating];
+            [_rightsindictr stopAnimating];
+            [_basicindicatr stopAnimating];
+            [_secindictr stopAnimating];
+            _companyinfoview.userInteractionEnabled=YES;
+            _Documentsview.userInteractionEnabled=YES;
+            _foldersview.userInteractionEnabled=YES;
+            _usersview.userInteractionEnabled=YES;
+            _wrksetngview.userInteractionEnabled=YES;
+            _securityview.userInteractionEnabled=YES;
+            _basicreqview.userInteractionEnabled=YES;
+            _jobsitereqview.userInteractionEnabled=YES;
+            _workprocedureview.userInteractionEnabled=YES;
+            
+
             //You don’t have right to view this form
         }
         
@@ -582,6 +645,35 @@ _companyinfoview.userInteractionEnabled=YES;
             _Documentsview.userInteractionEnabled=YES;
             
             [_branchindictr stopAnimating];
+            _compinfoindictr.hidden=YES;
+            _branchindictr.hidden=YES;
+            _docindictr.hidden=YES;
+            _setngindictr.hidden=YES;
+            _typeindicator.hidden=YES;
+            _usersindicator.hidden=YES;
+            _rightsindictr.hidden=YES;
+            _basicindicatr.hidden=YES;
+            _secindictr.hidden=YES;
+            [_compinfoindictr stopAnimating];
+            [_branchindictr stopAnimating];
+            [_docindictr stopAnimating];
+            [_setngindictr stopAnimating];
+            [_typeindicator stopAnimating];
+            [_usersindicator stopAnimating];
+            [_rightsindictr stopAnimating];
+            [_basicindicatr stopAnimating];
+            [_secindictr stopAnimating];
+            _companyinfoview.userInteractionEnabled=YES;
+            _Documentsview.userInteractionEnabled=YES;
+            _foldersview.userInteractionEnabled=YES;
+            _usersview.userInteractionEnabled=YES;
+            _wrksetngview.userInteractionEnabled=YES;
+            _securityview.userInteractionEnabled=YES;
+            _basicreqview.userInteractionEnabled=YES;
+            _jobsitereqview.userInteractionEnabled=YES;
+            _workprocedureview.userInteractionEnabled=YES;
+            
+
            // if (!self.branchVCtrl) {
                 self.branchVCtrl=[[BranchViewController alloc]initWithNibName:@"BranchViewController" bundle:nil];
             //}
@@ -599,6 +691,35 @@ _companyinfoview.userInteractionEnabled=YES;
             
             [_branchindictr stopAnimating];
         }
+        _compinfoindictr.hidden=YES;
+        _branchindictr.hidden=YES;
+        _docindictr.hidden=YES;
+        _setngindictr.hidden=YES;
+        _typeindicator.hidden=YES;
+        _usersindicator.hidden=YES;
+        _rightsindictr.hidden=YES;
+        _basicindicatr.hidden=YES;
+        _secindictr.hidden=YES;
+        [_compinfoindictr stopAnimating];
+        [_branchindictr stopAnimating];
+        [_docindictr stopAnimating];
+        [_setngindictr stopAnimating];
+        [_typeindicator stopAnimating];
+        [_usersindicator stopAnimating];
+        [_rightsindictr stopAnimating];
+        [_basicindicatr stopAnimating];
+        [_secindictr stopAnimating];
+        _companyinfoview.userInteractionEnabled=YES;
+        _Documentsview.userInteractionEnabled=YES;
+        _foldersview.userInteractionEnabled=YES;
+        _usersview.userInteractionEnabled=YES;
+        _wrksetngview.userInteractionEnabled=YES;
+        _securityview.userInteractionEnabled=YES;
+        _basicreqview.userInteractionEnabled=YES;
+        _jobsitereqview.userInteractionEnabled=YES;
+        _workprocedureview.userInteractionEnabled=YES;
+        
+
         
     }
     if (_Moduleid==15)
@@ -609,6 +730,35 @@ _companyinfoview.userInteractionEnabled=YES;
             _workprocedureview.userInteractionEnabled=YES;
             
             [_docindictr stopAnimating];
+            _compinfoindictr.hidden=YES;
+            _branchindictr.hidden=YES;
+            _docindictr.hidden=YES;
+            _setngindictr.hidden=YES;
+            _typeindicator.hidden=YES;
+            _usersindicator.hidden=YES;
+            _rightsindictr.hidden=YES;
+            _basicindicatr.hidden=YES;
+            _secindictr.hidden=YES;
+            [_compinfoindictr stopAnimating];
+            [_branchindictr stopAnimating];
+            [_docindictr stopAnimating];
+            [_setngindictr stopAnimating];
+            [_typeindicator stopAnimating];
+            [_usersindicator stopAnimating];
+            [_rightsindictr stopAnimating];
+            [_basicindicatr stopAnimating];
+            [_secindictr stopAnimating];
+            _companyinfoview.userInteractionEnabled=YES;
+            _Documentsview.userInteractionEnabled=YES;
+            _foldersview.userInteractionEnabled=YES;
+            _usersview.userInteractionEnabled=YES;
+            _wrksetngview.userInteractionEnabled=YES;
+            _securityview.userInteractionEnabled=YES;
+            _basicreqview.userInteractionEnabled=YES;
+            _jobsitereqview.userInteractionEnabled=YES;
+            _workprocedureview.userInteractionEnabled=YES;
+            
+
            // if (!self.cmpnyVCtrl) {
                 self.cmpnyVCtrl=[[CmpnydocsViewController alloc]initWithNibName:@"CmpnydocsViewController" bundle:nil];
            // }
@@ -625,6 +775,35 @@ _companyinfoview.userInteractionEnabled=YES;
             _workprocedureview.userInteractionEnabled=YES;
             
             [_docindictr stopAnimating];
+            _compinfoindictr.hidden=YES;
+            _branchindictr.hidden=YES;
+            _docindictr.hidden=YES;
+            _setngindictr.hidden=YES;
+            _typeindicator.hidden=YES;
+            _usersindicator.hidden=YES;
+            _rightsindictr.hidden=YES;
+            _basicindicatr.hidden=YES;
+            _secindictr.hidden=YES;
+            [_compinfoindictr stopAnimating];
+            [_branchindictr stopAnimating];
+            [_docindictr stopAnimating];
+            [_setngindictr stopAnimating];
+            [_typeindicator stopAnimating];
+            [_usersindicator stopAnimating];
+            [_rightsindictr stopAnimating];
+            [_basicindicatr stopAnimating];
+            [_secindictr stopAnimating];
+            _companyinfoview.userInteractionEnabled=YES;
+            _Documentsview.userInteractionEnabled=YES;
+            _foldersview.userInteractionEnabled=YES;
+            _usersview.userInteractionEnabled=YES;
+            _wrksetngview.userInteractionEnabled=YES;
+            _securityview.userInteractionEnabled=YES;
+            _basicreqview.userInteractionEnabled=YES;
+            _jobsitereqview.userInteractionEnabled=YES;
+            _workprocedureview.userInteractionEnabled=YES;
+            
+
         }
         
     }
@@ -636,6 +815,35 @@ _companyinfoview.userInteractionEnabled=YES;
             _wrksetngview.userInteractionEnabled=YES;
             
             [_setngindictr stopAnimating];
+            _compinfoindictr.hidden=YES;
+            _branchindictr.hidden=YES;
+            _docindictr.hidden=YES;
+            _setngindictr.hidden=YES;
+            _typeindicator.hidden=YES;
+            _usersindicator.hidden=YES;
+            _rightsindictr.hidden=YES;
+            _basicindicatr.hidden=YES;
+            _secindictr.hidden=YES;
+            [_compinfoindictr stopAnimating];
+            [_branchindictr stopAnimating];
+            [_docindictr stopAnimating];
+            [_setngindictr stopAnimating];
+            [_typeindicator stopAnimating];
+            [_usersindicator stopAnimating];
+            [_rightsindictr stopAnimating];
+            [_basicindicatr stopAnimating];
+            [_secindictr stopAnimating];
+            _companyinfoview.userInteractionEnabled=YES;
+            _Documentsview.userInteractionEnabled=YES;
+            _foldersview.userInteractionEnabled=YES;
+            _usersview.userInteractionEnabled=YES;
+            _wrksetngview.userInteractionEnabled=YES;
+            _securityview.userInteractionEnabled=YES;
+            _basicreqview.userInteractionEnabled=YES;
+            _jobsitereqview.userInteractionEnabled=YES;
+            _workprocedureview.userInteractionEnabled=YES;
+            
+
            // if (!self.wrkstngVCtrlr) {
                 self.wrkstngVCtrlr=[[SettngsViewController alloc]initWithNibName:@"SettngsViewController" bundle:nil];
            // }
@@ -650,6 +858,35 @@ _companyinfoview.userInteractionEnabled=YES;
             _wrksetngview.userInteractionEnabled=YES;
             
             [_setngindictr stopAnimating];
+            _compinfoindictr.hidden=YES;
+            _branchindictr.hidden=YES;
+            _docindictr.hidden=YES;
+            _setngindictr.hidden=YES;
+            _typeindicator.hidden=YES;
+            _usersindicator.hidden=YES;
+            _rightsindictr.hidden=YES;
+            _basicindicatr.hidden=YES;
+            _secindictr.hidden=YES;
+            [_compinfoindictr stopAnimating];
+            [_branchindictr stopAnimating];
+            [_docindictr stopAnimating];
+            [_setngindictr stopAnimating];
+            [_typeindicator stopAnimating];
+            [_usersindicator stopAnimating];
+            [_rightsindictr stopAnimating];
+            [_basicindicatr stopAnimating];
+            [_secindictr stopAnimating];
+            _companyinfoview.userInteractionEnabled=YES;
+            _Documentsview.userInteractionEnabled=YES;
+            _foldersview.userInteractionEnabled=YES;
+            _usersview.userInteractionEnabled=YES;
+            _wrksetngview.userInteractionEnabled=YES;
+            _securityview.userInteractionEnabled=YES;
+            _basicreqview.userInteractionEnabled=YES;
+            _jobsitereqview.userInteractionEnabled=YES;
+            _workprocedureview.userInteractionEnabled=YES;
+            
+
            
         }
         
@@ -662,6 +899,35 @@ _companyinfoview.userInteractionEnabled=YES;
             _jobsitereqview.userInteractionEnabled=YES;
             
             [_typeindicator stopAnimating];
+            _compinfoindictr.hidden=YES;
+            _branchindictr.hidden=YES;
+            _docindictr.hidden=YES;
+            _setngindictr.hidden=YES;
+            _typeindicator.hidden=YES;
+            _usersindicator.hidden=YES;
+            _rightsindictr.hidden=YES;
+            _basicindicatr.hidden=YES;
+            _secindictr.hidden=YES;
+            [_compinfoindictr stopAnimating];
+            [_branchindictr stopAnimating];
+            [_docindictr stopAnimating];
+            [_setngindictr stopAnimating];
+            [_typeindicator stopAnimating];
+            [_usersindicator stopAnimating];
+            [_rightsindictr stopAnimating];
+            [_basicindicatr stopAnimating];
+            [_secindictr stopAnimating];
+            _companyinfoview.userInteractionEnabled=YES;
+            _Documentsview.userInteractionEnabled=YES;
+            _foldersview.userInteractionEnabled=YES;
+            _usersview.userInteractionEnabled=YES;
+            _wrksetngview.userInteractionEnabled=YES;
+            _securityview.userInteractionEnabled=YES;
+            _basicreqview.userInteractionEnabled=YES;
+            _jobsitereqview.userInteractionEnabled=YES;
+            _workprocedureview.userInteractionEnabled=YES;
+            
+
            // if (!self.typeVCtrl) {
                 self.typeVCtrl=[[TypeViewController alloc]initWithNibName:@"TypeViewController" bundle:nil];
            // }
@@ -678,6 +944,35 @@ _companyinfoview.userInteractionEnabled=YES;
             _jobsitereqview.userInteractionEnabled=YES;
             
             [_typeindicator stopAnimating];
+            _compinfoindictr.hidden=YES;
+            _branchindictr.hidden=YES;
+            _docindictr.hidden=YES;
+            _setngindictr.hidden=YES;
+            _typeindicator.hidden=YES;
+            _usersindicator.hidden=YES;
+            _rightsindictr.hidden=YES;
+            _basicindicatr.hidden=YES;
+            _secindictr.hidden=YES;
+            [_compinfoindictr stopAnimating];
+            [_branchindictr stopAnimating];
+            [_docindictr stopAnimating];
+            [_setngindictr stopAnimating];
+            [_typeindicator stopAnimating];
+            [_usersindicator stopAnimating];
+            [_rightsindictr stopAnimating];
+            [_basicindicatr stopAnimating];
+            [_secindictr stopAnimating];
+            _companyinfoview.userInteractionEnabled=YES;
+            _Documentsview.userInteractionEnabled=YES;
+            _foldersview.userInteractionEnabled=YES;
+            _usersview.userInteractionEnabled=YES;
+            _wrksetngview.userInteractionEnabled=YES;
+            _securityview.userInteractionEnabled=YES;
+            _basicreqview.userInteractionEnabled=YES;
+            _jobsitereqview.userInteractionEnabled=YES;
+            _workprocedureview.userInteractionEnabled=YES;
+            
+
         }
     }
     if (_Moduleid==21)
@@ -688,6 +983,35 @@ _companyinfoview.userInteractionEnabled=YES;
             _usersview.userInteractionEnabled=YES;
             
             [_usersindicator stopAnimating];
+            _compinfoindictr.hidden=YES;
+            _branchindictr.hidden=YES;
+            _docindictr.hidden=YES;
+            _setngindictr.hidden=YES;
+            _typeindicator.hidden=YES;
+            _usersindicator.hidden=YES;
+            _rightsindictr.hidden=YES;
+            _basicindicatr.hidden=YES;
+            _secindictr.hidden=YES;
+            [_compinfoindictr stopAnimating];
+            [_branchindictr stopAnimating];
+            [_docindictr stopAnimating];
+            [_setngindictr stopAnimating];
+            [_typeindicator stopAnimating];
+            [_usersindicator stopAnimating];
+            [_rightsindictr stopAnimating];
+            [_basicindicatr stopAnimating];
+            [_secindictr stopAnimating];
+            _companyinfoview.userInteractionEnabled=YES;
+            _Documentsview.userInteractionEnabled=YES;
+            _foldersview.userInteractionEnabled=YES;
+            _usersview.userInteractionEnabled=YES;
+            _wrksetngview.userInteractionEnabled=YES;
+            _securityview.userInteractionEnabled=YES;
+            _basicreqview.userInteractionEnabled=YES;
+            _jobsitereqview.userInteractionEnabled=YES;
+            _workprocedureview.userInteractionEnabled=YES;
+            
+
            // if (!self.usersVctrl) {
                 self.usersVctrl=[[UsersViewController alloc]initWithNibName:@"UsersViewController" bundle:nil];
            // }
@@ -703,6 +1027,35 @@ _companyinfoview.userInteractionEnabled=YES;
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _compinfoindictr.hidden=YES;
+            _branchindictr.hidden=YES;
+            _docindictr.hidden=YES;
+            _setngindictr.hidden=YES;
+            _typeindicator.hidden=YES;
+            _usersindicator.hidden=YES;
+            _rightsindictr.hidden=YES;
+            _basicindicatr.hidden=YES;
+            _secindictr.hidden=YES;
+            [_compinfoindictr stopAnimating];
+            [_branchindictr stopAnimating];
+            [_docindictr stopAnimating];
+            [_setngindictr stopAnimating];
+            [_typeindicator stopAnimating];
+            [_usersindicator stopAnimating];
+            [_rightsindictr stopAnimating];
+            [_basicindicatr stopAnimating];
+            [_secindictr stopAnimating];
+            _companyinfoview.userInteractionEnabled=YES;
+            _Documentsview.userInteractionEnabled=YES;
+            _foldersview.userInteractionEnabled=YES;
+            _usersview.userInteractionEnabled=YES;
+            _wrksetngview.userInteractionEnabled=YES;
+            _securityview.userInteractionEnabled=YES;
+            _basicreqview.userInteractionEnabled=YES;
+            _jobsitereqview.userInteractionEnabled=YES;
+            _workprocedureview.userInteractionEnabled=YES;
+            
+
         }
     }
     if (_Moduleid==22)
@@ -713,6 +1066,35 @@ _companyinfoview.userInteractionEnabled=YES;
             _foldersview.userInteractionEnabled=YES;
             
             [_rightsindictr stopAnimating];
+            _compinfoindictr.hidden=YES;
+            _branchindictr.hidden=YES;
+            _docindictr.hidden=YES;
+            _setngindictr.hidden=YES;
+            _typeindicator.hidden=YES;
+            _usersindicator.hidden=YES;
+            _rightsindictr.hidden=YES;
+            _basicindicatr.hidden=YES;
+            _secindictr.hidden=YES;
+            [_compinfoindictr stopAnimating];
+            [_branchindictr stopAnimating];
+            [_docindictr stopAnimating];
+            [_setngindictr stopAnimating];
+            [_typeindicator stopAnimating];
+            [_usersindicator stopAnimating];
+            [_rightsindictr stopAnimating];
+            [_basicindicatr stopAnimating];
+            [_secindictr stopAnimating];
+            _companyinfoview.userInteractionEnabled=YES;
+            _Documentsview.userInteractionEnabled=YES;
+            _foldersview.userInteractionEnabled=YES;
+            _usersview.userInteractionEnabled=YES;
+            _wrksetngview.userInteractionEnabled=YES;
+            _securityview.userInteractionEnabled=YES;
+            _basicreqview.userInteractionEnabled=YES;
+            _jobsitereqview.userInteractionEnabled=YES;
+            _workprocedureview.userInteractionEnabled=YES;
+            
+
            // if (!self.ftileVCtrl) {
                 self.ftileVCtrl=[[FtileViewController alloc]initWithNibName:@"FtileViewController" bundle:nil];
            // }

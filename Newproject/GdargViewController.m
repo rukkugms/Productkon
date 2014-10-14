@@ -1504,7 +1504,21 @@
     }
 
 
-
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView==_manpwrtable)
+        
+    {
+        return self.editing ;
+    }
+    if(tableView==_materialtable)
+        
+    {
+        return self.editing ;
+    }
+    return YES;
+    
+}
 #pragma mark -MANPOWER DRAG &DROP
 #pragma mark UIGestureRecognizer
 
