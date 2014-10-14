@@ -2278,6 +2278,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                 // The image is already in correct orientation
                 break;
         }
+        
 
         _picimageview.image=nil;
         

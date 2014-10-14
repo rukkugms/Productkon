@@ -35,7 +35,7 @@
 @property(strong,nonatomic)NSData*basedata;
 @property(strong,nonatomic)NSString*encodedString;
 
-
+@property(strong,nonatomic)UIImagePickerController *imagePicker;
 @property(strong,nonatomic)NSMutableDictionary *skilldict;
 @property(strong,nonatomic)NSMutableDictionary *revskilldict;
 

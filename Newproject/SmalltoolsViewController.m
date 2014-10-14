@@ -62,25 +62,51 @@
     {
          imagechecker=2;
         
-        UIImagePickerController *imagePicker =
+    _imagePicker
+        =
         [[UIImagePickerController alloc] init];
-        imagePicker.delegate =(id) self;
-        imagePicker.sourceType =
+        _imagePicker.delegate =(id) self;
+        _imagePicker.sourceType =
         UIImagePickerControllerSourceTypeCamera;
-        imagePicker.showsCameraControls=YES;
+        _imagePicker.showsCameraControls=YES;
         
-        imagePicker.mediaTypes = [NSArray arrayWithObjects:
+        _imagePicker.mediaTypes = [NSArray arrayWithObjects:
                                   (NSString *) kUTTypeImage,
                                   nil];
-        imagePicker.allowsEditing = NO;
+        _imagePicker.allowsEditing = NO;
         // imagePicker.cameraCaptureMode=YES;
-        [self presentViewController:imagePicker animated:YES completion:nil];
+        
+        
+    
+        [self presentViewController:_imagePicker animated:YES completion:nil];
         _newMedia = YES;
+        }
+    
+}
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
+        
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"Alert orientation" message:@"portrait" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        _imagePicker.showsCameraControls=NO;
+        
+    }else{
+        
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"Alert orientation" message:@"landscape" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        
+        [alert show];
+        _imagePicker.showsCameraControls=YES;
     }
+
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
+    
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
      [self AllSkills];
     _activitybtn.hidden=YES;
       _addview.userInteractionEnabled=YES;
@@ -1866,6 +1892,10 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                            objectForKey:UIImagePickerControllerMediaType];
     
     
+    [[UIDevice currentDevice]beginGeneratingDeviceOrientationNotifications];
+    
+    
+    
     
     
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
@@ -1888,6 +1918,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                 // The image is already in correct orientation
                 break;
         }
+        
 
         _picimageview.image=nil;
         

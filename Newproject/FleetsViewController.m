@@ -98,6 +98,14 @@
 
     //[self SelectAllfleet];
 }
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
+    
+    
+}
+
 #pragma mark-Popover
 -(void)createpopover{
     UIViewController* popoverContent = [[UIViewController alloc]
@@ -114,7 +122,7 @@
     _popOverTableView.rowHeight= 32;
     _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
     
-    
+      
     // CGRect rect = frame;
     [popoverView addSubview:_popOverTableView];
     popoverContent.view = popoverView;

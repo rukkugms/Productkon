@@ -28,6 +28,7 @@
 {
   
     [super viewDidLoad];
+    
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _addequipmentview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
 _scroll_addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
@@ -88,18 +89,33 @@ _scroll_addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255
         [[UIImagePickerController alloc] init];
         
         _imagePicker.delegate =(id) self;
+       
         _imagePicker.sourceType =
         UIImagePickerControllerSourceTypeCamera;
         _imagePicker.showsCameraControls=YES;
+        
         
         _imagePicker.mediaTypes = [NSArray arrayWithObjects:
                                   (NSString *) kUTTypeImage,
                                   nil];
         _imagePicker.allowsEditing = NO;
         
-        // imagePicker.cameraCaptureMode=YES;
+        UIDevice *currentDevice = [UIDevice currentDevice];
+        
+        // The device keeps count of orientation requests.  If the count is more than one, it continues detecting them and sending notifications.  So, switch them off repeatedly until the count reaches zero and they are genuinely off.
+        // If orientation notifications are on when the view is presented, it may slide on in landscape mode even if the app is entirely portrait.
+        // If other parts of the app require orientation notifications, the number "end" messages sent should be counted.  An equal number of "begin" messages should be sent after the image picker ends.
+        while ([currentDevice isGeneratingDeviceOrientationNotifications])
+            [currentDevice endGeneratingDeviceOrientationNotifications];
+        
+        
+     
         [self presentViewController:_imagePicker animated:YES completion:nil];
         _newMedia = YES;
+        // The UIImagePickerController switches on notifications AGAIN when it is presented, so switch them off again.
+        while ([currentDevice isGeneratingDeviceOrientationNotifications])
+            [currentDevice endGeneratingDeviceOrientationNotifications];
+        // imagePicker.cameraCaptureMode=YES;
     }
 }
 #pragma mark-ImagePicker
@@ -119,25 +135,25 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                           objectForKey:UIImagePickerControllerOriginalImage];
         
         NSLog(@"dict%@",info);
-//        switch (image.imageOrientation) {
-//            case UIImageOrientationDown:
-//            case UIImageOrientationDownMirrored:
-//            case UIImageOrientationLeft:
-//            case UIImageOrientationLeftMirrored:
-//            case UIImageOrientationRight:
-//            case UIImageOrientationRightMirrored:
-//                image = [UIImage imageWithCGImage:image.CGImage
-//                                            scale:image.scale
-//                                      orientation:UIImageOrientationUp]; // change this if you need another orientation
-//                break;
-//            case UIImageOrientationUp:
-//            case UIImageOrientationUpMirrored:
-//                // The image is already in correct orientation
-//                break;
-//        }
+        switch (image.imageOrientation) {
+            case UIImageOrientationDown:
+            case UIImageOrientationDownMirrored:
+            case UIImageOrientationLeft:
+            case UIImageOrientationLeftMirrored:
+            case UIImageOrientationRight:
+            case UIImageOrientationRightMirrored:
+                image = [UIImage imageWithCGImage:image.CGImage
+                                            scale:image.scale
+                                      orientation:UIImageOrientationUp]; // change this if you need another orientation
+                break;
+            case UIImageOrientationUp:
+            case UIImageOrientationUpMirrored:
+                // The image is already in correct orientation
+                break;
+        }
            _picimageview.image=nil;
         
-        
+       
         
         _picimageview.image =image;
         imagechecker=2;
