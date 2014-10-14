@@ -100,21 +100,7 @@ _scroll_addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255
                                   nil];
         _imagePicker.allowsEditing = NO;
         
-        UIDevice *currentDevice = [UIDevice currentDevice];
         
-        // The device keeps count of orientation requests.  If the count is more than one, it continues detecting them and sending notifications.  So, switch them off repeatedly until the count reaches zero and they are genuinely off.
-        // If orientation notifications are on when the view is presented, it may slide on in landscape mode even if the app is entirely portrait.
-        // If other parts of the app require orientation notifications, the number "end" messages sent should be counted.  An equal number of "begin" messages should be sent after the image picker ends.
-        while ([currentDevice isGeneratingDeviceOrientationNotifications])
-            [currentDevice endGeneratingDeviceOrientationNotifications];
-        
-        
-     
-        [self presentViewController:_imagePicker animated:YES completion:nil];
-        _newMedia = YES;
-        // The UIImagePickerController switches on notifications AGAIN when it is presented, so switch them off again.
-        while ([currentDevice isGeneratingDeviceOrientationNotifications])
-            [currentDevice endGeneratingDeviceOrientationNotifications];
         // imagePicker.cameraCaptureMode=YES;
     }
 }

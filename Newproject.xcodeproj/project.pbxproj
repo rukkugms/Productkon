@@ -548,6 +548,8 @@
 		D4F2F91E193C41F300B732E9 /* iconleftblack.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F2F91D193C41F200B732E9 /* iconleftblack.png */; };
 		D4F2F920193C439100B732E9 /* iconarrowright.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F2F91F193C439100B732E9 /* iconarrowright.png */; };
 		D4F34360191CCD220023D715 /* ModlEstimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F3435F191CCD220023D715 /* ModlEstimation.m */; };
+		D4F38BDA19ED2F5A002394AD /* UIViewController+OrientaionFix.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F38BD919ED2F5A002394AD /* UIViewController+OrientaionFix.m */; };
+		D4F38BDD19ED2F92002394AD /* UIImagePickerController+OrientationFix.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F38BDC19ED2F92002394AD /* UIImagePickerController+OrientationFix.m */; };
 		D4F4B0B319068ED50026C8B6 /* Gmandrgmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F4B0B219068ED50026C8B6 /* Gmandrgmdl.m */; };
 		D4F59E4C1887A25500430B17 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F59E4B1887A25500430B17 /* libsqlite3.0.dylib */; };
 		D4F5BD5618E15FEE0045DBE3 /* Cinfocell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F5BD5518E15FEE0045DBE3 /* Cinfocell.xib */; };
@@ -1329,6 +1331,10 @@
 		D4F2F91F193C439100B732E9 /* iconarrowright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconarrowright.png; sourceTree = "<group>"; };
 		D4F3435E191CCD220023D715 /* ModlEstimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModlEstimation.h; sourceTree = "<group>"; };
 		D4F3435F191CCD220023D715 /* ModlEstimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModlEstimation.m; sourceTree = "<group>"; };
+		D4F38BD819ED2F5A002394AD /* UIViewController+OrientaionFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+OrientaionFix.h"; path = "../UIViewController+OrientaionFix.h"; sourceTree = "<group>"; };
+		D4F38BD919ED2F5A002394AD /* UIViewController+OrientaionFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+OrientaionFix.m"; path = "../UIViewController+OrientaionFix.m"; sourceTree = "<group>"; };
+		D4F38BDB19ED2F92002394AD /* UIImagePickerController+OrientationFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImagePickerController+OrientationFix.h"; path = "../UIImagePickerController+OrientationFix.h"; sourceTree = "<group>"; };
+		D4F38BDC19ED2F92002394AD /* UIImagePickerController+OrientationFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImagePickerController+OrientationFix.m"; path = "../UIImagePickerController+OrientationFix.m"; sourceTree = "<group>"; };
 		D4F4B0B119068ED50026C8B6 /* Gmandrgmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gmandrgmdl.h; sourceTree = "<group>"; };
 		D4F4B0B219068ED50026C8B6 /* Gmandrgmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gmandrgmdl.m; sourceTree = "<group>"; };
 		D4F59E4B1887A25500430B17 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -2076,6 +2082,10 @@
 		D4D570161772BE8800671A35 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				D4F38BD819ED2F5A002394AD /* UIViewController+OrientaionFix.h */,
+				D4F38BD919ED2F5A002394AD /* UIViewController+OrientaionFix.m */,
+				D4F38BDB19ED2F92002394AD /* UIImagePickerController+OrientationFix.h */,
+				D4F38BDC19ED2F92002394AD /* UIImagePickerController+OrientationFix.m */,
 				D40407D9192B171A00864BA4 /* myscroll.h */,
 				D40407DA192B171A00864BA4 /* myscroll.m */,
 				D4EC7E3E192A10D400C60BA9 /* MyLineDrawingView.h */,
@@ -2864,6 +2874,7 @@
 				D49F875618EEA36B00413CAD /* phasesmodel.m in Sources */,
 				D4EBA85D1978ED7B00B612E1 /* deliverymdl.m in Sources */,
 				D4A338C918F3BD1900E53FAC /* WorktypeViewController.m in Sources */,
+				D4F38BDD19ED2F92002394AD /* UIImagePickerController+OrientationFix.m in Sources */,
 				D42D8C1518D2D8FF009D8085 /* BasicReqViewController.m in Sources */,
 				D4A674A819345F7200D5A77E /* DateTable.m in Sources */,
 				64B08E5F19471498003C25F5 /* Labourcustommdl.m in Sources */,
@@ -2980,6 +2991,7 @@
 				D4049668192F183B00685109 /* GroupEqupViewController.m in Sources */,
 				D4A16B4D1974EEA8002CA2A2 /* DetailplanViewController.m in Sources */,
 				D49F875A18EEA36B00413CAD /* Equpmntmdl.m in Sources */,
+				D4F38BDA19ED2F5A002394AD /* UIViewController+OrientaionFix.m in Sources */,
 				D4A674BE19345FFD00D5A77E /* DPCalendarTestOptionsViewController.m in Sources */,
 				D4A16B921974EEE0002CA2A2 /* PhsestViewController.m in Sources */,
 				64A11EE618683792008D20CC /* workPhasesViewController.m in Sources */,

@@ -98,13 +98,6 @@
 
     //[self SelectAllfleet];
 }
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    
-    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
-    
-    
-}
 
 #pragma mark-Popover
 -(void)createpopover{

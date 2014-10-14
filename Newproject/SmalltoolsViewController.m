@@ -74,33 +74,13 @@
                                   (NSString *) kUTTypeImage,
                                   nil];
         _imagePicker.allowsEditing = NO;
-        // imagePicker.cameraCaptureMode=YES;
         
+        // imagePicker.cameraCaptureMode=YES;
         
     
         [self presentViewController:_imagePicker animated:YES completion:nil];
         _newMedia = YES;
         }
-    
-}
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
-        
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"Alert orientation" message:@"portrait" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-        _imagePicker.showsCameraControls=NO;
-        
-    }else{
-        
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"Alert orientation" message:@"landscape" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        
-        [alert show];
-        _imagePicker.showsCameraControls=YES;
-    }
-
-    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
-    
     
 }
 
@@ -1887,12 +1867,16 @@ else
 -(void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+   
+    
     // [self.popoverController dismissPopoverAnimated:true];
+    
+    
     NSString *mediaType = [info
                            objectForKey:UIImagePickerControllerMediaType];
     
     
-    [[UIDevice currentDevice]beginGeneratingDeviceOrientationNotifications];
+   // [[UIDevice currentDevice]beginGeneratingDeviceOrientationNotifications];
     
     
     
@@ -1937,6 +1921,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     
     
 }
+
 
 -(void)image:(UIImage *)image
 finishedSavingWithError:(NSError *)error

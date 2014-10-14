@@ -16,6 +16,7 @@
 #import "RSTViewController.h"
 
 
+
 @interface MaterialsViewController : UIViewController{
      BOOL recordResults;
     NSInteger butntype;
@@ -38,7 +39,7 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *picimageview;
 
-
+@property (strong, nonatomic)UIImagePickerController*imagepicker;
 @property(strong,nonatomic)Manpwr *materialmdl;
 @property(strong,nonatomic)Validation *val;
 @property (nonatomic) BOOL newMedia;
