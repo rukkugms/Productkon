@@ -526,8 +526,34 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
         else
         {
             _resactivtyindictr.hidden=YES;
-            [_resactivtyindictr stopAnimating];
             _reurceview.userInteractionEnabled=YES;
+            [_resactivtyindictr stopAnimating];
+            _compactivityindctr.hidden=YES;
+            [_compactivityindctr stopAnimating];
+            _resactivtyindictr.hidden=YES;
+            [_resactivtyindictr stopAnimating];
+            _custindictr.hidden=YES;
+            [_custindictr stopAnimating];
+            _ledactvtyindctr.hidden=YES;
+            [_ledactvtyindctr stopAnimating];
+            _planactivityindctr.hidden=YES;
+            [_planactivityindctr stopAnimating];
+            _estactvityindicator.hidden=YES;
+            [_estactvityindicator stopAnimating];
+            _hrindicator.hidden=YES;
+            [_hrindicator stopAnimating];
+            _promgmtindicatr.hidden=YES;
+            [_promgmtindicatr stopAnimating];
+            _companyView.userInteractionEnabled=YES;
+            _reurceview.userInteractionEnabled=YES;
+            _customerview.userInteractionEnabled=YES;
+            _leadView.userInteractionEnabled=YES;
+            _planngview.userInteractionEnabled=YES;
+            _estimtnview.userInteractionEnabled=YES;
+            _projectview.userInteractionEnabled=YES;
+            _hrview.userInteractionEnabled=YES;
+            
+
            
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
@@ -538,10 +564,6 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
     {
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
-        //if (!self.custmrVCtrl) {
-            self.custmrVCtrl=[[TilecustmrViewController alloc]initWithNibName:@"TilecustmrViewController" bundle:nil];
-        //}
-        _custmrVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
             _custindictr.hidden=YES;
             [_custindictr stopAnimating];
             _customerview.userInteractionEnabled=YES;
@@ -569,8 +591,13 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
             _estimtnview.userInteractionEnabled=YES;
             _projectview.userInteractionEnabled=YES;
             _hrview.userInteractionEnabled=YES;
+            
 
-        
+        //if (!self.custmrVCtrl) {
+            self.custmrVCtrl=[[TilecustmrViewController alloc]initWithNibName:@"TilecustmrViewController" bundle:nil];
+        //}
+        _custmrVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+            
         [self presentViewController:_custmrVCtrl
                            animated:YES completion:NULL];
         }
@@ -845,7 +872,37 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
         if (rightsmodel.ViewModule==1) {
             _promgmtindicatr.hidden=YES;
             [_promgmtindicatr stopAnimating];
+            
              _projectview.userInteractionEnabled=YES;
+            _custindictr.hidden=YES;
+            [_custindictr stopAnimating];
+            _customerview.userInteractionEnabled=YES;
+            _compactivityindctr.hidden=YES;
+            [_compactivityindctr stopAnimating];
+            _resactivtyindictr.hidden=YES;
+            [_resactivtyindictr stopAnimating];
+            _custindictr.hidden=YES;
+            [_custindictr stopAnimating];
+            _ledactvtyindctr.hidden=YES;
+            [_ledactvtyindctr stopAnimating];
+            _planactivityindctr.hidden=YES;
+            [_planactivityindctr stopAnimating];
+            _estactvityindicator.hidden=YES;
+            [_estactvityindicator stopAnimating];
+            _hrindicator.hidden=YES;
+            [_hrindicator stopAnimating];
+            _promgmtindicatr.hidden=YES;
+            [_promgmtindicatr stopAnimating];
+            _companyView.userInteractionEnabled=YES;
+            _reurceview.userInteractionEnabled=YES;
+            _customerview.userInteractionEnabled=YES;
+            _leadView.userInteractionEnabled=YES;
+            _planngview.userInteractionEnabled=YES;
+            _estimtnview.userInteractionEnabled=YES;
+            _projectview.userInteractionEnabled=YES;
+            _hrview.userInteractionEnabled=YES;
+            
+
            // if (!_mangVCtrl) {
                 _mangVCtrl=[[ManagemttileViewController alloc]initWithNibName:@"ManagemttileViewController" bundle:nil];
             //}

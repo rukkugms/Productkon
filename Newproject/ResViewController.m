@@ -668,40 +668,41 @@
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _materialView.userInteractionEnabled=YES;
+            _matactivity.hidden=YES;
+            [_matactivity stopAnimating];
+            _manpwrview.userInteractionEnabled=YES;
+            _manactivity.hidden=YES;
+            [_manactivity stopAnimating];
+            _eqpView.userInteractionEnabled=YES;
+            _eqactivity.hidden=YES;
+            [_eqactivity stopAnimating];
+            _materialView.userInteractionEnabled=YES;
+            _matactivity.hidden=YES;
+            [_matactivity stopAnimating];
+            _fleetview.userInteractionEnabled=YES;
+            _fleetactivity.hidden=YES;
+            [_fleetactivity stopAnimating];
+            _crewview.userInteractionEnabled=YES;
+            _gpactivity.hidden=YES;
+            [_gpactivity stopAnimating];
+            _thirdpartyview.userInteractionEnabled=YES;
+            _tpactivity.hidden=YES;
+            [_tpactivity stopAnimating];
+            _consumbleview.userInteractionEnabled=YES;
+            _conactivity.hidden=YES;
+            [_conactivity stopAnimating];
+            
+            _smalltoolview.userInteractionEnabled=YES;
+            _stactivity.hidden=YES;
+            [_stactivity stopAnimating];
+            _cmpanyassetview.userInteractionEnabled=YES;
+            _assetactivity.hidden=YES;
+            [_assetactivity stopAnimating];
+            
+
         }
-        _materialView.userInteractionEnabled=YES;
-        _matactivity.hidden=YES;
-        [_matactivity stopAnimating];
-        _manpwrview.userInteractionEnabled=YES;
-        _manactivity.hidden=YES;
-        [_manactivity stopAnimating];
-        _eqpView.userInteractionEnabled=YES;
-        _eqactivity.hidden=YES;
-        [_eqactivity stopAnimating];
-        _materialView.userInteractionEnabled=YES;
-        _matactivity.hidden=YES;
-        [_matactivity stopAnimating];
-        _fleetview.userInteractionEnabled=YES;
-        _fleetactivity.hidden=YES;
-        [_fleetactivity stopAnimating];
-        _crewview.userInteractionEnabled=YES;
-        _gpactivity.hidden=YES;
-        [_gpactivity stopAnimating];
-        _thirdpartyview.userInteractionEnabled=YES;
-        _tpactivity.hidden=YES;
-        [_tpactivity stopAnimating];
-        _consumbleview.userInteractionEnabled=YES;
-        _conactivity.hidden=YES;
-        [_conactivity stopAnimating];
-        
-        _smalltoolview.userInteractionEnabled=YES;
-        _stactivity.hidden=YES;
-        [_stactivity stopAnimating];
-        _cmpanyassetview.userInteractionEnabled=YES;
-        _assetactivity.hidden=YES;
-        [_assetactivity stopAnimating];
-
-
+      
     }
     if (_ModuleID==29)
     {

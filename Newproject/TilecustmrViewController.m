@@ -84,33 +84,36 @@
 
 -(void)customerpage{
     _Custmgmtindictr.hidden=NO;
-    _custmrview.userInteractionEnabled=NO;
+   
     
     [_Custmgmtindictr startAnimating];
     _Moduleid=38;
     [self UserLogmaininsert];
     [self UserRightsforparticularmoduleselect];
+    _custmrview.userInteractionEnabled=NO;
     
 
     
 }
 -(void)contractpage{
     _Contmgmtindictr.hidden=NO;
-    _cntrctview.userInteractionEnabled=NO;
+    
     
     [_Contmgmtindictr startAnimating];
     _Moduleid=39;
     [self UserLogmaininsert];
     [self UserRightsforparticularmoduleselect];
+    _cntrctview.userInteractionEnabled=NO;
    }
 -(void)markuppage{
     _mrkupindictr.hidden=NO;
-    _markupview.userInteractionEnabled=NO;
+   
     
     [_mrkupindictr startAnimating];
     _Moduleid=40;
     [self UserLogmaininsert];
     [self UserRightsforparticularmoduleselect];
+     _markupview.userInteractionEnabled=NO;
     
     
 }
@@ -328,6 +331,16 @@
                 _custmrview.userInteractionEnabled=YES;
                 
                 [_Custmgmtindictr stopAnimating];
+                _Contmgmtindictr.hidden=YES;
+                _mrkupindictr.hidden=YES;
+                [_Custmgmtindictr stopAnimating];
+                [_Contmgmtindictr stopAnimating];
+                [_mrkupindictr stopAnimating];
+                
+                _custmrview.userInteractionEnabled=YES;
+                _cntrctview.userInteractionEnabled=YES;
+                _markupview.userInteractionEnabled=YES;
+
                 
                // if (!self.custmrVCtrl) {
                     self.custmrVCtrl=[[NewCustmrViewController alloc]initWithNibName:@"NewCustmrViewController" bundle:nil];
@@ -345,6 +358,16 @@
                 _custmrview.userInteractionEnabled=YES;
                 
                 [_Custmgmtindictr stopAnimating];
+                _Contmgmtindictr.hidden=YES;
+                _mrkupindictr.hidden=YES;
+                [_Custmgmtindictr stopAnimating];
+                [_Contmgmtindictr stopAnimating];
+                [_mrkupindictr stopAnimating];
+                
+                _custmrview.userInteractionEnabled=YES;
+                _cntrctview.userInteractionEnabled=YES;
+                _markupview.userInteractionEnabled=YES;
+
                 //You don’t have right to view this form
             }
             
@@ -357,6 +380,16 @@
                 _cntrctview.userInteractionEnabled=YES;
                 
                 [_Contmgmtindictr stopAnimating];
+                _Contmgmtindictr.hidden=YES;
+                _mrkupindictr.hidden=YES;
+                [_Custmgmtindictr stopAnimating];
+                [_Contmgmtindictr stopAnimating];
+                [_mrkupindictr stopAnimating];
+                
+                _custmrview.userInteractionEnabled=YES;
+                _cntrctview.userInteractionEnabled=YES;
+                _markupview.userInteractionEnabled=YES;
+
                // if (!self.cntrctVCtrl) {
                     self.cntrctVCtrl=[[ContractViewController alloc]initWithNibName:@"ContractViewController" bundle:nil];
               //  }
@@ -375,6 +408,16 @@
                 _cntrctview.userInteractionEnabled=YES;
                 
                 [_Contmgmtindictr stopAnimating];
+                _Contmgmtindictr.hidden=YES;
+                _mrkupindictr.hidden=YES;
+                [_Custmgmtindictr stopAnimating];
+                [_Contmgmtindictr stopAnimating];
+                [_mrkupindictr stopAnimating];
+                
+                _custmrview.userInteractionEnabled=YES;
+                _cntrctview.userInteractionEnabled=YES;
+                _markupview.userInteractionEnabled=YES;
+
             }
             
         }
@@ -386,6 +429,16 @@
                 _markupview.userInteractionEnabled=YES;
                 
                 [_mrkupindictr stopAnimating];
+                _Contmgmtindictr.hidden=YES;
+                _mrkupindictr.hidden=YES;
+                [_Custmgmtindictr stopAnimating];
+                [_Contmgmtindictr stopAnimating];
+                [_mrkupindictr stopAnimating];
+                
+                _custmrview.userInteractionEnabled=YES;
+                _cntrctview.userInteractionEnabled=YES;
+                _markupview.userInteractionEnabled=YES;
+
                 
                // if (!self.markVCtrl) {
                     self.markVCtrl=[[MarkupViewController alloc]initWithNibName:@"MarkupViewController" bundle:nil];
@@ -403,6 +456,16 @@
                 _markupview.userInteractionEnabled=YES;
                 
                 [_mrkupindictr stopAnimating];
+                _Contmgmtindictr.hidden=YES;
+                _mrkupindictr.hidden=YES;
+                [_Custmgmtindictr stopAnimating];
+                [_Contmgmtindictr stopAnimating];
+                [_mrkupindictr stopAnimating];
+                
+                _custmrview.userInteractionEnabled=YES;
+                _cntrctview.userInteractionEnabled=YES;
+                _markupview.userInteractionEnabled=YES;
+
             }
             
         }

@@ -94,25 +94,27 @@
 }
 
 -(void)equipPage{
-    _equipview.userInteractionEnabled=NO;
+   
     _gpequactivity.hidden=NO;
       [_gpequactivity startAnimating];
 
     _ModuleID=32;
     [self UserLogmaininsert];
     [self UserRightsforparticularmoduleselect];
+     _equipview.userInteractionEnabled=NO;
 
   
 }
 -(void)materialsPage
 {
-    _materview.userInteractionEnabled=NO;
+  
     _gpmateractivity.hidden=NO;
     [_gpmateractivity startAnimating];
 
     _ModuleID=33;
     [self UserLogmaininsert];
     [self UserRightsforparticularmoduleselect];
+      _materview.userInteractionEnabled=NO;
 
     }
 #pragma mark-Webservice
@@ -315,7 +317,17 @@
             Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
             if (rightsmodel.ViewModule==1) {
                 
+                _manview.userInteractionEnabled=YES;
+                _gpmanactivity.hidden=YES;
+                [_gpmanactivity stopAnimating];
                 
+                _equipview.userInteractionEnabled=YES;
+                _gpequactivity.hidden=YES;
+                [_gpequactivity stopAnimating];
+                
+                _materview.userInteractionEnabled=YES;
+                _gpmateractivity.hidden=YES;
+                [_gpmateractivity stopAnimating];
                 //if (!self.crewctrl) {
                 _crewctrl=[[CrewsetupViewController alloc]initWithNibName:@"CrewsetupViewController" bundle:nil];
                 // }
@@ -330,17 +342,38 @@
             {
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
+                _manview.userInteractionEnabled=YES;
+                _gpmanactivity.hidden=YES;
+                [_gpmanactivity stopAnimating];
+                
+                _equipview.userInteractionEnabled=YES;
+                _gpequactivity.hidden=YES;
+                [_gpequactivity stopAnimating];
+                
+                _materview.userInteractionEnabled=YES;
+                _gpmateractivity.hidden=YES;
+                [_gpmateractivity stopAnimating];
+
                 //You don’t have right to view this form
             }
-            _manview.userInteractionEnabled=YES;
-            _gpmanactivity.hidden=YES;
-            [_gpmanactivity stopAnimating];
+           
             
         }
         if (_ModuleID==32) {
             Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
             if (rightsmodel.ViewModule==1) {
+                _manview.userInteractionEnabled=YES;
+                _gpmanactivity.hidden=YES;
+                [_gpmanactivity stopAnimating];
                 
+                _equipview.userInteractionEnabled=YES;
+                _gpequactivity.hidden=YES;
+                [_gpequactivity stopAnimating];
+                
+                _materview.userInteractionEnabled=YES;
+                _gpmateractivity.hidden=YES;
+                [_gpmateractivity stopAnimating];
+
                 
                 //  if (!self.equipVCtrl) {
                 _equipVCtrl=[[GroupEqupViewController alloc]initWithNibName:@"GroupEqupViewController" bundle:nil];
@@ -355,16 +388,38 @@
             {
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
+                _manview.userInteractionEnabled=YES;
+                _gpmanactivity.hidden=YES;
+                [_gpmanactivity stopAnimating];
+                
+                _equipview.userInteractionEnabled=YES;
+                _gpequactivity.hidden=YES;
+                [_gpequactivity stopAnimating];
+                
+                _materview.userInteractionEnabled=YES;
+                _gpmateractivity.hidden=YES;
+                [_gpmateractivity stopAnimating];
+
             }
-            _equipview.userInteractionEnabled=YES;
-            _gpequactivity.hidden=YES;
-            [_gpequactivity stopAnimating];
+          
 
         }
         if (_ModuleID==33)
         {
             Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
             if (rightsmodel.ViewModule==1) {
+                _manview.userInteractionEnabled=YES;
+                _gpmanactivity.hidden=YES;
+                [_gpmanactivity stopAnimating];
+                
+                _equipview.userInteractionEnabled=YES;
+                _gpequactivity.hidden=YES;
+                [_gpequactivity stopAnimating];
+                
+                _materview.userInteractionEnabled=YES;
+                _gpmateractivity.hidden=YES;
+                [_gpmateractivity stopAnimating];
+
                 //if (!self.materialVCtrl) {
                 _materialVCtrl=[[GpMaterViewController alloc]initWithNibName:@"GpMaterViewController" bundle:nil];
                 //}
@@ -377,11 +432,20 @@
             {
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
-            }
-            _materview.userInteractionEnabled=YES;
-            _gpmateractivity.hidden=YES;
-            [_gpmateractivity stopAnimating];
+                _manview.userInteractionEnabled=YES;
+                _gpmanactivity.hidden=YES;
+                [_gpmanactivity stopAnimating];
+                
+                _equipview.userInteractionEnabled=YES;
+                _gpequactivity.hidden=YES;
+                [_gpequactivity stopAnimating];
+                
+                _materview.userInteractionEnabled=YES;
+                _gpmateractivity.hidden=YES;
+                [_gpmateractivity stopAnimating];
 
+            }
+           
             
         }
         

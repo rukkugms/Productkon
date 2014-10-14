@@ -282,8 +282,11 @@
             Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
             if (rightsmodel.ViewModule==1) {
                 _frightsindicator.hidden=YES;
-               _fldrview.userInteractionEnabled=YES;
+                _Urightsindicator.hidden=YES;
                 [_frightsindicator stopAnimating];
+                [_Urightsindicator stopAnimating];
+                _fldrview.userInteractionEnabled=YES;
+                _usrview.userInteractionEnabled=YES;
                 
                 // if (!self.folderVCtrl) {
                 self.folderVCtrl=[[folderrightsViewController alloc]initWithNibName:@"folderrightsViewController" bundle:nil];
@@ -299,8 +302,12 @@
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
                 _frightsindicator.hidden=YES;
-              _fldrview.userInteractionEnabled=YES;
+                _Urightsindicator.hidden=YES;
                 [_frightsindicator stopAnimating];
+                [_Urightsindicator stopAnimating];
+                _fldrview.userInteractionEnabled=YES;
+                _usrview.userInteractionEnabled=YES;
+
                 //You don’t have right to view this form
             }
             
@@ -310,9 +317,13 @@
             Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
             if (rightsmodel.ViewModule==1) {
                 
+                _frightsindicator.hidden=YES;
                 _Urightsindicator.hidden=YES;
-                _usrview.userInteractionEnabled=YES;
+                [_frightsindicator stopAnimating];
                 [_Urightsindicator stopAnimating];
+                _fldrview.userInteractionEnabled=YES;
+                _usrview.userInteractionEnabled=YES;
+
                 self.userrightsVCtrl=[[UserRightViewController alloc]initWithNibName:@"UserRightViewController" bundle:nil];
                 //  }
                 _userrightsVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
@@ -323,9 +334,12 @@
             {
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
+                _frightsindicator.hidden=YES;
                 _Urightsindicator.hidden=YES;
-                _usrview.userInteractionEnabled=YES;
+                [_frightsindicator stopAnimating];
                 [_Urightsindicator stopAnimating];
+                _fldrview.userInteractionEnabled=YES;
+                _usrview.userInteractionEnabled=YES;
             }
             
         }

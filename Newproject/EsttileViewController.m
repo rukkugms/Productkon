@@ -183,9 +183,9 @@
             if (rightsmodel.ViewModule==1) {
                 
                 
-                if (!self.EHVctrl) {
+                //if (!self.EHVctrl) {
                     self.EHVctrl=[[EstimationViewController alloc]initWithNibName:@"EstimationViewController" bundle:nil];
-                }
+               // }
                 _EHVctrl.modalPresentationStyle=UIModalPresentationPageSheet;
                 _EHVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
                 [self presentViewController:_EHVctrl
@@ -204,9 +204,9 @@
         if (_Moduleid==45) {
             Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
             if (rightsmodel.ViewModule==1) {
-                if (!self.bidVctrl) {
+               // if (!self.bidVctrl) {
                     self.bidVctrl=[[BidViewController alloc]initWithNibName:@"BidViewController" bundle:nil];
-                }
+               // }
                 
                 
                 [self presentViewController:_bidVctrl
