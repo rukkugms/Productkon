@@ -529,6 +529,8 @@
 		D4EC7E3D192A09FD00C60BA9 /* DrawingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4EC7E3B192A09FD00C60BA9 /* DrawingViewController.xib */; };
 		D4EC7E40192A10D400C60BA9 /* MyLineDrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7E3F192A10D400C60BA9 /* MyLineDrawingView.m */; };
 		D4EE6EC1198B85240027D8C1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EE6EC0198B85240027D8C1 /* CoreLocation.framework */; };
+		D4EF9F0C19EE2C5A00C6610B /* UIImagePickerController+Orientationfix.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EF9F0B19EE2C5A00C6610B /* UIImagePickerController+Orientationfix.m */; };
+		D4EF9F0F19EE2CBB00C6610B /* UIImagePickerController+Orientaionfix.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EF9F0E19EE2CBB00C6610B /* UIImagePickerController+Orientaionfix.m */; };
 		D4F0008818D2C478005A50A9 /* CompanyCmntscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F0008718D2C478005A50A9 /* CompanyCmntscell.xib */; };
 		D4F0AD4319306866004821DD /* GpMaterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F0AD3F19306866004821DD /* GpMaterViewController.m */; };
 		D4F0AD4419306866004821DD /* GpMaterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F0AD4019306866004821DD /* GpMaterViewController.xib */; };
@@ -548,8 +550,6 @@
 		D4F2F91E193C41F300B732E9 /* iconleftblack.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F2F91D193C41F200B732E9 /* iconleftblack.png */; };
 		D4F2F920193C439100B732E9 /* iconarrowright.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F2F91F193C439100B732E9 /* iconarrowright.png */; };
 		D4F34360191CCD220023D715 /* ModlEstimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F3435F191CCD220023D715 /* ModlEstimation.m */; };
-		D4F38BDA19ED2F5A002394AD /* UIViewController+OrientaionFix.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F38BD919ED2F5A002394AD /* UIViewController+OrientaionFix.m */; };
-		D4F38BDD19ED2F92002394AD /* UIImagePickerController+OrientationFix.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F38BDC19ED2F92002394AD /* UIImagePickerController+OrientationFix.m */; };
 		D4F4B0B319068ED50026C8B6 /* Gmandrgmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F4B0B219068ED50026C8B6 /* Gmandrgmdl.m */; };
 		D4F59E4C1887A25500430B17 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F59E4B1887A25500430B17 /* libsqlite3.0.dylib */; };
 		D4F5BD5618E15FEE0045DBE3 /* Cinfocell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F5BD5518E15FEE0045DBE3 /* Cinfocell.xib */; };
@@ -1307,6 +1307,10 @@
 		D4EC7E3E192A10D400C60BA9 /* MyLineDrawingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLineDrawingView.h; sourceTree = "<group>"; };
 		D4EC7E3F192A10D400C60BA9 /* MyLineDrawingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLineDrawingView.m; sourceTree = "<group>"; };
 		D4EE6EC0198B85240027D8C1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D4EF9F0A19EE2C5A00C6610B /* UIImagePickerController+Orientationfix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImagePickerController+Orientationfix.h"; sourceTree = "<group>"; };
+		D4EF9F0B19EE2C5A00C6610B /* UIImagePickerController+Orientationfix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImagePickerController+Orientationfix.m"; sourceTree = "<group>"; };
+		D4EF9F0D19EE2CBB00C6610B /* UIImagePickerController+Orientaionfix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImagePickerController+Orientaionfix.h"; sourceTree = "<group>"; };
+		D4EF9F0E19EE2CBB00C6610B /* UIImagePickerController+Orientaionfix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImagePickerController+Orientaionfix.m"; sourceTree = "<group>"; };
 		D4F0008718D2C478005A50A9 /* CompanyCmntscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyCmntscell.xib; sourceTree = "<group>"; };
 		D4F0AD3E19306866004821DD /* GpMaterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GpMaterViewController.h; sourceTree = "<group>"; };
 		D4F0AD3F19306866004821DD /* GpMaterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GpMaterViewController.m; sourceTree = "<group>"; };
@@ -1331,10 +1335,6 @@
 		D4F2F91F193C439100B732E9 /* iconarrowright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconarrowright.png; sourceTree = "<group>"; };
 		D4F3435E191CCD220023D715 /* ModlEstimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModlEstimation.h; sourceTree = "<group>"; };
 		D4F3435F191CCD220023D715 /* ModlEstimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModlEstimation.m; sourceTree = "<group>"; };
-		D4F38BD819ED2F5A002394AD /* UIViewController+OrientaionFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+OrientaionFix.h"; path = "../UIViewController+OrientaionFix.h"; sourceTree = "<group>"; };
-		D4F38BD919ED2F5A002394AD /* UIViewController+OrientaionFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+OrientaionFix.m"; path = "../UIViewController+OrientaionFix.m"; sourceTree = "<group>"; };
-		D4F38BDB19ED2F92002394AD /* UIImagePickerController+OrientationFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImagePickerController+OrientationFix.h"; path = "../UIImagePickerController+OrientationFix.h"; sourceTree = "<group>"; };
-		D4F38BDC19ED2F92002394AD /* UIImagePickerController+OrientationFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImagePickerController+OrientationFix.m"; path = "../UIImagePickerController+OrientationFix.m"; sourceTree = "<group>"; };
 		D4F4B0B119068ED50026C8B6 /* Gmandrgmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gmandrgmdl.h; sourceTree = "<group>"; };
 		D4F4B0B219068ED50026C8B6 /* Gmandrgmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gmandrgmdl.m; sourceTree = "<group>"; };
 		D4F59E4B1887A25500430B17 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -2082,10 +2082,8 @@
 		D4D570161772BE8800671A35 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				D4F38BD819ED2F5A002394AD /* UIViewController+OrientaionFix.h */,
-				D4F38BD919ED2F5A002394AD /* UIViewController+OrientaionFix.m */,
-				D4F38BDB19ED2F92002394AD /* UIImagePickerController+OrientationFix.h */,
-				D4F38BDC19ED2F92002394AD /* UIImagePickerController+OrientationFix.m */,
+				D4EF9F0D19EE2CBB00C6610B /* UIImagePickerController+Orientaionfix.h */,
+				D4EF9F0E19EE2CBB00C6610B /* UIImagePickerController+Orientaionfix.m */,
 				D40407D9192B171A00864BA4 /* myscroll.h */,
 				D40407DA192B171A00864BA4 /* myscroll.m */,
 				D4EC7E3E192A10D400C60BA9 /* MyLineDrawingView.h */,
@@ -2244,6 +2242,8 @@
 				D4ACE56C19C1B12D0060A352 /* Craftreqmtmdl.m */,
 				D4A3977B19D0191A00E2514C /* Plaservcemdl.h */,
 				D4A3977C19D0191A00E2514C /* Plaservcemdl.m */,
+				D4EF9F0A19EE2C5A00C6610B /* UIImagePickerController+Orientationfix.h */,
+				D4EF9F0B19EE2C5A00C6610B /* UIImagePickerController+Orientationfix.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -2826,6 +2826,7 @@
 				D43DAA3418D1B0A700280AA6 /* CmpnydocsViewController.m in Sources */,
 				D41708F919A5B24900F55599 /* UserRightViewController.m in Sources */,
 				D4A674BF19345FFD00D5A77E /* DPCalendarTestOptionsCell.m in Sources */,
+				D4EF9F0C19EE2C5A00C6610B /* UIImagePickerController+Orientationfix.m in Sources */,
 				641A35D6196175F80080403B /* LbmgModel.m in Sources */,
 				D40407DB192B171A00864BA4 /* myscroll.m in Sources */,
 				64A2D0941962C9F000BACE76 /* Reviebidmdl.m in Sources */,
@@ -2874,7 +2875,6 @@
 				D49F875618EEA36B00413CAD /* phasesmodel.m in Sources */,
 				D4EBA85D1978ED7B00B612E1 /* deliverymdl.m in Sources */,
 				D4A338C918F3BD1900E53FAC /* WorktypeViewController.m in Sources */,
-				D4F38BDD19ED2F92002394AD /* UIImagePickerController+OrientationFix.m in Sources */,
 				D42D8C1518D2D8FF009D8085 /* BasicReqViewController.m in Sources */,
 				D4A674A819345F7200D5A77E /* DateTable.m in Sources */,
 				64B08E5F19471498003C25F5 /* Labourcustommdl.m in Sources */,
@@ -2916,6 +2916,7 @@
 				D4A674B319345FAB00D5A77E /* DPCalendarMonthlyView.m in Sources */,
 				D40DE14B19E69DA4008FFD15 /* AFImageRequestOperation.m in Sources */,
 				D4EC7E40192A10D400C60BA9 /* MyLineDrawingView.m in Sources */,
+				D4EF9F0F19EE2CBB00C6610B /* UIImagePickerController+Orientaionfix.m in Sources */,
 				64A4D097195AE50E00C3F783 /* Bidmodel.m in Sources */,
 				D44BEA6C18E0243500719ED5 /* AddressViewController.m in Sources */,
 				D49F875D18EEA36B00413CAD /* SitevistMdl.m in Sources */,
@@ -2991,7 +2992,6 @@
 				D4049668192F183B00685109 /* GroupEqupViewController.m in Sources */,
 				D4A16B4D1974EEA8002CA2A2 /* DetailplanViewController.m in Sources */,
 				D49F875A18EEA36B00413CAD /* Equpmntmdl.m in Sources */,
-				D4F38BDA19ED2F5A002394AD /* UIViewController+OrientaionFix.m in Sources */,
 				D4A674BE19345FFD00D5A77E /* DPCalendarTestOptionsViewController.m in Sources */,
 				D4A16B921974EEE0002CA2A2 /* PhsestViewController.m in Sources */,
 				64A11EE618683792008D20CC /* workPhasesViewController.m in Sources */,

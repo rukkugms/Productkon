@@ -1,20 +1,18 @@
 //
-//  UIImagePickerController+OrientationFix.m
+//  UIImagePickerController+Orientationfix.m
 //  Newproject
 //
-//  Created by Riya on 10/14/14.
+//  Created by Riya on 10/15/14.
 //  Copyright (c) 2014 GMSIndia1. All rights reserved.
 //
 
-#import "UIImagePickerController+OrientationFix.h"
+#import "UIImagePickerController+Orientationfix.h"
 
-@implementation UIImagePickerController (OrientationFix)
+@implementation UIImagePickerController (Orientationfix)
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     return UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
-    
-   
 }
 
 - (BOOL)shouldAutorotate {
@@ -24,4 +22,6 @@
 - (NSUInteger)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskLandscape;
 }
+
+
 @end
