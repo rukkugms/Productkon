@@ -248,6 +248,12 @@
                 _hrindictr.hidden=YES;
                 [_hrindictr stopAnimating];
                 _masterview.userInteractionEnabled=YES;
+                _mgmtindictr.hidden=YES;
+                [_mgmtindictr stopAnimating];
+                _mangmntview.userInteractionEnabled=YES;
+                _processhrindictr.hidden=YES;
+                [_processhrindictr stopAnimating];
+                _processview.userInteractionEnabled=YES;
                 
                
 //                    self.hrVCtrl=[[HRViewController alloc]initWithNibName:@"HRViewController" bundle:nil];
@@ -273,6 +279,15 @@
                 _hrindictr.hidden=YES;
                 [_hrindictr stopAnimating];
                 _masterview.userInteractionEnabled=YES;
+                _hrindictr.hidden=YES;
+                [_hrindictr stopAnimating];
+                _masterview.userInteractionEnabled=YES;
+                _mgmtindictr.hidden=YES;
+                [_mgmtindictr stopAnimating];
+                _mangmntview.userInteractionEnabled=YES;
+                _processhrindictr.hidden=YES;
+                [_processhrindictr stopAnimating];
+                _processview.userInteractionEnabled=YES;
                 //You don’t have right to view this form
             }
             
@@ -282,6 +297,15 @@
             Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
             if (rightsmodel.ViewModule==1) {
                 
+                _processhrindictr.hidden=YES;
+                [_processhrindictr stopAnimating];
+                _processview.userInteractionEnabled=YES;
+                _hrindictr.hidden=YES;
+                [_hrindictr stopAnimating];
+                _masterview.userInteractionEnabled=YES;
+                _mgmtindictr.hidden=YES;
+                [_mgmtindictr stopAnimating];
+                _mangmntview.userInteractionEnabled=YES;
                 _processhrindictr.hidden=YES;
                 [_processhrindictr stopAnimating];
                 _processview.userInteractionEnabled=YES;
@@ -314,6 +338,15 @@
                 _processhrindictr.hidden=YES;
                 [_processhrindictr stopAnimating];
                 _processview.userInteractionEnabled=YES;
+                _hrindictr.hidden=YES;
+                [_hrindictr stopAnimating];
+                _masterview.userInteractionEnabled=YES;
+                _mgmtindictr.hidden=YES;
+                [_mgmtindictr stopAnimating];
+                _mangmntview.userInteractionEnabled=YES;
+                _processhrindictr.hidden=YES;
+                [_processhrindictr stopAnimating];
+                _processview.userInteractionEnabled=YES;
             }
             
         }
@@ -324,6 +357,15 @@
                 _mgmtindictr.hidden=YES;
                 [_mgmtindictr stopAnimating];
                 _mangmntview.userInteractionEnabled=YES;
+                _hrindictr.hidden=YES;
+                [_hrindictr stopAnimating];
+                _masterview.userInteractionEnabled=YES;
+                _mgmtindictr.hidden=YES;
+                [_mgmtindictr stopAnimating];
+                _mangmntview.userInteractionEnabled=YES;
+                _processhrindictr.hidden=YES;
+                [_processhrindictr stopAnimating];
+                _processview.userInteractionEnabled=YES;
                 if (!self.mgmtVCtrl ) {
                     self.mgmtVCtrl=[[EmplyhrmgntViewController alloc]initWithNibName:@"EmplyhrmgntViewController" bundle:nil];
                 }
@@ -341,6 +383,15 @@
                 _mgmtindictr.hidden=YES;
                 [_mgmtindictr stopAnimating];
                 _mangmntview.userInteractionEnabled=YES;
+                _hrindictr.hidden=YES;
+                [_hrindictr stopAnimating];
+                _masterview.userInteractionEnabled=YES;
+                _mgmtindictr.hidden=YES;
+                [_mgmtindictr stopAnimating];
+                _mangmntview.userInteractionEnabled=YES;
+                _processhrindictr.hidden=YES;
+                [_processhrindictr stopAnimating];
+                _processview.userInteractionEnabled=YES;
             }
             
         }

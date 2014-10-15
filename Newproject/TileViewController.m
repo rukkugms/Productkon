@@ -690,34 +690,34 @@ _companyinfoview.userInteractionEnabled=YES;
             _Documentsview.userInteractionEnabled=YES;
             
             [_branchindictr stopAnimating];
+            _compinfoindictr.hidden=YES;
+            _branchindictr.hidden=YES;
+            _docindictr.hidden=YES;
+            _setngindictr.hidden=YES;
+            _typeindicator.hidden=YES;
+            _usersindicator.hidden=YES;
+            _rightsindictr.hidden=YES;
+            _basicindicatr.hidden=YES;
+            _secindictr.hidden=YES;
+            [_compinfoindictr stopAnimating];
+            [_branchindictr stopAnimating];
+            [_docindictr stopAnimating];
+            [_setngindictr stopAnimating];
+            [_typeindicator stopAnimating];
+            [_usersindicator stopAnimating];
+            [_rightsindictr stopAnimating];
+            [_basicindicatr stopAnimating];
+            [_secindictr stopAnimating];
+            _companyinfoview.userInteractionEnabled=YES;
+            _Documentsview.userInteractionEnabled=YES;
+            _foldersview.userInteractionEnabled=YES;
+            _usersview.userInteractionEnabled=YES;
+            _wrksetngview.userInteractionEnabled=YES;
+            _securityview.userInteractionEnabled=YES;
+            _basicreqview.userInteractionEnabled=YES;
+            _jobsitereqview.userInteractionEnabled=YES;
+            _workprocedureview.userInteractionEnabled=YES;
         }
-        _compinfoindictr.hidden=YES;
-        _branchindictr.hidden=YES;
-        _docindictr.hidden=YES;
-        _setngindictr.hidden=YES;
-        _typeindicator.hidden=YES;
-        _usersindicator.hidden=YES;
-        _rightsindictr.hidden=YES;
-        _basicindicatr.hidden=YES;
-        _secindictr.hidden=YES;
-        [_compinfoindictr stopAnimating];
-        [_branchindictr stopAnimating];
-        [_docindictr stopAnimating];
-        [_setngindictr stopAnimating];
-        [_typeindicator stopAnimating];
-        [_usersindicator stopAnimating];
-        [_rightsindictr stopAnimating];
-        [_basicindicatr stopAnimating];
-        [_secindictr stopAnimating];
-        _companyinfoview.userInteractionEnabled=YES;
-        _Documentsview.userInteractionEnabled=YES;
-        _foldersview.userInteractionEnabled=YES;
-        _usersview.userInteractionEnabled=YES;
-        _wrksetngview.userInteractionEnabled=YES;
-        _securityview.userInteractionEnabled=YES;
-        _basicreqview.userInteractionEnabled=YES;
-        _jobsitereqview.userInteractionEnabled=YES;
-        _workprocedureview.userInteractionEnabled=YES;
         
 
         
@@ -1108,20 +1108,75 @@ _companyinfoview.userInteractionEnabled=YES;
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
-            _rightsindictr.hidden=YES;
-            _foldersview.userInteractionEnabled=YES;
+            _branchindictr.hidden=YES;
+            _Documentsview.userInteractionEnabled=YES;
             
+            [_branchindictr stopAnimating];
+            _compinfoindictr.hidden=YES;
+            _branchindictr.hidden=YES;
+            _docindictr.hidden=YES;
+            _setngindictr.hidden=YES;
+            _typeindicator.hidden=YES;
+            _usersindicator.hidden=YES;
+            _rightsindictr.hidden=YES;
+            _basicindicatr.hidden=YES;
+            _secindictr.hidden=YES;
+            [_compinfoindictr stopAnimating];
+            [_branchindictr stopAnimating];
+            [_docindictr stopAnimating];
+            [_setngindictr stopAnimating];
+            [_typeindicator stopAnimating];
+            [_usersindicator stopAnimating];
             [_rightsindictr stopAnimating];
+            [_basicindicatr stopAnimating];
+            [_secindictr stopAnimating];
+            _companyinfoview.userInteractionEnabled=YES;
+            _Documentsview.userInteractionEnabled=YES;
+            _foldersview.userInteractionEnabled=YES;
+            _usersview.userInteractionEnabled=YES;
+            _wrksetngview.userInteractionEnabled=YES;
+            _securityview.userInteractionEnabled=YES;
+            _basicreqview.userInteractionEnabled=YES;
+            _jobsitereqview.userInteractionEnabled=YES;
+            _workprocedureview.userInteractionEnabled=YES;
+
         }
     }
     if (_Moduleid==23)
     {
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
-            _basicindicatr.hidden=YES;
-            _basicreqview.userInteractionEnabled=YES;
+            _branchindictr.hidden=YES;
+            _Documentsview.userInteractionEnabled=YES;
             
+            [_branchindictr stopAnimating];
+            _compinfoindictr.hidden=YES;
+            _branchindictr.hidden=YES;
+            _docindictr.hidden=YES;
+            _setngindictr.hidden=YES;
+            _typeindicator.hidden=YES;
+            _usersindicator.hidden=YES;
+            _rightsindictr.hidden=YES;
+            _basicindicatr.hidden=YES;
+            _secindictr.hidden=YES;
+            [_compinfoindictr stopAnimating];
+            [_branchindictr stopAnimating];
+            [_docindictr stopAnimating];
+            [_setngindictr stopAnimating];
+            [_typeindicator stopAnimating];
+            [_usersindicator stopAnimating];
+            [_rightsindictr stopAnimating];
             [_basicindicatr stopAnimating];
+            [_secindictr stopAnimating];
+            _companyinfoview.userInteractionEnabled=YES;
+            _Documentsview.userInteractionEnabled=YES;
+            _foldersview.userInteractionEnabled=YES;
+            _usersview.userInteractionEnabled=YES;
+            _wrksetngview.userInteractionEnabled=YES;
+            _securityview.userInteractionEnabled=YES;
+            _basicreqview.userInteractionEnabled=YES;
+            _jobsitereqview.userInteractionEnabled=YES;
+            _workprocedureview.userInteractionEnabled=YES;
            // if (!self.basicreqVctrl) {
                 self.basicreqVctrl=[[BasicReqViewController alloc]initWithNibName:@"BasicReqViewController" bundle:nil];
             //}
@@ -1136,10 +1191,38 @@ _companyinfoview.userInteractionEnabled=YES;
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
-            _basicindicatr.hidden=YES;
-            _basicreqview.userInteractionEnabled=YES;
+            _branchindictr.hidden=YES;
+            _Documentsview.userInteractionEnabled=YES;
             
+            [_branchindictr stopAnimating];
+            _compinfoindictr.hidden=YES;
+            _branchindictr.hidden=YES;
+            _docindictr.hidden=YES;
+            _setngindictr.hidden=YES;
+            _typeindicator.hidden=YES;
+            _usersindicator.hidden=YES;
+            _rightsindictr.hidden=YES;
+            _basicindicatr.hidden=YES;
+            _secindictr.hidden=YES;
+            [_compinfoindictr stopAnimating];
+            [_branchindictr stopAnimating];
+            [_docindictr stopAnimating];
+            [_setngindictr stopAnimating];
+            [_typeindicator stopAnimating];
+            [_usersindicator stopAnimating];
+            [_rightsindictr stopAnimating];
             [_basicindicatr stopAnimating];
+            [_secindictr stopAnimating];
+            _companyinfoview.userInteractionEnabled=YES;
+            _Documentsview.userInteractionEnabled=YES;
+            _foldersview.userInteractionEnabled=YES;
+            _usersview.userInteractionEnabled=YES;
+            _wrksetngview.userInteractionEnabled=YES;
+            _securityview.userInteractionEnabled=YES;
+            _basicreqview.userInteractionEnabled=YES;
+            _jobsitereqview.userInteractionEnabled=YES;
+            _workprocedureview.userInteractionEnabled=YES;
+
         }
     }
     }

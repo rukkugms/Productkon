@@ -81,7 +81,7 @@
     
 }
 -(void)servicesPage
-{ _serviceview.userInteractionEnabled=YES;
+{
     _servcindicator.hidden=NO;
     [_servcindicator startAnimating];
    
@@ -92,7 +92,8 @@
     
    }
 -(void)workphasePage
-{_workphaseview.userInteractionEnabled=YES;
+{
+    
     _phaseindicator.hidden=NO;
     [_phaseindicator startAnimating];
     
@@ -104,7 +105,7 @@
     
 }
 -(void)worktypepage{
-    _worktypeview.userInteractionEnabled=YES;
+   
     _wrktypeindicator.hidden=NO;
     [_wrktypeindicator startAnimating];
     
@@ -358,6 +359,16 @@
             _servcindicator.hidden=YES;
             
             [_servcindicator stopAnimating];
+            _serviceview.userInteractionEnabled=YES;
+            _worktypeview.userInteractionEnabled=YES;
+            _workphaseview.userInteractionEnabled=YES;
+            _servcindicator.hidden=YES;
+            _phaseindicator.hidden=YES;
+            _wrktypeindicator.hidden=YES;
+            [_servcindicator stopAnimating];
+            [_phaseindicator stopAnimating];
+            [_wrktypeindicator stopAnimating];
+
             //You don’t have right to view this form
         }
         
@@ -393,10 +404,14 @@
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _serviceview.userInteractionEnabled=YES;
             _worktypeview.userInteractionEnabled=YES;
-            
+            _workphaseview.userInteractionEnabled=YES;
+            _servcindicator.hidden=YES;
+            _phaseindicator.hidden=YES;
             _wrktypeindicator.hidden=YES;
-            
+            [_servcindicator stopAnimating];
+            [_phaseindicator stopAnimating];
             [_wrktypeindicator stopAnimating];
 
         }
@@ -433,17 +448,22 @@
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            _serviceview.userInteractionEnabled=YES;
+            _worktypeview.userInteractionEnabled=YES;
             _workphaseview.userInteractionEnabled=YES;
-            
+            _servcindicator.hidden=YES;
             _phaseindicator.hidden=YES;
-            
+            _wrktypeindicator.hidden=YES;
+            [_servcindicator stopAnimating];
             [_phaseindicator stopAnimating];
+            [_wrktypeindicator stopAnimating];
 
         }
         
     }
        
     }
+        checkWS=0;
     }
 }
 #pragma mark-xml parser

@@ -304,6 +304,14 @@
                 _planngview.userInteractionEnabled=YES;
                 
                 [_plnindictr stopAnimating];
+                _wrkindctr.hidden=YES;
+                _plnindictr.hidden=YES;
+                
+                [_wrkindctr stopAnimating];
+                [_plnindictr stopAnimating];
+                
+                _planngview.userInteractionEnabled=YES;
+                _workentryview.userInteractionEnabled=YES;
                 
                // if (!self.PlangVCtrl) {
                     self.PlangVCtrl=[[PlanningViewController alloc]initWithNibName:@"PlanningViewController" bundle:nil];
@@ -325,6 +333,14 @@
                 _planngview.userInteractionEnabled=YES;
                 
                 [_plnindictr stopAnimating];
+                _wrkindctr.hidden=YES;
+                _plnindictr.hidden=YES;
+                
+                [_wrkindctr stopAnimating];
+                [_plnindictr stopAnimating];
+                
+                _planngview.userInteractionEnabled=YES;
+                _workentryview.userInteractionEnabled=YES;
             }
             //You don’t have right to view this form
             
