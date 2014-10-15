@@ -1787,18 +1787,32 @@
         [alert show];
         
     }
-        if ([_soapResults isEqualToString:@"Already In Use"]) {
+     else if ([_soapResults isEqualToString:@"Already In Use"]) {
             _soapstring=_soapResults;
             
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
-        if ([_soapResults isEqualToString:@"Inserted Successfully"]||[_soapResults isEqualToString:@"Updated Successfully"]) {
+      else if ([_soapResults isEqualToString:@"Inserted Successfully"]||[_soapResults isEqualToString:@"Updated Successfully"]) {
             _soapstring=_soapResults;
             
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+        else
+        {
+            _soapstring=_soapResults;
+          if ([_soapstring isEqualToString:@"deleted"])
+          {
+              
+          }
+            else
+            {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            }
+        }
+
 
         
 
