@@ -30,7 +30,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lcg-VZ-qYe">
-                        <rect key="frame" x="231" y="11" width="125" height="21"/>
+                        <rect key="frame" x="209" y="11" width="161" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                         <nil key="highlightedColor"/>
@@ -53,7 +53,7 @@
                         </connections>
                     </button>
                     <view contentMode="scaleToFill" id="jFH-YP-U73">
-                        <rect key="frame" x="222" y="-6" width="1" height="50"/>
+                        <rect key="frame" x="203" y="-6" width="1" height="50"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -80,7 +80,7 @@
                         </connections>
                     </button>
                     <view contentMode="scaleToFill" id="Ub6-ir-Vd4">
-                        <rect key="frame" x="376" y="-1" width="1" height="50"/>
+                        <rect key="frame" x="376" y="-1" width="1" height="46"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
