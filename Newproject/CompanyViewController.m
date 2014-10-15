@@ -884,6 +884,7 @@
         
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+        _savebtn.enabled=YES;
          _soapResults = nil;
     }
 
@@ -910,12 +911,11 @@
 - (IBAction)savebtn:(id)sender {
     
     [self UserLogmaininsert];
-    _savebtn.enabled=NO;
-    Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+       Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
     
     if (rightsmodel.EditModule==0) {
-        _savebtn.userInteractionEnabled=NO;
+        
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
@@ -923,8 +923,7 @@
     else
     {
         
-        _savebtn.userInteractionEnabled=YES;
-    
+        
 
     
     Validation*val=[[Validation alloc]init];
@@ -1026,11 +1025,12 @@
          else
     {
     [self SaveBasicInfo];
+    _savebtn.enabled=NO;
+
     }
 
 }
-     _savebtn.userInteractionEnabled=YES;
-}
+    }
 
 
 -(IBAction)cancel:(id)sender
