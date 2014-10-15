@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+      [_timer invalidate];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
@@ -36,9 +37,17 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
  
+    _timer=[[NSTimer alloc]init];
+    [ _timer isValid];
+    [NSTimer scheduledTimerWithTimeInterval:60.0
+                                     target:self
+                                   selector:@selector(targetMethod)
+                                   userInfo:nil
+                                    repeats:NO];
+    
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    [self.homeVctrl inactivelogoutaction];
+   
 
 
 }
@@ -68,4 +77,13 @@
 - (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
     return UIInterfaceOrientationMaskAll;
 }
+-(void)targetMethod{
+    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"Background" message:@"200sec" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    [alert show];
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center postNotification:[NSNotification notificationWithName:@"appDidEnterForeground" object:nil]];
+    
+    [_timer invalidate];
+}
+
 @end

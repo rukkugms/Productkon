@@ -17,7 +17,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-
+@property (strong, nonatomic)NSTimer *timer;
 @property (strong, nonatomic) ViewController *viewController;
 @property (strong, nonatomic) HomeViewController *homeVctrl;
 @property (strong, nonatomic) UINavigationController*navgcntrl;
