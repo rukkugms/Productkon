@@ -44,6 +44,7 @@
    
 }
 -(void)inactivelogoutaction{
+    [self dismissViewControllerAnimated:YES completion:nil];
     [self Logoutselect];
 }
 -(void)viewWillAppear:(BOOL)animated{

@@ -39,7 +39,7 @@
  
     _timer=[[NSTimer alloc]init];
     [ _timer isValid];
-    [NSTimer scheduledTimerWithTimeInterval:60.0
+    [NSTimer scheduledTimerWithTimeInterval:1200.0
                                      target:self
                                    selector:@selector(targetMethod)
                                    userInfo:nil
@@ -78,7 +78,7 @@
     return UIInterfaceOrientationMaskAll;
 }
 -(void)targetMethod{
-    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"Background" message:@"200sec" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"Time Out" message:@"20 mins..." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
     [alert show];
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center postNotification:[NSNotification notificationWithName:@"appDidEnterForeground" object:nil]];

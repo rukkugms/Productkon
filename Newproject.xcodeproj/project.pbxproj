@@ -530,7 +530,7 @@
 		D4EC7E40192A10D400C60BA9 /* MyLineDrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7E3F192A10D400C60BA9 /* MyLineDrawingView.m */; };
 		D4EE6EC1198B85240027D8C1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EE6EC0198B85240027D8C1 /* CoreLocation.framework */; };
 		D4EF9F0C19EE2C5A00C6610B /* UIImagePickerController+Orientationfix.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EF9F0B19EE2C5A00C6610B /* UIImagePickerController+Orientationfix.m */; };
-		D4EF9F0F19EE2CBB00C6610B /* UIImagePickerController+Orientaionfix.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EF9F0E19EE2CBB00C6610B /* UIImagePickerController+Orientaionfix.m */; };
+		D4EF9F1219EE54BA00C6610B /* UIViewController+Orientationfix.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EF9F1119EE54BA00C6610B /* UIViewController+Orientationfix.m */; };
 		D4F0008818D2C478005A50A9 /* CompanyCmntscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F0008718D2C478005A50A9 /* CompanyCmntscell.xib */; };
 		D4F0AD4319306866004821DD /* GpMaterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F0AD3F19306866004821DD /* GpMaterViewController.m */; };
 		D4F0AD4419306866004821DD /* GpMaterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F0AD4019306866004821DD /* GpMaterViewController.xib */; };
@@ -1309,8 +1309,8 @@
 		D4EE6EC0198B85240027D8C1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D4EF9F0A19EE2C5A00C6610B /* UIImagePickerController+Orientationfix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImagePickerController+Orientationfix.h"; sourceTree = "<group>"; };
 		D4EF9F0B19EE2C5A00C6610B /* UIImagePickerController+Orientationfix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImagePickerController+Orientationfix.m"; sourceTree = "<group>"; };
-		D4EF9F0D19EE2CBB00C6610B /* UIImagePickerController+Orientaionfix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImagePickerController+Orientaionfix.h"; sourceTree = "<group>"; };
-		D4EF9F0E19EE2CBB00C6610B /* UIImagePickerController+Orientaionfix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImagePickerController+Orientaionfix.m"; sourceTree = "<group>"; };
+		D4EF9F1019EE54BA00C6610B /* UIViewController+Orientationfix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Orientationfix.h"; sourceTree = "<group>"; };
+		D4EF9F1119EE54BA00C6610B /* UIViewController+Orientationfix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Orientationfix.m"; sourceTree = "<group>"; };
 		D4F0008718D2C478005A50A9 /* CompanyCmntscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyCmntscell.xib; sourceTree = "<group>"; };
 		D4F0AD3E19306866004821DD /* GpMaterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GpMaterViewController.h; sourceTree = "<group>"; };
 		D4F0AD3F19306866004821DD /* GpMaterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GpMaterViewController.m; sourceTree = "<group>"; };
@@ -2082,8 +2082,6 @@
 		D4D570161772BE8800671A35 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				D4EF9F0D19EE2CBB00C6610B /* UIImagePickerController+Orientaionfix.h */,
-				D4EF9F0E19EE2CBB00C6610B /* UIImagePickerController+Orientaionfix.m */,
 				D40407D9192B171A00864BA4 /* myscroll.h */,
 				D40407DA192B171A00864BA4 /* myscroll.m */,
 				D4EC7E3E192A10D400C60BA9 /* MyLineDrawingView.h */,
@@ -2244,6 +2242,8 @@
 				D4A3977C19D0191A00E2514C /* Plaservcemdl.m */,
 				D4EF9F0A19EE2C5A00C6610B /* UIImagePickerController+Orientationfix.h */,
 				D4EF9F0B19EE2C5A00C6610B /* UIImagePickerController+Orientationfix.m */,
+				D4EF9F1019EE54BA00C6610B /* UIViewController+Orientationfix.h */,
+				D4EF9F1119EE54BA00C6610B /* UIViewController+Orientationfix.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -2916,7 +2916,6 @@
 				D4A674B319345FAB00D5A77E /* DPCalendarMonthlyView.m in Sources */,
 				D40DE14B19E69DA4008FFD15 /* AFImageRequestOperation.m in Sources */,
 				D4EC7E40192A10D400C60BA9 /* MyLineDrawingView.m in Sources */,
-				D4EF9F0F19EE2CBB00C6610B /* UIImagePickerController+Orientaionfix.m in Sources */,
 				64A4D097195AE50E00C3F783 /* Bidmodel.m in Sources */,
 				D44BEA6C18E0243500719ED5 /* AddressViewController.m in Sources */,
 				D49F875D18EEA36B00413CAD /* SitevistMdl.m in Sources */,
@@ -2943,6 +2942,7 @@
 				D49F876418EEA36B00413CAD /* vendermodel.m in Sources */,
 				D4A85B4118A0E867004E9C8B /* TilehrViewController.m in Sources */,
 				D4A6749B19345F1B00D5A77E /* DPCalendarEvent.m in Sources */,
+				D4EF9F1219EE54BA00C6610B /* UIViewController+Orientationfix.m in Sources */,
 				64A2F9BB19CBEC17009B1018 /* FLPViewController.m in Sources */,
 				D408B81518CF19AC0001AAD5 /* TilecustmrViewController.m in Sources */,
 				D40427E819237F980049A709 /* Rephase.m in Sources */,
