@@ -85,23 +85,25 @@ _scroll_addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255
     {
         
        
+        imagechecker=2;
+        
         _imagePicker =
         [[UIImagePickerController alloc] init];
-        
         _imagePicker.delegate =(id) self;
-       
         _imagePicker.sourceType =
         UIImagePickerControllerSourceTypeCamera;
         _imagePicker.showsCameraControls=YES;
         
-        
         _imagePicker.mediaTypes = [NSArray arrayWithObjects:
-                                  (NSString *) kUTTypeImage,
-                                  nil];
+                                   (NSString *) kUTTypeImage,
+                                   
+                                   nil];
         _imagePicker.allowsEditing = NO;
-        
-        
         // imagePicker.cameraCaptureMode=YES;
+        [self presentViewController:_imagePicker animated:YES completion:nil];
+        _newMedia = YES;
+
+        
     }
 }
 #pragma mark-ImagePicker
@@ -139,9 +141,12 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         }
            _picimageview.image=nil;
         
-       
         
         _picimageview.image =image;
+        if(image.imageOrientation==UIInterfaceOrientationLandscapeLeft){
+            _picimageview.transform = CGAffineTransformMakeRotation(M_PI);
+        }
+
         imagechecker=2;
 
         
@@ -2271,12 +2276,12 @@ _addequipmentview.hidden=NO;
         }
         else{
             
-            float hourly=[_dailytxtfld.text floatValue]/8;
-            _hurlytxtfld.text=[NSString stringWithFormat:@"%g",hourly];
-            float weekly=24*hourly;
-            _weeklytxtfld.text=[NSString stringWithFormat:@"%g",weekly];
-            float monthly=72*hourly;
-            _monthlytxtfld.text=[NSString stringWithFormat:@"%g",monthly];
+//            float hourly=[_dailytxtfld.text floatValue]/8;
+//            _hurlytxtfld.text=[NSString stringWithFormat:@"%g",hourly];
+//            float weekly=24*hourly;
+//            _weeklytxtfld.text=[NSString stringWithFormat:@"%g",weekly];
+//            float monthly=72*hourly;
+//            _monthlytxtfld.text=[NSString stringWithFormat:@"%g",monthly];
             
             }
 
@@ -2303,12 +2308,12 @@ _addequipmentview.hidden=NO;
         }
         else{
             
-            float hourly=[_weeklytxtfld.text floatValue]/24;
-            _hurlytxtfld.text=[NSString stringWithFormat:@"%g",hourly];
-            float daily=8*hourly;
-            _dailytxtfld.text=[NSString stringWithFormat:@"%g",daily];
-            float monthly=72*hourly;
-            _monthlytxtfld.text=[NSString stringWithFormat:@"%g",monthly];
+//            float hourly=[_weeklytxtfld.text floatValue]/24;
+//            _hurlytxtfld.text=[NSString stringWithFormat:@"%g",hourly];
+//            float daily=8*hourly;
+//            _dailytxtfld.text=[NSString stringWithFormat:@"%g",daily];
+//            float monthly=72*hourly;
+//            _monthlytxtfld.text=[NSString stringWithFormat:@"%g",monthly];
             
         }
 
@@ -2324,12 +2329,12 @@ _addequipmentview.hidden=NO;
           }
           else{
               
-              float hourly=[_monthlytxtfld.text floatValue]/72;
-              _hurlytxtfld.text=[NSString stringWithFormat:@"%g",hourly];
-              float daily=8*hourly;
-              _dailytxtfld.text=[NSString stringWithFormat:@"%g",daily];
-              float weekly=72*hourly;
-              _weeklytxtfld.text=[NSString stringWithFormat:@"%g",weekly];
+//              float hourly=[_monthlytxtfld.text floatValue]/72;
+//              _hurlytxtfld.text=[NSString stringWithFormat:@"%g",hourly];
+//              float daily=8*hourly;
+//              _dailytxtfld.text=[NSString stringWithFormat:@"%g",daily];
+//              float weekly=72*hourly;
+//              _weeklytxtfld.text=[NSString stringWithFormat:@"%g",weekly];
               
           }
 
