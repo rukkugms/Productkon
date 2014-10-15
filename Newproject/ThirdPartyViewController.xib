@@ -36,7 +36,6 @@
                 <outlet property="view" destination="ekO-eU-pon" id="YoR-0w-VLG"/>
                 <outlet property="view1" destination="1h7-4f-Jph" id="jfj-Hf-zLQ"/>
                 <outlet property="weeklytxtfld" destination="feL-cg-MNC" id="C6M-YM-QeU"/>
-                <outlet property="yearlytxtfld" destination="TIy-BK-gyX" id="Xwu-u5-AOD"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -374,33 +373,18 @@
                                                 <outlet property="delegate" destination="-1" id="1FG-y6-WX0"/>
                                             </connections>
                                         </textField>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yearly Rate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l2l-0c-7p0">
-                                            <rect key="frame" x="362" y="411" width="97" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="TIy-BK-gyX">
-                                            <rect key="frame" x="362" y="430" width="194" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                            <connections>
-                                                <outlet property="delegate" destination="-1" id="XtP-Yb-LIs"/>
-                                            </connections>
-                                        </textField>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Picture" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EIT-gb-X2c">
-                                            <rect key="frame" x="362" y="511" width="42" height="21"/>
+                                            <rect key="frame" x="62" y="517" width="42" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="gJU-RM-Sal">
-                                            <rect key="frame" x="361" y="530" width="200" height="114"/>
+                                            <rect key="frame" x="61" y="536" width="200" height="114"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mNoImage.png" id="xiO-yc-RWt">
-                                            <rect key="frame" x="369" y="539" width="184" height="95"/>
+                                            <rect key="frame" x="69" y="545" width="184" height="95"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="28i-wh-e4L">
@@ -435,13 +419,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unit Cost" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yCI-Tw-8Lm">
-                                            <rect key="frame" x="362" y="461" width="70" height="21"/>
+                                            <rect key="frame" x="363" y="412" width="70" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="5Gc-Xb-iO3">
-                                            <rect key="frame" x="360" y="479" width="194" height="30"/>
+                                            <rect key="frame" x="361" y="430" width="194" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -462,13 +446,13 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity In Stock" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="95V-Wo-5V4">
-                                            <rect key="frame" x="61" y="511" width="107" height="21"/>
+                                            <rect key="frame" x="362" y="460" width="107" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="k6M-AN-H0u">
-                                            <rect key="frame" x="61" y="530" width="194" height="30"/>
+                                            <rect key="frame" x="362" y="479" width="194" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>

@@ -29,7 +29,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     /*new comment*/
-    
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector:@selector(inactivelogoutaction) name:@"appDidEnterForeground" object:nil];
 
     
 }
