@@ -1,5 +1,5 @@
 //
-//  UIImagePickerController+Orientaionfix.h
+//  UIViewController+Orientationfix.h
 //  Newproject
 //
 //  Created by Riya on 10/15/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImagePickerController (Orientaionfix)
+@interface UIViewController (Orientationfix)
 
 @end
