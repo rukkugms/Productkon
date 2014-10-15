@@ -493,8 +493,16 @@
           recordResults = FALSE;
          NSArray*array=[_soapResults componentsSeparatedByString:@"+"];
          NSArray*array1=[[array objectAtIndex:0]componentsSeparatedByString:@"T"];
-         
-   logintime=[NSString stringWithFormat:@"%@ %@",[array1 objectAtIndex:1],[array1 objectAtIndex:0]];
+         NSLog(@"%@",[array1 objectAtIndex:0]);
+        
+         NSString *date1 =[array1 objectAtIndex:0];
+         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+         [dateFormat setDateFormat:@"yyyy-MM-dd"];
+         NSDate *dates = [dateFormat dateFromString:date1];
+         [dateFormat setDateFormat:@"MM-dd-yyy"];
+         NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+        
+         logintime=[NSString stringWithFormat:@"%@ %@",[array1 objectAtIndex:1],myFormattedDate];
          
          _soapResults = nil;
          
@@ -507,7 +515,7 @@
     }
     if([elementName isEqualToString:@"DeviceNumber"]){
         recordResults = FALSE;
-        devicenumber=_soapResults;
+        devicenumber=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         _soapResults = nil;
         
     }
