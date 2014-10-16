@@ -46,6 +46,8 @@
     
 }
 
+@property(strong,nonatomic)NSString *existstring;
+
 @property (strong, nonatomic) IBOutlet UIView *mantabletitle;
 @property (strong, nonatomic) IBOutlet UIView *genraltabletitle;
 

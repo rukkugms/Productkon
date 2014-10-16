@@ -1448,8 +1448,21 @@
         _result=_soapResults;
         _EQdgupdate.enabled=YES;
         if (webtype==1||webtype==2) {
-            [self EquipmentHoursSelect];
-            [self GeneralResourceDetailselect];
+            if ([_result isEqualToString:@"Group Already Exists in this work. Change the Quantity of existing Group"]) {
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_result delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                [self EquipmentHoursSelect];
+                [self GeneralResourceDetailselect];
+                
+            }
+            else
+            {
+                 if ([_result isEqualToString:@"Updated Successfully"]) {
+                     UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_result delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                     [alert show];
+                    
+                 }
+            
 
             dcheck=0;
             mcheck=0;
@@ -1463,6 +1476,9 @@
             _equipitemdesctextfield.text=@"";
             _equipqtytextfield.text=@"";
             webtype=0;
+            [self EquipmentHoursSelect];
+            [self GeneralResourceDetailselect];
+            }
         }
          if (webtype==5)
          {
@@ -1653,6 +1669,16 @@
             //[pathFromDstTable release];
             equippathFromDstTable = nil;
         }
+        if ([_result isEqualToString:@"Group Already Exists in this work. Change the Quantity of existing Group"]) {
+            [equipdraggedCell removeFromSuperview];
+            //[draggedCell release];
+            equipdraggedCell = nil;
+            
+            //[draggedData release];
+            equipdraggedData = nil;
+        }
+        else
+        {
         
         [UIView animateWithDuration:0.3 animations:^
          {
@@ -1667,6 +1693,7 @@
         
         //[draggedData release];
         equipdraggedData = nil;
+        }
     }
 }
 - (void)startDraggingFromDstAtPoint:(CGPoint)point
@@ -1849,6 +1876,11 @@
             _equipqtytextfield.text=dmodel.qty;
             
         }
+    }
+    if ([alertView.message isEqualToString:@"Updated Successfully"]) {
+        
+        _equipeditview.hidden=YES;
+        
     }
     
     
