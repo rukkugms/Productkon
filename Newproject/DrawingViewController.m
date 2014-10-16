@@ -437,6 +437,15 @@
    
 }
 -(void)saveaction{
+    
+    
+//    if ([_textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+//        
+//        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        [alert show];
+//    }
+    //else{
+    
     if (_tabtype==1||_tabtype==2) {
         
 if ([self.delegate respondsToSelector:@selector(toreloaddrawings)]) {
@@ -457,7 +466,7 @@ if ([self.delegate respondsToSelector:@selector(toreloaddrawings)]) {
                   }
         
     }
-    
+   // }
 
     
 }

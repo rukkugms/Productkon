@@ -200,7 +200,8 @@
     recordResults = FALSE;
     
     NSString *soapMessage;
-    NSInteger typeid=[[_JobtypeDic objectForKey:_typeidbtnlbl.titleLabel.text]integerValue];
+    basicreqmdl*breq=(basicreqmdl *)[_allrequirementarray objectAtIndex:reqindex];
+   // NSInteger typeid=[[_JobtypeDic objectForKey:_typeidbtnlbl.titleLabel.text]integerValue];
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -218,7 +219,7 @@
                    "<planId>%@</planId>\n"
                    "</SitevisitInsertjobsiterequirements>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_jobnametxtfld.text,_jobcodetxtfld.text,typeid,[_jobcosttxtfld.text floatValue],_companyid];
+                   "</soap:Envelope>\n",breq.itemname,breq.code,breq.type,[_jobcosttxtfld.text floatValue],_companyid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -817,6 +818,59 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
 }
 
+-(void)SelectAllRequirements
+{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SelectAllRequirements xmlns=\"http://test.kontract360.com/\">\n"
+                   
+                   "</SelectAllRequirements>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://test.kontract360.com/SelectAllRequirements" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
+
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -921,6 +975,139 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"SelectAllRequirementsResult"])
+    {
+        _allrequirementarray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults
+        = TRUE;
+    }
+    if([elementName isEqualToString:@"ReqEntryId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+recordResults
+        
+        = TRUE;
+    }
+    if([elementName isEqualToString:@"ItemName"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"code"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"rate"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"HaveExpiryDate"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"ItemTypeName"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"type"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"craft"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"craftname"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"allcraft"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"hrs"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"inhouse"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Column1"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
 
 
@@ -1004,6 +1191,186 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         _soapResults = nil;
     }
 
+    if([elementName isEqualToString:@"ReqEntryId"])
+    {
+        recordResults=FALSE;
+        
+        _basicmdl=[[basicreqmdl alloc]init];
+        _basicmdl.eid=[_soapResults integerValue];
+        _soapResults = nil;
+        
+        
+    }
+    if([elementName isEqualToString:@"ItemName"])
+    {
+        recordResults=FALSE;
+        
+        
+        _basicmdl.itemname=_soapResults;
+        _soapResults = nil;
+        
+        
+    }
+    if([elementName isEqualToString:@"code"])
+    {
+        recordResults=FALSE;
+        
+        
+        _basicmdl.code=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];;
+        _soapResults = nil;
+        
+        
+    }
+    if([elementName isEqualToString:@"rate"])
+    {
+        recordResults=FALSE;
+        
+        
+        _basicmdl.rate=_soapResults;
+        _soapResults = nil;
+        
+        
+    }
+    if([elementName isEqualToString:@"HaveExpiryDate"])
+    {
+        recordResults=FALSE;
+        
+        
+        if ([_soapResults isEqualToString:@"false"]) {
+            _basicmdl.haveexpirydate=0;
+            //expiry=0;
+            
+        }
+        else{
+            _basicmdl.haveexpirydate=1;
+            //expiry=1;
+        }
+        
+        _soapResults = nil;
+        
+        
+        
+    }
+    if([elementName isEqualToString:@"type"])
+    {
+        recordResults=FALSE;
+        
+        
+        _basicmdl.type=[_soapResults integerValue];
+        _soapResults = nil;
+        
+        
+    }
+    if([elementName isEqualToString:@"ItemTypeName"])
+    {
+        recordResults=FALSE;
+        
+        
+        _basicmdl.typname=_soapResults;
+        _soapResults = nil;
+        
+        
+    }
+    
+    if([elementName isEqualToString:@"craft"])
+    {
+        recordResults=FALSE;
+        
+        
+        if ([_soapResults isEqualToString:@"false"]) {
+            _basicmdl.def=0;
+            //defaultcheck=0;
+            
+        }
+        else{
+            _basicmdl.def=1;
+           // defaultcheck=1;
+        }
+        _soapResults = nil;
+        
+        
+    }
+        if([elementName isEqualToString:@"craftname"])
+    {
+        recordResults=FALSE;
+        
+        if([_soapResults isEqualToString:@"No Craft"])
+        {
+            _basicmdl.des=@"";
+        }else
+        {
+            _basicmdl.des=_soapResults;
+        }
+        _soapResults = nil;
+        
+        
+    }
+    
+    if([elementName isEqualToString:@"allcraft"])
+    {
+        recordResults=FALSE;
+        
+        
+        if ([_soapResults isEqualToString:@"false"]) {
+            _basicmdl.allcraft=0;
+           // craft=0;
+            
+        }
+        else{
+            _basicmdl.allcraft=1;
+            //craft=1;
+        }
+        
+        _soapResults = nil;
+        
+        
+    }
+    if([elementName isEqualToString:@"hrs"])
+    {
+        recordResults=FALSE;
+        
+        
+        _basicmdl.hrs=_soapResults;
+        _soapResults = nil;
+        
+        
+    }
+    if([elementName isEqualToString:@"inhouse"])
+    {
+        recordResults=FALSE;
+        
+        
+        if ([_soapResults isEqualToString:@"false"]) {
+            _basicmdl.inhouse=0;
+           // inhouse=0;
+            
+        }
+        else{
+            _basicmdl.inhouse=1;
+           // inhouse=1;
+        }
+        
+        _soapResults = nil;
+        
+        
+    }
+    if([elementName isEqualToString:@"Column1"])
+    {
+        recordResults=FALSE;
+        if([_soapResults isEqualToString:@"No Vendor"])
+        {
+            _basicmdl.vendername=@"";
+        }
+        else
+        {
+            
+            _basicmdl.vendername=_soapResults;
+        }
+        [_allrequirementarray addObject:_basicmdl];
+        _soapResults = nil;
+        
+        
+    }
 
 
     
@@ -1071,7 +1438,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
          if (poptype==1) {
              
          
-        return [_JobtypeDic count];
+        return [_allrequirementarray count];
          }
          else
          {
@@ -1097,8 +1464,13 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         if (poptype==1) {
             
         
-        NSArray *array1=[_JobtypeDic allKeys];
-        cell.textLabel.text=[array1 objectAtIndex:indexPath.row];
+       // NSArray *array1=[_JobtypeDic allKeys];
+            
+        //cell.textLabel.text=[array1 objectAtIndex:indexPath.row];
+            
+            basicreqmdl*breq=(basicreqmdl *)[_allrequirementarray objectAtIndex:indexPath.row];
+            cell.textLabel.text=breq.itemname;
+            
         }
         else
         {
@@ -1113,8 +1485,11 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
        if (tableView==_popOverTableView){
             if (poptype==1) {
-            NSArray *array1=[_JobtypeDic allKeys];
-           [_typeidbtnlbl setTitle:[array1 objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+           // NSArray *array1=[_JobtypeDic allKeys];
+           //[_typeidbtnlbl setTitle:[array1 objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                 basicreqmdl*breq=(basicreqmdl *)[_allrequirementarray objectAtIndex:indexPath.row];
+                  [_typeidbtnlbl setTitle:breq.itemname forState:UIControlStateNormal];
+                reqindex=indexPath.row;
             }
            else
            {
@@ -1475,13 +1850,14 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 - (IBAction)typeidbtn:(id)sender {
     poptype=1;
     [self createpopover];
-    [self SelectAllItemType];
+   // [self SelectAllItemType];
+    [self SelectAllRequirements];
 }
 
 - (IBAction)jobupdatebtn:(id)sender {
     _reloadtype=2;
-    if ([_jobnametxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+       if ([_typeidbtnlbl.titleLabel.text isEqualToString:@"Select"]||[_typeidbtnlbl.titleLabel.text isEqualToString:@""]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else

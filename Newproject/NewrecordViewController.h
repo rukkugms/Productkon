@@ -11,6 +11,7 @@
 #import "DrawingViewController.h"
 #import "Validation.h"
 #import "Servicemdl.h"
+#import "basicreqmdl.h"
 @protocol newrecordDelgate <NSObject>
 
 -(void)toreloadatable;
@@ -24,10 +25,13 @@
     NSInteger istr;
     NSString *result;
     NSInteger poptype;
+    NSInteger reqindex;
     
     
   //  id <newrecordDelgate>Delegate;
 }
+@property(strong,nonatomic)basicreqmdl*basicmdl;
+@property(strong,nonatomic)NSMutableArray * allrequirementarray;
 @property(strong,nonatomic)NSString*curntdatestrg;
 @property(strong,nonatomic)Validation *val;
 @property(readwrite)NSInteger tabtype;
