@@ -2428,6 +2428,15 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = GMSIndia1;
+				TargetAttributes = {
+					D40D1EA6176B086E00379DD5 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = D40D1EA2176B086E00379DD5 /* Build configuration list for PBXProject "Newproject" */;
 			compatibilityVersion = "Xcode 3.2";
