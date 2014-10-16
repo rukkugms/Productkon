@@ -1319,36 +1319,46 @@ else{
 }
 
 - (IBAction)phasebtn:(id)sender {
+    _autotable.hidden =YES;
+    _autotable1.hidden=YES;
+    _autotable2.hidden=YES;
+    _autotable3.hidden=YES;
+    
     poptype=1;
     UIViewController *popovercontent=[[UIViewController alloc]init];
-    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 120)];
+    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 260, 300)];
     popoverview.backgroundColor=[UIColor whiteColor];
-    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 210, 120)];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 260, 300)];
     _popovertableview.delegate=(id)self;
     _popovertableview.dataSource=(id)self;
     _popovertableview.rowHeight=32;
     _popovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
     [popoverview addSubview:_popovertableview];
     popovercontent.view=popoverview;
-    popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 120);
+    popovercontent.contentSizeForViewInPopover=CGSizeMake(260, 300);
     self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
     [self.popovercontroller presentPopoverFromRect:_phasebtnlbl.frame inView:self.scroll permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
    
 }
 
 - (IBAction)projcthdrbtn:(id)sender {
+    _autotable.hidden =YES;
+    _autotable1.hidden=YES;
+    _autotable2.hidden=YES;
+    _autotable3.hidden=YES;
+
     poptype=2;
     UIViewController *popovercontent=[[UIViewController alloc]init];
-    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 120)];
+    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 260, 300)];
     popoverview.backgroundColor=[UIColor whiteColor];
-    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 210, 120)];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 260, 300)];
     _popovertableview.delegate=(id)self;
     _popovertableview.dataSource=(id)self;
     _popovertableview.rowHeight=32;
     _popovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
     [popoverview addSubview:_popovertableview];
     popovercontent.view=popoverview;
-    popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 120);
+    popovercontent.contentSizeForViewInPopover=CGSizeMake(260, 300);
     self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
     [self.popovercontroller presentPopoverFromRect:_projectheaderbtnlbl.frame inView:self.scroll permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
  
