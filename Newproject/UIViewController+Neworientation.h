@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController (Fixorientation)
+@interface UIViewController (Neworientation)
 
 @end

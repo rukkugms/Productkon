@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 GMSIndia1. All rights reserved.
 //
 
-#import "UIViewController+Fixorientation.h"
+#import "UIViewController+Neworientation.h"
 
-@implementation UIViewController (Fixorientation)
+@implementation UIViewController (Neworientation)
 
 @end
