@@ -561,9 +561,9 @@
     else
     {
         UIViewController* popoverContent = [[UIViewController alloc]init];
-        UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 130, 43)];
+        UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 132, 43)];
        // popoverView.backgroundColor = [UIColor whiteColor];
-        _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 130, 43)];
+        _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 132, 43)];
         _popovertableview.delegate=(id)self;
         _popovertableview.dataSource=(id)self;
         _popovertableview.rowHeight= 40;
@@ -571,7 +571,7 @@
         //_popovertableview.separatorColor=[UIColor blackColor];
         [popoverView addSubview:_popovertableview];
         popoverContent.view = popoverView;
-        popoverContent.contentSizeForViewInPopover = CGSizeMake(130, 43);
+        popoverContent.contentSizeForViewInPopover = CGSizeMake(132, 43);
         
         button = (UIButton *)sender;
         UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
@@ -1538,12 +1538,12 @@
 	[_xmlParser parse];
     [_popovertableview reloadData];
     [_plangtable reloadData];
-    if(webtype==1||webtype==3)
-    {
-        [self SelectAllPlans];
-        _searchbar.text=@"";
-        webtype=0;
-    }
+//    if(webtype==1||webtype==3)
+//    {
+//        [self SelectAllPlans];
+//        _searchbar.text=@"";
+//        webtype=0;
+//    }
     
 }
 #pragma mark-xml parser
@@ -1998,7 +1998,7 @@
     {
         _result=_soapResults;
         recordResults = FALSE;
-        if (webtype!=3) {
+        if (webtype==3) {
             
         
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -2012,15 +2012,28 @@
         _result=_soapResults;
         recordResults = FALSE;
         if (webtype!=3) {
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+                [self SelectAllPlans];
+                _searchbar.text=@"";
+
+        
+        }
+        if (webtype==3) {
             if ([_soapResults isEqualToString:@"deleted"]) {
+                [self SelectAllPlans];
+                _searchbar.text=@"";
                 
             }
             else
             {
-            
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-        }
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_result delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                [self SelectAllPlans];
+                _searchbar.text=@"";
+            }
+ 
         }
 
         _soapResults = nil;

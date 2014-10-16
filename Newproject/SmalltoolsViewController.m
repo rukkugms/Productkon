@@ -1729,7 +1729,7 @@ else
         [_checksubbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         checksub=0;
     }
-    if(toolmdl.picturelocation.length==0){
+    if(toolmdl.picturelocation.length==0||[toolmdl.picturelocation isEqualToString:@"NoImage.png"]){
         imagechecker=1;
     }
     else{
