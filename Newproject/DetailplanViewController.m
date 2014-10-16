@@ -69,7 +69,7 @@
 {
     [super viewWillAppear:animated];
     _scaffoldview.hidden=YES;
- _generalview.hidden=NO;
+    _generalview.hidden=NO;
      _generalbtn.tintColor=[UIColor whiteColor];
     _scaffoldbtn.tintColor=[UIColor blackColor];
     _fireproofingbtn.tintColor=[UIColor blackColor];
@@ -78,28 +78,31 @@
       [self GeneralSelect];
     [self TotalManHoursSelect];
     searchtype=1;
-}
--(void)Checknetavailabilty{
-    /* for checking Connectivity*/
     
-    NSString *URLString = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://www.google.com"]];
-    _Availablityresult = [[NSString alloc] init];
-    _Availablityresult = ( URLString != NULL ) ? @"Yes" : @"No";
-    NSLog(@"Internet connection availability : %@", _Availablityresult);
-    if([_Availablityresult isEqualToString:@"No"]){
-       
-        [self createDatabase];
-        [self fetchScaffoldType];
-        [self fetchsequencedata];
-        [self fetchphase];
-        
-        
-    }
-    else if ([_Availablityresult isEqualToString:@"Yes"])
-        
-         [self ScaffoldingSelectScaffoldtype];
-    
+     [self ScaffoldingSelectScaffoldtype];
 }
+
+//-(void)Checknetavailabilty{
+//    /* for checking Connectivity*/
+//    
+//    NSString *URLString = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://www.google.com"]];
+//    _Availablityresult = [[NSString alloc] init];
+//    _Availablityresult = ( URLString != NULL ) ? @"Yes" : @"No";
+//    NSLog(@"Internet connection availability : %@", _Availablityresult);
+//    if([_Availablityresult isEqualToString:@"No"]){
+//       
+//       // [self createDatabase];
+//      //  [self fetchScaffoldType];
+//      //  [self fetchsequencedata];
+//       // [self fetchphase];
+//        
+//        
+//    }
+//    else if ([_Availablityresult isEqualToString:@"Yes"])
+//        
+//         [self ScaffoldingSelectScaffoldtype];
+//    
+//}
 
 
 #pragma mark-Actions
@@ -195,7 +198,7 @@
     _generalbtn.tintColor=[UIColor blackColor];
     _scaffoldview.hidden=NO;
     _generalview.hidden=YES;
-    [self Checknetavailabilty];
+    //[self Checknetavailabilty];
 //    _fireproofingview.hidden=YES;
 //    _insulationview.hidden=YES;
 }
@@ -235,14 +238,8 @@
     }
     else{
 
-    if([_Availablityresult isEqualToString:@"No"])
-    {
-        [self insertScaffoldToDB];
-    }
-    else if([_Availablityresult isEqualToString:@"Yes"])
-    {
-        [self Scaffoldinsert];
-    }
+            [self Scaffoldinsert];
+    
     }
     
 //   if (optionidentifier==1)
@@ -1216,21 +1213,21 @@
 - (void)parserDidEndDocument:(NSXMLParser *)parser
 {
     if (webtype==1) {
-        [self CreateScaffoldTypeDB];
+        //[self CreateScaffoldTypeDB];
         [self JobsequenceSelect];
         
         
     }
     if (webtype==2)
     {
-        [self createscaffsequenceDB];
+       // [self createscaffsequenceDB];
         [self SelectAllPhases];
         
         
     }
     if (webtype==3)
     {
-        [self createphasedata];
+        //[self createphasedata];
         [self ScaffoldingSelectplan];
         webtype=0;
         
@@ -2614,691 +2611,691 @@
 }
 #pragma mark-SqliteDB
 
--(void)CreateScaffoldTypeDB
-{
-    
-    _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    _docsDir = [_dirPaths objectAtIndex:0];
-    
-    /* Build the path to the database file*/
-    
-    _scaffoldtypepath = [[NSString alloc] initWithString: [_docsDir stringByAppendingPathComponent:@"ScaffoldType.db"]];
-    NSLog(@"Path %@",_scaffoldtypepath);
-    
-    NSFileManager *filemgr = [NSFileManager defaultManager];
-    if ([filemgr fileExistsAtPath: _scaffoldtypepath ] == NO)
-    {
-        const char *dbpath = [_scaffoldtypepath UTF8String];
-        if (sqlite3_open(dbpath, &_scaffoldTypeDB) == SQLITE_OK)
-        {
-            char *errMsg;
-            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS ScaffoldTypeList (ID INTEGER PRIMARY KEY AUTOINCREMENT, ScaffoldID TEXT, ScaffoldName TEXT, Rate TEXT,Ftupto33 TEXT,Ftupto100 TEXT,Ftupto165 TEXT,Ftg165 TEXT,ft3upto1750 TEXT,Ft3upto7000 TEXT,Ft3g18000 TEXT)";
-            
-            
-            if (sqlite3_exec(_scaffoldTypeDB, sql_stmt, NULL, NULL, &errMsg)
-                != SQLITE_OK)
-            {
-                
-                NSLog(@"Failed to create table");
-                NSLog( @"Error while inserting '%s'", sqlite3_errmsg(_scaffoldTypeDB));
-            }
-            sqlite3_close(_scaffoldTypeDB);
-            
-        }
-        
-        else {
-            NSLog( @"Failed to open/create database");
-            
-        }
-        
-    }
-    [self DeleteScafftypeDBtable];
-    for (int i=0; i<[_scaffoldtyperesultarray count]; i++)
-    {
-      _typemdl=(Scaffoldtypemdl *)[_scaffoldtyperesultarray objectAtIndex:i];
-        
-
-    [self insertscaffoldtypetoDB];
-    }
-    
-    
-}
--(void)insertscaffoldtypetoDB
-{
-    sqlite3_stmt    *statement;
-    
-        const char *dbpath = [_scaffoldtypepath UTF8String];
-    
-        
-        
-        if (sqlite3_open(dbpath, &_scaffoldTypeDB) == SQLITE_OK)
-        {
-           
-            
-
-            NSString *InsertSQl=[NSString stringWithFormat:@"INSERT INTO ScaffoldTypeList(ScaffoldID,ScaffoldName,Rate,Ftupto33,Ftupto100,Ftupto165,Ftg165,ft3upto1750,Ft3upto7000,Ft3g18000) VALUES (\"%d\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")",_typemdl.scaffoldid,_typemdl.typeName,_typemdl.rate,_typemdl.ftupto33,_typemdl.ftupto100,_typemdl.ftupto165,_typemdl.ftg165,_typemdl.ft3upto1750,_typemdl.ft3upto7000,_typemdl.ft3g18000];
-            
-            
-            
-            const char *insert_stmt = [InsertSQl UTF8String];
-            sqlite3_prepare_v2(_scaffoldTypeDB, insert_stmt, -1, &statement, NULL);
-            if (sqlite3_step(statement) == SQLITE_DONE)
-            {
-                
-                NSLog( @"ScaffoldType data added");
-                
-            } else {
-                //status.text = @"Failed to add contact";
-                NSLog( @"Failed to add scaffoldtype Data ");
-            }
-            sqlite3_finalize(statement);
-            sqlite3_close(_scaffoldTypeDB);
-            
-        }
-        
-    
-    
-}
-
--(void)createscaffsequenceDB
-{
-    
-    _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    _docsDir = [_dirPaths objectAtIndex:0];
-    
-    /* Build the path to the database file*/
-    
-    _sequencepath = [[NSString alloc] initWithString: [_docsDir stringByAppendingPathComponent:@"ScaffSequence.db"]];
-    NSLog(@"Path %@",_sequencepath);
-    
-    NSFileManager *filemgr = [NSFileManager defaultManager];
-    if ([filemgr fileExistsAtPath: _sequencepath ] == NO)
-    {
-        const char *dbpath = [_sequencepath UTF8String];
-        if (sqlite3_open(dbpath, &_scaffsequenceDB) == SQLITE_OK)
-        {
-            char *errMsg;
-            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS ScaffSequenceList (ID INTEGER PRIMARY KEY AUTOINCREMENT, SequenceID TEXT, SequenceName TEXT)";
-            
-            
-            if (sqlite3_exec(_scaffsequenceDB, sql_stmt, NULL, NULL, &errMsg)
-                != SQLITE_OK)
-            {
-                
-                NSLog(@"Failed to create table");
-                NSLog( @"Error while inserting '%s'", sqlite3_errmsg(_scaffsequenceDB));
-            }
-            sqlite3_close(_scaffsequenceDB);
-            
-        }
-        
-        else {
-            NSLog( @"Failed to open/create database");
-            
-        }
-        
-    }
-    [self DeleteSequenceDBtable];
-    for (int i=0; i<[_sequencearray count]; i++) {
-        _sname = [_sequencearray objectAtIndex:i];
-        _sid = [_sequenceiddict objectForKey:[_sequencearray objectAtIndex:i]];
-        [self insertsequnecedatatodb];
-    }
-
-    
-}
--(void)insertsequnecedatatodb
-{
-    
-    
-        sqlite3_stmt    *statement;
-        const char *dbpath = [_sequencepath UTF8String];
-        
-        
-        
-        if (sqlite3_open(dbpath, &_scaffsequenceDB) == SQLITE_OK)
-        {
-            NSString *InsertSQl=[NSString stringWithFormat:@"INSERT INTO ScaffSequenceList(SequenceID,SequenceName) VALUES (\"%@\",\"%@\")",_sid,_sname];
-            
-            
-            const char *insert_stmt = [InsertSQl UTF8String];
-            sqlite3_prepare_v2(_scaffsequenceDB, insert_stmt, -1, &statement, NULL);
-            if (sqlite3_step(statement) == SQLITE_DONE)
-            {
-                
-                NSLog( @"SequenceData added");
-                
-            } else {
-                //status.text = @"Failed to add contact";
-                NSLog( @"Failed to add Sequence Data ");
-            }
-            sqlite3_finalize(statement);
-            sqlite3_close(_scaffsequenceDB);
-            
-        }
-        
-        
-    }
-
--(void)createphasedata{
-    
-    _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    _docsDir = [_dirPaths objectAtIndex:0];
-    
-    /* Build the path to the database file*/
-    
-    _phasepath = [[NSString alloc] initWithString: [_docsDir stringByAppendingPathComponent:@"ScaffPhase.db"]];
-    NSLog(@"Path %@",_phasepath);
-    
-    NSFileManager *filemgr = [NSFileManager defaultManager];
-    if ([filemgr fileExistsAtPath: _phasepath ] == NO)
-    {
-        const char *dbpath = [_phasepath UTF8String];
-        if (sqlite3_open(dbpath, &_scaffPhaseDB) == SQLITE_OK)
-        {
-            char *errMsg;
-            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS ScaffPhaseList (ID INTEGER PRIMARY KEY AUTOINCREMENT, PhaseID TEXT, PhaseName TEXT)";
-            
-            
-            if (sqlite3_exec(_scaffPhaseDB, sql_stmt, NULL, NULL, &errMsg)
-                != SQLITE_OK)
-            {
-                
-                NSLog(@"Failed to create table");
-                NSLog( @"Error while inserting '%s'", sqlite3_errmsg(_scaffPhaseDB));
-            }
-            sqlite3_close(_scaffPhaseDB);
-            
-        }
-        
-        else {
-            NSLog( @"Failed to open/create database");
-            
-        }
-        
-    }
-    [self DeleteDBtable];
-    for (int i=0; i<[_phasearray count]; i++) {
-        _pname = [_phasearray objectAtIndex:i];
-        _pid = [_phasedict objectForKey:[_phasearray objectAtIndex:i]];
-        [self insertphasetoDB];
-    }
-
-    
-}
--(void)insertphasetoDB
-{
-    sqlite3_stmt    *statement;
-    const char *dbpath = [_phasepath UTF8String];
-    
-    
-    
-    if (sqlite3_open(dbpath, &_scaffPhaseDB) == SQLITE_OK)
-    {
-        NSString *InsertSQl=[NSString stringWithFormat:@"INSERT INTO ScaffPhaseList(PhaseID,PhaseName) VALUES (\"%@\",\"%@\")",_pid,_pname];
-        
-        
-        const char *insert_stmt = [InsertSQl UTF8String];
-        sqlite3_prepare_v2(_scaffPhaseDB, insert_stmt, -1, &statement, NULL);
-        if (sqlite3_step(statement) == SQLITE_DONE)
-        {
-            
-            NSLog( @"phasedata added");
-            
-        } else {
-            //status.text = @"Failed to add contact";
-            NSLog( @"Failed to add phase Data ");
-        }
-        sqlite3_finalize(statement);
-        sqlite3_close(_scaffPhaseDB);
-        
-    }
-    
-    
-    
-}
--(void)createDatabase
-{
-    
-    _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    _docsDir = [_dirPaths objectAtIndex:0];
-    
-    /* Build the path to the database file*/
-    
-    _ScaffoldPath = [[NSString alloc] initWithString: [_docsDir stringByAppendingPathComponent: @"AllScaffold.db"]];
-    NSLog(@"Path %@",_ScaffoldPath);
-    
-    NSFileManager *filemgr = [NSFileManager defaultManager];
-    if ([filemgr fileExistsAtPath: _ScaffoldPath ] == NO)
-    {
-        const char *dbpath = [_ScaffoldPath UTF8String];
-        if (sqlite3_open(dbpath, &_AllscaffoldDB) == SQLITE_OK)
-        {
-            char *errMsg;
-            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS AllScaffoldList (ID INTEGER PRIMARY KEY AUTOINCREMENT, Unit TEXT, SubUnit TEXT, Equipment TEXT, ProjectHeader TEXT, ScaffoldType TEXT, Length TEXT, Width TEXT,Height TEXT,Quantity TEXT,Elevation TEXT,Sequence TEXT,Phase TEXT,Description TEXT,PlanID TEXT,IWF TEXT,PPE TEXT,UPW TEXT,Manhour TEXT,DismantileHour TEXT,ErectHour TEXT,PlanFactor TEXT)";
-            
-            
-            if (sqlite3_exec(_AllscaffoldDB, sql_stmt, NULL, NULL, &errMsg)
-                != SQLITE_OK)
-            {
-                
-                NSLog(@"Failed to create table");
-                NSLog( @"Error while inserting '%s'", sqlite3_errmsg(_AllscaffoldDB));
-            }
-            sqlite3_close(_AllscaffoldDB);
-            
-        }
-        
-        else {
-            NSLog( @"Failed to open/create database");
-            
-        }
-        
-    }
-}
--(void)insertScaffoldToDB{
-    sqlite3_stmt    *statement;
-    const char *dbpath = [_ScaffoldPath UTF8String];
-    
-   
-    NSString *scaffoldid=[_scaffoldidDict objectForKey:_scaffoldtyprbtn.titleLabel.text];
-    NSString *phaseid=[_phasedict objectForKey:_phasebtn.titleLabel.text];
-    NSString *sequenceid=[_sequenceiddict objectForKey:_sequencebtn.titleLabel.text];
-   
-    if (sqlite3_open(dbpath, &_AllscaffoldDB) == SQLITE_OK)
-    {
-        NSString *InsertSQl=[NSString stringWithFormat:@"INSERT INTO AllScaffoldList(Unit, SubUnit, Equipment, ProjectHeader,ScaffoldType, Length, Width,Height,Quantity,Elevation,Sequence,Phase,PlanID) VALUES (\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")",_unittextfield.text,_subunittextfld.text,_equipmenttextfield.text,_proheadertextfield.text,scaffoldid,_lengthtextfield.text,_widthtextfield.text,_heighttextfield.text,_qtytextfield.text,_elevationtextfield.text,sequenceid,phaseid,_planid];
-        
-        
-        const char *insert_stmt = [InsertSQl UTF8String];
-        sqlite3_prepare_v2(_AllscaffoldDB, insert_stmt, -1, &statement, NULL);
-        if (sqlite3_step(statement) == SQLITE_DONE)
-        {
-            
-            NSLog( @"Scaffold Data added");
-            if (!self.allctrlr)
-            {
-                self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
-            }
-            _allctrlr.Scafldarry=_scaffoldingplanlistarray;
-            _allctrlr.newscfoldtypearry=_scaffoldtyperesultarray;
-            _allctrlr.btnindx=btnindex;
-            _allctrlr.optionidentifier=optionidentifier;
-            _allctrlr.len=_lengthtextfield.text;
-            _allctrlr.wid=_widthtextfield.text;
-            _allctrlr.height=_heighttextfield.text;
-            _allctrlr.ele=_heighttextfield.text;
-            _allctrlr.unit=_unittextfield.text;
-            _allctrlr.ph=_proheadertextfield.text;
-            _allctrlr.equip=_equipmenttextfield.text;
-            _allctrlr.sid=[_scaffoldidDict objectForKey:_scaffoldtyprbtn.titleLabel.text];
-            _allctrlr.qty=_qtytextfield.text;
-            _allctrlr.planid=_planid;
-            _allctrlr.phaseid=[_phasedict objectForKey:_phasebtn.titleLabel.text];
-            _allctrlr.sequenceid=[_sequenceiddict objectForKey:_sequencebtn.titleLabel.text];
-            _allctrlr.subunit=_subunittextfld.text;
-            _allctrlr.iwfcheck=first;
-            _allctrlr.ppecheck=sec;
-            _allctrlr.upwcheck=third;
-            NSInteger scfid= [_allctrlr.sid integerValue];
-            switch (scfid) {
-                case 1:
-                    _allctrlr.scaffoldtypeindex=0;
-                    
-                    break;
-                case 2:
-                    _allctrlr.scaffoldtypeindex=1;
-                    
-                    break;
-                case 3:
-                    _allctrlr.scaffoldtypeindex=2;
-                    
-                    break;
-                case 4:
-                    _allctrlr.scaffoldtypeindex=3;
-                    
-                    break;
-                case 5:
-                    _allctrlr.scaffoldtypeindex=4;
-                    
-                    break;
-                    
-                default:
-                    
-                    break;
-            }
-
-
-            [UIView transitionFromView:self.addscaffoldrecordview
-                                toView:self.allctrlr.view
-                              duration:1
-                               options:UIViewAnimationOptionTransitionFlipFromRight
-                            completion:nil];
-            
-            [self.navigationController pushViewController:_allctrlr animated:NO];
-            
-        } else {
-            //status.text = @"Failed to add contact";
-            NSLog( @"Failed to add Scaffold Data ");
-        }
-        sqlite3_finalize(statement);
-        sqlite3_close(_AllscaffoldDB);
-        
-    }
-    
-    
-}
--(void)fetchphase{
-    
-    _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    _docsDir = [_dirPaths objectAtIndex:0];
-    
-    /* Build the path to the database file*/
-    
-    _phasepath = [[NSString alloc] initWithString: [_docsDir stringByAppendingPathComponent: @"ScaffPhase.db"]];
-    NSLog(@"Path %@",_phasepath);
-    
-    const char *dbpath = [_phasepath UTF8String];
-    sqlite3_stmt    *statement;
-    
-    if (sqlite3_open(dbpath, &_scaffPhaseDB) == SQLITE_OK)
-    {
-        
-        NSString *querySQL = [NSString stringWithFormat:@"SELECT * FROM ScaffPhaseList"];
-        // NSLog(@"Sql%@",querySQL);
-        const char *query_stmt = [querySQL UTF8String];
-        
-        if (sqlite3_prepare_v2(_scaffPhaseDB, query_stmt, -1, &statement, NULL) == SQLITE_OK)
-        {
-            // NSLog(@"sqlite %@",sqlite3_step(statement));
-            _phasearray=[[NSMutableArray alloc]init];
-            _phasedict=[[NSMutableDictionary alloc]init];
-            while (sqlite3_step(statement) == SQLITE_ROW)
-                
-                
-            {
-                
-                const char* key = (const char*)sqlite3_column_text(statement, 0);
-                NSString *pkey= key == NULL ? nil : [[NSString alloc] initWithUTF8String:key];
-                
-                const char* pid = (const char*)sqlite3_column_text(statement, 1);
-                NSString *sqlitephase = pid == NULL ? nil : [[NSString alloc] initWithUTF8String:pid];
-                
-                
-                const char*pname = (const char*)sqlite3_column_text(statement, 2);
-                NSString *sqlitephasename= pname== NULL ? nil : [[NSString alloc] initWithUTF8String:pname];
-                [_phasedict setObject:sqlitephase forKey:sqlitephasename];
-                
-                
-                
-                [_phasearray addObject:sqlitephasename];
-                
-                
-            }
-            
-            
-            
-            
-            
-        }
-        sqlite3_finalize(statement);
-        
-    }
-    sqlite3_close(_scaffPhaseDB);
-    [_popovertableview reloadData];
-    
-    
-}
--(void)fetchsequencedata
-{
-    
-    _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    _docsDir = [_dirPaths objectAtIndex:0];
-    
-    /* Build the path to the database file*/
-    
-    _sequencepath = [[NSString alloc] initWithString: [_docsDir stringByAppendingPathComponent: @"ScaffSequence.db"]];
-    NSLog(@"Path %@",_sequencepath);
-    
-    const char *dbpath = [_sequencepath UTF8String];
-    sqlite3_stmt    *statement;
-    
-    if (sqlite3_open(dbpath, &_scaffsequenceDB) == SQLITE_OK)
-    {
-        
-        NSString *querySQL = [NSString stringWithFormat:@"SELECT * FROM ScaffSequenceList"];
-        // NSLog(@"Sql%@",querySQL);
-        const char *query_stmt = [querySQL UTF8String];
-        
-        if (sqlite3_prepare_v2(_scaffsequenceDB, query_stmt, -1, &statement, NULL) == SQLITE_OK)
-        {
-            // NSLog(@"sqlite %@",sqlite3_step(statement));
-            _sequencearray=[[NSMutableArray alloc]init];
-            _sequenceiddict=[[NSMutableDictionary alloc]init];
-            while (sqlite3_step(statement) == SQLITE_ROW)
-                
-                
-            {
-                
-                const char* key = (const char*)sqlite3_column_text(statement, 0);
-                NSString *pkey= key == NULL ? nil : [[NSString alloc] initWithUTF8String:key];
-                
-                const char* sid = (const char*)sqlite3_column_text(statement, 1);
-                NSString *sqliteSequence = sid == NULL ? nil : [[NSString alloc] initWithUTF8String:sid];
-                
-                
-                const char*sname = (const char*)sqlite3_column_text(statement, 2);
-                NSString *sqlitesequencename= sname== NULL ? nil : [[NSString alloc] initWithUTF8String:sname];
-                [_sequenceiddict setObject:sqliteSequence forKey:sqlitesequencename];
-                
-                
-                
-                [_sequencearray addObject:sqlitesequencename];
-                
-                
-            }
-            
-            
-            
-            
-            
-        }
-        sqlite3_finalize(statement);
-        
-    }
-    sqlite3_close(_scaffsequenceDB);
-    [_popovertableview reloadData];
-    
-    
-}
-
--(void)fetchScaffoldType{
-    
-    _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    _docsDir = [_dirPaths objectAtIndex:0];
-    
-    /* Build the path to the database file*/
-    
-    _scaffoldtypepath = [[NSString alloc] initWithString: [_docsDir stringByAppendingPathComponent: @"ScaffoldType.db"]];
-    NSLog(@"Path %@",_scaffoldtypepath);
-    
-    const char *dbpath = [_scaffoldtypepath UTF8String];
-    sqlite3_stmt    *statement;
-    
-    if (sqlite3_open(dbpath, &_scaffoldTypeDB) == SQLITE_OK)
-    {
-        
-        NSString *querySQL = [NSString stringWithFormat:@"SELECT * FROM ScaffoldTypeList"];
-        // NSLog(@"Sql%@",querySQL);
-        const char *query_stmt = [querySQL UTF8String];
-        
-        if (sqlite3_prepare_v2(_scaffoldTypeDB, query_stmt, -1, &statement, NULL) == SQLITE_OK)
-        {
-            // NSLog(@"sqlite %@",sqlite3_step(statement));
-            _scaffoldtyperesultarray=[[NSMutableArray alloc]init];
-             _scaffoldidDict=[[NSMutableDictionary alloc]init];
-          
-           // _phasedict=[[NSMutableDictionary alloc]init];
-            while (sqlite3_step(statement) == SQLITE_ROW)
-                
-                
-            {
-                  _typemdl=[[Scaffoldtypemdl alloc]init];
-                const char* key = (const char*)sqlite3_column_text(statement, 0);
-                NSString *pkey= key == NULL ? nil : [[NSString alloc] initWithUTF8String:key];
-                
-                const char* pid = (const char*)sqlite3_column_text(statement, 1);
-                NSString *typeid = pid == NULL ? nil : [[NSString alloc] initWithUTF8String:pid];
-                _typemdl.scaffoldid=[typeid integerValue];
-                
-                const char*pname = (const char*)sqlite3_column_text(statement, 2);
-                NSString *typename= pname== NULL ? nil : [[NSString alloc] initWithUTF8String:pname];
-                _typemdl.typeName=typename;
-                 [_scaffoldidDict setObject:typeid forKey:typename];
-                const char*Rate = (const char*)sqlite3_column_text(statement, 3);
-                NSString *rate= Rate== NULL ? nil : [[NSString alloc] initWithUTF8String:Rate];
-                _typemdl.rate=rate;
-                
-                const char*upto33 = (const char*)sqlite3_column_text(statement, 4);
-                NSString *ftupto33= upto33== NULL ? nil : [[NSString alloc] initWithUTF8String:upto33];
-                _typemdl.ftupto33=ftupto33;
-                
-                const char*upto100 = (const char*)sqlite3_column_text(statement, 4);
-                NSString *Ftupto100= upto100== NULL ? nil : [[NSString alloc] initWithUTF8String:upto100];
-                _typemdl.Ftupto100=Ftupto100;
-                
-                const char*upto165 = (const char*)sqlite3_column_text(statement, 4);
-                NSString *Ftupto165= upto165== NULL ? nil : [[NSString alloc] initWithUTF8String:upto165];
-                _typemdl.Ftupto165=Ftupto165;
-                
-                const char*g165 = (const char*)sqlite3_column_text(statement, 4);
-                NSString *Ftg165= g165== NULL ? nil : [[NSString alloc] initWithUTF8String:g165];
-                _typemdl.Ftg165=Ftg165;
-                
-                const char*upto1750 = (const char*)sqlite3_column_text(statement, 4);
-                NSString *ft3upto1750= upto1750== NULL ? nil : [[NSString alloc] initWithUTF8String:upto1750];
-                _typemdl.ft3upto1750=ft3upto1750;
-                
-                const char*upto7000 = (const char*)sqlite3_column_text(statement, 4);
-                NSString *Ft3upto7000= upto7000== NULL ? nil : [[NSString alloc] initWithUTF8String:upto7000];
-                _typemdl.Ft3upto7000=Ft3upto7000;
-                
-                const char*g18000 = (const char*)sqlite3_column_text(statement, 4);
-                NSString *Ft3g18000= g18000== NULL ? nil : [[NSString alloc] initWithUTF8String:g18000];
-                _typemdl.Ft3g18000=Ft3g18000;
-
-                
-                
-                
-                [_scaffoldtyperesultarray addObject:_typemdl];
-                
-                
-            }
-            
-            
-            
-            
-            
-        }
-        sqlite3_finalize(statement);
-        
-    }
-    sqlite3_close(_scaffoldTypeDB);
-    [_popovertableview reloadData];
-    
-    
-}
-
--(void)DeleteDBtable{
-    
-    
-    sqlite3_stmt *statement;
-    const char *dbPath=[_phasepath UTF8String];
-    if(sqlite3_open(dbPath, &_scaffPhaseDB)==SQLITE_OK)
-    {
-        NSString *deleteSql=[NSString stringWithFormat:@"DELETE FROM ScaffPhaseList"];
-        
-        const char *delete_stmt=[deleteSql UTF8String];
-        
-        
-        sqlite3_prepare_v2(_scaffPhaseDB, delete_stmt, -1, &statement, NULL);
-        
-        if (sqlite3_step(statement) == SQLITE_DONE) {
-            
-            NSLog(@"List Deleted");
-            
-            
-        }else{
-            
-            
-            NSLog(@"Failed to Delete");
-        }
-        sqlite3_finalize(statement);
-        sqlite3_close(_scaffPhaseDB);
-    }
-    
-    
-}
--(void)DeleteSequenceDBtable{
-    
-    
-    sqlite3_stmt *statement;
-    const char *dbPath=[_sequencepath UTF8String];
-    if(sqlite3_open(dbPath, &_scaffsequenceDB)==SQLITE_OK)
-    {
-        NSString *deleteSql=[NSString stringWithFormat:@"DELETE FROM ScaffSequenceList"];
-        
-        const char *delete_stmt=[deleteSql UTF8String];
-        
-        
-        sqlite3_prepare_v2(_scaffsequenceDB, delete_stmt, -1, &statement, NULL);
-        
-        if (sqlite3_step(statement) == SQLITE_DONE) {
-            
-            NSLog(@"List Deleted");
-            
-            
-        }else{
-            
-            
-            NSLog(@"Failed to Delete");
-        }
-        sqlite3_finalize(statement);
-        sqlite3_close(_scaffsequenceDB);
-    }
-    
-    
-}
--(void)DeleteScafftypeDBtable{
-    
-    
-    sqlite3_stmt *statement;
-    const char *dbPath=[_scaffoldtypepath UTF8String];
-    if(sqlite3_open(dbPath, &_scaffoldTypeDB)==SQLITE_OK)
-    {
-        NSString *deleteSql=[NSString stringWithFormat:@"DELETE FROM ScaffoldTypeList"];
-        
-        const char *delete_stmt=[deleteSql UTF8String];
-        
-        
-        sqlite3_prepare_v2(_scaffoldTypeDB, delete_stmt, -1, &statement, NULL);
-        
-        if (sqlite3_step(statement) == SQLITE_DONE) {
-            
-            NSLog(@"List Deleted");
-            
-            
-        }else{
-            
-            
-            NSLog(@"Failed to Delete");
-        }
-        sqlite3_finalize(statement);
-        sqlite3_close(_scaffoldTypeDB);
-    }
-    
-    
-}
+//-(void)CreateScaffoldTypeDB
+//{
+//    
+//    _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    _docsDir = [_dirPaths objectAtIndex:0];
+//    
+//    /* Build the path to the database file*/
+//    
+//    _scaffoldtypepath = [[NSString alloc] initWithString: [_docsDir stringByAppendingPathComponent:@"ScaffoldType.db"]];
+//    NSLog(@"Path %@",_scaffoldtypepath);
+//    
+//    NSFileManager *filemgr = [NSFileManager defaultManager];
+//    if ([filemgr fileExistsAtPath: _scaffoldtypepath ] == NO)
+//    {
+//        const char *dbpath = [_scaffoldtypepath UTF8String];
+//        if (sqlite3_open(dbpath, &_scaffoldTypeDB) == SQLITE_OK)
+//        {
+//            char *errMsg;
+//            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS ScaffoldTypeList (ID INTEGER PRIMARY KEY AUTOINCREMENT, ScaffoldID TEXT, ScaffoldName TEXT, Rate TEXT,Ftupto33 TEXT,Ftupto100 TEXT,Ftupto165 TEXT,Ftg165 TEXT,ft3upto1750 TEXT,Ft3upto7000 TEXT,Ft3g18000 TEXT)";
+//            
+//            
+//            if (sqlite3_exec(_scaffoldTypeDB, sql_stmt, NULL, NULL, &errMsg)
+//                != SQLITE_OK)
+//            {
+//                
+//                NSLog(@"Failed to create table");
+//                NSLog( @"Error while inserting '%s'", sqlite3_errmsg(_scaffoldTypeDB));
+//            }
+//            sqlite3_close(_scaffoldTypeDB);
+//            
+//        }
+//        
+//        else {
+//            NSLog( @"Failed to open/create database");
+//            
+//        }
+//        
+//    }
+//    [self DeleteScafftypeDBtable];
+//    for (int i=0; i<[_scaffoldtyperesultarray count]; i++)
+//    {
+//      _typemdl=(Scaffoldtypemdl *)[_scaffoldtyperesultarray objectAtIndex:i];
+//        
+//
+//    [self insertscaffoldtypetoDB];
+//    }
+//    
+//    
+//}
+//-(void)insertscaffoldtypetoDB
+//{
+//    sqlite3_stmt    *statement;
+//    
+//        const char *dbpath = [_scaffoldtypepath UTF8String];
+//    
+//        
+//        
+//        if (sqlite3_open(dbpath, &_scaffoldTypeDB) == SQLITE_OK)
+//        {
+//           
+//            
+//
+//            NSString *InsertSQl=[NSString stringWithFormat:@"INSERT INTO ScaffoldTypeList(ScaffoldID,ScaffoldName,Rate,Ftupto33,Ftupto100,Ftupto165,Ftg165,ft3upto1750,Ft3upto7000,Ft3g18000) VALUES (\"%d\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")",_typemdl.scaffoldid,_typemdl.typeName,_typemdl.rate,_typemdl.ftupto33,_typemdl.ftupto100,_typemdl.ftupto165,_typemdl.ftg165,_typemdl.ft3upto1750,_typemdl.ft3upto7000,_typemdl.ft3g18000];
+//            
+//            
+//            
+//            const char *insert_stmt = [InsertSQl UTF8String];
+//            sqlite3_prepare_v2(_scaffoldTypeDB, insert_stmt, -1, &statement, NULL);
+//            if (sqlite3_step(statement) == SQLITE_DONE)
+//            {
+//                
+//                NSLog( @"ScaffoldType data added");
+//                
+//            } else {
+//                //status.text = @"Failed to add contact";
+//                NSLog( @"Failed to add scaffoldtype Data ");
+//            }
+//            sqlite3_finalize(statement);
+//            sqlite3_close(_scaffoldTypeDB);
+//            
+//        }
+//        
+//    
+//    
+//}
+//
+//-(void)createscaffsequenceDB
+//{
+//    
+//    _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    _docsDir = [_dirPaths objectAtIndex:0];
+//    
+//    /* Build the path to the database file*/
+//    
+//    _sequencepath = [[NSString alloc] initWithString: [_docsDir stringByAppendingPathComponent:@"ScaffSequence.db"]];
+//    NSLog(@"Path %@",_sequencepath);
+//    
+//    NSFileManager *filemgr = [NSFileManager defaultManager];
+//    if ([filemgr fileExistsAtPath: _sequencepath ] == NO)
+//    {
+//        const char *dbpath = [_sequencepath UTF8String];
+//        if (sqlite3_open(dbpath, &_scaffsequenceDB) == SQLITE_OK)
+//        {
+//            char *errMsg;
+//            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS ScaffSequenceList (ID INTEGER PRIMARY KEY AUTOINCREMENT, SequenceID TEXT, SequenceName TEXT)";
+//            
+//            
+//            if (sqlite3_exec(_scaffsequenceDB, sql_stmt, NULL, NULL, &errMsg)
+//                != SQLITE_OK)
+//            {
+//                
+//                NSLog(@"Failed to create table");
+//                NSLog( @"Error while inserting '%s'", sqlite3_errmsg(_scaffsequenceDB));
+//            }
+//            sqlite3_close(_scaffsequenceDB);
+//            
+//        }
+//        
+//        else {
+//            NSLog( @"Failed to open/create database");
+//            
+//        }
+//        
+//    }
+//    [self DeleteSequenceDBtable];
+//    for (int i=0; i<[_sequencearray count]; i++) {
+//        _sname = [_sequencearray objectAtIndex:i];
+//        _sid = [_sequenceiddict objectForKey:[_sequencearray objectAtIndex:i]];
+//        [self insertsequnecedatatodb];
+//    }
+//
+//    
+//}
+//-(void)insertsequnecedatatodb
+//{
+//    
+//    
+//        sqlite3_stmt    *statement;
+//        const char *dbpath = [_sequencepath UTF8String];
+//        
+//        
+//        
+//        if (sqlite3_open(dbpath, &_scaffsequenceDB) == SQLITE_OK)
+//        {
+//            NSString *InsertSQl=[NSString stringWithFormat:@"INSERT INTO ScaffSequenceList(SequenceID,SequenceName) VALUES (\"%@\",\"%@\")",_sid,_sname];
+//            
+//            
+//            const char *insert_stmt = [InsertSQl UTF8String];
+//            sqlite3_prepare_v2(_scaffsequenceDB, insert_stmt, -1, &statement, NULL);
+//            if (sqlite3_step(statement) == SQLITE_DONE)
+//            {
+//                
+//                NSLog( @"SequenceData added");
+//                
+//            } else {
+//                //status.text = @"Failed to add contact";
+//                NSLog( @"Failed to add Sequence Data ");
+//            }
+//            sqlite3_finalize(statement);
+//            sqlite3_close(_scaffsequenceDB);
+//            
+//        }
+//        
+//        
+//    }
+//
+//-(void)createphasedata{
+//    
+//    _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    _docsDir = [_dirPaths objectAtIndex:0];
+//    
+//    /* Build the path to the database file*/
+//    
+//    _phasepath = [[NSString alloc] initWithString: [_docsDir stringByAppendingPathComponent:@"ScaffPhase.db"]];
+//    NSLog(@"Path %@",_phasepath);
+//    
+//    NSFileManager *filemgr = [NSFileManager defaultManager];
+//    if ([filemgr fileExistsAtPath: _phasepath ] == NO)
+//    {
+//        const char *dbpath = [_phasepath UTF8String];
+//        if (sqlite3_open(dbpath, &_scaffPhaseDB) == SQLITE_OK)
+//        {
+//            char *errMsg;
+//            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS ScaffPhaseList (ID INTEGER PRIMARY KEY AUTOINCREMENT, PhaseID TEXT, PhaseName TEXT)";
+//            
+//            
+//            if (sqlite3_exec(_scaffPhaseDB, sql_stmt, NULL, NULL, &errMsg)
+//                != SQLITE_OK)
+//            {
+//                
+//                NSLog(@"Failed to create table");
+//                NSLog( @"Error while inserting '%s'", sqlite3_errmsg(_scaffPhaseDB));
+//            }
+//            sqlite3_close(_scaffPhaseDB);
+//            
+//        }
+//        
+//        else {
+//            NSLog( @"Failed to open/create database");
+//            
+//        }
+//        
+//    }
+//    [self DeleteDBtable];
+//    for (int i=0; i<[_phasearray count]; i++) {
+//        _pname = [_phasearray objectAtIndex:i];
+//        _pid = [_phasedict objectForKey:[_phasearray objectAtIndex:i]];
+//        [self insertphasetoDB];
+//    }
+//
+//    
+//}
+//-(void)insertphasetoDB
+//{
+//    sqlite3_stmt    *statement;
+//    const char *dbpath = [_phasepath UTF8String];
+//    
+//    
+//    
+//    if (sqlite3_open(dbpath, &_scaffPhaseDB) == SQLITE_OK)
+//    {
+//        NSString *InsertSQl=[NSString stringWithFormat:@"INSERT INTO ScaffPhaseList(PhaseID,PhaseName) VALUES (\"%@\",\"%@\")",_pid,_pname];
+//        
+//        
+//        const char *insert_stmt = [InsertSQl UTF8String];
+//        sqlite3_prepare_v2(_scaffPhaseDB, insert_stmt, -1, &statement, NULL);
+//        if (sqlite3_step(statement) == SQLITE_DONE)
+//        {
+//            
+//            NSLog( @"phasedata added");
+//            
+//        } else {
+//            //status.text = @"Failed to add contact";
+//            NSLog( @"Failed to add phase Data ");
+//        }
+//        sqlite3_finalize(statement);
+//        sqlite3_close(_scaffPhaseDB);
+//        
+//    }
+//    
+//    
+//    
+//}
+//-(void)createDatabase
+//{
+//    
+//    _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    _docsDir = [_dirPaths objectAtIndex:0];
+//    
+//    /* Build the path to the database file*/
+//    
+//    _ScaffoldPath = [[NSString alloc] initWithString: [_docsDir stringByAppendingPathComponent: @"AllScaffold.db"]];
+//    NSLog(@"Path %@",_ScaffoldPath);
+//    
+//    NSFileManager *filemgr = [NSFileManager defaultManager];
+//    if ([filemgr fileExistsAtPath: _ScaffoldPath ] == NO)
+//    {
+//        const char *dbpath = [_ScaffoldPath UTF8String];
+//        if (sqlite3_open(dbpath, &_AllscaffoldDB) == SQLITE_OK)
+//        {
+//            char *errMsg;
+//            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS AllScaffoldList (ID INTEGER PRIMARY KEY AUTOINCREMENT, Unit TEXT, SubUnit TEXT, Equipment TEXT, ProjectHeader TEXT, ScaffoldType TEXT, Length TEXT, Width TEXT,Height TEXT,Quantity TEXT,Elevation TEXT,Sequence TEXT,Phase TEXT,Description TEXT,PlanID TEXT,IWF TEXT,PPE TEXT,UPW TEXT,Manhour TEXT,DismantileHour TEXT,ErectHour TEXT,PlanFactor TEXT)";
+//            
+//            
+//            if (sqlite3_exec(_AllscaffoldDB, sql_stmt, NULL, NULL, &errMsg)
+//                != SQLITE_OK)
+//            {
+//                
+//                NSLog(@"Failed to create table");
+//                NSLog( @"Error while inserting '%s'", sqlite3_errmsg(_AllscaffoldDB));
+//            }
+//            sqlite3_close(_AllscaffoldDB);
+//            
+//        }
+//        
+//        else {
+//            NSLog( @"Failed to open/create database");
+//            
+//        }
+//        
+//    }
+//}
+//-(void)insertScaffoldToDB{
+//    sqlite3_stmt    *statement;
+//    const char *dbpath = [_ScaffoldPath UTF8String];
+//    
+//   
+//    NSString *scaffoldid=[_scaffoldidDict objectForKey:_scaffoldtyprbtn.titleLabel.text];
+//    NSString *phaseid=[_phasedict objectForKey:_phasebtn.titleLabel.text];
+//    NSString *sequenceid=[_sequenceiddict objectForKey:_sequencebtn.titleLabel.text];
+//   
+//    if (sqlite3_open(dbpath, &_AllscaffoldDB) == SQLITE_OK)
+//    {
+//        NSString *InsertSQl=[NSString stringWithFormat:@"INSERT INTO AllScaffoldList(Unit, SubUnit, Equipment, ProjectHeader,ScaffoldType, Length, Width,Height,Quantity,Elevation,Sequence,Phase,PlanID) VALUES (\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")",_unittextfield.text,_subunittextfld.text,_equipmenttextfield.text,_proheadertextfield.text,scaffoldid,_lengthtextfield.text,_widthtextfield.text,_heighttextfield.text,_qtytextfield.text,_elevationtextfield.text,sequenceid,phaseid,_planid];
+//        
+//        
+//        const char *insert_stmt = [InsertSQl UTF8String];
+//        sqlite3_prepare_v2(_AllscaffoldDB, insert_stmt, -1, &statement, NULL);
+//        if (sqlite3_step(statement) == SQLITE_DONE)
+//        {
+//            
+//            NSLog( @"Scaffold Data added");
+//            if (!self.allctrlr)
+//            {
+//                self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
+//            }
+//            _allctrlr.Scafldarry=_scaffoldingplanlistarray;
+//            _allctrlr.newscfoldtypearry=_scaffoldtyperesultarray;
+//            _allctrlr.btnindx=btnindex;
+//            _allctrlr.optionidentifier=optionidentifier;
+//            _allctrlr.len=_lengthtextfield.text;
+//            _allctrlr.wid=_widthtextfield.text;
+//            _allctrlr.height=_heighttextfield.text;
+//            _allctrlr.ele=_heighttextfield.text;
+//            _allctrlr.unit=_unittextfield.text;
+//            _allctrlr.ph=_proheadertextfield.text;
+//            _allctrlr.equip=_equipmenttextfield.text;
+//            _allctrlr.sid=[_scaffoldidDict objectForKey:_scaffoldtyprbtn.titleLabel.text];
+//            _allctrlr.qty=_qtytextfield.text;
+//            _allctrlr.planid=_planid;
+//            _allctrlr.phaseid=[_phasedict objectForKey:_phasebtn.titleLabel.text];
+//            _allctrlr.sequenceid=[_sequenceiddict objectForKey:_sequencebtn.titleLabel.text];
+//            _allctrlr.subunit=_subunittextfld.text;
+//            _allctrlr.iwfcheck=first;
+//            _allctrlr.ppecheck=sec;
+//            _allctrlr.upwcheck=third;
+//            NSInteger scfid= [_allctrlr.sid integerValue];
+//            switch (scfid) {
+//                case 1:
+//                    _allctrlr.scaffoldtypeindex=0;
+//                    
+//                    break;
+//                case 2:
+//                    _allctrlr.scaffoldtypeindex=1;
+//                    
+//                    break;
+//                case 3:
+//                    _allctrlr.scaffoldtypeindex=2;
+//                    
+//                    break;
+//                case 4:
+//                    _allctrlr.scaffoldtypeindex=3;
+//                    
+//                    break;
+//                case 5:
+//                    _allctrlr.scaffoldtypeindex=4;
+//                    
+//                    break;
+//                    
+//                default:
+//                    
+//                    break;
+//            }
+//
+//
+//            [UIView transitionFromView:self.addscaffoldrecordview
+//                                toView:self.allctrlr.view
+//                              duration:1
+//                               options:UIViewAnimationOptionTransitionFlipFromRight
+//                            completion:nil];
+//            
+//            [self.navigationController pushViewController:_allctrlr animated:NO];
+//            
+//        } else {
+//            //status.text = @"Failed to add contact";
+//            NSLog( @"Failed to add Scaffold Data ");
+//        }
+//        sqlite3_finalize(statement);
+//        sqlite3_close(_AllscaffoldDB);
+//        
+//    }
+//    
+//    
+//}
+//-(void)fetchphase{
+//    
+//    _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    _docsDir = [_dirPaths objectAtIndex:0];
+//    
+//    /* Build the path to the database file*/
+//    
+//    _phasepath = [[NSString alloc] initWithString: [_docsDir stringByAppendingPathComponent: @"ScaffPhase.db"]];
+//    NSLog(@"Path %@",_phasepath);
+//    
+//    const char *dbpath = [_phasepath UTF8String];
+//    sqlite3_stmt    *statement;
+//    
+//    if (sqlite3_open(dbpath, &_scaffPhaseDB) == SQLITE_OK)
+//    {
+//        
+//        NSString *querySQL = [NSString stringWithFormat:@"SELECT * FROM ScaffPhaseList"];
+//        // NSLog(@"Sql%@",querySQL);
+//        const char *query_stmt = [querySQL UTF8String];
+//        
+//        if (sqlite3_prepare_v2(_scaffPhaseDB, query_stmt, -1, &statement, NULL) == SQLITE_OK)
+//        {
+//            // NSLog(@"sqlite %@",sqlite3_step(statement));
+//            _phasearray=[[NSMutableArray alloc]init];
+//            _phasedict=[[NSMutableDictionary alloc]init];
+//            while (sqlite3_step(statement) == SQLITE_ROW)
+//                
+//                
+//            {
+//                
+//                const char* key = (const char*)sqlite3_column_text(statement, 0);
+//                NSString *pkey= key == NULL ? nil : [[NSString alloc] initWithUTF8String:key];
+//                
+//                const char* pid = (const char*)sqlite3_column_text(statement, 1);
+//                NSString *sqlitephase = pid == NULL ? nil : [[NSString alloc] initWithUTF8String:pid];
+//                
+//                
+//                const char*pname = (const char*)sqlite3_column_text(statement, 2);
+//                NSString *sqlitephasename= pname== NULL ? nil : [[NSString alloc] initWithUTF8String:pname];
+//                [_phasedict setObject:sqlitephase forKey:sqlitephasename];
+//                
+//                
+//                
+//                [_phasearray addObject:sqlitephasename];
+//                
+//                
+//            }
+//            
+//            
+//            
+//            
+//            
+//        }
+//        sqlite3_finalize(statement);
+//        
+//    }
+//    sqlite3_close(_scaffPhaseDB);
+//    [_popovertableview reloadData];
+//    
+//    
+//}
+//-(void)fetchsequencedata
+//{
+//    
+//    _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    _docsDir = [_dirPaths objectAtIndex:0];
+//    
+//    /* Build the path to the database file*/
+//    
+//    _sequencepath = [[NSString alloc] initWithString: [_docsDir stringByAppendingPathComponent: @"ScaffSequence.db"]];
+//    NSLog(@"Path %@",_sequencepath);
+//    
+//    const char *dbpath = [_sequencepath UTF8String];
+//    sqlite3_stmt    *statement;
+//    
+//    if (sqlite3_open(dbpath, &_scaffsequenceDB) == SQLITE_OK)
+//    {
+//        
+//        NSString *querySQL = [NSString stringWithFormat:@"SELECT * FROM ScaffSequenceList"];
+//        // NSLog(@"Sql%@",querySQL);
+//        const char *query_stmt = [querySQL UTF8String];
+//        
+//        if (sqlite3_prepare_v2(_scaffsequenceDB, query_stmt, -1, &statement, NULL) == SQLITE_OK)
+//        {
+//            // NSLog(@"sqlite %@",sqlite3_step(statement));
+//            _sequencearray=[[NSMutableArray alloc]init];
+//            _sequenceiddict=[[NSMutableDictionary alloc]init];
+//            while (sqlite3_step(statement) == SQLITE_ROW)
+//                
+//                
+//            {
+//                
+//                const char* key = (const char*)sqlite3_column_text(statement, 0);
+//                NSString *pkey= key == NULL ? nil : [[NSString alloc] initWithUTF8String:key];
+//                
+//                const char* sid = (const char*)sqlite3_column_text(statement, 1);
+//                NSString *sqliteSequence = sid == NULL ? nil : [[NSString alloc] initWithUTF8String:sid];
+//                
+//                
+//                const char*sname = (const char*)sqlite3_column_text(statement, 2);
+//                NSString *sqlitesequencename= sname== NULL ? nil : [[NSString alloc] initWithUTF8String:sname];
+//                [_sequenceiddict setObject:sqliteSequence forKey:sqlitesequencename];
+//                
+//                
+//                
+//                [_sequencearray addObject:sqlitesequencename];
+//                
+//                
+//            }
+//            
+//            
+//            
+//            
+//            
+//        }
+//        sqlite3_finalize(statement);
+//        
+//    }
+//    sqlite3_close(_scaffsequenceDB);
+//    [_popovertableview reloadData];
+//    
+//    
+//}
+//
+//-(void)fetchScaffoldType{
+//    
+//    _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    _docsDir = [_dirPaths objectAtIndex:0];
+//    
+//    /* Build the path to the database file*/
+//    
+//    _scaffoldtypepath = [[NSString alloc] initWithString: [_docsDir stringByAppendingPathComponent: @"ScaffoldType.db"]];
+//    NSLog(@"Path %@",_scaffoldtypepath);
+//    
+//    const char *dbpath = [_scaffoldtypepath UTF8String];
+//    sqlite3_stmt    *statement;
+//    
+//    if (sqlite3_open(dbpath, &_scaffoldTypeDB) == SQLITE_OK)
+//    {
+//        
+//        NSString *querySQL = [NSString stringWithFormat:@"SELECT * FROM ScaffoldTypeList"];
+//        // NSLog(@"Sql%@",querySQL);
+//        const char *query_stmt = [querySQL UTF8String];
+//        
+//        if (sqlite3_prepare_v2(_scaffoldTypeDB, query_stmt, -1, &statement, NULL) == SQLITE_OK)
+//        {
+//            // NSLog(@"sqlite %@",sqlite3_step(statement));
+//            _scaffoldtyperesultarray=[[NSMutableArray alloc]init];
+//             _scaffoldidDict=[[NSMutableDictionary alloc]init];
+//          
+//           // _phasedict=[[NSMutableDictionary alloc]init];
+//            while (sqlite3_step(statement) == SQLITE_ROW)
+//                
+//                
+//            {
+//                  _typemdl=[[Scaffoldtypemdl alloc]init];
+//                const char* key = (const char*)sqlite3_column_text(statement, 0);
+//                NSString *pkey= key == NULL ? nil : [[NSString alloc] initWithUTF8String:key];
+//                
+//                const char* pid = (const char*)sqlite3_column_text(statement, 1);
+//                NSString *typeid = pid == NULL ? nil : [[NSString alloc] initWithUTF8String:pid];
+//                _typemdl.scaffoldid=[typeid integerValue];
+//                
+//                const char*pname = (const char*)sqlite3_column_text(statement, 2);
+//                NSString *typename= pname== NULL ? nil : [[NSString alloc] initWithUTF8String:pname];
+//                _typemdl.typeName=typename;
+//                 [_scaffoldidDict setObject:typeid forKey:typename];
+//                const char*Rate = (const char*)sqlite3_column_text(statement, 3);
+//                NSString *rate= Rate== NULL ? nil : [[NSString alloc] initWithUTF8String:Rate];
+//                _typemdl.rate=rate;
+//                
+//                const char*upto33 = (const char*)sqlite3_column_text(statement, 4);
+//                NSString *ftupto33= upto33== NULL ? nil : [[NSString alloc] initWithUTF8String:upto33];
+//                _typemdl.ftupto33=ftupto33;
+//                
+//                const char*upto100 = (const char*)sqlite3_column_text(statement, 4);
+//                NSString *Ftupto100= upto100== NULL ? nil : [[NSString alloc] initWithUTF8String:upto100];
+//                _typemdl.Ftupto100=Ftupto100;
+//                
+//                const char*upto165 = (const char*)sqlite3_column_text(statement, 4);
+//                NSString *Ftupto165= upto165== NULL ? nil : [[NSString alloc] initWithUTF8String:upto165];
+//                _typemdl.Ftupto165=Ftupto165;
+//                
+//                const char*g165 = (const char*)sqlite3_column_text(statement, 4);
+//                NSString *Ftg165= g165== NULL ? nil : [[NSString alloc] initWithUTF8String:g165];
+//                _typemdl.Ftg165=Ftg165;
+//                
+//                const char*upto1750 = (const char*)sqlite3_column_text(statement, 4);
+//                NSString *ft3upto1750= upto1750== NULL ? nil : [[NSString alloc] initWithUTF8String:upto1750];
+//                _typemdl.ft3upto1750=ft3upto1750;
+//                
+//                const char*upto7000 = (const char*)sqlite3_column_text(statement, 4);
+//                NSString *Ft3upto7000= upto7000== NULL ? nil : [[NSString alloc] initWithUTF8String:upto7000];
+//                _typemdl.Ft3upto7000=Ft3upto7000;
+//                
+//                const char*g18000 = (const char*)sqlite3_column_text(statement, 4);
+//                NSString *Ft3g18000= g18000== NULL ? nil : [[NSString alloc] initWithUTF8String:g18000];
+//                _typemdl.Ft3g18000=Ft3g18000;
+//
+//                
+//                
+//                
+//                [_scaffoldtyperesultarray addObject:_typemdl];
+//                
+//                
+//            }
+//            
+//            
+//            
+//            
+//            
+//        }
+//        sqlite3_finalize(statement);
+//        
+//    }
+//    sqlite3_close(_scaffoldTypeDB);
+//    [_popovertableview reloadData];
+//    
+//    
+//}
+//
+//-(void)DeleteDBtable{
+//    
+//    
+//    sqlite3_stmt *statement;
+//    const char *dbPath=[_phasepath UTF8String];
+//    if(sqlite3_open(dbPath, &_scaffPhaseDB)==SQLITE_OK)
+//    {
+//        NSString *deleteSql=[NSString stringWithFormat:@"DELETE FROM ScaffPhaseList"];
+//        
+//        const char *delete_stmt=[deleteSql UTF8String];
+//        
+//        
+//        sqlite3_prepare_v2(_scaffPhaseDB, delete_stmt, -1, &statement, NULL);
+//        
+//        if (sqlite3_step(statement) == SQLITE_DONE) {
+//            
+//            NSLog(@"List Deleted");
+//            
+//            
+//        }else{
+//            
+//            
+//            NSLog(@"Failed to Delete");
+//        }
+//        sqlite3_finalize(statement);
+//        sqlite3_close(_scaffPhaseDB);
+//    }
+//    
+//    
+//}
+//-(void)DeleteSequenceDBtable{
+//    
+//    
+//    sqlite3_stmt *statement;
+//    const char *dbPath=[_sequencepath UTF8String];
+//    if(sqlite3_open(dbPath, &_scaffsequenceDB)==SQLITE_OK)
+//    {
+//        NSString *deleteSql=[NSString stringWithFormat:@"DELETE FROM ScaffSequenceList"];
+//        
+//        const char *delete_stmt=[deleteSql UTF8String];
+//        
+//        
+//        sqlite3_prepare_v2(_scaffsequenceDB, delete_stmt, -1, &statement, NULL);
+//        
+//        if (sqlite3_step(statement) == SQLITE_DONE) {
+//            
+//            NSLog(@"List Deleted");
+//            
+//            
+//        }else{
+//            
+//            
+//            NSLog(@"Failed to Delete");
+//        }
+//        sqlite3_finalize(statement);
+//        sqlite3_close(_scaffsequenceDB);
+//    }
+//    
+//    
+//}
+//-(void)DeleteScafftypeDBtable{
+//    
+//    
+//    sqlite3_stmt *statement;
+//    const char *dbPath=[_scaffoldtypepath UTF8String];
+//    if(sqlite3_open(dbPath, &_scaffoldTypeDB)==SQLITE_OK)
+//    {
+//        NSString *deleteSql=[NSString stringWithFormat:@"DELETE FROM ScaffoldTypeList"];
+//        
+//        const char *delete_stmt=[deleteSql UTF8String];
+//        
+//        
+//        sqlite3_prepare_v2(_scaffoldTypeDB, delete_stmt, -1, &statement, NULL);
+//        
+//        if (sqlite3_step(statement) == SQLITE_DONE) {
+//            
+//            NSLog(@"List Deleted");
+//            
+//            
+//        }else{
+//            
+//            
+//            NSLog(@"Failed to Delete");
+//        }
+//        sqlite3_finalize(statement);
+//        sqlite3_close(_scaffoldTypeDB);
+//    }
+//    
+//    
+//}
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
