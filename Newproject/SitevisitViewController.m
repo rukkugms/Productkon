@@ -449,8 +449,8 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SitevisitSelectproductionrate xmlns=\"http://test.kontract360.com/\">\n"
-                   "<planid>%@</planid>\n"
+                   "<SitevisitSelectproductionrate xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<PlanId>%@</PlanId>\n"
                    "</SitevisitSelectproductionrate>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",_companyid];
@@ -458,7 +458,8 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -466,7 +467,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/SitevisitSelectproductionrate" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SitevisitSelectproductionrate" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -949,17 +950,17 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Sitevisitdeleteproductionrates xmlns=\"http://test.kontract360.com/\">\n"
-                   "<planid>%@</planid>\n"
-                   "<entryid>%d</entryid>\n"
+                   "<Sitevisitdeleteproductionrates xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<PlanId>%@</PlanId>\n"
+                   "<EntryId>%d</EntryId>\n"
                    "</Sitevisitdeleteproductionrates>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",_companyid,[sitemdl1.prentryid integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
-    
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -967,7 +968,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/Sitevisitdeleteproductionrates" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/Sitevisitdeleteproductionrates" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -2084,7 +2085,7 @@ _passingdate=dateString;
           
           SitevistMdl *sitemdl1=(SitevistMdl *)[_productionratearray objectAtIndex:indexPath.row];
           _ratelbl=(UILabel *)[cell viewWithTag:1];
-          _ratelbl.text=[NSString stringWithFormat:@"$%@",sitemdl1.PRRate];
+          _ratelbl.text=[NSString stringWithFormat:@"%@",sitemdl1.PRRate];
           _ratedeslbl=(UILabel *)[cell viewWithTag:2];
           _ratedeslbl.text=sitemdl1.PRdescptn;
           _ratevaluelbl=(UILabel *)[cell viewWithTag:3];
@@ -2416,15 +2417,6 @@ _passingdate=dateString;
         recordResults = TRUE;
     }
 
-    if([elementName isEqualToString:@"Rate"])
-    {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    
     if([elementName isEqualToString:@"prodesc"])
     {
         if(!_soapResults)
@@ -2442,6 +2434,33 @@ _passingdate=dateString;
         }
         recordResults = TRUE;
     }
+    
+    if([elementName isEqualToString:@"PlanId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"ServiceId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"SkillName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     
     
     if([elementName isEqualToString:@"SitevisitSelectjobsitereqResponse"])
@@ -3023,14 +3042,6 @@ _passingdate=dateString;
        _soapResults = nil;
     }
 
-    if([elementName isEqualToString:@"Rate"])
-    {
-       
-        recordResults = FALSE;
-        
-        _sitevistmdl.PRRate=_soapResults;
-        _soapResults = nil;
-    }
     
     if([elementName isEqualToString:@"prodesc"])
     {
@@ -3043,10 +3054,30 @@ _passingdate=dateString;
     {
         recordResults = FALSE;
         _sitevistmdl.PRvalue=_soapResults;
-        [_productionratearray addObject:_sitevistmdl];
+       
         
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"PlanId"])
+    {
+        recordResults = FALSE;
+       
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"ServiceId"])
+    {
+        recordResults = FALSE;
+          _sitevistmdl.servcid=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"SkillName"])
+    {
+        recordResults = FALSE;
+         _sitevistmdl.PRRate=_soapResults;
+         [_productionratearray addObject:_sitevistmdl];
+        _soapResults = nil;
+    }
+    
     if([elementName isEqualToString:@"Entryjobsite"])
     {
            _sitevistmdl=[[SitevistMdl alloc]init];
