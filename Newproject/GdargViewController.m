@@ -1187,7 +1187,7 @@
          _MPdgUpdate.enabled=YES;
         _MTdgupdate.enabled=YES;
         
-         if ([_soapResults isEqualToString:@"Insert Successfully"]||[_soapResults isEqualToString:@"delete"]) {
+         if ([_soapResults isEqualToString:@"Successfully Inserted"]||[_soapResults isEqualToString:@"delete"]) {
              
           
                  [self GeneralQuantityUpdate];
@@ -1197,15 +1197,17 @@
                [self GeneralDetailselect];
              
          }
-        else if ([_soapResults isEqualToString:@"Update Successfully"]) {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        else if ([_soapResults isEqualToString:@"Sucessfully Updated"]) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Updated Successfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+           
             _manpwrtxtfld.text=@"";
             _descptntxtfld.text=@"";
             _numbertxtfld.text=@"";
             _hourstxtfld.text=@"";
               [self GeneralQuantityUpdate];
              [self GeneralDetailselect];
+            
             
         }
        else if ([_soapResults isEqualToString:@"Inserted Successfully"]||[_soapResults isEqualToString:@"deleted"]) {
@@ -1216,12 +1218,28 @@
        else if ([_soapResults isEqualToString:@"Updated Successfully"]) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+          
             _codetxtfld.text=@"";
             _matrldesctxtfld.text=@"";
             _quantitytxtfld.text=@"";
              [self GeneralResourceMaterialDetailselect];
             
         }
+        else if ([_soapResults isEqualToString:@"Crew Already Exists in this work. Change the Quantity or hours of existing Crew"]) {
+            _existstring=@"Crew Already Exists in this work. Change the Quantity or hours of existing Crew";
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+             [self GeneralDetailselect];
+            
+        }
+        else if ([_soapResults isEqualToString:@"Group Already Exists in this work. Change the Quantity of existing Group"]) {
+            _existstring=@"Group Already Exists in this work. Change the Quantity of existing Group";
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            [self GeneralResourceMaterialDetailselect];
+            
+        }
+
 
        
         
@@ -1768,6 +1786,19 @@
             //[pathFromDstTable release];
             manpathFromDstTable = nil;
         }
+        if ([_existstring isEqualToString:@"Crew Already Exists in this work. Change the Quantity or hours of existing Crew"]) {
+            
+            [mandraggedCell removeFromSuperview];
+            //[draggedCell release];
+            mandraggedCell = nil;
+            
+            //[draggedData release];
+            mandraggedData = nil;
+        }
+        else
+        {
+            
+        
         
         [UIView animateWithDuration:0.3 animations:^
          {
@@ -1782,6 +1813,7 @@
         
         //[draggedData release];
         mandraggedData = nil;
+        }
     }
 }
 
@@ -1977,6 +2009,7 @@
 
 - (void)materialstopDragging:(UIPanGestureRecognizer *)gestureRecognizer
 {
+    _existstring=@"";
     if(materldraggedCell != nil && materldraggedData != nil)
     {
         
@@ -2032,6 +2065,16 @@
             //[pathFromDstTable release];
             materlpathFromDstTable = nil;
         }
+         if ([_existstring isEqualToString:@"Group Already Exists in this work. Change the Quantity of existing Group"]) {
+             [materldraggedCell removeFromSuperview];
+             //[draggedCell release];
+             materldraggedCell = nil;
+             
+             //[draggedData release];
+             materldraggedData = nil;
+         }
+        else
+        {
         
         [UIView animateWithDuration:0.3 animations:^
          {
@@ -2046,6 +2089,7 @@
         
         //[draggedData release];
         materldraggedData = nil;
+        }
     }
 }
 
@@ -2249,7 +2293,15 @@
         _quantitytxtfld.text=matmdl1.itmqunty;
         
     }
+    if ([alertView.message isEqualToString:@"Updated Successfully"])
+    {
+        _materleditview.hidden=YES;
+    }
 
+    if ([alertView.message isEqualToString:@"Sucessfully Updated"])
+    {
+        _editview.hidden=YES;
+    }
 
 }
 
