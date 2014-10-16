@@ -1914,7 +1914,7 @@ finishedSavingWithError:(NSError *)error
         saftycheck=0;
     }
     
-     if(toolmdl.picturelocation.length==0){
+     if(toolmdl.picturelocation.length==0||[toolmdl.picturelocation isEqualToString:@"NoImage.png"]){
          
          imagechecker=1;
      }

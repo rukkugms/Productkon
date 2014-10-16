@@ -2076,7 +2076,7 @@ else
         
     }
 
-    if(pwrmdl.picturelocation.length==0){
+    if(pwrmdl.picturelocation.length==0||[pwrmdl.picturelocation isEqualToString:@"NoImage.png"]){
          imagechecker=1;
     }
     else{

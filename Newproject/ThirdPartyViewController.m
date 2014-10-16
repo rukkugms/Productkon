@@ -2201,7 +2201,7 @@ finishedSavingWithError:(NSError *)error
         checksub=0;
     }
    // [_picimageview setImage:[UIImage imageNamed:@"ios7-camera-icon"]];
-    if(eqmdl.PictureLocation.length==0){
+    if(eqmdl.PictureLocation.length==0||[eqmdl.PictureLocation isEqualToString:@"NoImage.png"]){
         imagechecker=1;
     }
     else{

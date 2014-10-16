@@ -2034,7 +2034,7 @@ recordResults = FALSE;
         checksub=0;
     }
 
-    if(eqmdl.PictureLocation.length==0){
+    if(eqmdl.PictureLocation.length==0||[eqmdl.PictureLocation isEqualToString:@"NoImage.png"]){
         imagechecker=1;
     }
     else{

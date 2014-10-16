@@ -683,7 +683,7 @@
 
 
 -(void)UserLogmaininsert{
-    
+   
     recordResults = FALSE;
     
     NSDate *date = [NSDate date];
@@ -937,12 +937,7 @@
 	[_xmlparser setShouldResolveExternalEntities: YES];
 	[_xmlparser parse];
     [_salesRepTable reloadData];
-    if (webtype==1||webtype==2) {
-        [self CustomerSalesRepInfoselect];
-        _searchbar.text=@"";
-        webtype=0;
-    }
-    [_popovertableview reloadData];
+        [_popovertableview reloadData];
     
 }
 #pragma mark-xml parser
@@ -1207,10 +1202,32 @@
         _resultstring=_soapResults;
         if (webtype==1) {
             
+              UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_resultstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+               
+                    [self CustomerSalesRepInfoselect];
+                    _searchbar.text=@"";
+                
+                
+
+            
         
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
         }
+         if (webtype==2) {
+             if ([_resultstring isEqualToString:@"deleted"]) {
+                 [self CustomerSalesRepInfoselect];
+                 _searchbar.text=@"";
+
+             }
+             else
+             {
+                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_resultstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                 [alert show];
+                 [self CustomerSalesRepInfoselect];
+                 _searchbar.text=@"";
+             }
+
+         }
         _soapResults=nil;
     }
     if([elementName isEqualToString:@"cemp_id"])
@@ -1262,6 +1279,7 @@
         _empidtextfield.text=@"";
          _updatebtn.enabled=YES;
         _searchbar.text=@"";
+        [_namebtn setTitle:@"Select" forState:UIControlStateNormal];
     }
     if ([alertView.message isEqualToString:@"Invalid Phone Number"]) {
         _phoneofficetextfield.text=@"";
