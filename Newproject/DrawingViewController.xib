@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DrawingViewController">
             <connections>
+                <outlet property="activityindctr" destination="Eyt-wL-R0I" id="Bam-yy-jFJ"/>
                 <outlet property="deletebtnlbl" destination="p5j-Qh-iKb" id="ssJ-j4-n82"/>
                 <outlet property="mainimg" destination="CCO-mO-R8H" id="7dZ-dW-ARh"/>
                 <outlet property="newview" destination="58j-hV-NMc" id="1Qj-1F-h03"/>
@@ -84,6 +85,11 @@
                         <action selector="savebtn:" destination="-1" eventType="touchUpInside" id="61C-Vb-iEN"/>
                     </connections>
                 </button>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Eyt-wL-R0I">
+                    <rect key="frame" x="371" y="46" width="37" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>

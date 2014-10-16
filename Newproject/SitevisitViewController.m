@@ -203,7 +203,7 @@
     _gernalview.hidden=NO;
     _rateview.hidden=YES;
     _docmntview.hidden=YES;
-    _accblitytxtview.hidden=YES;
+    _accessview.hidden=YES;
     _equipmentview.hidden=YES;
     _jobsiteview.hidden=YES;
     _safetyview.hidden=YES;
@@ -4080,12 +4080,19 @@ _passingdate=dateString;
 
 - (IBAction)updatebtn:(id)sender {
     if ([_facilitytxtview.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Facility Details is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
+     else if ([_scpeofwrktxtview.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Scope of work is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
 
     _genralbtnlbl.enabled=NO;
     [self SaveSiteVisitGeneral];
+    }
     
  
     

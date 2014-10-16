@@ -2991,7 +2991,8 @@
 
 
     if([elementName isEqualToString:@"result"])
-    {  recordresults = FALSE;
+    {
+        recordresults = FALSE;
         if (webtype==1) {
             
             _soapstring=_soapResults;
