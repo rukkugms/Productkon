@@ -272,6 +272,9 @@
 }
 #pragma mark UITableViewDelegate methods
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (tableView==_crewtable) {
+        
+    
     
     if (editingStyle==UITableViewCellEditingStyleDelete) {
         Deletepath=indexPath.row;
@@ -283,6 +286,7 @@
             
         }
         
+    }
     }
 }
 
