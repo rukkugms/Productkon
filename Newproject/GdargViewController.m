@@ -1952,7 +1952,7 @@
         
        // Manpwr*manmdl1=(Manpwr *)[_materialarray objectAtIndex:indexPath.row];
         
-        materldraggedData = [_materialarray objectAtIndex:indexPath.row];
+        materldraggedData = [_materialarray objectAtIndex:materialpath];
     }
     
 }

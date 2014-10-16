@@ -3002,6 +3002,12 @@
         }
         if(webtype==2)
         {
+            
+            if ([_soapResults isEqualToString:@"Already Used"]) {
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+
+            }
             [self SelectAllRequirements];
             _searchbar.text=@"";
             
