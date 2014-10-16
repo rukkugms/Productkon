@@ -75,6 +75,9 @@
     [[self.notestxtfld layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
     [[self.notestxtfld layer] setBorderWidth:2];
     [[self.notestxtfld layer] setCornerRadius:10];
+    [[self.descptnview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+    [[self.descptnview layer] setBorderWidth:2];
+    [[self.descptnview layer] setCornerRadius:10];
 
     // Do any additional setup after loading the view from its nib.
     
@@ -86,9 +89,61 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-#pragma mark-webservice
+
+#pragma mark- WebService
+-(void)SelectAllServices{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SelectAllServices xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</SelectAllServices>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SelectAllServices" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 -(void)InsertSitevisitProductionRates{
     recordResults = FALSE;
+    NSString *serviceid=[_servicelistdict objectForKey:_servcbtn.titleLabel.text];
       
     NSString *soapMessage;
     
@@ -101,19 +156,19 @@
                    
                    "<soap:Body>\n"
                    
-                   "<InsertSitevisitProductionRates xmlns=\"http://test.kontract360.com/\">\n"
-                   "<rate>%@</rate>\n"
-                   "<description>%@</description>\n"
-                   "<value>%f</value>\n"
-                   "<planId>%@</planId>\n"
+                   "<InsertSitevisitProductionRates xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Description>%@</Description>\n"
+                   "<Value>%f</Value>\n"
+                   "<PlanId>%@</PlanId>\n"
+                   "<ServiceId>%d</ServiceId>\n"
                    "</InsertSitevisitProductionRates>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_ratetxtfld.text,_descptntxtfld.text,[_valuetxtfld.text floatValue],_companyid];
+                   "</soap:Envelope>\n",_descptnview.text,[_valuetxtfld.text floatValue],_companyid,[serviceid integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
-    
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -121,7 +176,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/InsertSitevisitProductionRates" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/InsertSitevisitProductionRates" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -832,6 +887,41 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"SelectAllServicesResult"])
+    {
+        _servicelistarray=[[NSMutableArray alloc]init];
+        _servicelistdict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"SkillId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"SkillName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Abbrevation"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
 
 }
@@ -885,6 +975,35 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 
     
     }
+    if([elementName isEqualToString:@"SkillId"])
+    {
+       
+        
+        recordResults = FALSE;
+         _serstring=_soapResults;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"SkillName"])
+    {
+        
+        
+        recordResults = FALSE;
+        
+        [_servicelistdict setObject:_serstring forKey:_soapResults];
+        [_servicelistarray addObject:_soapResults];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Abbrevation"])
+    {
+        
+        recordResults = FALSE;
+        
+        //        _servmdl.abbrevtn=_soapResults;
+        //        [_servicelistarray addObject:_servmdl];
+        _soapResults = nil;
+    }
+
 
 
     
@@ -892,6 +1011,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 
 #pragma mark-popover
 -(void)createpopover{
+    poptype=1;
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
     
@@ -948,7 +1068,15 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 {
     
      if (tableView==_popOverTableView) {
+         if (poptype==1) {
+             
+         
         return [_JobtypeDic count];
+         }
+         else
+         {
+             return [_servicelistarray count];
+         }
     }
     return YES;
 }
@@ -966,8 +1094,16 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     }
     
     if (tableView==_popOverTableView){
+        if (poptype==1) {
+            
+        
         NSArray *array1=[_JobtypeDic allKeys];
         cell.textLabel.text=[array1 objectAtIndex:indexPath.row];
+        }
+        else
+        {
+             cell.textLabel.text=[_servicelistarray objectAtIndex:indexPath.row];
+        }
         
     }
            return cell;
@@ -976,8 +1112,14 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 #pragma mark-Tableview Datasource
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
        if (tableView==_popOverTableView){
+            if (poptype==1) {
             NSArray *array1=[_JobtypeDic allKeys];
            [_typeidbtnlbl setTitle:[array1 objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+            }
+           else
+           {
+               [_servcbtn setTitle:[_servicelistarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+           }
       
        }
     [self.popOverController dismissPopoverAnimated:YES];
@@ -1053,7 +1195,8 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         [_datebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
         _meetgdetailslbl.text=@"";
         _ratetxtfld.text=@"";
-        _descptntxtfld.text=@"";
+        [_servcbtn setTitle:@"Select" forState:UIControlStateNormal];
+        _descptnview.text=@"";
         _valuetxtfld.text=@"";
         _jobnametxtfld.text=@"";
         _jobcodetxtfld.text=@"";
@@ -1269,13 +1412,36 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
           [self dismissViewControllerAnimated:YES completion:nil];
     }
    }
+- (IBAction)slectservice:(id)sender
+{
+    [self SelectAllServices];
+    poptype=2;
+    UIViewController *popovercontent=[[UIViewController alloc]init];
+    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 235, 300)];
+    popoverview.backgroundColor=[UIColor whiteColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 235,300)];
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight=32;
+    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    [popoverview addSubview:_popOverTableView];
+    popovercontent.view=popoverview;
+    popovercontent.contentSizeForViewInPopover=CGSizeMake(235, 250);
+    self.popOverController=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
+    [self.popOverController presentPopoverFromRect:_servcbtn.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+
+}
 - (IBAction)updatepratebtn:(id)sender {
     _reloadtype=1;
    
         Validation*val=[[Validation alloc]init];
-        int value1=[val isNumeric:_ratetxtfld.text];
+        //int value1=[val isNumeric:_ratetxtfld.text];
         int value2=[val isNumeric:_valuetxtfld.text];
-        if(value1==0)
+    if ([_servcbtn.titleLabel.text isEqualToString:@"Select"]||[_servcbtn.titleLabel.text isEqualToString:@""]) {
+        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Service is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert1 show];
+    }
+    else if(value2==0)
         {
             UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
@@ -1285,37 +1451,29 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         
     
 
-
-      else if(value2==0)
-        {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Value" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert1 show];
-            
-            
-        }
-        
-    
-
-  else if ([_ratetxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+  else if ([_valuetxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Rate is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     
     else
     {
-        _proupdatebtn.enabled=NO;
+        
     [self InsertSitevisitProductionRates];
+        _proupdatebtn.enabled=NO;
     }
 }
 
 - (IBAction)pratecancel:(id)sender {
     _ratetxtfld.text=@"";
-    _descptntxtfld.text=@"";
+    _descptnview.text=@"";
     _valuetxtfld.text=@"";
+    [_servcbtn setTitle:@"Select" forState:UIControlStateNormal];
     
     
 }
 - (IBAction)typeidbtn:(id)sender {
+    poptype=1;
     [self createpopover];
     [self SelectAllItemType];
 }

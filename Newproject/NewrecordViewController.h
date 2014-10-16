@@ -10,6 +10,7 @@
 #import "CKCalendarView.h"
 #import "DrawingViewController.h"
 #import "Validation.h"
+#import "Servicemdl.h"
 @protocol newrecordDelgate <NSObject>
 
 -(void)toreloadatable;
@@ -22,6 +23,7 @@
     NSString *jobtypeitm;
     NSInteger istr;
     NSString *result;
+    NSInteger poptype;
     
     
   //  id <newrecordDelgate>Delegate;
@@ -51,13 +53,17 @@
 @property(strong,nonatomic)NSMutableData *webData;
 
 /*Product Rate*/
-
-
+@property(strong,nonatomic)Servicemdl *servmdl;
+@property(strong,nonatomic)NSMutableArray *servicelistarray;
+@property(strong,nonatomic)NSMutableDictionary *servicelistdict;
+@property(strong,nonatomic)NSString *serstring;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navbar;
 - (IBAction)clsebtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UITextField *ratetxtfld;
-@property (strong, nonatomic) IBOutlet UITextField *descptntxtfld;
+@property (strong, nonatomic) IBOutlet UITextView *descptnview;
 @property (strong, nonatomic) IBOutlet UITextField *valuetxtfld;
+@property (strong, nonatomic) IBOutlet UIButton *servcbtn;
+- (IBAction)slectservice:(id)sender;
 - (IBAction)updatepratebtn:(id)sender;
 - (IBAction)pratecancel:(id)sender;
 @property(strong,nonatomic)IBOutlet UIButton *proupdatebtn;

@@ -49,6 +49,7 @@
 @property(strong,nonatomic)NSString *filename;
 @property(readwrite)NSInteger typvalue;
 @property(readwrite)NSInteger notetype;
+@property(strong,nonatomic)NSString *servcid;
 
 
 
