@@ -574,4 +574,9 @@ if ([self.delegate respondsToSelector:@selector(toreloaddrawings)]) {
     }
 }
 
+- (IBAction)erasebtn:(id)sender {
+    
+       _mylineview.brushPattern=[UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1];
+     opacity = 1.0;
+}
 @end

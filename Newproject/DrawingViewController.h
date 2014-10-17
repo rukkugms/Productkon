@@ -74,5 +74,6 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *savebtnlbl;
 @property(strong,nonatomic)IBOutlet UIActivityIndicatorView *activityindctr;
+- (IBAction)erasebtn:(id)sender;
 
 @end
