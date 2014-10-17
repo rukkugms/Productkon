@@ -1245,8 +1245,8 @@
              [self GeneralDetailselect];
             
         }
-        else if ([_soapResults isEqualToString:@"Group Already Exists in this work. Change the Quantity of existing Group"]) {
-            _existstring=@"Group Already Exists in this work. Change the Quantity of existing Group";
+        else if ([_soapResults isEqualToString:@"Group Already Exists in this work. Change the Quantity  of existing Group"]) {
+            _existstring=@"Group Already Exists in this work. Change the Quantity  of existing Group";
             UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             [self GeneralResourceMaterialDetailselect];
@@ -2078,7 +2078,7 @@
             //[pathFromDstTable release];
             materlpathFromDstTable = nil;
         }
-         if ([_existstring isEqualToString:@"Group Already Exists in this work. Change the Quantity of existing Group"]) {
+         if ([_existstring isEqualToString:@"Group Already Exists in this work. Change the Quantity  of existing Group"]) {
              [materldraggedCell removeFromSuperview];
              //[draggedCell release];
              materldraggedCell = nil;

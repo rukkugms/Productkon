@@ -1448,8 +1448,8 @@
         _result=_soapResults;
         _EQdgupdate.enabled=YES;
         if (webtype==1||webtype==2) {
-            if ([_result isEqualToString:@"Group Already Exists in this work. Change the Quantity of existing Group"]) {
-                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_result delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            if ([_result isEqualToString:@"Group Already Exists in this work. Change the Quantity  of existing Group"]) {
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Group Already Exists in this work. Change the Quantity/Hours of existing Group" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
                 [self EquipmentHoursSelect];
                 [self GeneralResourceDetailselect];
@@ -1669,7 +1669,7 @@
             //[pathFromDstTable release];
             equippathFromDstTable = nil;
         }
-        if ([_result isEqualToString:@"Group Already Exists in this work. Change the Quantity of existing Group"]) {
+        if ([_result isEqualToString:@"Group Already Exists in this work. Change the Quantity  of existing Group"]) {
             [equipdraggedCell removeFromSuperview];
             //[draggedCell release];
             equipdraggedCell = nil;
