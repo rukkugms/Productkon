@@ -516,6 +516,9 @@ if ([self.delegate respondsToSelector:@selector(toreloaddrawings)]) {
             
             }
         else{
+            
+            
+
             _activityindctr.hidden=NO;
             [_activityindctr startAnimating];
         UIGraphicsBeginImageContext(_newview.bounds.size);
@@ -547,16 +550,20 @@ if ([self.delegate respondsToSelector:@selector(toreloaddrawings)]) {
         switch (_tabtype) {
             case 1:
                 [self EquipmentUploadPlanDrawings];
+                _mylineview.userInteractionEnabled=NO;
                 break;
 
             case 2:
                 [self AccebilityUploadPlanDrawings];
+                _mylineview.userInteractionEnabled=NO;
                 break;
             case 3:
                [self MeetingUploadPlanDrawings];
+                _mylineview.userInteractionEnabled=NO;
                 break;
             case 4:
                [self NotesUploadPlanDrawings];
+                _mylineview.userInteractionEnabled=NO;
                 break;
                 
             default:

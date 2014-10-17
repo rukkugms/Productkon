@@ -1816,6 +1816,11 @@ recordResults
         UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Service is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert1 show];
     }
+    else if ([_descptnview.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
+    {
+        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Description is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert1 show];
+    }
     else if(value2==0)
         {
             UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
