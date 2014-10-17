@@ -73,5 +73,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *deletebtnlbl;
 
 @property (strong, nonatomic) IBOutlet UIButton *savebtnlbl;
+@property(strong,nonatomic)IBOutlet UIActivityIndicatorView *activityindctr;
 
 @end

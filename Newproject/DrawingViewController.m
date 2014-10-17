@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _activityindctr.hidden=YES;
     // Do any additional setup after loading the view from its nib.
         if (_viewclck==1) {
             
@@ -70,6 +71,10 @@
 
     }
     
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    _activityindctr.hidden=YES;
 }
 -(void)viewDidLayoutSubviews{
     myPath=[[UIBezierPath alloc]init];
@@ -421,6 +426,7 @@
         _mylineview = [[MyLineDrawingView alloc] initWithFrame:CGRectMake(0, 0, 768, 954)];
         _mylineview.backgroundColor=[UIColor clearColor];
         [self.newview addSubview:_mylineview];
+        
 
         [self saveaction];
        
@@ -438,7 +444,8 @@
 }
 -(void)saveaction{
     
-    
+    _activityindctr.hidden=YES;
+    [_activityindctr stopAnimating];
 //    if ([_textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
 //        
 //        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -509,6 +516,8 @@ if ([self.delegate respondsToSelector:@selector(toreloaddrawings)]) {
             
             }
         else{
+            _activityindctr.hidden=NO;
+            [_activityindctr startAnimating];
         UIGraphicsBeginImageContext(_newview.bounds.size);
         [_newview.layer renderInContext:UIGraphicsGetCurrentContext()];
         UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();

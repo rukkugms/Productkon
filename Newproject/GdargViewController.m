@@ -821,13 +821,26 @@
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
     
-    [_manpwrtable reloadData];
     
-    [_generaltable reloadData];
-    
-    [_materialtable reloadData];
-    [_resourcegenraltable reloadData];
- 
+  
+    switch (_dragbtnindx) {
+        case 1:
+            [_manpwrtable reloadData];
+            
+            [_generaltable reloadData];
+            break;
+        case 2:
+           
+            
+            [_materialtable reloadData];
+            [_resourcegenraltable reloadData];
+            
+            break;
+            
+        default:
+            break;
+    }
+
     
 
 }
