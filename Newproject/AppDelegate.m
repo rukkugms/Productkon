@@ -37,7 +37,7 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
  
-      _timer=   [NSTimer scheduledTimerWithTimeInterval:900.0
+      _timer=   [NSTimer scheduledTimerWithTimeInterval:600.0
                                                target:self
                                              selector:@selector(targetMethod)
                                              userInfo:nil
@@ -69,13 +69,13 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    if ([_timer isValid]) {
-        
-        [_timer invalidate];
-        
-        //UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"Time Out" message:@"timerinvalidate." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        // [alert show];
-    }
+//    if ([_timer isValid]) {
+//        
+//        [_timer invalidate];
+//        
+//        //UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"Time Out" message:@"timerinvalidate." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+//        // [alert show];
+//    }
     
       }
 
