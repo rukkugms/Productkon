@@ -15,6 +15,7 @@
 #import "Validation.h"
 #import "DrawingViewController.h"
 #import "WebViewController.h"
+#import "BlezierViewController.h"
 
 @interface SitevisitViewController : UIViewController<UITabBarDelegate,UITableViewDataSource,UITableViewDelegate,newrecordDelgate,drawingDelgate>{
     BOOL recordResults;
@@ -27,6 +28,7 @@
     NSInteger webtype;
 
 }
+@property(strong,nonatomic)BlezierViewController *blezierview;
 @property(strong,nonatomic)IBOutlet UIView *productionrateview;
 @property (strong, nonatomic)NSString *passingdate;
 @property (strong, nonatomic)UIImage *Editedimage;

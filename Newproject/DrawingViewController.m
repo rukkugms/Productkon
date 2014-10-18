@@ -27,51 +27,75 @@
 {
     [super viewDidLoad];
     _activityindctr.hidden=YES;
+     _eraserActived = YES;
     // Do any additional setup after loading the view from its nib.
         if (_viewclck==1) {
             
-            if (_tabtype==3||_tabtype==4) {
-                _deletebtnlbl.hidden=YES;
-                _savebtnlbl.hidden=YES;
-            }
-         [self.view setBackgroundColor:[UIColor whiteColor]];
-        [self.mylineview removeFromSuperview];
-        _mylineview = [[MyLineDrawingView alloc] initWithFrame:CGRectMake(0, 0, 768, 954)];
-        _mylineview.backgroundColor=[UIColor clearColor];
-        [self.newview addSubview:_mylineview];
-        
-        
-        [_mylineview setBackgroundColor:[UIColor colorWithPatternImage:_editedimage]];
             
-
+            _deletebtnlbl.hidden=YES;
+            _savebtnlbl.hidden=YES;
+            _eraserButton.hidden=YES;
+            
+//            if (_tabtype==3||_tabtype==4) {
+//                _deletebtnlbl.hidden=YES;
+//                _savebtnlbl.hidden=YES;
+//                _eraserButton.hidden=YES;
+//            }
+         [self.view setBackgroundColor:[UIColor whiteColor]];
+       // [self.mylineview removeFromSuperview];
+        //_mylineview = [[MyLineDrawingView alloc] initWithFrame:CGRectMake(0, 0, 768, 954)];
+       // _mylineview.backgroundColor=[UIColor clearColor];
+       // [self.newview addSubview:_mylineview];
+        
+        
+      //  [_mylineview setBackgroundColor:[UIColor colorWithPatternImage:_editedimage]];
+             self.drawingView.userInteractionEnabled=NO;
+ //[self.drawingView removeFromSuperview];
+             [_drawingView setBackgroundColor:[UIColor colorWithPatternImage:_editedimage]];
+           
+            
     }
     else{
-        [self.view setBackgroundColor:[UIColor whiteColor]];
+//        [self.view setBackgroundColor:[UIColor whiteColor]];
+//        
+//        brush=1;
+//        
+//        btnclick=0;
+//        
+//        // Do any additional setup after loading the view from its nib.
+//        red = 0.0/255.0;
+//        green = 0.0/255.0;
+//        blue = 0.0/255.0;
+//        brush = 15.0;
+//        opacity = 1.0;
+//        
+//        _newview.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:255.0/255.0f alpha:1.0f].CGColor;
+//        _newview.layer.borderWidth=5.0;
+//        
+//        
+//        _mylineview = [[MyLineDrawingView alloc] initWithFrame:CGRectMake(0, 0, 768, 939)];
+//        _mylineview.backgroundColor=[UIColor clearColor];
+//        _mylineview.delegate = self;
+//        //_mylineview.delegate=newbdelegate;
+//    
+//        
+//        _mylineview.brushPattern=[UIColor colorWithRed:102.0/255.0 green:255.0/255.0 blue:0.0/255.0 alpha:1];
+//        [self.newview addSubview:_mylineview];
         
-   
-        
-        btnclick=0;
-        
-        // Do any additional setup after loading the view from its nib.
-        red = 0.0/255.0;
-        green = 0.0/255.0;
-        blue = 0.0/255.0;
-        brush = 15.0;
-        opacity = 1.0;
-        
+        //_drawingView=[[BezierInterpView alloc]initWithFrame:CGRectMake(0, 0, 768, 939)];
+         self.drawingView.userInteractionEnabled=YES;
+         [self.view setBackgroundColor:[UIColor whiteColor]];
         _newview.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:255.0/255.0f alpha:1.0f].CGColor;
         _newview.layer.borderWidth=5.0;
-        
-        
-        _mylineview = [[MyLineDrawingView alloc] initWithFrame:CGRectMake(0, 0, 768, 939)];
-        _mylineview.backgroundColor=[UIColor clearColor];
-        _mylineview.delegate = self;
-        _mylineview.brushPattern=[UIColor colorWithRed:102.0/255.0 green:255.0/255.0 blue:0.0/255.0 alpha:1];
-        [self.newview addSubview:_mylineview];
+        [self.newview addSubview:_drawingView];
+       
+
 
     }
     
 }
+
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     _activityindctr.hidden=YES;
@@ -576,7 +600,42 @@ if ([self.delegate respondsToSelector:@selector(toreloaddrawings)]) {
 
 - (IBAction)erasebtn:(id)sender {
     
-       _mylineview.brushPattern=[UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1];
-     opacity = 1.0;
+    //_brushtype=2;
+   
+   // if ([self.newbdelegate respondsToSelector:@selector(toselectbrush:)]) {
+        
+           // [self.newbdelegate toselectbrush:2];
+        
+  //  }
+      [self sendNotification];
+
+        //[self.newbdelegate sectionHeaderView:self sectionOpened:self.section];
+   
+       //_mylineview.brushPattern=[UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1];
+   // _mylineview.newbrushtype=_brushtype;
+    // opacity = 1.0;
 }
+
+- (void)sendNotification
+{
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    
+    if (_eraserActived) {
+        _eraserActived = NO;
+        
+        [_eraserButton setImage:[UIImage imageNamed:@"pencil.png"] forState:UIControlStateNormal];
+        
+        [dict setValue:[NSString stringWithFormat:@"%d", 0] forKey:@"eraser"];
+        
+    }else{
+        _eraserActived = YES;
+        
+        [_eraserButton setImage:[UIImage imageNamed:@"eraser.png"] forState:UIControlStateNormal];
+        
+        [dict setValue:[NSString stringWithFormat:@"%d", 1] forKey:@"eraser"];
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"eraserActived" object:self userInfo:dict];
+}
+
 @end

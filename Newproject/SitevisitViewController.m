@@ -4069,6 +4069,18 @@ _passingdate=dateString;
      _drwVCtrl.delegate=self;
     [self presentViewController:_drwVCtrl
                        animated:YES completion:NULL];
+//    self.blezierview=[[BlezierViewController alloc]initWithNibName:@"BlezierViewController" bundle:nil];
+//    
+//    
+//    _blezierview.modalPresentationStyle=UIModalPresentationPageSheet;
+//    _blezierview.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+//    //_drwVCtrl.planid=_companyid;
+//    //_drwVCtrl.tabtype=tabtype;
+//    //_drwVCtrl.delegate=self;
+//    [self presentViewController:_blezierview
+//                       animated:YES completion:NULL];
+    
+    
 }
 
 - (IBAction)cmpxtyofwrkbtn:(id)sender {

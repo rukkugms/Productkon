@@ -65,7 +65,15 @@ CGPoint midPoint(CGPoint p1, CGPoint p2);
   
      
     [lineColor setStroke];
-    [myPath strokeWithBlendMode:kCGBlendModeDifference alpha:1.0];
+    if (_newbrushtype==2) {
+        [myPath strokeWithBlendMode:kCGBlendModeClear
+                              alpha:1.0f];
+        
+    }
+    else{
+         [myPath strokeWithBlendMode:kCGBlendModeDifference alpha:1.0];
+    }
+   
     // Drawing code
    //[myPath stroke];
 }

@@ -532,6 +532,9 @@
 		D4EE6EC1198B85240027D8C1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EE6EC0198B85240027D8C1 /* CoreLocation.framework */; };
 		D4EF9F0C19EE2C5A00C6610B /* UIImagePickerController+Orientationfix.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EF9F0B19EE2C5A00C6610B /* UIImagePickerController+Orientationfix.m */; };
 		D4F0008818D2C478005A50A9 /* CompanyCmntscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F0008718D2C478005A50A9 /* CompanyCmntscell.xib */; };
+		D4F0940019F22C6100C3B527 /* BezierInterpView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F093FF19F22C6100C3B527 /* BezierInterpView.m */; };
+		D4F0940C19F22F2300C3B527 /* eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F0940B19F22F2300C3B527 /* eraser.png */; };
+		D4F0940E19F22F3100C3B527 /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F0940D19F22F3100C3B527 /* pencil.png */; };
 		D4F0AD4319306866004821DD /* GpMaterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F0AD3F19306866004821DD /* GpMaterViewController.m */; };
 		D4F0AD4419306866004821DD /* GpMaterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F0AD4019306866004821DD /* GpMaterViewController.xib */; };
 		D4F0AD4519306866004821DD /* Magpcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F0AD4119306866004821DD /* Magpcell.xib */; };
@@ -1312,6 +1315,10 @@
 		D4EF9F0A19EE2C5A00C6610B /* UIImagePickerController+Orientationfix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImagePickerController+Orientationfix.h"; sourceTree = "<group>"; };
 		D4EF9F0B19EE2C5A00C6610B /* UIImagePickerController+Orientationfix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImagePickerController+Orientationfix.m"; sourceTree = "<group>"; };
 		D4F0008718D2C478005A50A9 /* CompanyCmntscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyCmntscell.xib; sourceTree = "<group>"; };
+		D4F093FE19F22C6100C3B527 /* BezierInterpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BezierInterpView.h; sourceTree = "<group>"; };
+		D4F093FF19F22C6100C3B527 /* BezierInterpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BezierInterpView.m; sourceTree = "<group>"; };
+		D4F0940B19F22F2300C3B527 /* eraser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraser.png; sourceTree = "<group>"; };
+		D4F0940D19F22F3100C3B527 /* pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil.png; sourceTree = "<group>"; };
 		D4F0AD3E19306866004821DD /* GpMaterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GpMaterViewController.h; sourceTree = "<group>"; };
 		D4F0AD3F19306866004821DD /* GpMaterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GpMaterViewController.m; sourceTree = "<group>"; };
 		D4F0AD4019306866004821DD /* GpMaterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GpMaterViewController.xib; sourceTree = "<group>"; };
@@ -2082,8 +2089,12 @@
 		D4D570161772BE8800671A35 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				D4F0940B19F22F2300C3B527 /* eraser.png */,
+				D4F0940D19F22F3100C3B527 /* pencil.png */,
 				D40407D9192B171A00864BA4 /* myscroll.h */,
 				D40407DA192B171A00864BA4 /* myscroll.m */,
+				D4F093FE19F22C6100C3B527 /* BezierInterpView.h */,
+				D4F093FF19F22C6100C3B527 /* BezierInterpView.m */,
 				D4EC7E3E192A10D400C60BA9 /* MyLineDrawingView.h */,
 				D4EC7E3F192A10D400C60BA9 /* MyLineDrawingView.m */,
 				D49F86F118EEA36B00413CAD /* CKCalendarView.h */,
@@ -2526,6 +2537,7 @@
 				D41B14E6195BF4CE00DEED6E /* Relatedtocell.xib in Resources */,
 				64A09DB118605711001F74E2 /* appbar.delete.png in Resources */,
 				D4F0AD4519306866004821DD /* Magpcell.xib in Resources */,
+				D4F0940C19F22F2300C3B527 /* eraser.png in Resources */,
 				64428BBF192E08E800CB2CF9 /* Notepad.png in Resources */,
 				64A3B82418DFEF0B0015887F /* CommentsViewController.xib in Resources */,
 				6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */,
@@ -2634,6 +2646,7 @@
 				D4A16B4B1974EEA8002CA2A2 /* Outlookrecordaddview.xib in Resources */,
 				D4F7D9C6196E5B3B00B8F4D4 /* absentmanagement.png in Resources */,
 				D4EC1FE11875280500A55942 /* textbox.png in Resources */,
+				D4F0940E19F22F3100C3B527 /* pencil.png in Resources */,
 				D47A9B2819407CF1001CC416 /* othercompanyassestsicon.png in Resources */,
 				D49DE839185EB391006F1CDA /* closebutton@2x.png in Resources */,
 				D4A14A4C19CBEC96003C1193 /* search.png in Resources */,
@@ -2970,6 +2983,7 @@
 				D49F875918EEA36B00413CAD /* jobsitemodel.m in Sources */,
 				64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */,
 				D4A338D518F3EE8700E53FAC /* subheadermarkmodel.m in Sources */,
+				D4F0940019F22C6100C3B527 /* BezierInterpView.m in Sources */,
 				646A28B91937351D00902C4A /* Eqeventmdl.m in Sources */,
 				D410CC5119AB4AE50093DDE6 /* FtileViewController.m in Sources */,
 				649EB48B18A8DF4700CDBE28 /* DetailproHrViewController.m in Sources */,

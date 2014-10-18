@@ -22,6 +22,7 @@
     CGPoint previousPoint1;
     CGPoint previousPoint2;
 }
+@property(readwrite)NSInteger newbrushtype;
 @property(strong,nonatomic) UIColor *brushPattern;
 @property (nonatomic, retain) UIColor *lineColor;
 @property(strong,nonatomic)id delegate;
