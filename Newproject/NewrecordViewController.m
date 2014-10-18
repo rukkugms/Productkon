@@ -27,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self SelectAllServices];
     _proupdatebtn.enabled=YES;
     _jobupdatebtn.enabled=YES;
     _equupdatebtn.enabled=YES;
@@ -1383,10 +1384,10 @@ recordResults
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 200, 200)];
+                           initWithFrame:CGRectMake(0, 0, 230, 200)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 230, 200)];
     
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
@@ -1400,7 +1401,7 @@ recordResults
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 200);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(230, 200);
     
     //create a popover controller
     

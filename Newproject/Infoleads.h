@@ -27,6 +27,7 @@
 @property(strong,nonatomic)NSString*bidstatus;
 @property(strong,nonatomic)NSString *idvalue;
 @property(strong,nonatomic)NSString *leadassignto;
+@property(strong,nonatomic)NSString *assigntoname;
 @property(strong,nonatomic)NSString *leadstatus;
 
 

@@ -1767,7 +1767,14 @@ finishedSavingWithError:(NSError *)error
         //[NSData dataWithData:UIImagePNGRepresentation(image.image)];
         
         
-        _pictureimgvw.image=image1;
+        CGSize newsize=CGSizeMake(184, 95);
+        UIGraphicsBeginImageContext(newsize);
+        [image1 drawInRect:CGRectMake(0,0,newsize.width,newsize.height)];
+        UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        _pictureimgvw.image=newImage;
+
         NSLog(@"img%@",image1);
         
         

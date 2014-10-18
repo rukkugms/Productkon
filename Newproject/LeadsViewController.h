@@ -31,6 +31,8 @@
     NSString *phonenostring;
     NSInteger fmt;
     NSString *leadstg,*prjcttypestg,*industrystg,*statustype;
+    NSString *empid;
+    NSString *empname;
   }
 @property(strong,nonatomic)IndustrytpeViewController *industryctl;
 @property(strong,nonatomic)STViewController *statusctrl;
@@ -188,5 +190,11 @@
 
 @property(readwrite)NSInteger moduleid;
 
+@property(strong,nonatomic)NSMutableDictionary *empdict;
+@property(strong,nonatomic)NSMutableDictionary *revempdict;
+@property (strong, nonatomic) IBOutlet UIButton *assignto;
+@property(strong,nonatomic)NSArray *namelistarray;
+
+- (IBAction)selectassignto:(id)sender;
 
 @end
