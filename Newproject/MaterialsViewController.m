@@ -1793,9 +1793,16 @@
         UIImage *image1=  [[UIImage alloc]initWithData:data1];
         
         //[NSData dataWithData:UIImagePNGRepresentation(image.image)];
+        CGSize newsize=CGSizeMake(192, 110);
+        UIGraphicsBeginImageContext(newsize);
+        [image1 drawInRect:CGRectMake(0,0,newsize.width,newsize.height)];
+        UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
         
+        _picimageview.image=newImage;
+
         
-        _picimageview.image=image1;
+       
         NSLog(@"img%@",image1);
         _activitybtn.hidden=YES;
         [_activitybtn stopAnimating];

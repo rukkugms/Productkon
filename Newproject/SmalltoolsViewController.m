@@ -1362,7 +1362,14 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
         //[NSData dataWithData:UIImagePNGRepresentation(image.image)];
         
         
-        _picimageview.image=image1;
+        CGSize newsize=CGSizeMake(178, 97);
+        UIGraphicsBeginImageContext(newsize);
+        [image1 drawInRect:CGRectMake(0,0,newsize.width,newsize.height)];
+        UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        _picimageview.image=newImage;
+
         NSLog(@"img%@",image1);
         
         _soapResults = nil;

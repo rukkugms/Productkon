@@ -148,6 +148,9 @@
                 case 8:
                 return [_statearray count];
                 break;
+                case 9:
+                return [_empdict count];
+                break;
 
             default:
                 break;
@@ -264,6 +267,12 @@ if (tableView==_leadTable) {
                 break;
                 case 8:
                 cell.textLabel.text=[_statearray objectAtIndex:indexPath.row];
+                break;
+            case 9:
+                _namelistarray=[_empdict allKeys];
+                // cell.textLabel.text=[_namelistarray objectAtIndex:indexPath.row];
+                cell.textLabel.text=[NSString stringWithFormat:@"%@-%@",[_empdict objectForKey:[_namelistarray objectAtIndex:indexPath.row]],[_namelistarray objectAtIndex:indexPath.row]];
+             
                 break;
 
                 
@@ -427,6 +436,10 @@ if (tableView==_leadTable) {
 
                  
                  break;
+                 case 9:
+                  [_assignto setTitle:[NSString stringWithFormat:@"%@-%@",[_empdict objectForKey:[_namelistarray objectAtIndex:indexPath.row]],[_namelistarray objectAtIndex:indexPath.row]] forState:UIControlStateNormal];
+                  [self.popOverController dismissPopoverAnimated:YES];
+                 break;
 
              default:
                  break;
@@ -516,7 +529,7 @@ if (tableView==_leadTable) {
     _citytxtfld.text=@"";
     [_leadtypebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
     [_projecttype setTitle:@"Select" forState:UIControlStateNormal];
-    
+     [_assignto setTitle:@"Select" forState:UIControlStateNormal];
     
     _prjctyeartxtfld.text=@"";
     
@@ -630,7 +643,7 @@ if (tableView==_leadTable) {
     [_leadstatusBtn setTitle:info1.leadstatus forState:UIControlStateNormal];
     [_industrytypetxtfld setTitle:info1.Industrytype forState:UIControlStateNormal];
     [_prjctexcutntxtfld setTitle:info1.projectexecution forState:UIControlStateNormal];
-    
+   [_assignto setTitle:[NSString stringWithFormat:@"%@-%@",info1.leadassignto,info1.assigntoname] forState:UIControlStateNormal];
 
    
 }
@@ -1257,6 +1270,9 @@ else
     NSString *stid;
     
     stid=[_statedict objectForKey:_statebutton.titleLabel.text];
+    NSArray *array=[_assignto.titleLabel.text componentsSeparatedByString:@"-"];
+    NSString *namestring=[array objectAtIndex:0];
+    NSLog(@"%@",namestring);
 
     recordResults = FALSE;
     NSString *soapMessage;
@@ -1292,7 +1308,7 @@ else
                    "<ID>%@</ID>\n"
                    "</UpdateCLMDemo>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",info2.leadid,_cmpnttxtfld.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,stid,[_leadtypedict objectForKey:_leadtypebtnlbl.titleLabel.text],[_industrytypedict objectForKey:_industrytypetxtfld.titleLabel.text],[_projcttypedict objectForKey:_projecttype.titleLabel.text],_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,[_leadStatusdict objectForKey:_leadstatusBtn.titleLabel.text],[info2.bidstatus integerValue ],info2.idvalue];
+                   "</soap:Envelope>\n",info2.leadid,_cmpnttxtfld.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,stid,[_leadtypedict objectForKey:_leadtypebtnlbl.titleLabel.text],[_industrytypedict objectForKey:_industrytypetxtfld.titleLabel.text],[_projcttypedict objectForKey:_projecttype.titleLabel.text],_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],namestring,[_leadStatusdict objectForKey:_leadstatusBtn.titleLabel.text],[info2.bidstatus integerValue ],info2.idvalue];
                                                                                                                                                                                                                                     
     NSLog(@"soapmsg%@",soapMessage);
     
@@ -1338,6 +1354,9 @@ else
     NSString *stid;
    
     stid=[_statedict objectForKey:_statebutton.titleLabel.text];
+    NSArray *array=[_assignto.titleLabel.text componentsSeparatedByString:@"-"];
+    NSString *namestring=[array objectAtIndex:0];
+    NSLog(@"%@",namestring);
     
 
     soapMessage = [NSString stringWithFormat:
@@ -1371,7 +1390,7 @@ else
                    "<ID>%@</ID>\n"
                    "</SaveLead>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",Leadid,_cmpnttxtfld.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,stid,[_leadtypedict objectForKey:_leadtypebtnlbl.titleLabel.text],[_industrytypedict objectForKey:_industrytypetxtfld.titleLabel.text],[_projcttypedict objectForKey:_projecttype.titleLabel.text],_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,[_leadStatusdict objectForKey:_leadstatusBtn.titleLabel.text],[bidstatus integerValue],idvalue];
+                   "</soap:Envelope>\n",Leadid,_cmpnttxtfld.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,stid,[_leadtypedict objectForKey:_leadtypebtnlbl.titleLabel.text],[_industrytypedict objectForKey:_industrytypetxtfld.titleLabel.text],[_projcttypedict objectForKey:_projecttype.titleLabel.text],_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],namestring,[_leadStatusdict objectForKey:_leadstatusBtn.titleLabel.text],[bidstatus integerValue],idvalue];
     
     NSLog(@"soapmsg%@",soapMessage);
     
@@ -1882,6 +1901,56 @@ else
     }
     
 }
+-(void)Employeeselect
+{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Employeeselect xmlns=\"http://test.kontract360.com/\">\n"
+                   "</Employeeselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://test.kontract360.com/Employeeselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 -(void)UserLogmaininsert{
     recordResults = FALSE;
     
@@ -2835,6 +2904,15 @@ else
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"Assigntoname"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
     if([elementName isEqualToString:@"LeadStatus"])
     {
@@ -3271,7 +3349,42 @@ else
     }
 
 
+    if([elementName isEqualToString:@"EmployeeselectResponse"])
+    {
+        _empdict=[[NSMutableDictionary alloc]init];
+        _revempdict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     
+    if([elementName isEqualToString:@"cemp_id"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"vf_name"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"vl_name"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
 
 }
@@ -3427,6 +3540,13 @@ else
         
         recordResults = FALSE;
         _infoleads.leadassignto=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Assigntoname"])
+    {
+        
+        recordResults = FALSE;
+        _infoleads.assigntoname=_soapResults;
         _soapResults = nil;
     }
 
@@ -3741,6 +3861,29 @@ else
         _soapResults = nil;
         
     }
+    if([elementName isEqualToString:@"cemp_id"])
+    {
+        recordResults = FALSE;
+        empid=_soapResults;
+        _soapResults = nil;
+        
+        
+    }
+    if([elementName isEqualToString:@"vf_name"])
+    {
+        recordResults = FALSE;
+        empname=_soapResults;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"vl_name"])
+    {
+        recordResults = FALSE;
+        [_empdict setObject:empid forKey:[NSString stringWithFormat:@"%@ %@",empname,_soapResults]];
+        [_revempdict setObject:[NSString stringWithFormat:@"%@ %@",empname,_soapResults]forKey:empid];
+        _soapResults = nil;
+    }
+
 
 }
 -(void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -3775,6 +3918,7 @@ else
        [_prjctexcutntxtfld setTitle:@"Select" forState:UIControlStateNormal];
        _leadassigntotextfld.text=@"";
        [_leadstatusBtn setTitle:@"Select" forState:UIControlStateNormal];
+       [_assignto setTitle:@"Select" forState:UIControlStateNormal];
        _cmttxtbox.text=@"";
        _composecmtview.hidden=YES;
        _SearchingBar.text=@"";
@@ -4243,4 +4387,36 @@ else
 
 }
 
+- (IBAction)selectassignto:(id)sender
+{
+    [self Employeeselect];
+    poptype=9;
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 200, 250)];
+    
+    popoverView.backgroundColor = [UIColor lightTextColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 250)];
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 250);
+    
+    //create a popover controller
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    [self.popOverController presentPopoverFromRect:_assignto.frame
+                                            inView:self.scroll
+                          permittedArrowDirections:UIPopoverArrowDirectionUp
+                                          animated:YES];
+
+    
+}
 @end

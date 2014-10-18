@@ -851,7 +851,7 @@ finishedSavingWithError:(NSError *)error
     recordResults = FALSE;
     NSString *soapMessage;
     NSString *imagename;
-    
+    //NSData *encodeddata=UIImageJPEGRepresentation(_picimageview.image, 1);
     imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxfld.text];
     
    // NSString *imagename=[NSString stringWithFormat:@"Newimage.jpg"];
@@ -1897,12 +1897,20 @@ finishedSavingWithError:(NSError *)error
         NSData *data1=[_soapResults base64DecodedData];
         UIImage *image1=  [[UIImage alloc]initWithData:data1];
         
-        //[NSData dataWithData:UIImagePNGRepresentation(image.image)];
-        _activitybtn.hidden=YES;
+                CGSize newsize=CGSizeMake(192, 110);
+        UIGraphicsBeginImageContext(newsize);
+        [image1 drawInRect:CGRectMake(0,0,newsize.width,newsize.height)];
+        UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+
+        _picimageview.image=newImage;
+
+        
+            _activitybtn.hidden=YES;
         [_activitybtn stopAnimating];
          _addequipmentview.userInteractionEnabled=YES;
+
         
-        _picimageview.image=image1;
         NSLog(@"img%@",image1);
 
        // _picturelocation=_soapResults;
@@ -1929,6 +1937,16 @@ finishedSavingWithError:(NSError *)error
         
     }
 
+}
+-(UIImage*)imageWithImage:(UIImage*)image
+              scaledToSize:(CGSize)newSize;
+{
+    UIGraphicsBeginImageContext( newSize );
+    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
 }
 #pragma mark-IBActions
 

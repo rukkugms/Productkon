@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LeadsViewController">
             <connections>
                 <outlet property="ancelbtnlbl" destination="4pg-hv-nP6" id="mIJ-MQ-uKd"/>
+                <outlet property="assignto" destination="Mlh-wN-Tx5" id="zYs-Rd-Wcd"/>
                 <outlet property="citytxtfld" destination="Rn6-bg-TCW" id="QCT-AH-hoM"/>
                 <outlet property="cmpnttxtfld" destination="doj-Hv-AdB" id="ruj-X6-gxT"/>
                 <outlet property="cmtnav" destination="126" id="132"/>
@@ -21,7 +22,6 @@
                 <outlet property="emailidtxtfld" destination="91i-KM-HW8" id="HDd-uq-GaM"/>
                 <outlet property="industrytypetxtfld" destination="eT7-Sq-AoX" id="W95-eA-fXG"/>
                 <outlet property="leadTable" destination="32" id="35"/>
-                <outlet property="leadassigntotextfld" destination="bDs-wX-XFK" id="lKU-7b-g17"/>
                 <outlet property="leadstatusBtn" destination="fUm-vB-mIv" id="3Gy-75-6ym"/>
                 <outlet property="leadtypebtnlbl" destination="6cl-AO-G5M" id="Khr-vS-caV"/>
                 <outlet property="locationtxtfld" destination="Lik-gC-eBU" id="nQN-dE-eCS"/>
@@ -229,7 +229,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
                         <view multipleTouchEnabled="YES" contentMode="scaleToFill" id="37">
-                            <rect key="frame" x="164" y="47" width="715" height="807"/>
+                            <rect key="frame" x="107" y="47" width="715" height="807"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <navigationBar contentMode="scaleToFill" id="UYf-sv-u3f">
@@ -511,15 +511,6 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="bDs-wX-XFK">
-                                            <rect key="frame" x="423" y="489" width="220" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                            <connections>
-                                                <outlet property="delegate" destination="-1" id="LOY-ny-eRs"/>
-                                            </connections>
-                                        </textField>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Lead Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wEq-g2-tAb">
                                             <rect key="frame" x="423" y="549" width="78" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -607,6 +598,18 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Mlh-wN-Tx5">
+                                            <rect key="frame" x="423" y="489" width="220" height="37"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                            <state key="normal" title="Select" backgroundImage="textbox.png">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="selectassignto:" destination="-1" eventType="touchUpInside" id="sG2-09-ibi"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </scrollView>
                             </subviews>

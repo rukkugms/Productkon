@@ -1864,7 +1864,14 @@ recordResults = FALSE;
             //[NSData dataWithData:UIImagePNGRepresentation(image.image)];
             
             
-            _pictureimgview.image=image1;
+        CGSize newsize=CGSizeMake(190, 110);
+        UIGraphicsBeginImageContext(newsize);
+        [image1 drawInRect:CGRectMake(0,0,newsize.width,newsize.height)];
+        UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        _pictureimgview.image=newImage;
+
             NSLog(@"img%@",image1);
             
             
