@@ -11,16 +11,20 @@
 #include "MyLineDrawingView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "myscroll.h"
+#import "BezierInterpView.h"
 @protocol drawingDelgate <NSObject>
 
 -(void)toreloaddrawings;
 
+
 @end
+
 @protocol updateDelgate <NSObject>
 
 -(void) updatingtables;
 
 @end
+
 
 
 @interface DrawingViewController : UIViewController{
@@ -36,15 +40,22 @@
     UIBezierPath *myPath;
     //UIColor *brushPattern;
     NSInteger  path;
+    
+   
 
 }
+@property BOOL eraserActived;
+@property(readwrite)NSInteger brushtype;
+
 
 @property(nonatomic, weak)id<drawingDelgate>delegate;
 @property(nonatomic, weak)id<updateDelgate>newdelegate;
 @property(strong,nonatomic)UIImage *editedimage;
 @property(readwrite) NSInteger tabtype;
 @property(readwrite) NSInteger viewclck;
+
 @property(strong,nonatomic)MyLineDrawingView*mylineview;
+@property(strong,nonatomic) IBOutlet BezierInterpView *drawingView;
 @property(strong,nonatomic)myscroll *newscroll;
 /*outlets*/
 @property (strong, nonatomic) IBOutlet UIImageView *mainimg;
@@ -74,6 +85,7 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *savebtnlbl;
 @property(strong,nonatomic)IBOutlet UIActivityIndicatorView *activityindctr;
-- (IBAction)erasebtn:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UIButton *eraserButton;
 
 @end

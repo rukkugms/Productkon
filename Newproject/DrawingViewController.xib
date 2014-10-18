@@ -9,6 +9,8 @@
             <connections>
                 <outlet property="activityindctr" destination="Eyt-wL-R0I" id="Bam-yy-jFJ"/>
                 <outlet property="deletebtnlbl" destination="p5j-Qh-iKb" id="ssJ-j4-n82"/>
+                <outlet property="drawingView" destination="FoB-Dc-FZe" id="nWe-CY-PSK"/>
+                <outlet property="eraserButton" destination="Ldp-iP-QlR" id="S1z-lF-9FM"/>
                 <outlet property="mainimg" destination="CCO-mO-R8H" id="7dZ-dW-ARh"/>
                 <outlet property="newview" destination="58j-hV-NMc" id="1Qj-1F-h03"/>
                 <outlet property="savebtnlbl" destination="Nwx-fh-ybU" id="k2L-RD-05C"/>
@@ -37,6 +39,13 @@
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="58j-hV-NMc">
                             <rect key="frame" x="0.0" y="0.0" width="768" height="939"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FoB-Dc-FZe" customClass="BezierInterpView">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="939"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                            </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
                     </subviews>
@@ -90,10 +99,10 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </activityIndicatorView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ldp-iP-QlR">
-                    <rect key="frame" x="163" y="49" width="46" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ldp-iP-QlR">
+                    <rect key="frame" x="170" y="44" width="40" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button">
+                    <state key="normal" image="eraser.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -108,5 +117,6 @@
     <resources>
         <image name="appbar.close.png" width="76" height="76"/>
         <image name="appbar.delete.png" width="76" height="76"/>
+        <image name="eraser.png" width="40" height="40"/>
     </resources>
 </document>
