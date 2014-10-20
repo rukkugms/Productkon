@@ -954,6 +954,11 @@
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"State is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
+    else if([_ziptextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length ==0)
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Zip is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
     else  if ([_phonetxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length ==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
