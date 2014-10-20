@@ -14,5 +14,7 @@
 
 - (IBAction)clsebtn:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UITableView *processtable;
+@property (strong, nonatomic) IBOutlet UIView *titleview;
 
 @end
