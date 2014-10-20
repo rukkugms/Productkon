@@ -2157,13 +2157,13 @@ if([elementName isEqualToString:@"url"])
         }
         else{
             
-//            float hourly=[_dailytxtfld.text floatValue]/8;
-//            _hurlytxtfld.text=[NSString stringWithFormat:@"%g",hourly];
-//            float weekly=24*hourly;
-//            _weeklytxtfld.text=[NSString stringWithFormat:@"%g",weekly];
-//            float monthly=72*hourly;
-//            _monthlytxtfld.text=[NSString stringWithFormat:@"%g",monthly];
-//            
+            float hourly=[_dailytxtfld.text floatValue]/8;
+           // _hurlytxtfld.text=[NSString stringWithFormat:@"%g",hourly];
+            float weekly=24*hourly;
+            _weeklytxtfld.text=[NSString stringWithFormat:@"%g",weekly];
+            float monthly=72*hourly;
+            _monthlytxtfld.text=[NSString stringWithFormat:@"%g",monthly];
+            
         }
 
         
@@ -2187,12 +2187,12 @@ if([elementName isEqualToString:@"url"])
         }
         else{
             
-//            float hourly=[_weeklytxtfld.text floatValue]/24;
-//            _hurlytxtfld.text=[NSString stringWithFormat:@"%g",hourly];
-//            float daily=8*hourly;
-//            _dailytxtfld.text=[NSString stringWithFormat:@"%g",daily];
-//            float monthly=72*hourly;
-//            _monthlytxtfld.text=[NSString stringWithFormat:@"%g",monthly];
+            float hourly=[_weeklytxtfld.text floatValue]/24;
+            //_hurlytxtfld.text=[NSString stringWithFormat:@"%g",hourly];
+            //float daily=8*hourly;
+           // _dailytxtfld.text=[NSString stringWithFormat:@"%g",daily];
+            float monthly=72*hourly;
+            _monthlytxtfld.text=[NSString stringWithFormat:@"%g",monthly];
             
         }
 

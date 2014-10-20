@@ -924,6 +924,8 @@
     }
     else if(reqmdl.def==1){
         [_defaultcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        [_craftcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        craft=0;
         defaultcheck=1;
         _craftview.hidden=YES;
         _seperatorview.hidden=YES;
@@ -987,9 +989,12 @@
 }
 -(IBAction)defaultcheckaction:(id)sender
 {    defaultstring=@"default";
+    checkstring=@"clicked";
     if (defaultcheck==0) {
         [_defaultcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+            [_craftcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         defaultcheck=1;
+           craft=0;
         _craftview.hidden=YES;
         _seperatorview.hidden=YES;
         
@@ -1154,10 +1159,10 @@
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 150, 200)];
+                           initWithFrame:CGRectMake(0, 0, 211, 275)];
     
     popoverView.backgroundColor = [UIColor lightTextColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 150, 200)];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 211, 275)];
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
     _popOverTableView.rowHeight= 32;
@@ -1169,7 +1174,7 @@
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(150, 200);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(211, 275);
     
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]

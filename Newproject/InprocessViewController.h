@@ -10,4 +10,9 @@
 
 @interface InprocessViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITableViewCell *processcell;
+
+- (IBAction)clsebtn:(id)sender;
+
+
 @end

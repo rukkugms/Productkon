@@ -79,7 +79,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GroupMaterial.png" id="Tp6-WB-Ocq">
-                            <rect key="frame" x="44" y="36" width="75" height="75"/>
+                            <rect key="frame" x="52" y="36" width="75" height="75"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="oNf-zf-7KS">
