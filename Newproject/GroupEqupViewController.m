@@ -337,7 +337,7 @@
 }
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(tableView==_equpmenttable)
+    if(tableView==_equpmenttable||tableView==_popOverTableView)
         
     {
         return self.editing ;

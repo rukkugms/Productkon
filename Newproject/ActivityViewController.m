@@ -404,7 +404,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     }
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(tableView==_cmttable)
+    if(tableView==_cmttable||tableView==_popOverTableView)
         
     {
         return self.editing ;

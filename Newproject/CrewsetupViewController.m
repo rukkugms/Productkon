@@ -356,7 +356,7 @@
 }
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(tableView==_manpwrtable)
+    if(tableView==_manpwrtable||tableView==_popOverTableView)
         
     {
         return self.editing ;

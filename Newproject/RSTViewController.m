@@ -379,6 +379,16 @@
     }
     
 }
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView==_popOverTableView)
+        
+    {
+        return self.editing ;
+    }
+    return YES;
+    
+}
 -(void)UserRightsforparticularmoduleselect{
     recordResults = FALSE;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

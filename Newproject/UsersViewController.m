@@ -212,6 +212,8 @@
 
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (tableView==_usertable) {
+        
     
     if (editingStyle==UITableViewCellEditingStyleDelete) {
         [self UserLogmaindelete];
@@ -236,6 +238,17 @@
         }
         
     }
+    }
+    
+}
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView==_popOverTableView)
+        
+    {
+        return self.editing ;
+    }
+    return YES;
     
 }
 #pragma mark- WebService

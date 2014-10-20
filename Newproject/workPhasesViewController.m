@@ -179,7 +179,7 @@
     
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if (tableView==_phasetable) {
     if (editingStyle==UITableViewCellEditingStyleDelete) {
         [self UserLogmaindelete];
         path=indexPath.row;
@@ -204,6 +204,17 @@
         
         
     }
+    }
+    
+}
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView==_popOverTableView)
+        
+    {
+        return self.editing ;
+    }
+    return YES;
     
 }
 

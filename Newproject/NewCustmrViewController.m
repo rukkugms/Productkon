@@ -303,6 +303,17 @@
      [self.popOverController dismissPopoverAnimated:YES];
     
 }
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView==_popOverTableView)
+        
+    {
+        return self.editing ;
+    }
+    return YES;
+    
+}
+
 
 #pragma mark-webservice
 -(void)CustomerMasterselect{

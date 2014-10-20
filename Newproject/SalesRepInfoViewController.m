@@ -57,7 +57,6 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self Employeeselect];
     [self CustomerSalesRepInfoselect];
 
     
@@ -111,6 +110,8 @@
 }
 - (IBAction)editsalesaction:(id)sender
 {
+    [self Employeeselect];
+
     _cancelbtnlbl.enabled=NO;
     _updatebtn.enabled=YES;
     _salesRepTable.userInteractionEnabled=NO;
@@ -139,7 +140,9 @@
 
 }
 - (IBAction)addsalesaction:(id)sender
-{_cancelbtnlbl.enabled=YES;
+{   [self Employeeselect];
+
+    _cancelbtnlbl.enabled=YES;
     _updatebtn.enabled=YES;
     _salesRepTable.userInteractionEnabled=NO;
    // [_salesRepTable setEditing:NO animated:NO];
@@ -342,6 +345,17 @@
     }
     
 }
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView==_popovertableview)
+        
+    {
+        return self.editing ;
+    }
+    return YES;
+    
+}
+
 
 - (IBAction)closesalesreppage:(id)sender {
     [self dismissViewControllerAnimated:YES completion:NULL];

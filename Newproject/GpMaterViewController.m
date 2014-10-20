@@ -484,7 +484,7 @@
 }
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(tableView==_materailtable)
+    if(tableView==_materailtable||tableView==_popOverTableView)
         
     {
         return self.editing ;

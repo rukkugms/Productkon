@@ -708,6 +708,16 @@
     }
     
 }
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView==_popOverTableView)
+        
+    {
+        return self.editing ;
+    }
+    return YES;
+    
+}
 -(void)deleteaction
 {
         if (self.editing) {
