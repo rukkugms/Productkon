@@ -1589,6 +1589,7 @@
     
     mandropArea = [[UIView alloc] initWithFrame:CGRectMake(315, 40, 448, 742)];
     [mandropArea setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f]];
+    // [mandropArea setBackgroundColor:[UIColor redColor]];
     [self.manpwrdragview addSubview:mandropArea];
     
     CGRect contentFrame = dropAreaFrame;
@@ -1867,8 +1868,10 @@
     matraldropAreaFrame.origin.y = kNavBarHeight;
     matraldropAreaFrame.size.height -= kNavBarHeight;
     
-    materldropArea = [[UIView alloc] initWithFrame:CGRectMake(340, 45, 397, 700)];
-    [materldropArea setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f]];
+    materldropArea = [[UIView alloc] initWithFrame:CGRectMake(340, 50, 397, 700)];
+      // materldropArea = [[UIView alloc] initWithFrame:CGRectMake(315, 40, 448, 742)];
+   [materldropArea setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f]];
+    
     [self.matraltouchview addSubview:materldropArea];
     
     CGRect contentFrame = matraldropAreaFrame;
@@ -2091,7 +2094,7 @@
         
         [UIView animateWithDuration:0.3 animations:^
          {
-             CGRect frame = _generaltable.frame;
+             CGRect frame = _resourcegenraltable.frame;
              //frame.size.height = kCellHeight * [_Maintablescflddetailsarray count];
              _resourcegenraltable.frame = frame;
          }];
