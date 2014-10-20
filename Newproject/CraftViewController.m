@@ -1085,6 +1085,7 @@ if([elementName isEqualToString:@"BRDescription"])
 - (IBAction)addbtn:(id)sender {
         // [_crafttable setEditing:NO animated:NO];
     _crafttable.userInteractionEnabled=NO;
+    [_craftbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
     _addview.hidden=NO;
     
 }
@@ -1146,16 +1147,17 @@ if([elementName isEqualToString:@"BRDescription"])
 }
 - (IBAction)addmanpwrbtn:(id)sender {
     type=1;
-    _craftbtnlbl.titleLabel.text=@"";
+   
+    [_craftbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
     
     _manpwrmoduleid=26;
     [self UserRightsforparticularmoduleselect];
     
-    _manVCtrl=[[ManViewController alloc]initWithNibName:@"ManViewController" bundle:nil];
-    // }
-    _manVCtrl.modalPresentationStyle = UIModalPresentationFullScreen;
-       [self presentViewController:_manVCtrl
-                       animated:YES completion:NULL];
+//    _manVCtrl=[[ManViewController alloc]initWithNibName:@"ManViewController" bundle:nil];
+//    // }
+//    _manVCtrl.modalPresentationStyle = UIModalPresentationFullScreen;
+//       [self presentViewController:_manVCtrl
+//                       animated:YES completion:NULL];
 
     
     
