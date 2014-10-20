@@ -463,7 +463,7 @@ if (tableView==_leadTable) {
 }
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(tableView==_cmttable||_popOverTableView)
+    if(tableView==_cmttable||tableView==_popOverTableView)
         
     {
         return self.editing ;
@@ -670,7 +670,7 @@ if (tableView==_leadTable) {
     [_industrytypetxtfld setTitle:@"Select" forState:UIControlStateNormal];
     [_prjctexcutntxtfld setTitle:@"Select" forState:UIControlStateNormal];
 
-    
+    [_assignto setTitle:@"Select" forState:UIControlStateNormal];
     
     
     
@@ -1152,7 +1152,7 @@ else
 - (IBAction)selectstate:(id)sender
 {
     
-
+    [self Stateselect];
     poptype=8;
     UIViewController *popovercontent=[[UIViewController alloc]init];
     UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 200, 250)];
