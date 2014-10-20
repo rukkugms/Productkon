@@ -280,6 +280,16 @@
     }
     
 }
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView==_popOverTableView)
+        
+    {
+        return self.editing ;
+    }
+    return YES;
+    
+}
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //alternating cell back ground color
     if(tableView==_fleetTable )

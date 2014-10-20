@@ -463,7 +463,7 @@ if (tableView==_leadTable) {
 }
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(tableView==_cmttable)
+    if(tableView==_cmttable||_popOverTableView)
         
     {
         return self.editing ;
