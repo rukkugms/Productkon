@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Craftreqmtmdl.h"
+#import "ServiceViewController.h"
+#import "Rightscheck.h"
 
 @interface RSTViewController: UIViewController
 {
@@ -16,12 +18,15 @@
     BOOL recordResults;
     NSString *msgstring;
     NSInteger webtype;
+    NSString *userid;
+    NSInteger checkws;
    }
 
 
 @property(readwrite)NSInteger moduleid;
 -(IBAction)closesubtype:(id)sender;
-
+@property(strong,nonatomic)Rightscheck *rights;
+@property(strong,nonatomic)ServiceViewController *servicectrl;
 @property(strong,nonatomic)Craftreqmtmdl *subtypemdl;
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;
@@ -44,6 +49,7 @@
 - (IBAction)subtpebtn:(id)sender;
 - (IBAction)addbtn:(id)sender;
 - (IBAction)deletebtn:(id)sender;
+-(IBAction)toservice:(id)sender;
 
 @property(strong,nonatomic)NSMutableArray *Subtypelistarray;
 @property(strong,nonatomic)NSMutableArray *selectedsubtypearray;
@@ -58,6 +64,9 @@
 //Materials
 @property(readwrite)NSInteger materialmainid;
 @property(strong,nonatomic)IBOutlet UIButton *updatebtn;
+
+@property(strong,nonatomic)NSMutableArray *userrightsarray;
+@property(strong,nonatomic)NSString *result;
 
 
 
