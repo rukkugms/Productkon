@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
     _activityindctr.hidden=YES;
-     _eraserActived = YES;
+    
     // Do any additional setup after loading the view from its nib.
         if (_viewclck==1) {
             
@@ -86,12 +86,14 @@
 //        _mylineview.brushPattern=[UIColor colorWithRed:102.0/255.0 green:255.0/255.0 blue:0.0/255.0 alpha:1];
 //        [self.newview addSubview:_mylineview];
         
-        //_drawingView=[[BezierInterpView alloc]initWithFrame:CGRectMake(0, 0, 768, 939)];
-         self.drawingView.userInteractionEnabled=YES;
+        _drawingView=[[BezierInterpView alloc]init];
+        
+        self.drawingView.userInteractionEnabled=YES;
          [self.view setBackgroundColor:[UIColor whiteColor]];
         _newview.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:255.0/255.0f alpha:1.0f].CGColor;
         _newview.layer.borderWidth=5.0;
         [self.newview addSubview:_drawingView];
+         _eraserActived = YES;
        
 
 
@@ -588,20 +590,20 @@ if ([self.delegate respondsToSelector:@selector(toreloaddrawings)]) {
         switch (_tabtype) {
             case 1:
                 [self EquipmentUploadPlanDrawings];
-                _mylineview.userInteractionEnabled=NO;
+               // _mylineview.userInteractionEnabled=NO;
                 break;
 
             case 2:
                 [self AccebilityUploadPlanDrawings];
-                _mylineview.userInteractionEnabled=NO;
+               // _mylineview.userInteractionEnabled=NO;
                 break;
             case 3:
                [self MeetingUploadPlanDrawings];
-                _mylineview.userInteractionEnabled=NO;
+                //_mylineview.userInteractionEnabled=NO;
                 break;
             case 4:
                [self NotesUploadPlanDrawings];
-                _mylineview.userInteractionEnabled=NO;
+               // _mylineview.userInteractionEnabled=NO;
                 break;
                 
             default:
@@ -649,7 +651,11 @@ if ([self.delegate respondsToSelector:@selector(toreloaddrawings)]) {
         [dict setValue:[NSString stringWithFormat:@"%d", 1] forKey:@"eraser"];
     }
     
+    
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"eraserActived" object:self userInfo:dict];
+   
+    
 }
 
 @end
