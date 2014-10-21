@@ -130,7 +130,9 @@
         //        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     }
     if (tableView==_hrtable) {
-         Empdetails*empdetls1=(Empdetails *)[_hrlistarray objectAtIndex:indexPath.row];
+            Empdetails*empdetls1=(Empdetails *)[_hrlistarray objectAtIndex:indexPath.row];
+
+        
         _ssnlabel=(UILabel*)[cell viewWithTag:1];
         _ssnlabel.text=empdetls1.ssn;
         _firstnamelbl=(UILabel*)[cell viewWithTag:2];
@@ -152,19 +154,47 @@
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //alternating cell back ground color
     if (tableView==_hrtable) {
-        
+        Empdetails*empdetls1=(Empdetails *)[_hrlistarray objectAtIndex:indexPath.row];
+       
         
         if (indexPath.row%2 == 0) {
-            [cell setBackgroundColor:[UIColor whiteColor]];
+            if ([empdetls1.Inproceesstatus isEqualToString:@"true"]) {
+                
+                
+                
+                
+                [cell setBackgroundColor:[UIColor colorWithRed:255.0/255.0f green:174.0/255.0f blue:185.0/255.0f alpha:1.0f]];
+                
+                
+            }
+            else
+            {
+                [cell setBackgroundColor:[UIColor whiteColor]];
             
             
-        }else
+        }
+        }
+        else
         {
+            if ([empdetls1.Inproceesstatus isEqualToString:@"true"]) {
+                
+                
+                
+                
+                [cell setBackgroundColor:[UIColor colorWithRed:255.0/255.0f green:174.0/255.0f blue:185.0/255.0f alpha:1.0f]];
+                
+                
+            }
+            else
+            {
+
             [cell setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f]];
+            }
         }
         
     }
 }
+
 #pragma mark-Webservices
 -(void)AllSkills{
     webstring=@"skill";
@@ -304,6 +334,7 @@
     [_hrtable reloadData];
     if ([webstring isEqualToString:@"skill"]) {
         [self ListAllApplicants];
+        webstring=@"app";
     }
 }
 #pragma mark - XMLParser

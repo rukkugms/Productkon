@@ -26,7 +26,6 @@
 @end
 
 
-
 @interface DrawingViewController : UIViewController{
     BOOL recordResults;
     CGPoint lastPoint;
