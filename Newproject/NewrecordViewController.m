@@ -105,14 +105,14 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllServices xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SelectAllServices xmlns=\"http://test.kontract360.com/\">\n"
                    
                    "</SelectAllServices>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
     
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     //NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
    // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
@@ -122,7 +122,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SelectAllServices" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/SelectAllServices" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -157,7 +157,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<InsertSitevisitProductionRates xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<InsertSitevisitProductionRates xmlns=\"http://test.kontract360.com/\">\n"
                    "<Description>%@</Description>\n"
                    "<Value>%f</Value>\n"
                    "<PlanId>%@</PlanId>\n"
@@ -167,7 +167,7 @@
                    "</soap:Envelope>\n",_descptnview.text,[_valuetxtfld.text floatValue],_companyid,[serviceid integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
    // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
@@ -177,7 +177,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/InsertSitevisitProductionRates" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/InsertSitevisitProductionRates" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

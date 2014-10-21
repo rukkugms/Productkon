@@ -55,6 +55,7 @@
 
 
 
+
 //viewcontroller
 @property(strong,nonatomic)CompanyViewController *compVCtrl;
 @property(strong,nonatomic)DocmntViewController *docVCtrl;

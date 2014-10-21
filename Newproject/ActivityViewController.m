@@ -424,8 +424,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         
          Craftreqmtmdl*submdl=(Craftreqmtmdl *)[_folloarray objectAtIndex:indexPath.row];
         [_activityTypeBtn setTitle:submdl.Brdescriptn forState:UIControlStateNormal];
-        [self.popOverController dismissPopoverAnimated:YES];
-        }
+             }
         else if (poptype==2)
         {
             [self.popOverController dismissPopoverAnimated:YES];
@@ -438,8 +437,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
             NSArray*keys=[_empdict allKeys];
               NSString*name=[NSString stringWithFormat:@"%@-%@",[values objectAtIndex:indexPath.row],[keys objectAtIndex:indexPath.row]];
               [_empbtnlbl setTitle:name forState:UIControlStateNormal];
-          [self.popOverController dismissPopoverAnimated:YES];
-
+       
         }
         
         
@@ -449,7 +447,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         
     
     }
-  // [self.popOverController dismissPopoverAnimated:YES];
+  [self.popOverController dismissPopoverAnimated:YES];
     
     
     }
@@ -1101,6 +1099,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     [dateFormat setDateFormat:@"MM/dd/ yyyy"];
     NSString*date1=[dateFormat stringFromDate:curntdate];
     NSString*today=[NSString stringWithFormat:@"%@ %@",date1,time];
+    
     NSString*newstrg=  [_cmttxtbox.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
     newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
     newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
@@ -1285,7 +1284,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    
                    "<soap:Body>\n"
                    
-                   "<UserLogmaininsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserLogmaininsert xmlns=\"http://test.kontract360.com/\">\n"
                    "<dateandtime>%@</dateandtime>\n"
                    "<userid>%d</userid>\n"
                    "<moduleid>%d</moduleid>\n"
@@ -1302,7 +1301,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1310,7 +1309,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1359,7 +1358,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    
                    "<soap:Body>\n"
                    
-                   "<UserLogmaininsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserLogmaininsert xmlns=\"http://test.kontract360.com/\">\n"
                    "<dateandtime>%@</dateandtime>\n"
                    "<userid>%d</userid>\n"
                    "<moduleid>%d</moduleid>\n"
@@ -1376,7 +1375,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1384,7 +1383,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1433,7 +1432,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    
                    "<soap:Body>\n"
                    
-                   "<UserLogmaininsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserLogmaininsert xmlns=\"http://test.kontract360.com/\">\n"
                    "<dateandtime>%@</dateandtime>\n"
                    "<userid>%d</userid>\n"
                    "<moduleid>%d</moduleid>\n"
@@ -1450,7 +1449,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1458,7 +1457,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1509,7 +1508,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    
                    "<soap:Body>\n"
                    
-                   "<UserLogmaininsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserLogmaininsert xmlns=\"http://test.kontract360.com/\">\n"
                    "<dateandtime>%@</dateandtime>\n"
                    "<userid>%d</userid>\n"
                    "<moduleid>%d</moduleid>\n"
@@ -1526,7 +1525,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1534,7 +1533,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1583,7 +1582,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    
                    "<soap:Body>\n"
                    
-                   "<UserLogmaininsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserLogmaininsert xmlns=\"http://test.kontract360.com/\">\n"
                    "<dateandtime>%@</dateandtime>\n"
                    "<userid>%d</userid>\n"
                    "<moduleid>%d</moduleid>\n"
@@ -1600,7 +1599,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1608,7 +1607,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
