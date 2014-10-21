@@ -1944,6 +1944,16 @@ finishedSavingWithError:(NSError *)error
         }
     }
 }
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView==_popOverTableView)
+        
+    {
+        return self.editing ;
+    }
+    return YES;
+    
+}
 
 
 #pragma mark-Searchbar

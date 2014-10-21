@@ -48,7 +48,7 @@
                     </items>
                 </navigationBar>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="Yq1-CK-Dh3">
-                    <rect key="frame" x="478" y="3" width="37" height="37"/>
+                    <rect key="frame" x="377" y="455" width="37" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </activityIndicatorView>

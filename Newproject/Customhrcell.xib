@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="cellphnlbl" destination="mrm-rS-RlN" id="n2A-Gd-r7d"/>
                 <outlet property="craftlbl" destination="ddR-wJ-fpF" id="mx2-BQ-s0K"/>
+                <outlet property="disclosurebtn" destination="ETM-dQ-1YF" id="QTT-Rv-fv4"/>
                 <outlet property="firstnamelbl" destination="0mn-JY-EL6" id="LIF-dq-gXD"/>
                 <outlet property="hrtblecell" destination="lhY-D8-axz" id="SUX-kL-tNc"/>
                 <outlet property="lastnamelabel" destination="ztJ-DL-yfz" id="MRS-Cx-nkm"/>
@@ -91,8 +92,21 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ETM-dQ-1YF">
+                        <rect key="frame" x="105" y="0.0" width="53" height="43"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" image="carat.png">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="selectdisclosure:" destination="-1" eventType="touchUpInside" id="Y5A-oC-8L7"/>
+                        </connections>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="carat.png" width="11" height="11"/>
+    </resources>
 </document>
