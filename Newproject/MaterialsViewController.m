@@ -1984,6 +1984,7 @@ else
     _stockinhandtxtfld.text=@"";
     _picimageview.image=[UIImage imageNamed:@"mNoImage"];
     [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+     [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
 
 }
 

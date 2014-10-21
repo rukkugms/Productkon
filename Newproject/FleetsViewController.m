@@ -2080,6 +2080,7 @@ if([elementName isEqualToString:@"url"])
     _stockinhandtxtfld.text=@"";
     _picimageview.image=[UIImage imageNamed:@"mNoImage"];
     [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+     [_subcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
 
 
 }
