@@ -33,6 +33,7 @@
     
     NSInteger webtype,optnidntfr;
     NSInteger activate,msgcount,tileschecking;
+    
   
 }
 
