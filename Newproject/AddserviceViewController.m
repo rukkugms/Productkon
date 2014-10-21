@@ -81,7 +81,7 @@
     _popovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
     [popoverview addSubview:_popovertableview];
     popovercontent.view=popoverview;
-    popovercontent.contentSizeForViewInPopover=CGSizeMake(235, 250);
+    popovercontent.contentSizeForViewInPopover=CGSizeMake(235, 300);
     self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
     [self.popovercontroller presentPopoverFromRect:_servicebtn.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
@@ -190,6 +190,17 @@
         }
     }
 }
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView==_popovertableview)
+        
+    {
+        return self.editing ;
+    }
+    return YES;
+    
+}
+
 #pragma mark-Webservices
 
 -(void)SelectAllServices{

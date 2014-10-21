@@ -362,6 +362,12 @@
         return self.editing ;
         }
     }
+    if(tableView==_popovertableview)
+        
+    {
+        return self.editing ;
+    }
+
     return YES;
     
 }

@@ -8,13 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InprocessViewController : UIViewController
+@interface InprocessViewController : UIViewController{
+    
+  BOOL   recordResults;
 
+
+
+
+}
+/*xmlparse*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
+/*IBoutlets*/
 @property (strong, nonatomic) IBOutlet UITableViewCell *processcell;
-
-- (IBAction)clsebtn:(id)sender;
-
 @property (strong, nonatomic) IBOutlet UITableView *processtable;
 @property (strong, nonatomic) IBOutlet UIView *titleview;
+
+/*Actions*/
+- (IBAction)clsebtn:(id)sender;
 
 @end

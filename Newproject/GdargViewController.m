@@ -1547,9 +1547,11 @@
     {
         return self.editing ;
     }
+    
     return YES;
     
 }
+
 #pragma mark -MANPOWER DRAG &DROP
 #pragma mark UIGestureRecognizer
 

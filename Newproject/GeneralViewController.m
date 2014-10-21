@@ -1238,6 +1238,17 @@
 
     
 }
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView==_popovertableview)
+        
+    {
+        return self.editing ;
+    }
+    return YES;
+    
+}
+
 #pragma mark-textview Delegate
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
