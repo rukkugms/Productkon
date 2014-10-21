@@ -7,13 +7,16 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface BezierInterpView : UIView
 
 @property (nonatomic,retain)  UIImage *incrementalImage;
 @property (nonatomic,retain)  UIBezierPath *path;
 @property (nonatomic, retain) UIBezierPath *rectpath;
+@property (nonatomic, retain)NSMutableDictionary *erasedict;
+@property(readwrite)  NSInteger flag;
+@property(readwrite)NSInteger newbrushtype;
  
-@property  NSInteger flag;
- 
+
 
 @end

@@ -20,6 +20,7 @@
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
+    
     if (self = [super initWithCoder:aDecoder])
     {
         [self setMultipleTouchEnabled:NO];
@@ -33,20 +34,28 @@
         path = [UIBezierPath bezierPath];
                  
         [path setLineWidth:lineWidth];
-                 
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(eraserActived:)
-                                                     name:@"eraserActived"
-                                                   object:nil];
+       _erasedict= [[NSMutableDictionary alloc] init];
+        [_erasedict setValue:[NSString stringWithFormat:@"%d", 1] forKey:@"eraser"];
+
+        NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+        [defaults setObject:_erasedict forKey:@"Brushcolor"];
+        [defaults synchronize];
+
+//        [[NSNotificationCenter defaultCenter] addObserver:self
+//                                                 selector:@selector(eraserActived:)
+//                                                     name:@"eraserActived"
+//                                                   object:nil];
     }
+    
     
     return self;
     
 }
 
 - (void)drawRect:(CGRect)rect   
-{  
-    if(flag == 0){
+{
+    
+      if(flag == 0){
         [[UIColor whiteColor] setStroke];
     }else{
         [[UIColor blackColor] setStroke];
@@ -60,6 +69,14 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event  
 {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    _erasedict = [defaults objectForKey:@"Brushcolor"];
+    flag=[[_erasedict objectForKey:@"eraser"]integerValue];
+    
+    NSLog(@"flag%d",flag);
+
     if(flag == 0){
         [path setLineWidth:eraserWidth];
     }else{  
@@ -88,7 +105,14 @@
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{     
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    _erasedict = [defaults objectForKey:@"Brushcolor"];
+    flag=[[_erasedict objectForKey:@"eraser"]integerValue];
+    
+    NSLog(@"flag%d",flag);
+
     [self drawBitmap];
     [self setNeedsDisplay];
     pts[0] = [path currentPoint]; // let the second endpoint of the current Bezier segment be the first one for the next Bezier segment
@@ -104,6 +128,7 @@
 
 - (void)drawBitmap
 {
+   
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, YES, 0.0);
     
     if(flag == 0){
@@ -124,16 +149,6 @@
     UIGraphicsEndImageContext();
 }
 
-- (void)eraserActived:(NSNotification*)notification
-{
-    if ([[notification name] isEqualToString:@"eraserActived"]){
-        
-        flag = [[[notification userInfo] valueForKey:@"eraser"] integerValue];
-        
-        NSLog(@"Notification With X1 %d", flag);
-        
-    }
-}
 
 
 @end

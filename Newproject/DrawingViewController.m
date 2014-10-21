@@ -26,6 +26,12 @@
     }
     return self;
 }
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+   
+}
 
 - (void)viewDidLoad
 {
@@ -102,7 +108,10 @@
 }
 
 
+
+
 -(void)viewWillAppear:(BOOL)animated{
+   
     [super viewWillAppear:animated];
     _activityindctr.hidden=YES;
 }
@@ -120,7 +129,7 @@
     [self setMainimg:nil];
     [self setTempimg:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
+      // Release any retained subviews of the main view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -510,22 +519,23 @@ if ([self.delegate respondsToSelector:@selector(toreloaddrawings)]) {
 
 
 - (IBAction)deletebtn:(id)sender {
-//      [_mylineview setBackgroundColor:[UIColor whiteColor]];
-//    [self.mylineview removeFromSuperview];
-//    _newview.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:255.0/255.0f alpha:1.0f].CGColor;
-//    _newview.layer.borderWidth=5.0;
-//    _mylineview = [[MyLineDrawingView alloc] initWithFrame:CGRectMake(0, 0, 768, 954)];
-//    _mylineview.backgroundColor=[UIColor clearColor];
-//    [self.newview addSubview:_mylineview];
+   
+   
     if(_drawingView.incrementalImage){
         _drawingView.incrementalImage = FALSE;
         [_drawingView setNeedsDisplay];
         
         _eraserActived = NO;
+    
         
         [self sendNotification];
         
     }
+        
+    
+  
+    
+    
 
 
 }
@@ -634,9 +644,12 @@ if ([self.delegate respondsToSelector:@selector(toreloaddrawings)]) {
 
 - (void)sendNotification
 {
+    
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+   
     
     if (_eraserActived) {
+        _brushtype=1;
         _eraserActived = NO;
         
         [_eraserButton setImage:[UIImage imageNamed:@"pencil.png"] forState:UIControlStateNormal];
@@ -645,17 +658,24 @@ if ([self.delegate respondsToSelector:@selector(toreloaddrawings)]) {
         
     }else{
         _eraserActived = YES;
+         _brushtype=2;
         
         [_eraserButton setImage:[UIImage imageNamed:@"eraser.png"] forState:UIControlStateNormal];
         
         [dict setValue:[NSString stringWithFormat:@"%d", 1] forKey:@"eraser"];
     }
+   // [_drawingView eraserflag:dict];
+    _drawingView.flag=[[dict objectForKey:@"eraser"]integerValue];
+    NSLog(@"%d",_drawingView.flag);
+    _drawingView.newbrushtype=_brushtype;
+     NSLog(@"%d",_drawingView.newbrushtype);
+    
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    [defaults setObject:dict forKey:@"Brushcolor"];
+    [defaults synchronize];
     
     
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"eraserActived" object:self userInfo:dict];
    
-    
-}
+   }
 
 @end
