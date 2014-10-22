@@ -449,7 +449,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         
     
     }
-  
+  [self.popOverController dismissPopoverAnimated:YES];
     
     
     }
