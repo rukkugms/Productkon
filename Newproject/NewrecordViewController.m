@@ -454,6 +454,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 -(void)SitevisitInsertmeetingnotes{
     recordResults = FALSE;
     NSString *filename;
+   
     if ([_meetgdetailslbl.text isEqualToString:@""]) {
         
     
@@ -490,7 +491,17 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     
     
-    
+//    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+//    [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
+//    NSDate *dates = [dateFormat1 dateFromString:_notedatebtnlbl.titleLabel.text];
+//    NSLog(@"s%@",dates);
+//    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
+//    [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
+//    
+//    NSString*    dateString = [dateFormat2 stringFromDate:dates];
+//    NSString*datetime=[NSString stringWithFormat:@"%@ %@",dateString,_timebtn.titleLabel.text];
+//    NSLog(@"%@",datetime);
+
     NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
     [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
     NSDate *dates = [dateFormat1 dateFromString:_datebtnlbl.titleLabel.text];
@@ -500,7 +511,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     NSString*    dateString = [dateFormat2 stringFromDate:dates];
     _datesstrg=dateString;
-    if (_datesstrg.length==0) {
+    if (dateString.length==0) {
         NSDate *daa=[NSDate date];
         NSLog(@"%@",daa);
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
@@ -508,8 +519,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         NSString*curntdate = [dateFormat stringFromDate:daa];
         NSLog(@"%@",curntdate);
         dateString=curntdate;
-        
-    }
+           }
        soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -527,7 +537,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    "<Type>%d</Type>\n"
                    "</SitevisitInsertmeetingnotes>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",   dateString ,_meetgdetailslbl.text,0,_companyid,filename,typ];
+                   "</soap:Envelope>\n", dateString ,_meetgdetailslbl.text,0,_companyid,filename,typ];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1824,41 +1834,41 @@ recordResults
 
 }
 
-#pragma mark-Button Action
--(IBAction)addtime:(id)sender
-{
-    // _datepicker.hidden=NO;
-    UIViewController *viewCon = [[UIViewController alloc] init];
-    _timepick = [[UIDatePicker alloc]initWithFrame:CGRectMake(5, 0, 0, 0)];
-    _timepick.datePickerMode =UIDatePickerModeTime;
-    [_timepick addTarget:self action:@selector(dateChanged1) forControlEvents:UIControlEventValueChanged];
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"HH:mm dd MMM yyyy"];
-    [viewCon.view addSubview:_timepick];
-    viewCon.preferredContentSize = _timepick.bounds.size ; // Set the content size
-    
-    _popOverController = [[UIPopoverController alloc] initWithContentViewController:viewCon];
-    
-    
-    [_popOverController presentPopoverFromRect:_timebtn.frame
-                                        inView:self.view
-                      permittedArrowDirections:UIPopoverArrowDirectionUp | UIPopoverArrowDirectionDown
-                                      animated:YES];
-
-}
-#pragma mark-picker method
--(void)dateChanged1{
-    
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"hh:mm a"];
-    NSString *currentTime = [dateFormatter stringFromDate:_timepick.date];
-    NSLog(@"%@", currentTime);
-    _timebtn.titleLabel.text=currentTime;
-    
-    
-}
-
+//#pragma mark-Button Action
+//-(IBAction)addtime:(id)sender
+//{
+//     _timepick.hidden=NO;
+//    UIViewController *viewCon = [[UIViewController alloc] init];
+//    _timepick = [[UIDatePicker alloc]initWithFrame:CGRectMake(5, 0, 0, 0)];
+//    _timepick.datePickerMode =UIDatePickerModeTime;
+//    [_timepick addTarget:self action:@selector(dateChanged1) forControlEvents:UIControlEventValueChanged];
+//    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+//    [dateFormat setDateFormat:@"HH:mm dd MMM yyyy"];
+//    [viewCon.view addSubview:_timepick];
+//    viewCon.preferredContentSize = _timepick.bounds.size ; // Set the content size
+//    
+//    _popOverController = [[UIPopoverController alloc] initWithContentViewController:viewCon];
+//    
+//    
+//    [_popOverController presentPopoverFromRect:_timebtn.frame
+//                                        inView:self.view
+//                      permittedArrowDirections:UIPopoverArrowDirectionUp | UIPopoverArrowDirectionDown
+//                                      animated:YES];
+//
+//}
+//#pragma mark-picker method
+//-(void)dateChanged1{
+//    
+//    
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"hh:mm a"];
+//    NSString *currentTime = [dateFormatter stringFromDate:_timepick.date];
+//    NSLog(@"%@", currentTime);
+//    [_timebtn setTitle:currentTime forState:UIControlStateNormal];
+//    
+//    _timepick.hidden=YES;
+//}
+//
 
 - (IBAction)clsebtn:(id)sender {
      if ([self.delegate respondsToSelector:@selector(toreloadatable)]) {
