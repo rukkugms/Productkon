@@ -10,7 +10,7 @@
 
 #import "ViewController.h"
 #import "HomeViewController.h"
-
+#import "Timeoutmdl.h"
 @implementation AppDelegate
 
 
@@ -24,7 +24,15 @@
     self.navgcntrl=[[UINavigationController alloc]initWithRootViewController:_viewController];
     self.window.rootViewController = self.navgcntrl;
     [self.window makeKeyAndVisible];
-    return YES;
+   
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidTimeout:) name:kApplicationDidTimeoutNotification object:nil];
+
+return YES;
+}
+
+- (void) applicationDidTimeout:(NSNotification *) notif {
+    [self targetMethod];
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -37,11 +45,11 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
  
-      _timer=   [NSTimer scheduledTimerWithTimeInterval:600.0
-                                               target:self
-                                             selector:@selector(targetMethod)
-                                             userInfo:nil
-                                              repeats:NO];
+//      _timer=   [NSTimer scheduledTimerWithTimeInterval:600.0
+//                                               target:self
+//                                             selector:@selector(targetMethod)
+//                                             userInfo:nil
+//                                              repeats:NO];
     
 
     
@@ -101,17 +109,7 @@
 }
 -(void)targetMethod{
     
-    if ([_timer isValid]) {
-        
-        [_timer invalidate];
-        
-        //UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"Time Out" message:@"timerinvalidate." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-       // [alert show];
-    }
-
-   // UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"Time Out" message:@"20 mins..." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-   // [alert show];
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+       NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center postNotification:[NSNotification notificationWithName:@"appDidEnterForeground" object:nil]];
     
     
