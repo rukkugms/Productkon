@@ -344,7 +344,7 @@ return cell;
                    
                    "<soap:Body>\n"
                    
-                   "<JobsSelect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<JobsSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    
                    "</JobsSelect>\n"
@@ -361,7 +361,7 @@ return cell;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/JobsSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/JobsSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -397,7 +397,7 @@ return cell;
                    
                    "<soap:Body>\n"
                    
-                   "<SiteInSelect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<SiteInSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<MainId>%d</MainId>\n"
                    
                    "</SiteInSelect>\n"
@@ -414,7 +414,7 @@ return cell;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/SiteInSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SiteInSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -455,7 +455,7 @@ return cell;
                    
                    "<soap:Body>\n"
                    
-                   "<SiteInUpdate xmlns=\"http://test.kontract360.com/\">\n"
+                   "<SiteInUpdate xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<MainId>%d</MainId>\n"
                    "<ConfirmSiteIn>%d</ConfirmSiteIn>\n"
                    "<Notes>%@</Notes>\n"
@@ -476,7 +476,7 @@ return cell;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/SiteInUpdate" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SiteInUpdate" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -510,7 +510,7 @@ return cell;
                    
                    "<soap:Body>\n"
                    
-                   "<JobsSelect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<JobsSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    
                    "</JobsSelect>\n"
@@ -527,7 +527,7 @@ return cell;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/JobsSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/JobsSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -564,7 +564,7 @@ return cell;
                    
                    "<soap:Body>\n"
                    
-                   "<JOB1Select xmlns=\"http://test.kontract360.com/\">\n"
+                   "<JOB1Select xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<JobNumber>%@</JobNumber>\n"
                    
                    "</JOB1Select>\n"
@@ -581,7 +581,7 @@ return cell;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/JOB1Select" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/JOB1Select" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -621,7 +621,7 @@ return cell;
                    
                    "<soap:Body>\n"
                    
-                   "<SiteOutInsert xmlns=\"http://test.kontract360.com/\">\n"
+                   "<SiteOutInsert xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<MainId>%d</MainId>\n"
                    "<JobNumber>%@</JobNumber>\n"
                    "<JobSite>%@</JobSite>\n"
@@ -647,7 +647,7 @@ return cell;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/SiteOutInsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SiteOutInsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -684,7 +684,7 @@ return cell;
                    
                    "<soap:Body>\n"
                    
-                   "<StockInInsert xmlns=\"http://test.kontract360.com/\">\n"
+                   "<StockInInsert xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<MainId>%d</MainId>\n"
                    "<JobNumber>%@</JobNumber>\n"
                    "<JobSite>%@</JobSite>\n"
@@ -709,7 +709,7 @@ return cell;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/StockInInsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/StockInInsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -745,7 +745,7 @@ return cell;
                    
                    "<soap:Body>\n"
                    
-                   "<NotesSiteInselect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<NotesSiteInselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<MainId>%d</MainId>\n"
                    
                    "</NotesSiteInselect>\n"
@@ -762,7 +762,7 @@ return cell;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/NotesSiteInselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/NotesSiteInselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -799,7 +799,7 @@ return cell;
                    
                    "<soap:Body>\n"
                    
-                   "<SiteInExceptionUpdate xmlns=\"http://test.kontract360.com/\">\n"
+                   "<SiteInExceptionUpdate xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<MainId>%d</MainId>\n"
                    "<Notes>%@</Notes>\n"
                    "</SiteInExceptionUpdate>\n"
@@ -816,7 +816,7 @@ return cell;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/SiteInExceptionUpdate" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SiteInExceptionUpdate" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

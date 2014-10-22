@@ -10,7 +10,7 @@
 
 #import "ViewController.h"
 #import "HomeViewController.h"
-#import "Timeoutmdl.h"
+//#import "Timeoutmdl.h"
 @implementation AppDelegate
 
 
@@ -25,13 +25,13 @@
     self.window.rootViewController = self.navgcntrl;
     [self.window makeKeyAndVisible];
    
-[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidTimeout:) name:kApplicationDidTimeoutNotification object:nil];
+//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidTimeout:) name:kApplicationDidTimeoutNotification object:nil];
 
 return YES;
 }
 
 - (void) applicationDidTimeout:(NSNotification *) notif {
-    [self targetMethod];
+   // [self targetMethod];
     
 }
 
@@ -109,6 +109,8 @@ return YES;
 }
 -(void)targetMethod{
     
+    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"Time Out" message:@"5 mins....." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    [alert show];
        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center postNotification:[NSNotification notificationWithName:@"appDidEnterForeground" object:nil]];
     
