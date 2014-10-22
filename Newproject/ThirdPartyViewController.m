@@ -2123,6 +2123,8 @@ finishedSavingWithError:(NSError *)error
     _pictureimgvw.image=[UIImage imageNamed:@"mNoImage"];
     [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
     [_typesearchlbl setTitle:@"Select" forState:UIControlStateNormal];
+    [_checksubtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+
 
 
 
@@ -2137,6 +2139,8 @@ finishedSavingWithError:(NSError *)error
 }
 
 - (IBAction)addbtn:(id)sender {
+    [_checksubtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+
     imagechecker=1;
      _updatebtn.enabled=YES;
        _thirdprtyTable.userInteractionEnabled=NO;

@@ -1816,6 +1816,8 @@ finishedSavingWithError:(NSError *)error
     _stckinhandtxtfld.text=@"";
      [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
       _imageview.image=[UIImage imageNamed:@"mNoImage"];
+     [_checksubtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+     [_checksaftybtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     
 }
 - (IBAction)deletebtn:(id)sender{
@@ -1870,6 +1872,8 @@ finishedSavingWithError:(NSError *)error
     _cancelbtn.enabled=YES;
        _navItem.title=@"Create";
     _consumbleTable.userInteractionEnabled=NO;
+    [_checksubtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    [_checksaftybtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     
     
 }

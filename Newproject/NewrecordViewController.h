@@ -30,6 +30,10 @@
     
   //  id <newrecordDelgate>Delegate;
 }
+@property (strong, nonatomic) IBOutlet UIButton *timebtn;
+- (IBAction)addtime:(id)sender;
+@property(strong,nonatomic)UIDatePicker *timepick;
+
 @property(strong,nonatomic)basicreqmdl*basicmdl;
 @property(strong,nonatomic)NSMutableArray * allrequirementarray;
 @property(strong,nonatomic)NSString*curntdatestrg;

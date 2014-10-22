@@ -1549,7 +1549,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     _addview.hidden=NO;
     _cancelbtnlbl.enabled=YES;
     _navtitle.title=@"Create";
-
+ [_checksubbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
 
 }
 
@@ -1673,6 +1673,7 @@ else
 }
 
 - (IBAction)cancelbtn:(id)sender {
+     [_checksubbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     _codetxtfld.text=@"";
     _resultdisplaylabel.hidden=YES;
     _destxtfld.text=@"";

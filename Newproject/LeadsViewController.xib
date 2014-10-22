@@ -228,7 +228,7 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
-                        <view multipleTouchEnabled="YES" contentMode="scaleToFill" id="37">
+                        <view hidden="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="37">
                             <rect key="frame" x="107" y="47" width="715" height="807"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -319,7 +319,7 @@
                                             <rect key="frame" x="80" y="191" width="221" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             <connections>
                                                 <outlet property="delegate" destination="-1" id="Z8e-Hb-SfK"/>
                                             </connections>

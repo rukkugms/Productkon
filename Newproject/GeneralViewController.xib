@@ -19,6 +19,7 @@
                 <outlet property="scroll" destination="E5Q-av-DHl" id="c04-kb-pF3"/>
                 <outlet property="subunittxtfld" destination="AaG-dQ-q9d" id="Kb9-MT-uBq"/>
                 <outlet property="unittxtfld" destination="Szb-ZO-QPb" id="iqf-6K-DnM"/>
+                <outlet property="updatebtn" destination="cPo-ua-EO2" id="4DM-O9-WHn"/>
                 <outlet property="view" destination="DmA-3W-j70" id="Rwj-Ig-nuU"/>
             </connections>
         </placeholder>

@@ -1977,7 +1977,7 @@ else
 
 - (IBAction)cancelbtn:(id)sender {
     _codetxtfld.text=@"";
-    
+    _unitofmesuretxtfld.text=@"";
     _destxtfld.text=@"";
     _subtyptxtfld.text=@"";
     _unitcosttxtfld.text=@"";
@@ -2168,6 +2168,7 @@ else
         _picimageview.image=[UIImage imageNamed:@"mNoImage"];
         [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
         _searchbar.text=@"";
+        _unitofmesuretxtfld.text=@"";
         
     }
 

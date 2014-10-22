@@ -275,6 +275,16 @@
 }
 
 -(void)SaveSiteVisitGeneral{
+    NSString*newstrg=  [_facilitytxtview.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+    
+    NSString*newstrg2=  [_scpeofwrktxtview.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg2=  [newstrg2 stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg2=  [newstrg2 stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg2=  [newstrg2 stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+
     
     recordResults = FALSE;
     NSString *soapMessage;
@@ -300,7 +310,7 @@
                    "<PlanId>%@</PlanId>\n"
                    "</SaveSiteVisitGeneral>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_companynametxtfld.text,_loctntxtfld.text,_ziptxtfld.text,_complextyofwrkbtnlbl.titleLabel.text,_facilitytxtview.text,_scpeofwrktxtview.text,_Accibltylblview.text,_equipmnttxtview.text,_companyid];
+                   "</soap:Envelope>\n",_companynametxtfld.text,_loctntxtfld.text,_ziptxtfld.text,_complextyofwrkbtnlbl.titleLabel.text,newstrg,newstrg2,_Accibltylblview.text,_equipmnttxtview.text,_companyid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -337,7 +347,11 @@
     
     recordResults = FALSE;
     NSString *soapMessage;
-    
+    NSString*newstrg=  [_Accibltylblview.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -352,7 +366,7 @@
                    "<PlanId>%@</PlanId>\n"
                    "</SaveSiteVisitAccessibility>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_Accibltylblview.text,_companyid];
+                   "</soap:Envelope>\n",newstrg,_companyid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -388,7 +402,11 @@
     
     recordResults = FALSE;
     NSString *soapMessage;
-    
+    NSString*newstrg=  [_equipmnttxtview.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -403,7 +421,7 @@
                    "<PlanId>%@</PlanId>\n"
                    "</SaveSiteVisitEquipments>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_equipmnttxtview.text,_companyid];
+                   "</soap:Envelope>\n",newstrg,_companyid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -439,6 +457,7 @@
     
     recordResults = FALSE;
     NSString *soapMessage;
+    
     
     
     soapMessage = [NSString stringWithFormat:

@@ -329,6 +329,7 @@
     //];
     _detailVCtrl.modalPresentationStyle=UIModalPresentationCustom;
     _detailVCtrl.planid=_planID;
+    _detailVCtrl.wrktpid=_wrktypid;
     _detailVCtrl.skillsid=skillid;
     _detailVCtrl.pscode=planservcemdl.psitemcode;
     _detailVCtrl.modalPresentationStyle=UIModalPresentationFullScreen;

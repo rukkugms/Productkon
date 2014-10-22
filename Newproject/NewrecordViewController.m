@@ -147,7 +147,11 @@
     NSString *serviceid=[_servicelistdict objectForKey:_servcbtn.titleLabel.text];
       
     NSString *soapMessage;
-    
+    NSString*newstrg=  [_descptnview.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -164,7 +168,7 @@
                    "<ServiceId>%d</ServiceId>\n"
                    "</InsertSitevisitProductionRates>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_descptnview.text,[_valuetxtfld.text floatValue],_companyid,[serviceid integerValue]];
+                   "</soap:Envelope>\n",newstrg,[_valuetxtfld.text floatValue],_companyid,[serviceid integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
      NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
@@ -259,7 +263,11 @@
     
     NSString *soapMessage;
    
-    
+    NSString*newstrg=  [_ruletxtfld.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -274,7 +282,7 @@
                    "<planId>%@</planId>\n"
                    "</SitevisitInsertsafetyrules>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_ruletxtfld.text,_ruldescptn.text,_companyid];
+                   "</soap:Envelope>\n",newstrg,_ruldescptn.text,_companyid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -311,7 +319,11 @@
     recordResults = FALSE;
     
     NSString *soapMessage;
-    
+    NSString*newstrg=  [_equpdscptn.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -329,7 +341,7 @@
                    "<planId>%@</planId>\n"
                    "</SitevisitInsertequipment>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_equpnotxtfld.text,_equpdscptn.text,[_equpareatxtfld.text floatValue],_equnittxtfld.text,_companyid];
+                   "</soap:Envelope>\n",_equpnotxtfld.text,newstrg,[_equpareatxtfld.text floatValue],_equnittxtfld.text,_companyid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -366,7 +378,11 @@
     recordResults = FALSE;
     
     NSString *soapMessage;
-    
+    NSString*newstrg=  [_wrkdesctxtfld.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+
     NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
     [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
     NSDate *dates = [dateFormat1 dateFromString:_startdatebtnlbl.titleLabel.text];
@@ -402,7 +418,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    "<planId>%@</planId>\n"
                    "</SitevisitInsertworkschedule>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",dateString, dateString1,_wrkdesctxtfld.text,_companyid];
+                   "</soap:Envelope>\n",dateString, dateString1,newstrg,_companyid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -465,7 +481,16 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     }
 
     NSString *soapMessage;
+    NSString*newstrg=  [_meetgdetailslbl.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+
   
+    
+    
+    
+    
     NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
     [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
     NSDate *dates = [dateFormat1 dateFromString:_datebtnlbl.titleLabel.text];
@@ -592,7 +617,11 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     recordResults = FALSE;
     
     NSString *soapMessage;
-    
+    NSString*newstrg=  [_wathrcndtnlbl.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+
     NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
     [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
     NSDate *dates = [dateFormat1 dateFromString:_wethrfrmdatebtnlbl.titleLabel.text];
@@ -693,6 +722,11 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 
 
     NSString *soapMessage;
+    NSString*newstrg=  [_notestxtfld.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+
     
     NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
     [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
@@ -1791,6 +1825,40 @@ recordResults
 }
 
 #pragma mark-Button Action
+-(IBAction)addtime:(id)sender
+{
+    // _datepicker.hidden=NO;
+    UIViewController *viewCon = [[UIViewController alloc] init];
+    _timepick = [[UIDatePicker alloc]initWithFrame:CGRectMake(5, 0, 0, 0)];
+    _timepick.datePickerMode =UIDatePickerModeTime;
+    [_timepick addTarget:self action:@selector(dateChanged1) forControlEvents:UIControlEventValueChanged];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"HH:mm dd MMM yyyy"];
+    [viewCon.view addSubview:_timepick];
+    viewCon.preferredContentSize = _timepick.bounds.size ; // Set the content size
+    
+    _popOverController = [[UIPopoverController alloc] initWithContentViewController:viewCon];
+    
+    
+    [_popOverController presentPopoverFromRect:_timebtn.frame
+                                        inView:self.view
+                      permittedArrowDirections:UIPopoverArrowDirectionUp | UIPopoverArrowDirectionDown
+                                      animated:YES];
+
+}
+#pragma mark-picker method
+-(void)dateChanged1{
+    
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"hh:mm a"];
+    NSString *currentTime = [dateFormatter stringFromDate:_timepick.date];
+    NSLog(@"%@", currentTime);
+    _timebtn.titleLabel.text=currentTime;
+    
+    
+}
+
 
 - (IBAction)clsebtn:(id)sender {
      if ([self.delegate respondsToSelector:@selector(toreloadatable)]) {
@@ -2070,7 +2138,7 @@ recordResults
 - (IBAction)drawactn:(id)sender {
    
     
-    
+   
     self.drwVCtrl=[[DrawingViewController alloc]initWithNibName:@"DrawingViewController" bundle:nil];
     [self dateconversion];
     _drwVCtrl.tabtype=_tabtype;
@@ -2081,11 +2149,12 @@ recordResults
     _drwVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     [self presentViewController:_drwVCtrl
                        animated:YES completion:NULL];
+     _meetgdetailslbl.text=@"";
 
 }
 
 - (IBAction)drawnotesactn:(id)sender {
-   
+  
         self.drwVCtrl=[[DrawingViewController alloc]initWithNibName:@"DrawingViewController" bundle:nil];
     [self notesdateconversion];
 
@@ -2097,6 +2166,7 @@ recordResults
     _drwVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     [self presentViewController:_drwVCtrl
                        animated:YES completion:NULL];
+     _notestxtfld.text=@"";
 }
 
 

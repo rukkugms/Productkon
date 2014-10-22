@@ -53,7 +53,7 @@
 - (IBAction)updatebtn:(id)sender
 {
     if ([_followtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Industry Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Follow Up Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else{
