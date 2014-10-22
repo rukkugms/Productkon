@@ -128,7 +128,11 @@
 
 - (void)drawBitmap
 {
-   
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    _erasedict = [defaults objectForKey:@"Brushcolor"];
+    flag=[[_erasedict objectForKey:@"eraser"]integerValue];
+
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, YES, 0.0);
     
     if(flag == 0){
@@ -147,6 +151,26 @@
     [path stroke];
     incrementalImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+}
+-(void)clearview{
+    
+    
+//    path   = nil;  //Set current path nil
+//    path   = [UIBezierPath bezierPath]; //Create new path
+//    [self setNeedsDisplay];
+//        //if(incrementalImage){
+//          // incrementalImage = FALSE;
+//           // [self setNeedsDisplay];
+    
+           
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextClearRect(context, self.bounds);
+    
+            
+            
+       // }
+
+    
 }
 
 

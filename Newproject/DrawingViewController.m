@@ -520,18 +520,26 @@ if ([self.delegate respondsToSelector:@selector(toreloaddrawings)]) {
 
 - (IBAction)deletebtn:(id)sender {
    
-   
-    if(_drawingView.incrementalImage){
-        _drawingView.incrementalImage = FALSE;
-        [_drawingView setNeedsDisplay];
-        
-        _eraserActived = NO;
+   // [self.drawingView clearview];
+    //[self.newview removeFromSuperview];
     
-        
-        [self sendNotification];
-        
-    }
-        
+  
+    
+       //[_drawingView setNeedsDisplay];
+    
+    //_drawingView.incrementalImage=nil;
+       
+//    if(_drawingView.incrementalImage){
+//        _drawingView.incrementalImage = FALSE;
+//        [_drawingView setNeedsDisplay];
+//        
+//        _eraserActived = NO;
+//    
+//        
+//        [self sendNotification];
+//        
+//    }
+    
     
   
     

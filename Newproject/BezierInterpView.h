@@ -16,7 +16,7 @@
 @property (nonatomic, retain)NSMutableDictionary *erasedict;
 @property(readwrite)  NSInteger flag;
 @property(readwrite)NSInteger newbrushtype;
- 
+-(void)clearview;
 
 
 @end
