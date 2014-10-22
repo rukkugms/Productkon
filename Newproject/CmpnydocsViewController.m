@@ -391,6 +391,7 @@ return cell;
     
     
     NSDate*curntdate=[NSDate date];
+   
     NSLog(@"%@",curntdate);
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
     [dateFormat setDateFormat:@"HH:mm:ss a"];
@@ -746,6 +747,14 @@ return cell;
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"info"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
 
    }
@@ -843,11 +852,18 @@ return cell;
         [_commentarray addObject:_cmntmdl1];
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"info"])
+    {
+        recordResults = FALSE;
+        
+        _soapResults = nil;
+    }
+
     if([elementName isEqualToString:@"result"])
     {
         recordResults = FALSE;
         _msgstring=_soapResults;
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_msgstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
         [alert show];
         
        

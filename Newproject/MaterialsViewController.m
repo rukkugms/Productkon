@@ -1977,13 +1977,14 @@ else
 
 - (IBAction)cancelbtn:(id)sender {
     _codetxtfld.text=@"";
-    
+    _unitofmesuretxtfld.text=@"";
     _destxtfld.text=@"";
     _subtyptxtfld.text=@"";
     _unitcosttxtfld.text=@"";
     _stockinhandtxtfld.text=@"";
     _picimageview.image=[UIImage imageNamed:@"mNoImage"];
     [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+     [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
 
 }
 
@@ -2167,6 +2168,7 @@ else
         _picimageview.image=[UIImage imageNamed:@"mNoImage"];
         [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
         _searchbar.text=@"";
+        _unitofmesuretxtfld.text=@"";
         
     }
 

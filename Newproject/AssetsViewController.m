@@ -1971,7 +1971,7 @@ recordResults = FALSE;
     _pictureimgview.image=[UIImage imageNamed:@"mNoImage"];
     _cancelbtn.enabled=YES;
     [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
-
+[_checksubtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     btntype=1;
     _addview.hidden=NO;
     _navItem.title=@"Create";
@@ -2138,6 +2138,7 @@ recordResults = FALSE;
     _stckinhandtxtfld.text=@"";
     _pictureimgview.image=[UIImage imageNamed:@"mNoImage"];
      [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    [_checksubtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
 
 }
 - (IBAction)subtypebtn:(id)sender {

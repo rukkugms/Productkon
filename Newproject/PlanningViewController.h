@@ -76,6 +76,8 @@
 @property(strong,nonatomic)NSString *searchstring;
 @property(strong,nonatomic)IBOutlet UILabel *selectionlabel;
 @property(strong,nonatomic)IBOutlet UINavigationItem *navabar;
+@property(strong,nonatomic)IBOutlet UINavigationItem *plnnavitem;;
+
 
 
 /*IBAction*/

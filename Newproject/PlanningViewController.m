@@ -45,6 +45,7 @@
     _disclosurearry=[[NSMutableArray alloc]initWithObjects:@"Add Services",@"Site Visit",nil];
         _addbtn.hidden=NO;
         _deletebtn.hidden=NO;
+        _plnnavitem.title=@"Planning";
        // _editbtn.hidden=NO;
     }
     else
@@ -52,6 +53,7 @@
         _disclosurearry=[[NSMutableArray alloc]initWithObjects:@"Services",nil];
         _addbtn.hidden=YES;
         _deletebtn.hidden=YES;
+        _plnnavitem.title=@"Work Entry";
        // _editbtn.hidden=YES;
     }
     _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
@@ -257,6 +259,7 @@
                         planmodel*planmdl=(planmodel *)[_planlistarray objectAtIndex:btnindex];
                         _psctrlr.planID=planmdl.planid;
                         NSLog(@"%@",planmdl.planid);
+                        _psctrlr.wrktypid=planmdl.worktypeid;
                         _psctrlr.modalPresentationStyle=UIModalPresentationFormSheet;
                         _psctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
                         [self presentViewController:_psctrlr

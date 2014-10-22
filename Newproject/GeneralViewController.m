@@ -121,7 +121,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+     _updatebtn.enabled=YES;
    // [self Checknetavailabilty];
    [self JobsequenceSelect];
     
@@ -220,23 +220,23 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllPhases xmlns=\"http://test.kontract360.com/\">\n"
-                   
-                   "</SelectAllPhases>\n"
+                   "<Phasesbasedonworktypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<ServicesId>%d</ServicesId>\n"
+                   "</Phasesbasedonworktypeselect>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n"];
+                   "</soap:Envelope>\n",[_wrktypid integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
-   NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   //NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
     NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/SelectAllPhases" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/Phasesbasedonworktypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -768,7 +768,7 @@
         recordResults = TRUE;
         
     }
-    if([elementName isEqualToString:@"SelectAllPhasesResult"])
+    if([elementName isEqualToString:@"PhasesbasedonworktypeselectResponse"])
     {
         _phasearray=[[NSMutableArray alloc]init];
         _phasedict=[[NSMutableDictionary alloc]init];
@@ -980,7 +980,7 @@
         msgstrg=_soapResults;
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
-        
+         _updatebtn.enabled=YES;
 //        _unittxtfld.text=@"";
 //        _subunittxtfld.text=@"";
 //        _equipmnttxtfld.text=@"";
@@ -1269,7 +1269,7 @@
 }
 #pragma mark- Button Action
 -(IBAction)closegeneralpage:(id)sender
-{
+{ _updatebtn.enabled=YES;
     if ([self.delegate respondsToSelector:@selector(updatedata)]) {
         [self.delegate updatedata];
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -1282,6 +1282,7 @@
 }
 
 - (IBAction)manpowerbtn:(id)sender {
+    _updatebtn.enabled=YES;
     dragbutnindx=1;
     
         self.gdVCtrl=[[GdargViewController alloc]initWithNibName:@"GdargViewController" bundle:nil];
@@ -1303,6 +1304,7 @@ else{
 }
 
 - (IBAction)equpmntbtn:(id)sender {
+     _updatebtn.enabled=YES;
     self.deqctrl=[[DequipViewController alloc]initWithNibName:@"Dragequip" bundle:nil];
     _deqctrl.generalid=_genralid;
     [self presentViewController:_deqctrl
@@ -1312,6 +1314,7 @@ else{
 }
 
 - (IBAction)matreialbtn:(id)sender {
+     _updatebtn.enabled=YES;
      dragbutnindx=2;
             self.gdVCtrl=[[GdargViewController alloc]initWithNibName:@"Gmateralview" bundle:nil];
    
@@ -1402,6 +1405,7 @@ else{
         }
                          else
                     {
+                        _updatebtn.enabled=NO;
                         
                     [self GeneralInsert];
                         
@@ -1437,7 +1441,7 @@ else{
         }
                else
         {
-
+            _updatebtn.enabled=NO;
         [self GeneralUpdates];
         }
      

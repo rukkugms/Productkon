@@ -424,6 +424,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         
          Craftreqmtmdl*submdl=(Craftreqmtmdl *)[_folloarray objectAtIndex:indexPath.row];
         [_activityTypeBtn setTitle:submdl.Brdescriptn forState:UIControlStateNormal];
+            [self.popOverController dismissPopoverAnimated:YES];
              }
         else if (poptype==2)
         {
@@ -437,6 +438,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
             NSArray*keys=[_empdict allKeys];
               NSString*name=[NSString stringWithFormat:@"%@-%@",[values objectAtIndex:indexPath.row],[keys objectAtIndex:indexPath.row]];
               [_empbtnlbl setTitle:name forState:UIControlStateNormal];
+            [self.popOverController dismissPopoverAnimated:YES];
        
         }
         
@@ -447,7 +449,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         
     
     }
-  [self.popOverController dismissPopoverAnimated:YES];
+  
     
     
     }
@@ -586,6 +588,8 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 
 -(IBAction)addNewActivity:(id)sender
 {
+    [self FollowuptypeSelect];
+      [self Employeeselect];
     _updatebtnlbl.enabled=YES;
     self.openviewindex=NSNotFound;
     _activityTable.userInteractionEnabled=NO;
@@ -660,6 +664,8 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 
 - (IBAction)editcellbtn:(id)sender
 {
+    [self FollowuptypeSelect];
+      [self Employeeselect];
     _updatebtnlbl.enabled=YES;
     butnidtfr=2;
     self.activityNav.title = @"Edit";
@@ -2162,38 +2168,67 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         recordResults = FALSE;
         NSLog(@"%d",webtype);
          NSLog(@"%d",butnidtfr);
-        if (webtype==0&&butnidtfr==1) {
-             _resultmsg=_soapResults;
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_resultmsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-        else if(webtype==0&&butnidtfr==2)
-        {
-             _resultmsg=_soapResults;
-            if ([_resultmsg isEqualToString:@"deletedleadactivity"]) {
-                
-            }
-            else
-            {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_resultmsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            }
-        }
-        else if(webtype==0&&butnidtfr==0)
-        {
-         //_resultmsg=_soapResults;
-        }
-        else if(webtype==0&&butnidtfr==6)
-        {
-             _resultmsg=_soapResults;
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_resultmsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            _savebtnlbl.enabled=YES;
+        if ([_soapResults isEqualToString:@"deletedleadactivity"]) {
+            
         }
         else
         {
-            
+        if (butnidtfr==1) {
+            _resultmsg=_soapResults;
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            _updatebtnlbl.enabled=YES;
         }
+        else if(butnidtfr==2)
+        {
+            _resultmsg=_soapResults;
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            _updatebtnlbl.enabled=YES;
+        }
+        else if(butnidtfr==3||butnidtfr==6)
+        {
+            _resultmsg=_soapResults;
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            _savebtnlbl.enabled=YES;
+        }
+
+        }
+        
+//        if (webtype==0&&butnidtfr==1) {
+//             _resultmsg=_soapResults;
+//            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_resultmsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//            [alert show];
+//        }
+//        else if(webtype==0&&butnidtfr==2)
+//        {
+//             _resultmsg=_soapResults;
+//            if ([_resultmsg isEqualToString:@"deletedleadactivity"]) {
+//                
+//            }
+//            else
+//            {
+//            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_resultmsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//            [alert show];
+//            }
+//        }
+//        else if(webtype==0&&butnidtfr==0)
+//        {
+//         //_resultmsg=_soapResults;
+//        }
+//        else if(webtype==0&&butnidtfr==6)
+//        {
+//            
+//             _resultmsg=_soapResults;
+//            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_resultmsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//            [alert show];
+//            _savebtnlbl.enabled=YES;
+//        }
+//        else
+//        {
+//            
+//        }
         _soapResults = nil;
     }
    
@@ -2275,6 +2310,13 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
             _newviewactivity.hidden=YES;
             _activityTable.userInteractionEnabled=YES;
         }
+        else if(butnidtfr==3)
+        {
+            _savebtnlbl.enabled=YES;
+            self.openviewindex=NSNotFound;
+            _cmttxtbox.text=@"";
+            _composecmtview.hidden=YES;
+        }
         _activityTxtFld.text=@"";
         [_dateBtn setTitle:@"Select" forState:UIControlStateNormal];
         [_activityTypeBtn setTitle:@"Select" forState:UIControlStateNormal];
@@ -2328,8 +2370,9 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         else
         {
            
-            _updatebtnlbl.enabled=NO;
+             _updatebtnlbl.enabled=NO;
       [self saveActivity];
+          
         }
 }
 else
@@ -2359,9 +2402,10 @@ else
        
 
         else{
-            
-     _updatebtnlbl.enabled=NO;
-         [self updateActivity];
+             _updatebtnlbl.enabled=NO;
+             [self updateActivity];
+           
+
         }
     }
     //[self getLeadActivity];

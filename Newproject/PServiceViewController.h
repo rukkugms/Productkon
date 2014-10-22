@@ -36,5 +36,6 @@
 - (IBAction)wrkbtn:(id)sender;
 
 - (IBAction)clsebtn:(id)sender;
+@property(strong,nonatomic)NSString *wrktypid;
 
 @end

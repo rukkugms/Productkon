@@ -321,6 +321,7 @@
     _generalworkctrlr.delegate=self;
     _generalworkctrlr.psitemcode=_pscode;
     _generalworkctrlr.skillsid=_skillsid;
+    _generalworkctrlr.wrktypid=_wrktpid;
     self.generalworkctrlr.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_generalworkctrlr
                        animated:YES completion:NULL];
@@ -343,6 +344,7 @@
     _generalworkctrlr.genralid=gmodel.gid;
     _generalworkctrlr.optionidentfr=optionidentifier;
     _generalworkctrlr.generalarray=garray;
+    _generalworkctrlr.wrktypid=_wrktpid;
     _generalworkctrlr.delegate=self;
       _generalworkctrlr.skillsid=_skillsid;
      _generalworkctrlr.psitemcode=_pscode;

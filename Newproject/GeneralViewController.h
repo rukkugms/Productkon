@@ -88,6 +88,7 @@
 @property (strong, nonatomic) IBOutlet UIButton    * manbtn;
 @property (strong, nonatomic) IBOutlet UIButton    * eqmntbtn;
 @property (strong, nonatomic) IBOutlet UIButton    * matbtn;
+@property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 
 /*Actions*/
 - (IBAction)phasebtn:(id)sender;
@@ -113,4 +114,5 @@
 @property(strong,nonatomic)NSString *sequencename;
 @property(strong,nonatomic)NSMutableArray *phasesqlitearray;
 @property(strong,nonatomic)NSMutableDictionary *sqlitephasedict;
+@property(strong,nonatomic)NSString *wrktypid;
 @end

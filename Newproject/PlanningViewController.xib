@@ -18,6 +18,7 @@
                 <outlet property="navabar" destination="wMZ-FX-GhQ" id="xeo-xw-hom"/>
                 <outlet property="plangtable" destination="847-Xa-wgb" id="WNR-6a-a8j"/>
                 <outlet property="planselectionbtn" destination="kgV-3x-YWU" id="Mq6-eN-OLc"/>
+                <outlet property="plnnavitem" destination="ZqP-95-Xa7" id="NeX-4Y-ttG"/>
                 <outlet property="selectionlabel" destination="nwH-rK-qJG" id="C1h-XO-Yw9"/>
                 <outlet property="sitefactortxtfld" destination="YIK-vB-IrJ" id="Po0-zi-SKv"/>
                 <outlet property="tabletitleview" destination="ldd-qP-mZc" id="130-0m-aYu"/>
@@ -256,7 +257,7 @@
                                     <rect key="frame" x="15" y="279" width="247" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     <connections>
                                         <outlet property="delegate" destination="-1" id="fl8-NC-nGu"/>
                                     </connections>

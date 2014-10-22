@@ -158,6 +158,8 @@
 -(void)navgteanimtn;
 -(void)updatedata;
 
+@property(strong,nonatomic)NSString *wrktpid;
+
 
 /*sqlite for sacffold insert*/
 @property(strong,nonatomic) NSString *docsDir;

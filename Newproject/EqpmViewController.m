@@ -2211,6 +2211,7 @@ _addequipmentview.hidden=NO;
     _stockinhndtxtfld.text=@"";
       _picimageview.image=[UIImage imageNamed:@"mNoImage"];
 [_subsearchlbl setTitle:@"Select" forState:UIControlStateNormal];
+     [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
 }
 
 #pragma mark-Textfield Delegate
