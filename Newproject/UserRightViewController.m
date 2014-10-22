@@ -765,10 +765,10 @@ viewcheck=0;
         if (Allviewclckd==1) {
             if (checkviewstrg==1) {
                 
-                viewcheck=0;
+                viewcheck=1;
                          }
             else{
-               viewcheck=1;
+               viewcheck=0;
             }
 
         }
@@ -779,10 +779,10 @@ viewcheck=0;
         if (Alleditclckd==1) {
             if (checkeditstrg==1) {
                 
-                editcheck=0;
+                editcheck=1;
             }
             else{
-                editcheck=1;
+                editcheck=0;
             }
             
         }
@@ -794,10 +794,10 @@ viewcheck=0;
         if (Alldeleteclckd==1) {
             if (checkdeletestrg==1) {
                 
-                deletecheck=0;
+                deletecheck=1;
             }
             else{
-                deletecheck=1;
+                deletecheck=0;
             }
             
         }
@@ -809,10 +809,10 @@ viewcheck=0;
         if (Allprintclckd==1) {
             if (checkprintstrg==1) {
                 
-                printcheck=0;
+                printcheck=1;
             }
             else{
-                printcheck=1;
+                printcheck=0;
             }
             
         }
@@ -1542,14 +1542,15 @@ viewcheck=0;
                   
                   
                   if (checkviewstrg==1) {
-                      [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+                         [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+                   
                       //              for (int i=0; i<[_usertablearray count]; i++) {
                       //
                       //              }
                       
                   }
                   else{
-                      [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+                      [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
                   }
                   
 
@@ -1602,14 +1603,15 @@ viewcheck=0;
               
           
           if (checkviewstrg==1) {
-               [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+             
+              [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
 //              for (int i=0; i<[_usertablearray count]; i++) {
 //                  
 //              }
               
           }
           else{
-               [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+                [_viewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
           }
 
           
@@ -1618,13 +1620,15 @@ viewcheck=0;
               
               
               if (checkeditstrg==1) {
-                  [_editbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+                     [_editbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+              
                   //              for (int i=0; i<[_usertablearray count]; i++) {
                   //
                   //              }
               }
               else{
-                  [_editbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+               
+                      [_editbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
               }
               
               
@@ -1633,13 +1637,14 @@ viewcheck=0;
               
               
               if (checkdeletestrg==1) {
-                  [_deletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+                    [_deletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+               
                   //              for (int i=0; i<[_usertablearray count]; i++) {
                   //
                   //              }
               }
               else{
-                  [_deletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+                   [_deletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
               }
               
               
@@ -1648,13 +1653,15 @@ viewcheck=0;
               
               
               if (checkprintstrg==1) {
-                  [_printbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+                  [_printbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+
+             
                   //              for (int i=0; i<[_usertablearray count]; i++) {
                   //
                   //              }
               }
               else{
-                  [_printbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+                            [_printbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
               }
               
               
@@ -1703,6 +1710,9 @@ viewcheck=0;
               _masterbtn.enabled=YES;
               
               _activatebtnlbl.enabled=YES;
+              _subbtnlbl.enabled=NO;
+              _subsubbtnlbl.enabled=NO;
+              
               [_masterbtn setTitle:@"Select" forState:UIControlStateNormal];
               [_subbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
               [_subsubbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
@@ -1727,6 +1737,7 @@ viewcheck=0;
               [_masterbtn setTitle:[_maintilearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
              masterbtnstrg=[_maintilearray objectAtIndex:indexPath.row];
             _subbtnlbl.enabled=YES;
+             _subsubbtnlbl.enabled=NO;
             if (indexPath.row==12) {
                  [self UserRightsforMainTileselect];
             }
@@ -1737,7 +1748,8 @@ viewcheck=0;
         
         else if (popover==3) {
               subpath=indexPath.row;
-         
+            _subsubbtnlbl.enabled=YES;
+
             [_subsubbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
             [_Allviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
@@ -2368,6 +2380,7 @@ viewcheck=0;
           UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
            [alert show];
            // [self UserRightsselect];
+                  _usertable.userInteractionEnabled=YES;
                 if(![_subsubbtnlbl.titleLabel.text isEqualToString:@"Select"]){
                     
                     [self SubUserRightsforparticularmoduleselect];
@@ -2443,16 +2456,41 @@ viewcheck=0;
                     [_actvtybtn stopAnimating];
                     _userbtn.enabled=YES;
                     _masterbtn.enabled=YES;
-                    _subbtnlbl.enabled=YES;
-                    _subsubbtnlbl.enabled=YES;
+                    
                     _Alldeletebtnlbl.enabled=YES;
                     _Alleditbtnlbl.enabled=YES;
                     _Allprintbtnlbl.enabled=YES;
                     _Allviewbtnlbl.enabled=YES;
                       _activatebtnlbl.enabled=YES;
+                    
+//                     if([_masterbtn.titleLabel.text isEqualToString:@"Select"]){
+//                         
+//                         _subbtnlbl.enabled=NO;
+//                          _subsubbtnlbl.enabled=NO;
+//
+//                     }
+                    
+                      if([[_masterbtn.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:@"Select"]){
+                          _subbtnlbl.enabled=NO;
+                          _subsubbtnlbl.enabled=NO;
+                      
+                      }
+                      else{
+                          
+                          
+                      if([[_subbtnlbl.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:@"Select"]){
+                        
+                        _subbtnlbl.enabled=YES;
+                        _subsubbtnlbl.enabled=NO;
+                        
+                    }
+                    else{
+                        _subbtnlbl.enabled=YES;
+                        _subsubbtnlbl.enabled=YES;
+                    }
+                     
+                      }
 
-                    
-                    
 //                    for (UIView *view in [self.view subviews]) {
 //                        if (view.tag == 1111) {
 //                            [dimView removeFromSuperview];
@@ -2475,14 +2513,16 @@ viewcheck=0;
 //                    // Set the mask of the view.
 //                self.view.layer.mask = maskLayer;
                     //  [self UserRightsselect];
-                    if(![_subsubbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+                    if(![[_subsubbtnlbl.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:@"Select"]){
                         
                          [self SubUserRightsforparticularmoduleselect];
                         
                     }
                     else{
                         
-                        if(![_subbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+                        NSLog(@"%@",_subbtnlbl.titleLabel.text);
+                        NSString*s=[_subbtnlbl.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                        if(![s isEqualToString:@"Select"]){
                             if(tileschecking==1){
                                 [self UserRightsforparticularmodule2select];
                                 
@@ -2494,9 +2534,9 @@ viewcheck=0;
                             
                         }
                          else{
-                             if(![_masterbtn.titleLabel.text isEqualToString:@"Select"]){
+                             if(![[_masterbtn.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:@"Select"]){
                                  
-                                 if([_masterbtn.titleLabel.text isEqualToString:@"Master Tiles"]){
+                                 if([[_masterbtn.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:@"Master Tiles"]){
                                      
                                      [self UserRightsforMainTileselect];
                                  }
@@ -2506,7 +2546,7 @@ viewcheck=0;
 
                              else{
                                  
-                                 if(![_userbtn.titleLabel.text isEqualToString:@"Select"]){
+                                 if(![[_userbtn.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:@"Select"]){
                                      
                                      [self UserRightsselect];
                                  }
@@ -2568,11 +2608,32 @@ viewcheck=0;
         if([_soapResults isEqualToString:@"true"]){
             [_activatebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
             activate=1;
+            _usertable.userInteractionEnabled=YES;
+            _userbtn.enabled=YES;
+            _masterbtn.enabled=YES;
+            //_subbtnlbl.enabled=YES;
+            //_subsubbtnlbl.enabled=YES;
+            _Alldeletebtnlbl.enabled=YES;
+            _Alleditbtnlbl.enabled=YES;
+            _Allprintbtnlbl.enabled=YES;
+            _Allviewbtnlbl.enabled=YES;
+            _activatebtnlbl.enabled=YES;
+
 
         }
         else{
              [_activatebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             activate=0;
+            _usertable.userInteractionEnabled=NO;
+           // _userbtn.enabled=NO;
+            _masterbtn.enabled=NO;
+            _subbtnlbl.enabled=NO;
+            _subsubbtnlbl.enabled=NO;
+            _Alldeletebtnlbl.enabled=NO;
+            _Alleditbtnlbl.enabled=NO;
+            _Allprintbtnlbl.enabled=NO;
+            _Allviewbtnlbl.enabled=NO;
+            //_activatebtnlbl.enabled=NO;
         }
         
         _soapResults = nil;
@@ -2640,11 +2701,52 @@ viewcheck=0;
     if(activate==1){
         [_activatebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         activate=0;
+        _usertable.userInteractionEnabled=NO;
+        // _userbtn.enabled=NO;
+        _masterbtn.enabled=NO;
+        _subbtnlbl.enabled=NO;
+        _subsubbtnlbl.enabled=NO;
+        _Alldeletebtnlbl.enabled=NO;
+        _Alleditbtnlbl.enabled=NO;
+        _Allprintbtnlbl.enabled=NO;
+        _Allviewbtnlbl.enabled=NO;
+       // [_masterbtn setTitle:@"Select" forState:UIControlStateNormal];
+        //[_subbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+       // [_subsubbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        
+      
+//        [_Allviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//        [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//        [_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//        [_Allprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+
+
 
     }
     else{
         [_activatebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         activate=1;
+        _usertable.userInteractionEnabled=YES;
+        _userbtn.enabled=YES;
+         _masterbtn.enabled=YES;
+      
+        _Alldeletebtnlbl.enabled=YES;
+        _Alleditbtnlbl.enabled=YES;
+        _Allprintbtnlbl.enabled=YES;
+        _Allviewbtnlbl.enabled=YES;
+        _activatebtnlbl.enabled=YES;
+        
+       // [_masterbtn setTitle:@"Select" forState:UIControlStateNormal];
+       // [_subbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+       // [_subsubbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        
+        
+//        [_Allviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//        [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//        [_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//        [_Allprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+
+
     }
     
     [self UserActivateUpdate];
@@ -2712,6 +2814,7 @@ viewcheck=0;
     }
     else{
 
+        _Allviewbtnlbl.enabled=NO;
     Allviewclckd=1;
       btnclck++;
       // if(btnclck%2!=0){
@@ -2749,24 +2852,28 @@ viewcheck=0;
     }
     else
     {
-
+_Alleditbtnlbl.enabled=NO;
     Alleditclckd=1;
     btnclck1++;
-    if(btnclck1%2!=0){
-        [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-        checkeditstrg=0;
-        [_usertable reloadData];
-          [self Allrightssave];
+   // if(btnclck1%2!=0){
+           if (checkeditstrg==1) {
+               [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+               checkeditstrg=0;
+               [_usertable reloadData];
+               [self Allrightssave];
+
+       
         
         
     }
     else
     {
-        [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         checkeditstrg=1;
         [_usertable reloadData];
-         [self Allrightssave];
-    }
+        [self Allrightssave];
+        
+         }
     }
 
 }
@@ -2783,23 +2890,26 @@ viewcheck=0;
     }
     else
     {
+        _Alldeletebtnlbl.enabled=NO;
 
     Alldeleteclckd=1;
     btnclck2++;
-    if(btnclck2%2!=0){
-        [_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-        checkdeletestrg=0;
-        [_usertable reloadData];
-          [self Allrightssave];
-        
-        
+    //if(btnclck2%2!=0){
+         if (checkdeletestrg==1) {
+             
+             [_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+             checkdeletestrg=0;
+             [_usertable reloadData];
+             [self Allrightssave];
     }
     else
     {
-        [_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         checkdeletestrg=1;
         [_usertable reloadData];
-         [self Allrightssave];
+        [self Allrightssave];
+
+      
     }
     }
 
@@ -2817,23 +2927,27 @@ viewcheck=0;
     }
     else
     {
-
+   _Allprintbtnlbl.enabled=NO;
     Allprintclckd=1;
     btnclck3++;
-    if(btnclck3%2!=0){
-        [_Allprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-        checkprintstrg=0;
-        [_usertable reloadData];
-          [self Allrightssave];
+    //if(btnclck3%2!=0){
+        if (checkprintstrg==1) {
+            
+            [_Allprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            checkprintstrg=0;
+            [_usertable reloadData];
+            [self Allrightssave];
+       
         
         
     }
     else
     {
-        [_Allprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_Allprintbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         checkprintstrg=1;
         [_usertable reloadData];
         [self Allrightssave];
+       
     }
     }
 
@@ -2940,6 +3054,7 @@ viewcheck=0;
 - (IBAction)newbtn:(id)sender {
 }
 - (IBAction)updatebtn:(id)sender {
+
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
     if (rightsmodel.EditModule==0) {
@@ -2962,6 +3077,18 @@ viewcheck=0;
     optnidntfr=1;
     _editview.hidden=NO;
     _editupdatebtnlbl.enabled=YES;
+     _usertable.userInteractionEnabled=NO;
+    _userbtn.enabled=NO;
+    _masterbtn.enabled=NO;
+    _subbtnlbl.enabled=NO;
+    _subsubbtnlbl.enabled=NO;
+    _Alldeletebtnlbl.enabled=NO;
+    _Alleditbtnlbl.enabled=NO;
+    _Allprintbtnlbl.enabled=NO;
+    _Allviewbtnlbl.enabled=NO;
+    _activatebtnlbl.enabled=NO;
+
+
     [_Allviewbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     [_Alleditbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     [_Alldeletebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
@@ -3081,6 +3208,17 @@ viewcheck=0;
 
 - (IBAction)editclsebtn:(id)sender {
     _editview.hidden=YES;
+    _usertable.userInteractionEnabled=YES;
+    _userbtn.enabled=YES;
+    _masterbtn.enabled=YES;
+    _subbtnlbl.enabled=YES;
+    _subsubbtnlbl.enabled=YES;
+    _Alldeletebtnlbl.enabled=YES;
+    _Alleditbtnlbl.enabled=YES;
+    _Allprintbtnlbl.enabled=YES;
+    _Allviewbtnlbl.enabled=YES;
+    _activatebtnlbl.enabled=YES;
+
   
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
