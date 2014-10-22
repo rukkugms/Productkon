@@ -146,7 +146,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SecurityQuestionSelect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<SecurityQuestionSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "</SecurityQuestionSelect>\n"
                    "</soap:Body>\n"
@@ -163,7 +163,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/SecurityQuestionSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SecurityQuestionSelect" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -195,7 +195,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SecurityAnswersInsert xmlns=\"http://test.kontract360.com/\">\n"
+                   "<SecurityAnswersInsert xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<userid>%d</userid>\n"
                    "<qid>%d</qid>\n"
                    "<answer>%@</answer>\n"
@@ -214,7 +214,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/SecurityAnswersInsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SecurityAnswersInsert" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -246,7 +246,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Getanswer xmlns=\"http://test.kontract360.com/\">\n"
+                   "<Getanswer xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<userid>%d</userid>\n"
                    "<qid>%d</qid>\n"
                    "</Getanswer>\n"
@@ -264,7 +264,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/Getanswer" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/Getanswer" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -297,7 +297,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SecurityquestionandanswersDelete xmlns=\"http://test.kontract360.com/\">\n"
+                   "<SecurityquestionandanswersDelete xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<userid>%d</userid>\n"
                    "<qid>%d</qid>\n"
                    "</SecurityquestionandanswersDelete>\n"
@@ -315,7 +315,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/SecurityquestionandanswersDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SecurityquestionandanswersDelete" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -348,7 +348,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<QuestioncountSelect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<QuestioncountSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<userid>%d</userid>\n"
                   
                    "</QuestioncountSelect>\n"
@@ -366,7 +366,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/QuestioncountSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/QuestioncountSelect" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -414,7 +414,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UserLogmaininsert xmlns=\"http://test.kontract360.com/\">\n"
+                   "<UserLogmaininsert xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<dateandtime>%@</dateandtime>\n"
                    "<userid>%d</userid>\n"
                    "<moduleid>%d</moduleid>\n"
@@ -439,7 +439,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -488,7 +488,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UserLogmaininsert xmlns=\"http://test.kontract360.com/\">\n"
+                   "<UserLogmaininsert xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<dateandtime>%@</dateandtime>\n"
                    "<userid>%d</userid>\n"
                    "<moduleid>%d</moduleid>\n"
@@ -514,7 +514,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

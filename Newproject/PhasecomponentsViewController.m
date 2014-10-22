@@ -90,7 +90,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<EstimationDetailSelect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<EstimationDetailSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<LeadId>%d</LeadId>\n"
                    "<Name>%@</Name>\n"
                    "<Phase>%d</Phase>\n"
@@ -109,7 +109,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/EstimationDetailSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/EstimationDetailSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -141,7 +141,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<EstimationDetailSelect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<EstimationDetailSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<LeadId>%d</LeadId>\n"
                    "<Name>%@</Name>\n"
                    "<Phase>%d</Phase>\n"
@@ -160,7 +160,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/EstimationDetailSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/EstimationDetailSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -192,7 +192,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<EstimationDetailSelect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<EstimationDetailSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<LeadId>%d</LeadId>\n"
                    "<Name>%@</Name>\n"
                    "<Phase>%d</Phase>\n"
@@ -211,7 +211,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/EstimationDetailSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/EstimationDetailSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -243,7 +243,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<EstimationDetailSelect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<EstimationDetailSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<LeadId>%d</LeadId>\n"
                    "<Name>%@</Name>\n"
                    "<Phase>%d</Phase>\n"
@@ -262,7 +262,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/EstimationDetailSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/EstimationDetailSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -295,7 +295,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<EstimationDetailSelect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<EstimationDetailSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<LeadId>%d</LeadId>\n"
                    "<Name>%@</Name>\n"
                    "<Phase>%d</Phase>\n"
@@ -314,7 +314,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/EstimationDetailSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/EstimationDetailSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -347,7 +347,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<EstimationDetailSelect xmlns=\"http://test.kontract360.com/\">\n"
+                   "<EstimationDetailSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<LeadId>%d</LeadId>\n"
                    "<Name>%@</Name>\n"
                    "<Phase>%d</Phase>\n"
@@ -366,7 +366,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test.kontract360.com/EstimationDetailSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/EstimationDetailSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
