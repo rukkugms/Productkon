@@ -108,4 +108,5 @@
 
 @property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 - (IBAction)checksubtypebtn:(id)sender;
+-(IBAction)closeimage:(id)sender;
 @end

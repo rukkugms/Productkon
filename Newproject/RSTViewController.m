@@ -2306,7 +2306,7 @@
     }
 
 
-    if([elementName isEqualToString:@"EntryId"])
+    if([elementName isEqualToString:@"EntryId1"])
     {
       
         
@@ -2776,7 +2776,7 @@
     
 
 
-    if([elementName isEqualToString:@"EntryId"])
+    if([elementName isEqualToString:@"EntryId1"])
     {
         
         recordResults=FALSE;
