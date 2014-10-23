@@ -130,7 +130,7 @@
 - (IBAction)subsearchbtn:(id)sender;
 - (IBAction)addbtn:(id)sender;
 - (IBAction)editbtn:(id)sender;
-
+-(IBAction)closeimage:(id)sender;
 
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;

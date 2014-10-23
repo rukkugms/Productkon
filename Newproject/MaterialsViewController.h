@@ -115,6 +115,7 @@
 @property(strong,nonatomic)IBOutlet UIButton *subtypebtn;
 -(IBAction)cellsubtypeselection:(id)sender;
 - (IBAction)checksubtypebtn:(id)sender;
+-(IBAction)closeimage:(id)sender;
 @property(strong,nonatomic)IBOutlet UIButton *checkbtn;
 @property(readwrite)NSInteger moduleid;
 

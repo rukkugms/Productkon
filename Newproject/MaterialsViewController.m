@@ -390,6 +390,14 @@
  
     recordResults = FALSE;
     NSString *soapMessage;
+    if (imagechecker==1) {
+        _picturelocation=@"NoImage.png";
+    }
+    else
+    {
+        _picturelocation=@"";
+    }
+
     
     
     soapMessage = [NSString stringWithFormat:
@@ -411,7 +419,7 @@
                    "<MTAllSubTypes>%d</MTAllSubTypes>\n"
                    "</InserteMaterials>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[unitcost floatValue],@"",[_stockinhandtxtfld.text floatValue],_unitofmesuretxtfld.text,createcheck];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[unitcost floatValue],_picturelocation,[_stockinhandtxtfld.text floatValue],_unitofmesuretxtfld.text,createcheck];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -444,7 +452,14 @@
     
 }
 -(void)UpdateMaterials{
-    
+    if (imagechecker==1) {
+        _picturelocation=@"NoImage.png";
+    }
+    else
+    {
+        _picturelocation=@"";
+    }
+
     
     webtype=2;
     recordResults = FALSE;
@@ -501,7 +516,7 @@
                    "</UpdateMaterials>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,
-                   [unitcost floatValue],@"",[_stockinhandtxtfld.text floatValue],_unitofmesuretxtfld.text,check];
+                   [unitcost floatValue],_picturelocation,[_stockinhandtxtfld.text floatValue],_unitofmesuretxtfld.text,check];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -2012,6 +2027,11 @@ else
     }
 
     
+}
+-(IBAction)closeimage:(id)sender
+{
+     imagechecker=1;
+    _picimageview.image=[UIImage imageNamed:@"mNoImage"];
 }
 
 -(IBAction)closeMaterials:(id)sender

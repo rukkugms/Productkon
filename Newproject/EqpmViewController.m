@@ -503,7 +503,7 @@ finishedSavingWithError:(NSError *)error
 }
 -(void)InsertEquipment{
     webtype=1;
-    _picturelocation=@"";
+    
     recordResults = FALSE;
   //  NSString*picturelocatn=@"";
     NSString*Purchase=   [_purchasetxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
@@ -515,7 +515,13 @@ finishedSavingWithError:(NSError *)error
     NSString*monthly=   [_monthlytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
 
     NSString *soapMessage;
-    
+    if (imagechecker==1) {
+        _picturelocation=@"NoImage.png";
+    }
+    else
+    {
+    _picturelocation=@"";
+    }
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -582,7 +588,14 @@ finishedSavingWithError:(NSError *)error
 -(void)UpdateEquipment{
     webtype=2;
     recordResults = FALSE;
-    _picturelocation=@"";
+    if (imagechecker==1) {
+        _picturelocation=@"NoImage.png";
+    }
+    else
+    {
+        _picturelocation=@"";
+    }
+
 
      NSString*Purchase=   [_purchasetxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
     NSString*insured=   [_insuredtxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
@@ -2212,6 +2225,11 @@ _addequipmentview.hidden=NO;
       _picimageview.image=[UIImage imageNamed:@"mNoImage"];
 [_subsearchlbl setTitle:@"Select" forState:UIControlStateNormal];
      [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+}
+-(IBAction)closeimage:(id)sender
+{
+    imagechecker=1;
+    _picimageview.image=[UIImage imageNamed:@"mNoImage"];
 }
 
 #pragma mark-Textfield Delegate

@@ -1721,6 +1721,10 @@ finishedSavingWithError:(NSError *)error
     
     
 }
+-(IBAction)closeimage:(id)sender
+{ imagechecker=1;
+    _imageview.image=[UIImage imageNamed:@"mNoImage"];
+}
 
 - (IBAction)updatebtn:(id)sender{
      if (butntype==1) {

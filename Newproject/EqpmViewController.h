@@ -108,6 +108,7 @@
 
 - (IBAction)subsearch:(id)sender;
 - (IBAction)deletebtn:(id)sender;
+-(IBAction)closeimage:(id)sender;
 
 -(IBAction)closeEqupment:(id)sender;
 -(IBAction)addEquipment:(id)sender;
