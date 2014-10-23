@@ -1698,6 +1698,10 @@ else
     _updatebtn.enabled=YES;
     
 }
+-(IBAction)closeimage:(id)sender
+{
+      _picimageview.image=[UIImage imageNamed:@"mNoImage"];
+}
 
 - (IBAction)editbtn:(id)sender {
     _picimageview.image=[UIImage imageNamed:@"mNoImage"];
