@@ -846,6 +846,7 @@
 
         
         _soapResults = nil;
+      
     }
 
     if([elementName isEqualToString:@"state_id"])
