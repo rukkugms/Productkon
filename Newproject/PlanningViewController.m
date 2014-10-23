@@ -805,9 +805,9 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
- // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+ //  NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
 
-   NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -854,10 +854,10 @@
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
- // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+ //  NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -904,9 +904,9 @@
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
     
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-  //NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+  // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -992,9 +992,9 @@
                    "</soap:Envelope>\n",_planselectionbtn.titleLabel.text,[ledid integerValue],[custid integerValue],0,0,[[_typelistdict objectForKey:_typebtnlbl.titleLabel.text]integerValue],[_sitefactortxtfld.text floatValue],_loctntxtfld.text,_ziptxtfld.text,_cmplexitybtnlbl.titleLabel.text,lead,customer];
     NSLog(@"soapmsg%@",soapMessage);
     
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
 //NSURL *url = [NSURL URLWithString:@"testUSA.kontract360.com/service.asmx"];
- // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+ //  NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1108,9 +1108,9 @@
                    "</soap:Envelope>\n",plmdl.planid,_planselectionbtn.titleLabel.text,lead,cust,0,[[_typelistdict objectForKey:_typebtnlbl.titleLabel.text]integerValue ],[_sitefactortxtfld.text floatValue],_loctntxtfld.text,_ziptxtfld.text,_cmplexitybtnlbl.titleLabel.text,newlead,newcust];
     NSLog(@"soapmsg%@",soapMessage);
     
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-  //NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+  // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1160,9 +1160,9 @@
                    "</soap:Envelope>\n",plnmdl.planid];
     NSLog(@"soapmsg%@",soapMessage);
     
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-  //NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+  // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1210,9 +1210,9 @@
                    "</soap:Envelope>\n",_searchstring];
     NSLog(@"soapmsg%@",soapMessage);
     
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-  //NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+  // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1259,9 +1259,9 @@
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
     
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-  //NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+  // NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1333,8 +1333,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    //  NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1408,8 +1408,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    //  NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1483,8 +1483,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    //  NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
