@@ -521,16 +521,16 @@
     poptype=1;
     newpoptype=2;
     UIViewController *popovercontent=[[UIViewController alloc]init];
-    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 100)];
+    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 200)];
     popoverview.backgroundColor=[UIColor whiteColor];
-    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 210, 100)];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 210, 200)];
     _popovertableview.delegate=(id)self;
     _popovertableview.dataSource=(id)self;
     _popovertableview.rowHeight=32;
     _popovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
     [popoverview addSubview:_popovertableview];
     popovercontent.view=popoverview;
-    popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 100);
+    popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 200);
     self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
     [self.popovercontroller presentPopoverFromRect:_planselectionbtn.frame inView:_addplanview permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
@@ -756,6 +756,27 @@
     [self.popovercontroller presentPopoverFromRect:_cmplexitybtnlbl.frame inView:_addplanview permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     [_popovertableview reloadData];
 
+}
+- (IBAction)typebtn:(id)sender {
+    poptype=1;
+    newpoptype=3;
+    UIViewController *popovercontent=[[UIViewController alloc]init];
+    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 200)];
+    popoverview.backgroundColor=[UIColor whiteColor];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 210, 200)];
+    _popovertableview.delegate=(id)self;
+    _popovertableview.dataSource=(id)self;
+    _popovertableview.rowHeight=32;
+    _popovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    [popoverview addSubview:_popovertableview];
+    popovercontent.view=popoverview;
+    popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 200);
+    self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
+    [self.popovercontroller presentPopoverFromRect:_typebtnlbl.frame inView:_addplanview permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    
+    [self WorkTypeSelect];
+    
+    
 }
 
 #pragma mark - SearchBar
@@ -2073,27 +2094,6 @@
 }
 
 
-- (IBAction)typebtn:(id)sender {
-    poptype=1;
-    newpoptype=3;
-    UIViewController *popovercontent=[[UIViewController alloc]init];
-    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 120)];
-    popoverview.backgroundColor=[UIColor whiteColor];
-    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 210, 120)];
-    _popovertableview.delegate=(id)self;
-    _popovertableview.dataSource=(id)self;
-    _popovertableview.rowHeight=32;
-    _popovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
-    [popoverview addSubview:_popovertableview];
-    popovercontent.view=popoverview;
-    popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 120);
-    self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
-    [self.popovercontroller presentPopoverFromRect:_typebtnlbl.frame inView:_addplanview permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
-
-     [self WorkTypeSelect];
-    
-    
-}
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     if ([alertView.message isEqualToString:_result]) {
