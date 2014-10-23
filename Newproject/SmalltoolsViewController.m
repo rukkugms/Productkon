@@ -204,7 +204,14 @@
     recordResults = FALSE;
     NSString *soapMessage;
     
-    
+    if (imagechecker==1) {
+        _picturelocation=@"NoImage.png";
+    }
+    else
+    {
+        _picturelocation=@"";
+    }
+
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -218,15 +225,16 @@
                    "<description>%@</description>\n"
                    "<unitcost>%f</unitcost>\n"
                     "<qtyinstock>%f</qtyinstock>\n"
+                   "<PictureLocation>%@</PictureLocation>\n"
                     "<STAllSubTypes>%d</STAllSubTypes>\n"
                    "</InsertSmallTools>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[unitcost floatValue],[_stockinhandtxtfld.text floatValue],checksub];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[unitcost floatValue],[_stockinhandtxtfld.text floatValue],_picturelocation,checksub];
     NSLog(@"soapmsg%@",soapMessage);
-    
+      // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
+   NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -256,6 +264,14 @@
 -(void)UpdateSmallTools{
     webtype=2;
     recordResults = FALSE;
+    if (imagechecker==1) {
+        _picturelocation=@"NoImage.png";
+    }
+    else
+    {
+        _picturelocation=@"";
+    }
+
      NSString*unitcost=   [_costtxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
     NSString *soapMessage;
     
@@ -285,16 +301,17 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:butnpath];
                    "<description>%@</description>\n"
                    "<unitcost>%f</unitcost>\n"
                    "<qtyinstock>%f</qtyinstock>\n"
+                    "<PictureLocation>%@</PictureLocation>\n"
                     "<STAllSubTypes>%d</STAllSubTypes>\n"
                    "</UpdateSmallTools>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,[unitcost floatValue],[_stockinhandtxtfld.text floatValue],checksub];
+                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,[unitcost floatValue],[_stockinhandtxtfld.text floatValue],_picturelocation,checksub];
     NSLog(@"soapmsg%@",soapMessage);
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
     NSURL *url = [NSURL URLWithString:@"http://testusa.kontract360.com/service.asmx"];
-    
+       //NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
     NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];

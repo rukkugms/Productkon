@@ -109,4 +109,5 @@
 @property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 - (IBAction)checksubtypebtn:(id)sender;
 -(IBAction)closeimage:(id)sender;
+@property(strong,nonatomic)NSString*picturelocation;
 @end

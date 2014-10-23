@@ -2207,10 +2207,12 @@ recordResults
 -(void) updatingtables{
     if (_tabtype==3) {
          _reloadtype=6;
+       // [self.view endEditing:YES];
         [self SitevisitInsertmeetingnotes];
         
     }
     else if (_tabtype==4){
+         //[self.view endEditing:YES];
          _reloadtype=9;
         [self SitevisitInsertNotes];
     }
