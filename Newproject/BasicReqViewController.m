@@ -3019,7 +3019,7 @@
         if(webtype==2)
         {
             
-            if ([_soapResults isEqualToString:@"Already Used"]) {
+            if ([_soapResults isEqualToString:@"Already In  Use"]) {
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
 
