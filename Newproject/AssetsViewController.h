@@ -126,6 +126,7 @@ NSInteger popvr;
 @property(strong,nonatomic)Rightscheck *rights;
 
 - (IBAction)subtypebtn:(id)sender;
+-(IBAction)closeimage:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *subtypebtnlbl;
 @property (strong, nonatomic)RSTViewController *subtypctrlr;
 @property (strong, nonatomic) IBOutlet UIButton *checksubtypebtnlbl;

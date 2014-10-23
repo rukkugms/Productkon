@@ -1700,6 +1700,7 @@ else
 }
 -(IBAction)closeimage:(id)sender
 {
+     imagechecker=1;
       _picimageview.image=[UIImage imageNamed:@"mNoImage"];
 }
 

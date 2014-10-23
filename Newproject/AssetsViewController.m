@@ -485,7 +485,14 @@ finishedSavingWithError:(NSError *)error
     webtype=1;
     recordResults = FALSE;
     //NSString*picturelocatn=@"";
-     _picturelocation=@"";
+    if (imagechecker==1) {
+        _picturelocation=@"NoImage.png";
+    }
+    else
+    {
+        _picturelocation=@"";
+    }
+
     
     NSString*Purchase=   [_purchasetxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
     NSString*insured=   [_insuredtxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
@@ -565,6 +572,14 @@ finishedSavingWithError:(NSError *)error
     webtype=2;
     recordResults = FALSE;
     //NSString*picturelocatn=@"";
+    if (imagechecker==1) {
+        _picturelocation=@"NoImage.png";
+    }
+    else
+    {
+        _picturelocation=@"";
+    }
+
     NSString *soapMessage;
 //    NSString*HourlyRate=_hurlytxtfld.text ;
 //     NSString*DailyRate=_dailytxtfld.text;
@@ -593,6 +608,7 @@ finishedSavingWithError:(NSError *)error
     else{
         createsub=0;
     }
+    
       
     soapMessage = [NSString stringWithFormat:
                    
@@ -2116,6 +2132,10 @@ recordResults = FALSE;
     }
     }
     }
+}
+-(IBAction)closeimage:(id)sender
+{ imagechecker=1;
+    _pictureimgview.image=[UIImage imageNamed:@"mNoImage"];
 }
 
 - (IBAction)cancelbtn:(id)sender {

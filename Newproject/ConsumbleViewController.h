@@ -96,6 +96,7 @@
 -(IBAction)addconsume:(id)sender;
 -(IBAction)editconsume:(id)sender;
 -(IBAction)closeaddview:(id)sender;
+-(IBAction)closeimage:(id)sender;
 @property (strong, nonatomic)RSTViewController *subtypctrlr;
 
 @property(strong,nonatomic)NSMutableArray *userrightsarray;

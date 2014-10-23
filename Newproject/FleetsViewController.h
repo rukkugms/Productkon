@@ -123,7 +123,7 @@ NSInteger popvr;
 @property (strong, nonatomic) IBOutlet UILabel *costlbl;
 - (IBAction)deletebtn:(id)sender;
 //- (IBAction)typesearchbtn:(id)sender;
-
+-(IBAction)closeimage:(id)sender;
 - (IBAction)closebtn:(id)sender;
 - (IBAction)Addclosebtn:(id)sender;
 - (IBAction)updatebtn:(id)sender;

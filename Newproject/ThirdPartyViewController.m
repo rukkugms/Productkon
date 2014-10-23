@@ -342,7 +342,13 @@ finishedSavingWithError:(NSError *)error
 -(void)InsertThirdParty{
     webtype=1;
     recordResults = FALSE;
-    NSString*picturelocatn=@"";
+    if (imagechecker==1) {
+        _picturelocation=@"NoImage.png";
+    }
+    else
+    {
+        _picturelocation=@"";
+    }
     
     
     NSString*Purchase=   [_purchasetxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
@@ -388,7 +394,7 @@ finishedSavingWithError:(NSError *)error
                    "<TPAllSubTypes>%d</TPAllSubTypes>\n"
                    "</InsertThirdParty>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",[unitcost floatValue],_destxtfld.text,[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[yearly floatValue],_typesearchlbl.titleLabel.text,[_stckinhandtxtdfld.text floatValue],checksub];
+                   "</soap:Envelope>\n",@"abc",[unitcost floatValue],_destxtfld.text,[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[yearly floatValue],_typesearchlbl.titleLabel.text,[_stckinhandtxtdfld.text floatValue],checksub];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -423,7 +429,14 @@ finishedSavingWithError:(NSError *)error
 -(void)UpdateThirdParty {
     webtype=2;
     recordResults = FALSE;
-    NSString*picturelocatn=@"";
+    if (imagechecker==1) {
+        _picturelocation=@"NoImage.png";
+    }
+    else
+    {
+        _picturelocation=@"";
+    }
+
     NSString *soapMessage;
     
     NSString*Purchase=   [_purchasetxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
@@ -499,7 +512,7 @@ finishedSavingWithError:(NSError *)error
                    "<TPAllSubTypes>%d</TPAllSubTypes>\n"
                    "</UpdateThirdParty>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",Thrdprty.entryid,_codetxtfld.text,[unitcost floatValue],_destxtfld.text,[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[yearly floatValue],_typesearchlbl.titleLabel.text,[_stckinhandtxtdfld.text floatValue],check];
+                   "</soap:Envelope>\n",Thrdprty.entryid,_codetxtfld.text,[unitcost floatValue],_destxtfld.text,[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[yearly floatValue],_typesearchlbl.titleLabel.text,[_stckinhandtxtdfld.text floatValue],check];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -2129,6 +2142,10 @@ finishedSavingWithError:(NSError *)error
 
 
     
+}
+-(IBAction)closeimage:(id)sender
+{ imagechecker=1;
+    _pictureimgvw.image=[UIImage imageNamed:@"mNoImage"];
 }
 
 - (IBAction)subsearchbtn:(id)sender {
