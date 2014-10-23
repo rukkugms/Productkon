@@ -26,7 +26,7 @@
 @end
 
 
-@interface DrawingViewController : UIViewController{
+@interface DrawingViewController : UIViewController<UITextFieldDelegate>{
     BOOL recordResults;
     CGPoint lastPoint;
     CGFloat red;

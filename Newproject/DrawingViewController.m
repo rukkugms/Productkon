@@ -461,10 +461,10 @@
     if([elementName isEqualToString:@"msg"])
     {
         recordResults = FALSE;
-        [self.mylineview removeFromSuperview];
-        _mylineview = [[MyLineDrawingView alloc] initWithFrame:CGRectMake(0, 0, 768, 954)];
-        _mylineview.backgroundColor=[UIColor clearColor];
-        [self.newview addSubview:_mylineview];
+//        [self.mylineview removeFromSuperview];
+//        _mylineview = [[MyLineDrawingView alloc] initWithFrame:CGRectMake(0, 0, 768, 954)];
+//        _mylineview.backgroundColor=[UIColor clearColor];
+//        [self.newview addSubview:_mylineview];
         
 
         [self saveaction];
@@ -498,6 +498,7 @@ if ([self.delegate respondsToSelector:@selector(toreloaddrawings)]) {
         [self.delegate toreloaddrawings];
         
         [self dismissViewControllerAnimated:YES completion:nil];
+    
     }
     
       }
@@ -551,21 +552,36 @@ if ([self.delegate respondsToSelector:@selector(toreloaddrawings)]) {
 - (IBAction)savebtn:(id)sender {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Save As" message:@" " delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+  
     CGRect frame = CGRectMake(14, 45, 255, 23);
     _textField = [[UITextField alloc] initWithFrame:frame];
     _textField.placeholder = @"";
     _textField.backgroundColor = [UIColor whiteColor];
     _textField.autocorrectionType = UITextAutocorrectionTypeDefault;
     _textField.keyboardType = UIKeyboardTypeAlphabet;
-    _textField.returnKeyType = UIReturnKeyDone;
+   _textField.returnKeyType = UIReturnKeyDone;
     _textField.clearButtonMode = UITextFieldViewModeWhileEditing; // has 'x' button to the right
+    _textField.delegate=self;
     [alertView addSubview:_textField];
     
     [alertView show];
 
 }
+//- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+//    [_textField resignFirstResponder];
+//    NSLog(@"test");
+//    return YES;
+//}
+//- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+//{
+//    [_textField resignFirstResponder];
+//    return YES;
+//}
+
 #pragma mark-UIAlertView
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    //[self resignFirstResponder];
+   // [_textField resignFirstResponder];
     if (buttonIndex==1) {
         
         if ([[alertView textFieldAtIndex:0].text isEqualToString:@""]) {
@@ -576,7 +592,7 @@ if ([self.delegate respondsToSelector:@selector(toreloaddrawings)]) {
         else{
             
             
-
+            //[self.view endEditing:YES];
             _activityindctr.hidden=NO;
             [_activityindctr startAnimating];
         UIGraphicsBeginImageContext(_newview.bounds.size);
@@ -629,8 +645,10 @@ if ([self.delegate respondsToSelector:@selector(toreloaddrawings)]) {
         }
 
     }
+      
     }
 }
+
 
 - (IBAction)erasebtn:(id)sender {
     
