@@ -2030,8 +2030,10 @@ else
 }
 -(IBAction)closeimage:(id)sender
 {
-     imagechecker=1;
-    _picimageview.image=[UIImage imageNamed:@"mNoImage"];
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to delete this picture?" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
+    [alert show];
+//     imagechecker=1;
+//    _picimageview.image=[UIImage imageNamed:@"mNoImage"];
 }
 
 -(IBAction)closeMaterials:(id)sender
@@ -2191,6 +2193,19 @@ else
         _unitofmesuretxtfld.text=@"";
         
     }
+    if ([alertView.message isEqualToString:@"Are you sure you want to delete this picture?"])
+    {
+        
+        if (buttonIndex==[alertView cancelButtonIndex]) {
+            imagechecker=1;
+            _picimageview.image=[UIImage imageNamed:@"mNoImage"];
+        }
+        else
+        {
+            
+        }
+    }
+
 
     if ([alertView.message isEqualToString:@"Invalid unit cost"]) {
         
