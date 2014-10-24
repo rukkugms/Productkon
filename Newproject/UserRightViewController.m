@@ -2381,14 +2381,14 @@ viewcheck=0;
            [alert show];
            // [self UserRightsselect];
                   _usertable.userInteractionEnabled=YES;
-                if(![_subsubbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+                if(![[_subsubbtnlbl.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:@"Select"]){
                     
                     [self SubUserRightsforparticularmoduleselect];
                     
                 }
                 else{
                     
-                    if(![_subbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+                    if(![[_subbtnlbl.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:@"Select"]){
                         if(tileschecking==1){
                             [self UserRightsforparticularmodule2select];
                             
@@ -2400,7 +2400,7 @@ viewcheck=0;
                         
                     }
                     else{
-                        if(![_masterbtn.titleLabel.text isEqualToString:@"Select"]){
+                        if(![[_masterbtn.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:@"Select"]){
                             
                             if([_masterbtn.titleLabel.text isEqualToString:@"Master Tiles"]){
                                 
@@ -2412,7 +2412,7 @@ viewcheck=0;
                         
                         else{
                             
-                            if(![_userbtn.titleLabel.text isEqualToString:@"Select"]){
+                            if(![[_userbtn.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:@"Select"]){
                                 
                                 [self UserRightsselect];
                             }
@@ -3211,8 +3211,27 @@ _Alleditbtnlbl.enabled=NO;
     _usertable.userInteractionEnabled=YES;
     _userbtn.enabled=YES;
     _masterbtn.enabled=YES;
-    _subbtnlbl.enabled=YES;
-    _subsubbtnlbl.enabled=YES;
+    if([[_masterbtn.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:@"Select"]){
+        _subbtnlbl.enabled=NO;
+        _subsubbtnlbl.enabled=NO;
+        
+    }
+    else{
+        
+        
+        if([[_subbtnlbl.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:@"Select"]){
+            
+            _subbtnlbl.enabled=YES;
+            _subsubbtnlbl.enabled=NO;
+            
+        }
+        else{
+            _subbtnlbl.enabled=YES;
+            _subsubbtnlbl.enabled=YES;
+        }
+        
+    }
+
     _Alldeletebtnlbl.enabled=YES;
     _Alleditbtnlbl.enabled=YES;
     _Allprintbtnlbl.enabled=YES;
@@ -3235,6 +3254,35 @@ _Alleditbtnlbl.enabled=NO;
            // [_masterbtn setTitle:@"Select" forState:UIControlStateNormal];
           //  [_subbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
            // [_subsubbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+            _usertable.userInteractionEnabled=YES;
+            _userbtn.enabled=YES;
+            _masterbtn.enabled=YES;
+            if([[_masterbtn.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:@"Select"]){
+                _subbtnlbl.enabled=NO;
+                _subsubbtnlbl.enabled=NO;
+                
+            }
+            else{
+                
+                
+                if([[_subbtnlbl.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:@"Select"]){
+                    
+                    _subbtnlbl.enabled=YES;
+                    _subsubbtnlbl.enabled=NO;
+                    
+                }
+                else{
+                    _subbtnlbl.enabled=YES;
+                    _subsubbtnlbl.enabled=YES;
+                }
+                
+            }
+
+            _Alldeletebtnlbl.enabled=YES;
+            _Alleditbtnlbl.enabled=YES;
+            _Allprintbtnlbl.enabled=YES;
+            _Allviewbtnlbl.enabled=YES;
+            _activatebtnlbl.enabled=YES;
            
         }
     }
