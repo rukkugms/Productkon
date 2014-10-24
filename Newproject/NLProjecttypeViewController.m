@@ -689,6 +689,7 @@
          recordResults = FALSE;
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+        _typetable.userInteractionEnabled=YES;
           _soapResults = nil;
         [self ProjecttypeSelect];
     
@@ -783,5 +784,6 @@ _updatebtn.enabled=YES;
     }
     _updatebtn.enabled=YES;
     _prjcttypetxtfld.text=@"";
+    _typetable.userInteractionEnabled=YES;
 }
 @end
