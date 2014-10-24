@@ -2075,8 +2075,10 @@ if([elementName isEqualToString:@"url"])
 }
 -(IBAction)closeimage:(id)sender
 {
-     imagechecker=1;
-    _picimageview.image=[UIImage imageNamed:@"mNoImage"];
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to delete this picture?" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
+    [alert show];
+//     imagechecker=1;
+//    _picimageview.image=[UIImage imageNamed:@"mNoImage"];
 }
 - (IBAction)cancelbtn:(id)sender {
     _codetxtfld.text=@"";
@@ -2390,6 +2392,19 @@ if([elementName isEqualToString:@"url"])
         _stockinhandtxtfld.text=@"";
         
     }
+    if ([alertView.message isEqualToString:@"Are you sure you want to delete this picture?"])
+    {
+        
+        if (buttonIndex==[alertView cancelButtonIndex]) {
+            imagechecker=1;
+            _picimageview.image=[UIImage imageNamed:@"mNoImage"];
+        }
+        else
+        {
+            
+        }
+    }
+
     
     
     
@@ -2440,7 +2455,7 @@ if([elementName isEqualToString:@"url"])
     if(textField==_condtntxtfld)
     {
         NSUInteger newLength = [_condtntxtfld.text length] + [string length] - range.length;
-        return (newLength > 200) ? NO : YES;
+        return (newLength > 50) ? NO : YES;
     }
     if(textField==_hurlytxtfld)
     {

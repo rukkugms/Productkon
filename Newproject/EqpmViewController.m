@@ -2227,9 +2227,9 @@ _addequipmentview.hidden=NO;
      [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
 }
 -(IBAction)closeimage:(id)sender
-{
-    imagechecker=1;
-    _picimageview.image=[UIImage imageNamed:@"mNoImage"];
+{   UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to delete this picture?" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
+    [alert show];
+    
 }
 
 #pragma mark-Textfield Delegate
@@ -2478,6 +2478,8 @@ _addequipmentview.hidden=NO;
 
         
     }
+  
+        
     if ([alertView.message isEqualToString:@"Invalid purchase value"]) {
         
         
@@ -2563,7 +2565,18 @@ _shiftwisetxtfld.text=@"";
         _stockinhndtxtfld.text=@"";
         
     }
-    
+     if ([alertView.message isEqualToString:@"Are you sure you want to delete this picture?"])
+     {
+         
+         if (buttonIndex==[alertView cancelButtonIndex]) {
+             imagechecker=1;
+             _picimageview.image=[UIImage imageNamed:@"mNoImage"];
+         }
+         else
+         {
+             
+         }
+     }
 
 
     
@@ -2613,7 +2626,7 @@ _shiftwisetxtfld.text=@"";
     if(textField==_condtntxtfld)
     {
         NSUInteger newLength = [_condtntxtfld.text length] + [string length] - range.length;
-        return (newLength > 200) ? NO : YES;
+        return (newLength > 50) ? NO : YES;
     }
     if(textField==_hurlytxtfld)
     {
