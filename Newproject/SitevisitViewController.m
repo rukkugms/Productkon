@@ -1780,9 +1780,9 @@
     
     NSString*    dateString = [dateFormat2 stringFromDate:dates];
 _passingdate=dateString;
-    NSString *fullURL =[NSString stringWithFormat:@"%@-%@-%@-%@.jpg",plantrimmestrg,@"Meeting",dateString,sitemdl1.filename];
+   // NSString *fullURL =[NSString stringWithFormat:@"%@-%@-%@-%@.jpg",plantrimmestrg,@"Meeting",dateString,sitemdl1.filename];
     
-    
+    NSString *fullURL=sitemdl1.filename;
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -2173,7 +2173,12 @@ _passingdate=dateString;
         _mdetaillbl=(UILabel *)[cell viewWithTag:2];
         _mdetaillbl.text=sitemdl1.meetingdetails;
       _mnotelbl=(UILabel *)[cell viewWithTag:3];
-      _mnotelbl.text=sitemdl1.filename;
+    NSArray*array=[sitemdl1.filename componentsSeparatedByString:@"-"];
+      
+      NSArray*array1=[[array lastObject]componentsSeparatedByString:@"."];
+       NSString*FNAME=[array1 objectAtIndex:0];
+
+      _mnotelbl.text=FNAME;
       _typeimagview=(UIImageView*)[cell viewWithTag:5];
       if (sitemdl1.typvalue==0) {
           _typeimagview.image=[UIImage imageNamed:@"Handnotes"];
@@ -3328,6 +3333,11 @@ _passingdate=dateString;
     if([elementName isEqualToString:@"MettingFileName"])
     {
         recordResults = FALSE;
+      //  NSArray*array=[_soapResults componentsSeparatedByString:@"-"];
+      
+        //NSArray*array1=[[array lastObject]componentsSeparatedByString:@"."];
+        // NSString*FNAME=[array1 objectAtIndex:0];
+        
         _sitevistmdl.filename=_soapResults;
         
         _soapResults = nil;

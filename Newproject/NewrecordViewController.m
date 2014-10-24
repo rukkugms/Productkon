@@ -454,13 +454,15 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 -(void)SitevisitInsertmeetingnotes{
     recordResults = FALSE;
     NSString *filename;
+    NSString*newfile;
    
     if ([_meetgdetailslbl.text isEqualToString:@""]) {
         
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
- filename = [defaults objectForKey:@"Imagename"];
+ filename = [defaults objectForKey:@"filename"];
+        //newfile=[NSString stringWithFormat:@"%@.jpg",filename];
         
     }
     else{
