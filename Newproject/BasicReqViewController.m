@@ -76,7 +76,7 @@
     _result=@"";
      _searchbar.text=@"";
     _basicreqtable.userInteractionEnabled=YES;
-    _disclosurearray=[[NSMutableArray alloc]initWithObjects:@"Add Vendor", nil];
+    _disclosurearray=[[NSMutableArray alloc]initWithObjects:@"Vendor", nil];
     [self SelectAllRequirements];
     //[self SelectAllCraft];
     [self SelectAllItemType];
@@ -629,12 +629,16 @@
                 NSLog(@"%dre",reqmdl.inhouse);
                 if (reqmdl.inhouse==1) {
                     _popOverTableView.userInteractionEnabled=NO;
+                   // [_popOverTableView setBackgroundColor:[UIColor grayColor]];
+                   // cell.contentView.backgroundColor = [UIColor grayColor]
                    
                     
                 }
                 else if(reqmdl.inhouse==0)
                 {
                     _popOverTableView.userInteractionEnabled=YES;
+                        //[_popOverTableView setBackgroundColor:[UIColor colorWithRed:173.0/255.0f green:216/255.0f blue:230/255.0f alpha:1.0f]];
+                    
                  _searchbar.text=@"";
 
                                     NSLog(@"%d",reqmdl.eid);
@@ -678,7 +682,8 @@
             
             
         }
-    }
+    
+        }
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -1002,9 +1007,9 @@
     checkstring=@"clicked";
     if (defaultcheck==0) {
         [_defaultcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-            [_craftcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_craftcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         defaultcheck=1;
-           craft=0;
+           craft=1;
         _craftview.hidden=YES;
         _seperatorview.hidden=YES;
         
@@ -1093,6 +1098,90 @@
     [_inhousecheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
      _craftview.hidden=NO;
     _seperatorview.hidden=NO;
+}
+- (IBAction)cellcraftbtn:(id)sender {
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.basicreqtable];
+    NSIndexPath *textFieldIndexPath = [self.basicreqtable indexPathForRowAtPoint:rootViewPoint];
+    
+    basicreqmdl*reqmdl=(basicreqmdl *)[_allrequirementarray objectAtIndex:textFieldIndexPath.row];
+    
+    self.craftVCtrl=[[CraftViewController alloc]initWithNibName:@"CraftViewController" bundle:nil];
+    
+    
+    self.craftVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+    _craftVCtrl.reqid=reqmdl.eid;
+    
+    [self presentViewController:self.craftVCtrl
+                       animated:YES completion:NULL];
+    
+    
+    
+    
+    //      poptype=4;
+    //    button = (UIButton *)sender;
+    //    CGPoint center= button.center;
+    //    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.basicreqtable];
+    //    NSIndexPath *textFieldIndexPath = [self.basicreqtable indexPathForRowAtPoint:rootViewPoint];
+    //    UITableViewCell *cell = [self.basicreqtable cellForRowAtIndexPath:textFieldIndexPath];
+    //
+    //
+    //    UIViewController* popoverContent = [[UIViewController alloc]
+    //                                        init];
+    //    UIView* popoverView = [[UIView alloc]
+    //                           initWithFrame:CGRectMake(0, 0, 150, 200)];
+    //
+    //    popoverView.backgroundColor = [UIColor lightTextColor];
+    //    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 150, 200)];
+    //    _popOverTableView.delegate=(id)self;
+    //    _popOverTableView.dataSource=(id)self;
+    //    _popOverTableView.rowHeight= 32;
+    //
+    //
+    //
+    //
+    //    [popoverView addSubview:_popOverTableView];
+    //    popoverContent.view = popoverView;
+    //
+    //    //resize the popover view shown
+    //    //in the current view to the view's size
+    //    popoverContent.contentSizeForViewInPopover = CGSizeMake(150, 200);
+    //
+    //    //create a popover controller
+    //    self.popOverController = [[UIPopoverController alloc]
+    //                              initWithContentViewController:popoverContent];
+    //    [self.popOverController presentPopoverFromRect:_cellcraftbtnlbl.frame
+    //                                            inView:cell
+    //                          permittedArrowDirections:UIPopoverArrowDirectionUp
+    //                                          animated:YES];
+    
+}
+
+- (IBAction)allcraftbtn:(id)sender {
+    allcraftstrg=@"Allcrafts";
+    if (allcraft==0) {
+        [_allcraftbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        _craftbtn.enabled=NO;
+        allcraft=1;
+        
+    }
+    
+    else{
+        [_allcraftbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        allcraft=0;
+        _craftbtn.enabled=YES;
+        
+    }
+    
+    
+    
+}
+-(IBAction)toreqtype:(id)sender
+{
+    _moduleid=20;
+    _result=@"";
+    [self UserRightsforparticularmoduleselect];
 }
 
 #pragma mark-popover
@@ -1198,6 +1287,27 @@
 }
 -(IBAction)selectdisclosure:(id)sender
 {
+   
+    
+    button = (UIButton *)sender;
+    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.basicreqtable];
+    NSIndexPath *textFieldIndexPath = [self.basicreqtable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
+
+    basicreqmdl*reqmdl=(basicreqmdl *)[_allrequirementarray objectAtIndex:btnindex];
+    if (reqmdl.inhouse==1) {
+       
+        
+        
+    }
+    else if(reqmdl.inhouse==0)
+    {
+        
+    
+
     poptype=4;
     UIViewController* popoverContent = [[UIViewController alloc]init];
     UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 130, 43)];
@@ -1212,20 +1322,14 @@
     popoverContent.view = popoverView;
     popoverContent.contentSizeForViewInPopover = CGSizeMake(130, 43);
     
-    button = (UIButton *)sender;
-    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
-    CGPoint center= button.center;
-    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.basicreqtable];
-    NSIndexPath *textFieldIndexPath = [self.basicreqtable indexPathForRowAtPoint:rootViewPoint];
-    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
-    btnindex=textFieldIndexPath.row;
-    
+        
     //UITableView *table = (UITableView *)[cell superview];
     self.popOverController = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
     [self.popOverController presentPopoverFromRect:_vendorbtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
     
-    
+   
     //[_popovertableview reloadData];
+    }
 }
 
 
@@ -3208,88 +3312,4 @@
 
 
 
-- (IBAction)cellcraftbtn:(id)sender {
-      button = (UIButton *)sender;
-       CGPoint center= button.center;
-        CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.basicreqtable];
-        NSIndexPath *textFieldIndexPath = [self.basicreqtable indexPathForRowAtPoint:rootViewPoint];
-    
-  basicreqmdl*reqmdl=(basicreqmdl *)[_allrequirementarray objectAtIndex:textFieldIndexPath.row];
-    
-    self.craftVCtrl=[[CraftViewController alloc]initWithNibName:@"CraftViewController" bundle:nil];
-
-
-   self.craftVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
-    _craftVCtrl.reqid=reqmdl.eid;
-    
-  [self presentViewController:self.craftVCtrl
-                   animated:YES completion:NULL];
-
-
-    
-    
-    //      poptype=4;
-//    button = (UIButton *)sender;
-//    CGPoint center= button.center;
-//    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.basicreqtable];
-//    NSIndexPath *textFieldIndexPath = [self.basicreqtable indexPathForRowAtPoint:rootViewPoint];
-//    UITableViewCell *cell = [self.basicreqtable cellForRowAtIndexPath:textFieldIndexPath];
-//    
-//  
-//    UIViewController* popoverContent = [[UIViewController alloc]
-//                                        init];
-//    UIView* popoverView = [[UIView alloc]
-//                           initWithFrame:CGRectMake(0, 0, 150, 200)];
-//    
-//    popoverView.backgroundColor = [UIColor lightTextColor];
-//    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 150, 200)];
-//    _popOverTableView.delegate=(id)self;
-//    _popOverTableView.dataSource=(id)self;
-//    _popOverTableView.rowHeight= 32;
-//    
-//    
-//    
-//    
-//    [popoverView addSubview:_popOverTableView];
-//    popoverContent.view = popoverView;
-//    
-//    //resize the popover view shown
-//    //in the current view to the view's size
-//    popoverContent.contentSizeForViewInPopover = CGSizeMake(150, 200);
-//    
-//    //create a popover controller
-//    self.popOverController = [[UIPopoverController alloc]
-//                              initWithContentViewController:popoverContent];
-//    [self.popOverController presentPopoverFromRect:_cellcraftbtnlbl.frame
-//                                            inView:cell
-//                          permittedArrowDirections:UIPopoverArrowDirectionUp
-//                                          animated:YES];
-
-}
-
-- (IBAction)allcraftbtn:(id)sender {
-    allcraftstrg=@"Allcrafts";
-    if (allcraft==0) {
-        [_allcraftbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-        _craftbtn.enabled=NO;
-        allcraft=1;
-        
-    }
-    
-    else{
-        [_allcraftbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        allcraft=0;
-         _craftbtn.enabled=YES;
-        
-    }
-
-    
-    
-}
--(IBAction)toreqtype:(id)sender
-{
-    _moduleid=20;
-    _result=@"";
-    [self UserRightsforparticularmoduleselect];
-}
 @end
