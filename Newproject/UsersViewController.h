@@ -27,6 +27,8 @@
     NSInteger usertyid;
     NSString *empid;
     NSString *empname;
+    NSInteger activate;
+    NSString *actvatestring;
 }
 @property(readwrite)NSInteger moduleid;
 @property(strong,nonatomic)NSArray *custmrrarry;
@@ -66,6 +68,8 @@
 @property(strong,nonatomic)IBOutlet UITextField *usrnametextfld;
 @property(strong,nonatomic)IBOutlet UITextField *pswdtextfld;
 @property(strong,nonatomic)IBOutlet UIButton *cancelbtn;
+@property (strong, nonatomic) IBOutlet UIButton *activatebtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *devicebtn;
 /*IBAction in view*/
 -(IBAction)insertuser:(id)sender;
 -(IBAction)cancel:(id)sender;
@@ -78,6 +82,8 @@
 -(IBAction)deleteusers:(id)sender;
 - (IBAction)usertype1btn:(id)sender;
 - (IBAction)usertype2btn:(id)sender;
+- (IBAction)activatebtn:(id)sender;
+- (IBAction)Selectdevice:(id)sender;
 
 
 /* xmlparser*/
@@ -87,10 +93,13 @@
 
 /*array*/
 @property(strong,nonatomic)NSMutableArray *userlistarray;
-
+@property(strong,nonatomic)NSArray *devicelistarry;
+@property(strong,nonatomic)NSMutableDictionary *devicelistdict;
+@property(strong,nonatomic)NSMutableDictionary *reversedevicelistdict;
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
 @property(strong,nonatomic)IBOutlet UIButton *updatebtn;
+
 
 
 @end
