@@ -180,8 +180,9 @@
               dkey=[_alldatearray objectAtIndex:i];
              for (int x = 0; x < [_calendararray count]; x++){
                  Eventmdl*neweve=(Eventmdl *)[_calendararray objectAtIndex:x];
-                
-
+                  NSLog(@"I%D",i);
+                 NSLog(@"neweve.startdate%@",neweve.startdate);
+                  NSLog(@"[_alldatearray objectAtIndex:i]%@",[_alldatearray objectAtIndex:i]);
             if ([neweve.startdate isEqualToString:[_alldatearray objectAtIndex:i]]) {
                 if ([neweve.Title length]==0) {
                     
@@ -579,8 +580,19 @@
         recordResults = FALSE;
         NSArray*array=[_soapresults componentsSeparatedByString:@"T"];
         NSString*new=[array objectAtIndex:0];
+       
        [_datearray addObject:new];
+        
         _eventmdl.startdate=new;
+        
+        if ([lastdate isEqualToString:new]) {
+            
+        }
+        else{
+             previoustitle=@"";
+        }
+        
+        lastdate=new;
       
         _soapresults = nil;
 

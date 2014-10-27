@@ -13,6 +13,7 @@
     BOOL recordResults;
     NSString*olddate;
     NSString*previoustitle;
+    NSString*lastdate;
    
     
 

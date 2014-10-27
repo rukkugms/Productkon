@@ -1813,6 +1813,7 @@
 
 -(void)calculatereviewsum
 {
+    
     if ([_estimationstring isEqualToString:@"Estimationreview"]) {
         
         for (int i=0; i<[_reviewsumarray count]; i++) {
