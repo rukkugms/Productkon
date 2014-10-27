@@ -44,7 +44,14 @@
     searchController.searchResultsDataSource = (id)self;
     searchController.searchResultsDelegate =(id)self;
     searchController.delegate = (id)self;
-   
+    _devicelistdict=[[NSMutableDictionary alloc]init];
+    [_devicelistdict setObject:@"Web" forKey:@"1"];
+    [_devicelistdict setObject:@"IPad" forKey:@"2"];
+    [_devicelistdict setObject:@"Android" forKey:@"3"];
+    _reversedevicelistdict=[[NSMutableDictionary alloc]init];
+    [_reversedevicelistdict setObject:@"1" forKey:@"Web"];
+    [_reversedevicelistdict setObject:@"2" forKey:@"IPad"];
+    [_reversedevicelistdict setObject:@"3" forKey:@"Android"];
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -52,6 +59,8 @@
 {
     [super viewWillAppear:animated];
     [self SelectAllUsers];
+    actvatestring=@"";
+     [self UserTypeselect];
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,10 +93,15 @@
                     return [_custmrdict count];
                     
                     break;
+                    
                 default:
                     break;
             }
             
+        }
+        else if (poptype==3)
+        {
+            return [_devicelistdict count];
         }
     }
     else {
@@ -144,6 +158,11 @@
 
              
          }
+         if (poptype==3)
+         {
+             _devicelistarry=[_devicelistdict allValues];
+             cell.textLabel.text=[_devicelistarry objectAtIndex:indexPath.row];
+         }
     }
     return cell;
 }
@@ -181,7 +200,10 @@
             }
 
         }
-        
+          if (poptype==3)
+          {
+              [_devicebtn setTitle:[_devicelistarry objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
+          }
         
         
     }
@@ -265,16 +287,17 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllUsers xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SelectAllUsers xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</SelectAllUsers>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
     
-    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+
     //  NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+     //NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -282,7 +305,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllUsers" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SelectAllUsers" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -364,16 +387,17 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllCustomer xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SelectAllCustomer xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</SelectAllCustomer>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
     
-    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+     //NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -381,7 +405,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllCustomer" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SelectAllCustomer" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -415,15 +439,16 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Employeeselect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<Employeeselect xmlns=\"http://ios.kontract360.com/\">\n"
                     "</Employeeselect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
-    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+
     
     //  NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -431,7 +456,58 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/Employeeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/Employeeselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)PasswordForUser
+{
+     listusermdl*usrmdl=(listusermdl *)[_userlistarray objectAtIndex:btnindex];
+    recordresults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<PasswordForUser xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<UserName>%@</UserName>\n"
+                   "</PasswordForUser>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",usrmdl.username];
+    NSLog(@"soapmsg%@",soapMessage);
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    
+    //  NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/PasswordForUser" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -451,6 +527,7 @@
     
 }
 
+
 -(void)UserTypeselect
 {
     
@@ -465,15 +542,16 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UserTypeselect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<UserTypeselect xmlns=\"http://ios.kontract360.com/\">\n"
                     "</UserTypeselect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
     
-    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+
     //  NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -481,7 +559,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/UserTypeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/UserTypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -506,8 +584,8 @@
     webtype=1;
     recordresults = FALSE;
     NSInteger userid=[[_Nametypeusrdict objectForKey:_type1btnlbl.titleLabel.text]integerValue];
-    
-    
+    NSInteger deviceid=[[_reversedevicelistdict objectForKey:_devicebtn.titleLabel.text]integerValue];
+   
     
     switch (tyid) {
         case 1:
@@ -531,19 +609,21 @@
                    
                    "<soap:Body>\n"
                    
-                   "<InsertUsers xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<InsertUsers xmlns=\"http://ios.kontract360.com/\">\n"
                    "<username>%@</username>\n"
                    "<password>%@</password>\n"
                    "<UserTypeId>%d</UserTypeId>\n"
                    "<UserTypeName>%d</UserTypeName>\n"
+                   "<DeviceType>%d</DeviceType>\n"
+                   "<Activate>%d</Activate>\n"
                    "</InsertUsers>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_usrnametextfld.text,_pswdtextfld.text,userid,usertyid];
+                   "</soap:Envelope>\n",_usrnametextfld.text,_pswdtextfld.text,userid,usertyid,deviceid,activate];
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //  NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+     //NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -551,7 +631,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/InsertUsers" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/InsertUsers" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -576,6 +656,15 @@
     
     NSInteger userid=[[_Nametypeusrdict objectForKey:_type1btnlbl.titleLabel.text]integerValue];
     
+    if ([_type1btnlbl.titleLabel.text isEqualToString:@"Employee"]) {
+        tyid=1;
+    }
+    else if (([_type1btnlbl.titleLabel.text isEqualToString:@"Customer"])){
+        tyid=2;
+    }
+    else if (([_type1btnlbl.titleLabel.text isEqualToString:@"Vendor"])){
+        tyid=3;
+    }
     
     
     switch (tyid) {
@@ -591,6 +680,30 @@
     }
 
     listusermdl*usermdl=(listusermdl *)[_userlistarray objectAtIndex:btnindex];
+    NSInteger deviceid=[[_reversedevicelistdict objectForKey:_devicebtn.titleLabel.text]integerValue];
+    NSInteger act;
+    if([actvatestring isEqualToString:@"activate"])
+    {
+        if (activate==0) {
+            act=0;
+        }
+        else{
+            act=1;
+            
+        }
+        actvatestring=@"";
+    }
+    else
+    {
+        if ([usermdl.Activate isEqualToString:@"true"]) {
+            act=1;
+        }
+        else
+        {
+            act=0;
+        }
+    }
+
     recordresults = FALSE;
     NSString *soapMessage;
     
@@ -602,20 +715,23 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UpdateUsers xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<UpdateUsers xmlns=\"http://ios.kontract360.com/\">\n"
                    "<userid>%d</userid>\n"
                    "<username>%@</username>\n" 
                    "<password>%@</password>\n"
                    "<UserTypeId>%d</UserTypeId>\n"
                    "<UserTypeName>%d</UserTypeName>\n"
+                   "<DeviceType>%d</DeviceType>\n"
+                   "<Activate>%d</Activate>\n"
                    "</UpdateUsers>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",usermdl.userid,_usrnametextfld.text,_pswdtextfld.text,userid,usertyid];
+                   "</soap:Envelope>\n",usermdl.userid,_usrnametextfld.text,_pswdtextfld.text,userid,usertyid,deviceid,act];
     NSLog(@"soapmsg%@",soapMessage);
-    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+
     
      // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+     //NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -623,7 +739,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/UpdateUsers" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/UpdateUsers" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -641,6 +757,7 @@
         ////NSLog(@"theConnection is NULL");
     }
     
+
 }
 -(void)DeleteUsers
 {
@@ -657,16 +774,17 @@
                    
                    "<soap:Body>\n"
                    
-                   "<DeleteUsers xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<DeleteUsers xmlns=\"http://ios.kontract360.com/\">\n"
                    "<userid>%d</userid>\n"
                    "</DeleteUsers>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",usrmdl.userid];
     NSLog(@"soapmsg%@",soapMessage);
     
-    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+     //NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -674,7 +792,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/DeleteUsers" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/DeleteUsers" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1022,6 +1140,22 @@
         }
         recordresults = TRUE;
     }
+    if([elementName isEqualToString:@"DeviceType"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"Activate"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
 
 
     
@@ -1146,6 +1280,24 @@
         }
         recordresults = TRUE;
     }
+    if([elementName isEqualToString:@"PasswordForUserResponse"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"url"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+
+    
 
 
 
@@ -1214,12 +1366,25 @@
         
         recordresults = FALSE;
         _usrmdl.customername=_soapResults;
-        [_userlistarray addObject:_usrmdl];
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"DeviceType"])
+    {
+        
+        recordresults = FALSE;
+        _usrmdl.DeviceType=_soapResults;
         _soapResults = nil;
     }
 
-
-
+    if([elementName isEqualToString:@"Activate"])
+    {
+        
+        recordresults = FALSE;
+        _usrmdl.Activate=_soapResults;
+        [_userlistarray addObject:_usrmdl];
+        _soapResults = nil;
+    }
 
 
     if([elementName isEqualToString:@"userTypeId"])
@@ -1284,7 +1449,15 @@
         _soapResults = nil;
         
     }
+    if([elementName isEqualToString:@"url"])
+    {
+        recordresults = FALSE;
+        _pswdtextfld.text=_soapResults;
+        _soapResults = nil;
+        
+    }
 
+  
     if([elementName isEqualToString:@"result"])
     {
         recordresults = FALSE;
@@ -1377,9 +1550,15 @@
    // _type2btnlbl.titleLabel.text=@"Select";
     [_type1btnlbl setTitle:@"Select" forState:UIControlStateNormal];
     [_type2btnlbl setTitle:@"Select" forState:UIControlStateDisabled];
+     [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    _type2btnlbl.enabled=NO;
+    [_activatebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
 }
 -(IBAction)edituserview:(id)sender
-{
+{[self PasswordForUser];
+    [self Employeeselect];
+    [self SelectAllCustomer];
+   
    _updatebtn.enabled=YES;
     _usertable.userInteractionEnabled=NO;
     optionIdentifier=2;
@@ -1395,27 +1574,46 @@
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
     btnindex=textFieldIndexPath.row;
     listusermdl*usrmdl=(listusermdl *)[_userlistarray objectAtIndex:textFieldIndexPath.row];
-    
+   
+    if ([usrmdl.DeviceType isEqualToString:@"1"]) {
+        [_devicebtn setTitle:[_devicelistdict objectForKey:@"1"] forState:UIControlStateNormal];
+    }
+    else if ([usrmdl.DeviceType isEqualToString:@"2"]) {
+        [_devicebtn setTitle:[_devicelistdict objectForKey:@"2"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [_devicebtn setTitle:[_devicelistdict objectForKey:@"3"] forState:UIControlStateNormal];
+    }
     _usrnametextfld.text=usrmdl.username;
-    _pswdtextfld.text=usrmdl.pwd;
+    //_pswdtextfld.text=usrmdl.pwd;
+    if ([usrmdl.Activate isEqualToString:@"true"]) {
+        [_activatebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [_activatebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    }
     _titlenamelabel.hidden=NO;
-    _type2btnlbl.enabled=NO;
+    _type2btnlbl.enabled=YES;
    if([usrmdl.UserTypeId isEqualToString:@"2"])
-   {
+   { _type2btnlbl.userInteractionEnabled=YES;
         NSLog(@"%@",usrmdl.empname);
       // _type2btnlbl.titleLabel.text=usrmdl.empname;
 //_type1btnlbl.titleLabel.text=@"Employee            ";
-       [_type2btnlbl setTitle:usrmdl.empname forState:UIControlStateDisabled];
+       [_type2btnlbl setTitle:usrmdl.empname forState:UIControlStateNormal];
        [_type1btnlbl setTitle:@"Employee" forState:UIControlStateNormal];
        _titlenamelabel.text=_type1btnlbl.titleLabel.text;
+      
    }
    else if ([usrmdl.UserTypeId isEqualToString:@"3"])
-   {
+   {  _type2btnlbl.userInteractionEnabled=YES;
        // _type2btnlbl.titleLabel.text=usrmdl.customername;
        //_type1btnlbl.titleLabel.text=@"Customer            ";
        [_type2btnlbl setTitle:usrmdl.customername forState:UIControlStateDisabled];
         [_type1btnlbl setTitle:@"Customer" forState:UIControlStateNormal];
         _titlenamelabel.text=_type1btnlbl.titleLabel.text;
+     
    }
    else if ([usrmdl.UserTypeId isEqualToString:@"4"])
    {
@@ -1438,6 +1636,7 @@
 //       [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
 //       _titlenamelabel.text=@"";
 //   }
+    
 
 
 }
@@ -1631,6 +1830,34 @@
     [_type1btnlbl setTitle:@"Select" forState:UIControlStateNormal];
     [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
 }
+- (IBAction)Selectdevice:(id)sender
+{poptype=3;
+    [self createpopover];
+}
+#pragma mark-IBActions
+- (IBAction)activatebtn:(id)sender {
+  
+    actvatestring=@"activate";
+    if(activate==1){
+        [_activatebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        activate=0;
+       
+        
+        
+        
+    }
+    else{
+        [_activatebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        activate=1;
+        
+        
+        
+        
+    }
+    
+    
+}
+
 #pragma mark-create popover
 -(void)createpopover{
     if (poptype==1)
@@ -1694,6 +1921,38 @@
                                               animated:YES];
         
     }
+    if (poptype==3)
+    {
+        UIViewController* popoverContent = [[UIViewController alloc]
+                                            init];
+        UIView* popoverView = [[UIView alloc]
+                               initWithFrame:CGRectMake(0, 0, 230, 150)];
+        
+        popoverView.backgroundColor = [UIColor lightTextColor];
+        _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 230, 150)];
+        _popOverTableView.delegate=(id)self;
+        _popOverTableView.dataSource=(id)self;
+        _popOverTableView.rowHeight= 32;
+        
+        
+        [popoverView addSubview:_popOverTableView];
+        popoverContent.view = popoverView;
+        
+        //resize the popover view shown
+        //in the current view to the view's size
+        popoverContent.contentSizeForViewInPopover = CGSizeMake(230, 150);
+        
+        //create a popover controller
+        self.popOverController = [[UIPopoverController alloc]
+                                  initWithContentViewController:popoverContent];
+        
+        [self.popOverController presentPopoverFromRect:_devicebtn.frame
+                                                inView:self.addview
+                              permittedArrowDirections:UIPopoverArrowDirectionUp
+                                              animated:YES];
+        
+    }
+
 
  
 }
