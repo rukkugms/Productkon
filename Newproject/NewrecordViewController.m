@@ -539,7 +539,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    
                    "<soap:Body>\n"
                    
-                   "<SitevisitInsertmeetingnotes xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SitevisitInsertmeetingnotes xmlns=\"http://ios.kontract360.com/\">\n"
                    "<Datetime>%@</Datetime>\n"
                    "<details>%@</details>\n"
                    "<userId>%d</userId>\n"
@@ -552,8 +552,8 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     NSLog(@"soapmsg%@",soapMessage);
     
     
-   // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -561,7 +561,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SitevisitInsertmeetingnotes" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertmeetingnotes" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -757,6 +757,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
     
     NSString*    dateString = [dateFormat2 stringFromDate:dates];
+     dateString=[NSString stringWithFormat:@"%@ %@",dateString,_timebtn.titleLabel.text];
     
     if (dateString.length==0) {
         NSDate *daa=[NSDate date];
@@ -766,6 +767,8 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         NSString*curntdate = [dateFormat stringFromDate:daa];
         NSLog(@"%@",curntdate);
         dateString=curntdate;
+        dateString=[NSString stringWithFormat:@"%@ %@",dateString,_timebtn.titleLabel.text];
+
         
     }
 

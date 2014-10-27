@@ -186,7 +186,7 @@
                 //if (!self.EHVctrl) {
                     self.EHVctrl=[[EstimationViewController alloc]initWithNibName:@"EstimationViewController" bundle:nil];
                // }
-                _EHVctrl.modalPresentationStyle=UIModalPresentationPageSheet;
+               // _EHVctrl.modalPresentationStyle=UIModalPresentationPageSheet;
                 _EHVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
                 [self presentViewController:_EHVctrl
                                    animated:YES completion:NULL];

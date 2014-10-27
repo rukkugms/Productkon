@@ -441,6 +441,25 @@
                 
                 //  [_crewmembersarray insertObject:draggedData atIndex:indexPath.row];
                 [_jobtble insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+                Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+                
+                
+                if (rightsmodel.EditModule==0) {
+                    
+                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to drag this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [alert show];
+                    
+                    
+                }
+                
+                
+                else
+                {
+                    
+                    
+                    [self SiteRequirementlistInsert];
+                }
+
             }
             else
             {

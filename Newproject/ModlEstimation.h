@@ -15,5 +15,9 @@
 @property(strong,nonatomic)NSString *EstimationId;
 @property(strong,nonatomic)NSString *PlanId;
 @property(strong,nonatomic)NSString *Name;
+@property(strong,nonatomic)NSString *startdate;
+@property(strong,nonatomic)NSString *enddate;
+@property(strong,nonatomic)NSString *foldid;
+
 
 @end

@@ -194,6 +194,27 @@ if (tableView==_estmntable) {
     _estlbl.text=estmdl.EstimationId;
     _cmpnylbl=(UILabel *)[cell viewWithTag:2];
     _cmpnylbl.text=estmdl.Name;
+    _planidlabel=(UILabel *)[cell viewWithTag:3];
+    _planidlabel.text=estmdl.PlanId;
+    _startdatelabel=(UILabel *)[cell viewWithTag:4];
+    NSArray*array=[estmdl.startdate componentsSeparatedByString:@"T"];
+    NSString*news=[array objectAtIndex:0];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    NSDate *dates = [dateFormat dateFromString:news];
+    [dateFormat setDateFormat:@"MM-dd-yyy"];
+    NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+    _startdatelabel.text=myFormattedDate;
+    _enddatelabel=(UILabel *)[cell viewWithTag:5];
+    NSArray*array1=[estmdl.enddate componentsSeparatedByString:@"T"];
+    NSString*news1=[array1 objectAtIndex:0];
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+    [dateFormat1 setDateFormat:@"yyyy-MM-dd"];
+    NSDate *dates1 = [dateFormat1 dateFromString:news1];
+    [dateFormat1 setDateFormat:@"MM-dd-yyy"];
+    NSString *myFormattedDate1 = [dateFormat1 stringFromDate:dates1];
+
+    _enddatelabel.text=myFormattedDate1;
 
     
 }
@@ -708,63 +729,7 @@ if (tableView==_estmntable) {
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
-    if([elementName isEqualToString:@"SelectAllLeadsResponse"])
-    {
-        _leadcustmrarry=[[NSMutableArray alloc]init];
-        _leaddict=[[NSMutableDictionary alloc]init];
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"LeadId"])
-    {
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"CompanyName"])
-    {
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"SelectAllCustomerResponse"])
-    {
-        _leadcustmrarry=[[NSMutableArray alloc]init];
-        _custmrdict=[[NSMutableDictionary alloc]init];
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"Id"])
-    {
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"CustomerName"])
-    {
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"EstimateSelectResponse"])
+        if([elementName isEqualToString:@"EstimateSelectResponse"])
     {_Estimationarray=[[NSMutableArray alloc]init];
         
         if(!_soapResults)
@@ -784,7 +749,7 @@ if (tableView==_estmntable) {
         recordResults = TRUE;
     }
 
-    if([elementName isEqualToString:@"leadid"])
+    if([elementName isEqualToString:@"Markup_id"])
     {
         
         if(!_soapResults)
@@ -849,6 +814,26 @@ if (tableView==_estmntable) {
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"Startdate"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"EndDate"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"EstimationPlanSelectResponse"])
     {
         _planarray=[[NSMutableArray alloc]init];
@@ -941,50 +926,6 @@ if (tableView==_estmntable) {
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-    if([elementName isEqualToString:@"SelectAllLeadsResponse"])
-    {
-        
-        recordResults = FALSE;
-        
-        _soapResults = nil;
-    }
-    if([elementName isEqualToString:@"LeadId"])
-    {
-        
-        recordResults = FALSE;
-    leadastring=_soapResults;
-        _soapResults = nil;
-    }
-    if([elementName isEqualToString:@"CompanyName"])
-    {
-        
-        recordResults = FALSE;
-        [_leaddict setObject:leadastring forKey:_soapResults];
-        [_leadcustmrarry addObject:_soapResults];
-        _soapResults = nil;
-    }
-    if([elementName isEqualToString:@"SelectAllLeadsResult"])
-    {
-        
-        recordResults = FALSE;
-        
-        _soapResults = nil;
-    } if([elementName isEqualToString:@"Id"])
-    {
-        
-        recordResults = FALSE;
-        customerstring=_soapResults;
-        _soapResults = nil;
-    }
-    if([elementName isEqualToString:@"CustomerName"])
-    {
-        
-        recordResults = FALSE;
-        [_custmrdict setObject:customerstring forKey:_soapResults];
-        [_leadcustmrarry addObject:_soapResults];
-        
-        _soapResults = nil;
-    }
     
     if([elementName isEqualToString:@"EstimateId"])
     {
@@ -997,7 +938,7 @@ if (tableView==_estmntable) {
 
     }
     
-    if([elementName isEqualToString:@"leadid"])
+    if([elementName isEqualToString:@"Markup_id"])
     {
         
         recordResults = FALSE;
@@ -1049,11 +990,30 @@ if (tableView==_estmntable) {
     {
         
         recordResults = FALSE;
+        _mdlestmtn.foldid=_soapResults;
         
-        
-        [_Estimationarray addObject:_mdlestmtn];
+       
         _soapResults = nil;
 
+    }
+    if([elementName isEqualToString:@"Startdate"])
+    {
+        
+        recordResults = FALSE;
+        _mdlestmtn.startdate=_soapResults;
+        
+              _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"EndDate"])
+    {
+        
+        recordResults = FALSE;
+        
+        _mdlestmtn.enddate=_soapResults;
+        [_Estimationarray addObject:_mdlestmtn];
+        _soapResults = nil;
+        
     }
 
     

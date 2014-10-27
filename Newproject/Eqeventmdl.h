@@ -14,5 +14,6 @@
 @property(strong,nonatomic)NSString *UnitCost;
 @property(strong,nonatomic)NSString *Qty;
 @property(strong,nonatomic)NSString *eqdate;
+@property(strong,nonatomic)NSString *eqphasename;
 
 @end
