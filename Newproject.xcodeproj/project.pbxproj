@@ -142,6 +142,10 @@
 		D4014FF618E3E34000DB825A /* Snumcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4014FF518E3E34000DB825A /* Snumcell.xib */; };
 		D40367F018ED3A5200139E7D /* MangmntdetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40367EE18ED3A5100139E7D /* MangmntdetailsViewController.m */; };
 		D40367F118ED3A5200139E7D /* MangmntdetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40367EF18ED3A5200139E7D /* MangmntdetailsViewController.xib */; };
+		D4036FF319FE0FAF0031C4F1 /* workentrycell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4036FF219FE0FAF0031C4F1 /* workentrycell.xib */; };
+		D4036FF719FE23310031C4F1 /* PlandocsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4036FF519FE23310031C4F1 /* PlandocsViewController.m */; };
+		D4036FF819FE23310031C4F1 /* PlandocsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4036FF619FE23310031C4F1 /* PlandocsViewController.xib */; };
+		D4036FFA19FE24D10031C4F1 /* Plandocuscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4036FF919FE24D10031C4F1 /* Plandocuscell.xib */; };
 		D40407DB192B171A00864BA4 /* myscroll.m in Sources */ = {isa = PBXBuildFile; fileRef = D40407DA192B171A00864BA4 /* myscroll.m */; };
 		D40407DD192B1CFB00864BA4 /* save 3.png in Resources */ = {isa = PBXBuildFile; fileRef = D40407DC192B1CFB00864BA4 /* save 3.png */; };
 		D40427E819237F980049A709 /* Rephase.m in Sources */ = {isa = PBXBuildFile; fileRef = D40427E719237F980049A709 /* Rephase.m */; };
@@ -772,6 +776,11 @@
 		D40367ED18ED3A5100139E7D /* MangmntdetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MangmntdetailsViewController.h; sourceTree = "<group>"; };
 		D40367EE18ED3A5100139E7D /* MangmntdetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MangmntdetailsViewController.m; sourceTree = "<group>"; };
 		D40367EF18ED3A5200139E7D /* MangmntdetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MangmntdetailsViewController.xib; sourceTree = "<group>"; };
+		D4036FF219FE0FAF0031C4F1 /* workentrycell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = workentrycell.xib; sourceTree = "<group>"; };
+		D4036FF419FE23310031C4F1 /* PlandocsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlandocsViewController.h; sourceTree = "<group>"; };
+		D4036FF519FE23310031C4F1 /* PlandocsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlandocsViewController.m; sourceTree = "<group>"; };
+		D4036FF619FE23310031C4F1 /* PlandocsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlandocsViewController.xib; sourceTree = "<group>"; };
+		D4036FF919FE24D10031C4F1 /* Plandocuscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Plandocuscell.xib; sourceTree = "<group>"; };
 		D40407D9192B171A00864BA4 /* myscroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myscroll.h; sourceTree = "<group>"; };
 		D40407DA192B171A00864BA4 /* myscroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myscroll.m; sourceTree = "<group>"; };
 		D40407DC192B1CFB00864BA4 /* save 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "save 3.png"; sourceTree = "<group>"; };
@@ -1912,6 +1921,7 @@
 				D4A16AFF1974EEA8002CA2A2 /* PlanningViewController.m */,
 				D4A16B001974EEA8002CA2A2 /* PlanningViewController.xib */,
 				D4A16B011974EEA8002CA2A2 /* customplancell.xib */,
+				D4036FF219FE0FAF0031C4F1 /* workentrycell.xib */,
 				D4A16B021974EEA8002CA2A2 /* AddserviceViewController.h */,
 				D4A16B031974EEA8002CA2A2 /* AddserviceViewController.m */,
 				D4A16B041974EEA8002CA2A2 /* AddserviceViewController.xib */,
@@ -1967,6 +1977,10 @@
 				D4A3977519CFE8DE00E2514C /* PServiceViewController.m */,
 				D4A3977619CFE8DE00E2514C /* PServiceViewController.xib */,
 				D4A3977919CFF12F00E2514C /* PServiccell.xib */,
+				D4036FF419FE23310031C4F1 /* PlandocsViewController.h */,
+				D4036FF519FE23310031C4F1 /* PlandocsViewController.m */,
+				D4036FF619FE23310031C4F1 /* PlandocsViewController.xib */,
+				D4036FF919FE24D10031C4F1 /* Plandocuscell.xib */,
 			);
 			name = Planning;
 			sourceTree = "<group>";
@@ -2650,6 +2664,7 @@
 				D42D8C3818D2E3E3009D8085 /* UsersViewController.xib in Resources */,
 				D4A16B4B1974EEA8002CA2A2 /* Outlookrecordaddview.xib in Resources */,
 				D4F7D9C6196E5B3B00B8F4D4 /* absentmanagement.png in Resources */,
+				D4036FF819FE23310031C4F1 /* PlandocsViewController.xib in Resources */,
 				D4EC1FE11875280500A55942 /* textbox.png in Resources */,
 				D4F0940E19F22F3100C3B527 /* pencil.png in Resources */,
 				D47A9B2819407CF1001CC416 /* othercompanyassestsicon.png in Resources */,
@@ -2671,6 +2686,7 @@
 				D4A16B9E1974EEE0002CA2A2 /* calothereventcell.xib in Resources */,
 				D429C5F01952DD6100CE73A6 /* Siteinexcptncell.xib in Resources */,
 				D40DD2661873ED0800E7BC2C /* Smalltoolcell.xib in Resources */,
+				D4036FF319FE0FAF0031C4F1 /* workentrycell.xib in Resources */,
 				6426F5F318C0621B002471AC /* jobs.png in Resources */,
 				D4A16B551974EEA8002CA2A2 /* FirstMdragcell.xib in Resources */,
 				D40407DD192B1CFB00864BA4 /* save 3.png in Resources */,
@@ -2707,6 +2723,7 @@
 				D4004057185B174A00C38E12 /* TileViewController.xib in Resources */,
 				D4A16B911974EEE0002CA2A2 /* sumbidcell.xib in Resources */,
 				6426F5ED18C060CF002471AC /* planning.png in Resources */,
+				D4036FFA19FE24D10031C4F1 /* Plandocuscell.xib in Resources */,
 				D4E658CA17F2DDFA00202B14 /* rightdisclosure.png in Resources */,
 				64A41244194080D6003EE113 /* contract-mangement.png in Resources */,
 				D4AA4F8B1965535A00916138 /* AbsentViewController.xib in Resources */,
@@ -2875,6 +2892,7 @@
 				D40D1EB7176B086F00379DD5 /* main.m in Sources */,
 				D40D1EBB176B086F00379DD5 /* AppDelegate.m in Sources */,
 				D49F874F18EEA36B00413CAD /* Coursemdl.m in Sources */,
+				D4036FF719FE23310031C4F1 /* PlandocsViewController.m in Sources */,
 				D40D1EC4176B086F00379DD5 /* ViewController.m in Sources */,
 				D40DE15119E69DA4008FFD15 /* UIImageView+AFNetworking.m in Sources */,
 				64A1EA151918E709002DC384 /* SettngsViewController.m in Sources */,

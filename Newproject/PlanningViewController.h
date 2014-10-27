@@ -136,5 +136,23 @@
 @property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 
 
+/*cell outlets*/
+
+@property (strong, nonatomic) IBOutlet UILabel *locationlbl;
+@property (strong, nonatomic) IBOutlet UILabel *complexitywrklbl;
+
+@property (strong, nonatomic) IBOutlet UILabel *sitefactrlbl;
+@property (strong, nonatomic) IBOutlet UIView *tabletitleview2;
+
+
+@property (strong, nonatomic) IBOutlet UILabel *wplanlbl;
+@property (strong, nonatomic) IBOutlet UILabel *worgnztnlbl;
+@property (strong, nonatomic) IBOutlet UILabel *wmanhrslbl;
+@property (strong, nonatomic) IBOutlet UILabel *weqhrslbl;
+
+@property (strong, nonatomic) IBOutlet UITableViewCell *wrkentrycell;
+
+@property (strong, nonatomic) IBOutlet UIButton *wdisbtn;
+- (IBAction)wsdisclre:(id)sender;
 
 @end

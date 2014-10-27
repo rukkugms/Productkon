@@ -35,14 +35,16 @@
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _addplanview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     // Do any additional setup after loading the view from its nib.
-     _titleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
-    _tabletitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+      _titleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+     _tabletitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+      _tabletitleview2.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+  
     _plangtable.layer.borderWidth=2.0f;
     _plangtable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     if (_plntype==1) {
-        
+        _tabletitleview.hidden=NO;
     
-    _disclosurearry=[[NSMutableArray alloc]initWithObjects:@"Add Services",@"Site Visit",nil];
+         _disclosurearry=[[NSMutableArray alloc]initWithObjects:@"Add Services",@"Site Visit",nil];
         _addbtn.hidden=NO;
         _deletebtn.hidden=NO;
         _plnnavitem.title=@"Planning";
@@ -50,6 +52,9 @@
     }
     else
     {
+        _tabletitleview2.hidden=NO;
+      
+
         _disclosurearry=[[NSMutableArray alloc]initWithObjects:@"Services",nil];
         _addbtn.hidden=YES;
         _deletebtn.hidden=YES;
@@ -90,6 +95,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+   
     if(tableView==_plangtable)
     {
         return [_planlistarray count];
@@ -133,8 +139,17 @@
     
     if(tableView==_plangtable)
     {
-        [[NSBundle mainBundle]loadNibNamed:@"customplancell" owner:self options:nil];
-        cell=_planingcell;
+        if (_plntype==1) {
+            [[NSBundle mainBundle]loadNibNamed:@"customplancell" owner:self options:nil];
+            cell=_planingcell;
+        }
+        else{
+            
+        
+        [[NSBundle mainBundle]loadNibNamed:@"workentrycell" owner:self options:nil];
+        cell=_wrkentrycell;
+            
+        }
     }
     }
     if(tableView==_popovertableview)
@@ -170,15 +185,41 @@
         }
     }
      if(tableView==_plangtable)
-     {  planmodel*planmdl=(planmodel *)[_planlistarray objectAtIndex:indexPath.row];
+         
+         
+     {
+          if (_plntype==1) {
+         planmodel*planmdl=(planmodel *)[_planlistarray objectAtIndex:indexPath.row];
          _organizationname=(UILabel*)[cell viewWithTag:1];
          cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
          _organizationname.text=planmdl.customername;
 //         _leadlabel=(UILabel*)[cell viewWithTag:2];
 //         NSString *led=[NSString stringWithFormat:@"%d",planmdl.leadid];
 //         _leadlabel.text=led;
-         _planidlabel=(UILabel*)[cell viewWithTag:3];
-       _planidlabel.text=planmdl.planid;
+          _planidlabel=(UILabel*)[cell viewWithTag:3];
+          _planidlabel.text=planmdl.planid;
+         _locationlbl=(UILabel*)[cell viewWithTag:5];
+         _locationlbl.text=planmdl.location;
+         _complexitywrklbl=(UILabel*)[cell viewWithTag:6];
+         _complexitywrklbl.text=planmdl.complexity;
+         _sitefactrlbl=(UILabel*)[cell viewWithTag:7];
+         _sitefactrlbl.text=planmdl.sitefactor;
+          }
+          else{
+              
+              planmodel*planmdl=(planmodel *)[_planlistarray objectAtIndex:indexPath.row];
+              _worgnztnlbl=(UILabel*)[cell viewWithTag:1];
+              _worgnztnlbl.text=planmdl.customername;
+              _wplanlbl=(UILabel*)[cell viewWithTag:3];
+              _wplanlbl.text=planmdl.planid;
+              _wmanhrslbl=(UILabel*)[cell viewWithTag:5];
+              _weqhrslbl=(UILabel*)[cell viewWithTag:6];
+
+
+
+              
+          }
+         
          if (_plntype==1) {
              _editbtn.hidden=NO;
              _seperatorview.hidden=NO;
@@ -567,35 +608,7 @@
     self.popovercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
     [self.popovercontroller presentPopoverFromRect:_disclosurebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
     }
-    else
-    {
-        UIViewController* popoverContent = [[UIViewController alloc]init];
-        UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 132, 43)];
-       // popoverView.backgroundColor = [UIColor whiteColor];
-        _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 132, 43)];
-        _popovertableview.delegate=(id)self;
-        _popovertableview.dataSource=(id)self;
-        _popovertableview.rowHeight= 40;
-        _popovertableview.separatorStyle=UITableViewCellSeparatorStyleNone;
-        //_popovertableview.separatorColor=[UIColor blackColor];
-        [popoverView addSubview:_popovertableview];
-        popoverContent.view = popoverView;
-        popoverContent.contentSizeForViewInPopover = CGSizeMake(132, 43);
-        
-        button = (UIButton *)sender;
-        UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
-        CGPoint center= button.center;
-        CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.plangtable];
-        NSIndexPath *textFieldIndexPath = [self.plangtable indexPathForRowAtPoint:rootViewPoint];
-        NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
-        btnindex=textFieldIndexPath.row;
-        
-        //UITableView *table = (UITableView *)[cell superview];
-        self.popovercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
-        [self.popovercontroller presentPopoverFromRect:_disclosurebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
-
-    }
-    //[_popovertableview reloadData];
+       //[_popovertableview reloadData];
 }
 
 -(IBAction)updateplanning:(id)sender
@@ -2219,4 +2232,34 @@
  
 }
 
+- (IBAction)wsdisclre:(id)sender {
+    poptype=2;
+        UIViewController* popoverContent = [[UIViewController alloc]init];
+        UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 132, 43)];
+        // popoverView.backgroundColor = [UIColor whiteColor];
+        _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 132, 43)];
+        _popovertableview.delegate=(id)self;
+        _popovertableview.dataSource=(id)self;
+        _popovertableview.rowHeight= 40;
+        _popovertableview.separatorStyle=UITableViewCellSeparatorStyleNone;
+        //_popovertableview.separatorColor=[UIColor blackColor];
+        [popoverView addSubview:_popovertableview];
+        popoverContent.view = popoverView;
+        popoverContent.contentSizeForViewInPopover = CGSizeMake(132, 43);
+        
+        button = (UIButton *)sender;
+        UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+        CGPoint center= button.center;
+        CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.plangtable];
+        NSIndexPath *textFieldIndexPath = [self.plangtable indexPathForRowAtPoint:rootViewPoint];
+        NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+        btnindex=textFieldIndexPath.row;
+        
+        //UITableView *table = (UITableView *)[cell superview];
+        self.popovercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
+        [self.popovercontroller presentPopoverFromRect:_wdisbtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+        
+    
+
+}
 @end
