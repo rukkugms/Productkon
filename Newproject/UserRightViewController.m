@@ -2622,6 +2622,11 @@ viewcheck=0;
 
         }
         else{
+            
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"User is not activated please contact admin" delegate:self
+                                              cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+
              [_activatebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             activate=0;
             _usertable.userInteractionEnabled=NO;
