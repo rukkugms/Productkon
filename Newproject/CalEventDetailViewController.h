@@ -111,6 +111,10 @@
 @property(strong,nonatomic)NSString *estimationstring;
 @property(strong,nonatomic)NSString *estid;
 
+@property(strong,nonatomic)IBOutlet UIView *view1;
+@property(strong,nonatomic)IBOutlet UIView *view2;
+
+
 
 
 @end

@@ -30,6 +30,7 @@
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _mattitleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _mantitleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    _view1.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _summarytitleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _calmanpwrtable.layer.borderWidth = 2.0;
     _calmanpwrtable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
@@ -64,6 +65,8 @@
     _calmanpwrtable.hidden=NO;
     _totalarray=[[NSMutableArray alloc]init];
     if ([_estimationstring isEqualToString:@"Estimationreview"]) {
+        _view1.hidden=YES;
+        _mantitleview.hidden=NO;
         _navitem.title=[NSString stringWithFormat:@"Estimation Review-%@",_estimationnumber];
         _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
         _searchbar.delegate=(id)self;
@@ -78,6 +81,8 @@
     }
     else
     {
+        _view1.hidden=NO;
+        _mantitleview.hidden=YES;
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"yyyy-MM-dd"];
         NSDate *dates = [dateFormat dateFromString:_selecteddate];
@@ -116,16 +121,20 @@
     
     if ([_estimationstring isEqualToString:@"Estimationreview"]) {
         [self EstimationManPowerReviewSelect];
+         _view1.hidden=YES;
+        _mantitleview.hidden=NO;
     }
     else
     {
-
+ _view1.hidden=NO;
+        _mantitleview.hidden=YES;
      [self CalenderManPowerSelect];
     }
 }
 - (IBAction)equipmentaction:(id)sender
 {
     tooltype=2;
+     _view1.hidden=YES;
      _eqpmntbtn.tintColor=[UIColor whiteColor];
     _manpwrbtn.tintColor=[UIColor blackColor];
      _materialbtn.tintColor=[UIColor blackColor];
@@ -149,6 +158,7 @@
 - (IBAction)materialaction:(id)sender
 {
     tooltype=3;
+     _view1.hidden=YES;
     _manpwrbtn.tintColor=[UIColor blackColor];
     _eqpmntbtn.tintColor=[UIColor blackColor];
      _summarybtn.tintColor=[UIColor blackColor];
@@ -172,6 +182,7 @@
 - (IBAction)summaryaction:(id)sender
 {
     tooltype=4;
+     _view1.hidden=YES;
     _manpwrbtn.tintColor=[UIColor blackColor];
     _eqpmntbtn.tintColor=[UIColor blackColor];
      _materialbtn.tintColor=[UIColor blackColor];
@@ -285,6 +296,14 @@
                 _mandeslabel=(UILabel *)[cell viewWithTag:2];
                 _mandeslabel.text=manmdl.eventDescription;
                   _manpdatelabel=(UILabel *)[cell viewWithTag:3];
+                _manqtylabel=(UILabel *)[cell viewWithTag:4];
+                 _manstlabel=(UILabel *)[cell viewWithTag:5];
+                 _manotlabel=(UILabel *)[cell viewWithTag:6];
+                 _manstratelabel=(UILabel *)[cell viewWithTag:7];
+                 _manotratelabel=(UILabel *)[cell viewWithTag:8];
+                _mantotallabel=(UILabel *)[cell viewWithTag:9];
+                 _typelabel=(UILabel *)[cell viewWithTag:10];
+                  _phaselabel=(UILabel *)[cell viewWithTag:11];
                 if ([_estimationstring isEqualToString:@"Estimationreview"]) {
                     NSArray*array=[manmdl.mandate componentsSeparatedByString:@"T"];
                     NSString*news=[array objectAtIndex:0];
@@ -294,43 +313,58 @@
                     [dateFormat setDateFormat:@"MM-dd-yyy"];
                     NSString *myFormattedDate = [dateFormat stringFromDate:dates];
                     _manpdatelabel.text=myFormattedDate;
+                    
+                    _manqtylabel.text=manmdl.Qty;
+                   
+                    NSInteger totst=([manmdl.ST integerValue ]*[manmdl.Qty integerValue]);
+                    _manstlabel.text=[NSString stringWithFormat:@"%d",totst];
+                    
+                   
+                    _manotlabel.text=manmdl.OT;
+                    
+                   
+                    _manstratelabel.text=[NSString stringWithFormat:@"$%@",manmdl.STrate];
+                   
+                    _manotratelabel.text=[NSString stringWithFormat:@"$%@",manmdl.OTrate];
+                    
+                    NSInteger A1=([manmdl.ST integerValue])*([manmdl.STrate integerValue]);
+                    NSInteger A2=([manmdl.OT integerValue])*([manmdl.OTrate integerValue]);
+                    NSInteger B=A1+A2;
+                    NSInteger total=B*([manmdl.Qty integerValue]);
+                    NSLog(@"%d",total);
+                    
+                   
+                    _mantotallabel.text=[NSString stringWithFormat:@"$%d",total];
+                   
+                    _typelabel.text=manmdl.mtype;
+                  
+                    _phaselabel.text=manmdl.phasename;
+
                 }
                 else
                 {
-                    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-                    [dateFormat setDateFormat:@"yyyy-MM-dd"];
-                    NSDate *dates = [dateFormat dateFromString:_selecteddate];
-                    [dateFormat setDateFormat:@"MM-dd-yyy"];
-                    NSString *myFormattedDate = [dateFormat stringFromDate:dates];
-                    _manpdatelabel.text=myFormattedDate;
-                
+//                    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+//                    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+//                    NSDate *dates = [dateFormat dateFromString:_selecteddate];
+//                    [dateFormat setDateFormat:@"MM-dd-yyy"];
+//                    NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+                    _manpdatelabel.text=manmdl.Qty;
+                    NSInteger totst=([manmdl.ST integerValue ]*[manmdl.Qty integerValue]);
+                    _manqtylabel.text=[NSString stringWithFormat:@"%d",totst];
+                     _manstlabel.text=manmdl.OT;
+                    _manotlabel.text=[NSString stringWithFormat:@"$%@",manmdl.STrate];
+                _manstratelabel.text=[NSString stringWithFormat:@"$%@",manmdl.OTrate];
+                    NSInteger A1=([manmdl.ST integerValue])*([manmdl.STrate integerValue]);
+                    NSInteger A2=([manmdl.OT integerValue])*([manmdl.OTrate integerValue]);
+                    NSInteger B=A1+A2;
+                    NSInteger total=B*([manmdl.Qty integerValue]);
+                    NSLog(@"%d",total);
+                    _manotratelabel.text=[NSString stringWithFormat:@"$%d",total];
+                    _mantotallabel.text=manmdl.mtype;
+                      _typelabel.text=manmdl.phasename;
+                    _phaselabel.text=manmdl.sequence;
+                    
                 }
-                _manqtylabel=(UILabel *)[cell viewWithTag:4];
-                _manqtylabel.text=manmdl.Qty;
-                _manstlabel=(UILabel *)[cell viewWithTag:5];
-                NSInteger totst=([manmdl.ST integerValue ]*[manmdl.Qty integerValue]);
-                _manstlabel.text=[NSString stringWithFormat:@"%d",totst];
-
-                _manotlabel=(UILabel *)[cell viewWithTag:6];
-                _manotlabel.text=manmdl.OT;
-
-                _manstratelabel=(UILabel *)[cell viewWithTag:7];
-                _manstratelabel.text=[NSString stringWithFormat:@"$%@",manmdl.STrate];
-                _manotratelabel=(UILabel *)[cell viewWithTag:8];
-                _manotratelabel.text=[NSString stringWithFormat:@"$%@",manmdl.OTrate];
-
-                NSInteger A1=([manmdl.ST integerValue])*([manmdl.STrate integerValue]);
-                 NSInteger A2=([manmdl.OT integerValue])*([manmdl.OTrate integerValue]);
-                NSInteger B=A1+A2;
-                NSInteger total=B*([manmdl.Qty integerValue]);
-                NSLog(@"%d",total);
-               
-             _manotratelabel=(UILabel *)[cell viewWithTag:9];
-                _mantotallabel.text=[NSString stringWithFormat:@"$%d",total];
-                _typelabel=(UILabel *)[cell viewWithTag:10];
-                _typelabel.text=manmdl.mtype;
-                _phaselabel=(UILabel *)[cell viewWithTag:11];
-                _phaselabel.text=manmdl.phasename;
                 
     }
             if (tooltype==3)
@@ -440,7 +474,7 @@
         _summarylabel=(UILabel *)[cell viewWithTag:1];
             _costlabel=(UILabel *)[cell viewWithTag:2];
         _summarylabel.text=newtitile;
-        _costlabel.text=[NSString stringWithFormat:@"$%@",newtitiles];
+        _costlabel.text=[NSString stringWithFormat:@"%@",newtitiles];
        
             
         }
@@ -1271,7 +1305,8 @@
 
     }
     if([elementName isEqualToString:@"EstimationManPowerReviewSelectResult"])
-    {_manpwrarray=[[NSMutableArray alloc]init];
+    { _totallabel.text=@"";
+        _manpwrarray=[[NSMutableArray alloc]init];
         if(!_soapresults)
         {
             _soapresults = [[NSMutableString alloc] init];
@@ -1373,6 +1408,16 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"JobTask"])
+    {
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     if([elementName isEqualToString:@"PhaseName"])
     {
         if(!_soapresults)
@@ -1385,7 +1430,8 @@
 
 
     if([elementName isEqualToString:@"CalenderEquipmentSelectResponse"])
-    {_eqpmntarray=[[NSMutableArray alloc]init];
+    {   _totallabel.text=@"";
+        _eqpmntarray=[[NSMutableArray alloc]init];
         if(!_soapresults)
         {
             _soapresults = [[NSMutableString alloc] init];
@@ -1395,7 +1441,8 @@
     }
     
     if([elementName isEqualToString:@"EstimationEquipmentReviewSelectResponse"])
-    {_eqpmntarray=[[NSMutableArray alloc]init];
+    {   _totallabel.text=@"";
+        _eqpmntarray=[[NSMutableArray alloc]init];
         if(!_soapresults)
         {
             _soapresults = [[NSMutableString alloc] init];
@@ -1404,7 +1451,8 @@
         
     }
     if([elementName isEqualToString:@"EquipmentReviewSearchResponse"])
-    {_eqpmntarray=[[NSMutableArray alloc]init];
+    {
+        _eqpmntarray=[[NSMutableArray alloc]init];
         if(!_soapresults)
         {
             _soapresults = [[NSMutableString alloc] init];
@@ -1564,9 +1612,9 @@
     }
 
     if([elementName isEqualToString:@"SummarySelectResponse"])
-    {
+    {  _totallabel.text=@"";
         _summaryarray=[[NSMutableArray alloc]init];
-       _totallabel.text=@"";
+     
       
         if(!_soapresults)
         {
@@ -1744,6 +1792,15 @@
         _soapresults = nil;
         
     }
+    if([elementName isEqualToString:@"JobTask"])
+    {
+        recordResults = FALSE;
+        _manpwr.sequence=_soapresults;
+        //[_manpwrarray addObject:_manpwr];
+        _soapresults = nil;
+        
+    }
+
 
     if([elementName isEqualToString:@"PhaseName"])
     {
@@ -1867,7 +1924,7 @@
         recordResults = FALSE;
         
         
-        [_reviewsumarray addObject:_soapresults];
+        [_reviewsumarray addObject:[_soapresults stringByReplacingOccurrencesOfString:@"$" withString:@""]];
       
        
         _soapresults = nil;
@@ -1928,7 +1985,7 @@
             //NSString*newtitile=[array objectAtIndex:0];
             NSString*newtitiles=[array objectAtIndex:1];
             
-            [_totalarray addObject:newtitiles];
+            [_totalarray addObject:[newtitiles stringByReplacingOccurrencesOfString:@"$" withString:@""]];
             NSLog(@"%@",_totalarray);
             
             if (i==[_summaryarray count]-1) {

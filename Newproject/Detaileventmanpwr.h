@@ -20,6 +20,7 @@
 @property(strong,nonatomic)NSString *mandate;
 @property(strong,nonatomic)NSString *mtype;
 @property(strong,nonatomic)NSString *phasename;
+@property(strong,nonatomic)NSString *sequence;
 
 
 @end
