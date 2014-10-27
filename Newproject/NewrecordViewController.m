@@ -79,6 +79,13 @@
     [[self.descptnview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
     [[self.descptnview layer] setBorderWidth:2];
     [[self.descptnview layer] setCornerRadius:10];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    NSDate *dtime=[NSDate date];
+    [dateFormatter setDateFormat:@"hh:mm:ss a"];
+    NSString *currentTime = [dateFormatter stringFromDate:dtime];
+    NSLog(@"%@", currentTime);
+    [_timebtn setTitle:currentTime forState:UIControlStateNormal];
+
 
     // Do any additional setup after loading the view from its nib.
     
@@ -513,6 +520,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     NSString*    dateString = [dateFormat2 stringFromDate:dates];
     _datesstrg=dateString;
+    _datesstrg=[NSString stringWithFormat:@"%@ %@",dateString,_timebtn.titleLabel.text];
     if (dateString.length==0) {
         NSDate *daa=[NSDate date];
         NSLog(@"%@",daa);
@@ -521,6 +529,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         NSString*curntdate = [dateFormat stringFromDate:daa];
         NSLog(@"%@",curntdate);
         dateString=curntdate;
+        _datesstrg=[NSString stringWithFormat:@"%@ %@",dateString,_timebtn.titleLabel.text];
            }
        soapMessage = [NSString stringWithFormat:
                    
@@ -539,7 +548,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    "<Type>%d</Type>\n"
                    "</SitevisitInsertmeetingnotes>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n", dateString ,_meetgdetailslbl.text,0,_companyid,filename,typ];
+                   "</soap:Envelope>\n", _datesstrg ,_meetgdetailslbl.text,0,_companyid,filename,typ];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1879,6 +1888,39 @@ recordResults
           [self dismissViewControllerAnimated:YES completion:nil];
     }
    }
+- (IBAction)addtime:(id)sender
+{
+    UIViewController *viewCon = [[UIViewController alloc] init];
+    _timepick = [[UIDatePicker alloc]initWithFrame:CGRectMake(5, 0, 0, 0)];
+    _timepick.datePickerMode =UIDatePickerModeTime;
+    [_timepick addTarget:self action:@selector(dateChanged1) forControlEvents:UIControlEventValueChanged];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"HH:mm ss"];
+    [viewCon.view addSubview:_timepick];
+    viewCon.preferredContentSize = _timepick.bounds.size ; // Set the content size
+    
+    _popOverController = [[UIPopoverController alloc] initWithContentViewController:viewCon];
+    
+    
+    [_popOverController presentPopoverFromRect:_timebtn.frame
+                                        inView:self.view
+                      permittedArrowDirections:UIPopoverArrowDirectionUp | UIPopoverArrowDirectionDown
+                                      animated:YES];
+
+   
+}
+#pragma mark-picker method
+-(void)dateChanged1{
+    
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"hh:mm:ss a"];
+    NSString *currentTime = [dateFormatter stringFromDate:_timepick.date];
+    NSLog(@"%@", currentTime);
+    [_timebtn setTitle:currentTime forState:UIControlStateNormal];
+    
+}
+
 - (IBAction)slectservice:(id)sender
 {
     [self SelectAllServices];

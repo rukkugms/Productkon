@@ -32,7 +32,7 @@
 }
 @property (strong, nonatomic) IBOutlet UIButton *timebtn;
 - (IBAction)addtime:(id)sender;
-@property(strong,nonatomic)UIDatePicker *timepick;
+@property(strong,nonatomic)IBOutlet UIDatePicker *timepick;
 
 @property(strong,nonatomic)basicreqmdl*basicmdl;
 @property(strong,nonatomic)NSMutableArray * allrequirementarray;
@@ -183,4 +183,7 @@
 @property(strong,nonatomic)IBOutlet UIButton *updatemmeetingbtn;
 @property(strong,nonatomic)IBOutlet UIButton *cancelmeetingnote;
 @property(strong,nonatomic)IBOutlet UIButton *drawmeetingbtn;
+
+
+
 @end

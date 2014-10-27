@@ -2171,21 +2171,23 @@ _passingdate=dateString;
         _mnamelbl=(UILabel *)[cell viewWithTag:1];
         _mnamelbl.text=sitemdl1.meetingdate;
         _mdetaillbl=(UILabel *)[cell viewWithTag:2];
-        _mdetaillbl.text=sitemdl1.meetingdetails;
-      _mnotelbl=(UILabel *)[cell viewWithTag:3];
+      
+     // _mnotelbl=(UILabel *)[cell viewWithTag:3];
     NSArray*array=[sitemdl1.filename componentsSeparatedByString:@"-"];
       
       NSArray*array1=[[array lastObject]componentsSeparatedByString:@"."];
        NSString*FNAME=[array1 objectAtIndex:0];
 
-      _mnotelbl.text=FNAME;
+     
       _typeimagview=(UIImageView*)[cell viewWithTag:5];
       if (sitemdl1.typvalue==0) {
           _typeimagview.image=[UIImage imageNamed:@"Handnotes"];
+            _mdetaillbl.text=FNAME;
       }
       else
       {
           _typeimagview.image=[UIImage imageNamed:@"Notepad"];
+          _mdetaillbl.text=sitemdl1.meetingdetails;
       }
 
       
@@ -2212,17 +2214,19 @@ _passingdate=dateString;
      _mnamelbl=(UILabel *)[cell viewWithTag:1];
      _mnamelbl.text=sitemdl1.notedate;
      _mdetaillbl=(UILabel *)[cell viewWithTag:2];
-     _mdetaillbl.text=sitemdl1.Notes;
-     _mnotelbl=(UILabel *)[cell viewWithTag:3];
-     _mnotelbl.text=sitemdl1.filename;
+     
+    // _mnotelbl=(UILabel *)[cell viewWithTag:3];
+     
       NSLog(@"%d",sitemdl1.notetype);
      _typeimagview=(UIImageView*)[cell viewWithTag:5];
      if (sitemdl1.notetype==0) {
          _typeimagview.image=[UIImage imageNamed:@"Handnotes"];
+         _mdetaillbl.text=sitemdl1.filename;
      }
      else if(sitemdl1.notetype==1)
      {
          _typeimagview.image=[UIImage imageNamed:@"Notepad"];
+         _mdetaillbl.text=sitemdl1.Notes;
      }
      
 

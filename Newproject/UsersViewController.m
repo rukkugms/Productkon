@@ -475,6 +475,58 @@
     }
     
 }
+-(void)PasswordForUser
+{
+     listusermdl*usrmdl=(listusermdl *)[_userlistarray objectAtIndex:btnindex];
+    recordresults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<PasswordForUser xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<UserName>%@</UserName>\n"
+                   "</PasswordForUser>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",usrmdl.username];
+    NSLog(@"soapmsg%@",soapMessage);
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    
+    //  NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/PasswordForUser" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 
 -(void)UserTypeselect
 {
@@ -1228,6 +1280,24 @@
         }
         recordresults = TRUE;
     }
+    if([elementName isEqualToString:@"PasswordForUserResponse"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"url"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+
+    
 
 
 
@@ -1379,7 +1449,15 @@
         _soapResults = nil;
         
     }
+    if([elementName isEqualToString:@"url"])
+    {
+        recordresults = FALSE;
+        _pswdtextfld.text=_soapResults;
+        _soapResults = nil;
+        
+    }
 
+  
     if([elementName isEqualToString:@"result"])
     {
         recordresults = FALSE;
@@ -1472,9 +1550,13 @@
    // _type2btnlbl.titleLabel.text=@"Select";
     [_type1btnlbl setTitle:@"Select" forState:UIControlStateNormal];
     [_type2btnlbl setTitle:@"Select" forState:UIControlStateDisabled];
+     [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    _type2btnlbl.enabled=NO;
+    [_activatebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
 }
 -(IBAction)edituserview:(id)sender
-{   [self Employeeselect];
+{[self PasswordForUser];
+    [self Employeeselect];
     [self SelectAllCustomer];
    
    _updatebtn.enabled=YES;
@@ -1504,7 +1586,7 @@
         [_devicebtn setTitle:[_devicelistdict objectForKey:@"3"] forState:UIControlStateNormal];
     }
     _usrnametextfld.text=usrmdl.username;
-    _pswdtextfld.text=usrmdl.pwd;
+    //_pswdtextfld.text=usrmdl.pwd;
     if ([usrmdl.Activate isEqualToString:@"true"]) {
         [_activatebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
     }
