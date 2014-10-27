@@ -31,6 +31,7 @@
                 <outlet property="scroll" destination="pJk-Xx-lAC" id="mg5-RX-iEk"/>
                 <outlet property="sequencebtn" destination="E8f-Ot-mq7" id="OWg-uq-VdE"/>
                 <outlet property="subunittextfld" destination="IYO-AC-Nox" id="bOg-OY-895"/>
+                <outlet property="totalequmntlbl" destination="gjk-fF-30U" id="QlH-96-z2g"/>
                 <outlet property="totalmanhourlabel" destination="LPj-KW-dtj" id="z9v-EQ-Xan"/>
                 <outlet property="unittextfield" destination="b79-Q9-Gku" id="YbU-PX-1Te"/>
                 <outlet property="view" destination="2" id="3"/>
@@ -510,7 +511,7 @@
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gjk-fF-30U">
                                     <rect key="frame" x="856" y="34" width="72" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>

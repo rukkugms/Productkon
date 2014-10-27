@@ -100,7 +100,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" id="lbl-gW-TtC">
-                            <rect key="frame" x="75" y="121" width="619" height="391"/>
+                            <rect key="frame" x="76" y="191" width="619" height="391"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <navigationBar contentMode="scaleToFill" id="bDo-wA-UIa">
