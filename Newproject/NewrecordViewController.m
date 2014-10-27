@@ -757,6 +757,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
     
     NSString*    dateString = [dateFormat2 stringFromDate:dates];
+     dateString=[NSString stringWithFormat:@"%@ %@",dateString,_timebtn.titleLabel.text];
     
     if (dateString.length==0) {
         NSDate *daa=[NSDate date];
@@ -766,6 +767,8 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         NSString*curntdate = [dateFormat stringFromDate:daa];
         NSLog(@"%@",curntdate);
         dateString=curntdate;
+        dateString=[NSString stringWithFormat:@"%@ %@",dateString,_timebtn.titleLabel.text];
+
         
     }
 

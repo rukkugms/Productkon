@@ -77,6 +77,8 @@
 @property(strong,nonatomic)IBOutlet UILabel *manstratelabel;
 @property(strong,nonatomic)IBOutlet UILabel *manotratelabel;
 @property(strong,nonatomic)IBOutlet UILabel *mantotallabel;
+@property(strong,nonatomic)IBOutlet UILabel *typelabel;
+@property(strong,nonatomic)IBOutlet UILabel *phaselabel;
 
 @property(strong,nonatomic)IBOutlet UIBarButtonItem *manpwrbtn;
 @property(strong,nonatomic)IBOutlet UIBarButtonItem *eqpmntbtn;
@@ -90,17 +92,19 @@
 @property(strong,nonatomic)IBOutlet UILabel *Eqdatelabel;
 @property(strong,nonatomic)IBOutlet UILabel *Eqqtylabel;
 @property(strong,nonatomic)IBOutlet UILabel *Eqtotallabel;
+@property(strong,nonatomic)IBOutlet UILabel *Eqphaselabel;
 
 /*Labels in summary*/
 @property(strong,nonatomic)IBOutlet UILabel *summarylabel;
 @property(strong,nonatomic)IBOutlet UILabel *costlabel;
 
-/*Labels in equipment*/
+/*Labels in other*/
 @property(strong,nonatomic)IBOutlet UILabel *Otheritemcodelabel;
 @property(strong,nonatomic)IBOutlet UILabel *Otherdeslabel;
 @property(strong,nonatomic)IBOutlet UILabel *otherdatelabel;
 @property(strong,nonatomic)IBOutlet UILabel *otherqtylabel;
 @property(strong,nonatomic)IBOutlet UILabel *othertotallabel;
+@property(strong,nonatomic)IBOutlet UILabel *otherphaselabel;
 
 
 /*Estimation Review*/

@@ -18,6 +18,8 @@
 @property(strong,nonatomic)NSString *STrate;
 @property(strong,nonatomic)NSString *OTrate;
 @property(strong,nonatomic)NSString *mandate;
+@property(strong,nonatomic)NSString *mtype;
+@property(strong,nonatomic)NSString *phasename;
 
 
 @end

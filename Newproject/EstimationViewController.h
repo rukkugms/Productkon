@@ -55,6 +55,9 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *estmtncell;
 @property (strong, nonatomic) IBOutlet UILabel *estlbl;
 @property (strong, nonatomic) IBOutlet UILabel *cmpnylbl;
+@property(strong,nonatomic)IBOutlet UILabel *startdatelabel;
+@property(strong,nonatomic)IBOutlet UILabel *enddatelabel;
+@property(strong,nonatomic)IBOutlet UILabel *planidlabel;
 
 @property (strong, nonatomic) IBOutlet UITableView *estmntable;
 @property (strong, nonatomic) IBOutlet UIButton *leadchckbtnlbl;

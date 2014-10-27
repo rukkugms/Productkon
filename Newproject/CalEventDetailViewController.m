@@ -308,7 +308,8 @@
                 _manqtylabel=(UILabel *)[cell viewWithTag:4];
                 _manqtylabel.text=manmdl.Qty;
                 _manstlabel=(UILabel *)[cell viewWithTag:5];
-                _manstlabel.text=manmdl.ST;
+                NSInteger totst=([manmdl.ST integerValue ]*[manmdl.Qty integerValue]);
+                _manstlabel.text=[NSString stringWithFormat:@"%d",totst];
 
                 _manotlabel=(UILabel *)[cell viewWithTag:6];
                 _manotlabel.text=manmdl.OT;
@@ -326,6 +327,10 @@
                
              _manotratelabel=(UILabel *)[cell viewWithTag:9];
                 _mantotallabel.text=[NSString stringWithFormat:@"$%d",total];
+                _typelabel=(UILabel *)[cell viewWithTag:10];
+                _typelabel.text=manmdl.mtype;
+                _phaselabel=(UILabel *)[cell viewWithTag:11];
+                _phaselabel.text=manmdl.phasename;
                 
     }
             if (tooltype==3)
@@ -363,6 +368,8 @@
                 _othertotallabel=(UILabel *)[cell viewWithTag:5];
                 NSInteger B1=([othmdl.UnitCost integerValue])*([othmdl.Qty integerValue]);
                 _othertotallabel.text=[NSString stringWithFormat:@"$%d",B1];
+                _otherphaselabel=(UILabel *)[cell viewWithTag:6];
+                _otherphaselabel.text=othmdl.otherphasename;
                 
                 
                 
@@ -401,6 +408,8 @@
                 _Eqtotallabel=(UILabel *)[cell viewWithTag:5];
                  NSInteger B1=([eqmdl.UnitCost integerValue])*([eqmdl.Qty integerValue]);
                 _Eqtotallabel.text=[NSString stringWithFormat:@"$%d",B1];
+                _Eqphaselabel=(UILabel *)[cell viewWithTag:6];
+                _Eqphaselabel.text=eqmdl.eqphasename;
                 
 
 
@@ -707,7 +716,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     NSString*estmtn = [defaults objectForKey:@"Estimationid"];
-    
+    NSLog(@"%@",estmtn);
     NSString *soapMessage;
     
     soapMessage = [NSString stringWithFormat:
@@ -1355,6 +1364,25 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"MType"])
+    {
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"PhaseName"])
+    {
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
 
     if([elementName isEqualToString:@"CalenderEquipmentSelectResponse"])
     {_eqpmntarray=[[NSMutableArray alloc]init];
@@ -1434,6 +1462,16 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"EqPhaseName"])
+    {
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     if([elementName isEqualToString:@"CalenderOtherSelectResponse"])
     {
         _otherarray=[[NSMutableArray alloc]init];
@@ -1515,6 +1553,16 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"OtherPhaseName"])
+    {
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     if([elementName isEqualToString:@"SummarySelectResponse"])
     {
         _summaryarray=[[NSMutableArray alloc]init];
@@ -1684,10 +1732,28 @@
     {
         recordResults = FALSE;
         _manpwr.OTrate=_soapresults;
+       // [_manpwrarray addObject:_manpwr];
+        _soapresults = nil;
+        
+    }
+    if([elementName isEqualToString:@"MType"])
+    {
+        recordResults = FALSE;
+        _manpwr.mtype=_soapresults;
+        //[_manpwrarray addObject:_manpwr];
+        _soapresults = nil;
+        
+    }
+
+    if([elementName isEqualToString:@"PhaseName"])
+    {
+        recordResults = FALSE;
+        _manpwr.phasename=_soapresults;
         [_manpwrarray addObject:_manpwr];
         _soapresults = nil;
         
     }
+
     if([elementName isEqualToString:@"eqItemCode"])
     {     _eqmdl=[[Eqeventmdl alloc]init];
         recordResults = FALSE;
@@ -1724,10 +1790,19 @@
         recordResults = FALSE;
         
         _eqmdl.Qty=_soapresults;
+        //[_eqpmntarray addObject:_eqmdl];
+        _soapresults = nil;
+        
+    }if([elementName isEqualToString:@"EqPhaseName"])
+    {
+        recordResults = FALSE;
+        
+        _eqmdl.eqphasename=_soapresults;
         [_eqpmntarray addObject:_eqmdl];
         _soapresults = nil;
         
     }
+   
     if([elementName isEqualToString:@"OtherItemCode"])
     {     _othrmdl=[[OthereventMaodel alloc]init];
         recordResults = FALSE;
@@ -1764,10 +1839,20 @@
         recordResults = FALSE;
         
         _othrmdl.Qty=_soapresults;
+       // [_otherarray addObject:_othrmdl];
+        _soapresults = nil;
+        
+    }
+    if([elementName isEqualToString:@"OtherPhaseName"])
+    {
+        recordResults = FALSE;
+        
+        _othrmdl.otherphasename=_soapresults;
         [_otherarray addObject:_othrmdl];
         _soapresults = nil;
         
     }
+
     if([elementName isEqualToString:@"Title"])
     {
         recordResults = FALSE;

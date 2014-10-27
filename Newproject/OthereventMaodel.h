@@ -14,4 +14,5 @@
 @property(strong,nonatomic)NSString *UnitCost;
 @property(strong,nonatomic)NSString *Qty;
 @property(strong,nonatomic)NSString *otherdate;
+@property(strong,nonatomic)NSString *otherphasename;
 @end
