@@ -2274,6 +2274,7 @@
                     _typctl.moduleid=_moduleid;
                     [_typebtn setTitle:@"Select" forState:UIControlStateNormal];
                     [self presentViewController:_typctl animated:YES completion:nil];
+                    webtype=3;
                     
                 }
                 else

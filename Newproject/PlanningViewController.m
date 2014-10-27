@@ -44,7 +44,7 @@
     if (_plntype==1) {
         _tabletitleview.hidden=NO;
     
-         _disclosurearry=[[NSMutableArray alloc]initWithObjects:@"Add Services",@"Site Visit",nil];
+         _disclosurearry=[[NSMutableArray alloc]initWithObjects:@"Add Services",@"Site Visit",@"Documents",nil];
         _addbtn.hidden=NO;
         _deletebtn.hidden=NO;
         _plnnavitem.title=@"Planning";
@@ -272,9 +272,9 @@
                     
                 
                 if (indexPath.row==0) {
-                    if (!self.servVctrl) {
+                  //  if (!self.servVctrl) {
                         self.servVctrl=[[AddserviceViewController alloc]initWithNibName:@"AddserviceViewController" bundle:nil];
-                    }
+                  //  }
                     planmodel*planmdl=(planmodel *)[_planlistarray objectAtIndex:btnindex];
                     _servVctrl.planID=planmdl.planid;
                     NSLog(@"%@",planmdl.planid);
@@ -311,9 +311,9 @@
                 }
                 }
                 if (indexPath.row==1) {
-                    if (!self.sitevisitVctrl) {
+                    //if (!self.sitevisitVctrl) {
                         self.sitevisitVctrl=[[SitevisitViewController alloc]initWithNibName:@"SitevisitViewController" bundle:nil];
-                    }
+                    //}
                     planmodel*planmdl=(planmodel *)[_planlistarray objectAtIndex:btnindex];
                     _sitevisitVctrl.companyid=planmdl.planid;
                     _sitevisitVctrl.companyname=planmdl.customername;
@@ -327,9 +327,21 @@
                     [self presentViewController:_sitevisitVctrl
                                        animated:YES completion:NULL];
                     
-                                  }
+                    
                 _searchbar.text=@"";
                 [self SelectAllPlans];
+                }
+                
+                if (indexPath.row==2) {
+                     self.PlandocsVCtrl=[[PlandocsViewController alloc]initWithNibName:@"PlandocsViewController" bundle:nil];
+                
+                  planmodel*planmdl=(planmodel *)[_planlistarray objectAtIndex:btnindex];
+                _PlandocsVCtrl.planid=planmdl.planid;
+                   self.PlandocsVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+                
+                [self presentViewController:_PlandocsVCtrl
+                                   animated:YES completion:NULL];
+                
 //                if (indexPath.row==2) {
 //                    if (!self.DetailplanVctrl) {
 //                        self.DetailplanVctrl=[[DetailplanViewController alloc]initWithNibName:@"DetailplanViewController" bundle:nil];
@@ -347,7 +359,7 @@
 //                }
                 
                 
-                
+                }
                 
                 
                 
@@ -585,16 +597,16 @@
         
     
     UIViewController* popoverContent = [[UIViewController alloc]init];
-    UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 130, 78)];
+    UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 130, 110)];
     popoverView.backgroundColor = [UIColor whiteColor];
-    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 130, 78)];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 130, 110)];
     _popovertableview.delegate=(id)self;
     _popovertableview.dataSource=(id)self;
     _popovertableview.rowHeight= 39;
     //_popovertableview.separatorColor=[UIColor blackColor];
     [popoverView addSubview:_popovertableview];
     popoverContent.view = popoverView;
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(130, 78);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(130, 110);
     
     button = (UIButton *)sender;
     UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];

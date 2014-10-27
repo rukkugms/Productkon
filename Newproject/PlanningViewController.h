@@ -15,6 +15,7 @@
 #import "Validation.h"
 #import "Rightscheck.h"
 #import "PServiceViewController.h"
+#import "PlandocsViewController.h"
 @interface PlanningViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
     NSInteger leadcheck;
@@ -37,6 +38,7 @@
 }
 
 /* newcomment*/
+@property(strong,nonatomic)PlandocsViewController *PlandocsVCtrl;
 @property(strong,nonatomic)PServiceViewController *psctrlr;
 @property(readwrite)NSInteger plntype;
 @property(strong,nonatomic)NSString *result;

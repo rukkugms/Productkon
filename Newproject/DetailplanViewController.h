@@ -180,6 +180,7 @@
 
 @property(nonatomic,readwrite) sqlite3 *AllscaffoldDB;
 @property (strong, nonatomic) NSString *ScaffoldPath;
+@property (strong, nonatomic) IBOutlet UILabel *totalequmntlbl;
 
 
 @end
