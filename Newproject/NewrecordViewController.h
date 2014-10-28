@@ -26,7 +26,7 @@
     NSString *result;
     NSInteger poptype;
     NSInteger reqindex;
-    
+    NSString*useridname;
     
   //  id <newrecordDelgate>Delegate;
 }
