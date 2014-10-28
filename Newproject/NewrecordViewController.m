@@ -215,7 +215,7 @@
     basicreqmdl*breq=(basicreqmdl *)[_allrequirementarray objectAtIndex:reqindex];
    // NSInteger typeid=[[_JobtypeDic objectForKey:_typeidbtnlbl.titleLabel.text]integerValue];
     
-    soapMessage = [NSString stringWithFormat:
+        soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                    "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
@@ -224,14 +224,14 @@
                    "<soap:Body>\n"
                    
                    "<SitevisitInsertjobsiterequirements xmlns=\"http://testUSA.kontract360.com/\">\n"
-                   "<name>%@</name>\n"
+                   "<name>%d</name>\n"
                    "<code>%@</code>\n"
                    "<typeId>%d</typeId>\n"
                    "<cost>%f</cost>\n"
                    "<planId>%@</planId>\n"
                    "</SitevisitInsertjobsiterequirements>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",breq.itemname,breq.code,breq.type,[_jobcosttxtfld.text floatValue],_companyid];
+                   "</soap:Envelope>\n",breq.eid ,breq.code,breq.type,[_jobcosttxtfld.text floatValue],_companyid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
