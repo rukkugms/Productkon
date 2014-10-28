@@ -466,7 +466,7 @@
             
         
         NSLog(@"%@",_summaryarray);
-        NSArray*array=[[_summaryarray objectAtIndex:indexPath.row ] componentsSeparatedByString:@" "];
+        NSArray*array=[[_summaryarray objectAtIndex:indexPath.row ] componentsSeparatedByString:@"$"];
         NSString*newtitile=[array objectAtIndex:0];
       NSString*newtitiles=[array objectAtIndex:1];
          NSLog(@"%@",newtitiles);
