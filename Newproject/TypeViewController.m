@@ -60,7 +60,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Itemrequirementselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Itemrequirementselect xmlns=\" http://testUSA.kontract360.com/\">\n"
                    "</Itemrequirementselect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
@@ -68,7 +68,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -76,7 +76,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Itemrequirementselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @" http://testUSA.kontract360.com/Itemrequirementselect" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -108,7 +108,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ItemRequirementInsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ItemRequirementInsert xmlns=\" http://testUSA.kontract360.com/\">\n"
                     "<ItemTypeName>%@</ItemTypeName>\n"
                    "</ItemRequirementInsert>\n"
                    "</soap:Body>\n"
@@ -117,7 +117,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -125,7 +125,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ItemRequirementInsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @" http://testUSA.kontract360.com/ItemRequirementInsert" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -156,7 +156,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Itemmasterupdate xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Itemmasterupdate xmlns=\" http://testUSA.kontract360.com/\">\n"
                    "<EntryId>%d</EntryId>\n"
                    "<ItemTypeName>%@</ItemTypeName>\n"
                    "</Itemmasterupdate>\n"
@@ -166,7 +166,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -174,7 +174,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Itemmasterupdate" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @" http://testUSA.kontract360.com/Itemmasterupdate" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -206,7 +206,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ItemrequirementDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ItemrequirementDelete xmlns=\" http://testUSA.kontract360.com/\">\n"
                    "<EntryId>%d</EntryId>\n"
                    "</ItemrequirementDelete>\n"
                    "</soap:Body>\n"
@@ -215,7 +215,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -223,7 +223,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ItemrequirementDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @" http://testUSA.kontract360.com/ItemrequirementDelete" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -271,7 +271,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UserLogmaininsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserLogmaininsert xmlns=\" http://testUSA.kontract360.com/\">\n"
                    "<dateandtime>%@</dateandtime>\n"
                    "<userid>%d</userid>\n"
                    "<moduleid>%d</moduleid>\n"
@@ -287,8 +287,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -296,7 +296,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @" http://testUSA.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -345,7 +345,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UserLogmaininsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserLogmaininsert xmlns=\" http://testUSA.kontract360.com/\">\n"
                    "<dateandtime>%@</dateandtime>\n"
                    "<userid>%d</userid>\n"
                    "<moduleid>%d</moduleid>\n"
@@ -361,8 +361,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -370,7 +370,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @" http://testUSA.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -419,7 +419,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UserLogmaininsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserLogmaininsert xmlns=\" http://testUSA.kontract360.com/\">\n"
                    "<dateandtime>%@</dateandtime>\n"
                    "<userid>%d</userid>\n"
                    "<moduleid>%d</moduleid>\n"
@@ -436,8 +436,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -445,7 +445,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @" http://testUSA.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
