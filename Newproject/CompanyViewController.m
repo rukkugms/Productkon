@@ -832,7 +832,7 @@
     {
         
         recordResults = FALSE;
-        NSString *fullURL =[NSString stringWithFormat:@"http://testusa.kontract360.com/Files/Docs/BasicInfo/%@",_soapResults]  ;
+        NSString *fullURL =[NSString stringWithFormat:@"http://test.kontract360.com/Files/Docs/BasicInfo/%@",_soapResults]  ;
        // NSURL *url = [NSURL URLWithString:fullURL];
         //NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
         //[_logoweb loadRequest:requestObj];

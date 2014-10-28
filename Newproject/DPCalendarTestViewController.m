@@ -86,6 +86,7 @@
     //[self.optionsButton setTitle:@"Option" forState:UIControlStateNormal];
     [self.createEventButton setTitle:@"CLOSE" forState:UIControlStateNormal];
     [self.createEventButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    self.createEventButton.titleLabel.font = [UIFont systemFontOfSize:20];
     
     
     self.monthLabel = [[UILabel alloc] initWithFrame:CGRectMake((width - 200) / 2, 20, 200, 20)];
@@ -622,12 +623,12 @@
         
         recordResults = FALSE;
       
-        NSArray*array=[_soapresults componentsSeparatedByString:@" "];
+        NSArray*array=[_soapresults componentsSeparatedByString:@" $"];
          NSString*newtitile=[array objectAtIndex:0];
         NSLog(@"title%@",newtitile);
         
         
-        if ([newtitile isEqualToString:@"Manpower"]||[newtitile isEqualToString:@"Equipment"]||[newtitile isEqualToString:@"Equipments"]||[newtitile isEqualToString:@"ManPower"]||[newtitile isEqualToString:@"Material"]||[newtitile isEqualToString:@"Consumbles"]||[newtitile isEqualToString:@"Perdiem"]||[newtitile isEqualToString:@"Delivery"]||[newtitile isEqualToString:@"Miscell"]||[newtitile isEqualToString:@"Travel"]) {
+        if ([newtitile isEqualToString:@"Manpower"]||[newtitile isEqualToString:@"Equipment"]||[newtitile isEqualToString:@"Equipments"]||[newtitile isEqualToString:@"ManPower"]||[newtitile isEqualToString:@"Material"]||[newtitile isEqualToString:@"Third Party"]||[newtitile isEqualToString:@"Consumbles"]||[newtitile isEqualToString:@"Perdiem"]||[newtitile isEqualToString:@"Delivery"]||[newtitile isEqualToString:@"Miscell"]||[newtitile isEqualToString:@"Other"]||[newtitile isEqualToString:@"Travel"]) {
             //newtitile=@"Cost";
             newtitile=[NSString stringWithFormat:@"Cost $%@",_eventmdl.sum1];
             if ([previoustitle isEqualToString:@"Cost"]) {
