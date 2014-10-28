@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="documnttable" destination="y5K-Gi-a1q" id="FwZ-oz-WtH"/>
                 <outlet property="navbar" destination="8Q5-wm-oSY" id="5K1-nJ-x0z"/>
+                <outlet property="titleview" destination="Zua-0N-xpy" id="VlL-Ws-42f"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

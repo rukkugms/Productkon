@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Empdetails.h"
+#import "InDetailhrviewViewController.h"
 
 @interface MasterHrViewController : UIViewController
 {
@@ -15,9 +16,14 @@
     NSInteger btnindex;
     BOOL recordResults;
     NSString *webstring;
+    NSInteger btntouch;
+    NSInteger chektouch;
+    NSString *jobstring;
+    NSInteger poptype;
 }
 
 @property(strong,nonatomic)Empdetails *empdetl;
+@property(strong,nonatomic)InDetailhrviewViewController *indetailctrl;
 
 /*IBOutlets*/
 @property(strong,nonatomic)IBOutlet UIView *titleview;
@@ -35,16 +41,30 @@
 @property (strong, nonatomic) IBOutlet UILabel *skilllbl;
 @property (strong, nonatomic) IBOutlet UILabel *craftlbl;
 @property(strong,nonatomic)IBOutlet UIButton *disclosurebtn;
+@property (strong, nonatomic) IBOutlet UIView *applicantprocessview;
+@property (strong, nonatomic) IBOutlet UIButton *officechecklbl;
+@property (strong, nonatomic) IBOutlet UIButton *jobsitebtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *sitechecklbl;
 
 /*IBActions*/
 -(IBAction)CloseThisPAge:(id)sender;
 -(IBAction)selectdisclosure:(id)sender;
+- (IBAction)clsebtnactn:(id)sender;
+- (IBAction)sitecheckactn:(id)sender;
+- (IBAction)officecheckactn:(id)sender;
+- (IBAction)jobsitebtn:(id)sender;
+- (IBAction)processbtn:(id)sender;
+-(IBAction)indetailviewselection:(id)sender;
+
 
 
 @property(strong,nonatomic)NSMutableArray *disclosurearray;
 @property(strong,nonatomic)NSMutableArray *hrlistarray;
 @property(strong,nonatomic)NSMutableDictionary *skilldict;
 @property(strong,nonatomic)NSString *skillstring;
+@property (nonatomic, strong) NSMutableArray *JobsiteArray;
+@property (nonatomic, strong)NSMutableDictionary *jobsitedict;
+@property(strong,nonatomic)NSString *searchstring;
 
 /*xmlparse*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;

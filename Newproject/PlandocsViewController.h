@@ -21,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *doccell;
 @property (strong, nonatomic) IBOutlet UILabel *docnamelbl;
 @property (strong, nonatomic) IBOutlet UIButton *viewbtn;
+@property (strong, nonatomic) IBOutlet UIView *titleview;
 
 @property (strong, nonatomic) IBOutlet UITableView *documnttable;
 @property (strong, nonatomic)NSMutableArray *documntarray;

@@ -348,7 +348,6 @@
         NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
         [_uiwebview loadRequest:requestObj];
 //        _empImgview=(UIImageView *)[cell viewWithTag:18];
-//        _empImgview.image=[UIImage imageNamed:[NSString stringWithFormat:<#(NSString *), ...#>] ]
                 }
 
     if (tableView==_popOverTableView) {
@@ -1116,6 +1115,16 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"applicant_OtherCrafts"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     
     if([elementName isEqualToString:@"applicant_EmergencyContactNo"])
     {
@@ -1509,6 +1518,13 @@
     {
         recordResults = FALSE;
         _empdetl.city=_soapResults;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"applicant_OtherCrafts"])
+    {
+        recordResults = FALSE;
+        _empdetl.othercraft=_soapResults;
         _soapResults = nil;
         
     }

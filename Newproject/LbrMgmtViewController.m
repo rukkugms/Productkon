@@ -63,8 +63,16 @@
 - (IBAction)Selectforman:(id)sender
 {
     btnindex=2;
+   
+    if ([_jobbtn.titleLabel.text isEqualToString:@"Select"]||[_jobbtn.titleLabel.text isEqualToString:@""]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select a jobsite" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
     [self createpopover];
     [self ForemanSelect];
+    }
 }
 -(IBAction)checkaction:(id)sender
 {
