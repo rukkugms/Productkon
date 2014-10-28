@@ -28,6 +28,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self AllSkills];
+    //[self ListAllApplicants];
+
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _titleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _processtable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
@@ -50,7 +52,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self ListAllApplicants];
+    //[self ListAllApplicants];
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,7 +79,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ListAllApplicants xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<ListAllApplicants xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</ListAllApplicants>\n"
                    "</soap:Body>\n"
@@ -86,7 +88,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -94,7 +96,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/ListAllApplicants" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/ListAllApplicants" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -129,7 +131,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<AllSkills xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<AllSkills xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</AllSkills>\n"
                    "</soap:Body>\n"
@@ -138,7 +140,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -146,7 +148,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/AllSkills" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/AllSkills" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -180,7 +182,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SearchApplicants xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SearchApplicants xmlns=\"http://ios.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "</SearchApplicants>\n"
                    "</soap:Body>\n"
@@ -189,7 +191,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -197,7 +199,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SearchApplicants" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SearchApplicants" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -852,8 +854,8 @@
         return  [_popoverdisarray count];
     }
     else{
-    //return [_employeelistarray count];
-    return 1;
+    return [_newprocesssarray count];
+    //return 1;
     }
     return YES;
 }

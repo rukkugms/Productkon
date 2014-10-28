@@ -365,7 +365,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectMarkupMaster xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SelectMarkupMaster xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</SelectMarkupMaster>\n"
                    "</soap:Body>\n"
@@ -373,8 +373,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
-   //  NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -382,7 +382,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SelectMarkupMaster" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SelectMarkupMaster" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -419,7 +419,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<TotalMarkupselect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<TotalMarkupselect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<MarkupID>%d</MarkupID>\n"
                    "</TotalMarkupselect>\n"
                    "</soap:Body>\n"
@@ -427,8 +427,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-      NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
-   //  NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -436,7 +436,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/TotalMarkupselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/TotalMarkupselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -474,7 +474,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<MarkupMain1select xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<MarkupMain1select xmlns=\"http://ios.kontract360.com/\">\n"
                    "<MarkupID>%d</MarkupID>\n"
                    "</MarkupMain1select>\n"
                    "</soap:Body>\n"
@@ -482,8 +482,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-      NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
-    // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -491,7 +491,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/MarkupMain1select" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/MarkupMain1select" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
