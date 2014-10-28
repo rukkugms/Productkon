@@ -627,7 +627,7 @@
         NSLog(@"title%@",newtitile);
         
         
-        if ([newtitile isEqualToString:@"Manpower"]||[newtitile isEqualToString:@"Equipment"]||[newtitile isEqualToString:@"Material"]||[newtitile isEqualToString:@"Consumbles"]||[newtitile isEqualToString:@"Perdiem"]||[newtitile isEqualToString:@"Delivery"]||[newtitile isEqualToString:@"Miscell"]||[newtitile isEqualToString:@"Travel"]) {
+        if ([newtitile isEqualToString:@"Manpower"]||[newtitile isEqualToString:@"Equipment"]||[newtitile isEqualToString:@"Equipments"]||[newtitile isEqualToString:@"ManPower"]||[newtitile isEqualToString:@"Material"]||[newtitile isEqualToString:@"Consumbles"]||[newtitile isEqualToString:@"Perdiem"]||[newtitile isEqualToString:@"Delivery"]||[newtitile isEqualToString:@"Miscell"]||[newtitile isEqualToString:@"Travel"]) {
             //newtitile=@"Cost";
             newtitile=[NSString stringWithFormat:@"Cost $%@",_eventmdl.sum1];
             if ([previoustitle isEqualToString:@"Cost"]) {
