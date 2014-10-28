@@ -38,6 +38,8 @@
 @property(strong,nonatomic)NSString*twiccardno;
 @property(strong,nonatomic)NSString*Inproceesstatus;
 @property(strong,nonatomic)NSString*photo;
+@property(strong,nonatomic)NSString*othercraft;
+
 
 
 

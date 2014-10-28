@@ -104,6 +104,8 @@
 		64A4124A194080F1003EE113 /* estimate.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A41248194080F1003EE113 /* estimate.png */; };
 		64A4124F19408104003EE113 /* hrinprocess.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A4124C19408104003EE113 /* hrinprocess.png */; };
 		64A4125019408104003EE113 /* hrmaster.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A4124D19408104003EE113 /* hrmaster.png */; };
+		64A4C4E419FF974D00C8BA33 /* InDetailhrviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A4C4E219FF974D00C8BA33 /* InDetailhrviewViewController.m */; };
+		64A4C4E519FF974D00C8BA33 /* InDetailhrviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A4C4E319FF974D00C8BA33 /* InDetailhrviewViewController.xib */; };
 		64A4D097195AE50E00C3F783 /* Bidmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A4D096195AE50E00C3F783 /* Bidmodel.m */; };
 		64A5ED4D19C2C4EC002E0018 /* RSTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A5ED4B19C2C4EC002E0018 /* RSTViewController.m */; };
 		64A5ED4E19C2C4EC002E0018 /* RSTViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A5ED4C19C2C4EC002E0018 /* RSTViewController.xib */; };
@@ -723,6 +725,9 @@
 		64A41248194080F1003EE113 /* estimate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = estimate.png; sourceTree = "<group>"; };
 		64A4124C19408104003EE113 /* hrinprocess.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hrinprocess.png; sourceTree = "<group>"; };
 		64A4124D19408104003EE113 /* hrmaster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hrmaster.png; sourceTree = "<group>"; };
+		64A4C4E119FF974D00C8BA33 /* InDetailhrviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InDetailhrviewViewController.h; sourceTree = "<group>"; };
+		64A4C4E219FF974D00C8BA33 /* InDetailhrviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InDetailhrviewViewController.m; sourceTree = "<group>"; };
+		64A4C4E319FF974D00C8BA33 /* InDetailhrviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InDetailhrviewViewController.xib; sourceTree = "<group>"; };
 		64A4D095195AE50E00C3F783 /* Bidmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bidmodel.h; sourceTree = "<group>"; };
 		64A4D096195AE50E00C3F783 /* Bidmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bidmodel.m; sourceTree = "<group>"; };
 		64A5ED4A19C2C4EC002E0018 /* RSTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSTViewController.h; sourceTree = "<group>"; };
@@ -2422,6 +2427,9 @@
 				64A936B419E640A600C20D57 /* MasterHrViewController.m */,
 				64A936B519E640A600C20D57 /* MasterHrViewController.xib */,
 				64A936B819E640C900C20D57 /* Customhrcell.xib */,
+				64A4C4E119FF974D00C8BA33 /* InDetailhrviewViewController.h */,
+				64A4C4E219FF974D00C8BA33 /* InDetailhrviewViewController.m */,
+				64A4C4E319FF974D00C8BA33 /* InDetailhrviewViewController.xib */,
 				D40DE0BD19E64C9A008FFD15 /* InprocessViewController.h */,
 				D40DE0BE19E64C9A008FFD15 /* InprocessViewController.m */,
 				D40DE0BF19E64C9A008FFD15 /* InprocessViewController.xib */,
@@ -2853,6 +2861,7 @@
 				D4F7D9D8196E647300B8F4D4 /* hremployemangement.png in Resources */,
 				D4FEF52418FE895E0047E6BD /* Matrixcell.xib in Resources */,
 				D4F7D9C8196E5B4300B8F4D4 /* issuemanagement.png in Resources */,
+				64A4C4E519FF974D00C8BA33 /* InDetailhrviewViewController.xib in Resources */,
 				D42D8C4218D2E450009D8085 /* ServiceViewController.xib in Resources */,
 				6426F5E918C05E88002471AC /* cos.png in Resources */,
 				D4A16B3F1974EEA8002CA2A2 /* Wrkschdulecell.xib in Resources */,
@@ -2946,6 +2955,7 @@
 				D49F875118EEA36B00413CAD /* Infoleads.m in Sources */,
 				D4014FF318E3E05B00DB825A /* SerialViewController.m in Sources */,
 				64A1317D19485599009F5431 /* Countmdl.m in Sources */,
+				64A4C4E419FF974D00C8BA33 /* InDetailhrviewViewController.m in Sources */,
 				D4A16B8D1974EEE0002CA2A2 /* DisplayBidTableViewController.m in Sources */,
 				D49F876318EEA36B00413CAD /* Crewmodel.m in Sources */,
 				D49F875E18EEA36B00413CAD /* Customscaffoldingplan.m in Sources */,

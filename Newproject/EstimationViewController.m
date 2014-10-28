@@ -258,9 +258,9 @@ if (tableView==_estmntable) {
                 
                 break;
                  case 1:
-                if (!self.calctrl) {
+                //if (!self.calctrl) {
                     self.calctrl=[[CalEventDetailViewController alloc]initWithNibName:@"CalEventDetailViewController" bundle:nil];
-                }
+                //}
                 _calctrl.estimationstring=@"Estimationreview";
                 _calctrl.estid=estmdl.estimateid;
                 _calctrl.estimationnumber=estmdl.EstimationId;
