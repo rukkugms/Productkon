@@ -85,6 +85,10 @@
     NSString *currentTime = [dateFormatter stringFromDate:dtime];
     NSLog(@"%@", currentTime);
     [_timebtn setTitle:currentTime forState:UIControlStateNormal];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    useridname = [defaults objectForKey:@"Userid"];
+
 
 
     // Do any additional setup after loading the view from its nib.
@@ -215,6 +219,7 @@
     basicreqmdl*breq=(basicreqmdl *)[_allrequirementarray objectAtIndex:reqindex];
    // NSInteger typeid=[[_JobtypeDic objectForKey:_typeidbtnlbl.titleLabel.text]integerValue];
     
+    NSString*jobid=[NSString stringWithFormat:@"%d",breq.eid];
         soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -224,14 +229,14 @@
                    "<soap:Body>\n"
                    
                    "<SitevisitInsertjobsiterequirements xmlns=\"http://testUSA.kontract360.com/\">\n"
-                   "<name>%d</name>\n"
+                   "<name>%@</name>\n"
                    "<code>%@</code>\n"
                    "<typeId>%d</typeId>\n"
                    "<cost>%f</cost>\n"
                    "<planId>%@</planId>\n"
                    "</SitevisitInsertjobsiterequirements>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",breq.eid ,breq.code,breq.type,[_jobcosttxtfld.text floatValue],_companyid];
+                   "</soap:Envelope>\n",jobid,breq.code,breq.type,[_jobcosttxtfld.text floatValue],_companyid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -517,10 +522,27 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     NSLog(@"s%@",dates);
     NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
     [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
+    NSString*ndateString;
     
     NSString*    dateString = [dateFormat2 stringFromDate:dates];
     _datesstrg=dateString;
     _datesstrg=[NSString stringWithFormat:@"%@ %@",dateString,_timebtn.titleLabel.text];
+    NSDateFormatter *dateFormat3 = [[NSDateFormatter alloc]init];
+    [dateFormat3 setDateFormat: @"yyyy-MM-dd HH:mm:ss a"];
+    
+    
+    
+    NSDateFormatter *dateFormat4 = [[NSDateFormatter alloc] init];
+    NSLocale *enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+    [dateFormat4 setLocale:enUSPOSIXLocale];
+    
+    
+    [dateFormat4 setDateFormat:@"yyyy-MM-dd HH:mm:ss"]; //
+    ndateString = [dateFormat4 stringFromDate:[dateFormat3 dateFromString:_datesstrg]];
+    
+    NSLog(@"Fixed Time %@",ndateString);
+
+    
     if (dateString.length==0) {
         NSDate *daa=[NSDate date];
         NSLog(@"%@",daa);
@@ -529,8 +551,33 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         NSString*curntdate = [dateFormat stringFromDate:daa];
         NSLog(@"%@",curntdate);
         dateString=curntdate;
-        _datesstrg=[NSString stringWithFormat:@"%@ %@",dateString,_timebtn.titleLabel.text];
+       _datesstrg=[NSString stringWithFormat:@"%@ %@",dateString,_timebtn.titleLabel.text];
+        NSDateFormatter *dateFormat3 = [[NSDateFormatter alloc]init];
+        [dateFormat3 setDateFormat: @"yyyy-MM-dd HH:mm:ss a"];
+        
+    
+        
+        NSDateFormatter *dateFormat4 = [[NSDateFormatter alloc] init];
+        NSLocale *enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        [dateFormat4 setLocale:enUSPOSIXLocale];
+        
+        
+        [dateFormat4 setDateFormat:@"yyyy-MM-dd HH:mm:ss"]; //
+      ndateString = [dateFormat3 stringFromDate:[dateFormat4 dateFromString:_datesstrg]];
+        
+        NSLog(@"Fixed Time %@",ndateString);
+
+       // NSDate*newdate=[dateFormat3 dateFromString:_datesstrg];
+
+       // datetime=[NSString stringWithFormat:@"%@",newdate];
            }
+    
+    
+    
+  
+    
+   // _datesstrg=@"2014-10-24 00:10:30";
+    
        soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -539,7 +586,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    
                    "<soap:Body>\n"
                    
-                   "<SitevisitInsertmeetingnotes xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SitevisitInsertmeetingnotes xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<Datetime>%@</Datetime>\n"
                    "<details>%@</details>\n"
                    "<userId>%d</userId>\n"
@@ -548,12 +595,12 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    "<Type>%d</Type>\n"
                    "</SitevisitInsertmeetingnotes>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n", _datesstrg ,_meetgdetailslbl.text,0,_companyid,filename,typ];
+                   "</soap:Envelope>\n",ndateString,_meetgdetailslbl.text,[useridname integerValue],_companyid,filename,typ];
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    // NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -561,7 +608,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertmeetingnotes" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SitevisitInsertmeetingnotes" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -758,7 +805,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     NSString*    dateString = [dateFormat2 stringFromDate:dates];
      dateString=[NSString stringWithFormat:@"%@ %@",dateString,_timebtn.titleLabel.text];
-    
+    NSString*ndateString;
     if (dateString.length==0) {
         NSDate *daa=[NSDate date];
         NSLog(@"%@",daa);
@@ -768,6 +815,20 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         NSLog(@"%@",curntdate);
         dateString=curntdate;
         dateString=[NSString stringWithFormat:@"%@ %@",dateString,_timebtn.titleLabel.text];
+        NSDateFormatter *dateFormat3 = [[NSDateFormatter alloc]init];
+        [dateFormat3 setDateFormat: @"yyyy-MM-dd HH:mm:ss a"];
+        
+        
+        
+        NSDateFormatter *dateFormat4 = [[NSDateFormatter alloc] init];
+        NSLocale *enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        [dateFormat4 setLocale:enUSPOSIXLocale];
+        
+        
+        [dateFormat4 setDateFormat:@"yyyy-MM-dd HH:mm:ss"]; //
+        ndateString = [dateFormat stringFromDate:[dateFormat4 dateFromString:_datesstrg]];
+        
+        NSLog(@"Fixed Time %@",ndateString);
 
         
     }
@@ -792,7 +853,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    "<Type>%d</Type>\n"
                     "</SitevisitInsertNotes>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",   dateString ,_notestxtfld.text,0,_companyid,dateString,filename,typ];
+                   "</soap:Envelope>\n",ndateString ,_notestxtfld.text,[useridname integerValue],_companyid,dateString,filename,typ];
     NSLog(@"soapmsg%@",soapMessage);
     
     

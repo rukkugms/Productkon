@@ -2528,6 +2528,16 @@ _passingdate=dateString;
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"ItemName"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"code"])
     {
         if(!_soapResults)
@@ -3132,9 +3142,17 @@ _passingdate=dateString;
     {
      
         recordResults = FALSE;
+        //_sitevistmdl.jobsitname=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"ItemName"])
+    {
+        
+        recordResults = FALSE;
         _sitevistmdl.jobsitname=_soapResults;
         _soapResults = nil;
     }
+
     if([elementName isEqualToString:@"code"])
     {
         recordResults = FALSE;
