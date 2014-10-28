@@ -180,6 +180,7 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *namevendorlbl;
 
+@property (strong, nonatomic) IBOutlet UIImageView *imgview;
 
 - (IBAction)editbtn:(id)sender;
 

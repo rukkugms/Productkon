@@ -129,7 +129,7 @@
 @property (strong, nonatomic) IBOutlet UITextView *cmmnttextview;
 
 - (IBAction)clsebtn:(id)sender;
-
+@property (strong, nonatomic)NSString *photostring;
 
 /*sendtojob*/
 @property (strong, nonatomic)NSString *crftid;

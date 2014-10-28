@@ -58,6 +58,8 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     _paymenttypedict=[[NSMutableDictionary alloc]initWithObjects:_payementtypearray forKeys:_maritalkeyarray];
 _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray forKeys:_payementtypearray];
     _revmaritaldict=[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray forKeys:_maritalarray];
+    _imgview.layer.borderWidth = 2.0;
+    _imgview.layer.borderColor = [UIColor colorWithRed:0/255.0f green:191/255.0f blue:255.0/255.0f alpha:1.0f].CGColor;
 
     // Do any additional setup after loading the view from its nib.
 }

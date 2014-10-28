@@ -90,8 +90,7 @@
         
     }
     if (item.tag==2) {
-        [self FetchImage];
-//        [self selectdocs];
+       //        [self selectdocs];
         _I9view.hidden=NO;
         
         __requirmentview.hidden=YES;
@@ -688,17 +687,18 @@ ssnclck++;
                        
                        "<soap:Body>\n"
                        
-                       "<FetchImage xmlns=\"http://arvin.kontract360.com/\">\n"
+                       "<FetchImageHR xmlns=\"http://testUSA.kontract360.com/\">\n"
                        
                        "<appid>%d</appid>\n"
-                       "</FetchImage>\n"
+                       "<photo>%@</photo>\n"
+                       "</FetchImageHR>\n"
                        "</soap:Body>\n"
-                       "</soap:Envelope>\n",_applicantid];
+                       "</soap:Envelope>\n",_applicantid,_photostring];
         NSLog(@"soapmsg%@",soapMessage);
         
         
         // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-        NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
+        NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
         
         NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
         
@@ -706,7 +706,7 @@ ssnclck++;
         
         [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
         
-        [theRequest addValue: @"http://arvin.kontract360.com/FetchImage" forHTTPHeaderField:@"Soapaction"];
+        [theRequest addValue: @"http://testUSA.kontract360.com/FetchImageHR" forHTTPHeaderField:@"Soapaction"];
         
         [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
         [theRequest setHTTPMethod:@"POST"];
@@ -1088,7 +1088,7 @@ ssnclck++;
     [_popOverTableView reloadData];
     if (testint==1) {
         
-        //[self FetchImage];
+        [self FetchImage];
        // [self selectrequirements];
         testint=3;
     }
@@ -1375,6 +1375,17 @@ ssnclck++;
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"applicant_photo"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+
+        
+    }
+
     
     if([elementName isEqualToString:@"HaveExpiryDate"])
     {
@@ -1676,6 +1687,14 @@ ssnclck++;
         
         
     }
+    if([elementName isEqualToString:@"applicant_photo"])
+    {
+        recordResults = FALSE;
+        _photostring=_soapResults;
+               _soapResults = nil;
+        
+    }
+
     if([elementName isEqualToString:@"applicant_State"])
     {
         recordResults = FALSE;
