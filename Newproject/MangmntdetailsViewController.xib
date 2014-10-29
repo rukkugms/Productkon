@@ -38,6 +38,9 @@
                 <outlet property="materialpurchasetxtfld" destination="JQh-uU-ZAM" id="ys6-qF-uj2"/>
                 <outlet property="minimumchecklbl" destination="AmW-co-kn3" id="m3A-wo-5KL"/>
                 <outlet property="nettextfld" destination="JyB-Pv-ahg" id="Twn-K2-Mky"/>
+                <outlet property="notesbtn" destination="yDy-Bd-TM8" id="zJ4-BZ-4Rb"/>
+                <outlet property="notestextview" destination="qQx-h1-dlY" id="wiE-NY-6vb"/>
+                <outlet property="notesview" destination="XNz-MP-a34" id="ULQ-hF-bI4"/>
                 <outlet property="othrtermsclause" destination="Qvl-3P-ZLd" id="bVI-CG-rlS"/>
                 <outlet property="othrtrmsbtnlbl" destination="8Jm-G9-onC" id="Kg7-ud-SNr"/>
                 <outlet property="othrtrmsview" destination="Qu7-6i-BL4" id="64e-er-akb"/>
@@ -124,7 +127,7 @@
                     <rect key="frame" x="-7" y="88" width="1039" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <items>
-                        <barButtonItem width="52" style="plain" systemItem="fixedSpace" id="Ugv-eX-Qg4">
+                        <barButtonItem width="44" style="plain" systemItem="fixedSpace" id="Ugv-eX-Qg4">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                         <barButtonItem title="Other Terms And Rates" id="8Jm-G9-onC">
@@ -133,7 +136,7 @@
                                 <action selector="othrtermsbtn:" destination="-1" id="KTf-yI-heX"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem width="61" style="plain" systemItem="fixedSpace" id="ZAU-Ag-W5x">
+                        <barButtonItem width="47" style="plain" systemItem="fixedSpace" id="ZAU-Ag-W5x">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                         <barButtonItem title="Delivery  Terms And Rates" id="jXo-Ic-fv0">
@@ -142,7 +145,7 @@
                                 <action selector="deliveryratebtn:" destination="-1" id="oDc-vT-7vL"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem width="116" style="plain" systemItem="fixedSpace" id="0SS-Oo-Iox">
+                        <barButtonItem width="50" style="plain" systemItem="fixedSpace" id="0SS-Oo-Iox">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                         <barButtonItem title="Special Rate Structure" id="YxA-KA-gUn">
@@ -151,13 +154,22 @@
                                 <action selector="srsbtn:" destination="-1" id="tvl-KP-WcY"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem width="80" style="plain" systemItem="fixedSpace" id="aaJ-n4-sZe">
+                        <barButtonItem width="49" style="plain" systemItem="fixedSpace" id="aaJ-n4-sZe">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                         <barButtonItem title="Documents" id="kWQ-V1-RKF">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="docubtn:" destination="-1" id="9X6-OI-D6w"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem width="57" style="plain" systemItem="fixedSpace" id="ItZ-bJ-YiD">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <barButtonItem title="Notes" width="66" id="yDy-Bd-TM8">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="notes:" destination="-1" id="Q19-Tl-2MG"/>
                             </connections>
                         </barButtonItem>
                     </items>
@@ -881,6 +893,20 @@
                         </textField>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" id="XNz-MP-a34" userLabel="Notesview">
+                    <rect key="frame" x="0.0" y="134" width="1024" height="635"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="qQx-h1-dlY">
+                            <rect key="frame" x="156" y="129" width="712" height="214"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

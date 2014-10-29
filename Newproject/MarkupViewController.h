@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Mastermarkmodel.h"
 #import "Markupmainmodel.h"
+#import "Firstmarkmdl.h"
 #import "DetailmarkupsectionViewController.h"
 
 
@@ -22,6 +23,7 @@
     NSInteger selectedcell;
 }
 @property(strong,nonatomic)Mastermarkmodel *master;
+@property(strong,nonatomic)Firstmarkmdl *firstmdl;
 @property(strong,nonatomic)Markupmainmodel *mainmarkmodel;
 @property(strong,nonatomic)DetailmarkupsectionViewController *markVctrlr;
 
@@ -47,6 +49,7 @@
 
 /*array*/
 @property(strong,nonatomic)NSMutableArray *markuparray;
+@property(strong,nonatomic)NSMutableArray *listarray;
 @property(strong,nonatomic)NSMutableArray *markuptablearray;
 @property(strong,nonatomic)NSMutableArray *detailmarkuparray;
 
@@ -75,6 +78,7 @@
 @property(strong,nonatomic)IBOutlet UILabel *OTDOLLlabel;
 @property(strong,nonatomic)IBOutlet UILabel *variablepercentlabel;
 @property(strong,nonatomic)IBOutlet UILabel *fixeddollerlabel;
+@property (strong, nonatomic) IBOutlet UILabel *defaultlbl;
 
 @property(readwrite)NSInteger openviewindex;
 @property(readwrite)NSInteger previousopenviewindex;

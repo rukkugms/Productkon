@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MarkupViewController">
             <connections>
+                <outlet property="defaultlbl" destination="FfA-He-gwL" id="kxL-SE-dhg"/>
                 <outlet property="markupbutton" destination="VFm-l5-C57" id="3jX-CX-CxH"/>
                 <outlet property="markuptable" destination="UZb-ZV-9Ou" id="iLx-Sq-7NP"/>
                 <outlet property="markuptableviewtitle" destination="Qb8-ge-b7q" id="fI0-qB-aoy"/>
@@ -149,6 +150,12 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FfA-He-gwL">
+                            <rect key="frame" x="284" y="58" width="156" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                 </scrollView>
                 <navigationBar contentMode="scaleToFill" id="LO2-AL-iIh">

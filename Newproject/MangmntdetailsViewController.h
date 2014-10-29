@@ -56,6 +56,7 @@
 - (IBAction)deliveryratebtn:(id)sender;
 - (IBAction)srsbtn:(id)sender;
 - (IBAction)docubtn:(id)sender;
+- (IBAction)notes:(id)sender;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *paymntbtnlbl;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *vlumbtnlbl;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *lbrbtnlbl;
@@ -70,10 +71,13 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *deliverybtnlbl;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *srabtnlbl;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *docubtnlbl;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *notesbtn;
 
 
 
-
+/*notes*/
+@property(strong,nonatomic)IBOutlet UIView *notesview;
+@property(strong,nonatomic)IBOutlet UITextView *notestextview;
 
 /*payment*/
 
@@ -169,6 +173,7 @@
 - (IBAction)shopcheckbtn:(id)sender;
 - (IBAction)consublebtn:(id)sender;
 - (IBAction)smalltoolbtn:(id)sender;
+
 
 /*markup view*/
 @property (strong, nonatomic)NSMutableArray *markupnamearray;

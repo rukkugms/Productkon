@@ -43,6 +43,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated
 {[_markupbutton setTitle:@"Select" forState:UIControlStateNormal];
+    _defaultlbl.text=@"";
     _markuptablearray=[[NSMutableArray alloc]init];
     _detailmarkuparray=[[NSMutableArray alloc]init];
      self.openviewindex=NSNotFound;
@@ -126,6 +127,7 @@
         cell.textLabel.font = [UIFont systemFontOfSize:12.0];
         cell.textLabel.text=[NSString stringWithFormat:@"%@",[_markuparray objectAtIndex:indexPath.row]];
         
+        
     }
     if (tableView==_markuptable)
     {
@@ -177,8 +179,20 @@
 {
     if (tableView==_popovertableview)
     {
+        Firstmarkmdl *first=(Firstmarkmdl*)[_listarray objectAtIndex:indexPath.row];
+        if ([first.CompanyStd isEqualToString:@"true"]) {
+            [_markupbutton setTitle:[_markuparray objectAtIndex:indexPath.row]forState:UIControlStateNormal];
+            mark=[_markuparray objectAtIndex:indexPath.row];
+            _defaultlbl.text=@"Default Mark Up";
+            
+        }
+        else
+        {
         [_markupbutton setTitle:[_markuparray objectAtIndex:indexPath.row]forState:UIControlStateNormal];
-        mark=[_markuparray objectAtIndex:indexPath.row];
+            mark=[_markuparray objectAtIndex:indexPath.row];
+            _defaultlbl.text=@"";
+
+        }
     }
     [self.popovercontroller dismissPopoverAnimated:YES];
     
@@ -556,6 +570,7 @@
     {
         _markuparray=[[NSMutableArray alloc]init];
         _markupdict=[[NSMutableDictionary alloc]init];
+        _listarray=[[NSMutableArray alloc]init];
         if(!_soapresults)
         {
             _soapresults=[[NSMutableString alloc]init];
@@ -776,6 +791,8 @@
     if ([elementName isEqualToString:@"MarkupEntryId"]) {
         
         recordResults=FALSE;
+        _firstmdl=[[Firstmarkmdl alloc]init];
+        _firstmdl.MarkupEntryId=_soapresults;
         _markupstring=_soapresults;
         _soapresults=nil;
     }
@@ -784,12 +801,14 @@
         recordResults=FALSE;
         [_markupdict setObject:_markupstring forKey:_soapresults];
         [_markuparray addObject:_soapresults];
+        _firstmdl.MarkUpName=_soapresults;
         _soapresults=nil;
     }
     if ([elementName isEqualToString:@"CompanyStd"]) {
         
         recordResults=FALSE;
-        
+         _firstmdl.CompanyStd=_soapresults;
+        [_listarray addObject:_firstmdl];
         _soapresults=nil;
     }
     if ([elementName isEqualToString:@"TotalMarkupselectResult"]) {
