@@ -324,7 +324,9 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         _skilllbl=(UILabel*)[cell viewWithTag:5];
         _skilllbl.text=empdetls1.skillid;
         _craftlbl=(UILabel*)[cell viewWithTag:6];
-        //_craftlbl.text=empde
+        _craftlbl.text=empdetls1.othercraft;
+        _jobsitelbl=(UILabel*)[cell viewWithTag:7];
+       _jobsitelbl.text=empdetls1.jobsitename;
     }
         return cell;
 }
@@ -779,7 +781,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     }
     
     
-    if([elementName isEqualToString:@"applicant_Skill"])
+    if([elementName isEqualToString:@"SkillName"])
     {
         if(!_soapResults)
         {
@@ -788,7 +790,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         recordResults = TRUE;
         
     }
-    if([elementName isEqualToString:@"applicant_OtherCrafts"])
+    if([elementName isEqualToString:@"Description"])
     {
         if(!_soapResults)
         {
@@ -835,6 +837,16 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"jobsitename"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     if([elementName isEqualToString:@"applicant_City"])
     {
         if(!_soapResults)
@@ -994,25 +1006,6 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         recordResults = TRUE;
         
     }
-    if([elementName isEqualToString:@"AllSkillsResult"])
-    {
-        _skilldict=[[NSMutableDictionary alloc]init];
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-        
-    }
-    if([elementName isEqualToString:@"SkillId"])
-    {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-        
-    }
     if([elementName isEqualToString:@"SkillName"])
     {
         if(!_soapResults)
@@ -1022,6 +1015,17 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"Description"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+
     if([elementName isEqualToString:@"SelectAllJobSitesResult"])
     {
         _JobsiteArray=[[NSMutableArray alloc]init];
@@ -1143,23 +1147,29 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         _soapResults = nil;
     }
     
-    if([elementName isEqualToString:@"applicant_Skill"])
+    if([elementName isEqualToString:@"SkillName"])
     {
         recordResults = FALSE;
         
-          _empdetl.skillid=[_skilldict objectForKey:_soapResults];
+          _empdetl.skillid=_soapResults;
 
         
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"applicant_OtherCrafts"])
+    if([elementName isEqualToString:@"Description"])
     {
         recordResults = FALSE;
         _empdetl.othercraft=_soapResults;
         _soapResults = nil;
         
     }
-
+    if([elementName isEqualToString:@"jobsitename"])
+    {
+        recordResults = FALSE;
+        _empdetl.jobsitename=_soapResults;
+        _soapResults = nil;
+        
+    }
     
     if([elementName isEqualToString:@"EmployeeStatus"])
     {
@@ -1335,21 +1345,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         _soapResults = nil;
         
     }
-    if([elementName isEqualToString:@"SkillId"])
-    {
-        recordResults = FALSE;
-        _skillstring=_soapResults;
-        _soapResults = nil;
-        
-    }
-    if([elementName isEqualToString:@"SkillName"])
-    {        recordResults =FALSE;
-        [_skilldict setObject:_soapResults forKey:_skillstring];
-        _soapResults = nil;
-        
-        
-    }
-    if([elementName isEqualToString:@"Id"])
+       if([elementName isEqualToString:@"Id"])
     {
         
         recordResults = FALSE;

@@ -42,7 +42,7 @@
    
     
     
-    NSString *htmlString = @"<html><body><img src='%@' width='148%' height='151%'></body></html>";
+    NSString *htmlString = @"<html><body><img src='%@' width='600%' height='600%'></body></html>";
     NSString *imageHTML  = [[NSString alloc] initWithFormat:htmlString, fullURL];
     _webview.scalesPageToFit = YES;
     [_webview loadHTMLString:imageHTML baseURL:nil];

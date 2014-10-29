@@ -40,6 +40,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *cellphnlbl;
 @property (strong, nonatomic) IBOutlet UILabel *skilllbl;
 @property (strong, nonatomic) IBOutlet UILabel *craftlbl;
+@property (strong, nonatomic) IBOutlet UILabel *jobsitelbl;
 @property(strong,nonatomic)IBOutlet UIButton *disclosurebtn;
 @property (strong, nonatomic) IBOutlet UIView *applicantprocessview;
 @property (strong, nonatomic) IBOutlet UIButton *officechecklbl;

@@ -39,6 +39,7 @@
 @property(strong,nonatomic)NSString*Inproceesstatus;
 @property(strong,nonatomic)NSString*photo;
 @property(strong,nonatomic)NSString*othercraft;
+@property(strong,nonatomic)NSString*jobsitename;
 
 
 
