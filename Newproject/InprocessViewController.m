@@ -27,8 +27,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self AllSkills];
-    //[self ListAllApplicants];
+    //[self AllSkills];
+ 
 
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _titleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
@@ -52,7 +52,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    //[self ListAllApplicants];
+    [self ListAllApplicants];
 }
 
 - (void)didReceiveMemoryWarning
@@ -254,10 +254,10 @@
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
    
-    if (webtype==1) {
-        [self ListAllApplicants];
-    }
-    else if(webtype==2){
+//    if (webtype==1) {
+//        [self ListAllApplicants];
+//    }
+    if(webtype==2){
     
     for (int i=0; i<[_empnameArray count]; i++) {
         Empdetails*empdetls1=(Empdetails *)[_empnameArray objectAtIndex:i];
@@ -463,6 +463,15 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"Description"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+
+    }
     if([elementName isEqualToString:@"applicant_State"])
     {
         if(!_soapResults)
@@ -503,7 +512,16 @@
         
     }
     
-    
+    if([elementName isEqualToString:@"SkillName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+
+    }
+
     if([elementName isEqualToString:@"applicant_LicenseState"])
     {
         if(!_soapResults)
@@ -644,13 +662,23 @@
     if([elementName isEqualToString:@"applicant_Skill"])
     {
         recordResults = FALSE;
-        _empdetl.skillid=[_SkillDict objectForKey:_soapResults];
+        //_empdetl.skillid=[_SkillDict objectForKey:_soapResults];
         
         
         
         _soapResults = nil;
     }
     
+    if([elementName isEqualToString:@"SkillName"])
+    {
+        recordResults = FALSE;
+        _empdetl.skillid=_soapResults;
+        
+        
+        
+        _soapResults = nil;
+    }
+
     if([elementName isEqualToString:@"EmployeeStatus"])
     {
         recordResults = FALSE;
@@ -825,6 +853,15 @@
         _soapResults = nil;
         
     }
+    if([elementName isEqualToString:@"Description"])
+    {
+        recordResults = FALSE;
+        _empdetl.othercraft=_soapResults;
+      
+        _soapResults = nil;
+        
+    }
+
     if([elementName isEqualToString:@"SkillId"])
     {
         recordResults = FALSE;
@@ -887,8 +924,11 @@
     _cellphonelbl.text=empmdl.Phonenumber;
     _skilllbl=(UILabel *)[cell viewWithTag:5];
    _skilllbl.text=empmdl.skillid;
-    //_craftlbl=(UILabel *)[cell viewWithTag:5];
-   // _craftlbl.text=empmdl.c;
+    _craftlbl=(UILabel *)[cell viewWithTag:6];
+    _craftlbl.text=empmdl.othercraft;
+         _jobsitelbl=(UILabel *)[cell viewWithTag:7];
+         //_jobsitelbl.text=empmdl.;
+
      }
      if (tableView==_popOverTableView) {
          

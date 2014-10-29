@@ -10,6 +10,7 @@
                 <outlet property="cellphonelbl" destination="nat-J8-Fwk" id="9jl-lf-tUu"/>
                 <outlet property="craftlbl" destination="0ko-rp-heP" id="iDX-zs-Db2"/>
                 <outlet property="firstnamelbl" destination="cpW-yq-zLo" id="SdY-Xu-Lpw"/>
+                <outlet property="jobsitelbl" destination="Ugk-lb-a7X" id="401-nv-Go2"/>
                 <outlet property="lastnamelbl" destination="vuh-wL-dJV" id="zDU-io-ylY"/>
                 <outlet property="processcell" destination="qrL-tq-kdD" id="fd1-un-oaI"/>
                 <outlet property="secnddisbtnlbl" destination="iYl-An-TNO" id="ehu-46-8qS"/>
@@ -38,13 +39,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Craft" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ko-rp-heP">
-                        <rect key="frame" x="775" y="13" width="87" height="21"/>
+                        <rect key="frame" x="758" y="13" width="116" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuh-wL-dJV">
-                        <rect key="frame" x="371" y="11" width="76" height="21"/>
+                        <rect key="frame" x="353" y="11" width="130" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                         <nil key="highlightedColor"/>
@@ -106,6 +107,18 @@
                             <action selector="seconddisclsurebtn:" destination="-1" eventType="touchUpInside" id="XZ4-BG-7Cd"/>
                         </connections>
                     </button>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qaM-KL-X1s">
+                        <rect key="frame" x="878" y="-2" width="1" height="50"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="7" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugk-lb-a7X">
+                        <rect key="frame" x="887" y="12" width="130" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
         </tableViewCell>

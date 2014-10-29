@@ -1145,7 +1145,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
         recordResults = TRUE;
         
     }
-    if([elementName isEqualToString:@"VendorName"])
+    if([elementName isEqualToString:@"RVendorName"])
     {
         if(!_soapResults)
         {
@@ -1475,7 +1475,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
         
     }
 
-    if([elementName isEqualToString:@"VendorName"])
+    if([elementName isEqualToString:@"RVendorName"])
     {
         recordResults = FALSE;
         _appreqmdl.vendorname=_soapResults;

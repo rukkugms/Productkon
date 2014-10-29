@@ -52,6 +52,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lastnamelbl;
 @property (strong, nonatomic) IBOutlet UILabel *cellphonelbl;
 @property (strong, nonatomic) IBOutlet UILabel *skilllbl;
+@property (strong, nonatomic) IBOutlet UILabel *jobsitelbl;
 
 @property (strong, nonatomic) IBOutlet UILabel *craftlbl;
 /*popover*/
