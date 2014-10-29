@@ -36,7 +36,7 @@
     _countrylbl.text=_empmdl.country;
     _doblbl.text=_empmdl.dob;
     _phonelbl.text=_empmdl.phone;
-    NSString *fullURL =[NSString stringWithFormat:@"http://test.kontract360.com/files/docs/hr/%@",_empmdl.photo]  ;
+    NSString *fullURL =[NSString stringWithFormat:@"http://192.168.0.100/files/docs/hr/%@",_empmdl.photo]  ;
    
     
     
