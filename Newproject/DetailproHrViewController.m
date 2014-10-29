@@ -1145,6 +1145,16 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"VendorName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
 
     if([elementName isEqualToString:@"StatusselectResponse"])
     {
@@ -1457,6 +1467,15 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
         
     }
     if([elementName isEqualToString:@"reqVendorName"])
+    {
+        recordResults = FALSE;
+        //_appreqmdl.vendorname=_soapResults;
+     
+        _soapResults = nil;
+        
+    }
+
+    if([elementName isEqualToString:@"VendorName"])
     {
         recordResults = FALSE;
         _appreqmdl.vendorname=_soapResults;
