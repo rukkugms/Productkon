@@ -61,7 +61,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
@@ -308,7 +308,7 @@
     //USerdocid=[[_fileiddict objectForKey:[_documntarray objectAtIndex:textFieldIndexPath.row]]integerValue];
     
    
-    NSString *fullURL =[NSString stringWithFormat:@"http://192.168.0.100%@",[_docmntdict objectForKey:[_documntarray objectAtIndex:textFieldIndexPath.row]]];
+    NSString *fullURL =[NSString stringWithFormat:@"http://192.168.0.175%@",[_docmntdict objectForKey:[_documntarray objectAtIndex:textFieldIndexPath.row]]];
     NSLog(@"fullurl%@",fullURL);
     self.webVCtrl=[[WebViewController alloc]initWithNibName:@"WebViewController" bundle:nil];
    

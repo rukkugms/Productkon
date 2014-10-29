@@ -94,8 +94,8 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-   //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+   //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -161,9 +161,9 @@
                    "</soap:Envelope>\n",_companynametxtfld.text,_addresstxtfld.text,_citytxtfld.text,stid,_ziptextfld.text,ctid,_phonetxtfld.text,_faxtxtfld.text,_mailtxtfld.text,_webtxtfld.text,_fedraltxtfld.text,_stateempIdtxtfld.text,_stateunempidtxtfld.text];
     NSLog(@"soapmsg%@",soapMessage);
     
-    //    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    //    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -213,7 +213,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -263,7 +263,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -337,8 +337,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -411,8 +411,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -832,7 +832,7 @@
     {
         
         recordResults = FALSE;
-        NSString *fullURL =[NSString stringWithFormat:@"http://192.168.0.100/Files/Docs/BasicInfo/%@",_soapResults]  ;
+        NSString *fullURL =[NSString stringWithFormat:@"http://192.168.0.175/Files/Docs/BasicInfo/%@",_soapResults]  ;
        // NSURL *url = [NSURL URLWithString:fullURL];
         //NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
         //[_logoweb loadRequest:requestObj];
