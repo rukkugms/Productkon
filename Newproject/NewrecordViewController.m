@@ -522,26 +522,32 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     NSLog(@"s%@",dates);
     NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
     [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
-    NSString*ndateString;
     
     NSString*    dateString = [dateFormat2 stringFromDate:dates];
     _datesstrg=dateString;
-    _datesstrg=[NSString stringWithFormat:@"%@ %@",dateString,_timebtn.titleLabel.text];
-    NSDateFormatter *dateFormat3 = [[NSDateFormatter alloc]init];
-    [dateFormat3 setDateFormat: @"yyyy-MM-dd HH:mm:ss a"];
     
     
     
-    NSDateFormatter *dateFormat4 = [[NSDateFormatter alloc] init];
-    NSLocale *enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-    [dateFormat4 setLocale:enUSPOSIXLocale];
-    
-    
-    [dateFormat4 setDateFormat:@"yyyy-MM-dd HH:mm:ss"]; //
-    ndateString = [dateFormat4 stringFromDate:[dateFormat3 dateFromString:_datesstrg]];
-    
-    NSLog(@"Fixed Time %@",ndateString);
+    NSArray*array1=[_timebtn.titleLabel.text componentsSeparatedByString:@" "];
+    NSString*newformat;
+    if ([[array1 objectAtIndex:1] isEqualToString:@"PM"]) {
+        NSArray*array2=[[array1 objectAtIndex:0]componentsSeparatedByString:@":"];
+        NSInteger a=[[array2 objectAtIndex:0]integerValue]+12;
+        newformat=[NSString stringWithFormat:@"%d:%@:%@",a,[array2 objectAtIndex:1],[array2 objectAtIndex:2]];
+        
+        
+        
+        
+    }
+    else{
+        
+         NSArray*array2=[[array1 objectAtIndex:0]componentsSeparatedByString:@":"];
+        newformat=[NSString stringWithFormat:@"%@:%@:%@",[array2 objectAtIndex:0],[array2 objectAtIndex:1],[array2 objectAtIndex:2]];
 
+    }
+    _datesstrg=[NSString stringWithFormat:@"%@T%@",dateString,newformat];
+    
+    
     
     if (dateString.length==0) {
         NSDate *daa=[NSDate date];
@@ -551,32 +557,31 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         NSString*curntdate = [dateFormat stringFromDate:daa];
         NSLog(@"%@",curntdate);
         dateString=curntdate;
-       _datesstrg=[NSString stringWithFormat:@"%@ %@",dateString,_timebtn.titleLabel.text];
-        NSDateFormatter *dateFormat3 = [[NSDateFormatter alloc]init];
-        [dateFormat3 setDateFormat: @"yyyy-MM-dd HH:mm:ss a"];
-        
-    
-        
-        NSDateFormatter *dateFormat4 = [[NSDateFormatter alloc] init];
-        NSLocale *enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-        [dateFormat4 setLocale:enUSPOSIXLocale];
-        
-        
-        [dateFormat4 setDateFormat:@"yyyy-MM-dd HH:mm:ss"]; //
-      ndateString = [dateFormat3 stringFromDate:[dateFormat4 dateFromString:_datesstrg]];
-        
-        NSLog(@"Fixed Time %@",ndateString);
+        NSArray*array1=[_timebtn.titleLabel.text componentsSeparatedByString:@" "];
+        NSString*newformat;
+        if ([[array1 objectAtIndex:1] isEqualToString:@"PM"]) {
+            NSArray*array2=[[array1 objectAtIndex:0]componentsSeparatedByString:@":"];
+            NSInteger a=[[array2 objectAtIndex:0]integerValue]+12;
+            newformat=[NSString stringWithFormat:@"%d:%@:%@",a,[array2 objectAtIndex:1],[array2 objectAtIndex:2]];
+            
+            
+            
+            
+        }
+        else{
+            
+            NSArray*array2=[[array1 objectAtIndex:0]componentsSeparatedByString:@":"];
+            newformat=[NSString stringWithFormat:@"%@:%@:%@",[array2 objectAtIndex:0],[array2 objectAtIndex:1],[array2 objectAtIndex:2]];
+            
+        }
 
-       // NSDate*newdate=[dateFormat3 dateFromString:_datesstrg];
-
-       // datetime=[NSString stringWithFormat:@"%@",newdate];
-           }
-    
+        _datesstrg=[NSString stringWithFormat:@"%@T%@",dateString,newformat];
+    }
     
     
   
     
-   // _datesstrg=@"2014-10-24 00:10:30";
+  
     
        soapMessage = [NSString stringWithFormat:
                    
@@ -595,7 +600,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    "<Type>%d</Type>\n"
                    "</SitevisitInsertmeetingnotes>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",ndateString,_meetgdetailslbl.text,[useridname integerValue],_companyid,filename,typ];
+                   "</soap:Envelope>\n",_datesstrg,_meetgdetailslbl.text,[useridname integerValue],_companyid,filename,typ];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -804,8 +809,25 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
     
     NSString*    dateString = [dateFormat2 stringFromDate:dates];
-     dateString=[NSString stringWithFormat:@"%@ %@",dateString,_timebtn.titleLabel.text];
-    NSString*ndateString;
+    NSArray*array1=[_timebtn.titleLabel.text componentsSeparatedByString:@" "];
+    NSString*newformat;
+    if ([[array1 objectAtIndex:1] isEqualToString:@"PM"]) {
+        NSArray*array2=[[array1 objectAtIndex:0]componentsSeparatedByString:@":"];
+        NSInteger a=[[array2 objectAtIndex:0]integerValue]+12;
+        newformat=[NSString stringWithFormat:@"%d:%@:%@",a,[array2 objectAtIndex:1],[array2 objectAtIndex:2]];
+        
+        
+        
+    }
+    else{
+        
+        NSArray*array2=[[array1 objectAtIndex:0]componentsSeparatedByString:@":"];
+        newformat=[NSString stringWithFormat:@"%@:%@:%@",[array2 objectAtIndex:0],[array2 objectAtIndex:1],[array2 objectAtIndex:2]];
+        
+    }
+
+    _datesstrg=[NSString stringWithFormat:@"%@T%@",dateString,newformat];
+   
     if (dateString.length==0) {
         NSDate *daa=[NSDate date];
         NSLog(@"%@",daa);
@@ -814,21 +836,27 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         NSString*curntdate = [dateFormat stringFromDate:daa];
         NSLog(@"%@",curntdate);
         dateString=curntdate;
-        dateString=[NSString stringWithFormat:@"%@ %@",dateString,_timebtn.titleLabel.text];
-        NSDateFormatter *dateFormat3 = [[NSDateFormatter alloc]init];
-        [dateFormat3 setDateFormat: @"yyyy-MM-dd HH:mm:ss a"];
+        NSArray*array1=[_timebtn.titleLabel.text componentsSeparatedByString:@" "];
         
+        NSString*newformat;
         
-        
-        NSDateFormatter *dateFormat4 = [[NSDateFormatter alloc] init];
-        NSLocale *enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-        [dateFormat4 setLocale:enUSPOSIXLocale];
-        
-        
-        [dateFormat4 setDateFormat:@"yyyy-MM-dd HH:mm:ss"]; //
-        ndateString = [dateFormat stringFromDate:[dateFormat4 dateFromString:_datesstrg]];
-        
-        NSLog(@"Fixed Time %@",ndateString);
+        if ([[array1 objectAtIndex:1] isEqualToString:@"PM"]) {
+            NSArray*array2=[[array1 objectAtIndex:0]componentsSeparatedByString:@":"];
+            NSInteger a=[[array2 objectAtIndex:0]integerValue]+12;
+            newformat=[NSString stringWithFormat:@"%d:%@:%@",a,[array2 objectAtIndex:1],[array2 objectAtIndex:2]];
+            
+            
+            
+            
+        }
+        else{
+            
+            NSArray*array2=[[array1 objectAtIndex:0]componentsSeparatedByString:@":"];
+            newformat=[NSString stringWithFormat:@"%@:%@:%@",[array2 objectAtIndex:0],[array2 objectAtIndex:1],[array2 objectAtIndex:2]];
+            
+        }
+
+        _datesstrg=[NSString stringWithFormat:@"%@T%@",dateString,newformat];
 
         
     }
@@ -853,7 +881,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    "<Type>%d</Type>\n"
                     "</SitevisitInsertNotes>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",ndateString ,_notestxtfld.text,[useridname integerValue],_companyid,dateString,filename,typ];
+                   "</soap:Envelope>\n",_datesstrg ,_notestxtfld.text,[useridname integerValue],_companyid,_datesstrg,filename,typ];
     NSLog(@"soapmsg%@",soapMessage);
     
     

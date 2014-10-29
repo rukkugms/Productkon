@@ -213,7 +213,9 @@
               _wplanlbl=(UILabel*)[cell viewWithTag:3];
               _wplanlbl.text=planmdl.planid;
               _wmanhrslbl=(UILabel*)[cell viewWithTag:5];
+              _wmanhrslbl.text=planmdl.manhrs;
               _weqhrslbl=(UILabel*)[cell viewWithTag:6];
+              _weqhrslbl.text=planmdl.equphrs;
 
 
 
@@ -1770,6 +1772,25 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"manhrs"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"eqphrs"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
     if([elementName isEqualToString:@"DeletePlanResult"])
     {
@@ -2030,11 +2051,31 @@
         
         recordResults = FALSE;
         _plnmdl.complexity=_soapResults;
-          [_planlistarray addObject:_plnmdl];
+        
         
         _soapResults = nil;
     }
-    
+    if([elementName isEqualToString:@"manhrs"])
+    {
+        
+        
+        recordResults = FALSE;
+        _plnmdl.manhrs=_soapResults;
+        
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"eqphrs"])
+    {
+        
+        
+        recordResults = FALSE;
+        _plnmdl.equphrs=_soapResults;
+        [_planlistarray addObject:_plnmdl];
+        
+        _soapResults = nil;
+    }
+
     if([elementName isEqualToString:@"DeletePlanResult"])
     {
         

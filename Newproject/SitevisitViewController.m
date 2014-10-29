@@ -3327,13 +3327,38 @@ _passingdate=dateString;
         recordResults = FALSE;
         NSArray *newarray=[_soapResults componentsSeparatedByString:@"T"];
         NSString *date1=[newarray objectAtIndex:0];
+        
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"yyyy-MM-dd"];
         NSDate *dates = [dateFormat dateFromString:date1];
         [dateFormat setDateFormat:@"MM-dd-yyy"];
+        
         NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+        
+        NSArray*array2=[[newarray objectAtIndex:1] componentsSeparatedByString:@"-"];
+        NSArray*array1=[[array2 objectAtIndex:0] componentsSeparatedByString:@":"];
+        NSString*newformat;
+        
+        
+        
+        if ([[array1 objectAtIndex:0]integerValue]>=12) {
+            
+           
+            NSInteger a=[[array1 objectAtIndex:0]integerValue]-12;
+            
+            newformat=[NSString stringWithFormat:@"%d:%@:%@ PM",a,[array1 objectAtIndex:1],[array1 objectAtIndex:2]];
+            
+            
+            
+            
+        }
+        else{
+             newformat=[NSString stringWithFormat:@"%@:%@:%@ AM",[array1 objectAtIndex:0],[array1 objectAtIndex:1],[array1 objectAtIndex:2]];
+        }
 
-        _sitevistmdl.meetingdate=myFormattedDate;
+
+        NSString*astrg=[NSString stringWithFormat:@"%@ %@",myFormattedDate,newformat];
+        _sitevistmdl.meetingdate=astrg;
         
         _soapResults = nil;    }
     
@@ -3415,8 +3440,33 @@ _passingdate=dateString;
         NSDate *dates = [dateFormat dateFromString:date1];
         [dateFormat setDateFormat:@"MM-dd-yyy"];
         NSString *myFormattedDate = [dateFormat stringFromDate:dates];
-
-        _sitevistmdl.notedate=myFormattedDate;
+        
+        NSArray*array2=[[newarray objectAtIndex:1] componentsSeparatedByString:@"-"];
+        NSArray*array1=[[array2 objectAtIndex:0] componentsSeparatedByString:@":"];
+        NSString*newformat;
+        
+        
+        
+        if ([[array1 objectAtIndex:0]integerValue]>=12) {
+            
+            
+            NSInteger a=[[array1 objectAtIndex:0]integerValue]-12;
+            
+            newformat=[NSString stringWithFormat:@"%d:%@:%@ PM",a,[array1 objectAtIndex:1],[array1 objectAtIndex:2]];
+            
+            
+            
+            
+        }
+        else{
+            newformat=[NSString stringWithFormat:@"%@:%@:%@ AM",[array1 objectAtIndex:0],[array1 objectAtIndex:1],[array1 objectAtIndex:2]];
+        }
+        
+        
+        NSString*astrg=[NSString stringWithFormat:@"%@ %@",myFormattedDate,newformat];
+        
+        
+        _sitevistmdl.notedate=astrg;
         
         _soapResults = nil;
     }
