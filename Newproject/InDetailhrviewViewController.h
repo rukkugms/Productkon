@@ -34,6 +34,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *licencestate;
 @property (strong, nonatomic) IBOutlet UINavigationItem *navitem;
 @property (strong, nonatomic) IBOutlet UIWebView *webview;
+@property (strong, nonatomic) IBOutlet UILabel *firstlbl;
+@property (strong, nonatomic) IBOutlet UILabel *lastlbl;
+@property (strong, nonatomic) IBOutlet UILabel *ssnlbl;
 
 
 @end

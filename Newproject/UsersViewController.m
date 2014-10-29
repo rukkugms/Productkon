@@ -1610,7 +1610,7 @@
    {  _type2btnlbl.userInteractionEnabled=YES;
        // _type2btnlbl.titleLabel.text=usrmdl.customername;
        //_type1btnlbl.titleLabel.text=@"Customer            ";
-       [_type2btnlbl setTitle:usrmdl.customername forState:UIControlStateDisabled];
+       [_type2btnlbl setTitle:usrmdl.customername forState:UIControlStateNormal];
         [_type1btnlbl setTitle:@"Customer" forState:UIControlStateNormal];
         _titlenamelabel.text=_type1btnlbl.titleLabel.text;
      

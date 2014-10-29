@@ -34,13 +34,15 @@
     _citylbl.text=_empmdl.city;
     _statelbl.text=_empmdl.state;
     _countrylbl.text=_empmdl.country;
-    _doblbl.text=_empmdl.dob;
+    
+    NSArray *d1=[_empmdl.dob componentsSeparatedByString:@"T"];
+    _doblbl.text=[d1 objectAtIndex:0];
     _phonelbl.text=_empmdl.phone;
     NSString *fullURL =[NSString stringWithFormat:@"http://192.168.0.175/files/docs/hr/%@",_empmdl.photo]  ;
    
     
     
-    NSString *htmlString = @"<html><body><img src='%@' width='965%' height='518%'></body></html>";
+    NSString *htmlString = @"<html><body><img src='%@' width='148%' height='151%'></body></html>";
     NSString *imageHTML  = [[NSString alloc] initWithFormat:htmlString, fullURL];
     _webview.scalesPageToFit = YES;
     [_webview loadHTMLString:imageHTML baseURL:nil];
@@ -60,8 +62,14 @@
     _licenceno.text=_empmdl.drivinglicenceno;
     _maillbl.text=_empmdl.email;
     _alternatvelbl.text=_empmdl.alternativeno;
-    _basicexpry.text=_empmdl.basicplusexp;
+  
+     NSArray *d2=[_empmdl.basicplusexp componentsSeparatedByString:@"T"];
+    _basicexpry.text=[d2 objectAtIndex:0];
     _licencestate.text=_empmdl.stateissuinglicence;
+    _firstlbl.text=_empmdl.firstname;
+    _lastlbl.text=_empmdl.lastname;
+    _ssnlbl.text=_empmdl.ssn;
+    _ziplbl.text=_empmdl.zip;
 
     
     

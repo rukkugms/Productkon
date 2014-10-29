@@ -40,6 +40,7 @@
     _deliveryview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _srsview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _docuview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    _notesview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     // Do any additional setup after loading the view from its nib.
     [[self.clausetxtview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
     [[self.clausetxtview layer] setBorderWidth:3];
@@ -100,7 +101,9 @@
     self.equptitle1.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     self.equptitle2.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
 
-
+    [[self.notestextview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+    [[self.notestextview layer] setBorderWidth:3];
+    [[self.notestextview layer] setCornerRadius:10];
 
 }
 
@@ -734,6 +737,58 @@
     
     
 }
+-(void)Notescontractselect{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Notescontractselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ContraId>%d</ContraId>\n"
+                   "</Notescontractselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_subcntrct.contractid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Notescontractselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
 
 
 #pragma mark - Connection
@@ -1291,6 +1346,30 @@
         recordResults = TRUE;
         
     }
+    if ([elementName isEqualToString:@"NotescontractselectResponse"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"NotesDescription"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    
+
 
 
 }
@@ -1653,6 +1732,17 @@
         _soapResults=nil;
         
     }
+    if ([elementName isEqualToString:@"NotesDescription"])
+    {
+        
+        
+        recordResults = FALSE;
+        _notestextview.text=_soapResults;
+        _soapResults=nil;
+        
+    }
+
+
 
 
 }
@@ -1979,7 +2069,8 @@
       _deliveryview.hidden=YES;
     _srsview.hidden=YES;
     _docuview.hidden=YES;
-    
+    _notesview.hidden=YES;
+      _notesbtn.tintColor=[UIColor blackColor];
     _paymntbtnlbl.tintColor=[UIColor whiteColor];
     _vlumbtnlbl.tintColor=[UIColor blackColor];
     _lbrbtnlbl.tintColor=[UIColor blackColor];
@@ -2003,7 +2094,7 @@
     [self VolumeDiscountselect];
     _volumeview.hidden=NO;
     _paymentview.hidden=YES;
-  
+  _notesview.hidden=YES;
     _labrview.hidden=YES;
        _equpview.hidden=YES;
       _othrtrmsview.hidden=YES;
@@ -2016,7 +2107,7 @@
       _deliveryview.hidden=YES;
     _srsview.hidden=YES;
     _docuview.hidden=YES;
-
+_notesbtn.tintColor=[UIColor blackColor];
     _paymntbtnlbl.tintColor=[UIColor blackColor];
 
     _vlumbtnlbl.tintColor=[UIColor whiteColor];
@@ -2043,7 +2134,7 @@
 
  // _basewagesarray=[[NSMutableArray alloc]init];
    //  [_basetable reloadData];
-   
+   _notesview.hidden=YES;
     _volumeview.hidden=YES;
     _paymentview.hidden=YES;
     _labrview.hidden=NO;
@@ -2054,7 +2145,7 @@
     _fuelview.hidden=YES;
      _nonfuelview.hidden=YES;
    _smrview.hidden=YES;
-
+_notesbtn.tintColor=[UIColor blackColor];
      _othrratesview.hidden=YES;
       _deliveryview.hidden=YES;
     _srsview.hidden=YES;
@@ -2095,7 +2186,7 @@
 
     _srsview.hidden=YES;
     _docuview.hidden=YES;
-
+_notesview.hidden=YES;
     _paymntbtnlbl.tintColor=[UIColor blackColor];
     _vlumbtnlbl.tintColor=[UIColor blackColor];
     _lbrbtnlbl.tintColor=[UIColor blackColor];
@@ -2110,7 +2201,7 @@
     _deliverybtnlbl.tintColor=[UIColor blackColor];
     _srabtnlbl.tintColor=[UIColor blackColor];
     _docubtnlbl.tintColor=[UIColor blackColor];
-
+_notesbtn.tintColor=[UIColor blackColor];
 
 }
 
@@ -2128,10 +2219,10 @@
      _othrratesview.hidden=YES;
       _deliveryview.hidden=YES;
 
-    
+    _notesview.hidden=YES;
     _srsview.hidden=YES;
     _docuview.hidden=YES;
-
+_notesbtn.tintColor=[UIColor blackColor];
     _paymntbtnlbl.tintColor=[UIColor blackColor];
     _vlumbtnlbl.tintColor=[UIColor blackColor];
     _lbrbtnlbl.tintColor=[UIColor blackColor];
@@ -2153,7 +2244,7 @@
 - (IBAction)markupbtn:(id)sender {
   
     _markuptextfld.text=[_markupdict objectForKey:_subcntrct.MarkupId];
-
+_notesview.hidden=YES;
     _paymentview.hidden=YES;
     _volumeview.hidden=YES;
     _labrview.hidden=YES;
@@ -2169,7 +2260,7 @@
     _srsview.hidden=YES;
     _docuview.hidden=YES;
 
-
+_notesbtn.tintColor=[UIColor blackColor];
     _paymntbtnlbl.tintColor=[UIColor blackColor];
     _vlumbtnlbl.tintColor=[UIColor blackColor];
     _lbrbtnlbl.tintColor=[UIColor blackColor];
@@ -2204,7 +2295,8 @@
     _srsview.hidden=YES;
     _docuview.hidden=YES;
 
-
+_notesview.hidden=YES;
+    _notesbtn.tintColor=[UIColor blackColor];
     _paymntbtnlbl.tintColor=[UIColor blackColor];
     _vlumbtnlbl.tintColor=[UIColor blackColor];
     _lbrbtnlbl.tintColor=[UIColor blackColor];
@@ -2238,6 +2330,7 @@
       _deliveryview.hidden=YES;
     _srsview.hidden=YES;
     _docuview.hidden=YES;
+    _notesview.hidden=YES;
     _paymntbtnlbl.tintColor=[UIColor blackColor];
     _vlumbtnlbl.tintColor=[UIColor blackColor];
     _lbrbtnlbl.tintColor=[UIColor blackColor];
@@ -2252,7 +2345,7 @@
     _deliverybtnlbl.tintColor=[UIColor blackColor];
     _srabtnlbl.tintColor=[UIColor blackColor];
     _docubtnlbl.tintColor=[UIColor blackColor];
-
+_notesbtn.tintColor=[UIColor blackColor];
 
 }
 
@@ -2272,7 +2365,7 @@
       _deliveryview.hidden=YES;
     _srsview.hidden=YES;
     _docuview.hidden=YES;
-    
+    _notesview.hidden=YES;
     _paymntbtnlbl.tintColor=[UIColor blackColor];
     _vlumbtnlbl.tintColor=[UIColor blackColor];
     _lbrbtnlbl.tintColor=[UIColor blackColor];
@@ -2288,7 +2381,7 @@
     _srabtnlbl.tintColor=[UIColor blackColor];
     _docubtnlbl.tintColor=[UIColor blackColor];
 
-
+_notesbtn.tintColor=[UIColor blackColor];
 
 }
 
@@ -2308,7 +2401,7 @@
       _deliveryview.hidden=YES;
     _srsview.hidden=YES;
     _docuview.hidden=YES;
-
+_notesview.hidden=YES;
     _paymntbtnlbl.tintColor=[UIColor blackColor];
     _vlumbtnlbl.tintColor=[UIColor blackColor];
     _lbrbtnlbl.tintColor=[UIColor blackColor];
@@ -2323,7 +2416,7 @@
     _deliverybtnlbl.tintColor=[UIColor blackColor];
     _srabtnlbl.tintColor=[UIColor blackColor];
     _docubtnlbl.tintColor=[UIColor blackColor];
-
+_notesbtn.tintColor=[UIColor blackColor];
 
 }
 
@@ -2340,10 +2433,10 @@
     _smrview.hidden=YES;
     _othrratesview.hidden=NO;
     _deliveryview.hidden=YES;
-
+_notesview.hidden=YES;
     _srsview.hidden=YES;
     _docuview.hidden=YES;
-    
+    _notesbtn.tintColor=[UIColor blackColor];
     _paymntbtnlbl.tintColor=[UIColor blackColor];
     _vlumbtnlbl.tintColor=[UIColor blackColor];
     _lbrbtnlbl.tintColor=[UIColor blackColor];
@@ -2379,7 +2472,7 @@
     _deliveryview.hidden=NO;
      _srsview.hidden=YES;
     _docuview.hidden=YES;
-
+_notesview.hidden=YES;
     _paymntbtnlbl.tintColor=[UIColor blackColor];
     _vlumbtnlbl.tintColor=[UIColor blackColor];
     _lbrbtnlbl.tintColor=[UIColor blackColor];
@@ -2394,7 +2487,7 @@
     _deliverybtnlbl.tintColor=[UIColor whiteColor];
     _srabtnlbl.tintColor=[UIColor blackColor];
     _docubtnlbl.tintColor=[UIColor blackColor];
-
+_notesbtn.tintColor=[UIColor blackColor];
 
 }
 
@@ -2413,7 +2506,7 @@
     _deliveryview.hidden=YES;
     _srsview.hidden=NO;
      _docuview.hidden=YES;
-    
+    _notesview.hidden=YES;
     _paymntbtnlbl.tintColor=[UIColor blackColor];
     _vlumbtnlbl.tintColor=[UIColor blackColor];
     _lbrbtnlbl.tintColor=[UIColor blackColor];
@@ -2428,7 +2521,7 @@
     _deliverybtnlbl.tintColor=[UIColor blackColor];
     _srabtnlbl.tintColor=[UIColor whiteColor];
     _docubtnlbl.tintColor=[UIColor blackColor];
-
+_notesbtn.tintColor=[UIColor blackColor];
 
 }
 
@@ -2448,6 +2541,7 @@
     _deliveryview.hidden=YES;
     _srsview.hidden=YES;
     _docuview.hidden=NO;
+    _notesview.hidden=YES;
     _paymntbtnlbl.tintColor=[UIColor blackColor];
     _vlumbtnlbl.tintColor=[UIColor blackColor];
     _lbrbtnlbl.tintColor=[UIColor blackColor];
@@ -2462,7 +2556,42 @@
     _deliverybtnlbl.tintColor=[UIColor blackColor];
     _srabtnlbl.tintColor=[UIColor blackColor];
     _docubtnlbl.tintColor=[UIColor whiteColor];
+_notesbtn.tintColor=[UIColor blackColor];
 
+}
+- (IBAction)notes:(id)sender
+{
+    [self Notescontractselect];
+    _paymentview.hidden=YES;
+    _volumeview.hidden=YES;
+    _labrview.hidden=YES;
+    _equpview.hidden=YES;
+    _othrtrmsview.hidden=YES;
+    _markupview.hidden=YES;
+    _baseview.hidden=YES;
+    _fuelview.hidden=YES;
+    _nonfuelview.hidden=YES;
+    _smrview.hidden=YES;
+    _othrratesview.hidden=YES;
+    _deliveryview.hidden=YES;
+    _srsview.hidden=YES;
+    _docuview.hidden=YES;
+    _notesview.hidden=NO;
+    _paymntbtnlbl.tintColor=[UIColor blackColor];
+    _vlumbtnlbl.tintColor=[UIColor blackColor];
+    _lbrbtnlbl.tintColor=[UIColor blackColor];
+    _equpbtnlbl.tintColor=[UIColor blackColor];
+    _othrtrmsbtnlbl.tintColor=[UIColor blackColor];
+    _markuptablebtnlbl.tintColor=[UIColor blackColor];
+    _basewagebtnlbl.tintColor=[UIColor blackColor];
+    _fueledbtnlbl.tintColor=[UIColor blackColor];
+    _nonfuelbtnlbl.tintColor=[UIColor blackColor];
+    _smrbtnlbl.tintColor=[UIColor blackColor];
+    _othrratesbtnlbl.tintColor=[UIColor blackColor];
+    _deliverybtnlbl.tintColor=[UIColor blackColor];
+    _srabtnlbl.tintColor=[UIColor blackColor];
+    _docubtnlbl.tintColor=[UIColor blackColor];
+    _notesbtn.tintColor=[UIColor whiteColor];
 
 }
 
