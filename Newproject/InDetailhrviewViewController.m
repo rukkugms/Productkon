@@ -36,7 +36,7 @@
     _countrylbl.text=_empmdl.country;
     _doblbl.text=_empmdl.dob;
     _phonelbl.text=_empmdl.phone;
-    NSString *fullURL =[NSString stringWithFormat:@"http://192.168.0.100/files/docs/hr/%@",_empmdl.photo]  ;
+    NSString *fullURL =[NSString stringWithFormat:@"http://192.168.0.175/files/docs/hr/%@",_empmdl.photo]  ;
    
     
     
@@ -61,6 +61,7 @@
     _maillbl.text=_empmdl.email;
     _alternatvelbl.text=_empmdl.alternativeno;
     _basicexpry.text=_empmdl.basicplusexp;
+    _licencestate.text=_empmdl.stateissuinglicence;
 
     
     
