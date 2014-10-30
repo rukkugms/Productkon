@@ -31,6 +31,7 @@
     NSInteger dateselctor;
     NSInteger btnindex;
     NSInteger newwebtype;
+    NSInteger imagechecker;
     
 }
 @property (readwrite)NSInteger path;
@@ -183,5 +184,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imgview;
 
 - (IBAction)editbtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *uplddocbtnlbl;
 
 @end

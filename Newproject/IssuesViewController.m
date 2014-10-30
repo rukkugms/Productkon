@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self JobsSelect];
     // Do any additional setup after loading the view from its nib.
       self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
@@ -55,7 +56,18 @@
     
     _revtypedict=[[NSMutableDictionary alloc]initWithObjects:keyarray forKeys:valuearray];
     
+    /*searchbar*/
+    _searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+    _searchbar.delegate = (id)self;
+    _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+
     
+    UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_searchbar contentsController:self];
+    searchController.searchResultsDataSource = (id)self;
+    searchController.searchResultsDelegate =(id)self;
+    searchController.delegate = (id)self;
+     self.issuetable.tableHeaderView =_searchbar;
+
  
 
 }
@@ -336,7 +348,7 @@
                    "<IMStatus>%@</IMStatus>\n"
                    "</IssueManagementInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_jobsitebtnlbl.titleLabel.text,datetime,type,0,_cmmttxtview.text,_statusbtnlbl.titleLabel.text];
+                   "</soap:Envelope>\n",[_jobdict objectForKey:_jobsitebtnlbl.titleLabel.text],datetime,type,0,_cmmttxtview.text,_statusbtnlbl.titleLabel.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -427,6 +439,60 @@
     }
     
 }
+-(void)IssueManagementSearch{
+    
+    
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<IssueManagementSearch xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<searchtext>%@</searchtext>\n"
+                   "</IssueManagementSearch>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_searchstring];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/IssueManagementSearch" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -564,6 +630,8 @@
     if([elementName isEqualToString:@"JobsSelectResponse"])
     {
         _jobarray=[[NSMutableArray alloc]init];
+        _jobdict=[[NSMutableDictionary alloc]init];
+        _revjobdict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -586,6 +654,15 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"JobSiteName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"result"])
     {
         if(!_soapResults)
@@ -595,7 +672,15 @@
         recordResults = TRUE;
     }
    
-   
+    if([elementName isEqualToString:@"IssueManagementSearchResponse"])
+    {  _Issuearray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
@@ -700,6 +785,7 @@
         
         
         recordResults = FALSE;
+        
        _soapResults = nil;
     }
 
@@ -712,14 +798,25 @@
     if([elementName isEqualToString:@"JobDescDetail"])
     {
         recordResults = FALSE;
-        [_jobarray addObject:[NSString stringWithFormat:@"%@-%@",jobnumber,_soapResults]];
+       // [_jobarray addObject:[NSString stringWithFormat:@"%@-%@",jobnumber,_soapResults]];
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"JobSiteName"])
+    {
+        recordResults = FALSE;
+        [_jobdict setObject:jobnumber forKey:_soapResults];
+        [_revjobdict setObject:_soapResults forKey:jobnumber];
+       // [_jobarray addObject:[NSString stringWithFormat:@"%@-%@",jobnumber,_soapResults]];
+        [_jobarray addObject:_soapResults];
+        _soapResults = nil;
+    }
+
     if([elementName isEqualToString:@"result"])
     {
          recordResults = FALSE;
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+        _updatebtnlbl.enabled=YES;
         [self IssueManagementSelect];
          _soapResults = nil;
     }
@@ -866,6 +963,34 @@
    // _datetxtfld.text=dateString;
 }
 
+#pragma mark-Searchbar
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+    _searchstring=_searchbar.text;
+    //NSLog(@"search%@",searchstring);
+    [self IssueManagementSearch];
+    [searchBar resignFirstResponder];
+    
+    
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [self IssueManagementSelect];
+    
+}
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    
+    if ([_searchbar.text length]==0) {
+        
+        [self IssueManagementSelect];
+        // [searchBar resignFirstResponder];
+        
+        
+    }
+    //[searchBar resignFirstResponder];
+    
+    
+}
+
 
 #pragma mark-picker method
 -(void)dateChanged1{
@@ -920,8 +1045,13 @@
 
 - (IBAction)addbtn:(id)sender {
     btntype=1;
+    
+     [_statusbtnlbl setTitle:[_statusarray objectAtIndex:0] forState:UIControlStateNormal];
+    _statusbtnlbl.enabled=NO;
     _addview.hidden=NO;
       _cancelbtnlbl.enabled=YES;
+    
+    
 }
 
 - (IBAction)deletebtn:(id)sender {
@@ -930,6 +1060,7 @@
 - (IBAction)editbtn:(id)sender {
     _navtitle.title=@"Edit";
     _cancelbtnlbl.enabled=NO;
+    _statusbtnlbl.enabled=YES;
     _cancelbtnlbl.titleLabel.textColor=[UIColor grayColor];
      btntype=2;
     _addview.hidden=NO;
@@ -940,7 +1071,7 @@
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
     btnindex=textFieldIndexPath.row;
     Issuemdl*ismdl=(Issuemdl*)[_Issuearray objectAtIndex:textFieldIndexPath.row];
-    [_jobsitebtnlbl setTitle:ismdl.jobnumbr forState:UIControlStateNormal];
+    [_jobsitebtnlbl setTitle:[_revjobdict objectForKey:ismdl.jobnumbr] forState:UIControlStateNormal];
     
     [_typebtnlbl setTitle:[_revtypedict objectForKey:ismdl.type]forState:UIControlStateNormal];
     
@@ -960,6 +1091,7 @@
 }
 
 - (IBAction)addclsebtn:(id)sender {
+    _updatebtnlbl.enabled=YES;
        _navtitle.title=@"Create";
     _cancelbtnlbl.enabled=YES;
     _cancelbtnlbl.titleLabel.textColor=[UIColor colorWithRed:0/255.0f green:122.0/255.0f blue:255.0/255.0f alpha:1.0f];
@@ -1024,6 +1156,7 @@
     }
     else
     {
+        _updatebtnlbl.enabled=NO;
 
     if (btntype==1) {
          [self IssueManagementInsert];
@@ -1036,6 +1169,8 @@
 }
 
 - (IBAction)cancelbtn:(id)sender {
+    
+    
 }
 
 - (IBAction)statusbtn:(id)sender {
@@ -1055,9 +1190,9 @@
     Issuemdl*ismdl=(Issuemdl*)[_Issuearray objectAtIndex:textFieldIndexPath.row];
 
 
-    if (!_relatedtoVCtrl) {
+   // if (!_relatedtoVCtrl) {
         _relatedtoVCtrl=[[RelatedtoViewController alloc]initWithNibName:@"RelatedtoViewController" bundle:nil];
-    }
+   // }
     _relatedtoVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _relatedtoVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     _relatedtoVCtrl.itemcode=ismdl.itemcode;

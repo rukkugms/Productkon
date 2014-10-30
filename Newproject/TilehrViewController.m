@@ -318,9 +318,9 @@
 //                
 //                [self presentViewController:self.prcsVCtrl
 //                                   animated:YES completion:NULL];
-                if (!self.inprcsVCtrl ) {
+               // if (!self.inprcsVCtrl ) {
                     self.inprcsVCtrl=[[InprocessViewController alloc]initWithNibName:@"InprocessViewController" bundle:nil];
-                }
+                //}
                 
                 self.inprcsVCtrl.modalPresentationStyle=UIModalPresentationFullScreen;
                 

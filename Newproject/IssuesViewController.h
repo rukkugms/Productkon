@@ -30,6 +30,10 @@
 @property(strong,nonatomic)NSMutableArray*Typearray;
 @property(strong,nonatomic)NSMutableDictionary*typedict;
 @property(strong,nonatomic)NSMutableDictionary*revtypedict;
+@property(strong,nonatomic)NSMutableDictionary*jobdict;
+@property(strong,nonatomic)NSMutableDictionary*revjobdict;
+
+@property (strong, nonatomic) IBOutlet UIButton *updatebtnlbl;
 
 /*calendar*/
 @property(nonatomic, weak) CKCalendarView *calendar;
@@ -44,6 +48,8 @@
 @property(strong,nonatomic)UIPopoverController *popOverController;
 @property(strong,nonatomic)UITableView *popOverTableView;
 
+@property(strong,nonatomic)IBOutlet UISearchBar *searchbar;
+@property (strong, nonatomic)NSString*searchstring;
 
 
 

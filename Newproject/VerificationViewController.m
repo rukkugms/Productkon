@@ -2157,6 +2157,7 @@ ssnclck++;
           recordResults=FALSE;
         UIAlertView*alertview=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alertview show];
+        [self SelectVerificationcomment];
         _verifybtnlbl.enabled=YES;
         _movebtnlbl.enabled=YES;
           _soapResults=nil;
@@ -2315,6 +2316,7 @@ ssnclck++;
 
 - (IBAction)jobsitebtn:(id)sender {
      poptype=5;
+    [self resignFirstResponder];
     [self createpopover];
     [self SelectAllJobSites];
 }
