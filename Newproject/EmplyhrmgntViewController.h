@@ -21,6 +21,7 @@
     NSInteger previousindexpath;
 
 }
+@property(strong,nonatomic)NSMutableArray *disclosurearray;
 @property(readwrite)NSInteger openviewindex;
 @property(readwrite)NSInteger previousopenviewindex;
 
@@ -46,6 +47,8 @@
 @property(strong,nonatomic)IBOutlet UISearchBar *searchbar;
 @property(strong,nonatomic)IBOutlet UITableViewCell *mgmtcell;
 @property(strong,nonatomic)NSString *searchstring;
+@property(strong,nonatomic)IBOutlet UITableView *popovertableview;
+@property(strong,nonatomic)UIPopoverController *popovercontroller;
 
 /*Array*/
 @property(strong,nonatomic)NSMutableArray *employeelistarray;
@@ -71,6 +74,7 @@
 - (IBAction)badgeclsebtn:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIButton *disclsebtn;
+@property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 - (IBAction)disclbtn:(id)sender;
 
 @end

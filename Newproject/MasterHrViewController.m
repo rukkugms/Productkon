@@ -48,6 +48,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    _searchbar.text=@"";
     [self AllSkills];
 }
 - (void)didReceiveMemoryWarning
@@ -56,7 +57,7 @@
     // Dispose of any resources that can be recreated.
 }
 -(IBAction)CloseThisPAge:(id)sender
-{
+{_searchbar.text=@"";
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)selectdisclosure:(id)sender
@@ -149,6 +150,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
 }
 
 - (IBAction)clsebtnactn:(id)sender {
+    _searchbar.text=@"";
     _applicantprocessview.hidden=YES;
     [self ListAllApplicants];
 }
@@ -245,19 +247,19 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if ([_searchbar.text length]==0) {
         
-        [searchBar resignFirstResponder];
+        //[searchBar resignFirstResponder];
         [self ListAllApplicants];
         
     }
-    else  if ([_searchbar.text length]>0) {
-        
-        
-        
-        
-        _searchstring=_searchbar.text;
-        
-        
-    }
+//    else  if ([_searchbar.text length]>0) {
+//        
+//        
+//        
+//        
+//        _searchstring=_searchbar.text;
+//        
+//        
+//    }
     
 }
 

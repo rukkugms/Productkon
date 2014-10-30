@@ -27,7 +27,7 @@
     NSInteger webpath;
 
 }
-
+@property(strong,nonatomic)NSString *existstring;
 @property(strong,nonatomic)Manpwr *requmdl;
 @property(strong,nonatomic)NSMutableArray*requarray;
 @property(strong,nonatomic)jobsitemodel*jobmdl;
