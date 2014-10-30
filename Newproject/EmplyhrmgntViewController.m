@@ -62,6 +62,7 @@
 -(IBAction)selectdisclosure:(id)sender
 {
     _updatebtn.enabled=YES;
+    poptype=1;
     UIViewController* popoverContent = [[UIViewController alloc]init];
     UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 130, 44)];
     popoverView.backgroundColor = [UIColor whiteColor];
@@ -82,20 +83,11 @@
     NSIndexPath *textFieldIndexPath = [self.mgmttableview indexPathForRowAtPoint:rootViewPoint];
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
     btnindex=textFieldIndexPath.row;
-   Empmdl *empmdl=(Empmdl *)[_employeelistarray objectAtIndex:btnindex];
-    if ([empmdl.badgeflag isEqualToString:@"true"]) {
+  
     
-      
-//        self.popovercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
-//        [self.popovercontroller presentPopoverFromRect:_disclsebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
-        
-    }
-    else
-    {
-      
         self.popovercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
         [self.popovercontroller presentPopoverFromRect:_disclsebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
-    }
+    
 }
 
 
@@ -110,6 +102,54 @@
 
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+- (IBAction)jobsitebtn:(id)sender {
+ 
+    poptype=2;
+       [self SelectAllJobSites];
+    [self jobsitepopover];
+    
+    
+    
+}
+-(void)jobsitepopover{
+    poptype=2;
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 170, 170)];
+    
+    popoverView.backgroundColor = [UIColor whiteColor];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 170, 170)];
+    
+    _popovertableview.delegate=(id)self;
+    _popovertableview.dataSource=(id)self;
+    _popovertableview.rowHeight= 32;
+    _popovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    
+    
+    [popoverView addSubview:_popovertableview];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(170, 170);
+    
+    //create a popover controller
+    
+    self.popovercontroller = [[UIPopoverController alloc]
+                             initWithContentViewController:popoverContent];
+    
+    
+    
+    [self.popovercontroller presentPopoverFromRect:_jobsitebtnlbl.frame
+                                           inView:self.badgeview
+                         permittedArrowDirections:UIPopoverArrowDirectionUp
+                                         animated:YES];
+    
+    
+}
+
 #pragma mark-tableview datasources
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -118,13 +158,19 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{if(tableView==_mgmttableview)
 {
+    if(tableView==_mgmttableview)
+  {
     return [_employeelistarray count];
-}
-    else if(tableView==_popovertableview)
-    {
+   }
+    else if(tableView==_popovertableview){
+        if(poptype==1){
         return [_disclosurearray count];
+        }
+        else
+        {
+           return[_jobsitearray count];
+        }
     }
     return YES;
 }
@@ -141,11 +187,19 @@
         cell=_mgmtcell;
     }
     if (tableView==_popovertableview) {
+        
         cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12.0f];
         
+        if (poptype==1) {
+            
         
         
         cell.textLabel.text=[_disclosurearray objectAtIndex:indexPath.row];
+        }
+        else
+        {
+             cell.textLabel.text=[_jobsitearray objectAtIndex:indexPath.row];
+        }
 
     }
     else if (tableView==_mgmttableview)
@@ -186,6 +240,8 @@
 //        }
 //        else
 //        {
+        if (poptype==1) {
+            
         
             
         [self.popovercontroller dismissPopoverAnimated:YES];
@@ -196,7 +252,14 @@
         _firsttxtfld.text=empmdl.firstname;
         _lastnametxtfld.text=empmdl.lastname;
         _ssntxtfld.text=empmdl.ssn;
-        _jobsitetxtfld.text=empmdl.jobname;
+        [_jobsitebtnlbl setTitle:empmdl.jobname forState:UIControlStateNormal];
+            
+        }
+        else
+        {
+            [_jobsitebtnlbl setTitle:[_jobsitearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+            [self.popovercontroller dismissPopoverAnimated:YES];
+        }
         }
        // }
     
@@ -633,7 +696,7 @@
     NSString *soapMessage;
     Empmdl *empmdl1=(Empmdl *)[_employeelistarray objectAtIndex:btnindex];
     
-    
+    NSString *jbid=[_jobsitedict objectForKey:_jobsitebtnlbl.titleLabel.text];
   soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -645,9 +708,10 @@
                    "<InsertEmployeeBadge xmlns=\"http://ios.kontract360.com/\">\n"
                     "<CempId>%d</CempId>\n"
                    "<BadgeNo>%@</BadgeNo>\n"
+                    "<JobId>%@</JobId>\n"
                    "</InsertEmployeeBadge>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[empmdl1.cempid integerValue],_badgenumbrtxtfld.text];
+                   "</soap:Envelope>\n",[empmdl1.cempid integerValue],_badgenumbrtxtfld.text,jbid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -717,6 +781,7 @@
         webtype=0;
     }
     [_mgmttableview reloadData];
+    [_popovertableview reloadData];
     
 }
 
@@ -799,7 +864,7 @@
         recordResults = TRUE;
 
     }
-    if([elementName isEqualToString:@"JobSiteName"])
+    if([elementName isEqualToString:@"CustJobSiteName"])
     {
         if(!_soapResults)
         {
@@ -844,6 +909,34 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"SelectAllJobSitesResponse"])
+    {
+        _jobsitearray=[[NSMutableArray alloc]init];
+        _jobsitedict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Id"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JobSiteName"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
 }
 
@@ -906,7 +999,7 @@
        
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"JobSiteName"])
+    if([elementName isEqualToString:@"CustJobSiteName"])
     {
         recordResults = FALSE;
         _empmdl.jobname=_soapResults;
@@ -932,7 +1025,7 @@
     if([elementName isEqualToString:@"result"])
     {
         recordResults=FALSE;
-        
+        _result=_soapResults;
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         _updatebtn.enabled=YES;
@@ -940,6 +1033,27 @@
  _soapResults=nil;
         
     }
+      if([elementName isEqualToString:@"Id"])
+    {
+        
+        recordResults = FALSE;
+        
+        _jobsiteid=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"JobSiteName"])
+    {
+        
+        recordResults = FALSE;
+        
+        
+        [_jobsitearray addObject:_soapResults];
+        [_jobsitedict setObject:_jobsiteid forKey:_soapResults];
+        
+        _soapResults = nil;
+    }
+
+
     
 
 
@@ -948,7 +1062,7 @@
 
 - (IBAction)savebtn:(id)sender {
     
-    if (_badgenumbrtxtfld.text.length==0) {
+    if ([_badgenumbrtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Badge number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
@@ -966,6 +1080,22 @@
     [self CustEmployeeselect];
 
 }
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    ////NSLog(@"buttonIndex%d",buttonIndex);
+    
+    if ([alertView.message isEqualToString:_result]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _badgeview.hidden=YES;
+            
+        }
+    }
+}
+
 //- (IBAction)disclbtn:(id)sender {
 //    
 //    _badgelbl.hidden=YES;

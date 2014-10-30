@@ -62,6 +62,7 @@
 }
 -(IBAction)selectdisclosure:(id)sender
 {   _processbtn.userInteractionEnabled=YES;
+    _jobsitebtnlbl.enabled=NO;
     poptype=1;
     UIViewController* popoverContent = [[UIViewController alloc]init];
     UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 130, 42)];
@@ -89,6 +90,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
 
 }else
 {
+    ssn=empdetls1.ssn;
     //UITableView *table = (UITableView *)[cell superview];
     self.poovercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
     [self.poovercontroller presentPopoverFromRect:_disclosurebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
@@ -155,6 +157,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     [self ListAllApplicants];
 }
 - (IBAction)sitecheckactn:(id)sender {
+     [self SelectAllJobSites];
     btntouch++;
     
     if (btntouch%2) {
@@ -207,7 +210,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
 - (IBAction)jobsitebtn:(id)sender {
     poptype=2;
     [self jobsitepopover];
-    [self SelectAllJobSites];
+   
     
 }
 - (IBAction)processbtn:(id)sender {
@@ -237,6 +240,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
 #pragma mark - SearchBar
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    _searchstring=_searchbar.text;
     [self SearchApplicants];
     
 }
@@ -402,12 +406,16 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
 {
     
     NSLog(@"sectn%d",indexPath.section);
-    if (tableView==_poovertableview) {
+       if (tableView==_poovertableview) {
         if (poptype==1) {
-            
+            [_jobsitebtnlbl setTitle:@"Select Jobsite" forState:UIControlStateNormal];
+            [_sitechecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_officechecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+
         
             [self.poovercontroller dismissPopoverAnimated:YES];
         _applicantprocessview.hidden=NO;
+            _navitem.title=[NSString stringWithFormat:@"Process Applicant-%@",ssn];
         }
         else
         {
@@ -1396,13 +1404,35 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
-        _processbtn.userInteractionEnabled=YES;
+       
+        
         _soapResults = nil;
 
     }
 
 
 
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    ////NSLog(@"buttonIndex%d",buttonIndex);
+    
+    if ([alertView.message isEqualToString:@"Applicant Processed Successfully"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            [_jobsitebtnlbl setTitle:@"Select Jobsite" forState:UIControlStateNormal];
+            [_sitechecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_officechecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            _applicantprocessview.hidden=YES;
+            _processbtn.userInteractionEnabled=YES;
+            [self ListAllApplicants];
+            
+            
+        }
+    }
 }
 
 @end

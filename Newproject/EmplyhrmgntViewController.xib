@@ -10,6 +10,7 @@
                 <outlet property="badgenumbrtxtfld" destination="cPw-lc-asR" id="yVV-hf-T77"/>
                 <outlet property="badgeview" destination="Mvm-Tr-aGa" id="Bxs-nt-60n"/>
                 <outlet property="firsttxtfld" destination="DeP-1R-FOQ" id="2O0-Kl-sm3"/>
+                <outlet property="jobsitebtnlbl" destination="WDi-V6-1bx" id="qMU-pn-WtR"/>
                 <outlet property="jobsitetxtfld" destination="TLi-T7-uwB" id="x0o-q6-s7N"/>
                 <outlet property="lastnametxtfld" destination="Vcy-nY-1jg" id="oqT-2l-cRd"/>
                 <outlet property="mgmttableview" destination="YRL-O5-5jx" id="gFG-rr-T5U"/>
@@ -51,7 +52,7 @@
                             </items>
                         </navigationBar>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="45" sectionHeaderHeight="22" sectionFooterHeight="22" id="YRL-O5-5jx">
-                            <rect key="frame" x="20" y="136" width="709" height="686"/>
+                            <rect key="frame" x="30" y="134" width="709" height="776"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -60,7 +61,7 @@
                             </connections>
                         </tableView>
                         <view contentMode="scaleToFill" id="Lp4-um-P40">
-                            <rect key="frame" x="20" y="90" width="709" height="46"/>
+                            <rect key="frame" x="30" y="88" width="709" height="46"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SSN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V9P-Ip-pXj">
@@ -92,7 +93,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" id="Mvm-Tr-aGa">
-                            <rect key="frame" x="70" y="125" width="608" height="363"/>
+                            <rect key="frame" x="80" y="123" width="608" height="363"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="EYI-71-R1l">
@@ -102,8 +103,8 @@
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="TLi-T7-uwB">
-                                    <rect key="frame" x="332" y="150" width="235" height="30"/>
+                                <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="TLi-T7-uwB">
+                                    <rect key="frame" x="332" y="44" width="235" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
@@ -125,6 +126,7 @@
                                 <navigationBar contentMode="scaleToFill" id="VeW-rE-nJD">
                                     <rect key="frame" x="0.0" y="0.0" width="608" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <color key="tintColor" red="0.0" green="0.50980392159999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <items>
                                         <navigationItem title="Badge" id="P2n-68-Rv0">
@@ -190,12 +192,24 @@
                                     <rect key="frame" x="262" y="283" width="84" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                    <state key="normal" title="Update">
+                                    <state key="normal" title="Save">
                                         <color key="titleColor" red="0.27450980390000002" green="0.50980392159999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
                                         <action selector="savebtn:" destination="-1" eventType="touchUpInside" id="YtG-EZ-exk"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WDi-V6-1bx">
+                                    <rect key="frame" x="332" y="148" width="235" height="34"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                    <state key="normal" title="Select" backgroundImage="textbox.png">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="jobsitebtn:" destination="-1" eventType="touchUpInside" id="lw0-pl-KxP"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -210,5 +224,6 @@
     </objects>
     <resources>
         <image name="appbar.close.png" width="76" height="76"/>
+        <image name="textbox.png" width="298" height="64"/>
     </resources>
 </document>

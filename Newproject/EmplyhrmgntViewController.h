@@ -19,6 +19,7 @@
     
     NSInteger btnclck;
     NSInteger previousindexpath;
+    NSInteger poptype;
 
 }
 @property(strong,nonatomic)NSMutableArray *disclosurearray;
@@ -30,6 +31,7 @@
 
 @property(strong,nonatomic)Empmdl *empmdl;
 @property (strong, nonatomic)NSString *jobsiteid;
+@property (strong, nonatomic)NSString *result;
 @property (strong, nonatomic)NSMutableDictionary *jobsitedict;
 @property (strong, nonatomic)NSMutableArray *jobsitearray;
 /*xmlparse*/
@@ -76,5 +78,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *disclsebtn;
 @property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 - (IBAction)disclbtn:(id)sender;
-
+@property (strong, nonatomic) IBOutlet UIButton *jobsitebtnlbl;
+- (IBAction)jobsitebtn:(id)sender;
 @end
