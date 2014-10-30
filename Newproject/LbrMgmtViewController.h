@@ -45,6 +45,7 @@
 @property(strong,nonatomic)NSString  *jobnumber;
 @property(strong,nonatomic)NSString  *jobid;
 @property(strong,nonatomic)NSMutableDictionary  *jobiddict;
+@property(strong,nonatomic)NSMutableDictionary  *jobsitedict;
 @property(strong,nonatomic)NSMutableDictionary  *formandict;
 @property(strong,nonatomic)NSString  *forman;
 @property(strong,nonatomic)NSMutableArray *lbrmgmtarray;

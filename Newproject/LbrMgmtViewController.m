@@ -434,7 +434,7 @@
     NSString*jobno=[NSString stringWithFormat:@"%@-%@",[array objectAtIndex:0],[array objectAtIndex:1]];
 //    NSInteger job=[jobno integerValue];
 //    jobno=[NSString stringWithFormat:@"%d",job];
-    NSString *job=[NSString stringWithFormat:@"%@",[_jobiddict objectForKey:jobno]];
+    NSString *job=[NSString stringWithFormat:@"%@",[_jobiddict objectForKey:_jobbtn.titleLabel.text]];
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -486,8 +486,8 @@
     recordResults=FALSE;
     NSString *soapMessage;
     NSArray*array=[_jobbtn.titleLabel.text componentsSeparatedByString:@"-"];
-    NSString*jobno=[NSString stringWithFormat:@"%@-%@",[array objectAtIndex:0],[array objectAtIndex:1]];
-    
+   // NSString*jobno=[NSString stringWithFormat:@"%@-%@",[array objectAtIndex:0],[array objectAtIndex:1]];
+    NSString*jobno=[_jobsitedict objectForKey:_jobbtn.titleLabel.text];
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -648,6 +648,7 @@
     {
         _jobarray=[[NSMutableArray alloc]init];
         _jobiddict=[[NSMutableDictionary alloc]init];
+        _jobsitedict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -679,6 +680,15 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"JobSiteName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"ForemanSelectResponse"])
     {
         _formanarray=[[NSMutableArray alloc]init];
@@ -798,15 +808,28 @@
     {
         recordResults = FALSE;
         _jobnumber=_soapResults;
-        [_jobiddict setObject:_jobid forKey:_soapResults];
+   
         _soapResults = nil;
     }
+    
     if([elementName isEqualToString:@"JobDescDetail"])
     {
         recordResults = FALSE;
-        [_jobarray addObject:[NSString stringWithFormat:@"%@-%@",_jobnumber,_soapResults]];
+    
+     
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"JobSiteName"])
+    {
+        recordResults = FALSE;
+        //[_jobarray addObject:[NSString stringWithFormat:@"%@-%@",_jobnumber,_soapResults]];
+        [_jobarray addObject:_soapResults];
+             [_jobiddict setObject:_jobid forKey:_soapResults];
+        [_jobsitedict setObject:_jobnumber forKey:_soapResults];
+        _soapResults = nil;
+        
+    }
+
     if([elementName isEqualToString:@"name"])
     {
         recordResults = FALSE;
