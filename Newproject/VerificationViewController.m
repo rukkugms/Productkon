@@ -48,8 +48,7 @@
     
     /*scroll*/
     
-    _scroll.frame=CGRectMake(0, 0, 1004,768);
-    [_scroll setContentSize:CGSizeMake(1004,1000)];
+   
        _monthArray=[[NSMutableArray alloc]initWithObjects:@"JAN",@"FEB",@"MAR",@"APR",@"MAY",@"JUN",@"JUL",@"AUG",@"SEP",@"OCT",@"NOV",@"DEC",nil];
     _monthdictArray=[[NSMutableArray alloc]initWithObjects:@"01",@"02",@"03",@"04",@"05",@"06",@"07",@"08",@"09",@"10",@"11",@"12", nil];
     _monthDictionary=[[NSMutableDictionary alloc]initWithObjects:_monthdictArray forKeys:_monthArray];
@@ -67,6 +66,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    _verifybtnlbl.enabled=YES;
+    _scroll.frame=CGRectMake(0, 0, 1024,768);
+    [_scroll setContentSize:CGSizeMake(1024,1000)];
  
       [_tabbar setSelectedItem:[_tabbar.items objectAtIndex:0]];
     __requirmentview.hidden=NO;
@@ -110,6 +112,7 @@
 - (IBAction)i9action:(id)sender {
     _cmmnttextview.text=@"";
     _verfylbl.text=@"";
+    _verifybtnlbl.enabled=YES;
     
     i9clck ++;
     if (!i9clck%2) {
@@ -124,6 +127,7 @@
          [_i9btnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
           [_bgbtnlbl setImage:[UIImage imageNamed:@"RadioButton-UnSelected"] forState:UIControlStateNormal];
           [_ssnbtnlbl setImage:[UIImage imageNamed:@"RadioButton-UnSelected"] forState:UIControlStateNormal];
+        _cmmnttextview.editable=YES;
          [self SelectVerificationcomment];
         
     }
@@ -131,6 +135,7 @@
 }
 
 - (IBAction)bgaction:(id)sender {
+    _verifybtnlbl.enabled=YES;
     _cmmnttextview.text=@"";
     _verfylbl.text=@"";
     bgclck++;
@@ -146,7 +151,7 @@
         [_bgbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
         [_i9btnlbl setImage:[UIImage imageNamed:@"RadioButton-UnSelected"] forState:UIControlStateNormal];
         [_ssnbtnlbl setImage:[UIImage imageNamed:@"RadioButton-UnSelected"] forState:UIControlStateNormal];
-
+_cmmnttextview.editable=YES;
  [self SelectVerificationcomment];
         
     }
@@ -155,6 +160,7 @@
 }
 
 - (IBAction)ssnaction:(id)sender {
+    _verifybtnlbl.enabled=YES;
     _cmmnttextview.text=@"";
     _verfylbl.text=@"";
 ssnclck++;
@@ -171,6 +177,7 @@ ssnclck++;
         [_ssnbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
         [_i9btnlbl setImage:[UIImage imageNamed:@"RadioButton-UnSelected"] forState:UIControlStateNormal];
         [_bgbtnlbl setImage:[UIImage imageNamed:@"RadioButton-UnSelected"] forState:UIControlStateNormal];
+        _cmmnttextview.editable=YES;
         [self SelectVerificationcomment];
         
     }
@@ -180,7 +187,17 @@ ssnclck++;
     
 }
 - (IBAction)savebtn:(id)sender {
+   
+    
+    if (_type.length==0) {
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Select Verification" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+      
+  }
+    else{
+        _verifybtnlbl.enabled=NO;
     [self InsertVerificationComments];
+    }
     
 }
 
@@ -1474,6 +1491,15 @@ ssnclck++;
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"UserName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"Comment"])
     {
         if(!_soapResults)
@@ -1929,7 +1955,9 @@ ssnclck++;
         recordResults = FALSE;
         _coursemdl.Type=_soapResults;
         
-        _soapResults=nil;    }
+        _soapResults=nil;
+        
+    }
     
     if([elementName isEqualToString:@"ApplyToAllCraft"])
     {
@@ -2052,14 +2080,26 @@ ssnclck++;
     {
         recordResults=FALSE;
         
-        _verfylbl.text=[_userdict objectForKey:_soapResults];
+       // _verfylbl.text=[_userdict objectForKey:_soapResults];
         
         _soapResults=nil;
     }
+    if([elementName isEqualToString:@"UserName"])
+    {
+        recordResults=FALSE;
+        
+        _verfylbl.text=_soapResults;
+        
+        _soapResults=nil;
+    }
+
     if([elementName isEqualToString:@"Comment"])
     {
         recordResults=FALSE;
+        _cmmnttextview.editable=NO;
         _cmmnttextview.text=_soapResults;
+        _verifybtnlbl.enabled=NO;
+        
         
         _soapResults=nil;
     }
@@ -2117,6 +2157,8 @@ ssnclck++;
           recordResults=FALSE;
         UIAlertView*alertview=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alertview show];
+        _verifybtnlbl.enabled=YES;
+        _movebtnlbl.enabled=YES;
           _soapResults=nil;
     }
 
@@ -2288,7 +2330,7 @@ ssnclck++;
         
     }
     else{
-
+        _movebtnlbl.enabled=NO;
     [self EmployeeInsert];
     }
 }

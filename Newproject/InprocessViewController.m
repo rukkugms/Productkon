@@ -169,8 +169,8 @@
     
     
 }
--(void)SearchApplicants{
-    webtype=3;
+-(void)HREmployeeProcessSearch{
+    webtype=2;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -182,9 +182,9 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SearchApplicants xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<HREmployeeProcessSearch xmlns=\"http://ios.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
-                   "</SearchApplicants>\n"
+                   "</HREmployeeProcessSearch>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",_searchstring];
     NSLog(@"soapmsg%@",soapMessage);
@@ -199,7 +199,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SearchApplicants" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/HREmployeeProcessSearch" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -598,7 +598,7 @@
         recordResults = TRUE;
         
     }
-    if([elementName isEqualToString:@"SearchApplicantsResponse"])
+    if([elementName isEqualToString:@"HREmployeeProcessSearchResponse"])
     {
         //imgString=@"Fetchapp";
         _empnameArray=[[NSMutableArray alloc]init];
@@ -1016,7 +1016,10 @@
 #pragma mark - SearchBar
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    [self SearchApplicants];
+      _searchstring=_SearchingBar.text;
+    [self HREmployeeProcessSearch];
+    [searchBar resignFirstResponder];
+    
     
     
 }
@@ -1027,19 +1030,20 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if ([_SearchingBar.text length]==0) {
         
-        [searchBar resignFirstResponder];
+        
         [self ListAllApplicants];
+        [searchBar resignFirstResponder];
         
     }
-    else  if ([_SearchingBar.text length]>0) {
-        
-        
-        
-        
-        _searchstring=_SearchingBar.text;
-        
-        
-    }
+//    else  if ([_SearchingBar.text length]>0) {
+//        
+//        
+//        
+//        
+//        _searchstring=_SearchingBar.text;
+//        
+//        
+//    }
     
 }
 #pragma mark - Actions

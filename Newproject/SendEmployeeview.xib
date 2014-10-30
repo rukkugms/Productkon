@@ -11,6 +11,7 @@
                 <outlet property="jobdobtxtfld" destination="2fO-zd-tMV" id="NgG-3V-eDe"/>
                 <outlet property="jobsitebtnlbl" destination="S7c-qO-S1Q" id="3Fa-7b-Dg4"/>
                 <outlet property="jobssntxtfld" destination="rPJ-IE-FUJ" id="NlL-5A-k0Y"/>
+                <outlet property="movebtnlbl" destination="X9j-kE-wLf" id="BAs-Lv-sRx"/>
                 <outlet property="namefirsttxtfld" destination="wx5-CA-X3W" id="bGV-x7-kSa"/>
                 <outlet property="namelasttxtfld" destination="rS2-qZ-t98" id="bbH-sD-bhg"/>
                 <outlet property="payratetxtfld" destination="HMl-V0-lZe" id="Nb2-js-RLt"/>
