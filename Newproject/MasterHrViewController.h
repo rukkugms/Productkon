@@ -20,6 +20,8 @@
     NSInteger chektouch;
     NSString *jobstring;
     NSInteger poptype;
+    NSInteger jobsite;
+    NSInteger office;
 }
 
 @property(strong,nonatomic)Empdetails *empdetl;
@@ -46,6 +48,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *officechecklbl;
 @property (strong, nonatomic) IBOutlet UIButton *jobsitebtnlbl;
 @property (strong, nonatomic) IBOutlet UIButton *sitechecklbl;
+@property(strong,nonatomic)IBOutlet UIButton *processbtn;
 
 /*IBActions*/
 -(IBAction)CloseThisPAge:(id)sender;

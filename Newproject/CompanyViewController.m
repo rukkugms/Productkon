@@ -832,7 +832,7 @@
     {
         
         recordResults = FALSE;
-        NSString *fullURL =[NSString stringWithFormat:@"http://192.168.0.175/Files/Docs/BasicInfo/%@",_soapResults]  ;
+        NSString *fullURL =[NSString stringWithFormat:@"http://192.168.0.175:7342/Files/Docs/BasicInfo/%@",_soapResults]  ;
        // NSURL *url = [NSURL URLWithString:fullURL];
         //NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
         //[_logoweb loadRequest:requestObj];
