@@ -821,7 +821,15 @@
 }
 
 - (IBAction)savebtn:(id)sender {
-    [self InsertIMMRelation];
+    if ([_namebtnlbl.titleLabel.text isEqualToString:@"Select"]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
+    
+       [self InsertIMMRelation];
+    }
 }
 
 - (IBAction)cancelbtn:(id)sender {

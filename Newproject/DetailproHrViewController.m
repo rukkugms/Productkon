@@ -74,6 +74,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self Statusselect];
+    imagechecker=0;
     
     
 
@@ -1953,6 +1954,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
 }
 
 - (IBAction)detailclsebtn:(id)sender {
+       _uplddocbtnlbl.enabled=YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -1961,12 +1963,26 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     
 
 -(IBAction)updatedoc:(id)sender{
+    
+    if ([_documentnametextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Name is Required " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if(imagechecker==0){
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Document is Required " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+
+    }
+    else{
+        
+        //_uplddocbtnlbl.enabled=NO;
        UIImage *imagename =_previewimg.image;
       NSData *data = UIImagePNGRepresentation(imagename);
     _encodedString = [data base64EncodedString];
        NSLog(@"%@",_encodedString);
     
     [self UploadHRDocsImage];
+    }
     
 }
 - (IBAction)DetailsBtnAction:(id)sender
@@ -2060,7 +2076,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     }
     else{
         
-        if (_Dependentstexffld.text.length==0) {
+        if ([_Dependentstexffld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
             UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Number of Dependents is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
 
@@ -2109,6 +2125,9 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
   
    //[_vendrnamebtnlbl  setTitle:[_revendordict objectForKey:appreqmdl.vendor] forState:UIControlStateNormal];
     [_detalexpbtnlbl  setTitle:appreqmdl.expdate forState:UIControlStateNormal];
+    [_vendrnamebtnlbl  setTitle:appreqmdl.vendorname forState:UIControlStateNormal];
+
+    
     
     if ([appreqmdl.verifictnstatus isEqualToString:@"true"]) {
          [_verfictnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
@@ -2177,6 +2196,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
 }
 
 -(IBAction)selectfileaction:(id)sender{
+    imagechecker=1;
     if ([UIImagePickerController isSourceTypeAvailable:
          UIImagePickerControllerSourceTypeCamera])
     {

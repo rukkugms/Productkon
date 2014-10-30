@@ -36,6 +36,7 @@
                 <outlet property="statelbl" destination="EhJ-en-j7z" id="ZJi-vr-bUu"/>
                 <outlet property="statuslbl" destination="2Xd-aN-316" id="lDE-Nz-zyn"/>
                 <outlet property="typesegmntlbl" destination="TyJ-aa-gkY" id="Soc-pS-cpX"/>
+                <outlet property="uplddocbtnlbl" destination="Qkb-df-fgv" id="0XA-0B-mge"/>
                 <outlet property="vendrnamebtnlbl" destination="G0M-lZ-hVL" id="Mj1-Ui-bSX"/>
                 <outlet property="verfictnbtnlbl" destination="Dh8-dV-YmM" id="oGj-IJ-kWI"/>
                 <outlet property="view" destination="2" id="3"/>
@@ -548,11 +549,12 @@
                                                 <action selector="verifiedaction:" destination="-1" eventType="touchUpInside" id="7Nw-9T-d8o"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QMj-ne-wgL">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QMj-ne-wgL">
                                             <rect key="frame" x="225" y="292" width="62" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                             <state key="normal" title="Update">
+                                                <color key="titleColor" red="0.27450980390000002" green="0.50980392159999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
