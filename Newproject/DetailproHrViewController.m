@@ -1145,7 +1145,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
         recordResults = TRUE;
         
     }
-    if([elementName isEqualToString:@"RVendorName"])
+    if([elementName isEqualToString:@"RVendorname"])
     {
         if(!_soapResults)
         {
@@ -1462,6 +1462,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     {
         recordResults = FALSE;
            _appreqmdl.status=_soapResults;
+       
    
         _soapResults = nil;
         
@@ -1475,11 +1476,11 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
         
     }
 
-    if([elementName isEqualToString:@"RVendorName"])
+    if([elementName isEqualToString:@"RVendorname"])
     {
         recordResults = FALSE;
         _appreqmdl.vendorname=_soapResults;
-        [_requirmntarray addObject:_appreqmdl];
+         [_requirmntarray addObject:_appreqmdl];
         _soapResults = nil;
 
     }
@@ -1960,9 +1961,10 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     
 
 -(IBAction)updatedoc:(id)sender{
-    UIImage *imagename =_previewimg.image;
-    NSData *data = UIImageJPEGRepresentation(imagename, 1.0);
+       UIImage *imagename =_previewimg.image;
+      NSData *data = UIImagePNGRepresentation(imagename);
     _encodedString = [data base64EncodedString];
+       NSLog(@"%@",_encodedString);
     
     [self UploadHRDocsImage];
     
@@ -2216,7 +2218,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         _previewimg.image=nil;
         _previewimg.image=image;
         
-        [self dismissViewControllerAnimated:YES completion:nil];
+         [self.navigationController dismissViewControllerAnimated: YES completion: nil];
         if (_newMedia)
             UIImageWriteToSavedPhotosAlbum(image,
                                            self,

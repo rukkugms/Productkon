@@ -29,6 +29,7 @@
                 <outlet property="maritalbtn" destination="HET-Nt-5wu" id="85K-Pw-bHA"/>
                 <outlet property="paymentdetailview" destination="PL3-P4-5jQ" id="PzZ-Y9-5Un"/>
                 <outlet property="paymenttypebtn" destination="3Fd-Zx-pvV" id="QGB-cB-2Dt"/>
+                <outlet property="previewimg" destination="AY4-Ze-in6" id="dsG-Jk-qcD"/>
                 <outlet property="reqnamelbl" destination="hQo-7U-td3" id="Vhv-zS-18l"/>
                 <outlet property="rontgnumbr" destination="msy-jY-0CH" id="Uzp-Vs-BTh"/>
                 <outlet property="scroll" destination="gl8-XL-gqq" id="vzg-nk-iJx"/>

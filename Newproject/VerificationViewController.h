@@ -131,6 +131,7 @@
 - (IBAction)clsebtn:(id)sender;
 @property (strong, nonatomic)NSString *photostring;
 
+@property (strong, nonatomic)NSString *useridname;
 /*sendtojob*/
 @property (strong, nonatomic)NSString *crftid;
 @property (strong, nonatomic)NSString *skillid;

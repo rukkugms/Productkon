@@ -481,7 +481,16 @@
         recordResults = TRUE;
         
     }
-    
+    if([elementName isEqualToString:@"jobsitename"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     
     if([elementName isEqualToString:@"BasicPlus"])
     {
@@ -861,6 +870,14 @@
         _soapResults = nil;
         
     }
+    if([elementName isEqualToString:@"jobsitename"])
+    {
+        recordResults = FALSE;
+        _empdetl.jobsitename=_soapResults;
+        
+        _soapResults = nil;
+        
+    }
 
     if([elementName isEqualToString:@"SkillId"])
     {
@@ -926,8 +943,8 @@
    _skilllbl.text=empmdl.skillid;
     _craftlbl=(UILabel *)[cell viewWithTag:6];
     _craftlbl.text=empmdl.othercraft;
-         _jobsitelbl=(UILabel *)[cell viewWithTag:7];
-         //_jobsitelbl.text=empmdl.;
+    _jobsitelbl=(UILabel *)[cell viewWithTag:7];
+    _jobsitelbl.text=empmdl.jobsitename;
 
      }
      if (tableView==_popOverTableView) {
@@ -1031,12 +1048,19 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)firstdisclurebtn:(id)sender {
+    
+    button = (UIButton *)sender;
+  
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.processtable];
+    NSIndexPath *textFieldIndexPath = [self.processtable indexPathForRowAtPoint:rootViewPoint];
     self.DetailproVCtrl=[[DetailproHrViewController alloc]initWithNibName:@"DetailproHrViewController" bundle:nil];
     
     
     _DetailproVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     _DetailproVCtrl.Applicantarray=_newprocesssarray;
-
+    _DetailproVCtrl.path=textFieldIndexPath.row;
+    NSLog(@"path%d",textFieldIndexPath.row);
     
 [self presentViewController:_DetailproVCtrl
                        animated:YES completion:NULL];
