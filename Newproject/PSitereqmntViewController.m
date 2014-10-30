@@ -420,7 +420,7 @@
 }
 
 - (void)stopDragging:(UIPanGestureRecognizer *)gestureRecognizer
-{
+{   _existstring=@"";
     if(draggedCell != nil && draggedData != nil)
     {
         
@@ -504,7 +504,16 @@
             //[pathFromDstTable release];
             pathFromDstTable = nil;
         }
-        
+        if ([_existstring isEqualToString:@"Already Exists"]) {
+            [draggedCell removeFromSuperview];
+            //[draggedCell release];
+            draggedCell = nil;
+            
+            //[draggedData release];
+            draggedData = nil;
+        }
+        else
+        {
         [UIView animateWithDuration:0.3 animations:^
          {
              CGRect frame = _jobtble.frame;
@@ -518,6 +527,7 @@
         
         //[draggedData release];
         draggedData = nil;
+        }
     }
 }
 
@@ -1097,6 +1107,7 @@
             
         }
         else{
+        _existstring=_soapResults;
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         }

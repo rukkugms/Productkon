@@ -407,19 +407,19 @@
     
     if ([_searchbar.text length]==0) {
         
-        [searchBar resignFirstResponder];
+        //[searchBar resignFirstResponder];
         [self CustEmployeeselect];
         
     }
-    else  if ([_searchbar.text length]>0) {
-        
-        
-        
-        
-        _searchstring=_searchbar.text;
-        
-        
-    }
+//    else  if ([_searchbar.text length]>0) {
+//        
+//        
+//        
+//        
+//        _searchstring=_searchbar.text;
+//        
+//        
+//    }
     
 }
 #pragma mark-webservice

@@ -247,19 +247,19 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if ([_searchbar.text length]==0) {
         
-        [searchBar resignFirstResponder];
+        //[searchBar resignFirstResponder];
         [self ListAllApplicants];
         
     }
-    else  if ([_searchbar.text length]>0) {
-        
-        
-        
-        
-        _searchstring=_searchbar.text;
-        
-        
-    }
+//    else  if ([_searchbar.text length]>0) {
+//        
+//        
+//        
+//        
+//        _searchstring=_searchbar.text;
+//        
+//        
+//    }
     
 }
 
