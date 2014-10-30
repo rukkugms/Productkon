@@ -33,6 +33,10 @@
     _issuetable.rowHeight=60;
     _issuetable.layer.borderWidth=3.0;
     _issuetable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
+    _cmmnttable.rowHeight=60;
+    _cmmnttable.layer.borderWidth=3.0;
+    _cmmnttable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
+
 //    _addview.layer.borderWidth=3.0;
 //    _addview.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
     _titleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f];
@@ -67,6 +71,9 @@
     searchController.searchResultsDelegate =(id)self;
     searchController.delegate = (id)self;
      self.issuetable.tableHeaderView =_searchbar;
+    [[self.Cmmntgtextview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+    [[self.Cmmntgtextview layer] setBorderWidth:2];
+    [[self.Cmmntgtextview layer] setCornerRadius:10];
 
  
 
@@ -106,13 +113,17 @@
             case 3:
                 return [_Typearray count];
                 break;
-
+           
 
             default:
                 break;
         }
        
     }
+    if (tableView==_cmmnttable){
+        return [_commentarray count];
+    }
+
     else{
     return [_Issuearray count];
     }
@@ -131,6 +142,17 @@
          [[NSBundle mainBundle]loadNibNamed:@"IssueCell" owner:self options:nil];
          cell=_issuecell;
          }
+        if(tableView==_cmmnttable){
+            
+            [[NSBundle mainBundle]loadNibNamed:@"Issuecommentcell" owner:self options:nil];
+            cell=_cmntcell;
+            
+            
+            
+            
+        }
+
+        
     }
      if(tableView==_popOverTableView){
          switch (poptype) {
@@ -144,13 +166,14 @@
                   cell.textLabel.text=[_Typearray objectAtIndex:indexPath.row];
             
                  break;
-
+            
              default:
                  break;
          }
+         if(tableView==_cmmnttable){
 
 
-       
+         }
      }
      if(tableView==_issuetable){
     Issuemdl*issues=(Issuemdl *)[_Issuearray objectAtIndex:indexPath.row];
@@ -186,6 +209,11 @@
              case 3:
                  [_typebtnlbl setTitle:[_Typearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
                
+                 
+                 break;
+             case 4:
+                
+                 
                  
                  break;
 
@@ -1203,4 +1231,76 @@
                        animated:YES completion:NULL];
 
 }
+- (IBAction)cmntbtn:(id)sender {
+    poptype=4;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.issuetable];
+    NSIndexPath *textFieldIndexPath = [self.issuetable indexPathForRowAtPoint:rootViewPoint];
+    
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    [self commentpopover];
+    
+   
+   
+}
+-(void)commentpopover{
+    _newcmntview.hidden=YES;
+    
+    poptype=4;
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 520, 530)];
+    
+    popoverView.backgroundColor = [UIColor whiteColor];
+    
+    
+    [popoverView addSubview:self.cmmntview];
+    self.cmmntview.hidden=NO;
+    // CGRect rect = frame;
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(520, 530);
+    
+    //create a popover controller
+    
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    
+    
+    
+    
+    [self.popOverController presentPopoverFromRect: CGRectMake(350, 210, 300, 500)
+                                            inView:self.view
+                          permittedArrowDirections:nil
+                                          animated:YES];
+    
+    
+    
+}
+
+- (IBAction)closecmnt:(id)sender
+{
+    [self.popOverController dismissPopoverAnimated:YES];
+}
+- (IBAction)addcmt:(id)sender
+{
+    _savecmntbtn.enabled=YES;
+    _newcmntview.hidden=NO;
+
+}
+- (IBAction)cmntsavebtn:(id)sender
+{
+    
+}
+- (IBAction)cancelcmnt:(id)sender
+{
+    
+}
+
+
 @end

@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IssuesViewController">
             <connections>
+                <outlet property="cmmntbtn" destination="1ml-hQ-dco" id="JxI-AW-t7Q"/>
                 <outlet property="datelbl" destination="rqY-LN-NP7" id="vnJ-jc-WJv"/>
                 <outlet property="issuecell" destination="VMV-9b-RBz" id="qaj-hq-emU"/>
                 <outlet property="numbrlbl" destination="djA-lz-hTp" id="24v-Rp-xDL"/>
@@ -101,11 +102,16 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ml-hQ-dco">
-                        <rect key="frame" x="626" y="12" width="46" height="30"/>
+                        <rect key="frame" x="604" y="12" width="121" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="Button">
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                        <state key="normal" title="Comments" backgroundImage="textbox.png">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="cmntbtn:" destination="-1" eventType="touchUpInside" id="zBj-XP-R7V"/>
+                        </connections>
                     </button>
                 </subviews>
             </tableViewCellContentView>
