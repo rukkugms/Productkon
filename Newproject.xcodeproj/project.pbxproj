@@ -125,6 +125,7 @@
 		64B12DD919D520940074A404 /* BscTypViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B12DD719D520940074A404 /* BscTypViewController.m */; };
 		64B12DDA19D520940074A404 /* BscTypViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64B12DD819D520940074A404 /* BscTypViewController.xib */; };
 		64B12DDC19D520BE0074A404 /* BsictpCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64B12DDB19D520BE0074A404 /* BsictpCell.xib */; };
+		64B1EB7E1A025C980096DC5B /* Issuecommentcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64B1EB7D1A025C980096DC5B /* Issuecommentcell.xib */; };
 		64B36211198F4D2000B54191 /* action.png in Resources */ = {isa = PBXBuildFile; fileRef = 64B36210198F4D2000B54191 /* action.png */; };
 		64D23F7D1905103000DEA64A /* Generalmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D23F7C1905103000DEA64A /* Generalmodel.m */; };
 		64F97983185ED60000E7722B /* appbar.addblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F97982185ED60000E7722B /* appbar.addblack.png */; };
@@ -756,6 +757,7 @@
 		64B12DD719D520940074A404 /* BscTypViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BscTypViewController.m; sourceTree = "<group>"; };
 		64B12DD819D520940074A404 /* BscTypViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BscTypViewController.xib; sourceTree = "<group>"; };
 		64B12DDB19D520BE0074A404 /* BsictpCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BsictpCell.xib; sourceTree = "<group>"; };
+		64B1EB7D1A025C980096DC5B /* Issuecommentcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Issuecommentcell.xib; sourceTree = "<group>"; };
 		64B36210198F4D2000B54191 /* action.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action.png; sourceTree = "<group>"; };
 		64D23F7B1905103000DEA64A /* Generalmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generalmodel.h; sourceTree = "<group>"; };
 		64D23F7C1905103000DEA64A /* Generalmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Generalmodel.m; sourceTree = "<group>"; };
@@ -1707,6 +1709,7 @@
 				D40B268F1953F86300217323 /* IssuesViewController.m */,
 				D40B26901953F86300217323 /* IssuesViewController.xib */,
 				D49BF6A01954044F000226FD /* IssueCell.xib */,
+				64B1EB7D1A025C980096DC5B /* Issuecommentcell.xib */,
 				D41B14DC195BF18400DEED6E /* RelatedtoViewController.h */,
 				D41B14DD195BF18400DEED6E /* RelatedtoViewController.m */,
 				D41B14DE195BF18400DEED6E /* RelatedtoViewController.xib */,
@@ -2680,6 +2683,7 @@
 				D4036FF819FE23310031C4F1 /* PlandocsViewController.xib in Resources */,
 				D4EC1FE11875280500A55942 /* textbox.png in Resources */,
 				D4F0940E19F22F3100C3B527 /* pencil.png in Resources */,
+				64B1EB7E1A025C980096DC5B /* Issuecommentcell.xib in Resources */,
 				D47A9B2819407CF1001CC416 /* othercompanyassestsicon.png in Resources */,
 				D49DE839185EB391006F1CDA /* closebutton@2x.png in Resources */,
 				D4A14A4C19CBEC96003C1193 /* search.png in Resources */,

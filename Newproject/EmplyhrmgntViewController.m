@@ -252,7 +252,7 @@
         _firsttxtfld.text=empmdl.firstname;
         _lastnametxtfld.text=empmdl.lastname;
         _ssntxtfld.text=empmdl.ssn;
-        [_jobsitebtnlbl setTitle:empmdl.jobname forState:UIControlStateNormal];
+        //[_jobsitebtnlbl setTitle:empmdl.jobname forState:UIControlStateNormal];
             
         }
         else
@@ -900,6 +900,15 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"badgejobsite"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     
     if([elementName isEqualToString:@"result"])
     {
@@ -1021,6 +1030,14 @@
         _badgenumbrtxtfld.text=_soapResults;
          _soapResults=nil;
     }
+    if([elementName isEqualToString:@"badgejobsite"])
+    {
+        recordResults=FALSE;
+        [_jobsitebtnlbl setTitle:_soapResults forState:UIControlStateNormal];
+        _soapResults=nil;
+    }
+    
+
     
     if([elementName isEqualToString:@"result"])
     {

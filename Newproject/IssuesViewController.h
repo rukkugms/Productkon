@@ -11,6 +11,7 @@
 #import "CKCalendarView.h"
 #import "RelatedtoViewController.h"
 #import "Rightscheck.h"
+#import "commentmdl.h"
 @interface IssuesViewController : UIViewController{
     
      BOOL  recordResults;
@@ -98,5 +99,30 @@
 
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
+
+@property (strong, nonatomic)commentmdl *cmntmdl1;
+@property (strong, nonatomic)NSMutableArray*commentarray;
+@property (strong, nonatomic) IBOutlet UITableViewCell *cmntcell;
+@property (strong, nonatomic) IBOutlet UITextView *cmmntcelltxtview;
+@property (strong, nonatomic) IBOutlet UILabel *cmntlbl;
+
+@property(strong,nonatomic)IBOutlet UIButton *savecmntbtn;
+@property (strong, nonatomic) IBOutlet UITextView *Cmmntgtextview;
+@property (strong, nonatomic) IBOutlet UIView *cmmntview;
+
+@property (strong, nonatomic) IBOutlet UITableView *cmmnttable;
+
+
+@property (strong, nonatomic) IBOutlet UIView *newcmntview;
+- (IBAction)cmntsavebtn:(id)sender;
+- (IBAction)cancelcmnt:(id)sender;
+- (IBAction)closecmnt:(id)sender;
+
+
+@property (strong, nonatomic) IBOutlet UIButton *cmmntbtn;
+
+- (IBAction)cmntbtn:(id)sender;
+- (IBAction)addcmt:(id)sender;
+
 
 @end
