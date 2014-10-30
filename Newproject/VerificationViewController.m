@@ -2300,6 +2300,8 @@ ssnclck++;
 
 
 - (IBAction)clsebtn:(id)sender {
+    _verifybtnlbl.enabled=YES;
+    _movebtnlbl.enabled=YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)dobbtn:(id)sender {
