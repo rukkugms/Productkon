@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Firstmarkmdl : NSObject
+@interface Fstmarkmdl : NSObject
 
 @property(strong,nonatomic)NSString *MarkupEntryId;
 @property(strong,nonatomic)NSString *MarkUpName;

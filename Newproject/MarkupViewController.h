@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Mastermarkmodel.h"
 #import "Markupmainmodel.h"
-#import "Firstmarkmdl.h"
+#import "Fstmarkmdl.h"
 #import "DetailmarkupsectionViewController.h"
 
 
@@ -23,7 +23,7 @@
     NSInteger selectedcell;
 }
 @property(strong,nonatomic)Mastermarkmodel *master;
-@property(strong,nonatomic)Firstmarkmdl *firstmdl;
+@property(strong,nonatomic)Fstmarkmdl *firstmdl;
 @property(strong,nonatomic)Markupmainmodel *mainmarkmodel;
 @property(strong,nonatomic)DetailmarkupsectionViewController *markVctrlr;
 

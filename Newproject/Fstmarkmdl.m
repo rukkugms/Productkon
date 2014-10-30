@@ -6,10 +6,11 @@
 //  Copyright (c) 2014 GMSIndia1. All rights reserved.
 //
 
-#import "Firstmarkmdl.h"
+#import "Fstmarkmdl.h"
 
-@implementation Firstmarkmdl
+@implementation Fstmarkmdl
 
 
 
 @end
+

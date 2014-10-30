@@ -179,7 +179,7 @@
 {
     if (tableView==_popovertableview)
     {
-        Firstmarkmdl *first=(Firstmarkmdl*)[_listarray objectAtIndex:indexPath.row];
+        Fstmarkmdl *first=(Fstmarkmdl*)[_listarray objectAtIndex:indexPath.row];
         if ([first.CompanyStd isEqualToString:@"true"]) {
             [_markupbutton setTitle:[_markuparray objectAtIndex:indexPath.row]forState:UIControlStateNormal];
             mark=[_markuparray objectAtIndex:indexPath.row];
@@ -791,7 +791,7 @@
     if ([elementName isEqualToString:@"MarkupEntryId"]) {
         
         recordResults=FALSE;
-        _firstmdl=[[Firstmarkmdl alloc]init];
+        _firstmdl=[[Fstmarkmdl alloc]init];
         _firstmdl.MarkupEntryId=_soapresults;
         _markupstring=_soapresults;
         _soapresults=nil;
