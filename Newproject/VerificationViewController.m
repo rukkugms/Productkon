@@ -30,8 +30,8 @@
     self.scroll.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     // Do any additional setup after loading the view from its nib.
        [self AllSkills];
-    _userdict=[[NSMutableDictionary alloc]init];
-    [_userdict setObject:@"Admin" forKey:@"1"];
+   // _userdict=[[NSMutableDictionary alloc]init];
+    //[_userdict setObject:@"Admin" forKey:@"1"];
     self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     //_view1.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
      _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
@@ -57,6 +57,9 @@
     _yearArray=[[NSMutableArray alloc]initWithObjects:@"2013",@"2014",@"2015",@"2016",@"2017",@"2018",@"2019",@"2020",@"2021",@"2022",@"2023", nil];
     _remonthDictionary=[[NSMutableDictionary alloc]initWithObjects:_monthArray forKeys:_monthdictArray];
      self.verifctnview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    _useridname = [defaults objectForKey:@"Userid"];
+
     
      }
 
@@ -578,7 +581,7 @@ ssnclck++;
                    "<type>%@</type>\n"
                    "</InsertVerificationComments>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_applicantid,1,_cmmnttextview.text,_type];
+                   "</soap:Envelope>\n",_applicantid,[_useridname integerValue],_cmmnttextview.text,_type];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -2048,6 +2051,7 @@ ssnclck++;
     if([elementName isEqualToString:@"User_Id"])
     {
         recordResults=FALSE;
+        
         _verfylbl.text=[_userdict objectForKey:_soapResults];
         
         _soapResults=nil;
