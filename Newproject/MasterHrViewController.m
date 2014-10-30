@@ -42,7 +42,7 @@
     searchController.searchResultsDataSource = (id)self;
     searchController.searchResultsDelegate =(id)self;
     searchController.delegate = (id)self;
-
+   _processbtn.userInteractionEnabled=YES;
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -60,7 +60,7 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)selectdisclosure:(id)sender
-{
+{   _processbtn.userInteractionEnabled=YES;
     poptype=1;
     UIViewController* popoverContent = [[UIViewController alloc]init];
     UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 130, 42)];
@@ -160,6 +160,8 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         [_sitechecklbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         [_officechecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         _jobsitebtnlbl.enabled=YES;
+        jobsite=1;
+        office=0;
         //_sitechecklbl.enabled=NO;
         
     }
@@ -169,6 +171,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         
         [_officechecklbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         _jobsitebtnlbl.enabled=NO;
+        jobsite=0;
         //_sitechecklbl.enabled=YES;
         
     }
@@ -182,6 +185,8 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         [_officechecklbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         [_sitechecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         _jobsitebtnlbl.enabled=NO;
+        office=1;
+        jobsite=0;
         //_officechecklbl.enabled=NO;
         
     }
@@ -190,7 +195,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         [_officechecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         [_sitechecklbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         _jobsitebtnlbl.enabled=YES;
-        
+        office=0;
         //_officechecklbl.enabled=YES;
         
     }
@@ -204,13 +209,28 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     
 }
 - (IBAction)processbtn:(id)sender {
-    //    if (btntouch%2&&chektouch%2){
-    //
-    //
-    //    }
-    
-    
+    if (office==0&&jobsite==0) {
+        UIAlertView *Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select an option to process the applicant" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [Alert show];
+    }
+  else if (jobsite==1) {
+        if ([_jobsitebtnlbl.titleLabel.text isEqualToString:@"Select Jobsite"]) {
+            UIAlertView *Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select a jobsite" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [Alert show];
+        }
+        else
+        {
+             [self MoveApplicanttoInprocess];
+             _processbtn.userInteractionEnabled=NO;
+        }
+    }
+    else if (office==1)
+    {
     [self MoveApplicanttoInprocess];
+         _processbtn.userInteractionEnabled=NO;
+    }
+    
+   
 }
 #pragma mark - SearchBar
 
@@ -1374,6 +1394,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+        _processbtn.userInteractionEnabled=YES;
         _soapResults = nil;
 
     }

@@ -15,6 +15,9 @@
 
 @property(strong,nonatomic)Empdetails *empmdl;
 @property(strong,nonatomic)NSMutableArray *detailarray;
+@property(strong,nonatomic)NSMutableArray *montharray;
+@property(strong,nonatomic)NSMutableArray *remontharray;
+@property(strong,nonatomic)NSMutableDictionary *remonthdict;
 - (IBAction)closedetail:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *adresslbl;
 @property (strong, nonatomic) IBOutlet UILabel *citylbl;
@@ -37,6 +40,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *firstlbl;
 @property (strong, nonatomic) IBOutlet UILabel *lastlbl;
 @property (strong, nonatomic) IBOutlet UILabel *ssnlbl;
+@property (strong, nonatomic) IBOutlet UILabel *twicnolbl;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *gendersegment;
 
 
 @end
