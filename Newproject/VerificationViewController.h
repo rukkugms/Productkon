@@ -165,4 +165,8 @@
 
 - (IBAction)movebtn:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UIButton *verifybtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *movebtnlbl;
+
+
 @end
