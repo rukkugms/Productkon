@@ -10,6 +10,7 @@
                 <outlet property="applicantprocessview" destination="KsU-an-iHs" id="3fK-Fw-oUE"/>
                 <outlet property="hrtable" destination="Uxd-Fy-5eZ" id="onx-XK-aqD"/>
                 <outlet property="jobsitebtnlbl" destination="eKA-PI-cXV" id="hcY-Hx-tJP"/>
+                <outlet property="navitem" destination="909-VB-z0J" id="sZY-wY-mhE"/>
                 <outlet property="officechecklbl" destination="heN-Aq-dVW" id="6mE-3g-xPA"/>
                 <outlet property="processbtn" destination="drZ-Ya-rRK" id="Qr0-yv-TbI"/>
                 <outlet property="sitechecklbl" destination="2Qj-E8-prV" id="dAR-vZ-Gyg"/>

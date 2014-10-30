@@ -22,6 +22,7 @@
     NSInteger poptype;
     NSInteger jobsite;
     NSInteger office;
+     NSString *ssn;
 }
 
 @property(strong,nonatomic)Empdetails *empdetl;
@@ -49,6 +50,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *jobsitebtnlbl;
 @property (strong, nonatomic) IBOutlet UIButton *sitechecklbl;
 @property(strong,nonatomic)IBOutlet UIButton *processbtn;
+@property(strong,nonatomic)IBOutlet UINavigationItem *navitem;
 
 /*IBActions*/
 -(IBAction)CloseThisPAge:(id)sender;

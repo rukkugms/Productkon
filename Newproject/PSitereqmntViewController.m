@@ -223,6 +223,16 @@
 
     }
 }
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView==_popOverTableView)
+        
+    {
+        return self.editing ;
+    }
+    return YES;
+    
+}
 #pragma mark -
 #pragma mark UIGestureRecognizer
 
@@ -434,7 +444,7 @@
             NSIndexPath* indexPath = [_jobtble indexPathForRowAtPoint:[gestureRecognizer locationInView:_jobtble]];
             if(indexPath != nil)
             {
-                  jobsitemodel*jobsitemdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:indexPath.row];
+                  jobsitemodel*jobsitemdl=(jobsitemodel *)[_newjobarray objectAtIndex:indexPath.row];
                 jobsitemdl.jobno=draggedData;
                 
                              [_newjobarray addObject:jobsitemdl];
@@ -470,7 +480,7 @@
                     
                 }
                 else{
-                    jobsitemodel*jobsitemdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:indexPath.row];
+                    jobsitemodel*jobsitemdl=(jobsitemodel *)[_newjobarray objectAtIndex:indexPath.row];
                     jobsitemdl.jobno=draggedData;
                     
                     [_newjobarray addObject:jobsitemdl];

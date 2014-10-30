@@ -41,8 +41,16 @@
     
     
     
-    NSArray*d2=[_empmdl.dob componentsSeparatedByString:@"T"];
-    _doblbl.text=[d2 objectAtIndex:0];
+    NSArray*ary=[_empmdl.dob componentsSeparatedByString:@"T"];
+    NSString*news=[ary objectAtIndex:0];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    NSDate *dates = [dateFormat dateFromString:news];
+    [dateFormat setDateFormat:@"MM-dd-yyy"];
+    NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+    _doblbl.text=myFormattedDate;
+
+    //_doblbl.text=[d2 objectAtIndex:0];
     _phonelbl.text=_empmdl.phone;
     NSString *fullURL =[NSString stringWithFormat:@"http://192.168.0.175:7342/files/docs/hr/%@",_empmdl.photo]  ;
    
