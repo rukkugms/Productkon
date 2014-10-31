@@ -262,11 +262,12 @@
         NSString*curntdate = [dateFormat stringFromDate:daa];
         NSLog(@"%@",curntdate);
     filename=[NSString stringWithFormat:@"%@-%@.jpg",curntdate,_savename];
-
+//filename=[NSString stringWithFormat:@"%@-%@-%@-%@.jpg",[_planid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]],@"Meeting",curntdate,_savename];
     }
     else
     {
     filename=[NSString stringWithFormat:@"%@-%@.jpg",_datestrg,_savename];
+       //  filename=[NSString stringWithFormat:@"%@-%@-%@-%@.jpg",[_planid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]],@"Meeting",_datestrg,_savename];
 }
     
     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
@@ -334,11 +335,12 @@
         NSString*curntdate = [dateFormat stringFromDate:daa];
         NSLog(@"%@",curntdate);
         filename=[NSString stringWithFormat:@"%@-%@.jpg",curntdate,_savename];
-        
+        // filename=[NSString stringWithFormat:@"%@-%@-%@-%@.jpg",[_planid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]],@"Meeting",curntdate,_savename];
     }
     else
     {
         filename=[NSString stringWithFormat:@"%@-%@.jpg",_datestrg,_savename];
+         //filename=[NSString stringWithFormat:@"%@-%@-%@-%@.jpg",[_planid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]],@"Meeting",_datestrg,_savename];
     }
 
   

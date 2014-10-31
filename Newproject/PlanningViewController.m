@@ -2052,7 +2052,7 @@
         recordResults = FALSE;
         _plnmdl.complexity=_soapResults;
         
-        
+          [_planlistarray addObject:_plnmdl];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"manhrs"])
@@ -2071,7 +2071,7 @@
         
         recordResults = FALSE;
         _plnmdl.equphrs=_soapResults;
-        [_planlistarray addObject:_plnmdl];
+      
         
         _soapResults = nil;
     }
