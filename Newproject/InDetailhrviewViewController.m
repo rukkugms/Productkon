@@ -52,7 +52,7 @@
 
     //_doblbl.text=[d2 objectAtIndex:0];
     _phonelbl.text=_empmdl.phone;
-    NSString *fullURL =[NSString stringWithFormat:@"http://192.168.0.175:7342/files/docs/hr/%@",_empmdl.photo]  ;
+    NSString *fullURL =[NSString stringWithFormat:@"http://ios.kontract360.com/files/docs/hr/%@",_empmdl.photo]  ;
    
     
     

@@ -578,8 +578,8 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         _datesstrg=[NSString stringWithFormat:@"%@T%@",dateString,newformat];
     }
     
-    
-  
+     NSString*nestrg=[NSString stringWithFormat:@"%@-%@-%@",[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]],@"Meeting",filename];
+    //NSString*nestrg=[NSString stringWithFormat:@"%@-%@-%@",_companyid,@"Meeting",filename];
     
   
     
@@ -600,7 +600,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    "<Type>%d</Type>\n"
                    "</SitevisitInsertmeetingnotes>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_datesstrg,_meetgdetailslbl.text,[useridname integerValue],_companyid,filename,typ];
+                   "</soap:Envelope>\n",_datesstrg,_meetgdetailslbl.text,[useridname integerValue],_companyid,nestrg,typ];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -861,7 +861,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         
     }
 
-    
+      NSString*nestrg=[NSString stringWithFormat:@"%@-%@-%@",[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]],@"Meeting",filename];
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -881,7 +881,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    "<Type>%d</Type>\n"
                     "</SitevisitInsertNotes>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_datesstrg ,_notestxtfld.text,[useridname integerValue],_companyid,_datesstrg,filename,typ];
+                   "</soap:Envelope>\n",_datesstrg ,_notestxtfld.text,[useridname integerValue],_companyid,_datesstrg,nestrg,typ];
     NSLog(@"soapmsg%@",soapMessage);
     
     
