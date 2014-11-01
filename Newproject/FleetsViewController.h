@@ -14,6 +14,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "Rightscheck.h"
 #import "RSTViewController.h"
+#import "SubCatViewController.h"
 
 @interface FleetsViewController : UIViewController{
 
@@ -32,9 +33,12 @@ NSInteger popvr;
     NSString *createstring;
     NSInteger createcheck;
     NSInteger imagechecker;
+    
 
     
 }
+@property(readwrite)NSInteger fleetid;
+@property(strong,nonatomic)SubCatViewController *CategryVCtrl;
 @property(strong,nonatomic)NSMutableDictionary *skilldict;
 @property(strong,nonatomic)NSMutableDictionary *revskilldict;
 
@@ -143,6 +147,9 @@ NSInteger popvr;
 @property(strong,nonatomic)RSTViewController *rstctrlr;
 - (IBAction)checksubtypebtn:(id)sender;
 @property(strong,nonatomic)IBOutlet UIButton *subcheckbtn;
+@property (strong, nonatomic) IBOutlet UIButton *categrybtnlbl;
+
+- (IBAction)categrybtn:(id)sender;
 
 
 @end

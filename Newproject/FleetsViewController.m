@@ -2618,4 +2618,20 @@ finishedSavingWithError:(NSError *)error
 
 
 
+- (IBAction)categrybtn:(id)sender {
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.fleetTable];
+    NSIndexPath *textFieldIndexPath = [self.fleetTable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    path=textFieldIndexPath.row;
+    Equpmntmdl*eqmdl=(Equpmntmdl *)[_fleetarray objectAtIndex:textFieldIndexPath.row];
+    _fleetid=eqmdl.entryid;
+    self.CategryVCtrl=[[SubCatViewController alloc]initWithNibName:@"SubCatViewController" bundle:nil];
+    self.CategryVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    
+    self.CategryVCtrl.fleetid=_fleetid;
+    [self presentViewController:self.CategryVCtrl animated:YES completion:nil];
+    
+}
 @end
