@@ -157,6 +157,13 @@
 		D4049669192F183B00685109 /* GroupEqupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4049667192F183B00685109 /* GroupEqupViewController.xib */; };
 		D404966D192F2DEA00685109 /* GEqupcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D404966C192F2DEA00685109 /* GEqupcell.xib */; };
 		D404966F192F3DCE00685109 /* ecrewcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D404966E192F3DCE00685109 /* ecrewcell.xib */; };
+		D404A21D1A03483A0086E40A /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D404A21B1A03483A0086E40A /* CategoryViewController.m */; };
+		D404A21E1A03483A0086E40A /* CategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D404A21C1A03483A0086E40A /* CategoryViewController.xib */; };
+		D404A2211A0361890086E40A /* Catergrymdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D404A2201A0361890086E40A /* Catergrymdl.m */; };
+		D404A2231A0364270086E40A /* CatergryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D404A2221A0364270086E40A /* CatergryCell.xib */; };
+		D404A2271A0389BD0086E40A /* SubCatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D404A2251A0389BD0086E40A /* SubCatViewController.m */; };
+		D404A2281A0389BE0086E40A /* SubCatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D404A2261A0389BD0086E40A /* SubCatViewController.xib */; };
+		D404A22A1A03940F0086E40A /* SubcatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D404A2291A03940F0086E40A /* SubcatCell.xib */; };
 		D404F36D197E369E00458EF4 /* payementmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D404F36C197E369E00458EF4 /* payementmdl.m */; };
 		D40720871772F37D0070629A /* ContactInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649AE8801772DFDA00CAECE7 /* ContactInfoViewController.m */; };
 		D40720881772F38A0070629A /* SalesRepInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649AE8851772DFF200CAECE7 /* SalesRepInfoViewController.m */; };
@@ -801,6 +808,16 @@
 		D4049667192F183B00685109 /* GroupEqupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupEqupViewController.xib; sourceTree = "<group>"; };
 		D404966C192F2DEA00685109 /* GEqupcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GEqupcell.xib; sourceTree = "<group>"; };
 		D404966E192F3DCE00685109 /* ecrewcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ecrewcell.xib; sourceTree = "<group>"; };
+		D404A21A1A03483A0086E40A /* CategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
+		D404A21B1A03483A0086E40A /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
+		D404A21C1A03483A0086E40A /* CategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryViewController.xib; sourceTree = "<group>"; };
+		D404A21F1A0361890086E40A /* Catergrymdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Catergrymdl.h; sourceTree = "<group>"; };
+		D404A2201A0361890086E40A /* Catergrymdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Catergrymdl.m; sourceTree = "<group>"; };
+		D404A2221A0364270086E40A /* CatergryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatergryCell.xib; sourceTree = "<group>"; };
+		D404A2241A0389BD0086E40A /* SubCatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCatViewController.h; sourceTree = "<group>"; };
+		D404A2251A0389BD0086E40A /* SubCatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubCatViewController.m; sourceTree = "<group>"; };
+		D404A2261A0389BD0086E40A /* SubCatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubCatViewController.xib; sourceTree = "<group>"; };
+		D404A2291A03940F0086E40A /* SubcatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubcatCell.xib; sourceTree = "<group>"; };
 		D404F36B197E369E00458EF4 /* payementmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = payementmdl.h; sourceTree = "<group>"; };
 		D404F36C197E369E00458EF4 /* payementmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = payementmdl.m; sourceTree = "<group>"; };
 		D40736BC18BB1E9B00C5DB30 /* right_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_arrow.png; sourceTree = "<group>"; };
@@ -1551,6 +1568,14 @@
 				64A5ED4B19C2C4EC002E0018 /* RSTViewController.m */,
 				64A5ED4C19C2C4EC002E0018 /* RSTViewController.xib */,
 				64A5ED4F19C2D7D3002E0018 /* Subcell.xib */,
+				D404A21A1A03483A0086E40A /* CategoryViewController.h */,
+				D404A21B1A03483A0086E40A /* CategoryViewController.m */,
+				D404A21C1A03483A0086E40A /* CategoryViewController.xib */,
+				D404A2221A0364270086E40A /* CatergryCell.xib */,
+				D404A2241A0389BD0086E40A /* SubCatViewController.h */,
+				D404A2251A0389BD0086E40A /* SubCatViewController.m */,
+				D404A2261A0389BD0086E40A /* SubCatViewController.xib */,
+				D404A2291A03940F0086E40A /* SubcatCell.xib */,
 				D4049664192F17DD00685109 /* Group SetUp */,
 			);
 			name = Resources;
@@ -2287,6 +2312,8 @@
 				D414174119F7B69900A2E761 /* Timeoutmdl.m */,
 				64B07B651A00B46400304153 /* Fstmarkmdl.h */,
 				64B07B661A00B46400304153 /* Fstmarkmdl.m */,
+				D404A21F1A0361890086E40A /* Catergrymdl.h */,
+				D404A2201A0361890086E40A /* Catergrymdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -2569,6 +2596,7 @@
 				D42D8C1D18D2D91C009D8085 /* venderViewController.xib in Resources */,
 				D4A16B611974EEA8002CA2A2 /* maintablecell.xib in Resources */,
 				D49E056318C71B7100AF6330 /* Cmanpwrcell.xib in Resources */,
+				D404A2281A0389BE0086E40A /* SubCatViewController.xib in Resources */,
 				D41B14E6195BF4CE00DEED6E /* Relatedtocell.xib in Resources */,
 				64A09DB118605711001F74E2 /* appbar.delete.png in Resources */,
 				D4F0AD4519306866004821DD /* Magpcell.xib in Resources */,
@@ -2654,6 +2682,7 @@
 				D4A16B5B1974EEA8002CA2A2 /* scaffoldcell.xib in Resources */,
 				D4F19DF118D03AD1007617F0 /* newCommentCell.xib in Resources */,
 				D4FE170C1918ED1000C8DA58 /* Srch.png in Resources */,
+				D404A22A1A03940F0086E40A /* SubcatCell.xib in Resources */,
 				D44BEA7218E0252600719ED5 /* BranchViewController.xib in Resources */,
 				D4A6748C19345E6C00D5A77E /* IconPubHol.png in Resources */,
 				D4A16B4E1974EEA8002CA2A2 /* DetailplanViewController.xib in Resources */,
@@ -2790,6 +2819,7 @@
 				D4A3977819CFE8DE00E2514C /* PServiceViewController.xib in Resources */,
 				D4F7D9CE196E5B5200B8F4D4 /* ResourceMovement.png in Resources */,
 				649F45E219457D1800E89F5C /* LabourViewController.xib in Resources */,
+				D404A21E1A03483A0086E40A /* CategoryViewController.xib in Resources */,
 				D404966F192F3DCE00685109 /* ecrewcell.xib in Resources */,
 				D4D7A28D17F5401000880E38 /* profilepicture.png in Resources */,
 				D47A9B101940405E001CC416 /* Jobdrag.xib in Resources */,
@@ -2861,6 +2891,7 @@
 				D41B14E0195BF18400DEED6E /* RelatedtoViewController.xib in Resources */,
 				D47A9B1F19407AA2001CC416 /* folder-rights.png in Resources */,
 				64955C9C180E52D5000A86A1 /* WebViewController.xib in Resources */,
+				D404A2231A0364270086E40A /* CatergryCell.xib in Resources */,
 				D4A16B4A1974EEA8002CA2A2 /* otherbiddrecordaddview.xib in Resources */,
 				64A3B81618DFEE980015887F /* CommentsCells.xib in Resources */,
 				D47A9B2E19407D3A001CC416 /* groupsetupicon.png in Resources */,
@@ -3001,6 +3032,7 @@
 				649EE4C219614866008DEF02 /* LbrMgmtViewController.m in Sources */,
 				D4F19D9F18D01CDB007617F0 /* NewCustmrViewController.m in Sources */,
 				D4A674C019345FFD00D5A77E /* DPCalendarTestCreateEventViewController.m in Sources */,
+				D404A2271A0389BD0086E40A /* SubCatViewController.m in Sources */,
 				D4AA4F9219655D0200916138 /* Absentmdl.m in Sources */,
 				D4A16B381974EEA8002CA2A2 /* AddserviceViewController.m in Sources */,
 				64AE02B61949AC56002D44B6 /* InOutSiteViewController.m in Sources */,
@@ -3052,6 +3084,7 @@
 				64A2F9AD19CBE425009B1018 /* LdtypViewController.m in Sources */,
 				64A3B81318DFEE980015887F /* LeadsViewController.m in Sources */,
 				D499D29A196AB39A008D248A /* Timesheetmdl.m in Sources */,
+				D404A2211A0361890086E40A /* Catergrymdl.m in Sources */,
 				D41499AF194573A2001E9146 /* ManagemttileViewController.m in Sources */,
 				D49F875518EEA36B00413CAD /* allfolderrights.m in Sources */,
 				D4A10B731936F588001856F8 /* Eventmdl.m in Sources */,
@@ -3080,6 +3113,7 @@
 				D41499B4194575BB001E9146 /* MovementtileViewController.m in Sources */,
 				D42D8C0718D2D8AC009D8085 /* folderrightsViewController.m in Sources */,
 				D49F875718EEA36B00413CAD /* listusermdl.m in Sources */,
+				D404A21D1A03483A0086E40A /* CategoryViewController.m in Sources */,
 				D4FEF52218FE85560047E6BD /* Fmodel.m in Sources */,
 				D4FED40F17F16EEE004BE242 /* VerificationViewController.m in Sources */,
 				D4A3977D19D0191A00E2514C /* Plaservcemdl.m in Sources */,
