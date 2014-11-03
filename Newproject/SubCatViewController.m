@@ -34,6 +34,7 @@
     // Do any additional setup after loading the view from its nib.
     _categorytabe.layer.borderWidth=3.0;
     _categorytabe.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
+    //[self MultiFleetCategoryselect];
 
 }
 
@@ -231,7 +232,7 @@
 -(void)FleetcategorysubtypeDelete{
     webtype=3;
     recordResults = FALSE;
-    Catergrymdl*categrymdl=(Catergrymdl *)[_categryarray objectAtIndex:path];
+    Catergrymdl*categrymdl=(Catergrymdl *)[_FLcategryarray objectAtIndex:path];
     NSString *soapMessage;
     
     
@@ -248,7 +249,7 @@
                     "<FLCatSubTypeId>%d</FLCatSubTypeId>\n"
                    "</FleetcategorysubtypeDelete>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_fleetid,categrymdl.SubTypeId];
+                   "</soap:Envelope>\n",_fleetid,[categrymdl.SubTypeId integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -359,6 +360,7 @@
     if([elementName isEqualToString:@"FleetCategoryselectResponse"])
     {
         _catagrydict=[[NSMutableDictionary alloc]init];
+         _FLcategryarray=[[NSMutableArray alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -443,8 +445,9 @@
 {
     if([elementName isEqualToString:@"FLCatEntryId"])
     {
-        
+         _categrymdl=[[Catergrymdl alloc]init];
          recordResults = FALSE;
+        _categrymdl.entryid=_soapResults;
         catid=_soapResults;
         _soapResults=nil;
 
@@ -461,7 +464,7 @@
     {
         
         recordResults = FALSE;
-       
+          _categrymdl.SubTypeId=_soapResults;
         _soapResults=nil;
         
     }
@@ -469,6 +472,8 @@
     {
         
         recordResults = FALSE;
+           _categrymdl.SubTypeName=_soapResults;
+        [_FLcategryarray addObject:_categrymdl];
          [_catagrydict setObject:catid forKey:_soapResults];
         _soapResults=nil;
 
