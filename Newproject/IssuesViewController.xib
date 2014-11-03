@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IssuesViewController">
             <connections>
                 <outlet property="addview" destination="IbQ-2V-qxd" id="nfX-c9-76a"/>
-                <outlet property="cancelbtnlbl" destination="t9X-Fb-bel" id="QiS-IE-shq"/>
+                <outlet property="cancelcmt" destination="t9X-Fb-bel" id="GJa-z6-P4D"/>
                 <outlet property="cmmnttable" destination="DvX-dd-3cj" id="bhh-yI-nsx"/>
                 <outlet property="cmmntview" destination="y6d-Bf-s3z" id="x4I-5l-K9s"/>
                 <outlet property="cmmttxtview" destination="JpV-J0-UTQ" id="ALK-Xq-7mX"/>
@@ -278,7 +278,7 @@
                                 <action selector="addcmt:" destination="-1" eventType="touchUpInside" id="V2H-eA-HJV"/>
                             </connections>
                         </button>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="117" sectionHeaderHeight="22" sectionFooterHeight="22" id="DvX-dd-3cj">
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="126" sectionHeaderHeight="22" sectionFooterHeight="22" id="DvX-dd-3cj">
                             <rect key="frame" x="14" y="56" width="495" height="453"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -298,25 +298,25 @@
                             </connections>
                         </button>
                         <view hidden="YES" contentMode="scaleToFill" id="haX-gE-UMV">
-                            <rect key="frame" x="15" y="55" width="494" height="106"/>
+                            <rect key="frame" x="16" y="56" width="490" height="121"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="JpV-J0-UTQ">
-                                    <rect key="frame" x="18" y="20" width="461" height="56"/>
+                                    <rect key="frame" x="13" y="17" width="461" height="65"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="New Comment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d20-Y5-9Ov">
-                                    <rect key="frame" x="18" y="3" width="99" height="21"/>
+                                    <rect key="frame" x="13" y="0.0" width="99" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="E7k-nQ-6eV">
-                                    <rect key="frame" x="144" y="75" width="73" height="25"/>
+                                    <rect key="frame" x="139" y="88" width="73" height="25"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                     <state key="normal" title="Save">
@@ -328,13 +328,16 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="t9X-Fb-bel">
-                                    <rect key="frame" x="234" y="75" width="73" height="25"/>
+                                    <rect key="frame" x="229" y="88" width="73" height="25"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                     <state key="normal" title="Cancel">
                                         <color key="titleColor" red="0.27450980390000002" green="0.50980392159999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="cancelcmnt:" destination="-1" eventType="touchUpInside" id="KzV-Ib-66p"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

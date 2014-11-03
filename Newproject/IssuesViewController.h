@@ -16,11 +16,12 @@
     
      BOOL  recordResults;
     NSString*jobnumber;
-    NSInteger poptype;
+    NSInteger poptype ,webtype;
     UIButton*button;
     NSInteger btntype;
      NSInteger btnindex;
  UIDatePicker *timePick;
+    NSString *resultstring;
 }
 
 @property(strong,nonatomic)RelatedtoViewController*relatedtoVCtrl;
@@ -105,9 +106,9 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *cmntcell;
 @property (strong, nonatomic) IBOutlet UITextView *cmmntcelltxtview;
 @property (strong, nonatomic) IBOutlet UILabel *cmntlbl;
-
+@property(strong,nonatomic)IBOutlet UILabel *cmntdatelbl;
 @property(strong,nonatomic)IBOutlet UIButton *savecmntbtn;
-@property (strong, nonatomic) IBOutlet UITextView *Cmmntgtextview;
+
 @property (strong, nonatomic) IBOutlet UIView *cmmntview;
 
 @property (strong, nonatomic) IBOutlet UITableView *cmmnttable;
@@ -118,8 +119,10 @@
 - (IBAction)cancelcmnt:(id)sender;
 - (IBAction)closecmnt:(id)sender;
 
-
+@property(strong,nonatomic)NSString *issueid;
 @property (strong, nonatomic) IBOutlet UIButton *cmmntbtn;
+
+@property (strong, nonatomic) IBOutlet UIButton *cancelcmt;
 
 - (IBAction)cmntbtn:(id)sender;
 - (IBAction)addcmt:(id)sender;

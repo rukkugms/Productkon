@@ -16,6 +16,7 @@
 @property(readwrite)NSInteger activityid;
 @property(readwrite)NSInteger leadid;
 
+@property(strong,nonatomic)NSString*commentcode;
 
 
 

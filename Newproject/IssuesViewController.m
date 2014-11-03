@@ -71,12 +71,11 @@
     searchController.searchResultsDelegate =(id)self;
     searchController.delegate = (id)self;
      self.issuetable.tableHeaderView =_searchbar;
-    [[self.Cmmntgtextview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
-    [[self.Cmmntgtextview layer] setBorderWidth:2];
-    [[self.Cmmntgtextview layer] setCornerRadius:10];
+    [[self.cmmntcelltxtview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+    [[self.cmmntcelltxtview layer] setBorderWidth:2];
+    [[self.cmmntcelltxtview layer] setCornerRadius:10];
 
- 
-
+    _newcmntview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -120,11 +119,11 @@
         }
        
     }
-    if (tableView==_cmmnttable){
+   else if (tableView==_cmmnttable){
         return [_commentarray count];
     }
 
-    else{
+    else if (tableView==_issuetable){
     return [_Issuearray count];
     }
     return YES;
@@ -143,11 +142,11 @@
          cell=_issuecell;
          }
         if(tableView==_cmmnttable){
-            
+            _cmmnttable.rowHeight=120;
             [[NSBundle mainBundle]loadNibNamed:@"Issuecommentcell" owner:self options:nil];
             cell=_cmntcell;
             
-            
+              [self.cmmnttable.layer setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
             
             
         }
@@ -170,11 +169,34 @@
              default:
                  break;
          }
+     }
          if(tableView==_cmmnttable){
+             commentmdl *cmnt1=(commentmdl *)[_commentarray objectAtIndex:indexPath.row];
+             
+             
+             //                [[self.newcmmnttxtview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+             //                [[self.newcmmnttxtview layer] setBorderWidth:2];
+             //                [[self.newcmmnttxtview layer] setCornerRadius:10];
+             _cmmntcelltxtview=(UITextView *)[cell viewWithTag:1];
+             
+
+             _cmmntcelltxtview.text=cmnt1.comments;
+             _cmntdatelbl=(UILabel *)[cell viewWithTag:2];
+             NSArray*ary=[cmnt1.commentdate componentsSeparatedByString:@"T"];
+             NSString*news=[ary objectAtIndex:0];
+             NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+             [dateFormat setDateFormat:@"yyyy-MM-dd"];
+             NSDate *dates = [dateFormat dateFromString:news];
+             [dateFormat setDateFormat:@"MM-dd-yyy"];
+             NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+             NSString *xstring=[[ary objectAtIndex:1] stringByReplacingOccurrencesOfString:@"-" withString:@"."];
+             NSArray *tarray=[xstring componentsSeparatedByString:@"."];
+             
+             _cmntdatelbl.text=[NSString stringWithFormat:@"%@ %@",myFormattedDate,[tarray objectAtIndex:0]];
 
 
          }
-     }
+     
      if(tableView==_issuetable){
     Issuemdl*issues=(Issuemdl *)[_Issuearray objectAtIndex:indexPath.row];
     _numbrlbl=(UILabel *)[cell viewWithTag:1];
@@ -211,12 +233,7 @@
                
                  
                  break;
-             case 4:
-                
-                 
-                 
-                 break;
-
+             
              default:
                  break;
          }
@@ -248,6 +265,7 @@
 
 #pragma mark-Web Service
 -(void)IssueManagementSelect{
+    webtype=1;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -353,7 +371,7 @@
 //    NSArray*array=[_jobsitebtnlbl.titleLabel.text componentsSeparatedByString:@"-"];
 //    NSString*jobno=[NSString stringWithFormat:@"%@-%@",[array objectAtIndex:0],[array objectAtIndex:1]];
 //  
-    
+    _cmmttxtview.text=@"";
     NSString*type=[_typedict objectForKey:_typebtnlbl.titleLabel.text];
     NSString*datetime=[NSString stringWithFormat:@"%@ %@",_datebtnlbl.titleLabel.text,_timebtn.titleLabel.text];
     NSString *soapMessage;
@@ -409,6 +427,7 @@
 }
 -(void)IssueManagementUpdate{
     recordResults = FALSE;
+     _cmmttxtview.text=@"";
     Issuemdl*ismdl=(Issuemdl*)[_Issuearray objectAtIndex:btnindex];
    // NSArray*array=[_jobsitebtnlbl.titleLabel.text componentsSeparatedByString:@"-"];
    // NSString*jobno=[NSString stringWithFormat:@"%@-%@",[array objectAtIndex:0],[array objectAtIndex:1]];
@@ -520,6 +539,150 @@
     }
     
 }
+-(void)IssueManagementcommentselect{
+    
+    Issuemdl *issuemdl=(Issuemdl *)[_Issuearray objectAtIndex:btnindex];
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<IssueManagementcommentselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<IMMItemCode>%@</IMMItemCode>\n"
+                   "</IssueManagementcommentselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",issuemdl.itemcode];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/IssueManagementcommentselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)IssueManagementCommentsInsert{
+    Issuemdl *issuemdl=(Issuemdl *)[_Issuearray objectAtIndex:btnindex];
+    recordResults = FALSE;
+    NSDate*curntdate=[NSDate date];
+    
+    NSLog(@"%@",curntdate);
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"HH:mm:ss a"];
+    NSLog(@"curntdate%@",[dateFormat stringFromDate:curntdate]);
+    NSString*time=[dateFormat stringFromDate:curntdate];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    NSString*date1=[dateFormat stringFromDate:curntdate];
+    NSArray*array1=[time componentsSeparatedByString:@" "];
+    NSString*newformat;
+    if ([[array1 objectAtIndex:1] isEqualToString:@"PM"]) {
+        NSArray*array2=[[array1 objectAtIndex:0]componentsSeparatedByString:@":"];
+        NSInteger a=[[array2 objectAtIndex:0]integerValue];
+        newformat=[NSString stringWithFormat:@"%d:%@:%@",a,[array2 objectAtIndex:1],[array2 objectAtIndex:2]];
+        
+        
+        
+        
+    }
+    else{
+        
+        NSArray*array2=[[array1 objectAtIndex:0]componentsSeparatedByString:@":"];
+        newformat=[NSString stringWithFormat:@"%@:%@:%@",[array2 objectAtIndex:0],[array2 objectAtIndex:1],[array2 objectAtIndex:2]];
+        
+    }
+
+    NSString*today=[NSString stringWithFormat:@"%@T%@",date1,newformat];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+   // NSString*usernameid = [defaults objectForKey:@"UserNameId"];
+    
+    NSString*newstrg=  [_cmmttxtview.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+    
+
+  
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<IssueManagementCommentsInsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<IMMItemCode>%@</IMMItemCode>\n"
+                   "<IMMComments>%@</IMMComments>\n"
+                  " <IMMDate>%@</IMMDate>\n"
+                   "</IssueManagementCommentsInsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",issuemdl.itemcode,newstrg,today];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    //    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/IssueManagementCommentsInsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 
 
 #pragma mark - Connection
@@ -559,8 +722,17 @@
     
   
 	[_xmlParser parse];
-      [_issuetable reloadData];
-    [_popOverTableView reloadData];
+    if (webtype==4) {
+    
+        [_cmmnttable reloadData];
+        webtype=0;
+    }
+    else{
+        [_issuetable reloadData];
+        [_popOverTableView reloadData];
+    }
+    
+  
     
 }
 #pragma mark-xml parser
@@ -708,6 +880,58 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"IssueManagementcommentselectResponse"])
+    {_commentarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"IMCEntryId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"IMMItemCode"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"IMMComments"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"IMMDate"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"IssueManagementCommentsInsertResponse"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+
+
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -842,14 +1066,70 @@
     if([elementName isEqualToString:@"result"])
     {
          recordResults = FALSE;
+        if ([resultstring isEqualToString:@"Comment"]) {
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+//            _savecmntbtn.enabled=YES;
+//            _newcmntview.hidden=YES;
+//            webtype=4;
+//            [self IssueManagementcommentselect];
+           
+        }
+        else
+        {
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         _updatebtnlbl.enabled=YES;
+        
         [self IssueManagementSelect];
+        }
          _soapResults = nil;
     }
+    if([elementName isEqualToString:@"IMCEntryId"])
+    {
+        recordResults = FALSE;
+        _cmntmdl1=[[commentmdl alloc]init];
+        _cmntmdl1.commentId=[_soapResults integerValue];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"IMMItemCode"])
+    {
+        recordResults = FALSE;
+        _cmntmdl1.commentcode=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"IMMComments"])
+    {
+        recordResults = FALSE;
+         _cmntmdl1.comments=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"IMMDate"])
+    {
+        recordResults = FALSE;
+         _cmntmdl1.commentdate=_soapResults;
+        [_commentarray addObject:_cmntmdl1];
+        _soapResults = nil;
+    }
 
-  }
+
+
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if ([alertView.message isEqualToString:@"Inserted Successfully"]) {
+        if ([resultstring isEqualToString:@"Comment"]) {
+        _savecmntbtn.enabled=YES;
+        _newcmntview.hidden=YES;
+            _cmmttxtview.text=@"";
+        webtype=4;
+        [self IssueManagementcommentselect];
+            resultstring=@"";
+}
+    
+    }
+}
+
 #pragma mark-Popover
 -(void)createpopover{
     UIViewController* popoverContent = [[UIViewController alloc]
@@ -1232,22 +1512,29 @@
 
 }
 - (IBAction)cmntbtn:(id)sender {
-    poptype=4;
+   // poptype=4;
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.issuetable];
     NSIndexPath *textFieldIndexPath = [self.issuetable indexPathForRowAtPoint:rootViewPoint];
     
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
+     Issuemdl*ismdl=(Issuemdl*)[_Issuearray objectAtIndex:textFieldIndexPath.row];
+    _issueid=ismdl.entryid;
+    [self IssueManagementcommentselect];
     [self commentpopover];
+    
+   
     
    
    
 }
 -(void)commentpopover{
+    webtype=4;
     _newcmntview.hidden=YES;
-    
-    poptype=4;
+    _cmmnttable.rowHeight=120;
+   // poptype=4;
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
     
@@ -1288,18 +1575,27 @@
     [self.popOverController dismissPopoverAnimated:YES];
 }
 - (IBAction)addcmt:(id)sender
-{
+{_cmmttxtview.text=@"";
     _savecmntbtn.enabled=YES;
     _newcmntview.hidden=NO;
 
 }
 - (IBAction)cmntsavebtn:(id)sender
 {
-    
+    if ([_cmmttxtview.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Comment is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
+        resultstring=@"Comment";
+    [self IssueManagementCommentsInsert];
+        _savecmntbtn.enabled=NO;
+    }
 }
 - (IBAction)cancelcmnt:(id)sender
 {
-    
+    _newcmntview.hidden=YES;
 }
 
 
