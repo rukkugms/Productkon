@@ -371,8 +371,8 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
                 
                 
                 
-                [cell setBackgroundColor:[UIColor colorWithRed:255.0/255.0f green:174.0/255.0f blue:185.0/255.0f alpha:1.0f]];
-                
+                //[cell setBackgroundColor:[UIColor colorWithRed:255.0/255.0f green:174.0/255.0f blue:185.0/255.0f alpha:1.0f]];
+                [cell setBackgroundColor:[UIColor colorWithRed:121.0/255.0f green:205.0/255.0f blue:205.0/255.0f alpha:1.0f]];
                 
             }
             else
@@ -389,7 +389,8 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
                 
                 
                 
-                [cell setBackgroundColor:[UIColor colorWithRed:255.0/255.0f green:174.0/255.0f blue:185.0/255.0f alpha:1.0f]];
+               // [cell setBackgroundColor:[UIColor colorWithRed:255.0/255.0f green:174.0/255.0f blue:185.0/255.0f alpha:1.0f]];
+               [cell setBackgroundColor:[UIColor colorWithRed:121.0/255.0f green:205.0/255.0f blue:205.0/255.0f alpha:1.0f]];
                 
                 
             }
