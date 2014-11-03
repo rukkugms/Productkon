@@ -628,7 +628,7 @@
         NSLog(@"title%@",newtitile);
         
         
-        if ([newtitile isEqualToString:@"Manpower"]||[newtitile isEqualToString:@"Equipment"]||[newtitile isEqualToString:@"Equipments"]||[newtitile isEqualToString:@"ManPower"]||[newtitile isEqualToString:@"Material"]||[newtitile isEqualToString:@"Third Party"]||[newtitile isEqualToString:@"Consumbles"]||[newtitile isEqualToString:@"Perdiem"]||[newtitile isEqualToString:@"Delivery"]||[newtitile isEqualToString:@"Miscell"]||[newtitile isEqualToString:@"Other"]||[newtitile isEqualToString:@"Travel"]) {
+        if ([newtitile isEqualToString:@"Manpower"]||[newtitile isEqualToString:@"Equipment"]||[newtitile isEqualToString:@"Equipments"]||[newtitile isEqualToString:@"ManPower"]||[newtitile isEqualToString:@"Material"]||[newtitile isEqualToString:@"Third Party"]||[newtitile isEqualToString:@"Consumbles"]||[newtitile isEqualToString:@"Perdiem"]||[newtitile isEqualToString:@"Delivery"]||[newtitile isEqualToString:@"Miscell"]||[newtitile isEqualToString:@"Other"]||[newtitile isEqualToString:@"Travel"]||[newtitile isEqualToString:@"SmallTools"]||[newtitile isEqualToString:@"Small Tools"]||[newtitile isEqualToString:@"Materials"]) {
             //newtitile=@"Cost";
             newtitile=[NSString stringWithFormat:@"Cost $%@",_eventmdl.sum1];
             if ([previoustitle isEqualToString:@"Cost"]) {

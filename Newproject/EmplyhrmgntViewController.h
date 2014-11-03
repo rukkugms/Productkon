@@ -72,6 +72,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *badgenumbrtxtfld;
 
 - (IBAction)savebtn:(id)sender;
+-(IBAction)selectdisclosure:(id)sender;
 
 - (IBAction)badgeclsebtn:(id)sender;
 

@@ -46,6 +46,11 @@
 @property(strong,nonatomic)IBOutlet UILabel *statuslabel;
 @property(strong,nonatomic)IBOutlet UILabel *amountlabel;
 @property(strong,nonatomic)IBOutlet UILabel *bididlabel;
+@property (strong, nonatomic) IBOutlet UIButton *disclsebtn;
+-(IBAction)selectdisclosure:(id)sender;
+@property(strong,nonatomic)IBOutlet UITableView *popovertableview;
+@property(strong,nonatomic)UIPopoverController *popovercontroller;
+@property(strong,nonatomic)NSMutableArray *disclosurearray;
 
 
 @end
