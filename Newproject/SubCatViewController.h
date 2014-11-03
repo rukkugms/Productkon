@@ -24,6 +24,8 @@
 @property(strong,nonatomic)CategoryViewController *CategryVCtrl;
 @property (strong, nonatomic)Catergrymdl*categrymdl;
 @property (strong, nonatomic)NSMutableArray*categryarray;
+@property (strong, nonatomic)NSMutableArray*FLcategryarray;
+
 @property (strong, nonatomic)NSMutableDictionary*catagrydict;
 
 @property(readwrite)NSInteger fleetid;
@@ -47,6 +49,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *categorybtn;
 
 @property (strong, nonatomic) IBOutlet UIView *titleview;
+
 
 - (IBAction)clsebtn:(id)sender;
 - (IBAction)viewclsebtn:(id)sender;

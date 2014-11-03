@@ -211,7 +211,7 @@
                    "<soap:Body>\n"
                    
                    "<FleetCategoryMasterDelete xmlns=\"http://ios.kontract360.com/\">\n"
-                   "<SubTypeEntryIdyid>%d</SubTypeEntryIdyid>\n"
+                   "<SubTypeEntryId>%d</SubTypeEntryId>\n"
                    "</FleetCategoryMasterDelete>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",[categrymdl.entryid integerValue]];
@@ -484,6 +484,7 @@
 - (IBAction)addbtn:(id)sender {
     Optnidnfr=1;
     _addview.hidden=NO;
+       _addnavbar.title=@"Create";
 }
 
 - (IBAction)deletebtn:(id)sender {
@@ -534,6 +535,7 @@
 - (IBAction)editbtn:(id)sender {
     Optnidnfr=2;
     button = (UIButton *)sender;
+    _addnavbar.title=@"Edit";
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.categrytable];
     NSIndexPath *textFieldIndexPath = [self.categrytable indexPathForRowAtPoint:rootViewPoint];

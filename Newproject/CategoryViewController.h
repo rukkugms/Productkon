@@ -33,6 +33,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *catgrypopbtn;
 @property (strong, nonatomic) IBOutlet UIView *titleview;
 @property (strong, nonatomic) IBOutlet UITableView *categrytable;
+@property (strong, nonatomic) IBOutlet UINavigationItem *addnavbar;
 @property (strong, nonatomic) IBOutlet UIView *addview;
 
 /*Actions*/
