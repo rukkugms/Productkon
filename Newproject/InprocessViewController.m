@@ -46,7 +46,7 @@
     searchController.searchResultsDataSource = (id)self;
     searchController.searchResultsDelegate =(id)self;
     searchController.delegate = (id)self;
-    _popoverdisarray=[[NSMutableArray alloc]initWithObjects:@"verification",@"Send To Employee", nil];
+    _popoverdisarray=[[NSMutableArray alloc]initWithObjects:@"Verification",@"Send To Employee", nil];
 
 
 }
@@ -79,9 +79,9 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ListAllApplicants xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<HRProcessselect xmlns=\"http://ios.kontract360.com/\">\n"
                    
-                   "</ListAllApplicants>\n"
+                   "</HRProcessselect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
@@ -96,7 +96,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ListAllApplicants" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/HRProcessselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -259,15 +259,15 @@
 //    }
     if(webtype==2){
     
-    for (int i=0; i<[_empnameArray count]; i++) {
-        Empdetails*empdetls1=(Empdetails *)[_empnameArray objectAtIndex:i];
-        if ([empdetls1.Inproceesstatus isEqualToString:@"true"]) {
-            [_newprocesssarray addObject:empdetls1];
-            
-        }
-        
-        
-    }
+//    for (int i=0; i<[_empnameArray count]; i++) {
+//        Empdetails*empdetls1=(Empdetails *)[_empnameArray objectAtIndex:i];
+//        if ([empdetls1.Inproceesstatus isEqualToString:@"true"]) {
+//            [_newprocesssarray addObject:empdetls1];
+//            
+//        }
+//        
+//        
+//    }
         webtype=0;
           [_processtable reloadData];
     }
@@ -279,7 +279,7 @@
 #pragma mark - XMLParser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
-    if([elementName isEqualToString:@"ListAllApplicantsResult"])
+    if([elementName isEqualToString:@"HRProcessselectResult"])
     { //imgString=@"Fetchapp";
         _empnameArray=[[NSMutableArray alloc]init];
         _newprocesssarray=[[NSMutableArray alloc]init];
@@ -858,7 +858,7 @@
     {
         recordResults = FALSE;
         _empdetl.Inproceesstatus=_soapResults;
-        [_empnameArray addObject:_empdetl];
+        [_newprocesssarray addObject:_empdetl];
         _soapResults = nil;
         
     }
