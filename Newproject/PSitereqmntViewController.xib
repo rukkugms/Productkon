@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PSitereqmntViewController">
             <connections>
                 <outlet property="dropview" destination="Isl-oM-bLu" id="Us4-sd-j5p"/>
+                <outlet property="jobdisplaylabel" destination="pgS-R2-gKO" id="qQG-Yc-IcO"/>
                 <outlet property="jobsitebtnlbl" destination="rmd-X8-PRZ" id="4tr-kE-gcP"/>
                 <outlet property="jobtble" destination="07k-BM-aZ2" id="whb-5a-ns6"/>
                 <outlet property="jobtitle" destination="c7t-B0-qam" id="cdJ-Ft-ZMm"/>
@@ -143,6 +144,13 @@
                     <rect key="frame" x="35" y="120" width="113" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgS-R2-gKO">
+                    <rect key="frame" x="653" y="120" width="178" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
