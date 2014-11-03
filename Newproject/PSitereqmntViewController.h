@@ -62,7 +62,7 @@
 @property (strong, nonatomic) IBOutlet UIView *jobtitle;
 @property (strong, nonatomic) IBOutlet UILabel *jobcodelbl;
 @property (strong, nonatomic) IBOutlet UILabel *jobdesclbl;
-
+@property (strong, nonatomic) IBOutlet UILabel *jobdisplaylabel;
 @property (strong, nonatomic) IBOutlet UITableViewCell *jobcell;
 
 - (IBAction)deletebtn:(id)sender;

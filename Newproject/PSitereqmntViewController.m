@@ -43,6 +43,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    _jobdisplaylabel.text=@"";
     [self SiteRequirementlistselect];
     [self setupSourceTableWithFrame:CGRectMake(0, 0, 384,489)];
     [self setupDestinationTableWithFrame:CGRectMake(0, 0, 460, 493)];
@@ -202,7 +203,7 @@
     if (tableView==_popOverTableView) {
         Selectedpath=indexPath.row;
         [_jobsitebtnlbl setTitle:[_jobarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-      
+        _jobdisplaylabel.text=[_jobarray objectAtIndex:indexPath.row];
          [self SiteRequirementlist2select];
         [_jobtble reloadData];
         [self.popOverController dismissPopoverAnimated:YES];
@@ -1050,7 +1051,7 @@
         recordResults = FALSE;
         _jobmdl.jobname=_soapResults;
 
-        [_jobarray addObject:[NSString stringWithFormat:@"%@-%@",jobnumber,_soapResults]];
+        [_jobarray addObject:[NSString stringWithFormat:@"%@",_soapResults]];
         [_jobmdlarray addObject:_jobmdl];
         
         _soapResults = nil;
