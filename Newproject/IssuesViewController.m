@@ -1069,11 +1069,11 @@
         if ([resultstring isEqualToString:@"Comment"]) {
             UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
-            _savecmntbtn.enabled=YES;
-            _newcmntview.hidden=YES;
-            webtype=4;
-            [self IssueManagementcommentselect];
-            resultstring=@"";
+//            _savecmntbtn.enabled=YES;
+//            _newcmntview.hidden=YES;
+//            webtype=4;
+//            [self IssueManagementcommentselect];
+           
         }
         else
         {
@@ -1114,7 +1114,22 @@
 
 
 
-  }
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if ([alertView.message isEqualToString:@"Inserted Successfully"]) {
+        if ([resultstring isEqualToString:@"Comment"]) {
+        _savecmntbtn.enabled=YES;
+        _newcmntview.hidden=YES;
+            _cmmttxtview.text=@"";
+        webtype=4;
+        [self IssueManagementcommentselect];
+            resultstring=@"";
+}
+    
+    }
+}
+
 #pragma mark-Popover
 -(void)createpopover{
     UIViewController* popoverContent = [[UIViewController alloc]
@@ -1560,7 +1575,7 @@
     [self.popOverController dismissPopoverAnimated:YES];
 }
 - (IBAction)addcmt:(id)sender
-{
+{_cmmttxtview.text=@"";
     _savecmntbtn.enabled=YES;
     _newcmntview.hidden=NO;
 

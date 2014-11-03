@@ -430,8 +430,8 @@
     recordResults=FALSE;
     NSString *soapMessage;
     
-    NSArray*array=[_jobbtn.titleLabel.text componentsSeparatedByString:@"-"];
-    NSString*jobno=[NSString stringWithFormat:@"%@-%@",[array objectAtIndex:0],[array objectAtIndex:1]];
+   // NSArray*array=[_jobbtn.titleLabel.text componentsSeparatedByString:@"-"];
+ //   NSString*jobno=[NSString stringWithFormat:@"%@-%@",[array objectAtIndex:0],[array objectAtIndex:1]];
 //    NSInteger job=[jobno integerValue];
 //    jobno=[NSString stringWithFormat:@"%d",job];
     NSString *job=[NSString stringWithFormat:@"%@",[_jobiddict objectForKey:_jobbtn.titleLabel.text]];

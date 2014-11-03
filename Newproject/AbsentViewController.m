@@ -185,9 +185,6 @@
     [self.dateFormatter setDateFormat:@"dd/MM/yyyy"];
     
     calendar.selectedDate = [self.dateFormatter dateFromString:dateString];
-   
-    
-    
     
     calendar.minimumDate = [self.dateFormatter dateFromString:@"09/07/2011"];
     

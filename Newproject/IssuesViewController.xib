@@ -298,11 +298,11 @@
                             </connections>
                         </button>
                         <view hidden="YES" contentMode="scaleToFill" id="haX-gE-UMV">
-                            <rect key="frame" x="16" y="56" width="490" height="105"/>
+                            <rect key="frame" x="16" y="56" width="490" height="121"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="JpV-J0-UTQ">
-                                    <rect key="frame" x="13" y="17" width="461" height="56"/>
+                                    <rect key="frame" x="13" y="17" width="461" height="65"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
@@ -316,7 +316,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="E7k-nQ-6eV">
-                                    <rect key="frame" x="139" y="72" width="73" height="25"/>
+                                    <rect key="frame" x="139" y="88" width="73" height="25"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                     <state key="normal" title="Save">
@@ -328,7 +328,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="t9X-Fb-bel">
-                                    <rect key="frame" x="229" y="72" width="73" height="25"/>
+                                    <rect key="frame" x="229" y="88" width="73" height="25"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                     <state key="normal" title="Cancel">
