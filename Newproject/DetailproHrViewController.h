@@ -185,5 +185,6 @@
 
 - (IBAction)editbtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *uplddocbtnlbl;
+@property(strong,nonatomic)NSString*resultstring;
 
 @end

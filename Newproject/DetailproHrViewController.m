@@ -1415,12 +1415,9 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
         recordResults = FALSE;
         UIAlertView *alertview=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alertview show];
-        _documentnametextfld.text=@"";
-        [_statuslbl  setTitle:@"Select" forState:UIControlStateNormal];
-        [_vendrnamebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
-        [_detalexpbtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
-        [_verfictnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-
+        _resultstring=_soapResults;
+        
+        
         [self Applicantrequirementselect];
         [self SelectHRDocs];
         _soapResults = nil;
@@ -2277,6 +2274,26 @@ finishedSavingWithError:(NSError *)error
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    ////NSLog(@"buttonIndex%d",buttonIndex);
+    
+    if ([alertView.message isEqualToString:_resultstring]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _documentnametextfld.text=@"";
+            [_statuslbl  setTitle:@"Select" forState:UIControlStateNormal];
+            [_vendrnamebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+            [_detalexpbtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+            [_verfictnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            _editview.hidden=YES;
+        }
+    }
+}
+
 
 
 @end
