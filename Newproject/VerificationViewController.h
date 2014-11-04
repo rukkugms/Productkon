@@ -13,6 +13,13 @@
 #import "Base64.h"
 #import "WebViewController.h"
 #import "Validation.h"
+
+@protocol myDelegate <NSObject>
+
+-(void)newaction;
+
+@end
+
 @interface VerificationViewController : UIViewController<UITabBarDelegate>{
      BOOL recordResults;
     NSInteger testint;
@@ -28,6 +35,7 @@
     NSInteger path;
     
 }
+@property(nonatomic,weak)id<myDelegate>delegate;
 @property (strong, nonatomic) IBOutlet UIView *verifctnview;
 
 
@@ -45,6 +53,7 @@
 
 @property (strong, nonatomic) IBOutlet UITabBar *tabbar;
 @property (strong, nonatomic) NSString *type;
+@property (strong, nonatomic) NSString *result;
 - (IBAction)requrmntactn:(id)sender;
 - (IBAction)i9action:(id)sender;
 - (IBAction)bgaction:(id)sender;

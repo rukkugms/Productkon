@@ -2155,15 +2155,37 @@ ssnclck++;
     if([elementName isEqualToString:@"result"])
     {
           recordResults=FALSE;
+        _result=_soapResults;
         UIAlertView*alertview=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alertview show];
-        [self SelectVerificationcomment];
-        _verifybtnlbl.enabled=YES;
-        _movebtnlbl.enabled=YES;
+        
           _soapResults=nil;
     }
 
 
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    ////NSLog(@"buttonIndex%d",buttonIndex);
+    
+    if ([alertView.message isEqualToString:_result]) {
+        
+        
+        
+        if (buttonIndex==0)
+        {
+            [self SelectVerificationcomment];
+            _verifybtnlbl.enabled=YES;
+            _movebtnlbl.enabled=YES;
+            if ([self.delegate respondsToSelector:@selector(newaction)])
+            {
+                [self.delegate newaction];
+                [self dismissViewControllerAnimated:YES completion:NULL];
+                
+                
+            }
+
+        }
+    }
 }
 
 
@@ -2303,7 +2325,14 @@ ssnclck++;
 - (IBAction)clsebtn:(id)sender {
     _verifybtnlbl.enabled=YES;
     _movebtnlbl.enabled=YES;
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if ([self.delegate respondsToSelector:@selector(newaction)])
+    {
+        [self.delegate newaction];
+        [self dismissViewControllerAnimated:YES completion:NULL];
+        
+        
+    }
+
 }
 - (IBAction)dobbtn:(id)sender {
 }

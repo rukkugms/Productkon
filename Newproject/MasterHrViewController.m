@@ -111,6 +111,8 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     _indetailctrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _indetailctrl.detailarray=garray;
     [self presentViewController:_indetailctrl animated:YES completion:nil];
+    _searchbar.text=@"";
+    [self ListAllApplicants];
 }
 -(void)jobsitepopover{
     poptype=2;
