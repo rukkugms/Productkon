@@ -212,7 +212,14 @@
     _lastnamelabel=(UILabel *)[cell viewWithTag:3];
     _lastnamelabel.text=empmdl.lastname;
     _jobsitelabel=(UILabel *)[cell viewWithTag:4];
-    _jobsitelabel.text=empmdl.jobname;
+        if ([empmdl.badgejob stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+             _jobsitelabel.text=empmdl.jobname;
+        }
+        else
+        {
+            _jobsitelabel.text=empmdl.badgejob;
+        }
+   
     }
     
     /*detailbtn*/
@@ -252,7 +259,19 @@
         _firsttxtfld.text=empmdl.firstname;
         _lastnametxtfld.text=empmdl.lastname;
         _ssntxtfld.text=empmdl.ssn;
-        //[_jobsitebtnlbl setTitle:empmdl.jobname forState:UIControlStateNormal];
+            if ([empmdl.badgejob stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0&&[empmdl.jobname stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+                [_jobsitebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+            }
+
+           else if ([empmdl.badgejob stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+               [_jobsitebtnlbl setTitle:empmdl.jobname forState:UIControlStateNormal];
+            }
+            else
+            {
+                [_jobsitebtnlbl setTitle:empmdl.badgejob forState:UIControlStateNormal];
+            }
+
+    
             
         }
         else
@@ -864,6 +883,15 @@
         recordResults = TRUE;
 
     }
+    if([elementName isEqualToString:@"badgejobname"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
     if([elementName isEqualToString:@"CustJobSiteName"])
     {
         if(!_soapResults)
@@ -873,6 +901,7 @@
         recordResults = TRUE;
         
     }
+
     if([elementName isEqualToString:@"job_id"])
     {
         if(!_soapResults)
@@ -883,7 +912,7 @@
         
     }
 
-    if([elementName isEqualToString:@"SelectEmployeeBadgeResult"])
+    if([elementName isEqualToString:@"SelectEmployeeBadgeResponse"])
     {
         if(!_soapResults)
         {
@@ -1012,6 +1041,13 @@
     {
         recordResults = FALSE;
         _empmdl.jobname=_soapResults;
+        //[_employeelistarray addObject:_empmdl];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"badgejobname"])
+    {
+        recordResults = FALSE;
+        _empmdl.badgejob=_soapResults;
         [_employeelistarray addObject:_empmdl];
         _soapResults = nil;
     }
@@ -1033,7 +1069,7 @@
     if([elementName isEqualToString:@"badgejobsite"])
     {
         recordResults=FALSE;
-        [_jobsitebtnlbl setTitle:_soapResults forState:UIControlStateNormal];
+        //[_jobsitebtnlbl setTitle:_soapResults forState:UIControlStateNormal];
         _soapResults=nil;
     }
     
@@ -1108,6 +1144,7 @@
             
             
             _badgeview.hidden=YES;
+            [self CustEmployeeselect];
             
         }
     }

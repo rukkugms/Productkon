@@ -111,7 +111,7 @@
     
     [super viewWillAppear:animated];
     [self SelectMarkupMaster];
-   
+   _paymentview.hidden=NO;
     _subcntrct=(subcontract *)[_detailsarray objectAtIndex:0];
     _clausetxtview.text=_subcntrct.Payementclause;
     _nettextfld.text=_subcntrct.NetDays;
