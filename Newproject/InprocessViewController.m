@@ -60,6 +60,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)newaction
+{
+    _SearchingBar.text=@"";
+    [self ListAllApplicants];
+}
 
 
 #pragma mark - webservice
@@ -971,6 +976,7 @@
             
             //_verifictnVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
             _verifictnVCtrl.applicantid=_Applicantid;
+             _verifictnVCtrl.delegate=self;
             [self presentViewController:_verifictnVCtrl
                                animated:YES completion:NULL];
 
@@ -981,6 +987,7 @@
             // }
             
             _verifictnVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+            _verifictnVCtrl.delegate=self;
             _verifictnVCtrl.applicantid=_Applicantid;
             [self presentViewController:_verifictnVCtrl
                                animated:YES completion:NULL];

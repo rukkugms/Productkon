@@ -11,7 +11,7 @@
 #import "DetailproHrViewController.h"
 #import "VerificationViewController.h"
 
-@interface InprocessViewController : UIViewController{
+@interface InprocessViewController : UIViewController<myDelegate>{
     
   BOOL   recordResults;
     NSInteger webtype;
@@ -21,7 +21,7 @@
 
 
 }
-
+-(void)newaction;
 @property (strong, nonatomic)NSString*empskillid;
 @property (strong, nonatomic)NSMutableDictionary *SkillDict;
 @property (strong, nonatomic)Empdetails *empdetl;
