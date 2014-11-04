@@ -17,13 +17,16 @@
                 <outlet property="navbar" destination="0f4-Jj-Zmp" id="dwY-vk-pmI"/>
                 <outlet property="profileimg" destination="xpk-k3-pmW" id="6j7-dh-ujR"/>
                 <outlet property="scroll" destination="Vrt-e4-uAa" id="tO1-lE-e5v"/>
+                <outlet property="segmntbtn" destination="ZxT-ta-BW9" id="b3Y-mJ-Stj"/>
                 <outlet property="ssnbtnlbl" destination="8PJ-hC-Ys1" id="L7q-JB-xed"/>
                 <outlet property="ssntxtfld" destination="gKu-8N-1VG" id="2rp-JW-yBb"/>
                 <outlet property="statetxtfld" destination="CRE-no-6yk" id="NHc-dc-T4J"/>
                 <outlet property="suffixtxtfld" destination="gwS-Ru-Pdy" id="vpi-Ue-xqA"/>
                 <outlet property="verfylbl" destination="qCY-Vb-YF1" id="eTw-i0-XnM"/>
                 <outlet property="verifctnview" destination="hqD-Nx-IOp" id="oDc-dK-fmi"/>
+                <outlet property="verifiedcmpldlbl" destination="MSk-Vo-8uC" id="hPf-I4-21Y"/>
                 <outlet property="verifybtnlbl" destination="C3k-xh-a6S" id="Sba-VP-tCI"/>
+                <outlet property="veryimgevw" destination="1lS-FI-nEP" id="UOL-vf-qnJ"/>
                 <outlet property="view" destination="1" id="eFI-v8-Q79"/>
                 <outlet property="ziptextfld" destination="b4s-sF-oRf" id="JOZ-Zt-Prp"/>
             </connections>
@@ -68,7 +71,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Comments:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UD9-O1-pyU">
-                                    <rect key="frame" x="224" y="432" width="100" height="31"/>
+                                    <rect key="frame" x="217" y="408" width="100" height="31"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -185,7 +188,7 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dLR-8y-cYl">
-                                    <rect key="frame" x="572" y="202" width="214" height="30"/>
+                                    <rect key="frame" x="572" y="205" width="214" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
@@ -199,21 +202,21 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Verified By:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TeJ-PZ-RJW">
-                                    <rect key="frame" x="224" y="574" width="98" height="21"/>
+                                    <rect key="frame" x="224" y="588" width="98" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCY-Vb-YF1">
-                                    <rect key="frame" x="330" y="574" width="164" height="21"/>
+                                    <rect key="frame" x="330" y="588" width="164" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ja3-rp-Yb1">
-                                    <rect key="frame" x="224" y="458" width="409" height="101"/>
+                                    <rect key="frame" x="217" y="434" width="409" height="101"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
@@ -285,6 +288,28 @@
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="903550-button-ok.png" translatesAutoresizingMaskIntoConstraints="NO" id="1lS-FI-nEP">
+                                    <rect key="frame" x="818" y="20" width="29" height="47"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Verification Completed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSk-Vo-8uC">
+                                    <rect key="frame" x="855" y="33" width="133" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZxT-ta-BW9">
+                                    <rect key="frame" x="217" y="543" width="167" height="29"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <segments>
+                                        <segment title="Accept"/>
+                                        <segment title="Reject"/>
+                                    </segments>
+                                    <connections>
+                                        <action selector="segmntbtn:" destination="-1" eventType="valueChanged" id="Dc3-Zf-6pq"/>
+                                    </connections>
+                                </segmentedControl>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
@@ -297,6 +322,7 @@
         </view>
     </objects>
     <resources>
+        <image name="903550-button-ok.png" width="32" height="32"/>
         <image name="RadioButton-Unselected.png" width="20" height="21"/>
         <image name="appbar.close.png" width="76" height="76"/>
     </resources>

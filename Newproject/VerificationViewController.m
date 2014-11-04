@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
       self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
-    self.scroll.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+     self.scroll.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     // Do any additional setup after loading the view from its nib.
        [self AllSkills];
    // _userdict=[[NSMutableDictionary alloc]init];
@@ -70,7 +70,7 @@
     _scroll.frame=CGRectMake(0, 0, 1024,768);
     [_scroll setContentSize:CGSizeMake(1024,1000)];
  
-      [_tabbar setSelectedItem:[_tabbar.items objectAtIndex:0]];
+   [_tabbar setSelectedItem:[_tabbar.items objectAtIndex:0]];
     __requirmentview.hidden=NO;
 
     [_ssnbtnlbl setImage:[UIImage imageNamed:@"RadioButton-UnSelected"] forState:UIControlStateNormal];
@@ -78,7 +78,7 @@
     [_bgbtnlbl setImage:[UIImage imageNamed:@"RadioButton-UnSelected"] forState:UIControlStateNormal];
     [self FetchApplicantId];
     NSLog(@"Applicnt %d",_applicantid);
-
+    _segmntbtn.selectedSegmentIndex=0;
     
 }
 - (void)didReceiveMemoryWarning
@@ -113,7 +113,7 @@
     _cmmnttextview.text=@"";
     _verfylbl.text=@"";
     _verifybtnlbl.enabled=YES;
-    
+    _segmntbtn.selectedSegmentIndex=0;
     i9clck ++;
     if (!i9clck%2) {
         
@@ -138,6 +138,7 @@
     _verifybtnlbl.enabled=YES;
     _cmmnttextview.text=@"";
     _verfylbl.text=@"";
+    _segmntbtn.selectedSegmentIndex=0;
     bgclck++;
     if (!bgclck%2) {
         
@@ -164,6 +165,7 @@ _cmmnttextview.editable=YES;
     _cmmnttextview.text=@"";
     _verfylbl.text=@"";
 ssnclck++;
+    _segmntbtn.selectedSegmentIndex=0;
     if (!ssnclck%2) {
         
         [_ssnbtnlbl setImage:[UIImage imageNamed:@"RadioButton-UnSelected"] forState:UIControlStateNormal];
@@ -596,9 +598,10 @@ ssnclck++;
                    "<user_Id>%d</user_Id>\n"
                    "<comment>%@</comment>\n"
                    "<type>%@</type>\n"
+                   "<Status>%d</Status>\n"
                    "</InsertVerificationComments>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_applicantid,[_useridname integerValue],_cmmnttextview.text,_type];
+                   "</soap:Envelope>\n",_applicantid,[_useridname integerValue],_cmmnttextview.text,_type,Segmntcheck];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1112,6 +1115,23 @@ ssnclck++;
        // [self selectrequirements];
         testint=3;
     }
+    if (webtype==222) {
+        
+        if ([verifytype isEqualToString:@"SSN"]) {
+            
+            _segmntbtn.selectedSegmentIndex=ssnsegmentcheck;
+        }
+       else if ([verifytype isEqualToString:@"I9"]) {
+           _segmntbtn.selectedSegmentIndex=I9segmentcheck;
+            
+        }
+       else if ([verifytype isEqualToString:@"BackGround"]) {
+             _segmntbtn.selectedSegmentIndex=bgsegmentcheck;
+           
+       }
+
+        webtype=0;
+    }
     
     
     [_requirementtable reloadData];
@@ -1312,7 +1332,7 @@ ssnclck++;
     }
 
 
-           if([elementName isEqualToString:@"NameSuffix"])
+   if([elementName isEqualToString:@"NameSuffix"])
     {
         if(!_soapResults)
         {
@@ -1331,6 +1351,34 @@ ssnclck++;
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"applicant_SafetyCouncilExpiry"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"applicant_BackgroundStatus"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"applicant_SSNStatus"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     if([elementName isEqualToString:@"applicant_OtherCrafts"])
     {
         if(!_soapResults)
@@ -1368,7 +1416,15 @@ ssnclck++;
         }
         recordResults = TRUE;
     }
-    
+    if([elementName isEqualToString:@"I9Status"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"Code"])
     {
         if(!_soapResults)
@@ -1467,7 +1523,7 @@ ssnclck++;
     }
     if([elementName isEqualToString:@"SelectVerificationcommentResult"])
     {
-       
+        webtype=222;
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -1509,7 +1565,33 @@ ssnclck++;
         recordResults = TRUE;
     }
 
+    if([elementName isEqualToString:@"VerificationSSNStatus"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     
+    if([elementName isEqualToString:@"VeriI9status"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"VeriBGstatus"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     if([elementName isEqualToString:@"SelectAllCraftResult"])
     {
         _craftarray=[[NSMutableArray alloc]init];
@@ -1613,6 +1695,14 @@ ssnclck++;
     }
     
     if([elementName isEqualToString:@"result"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Vtype"])
     {
         if(!_soapResults)
         {
@@ -1873,11 +1963,37 @@ ssnclck++;
         _soapResults = nil;
              
     }
+    if([elementName isEqualToString:@"applicant_SafetyCouncilExpiry"])
+    {
+        recordResults = FALSE;
+        
+        
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"applicant_BackgroundStatus"])
+    {
+        recordResults = FALSE;
+        
+         _verfymdl.applicantbgstatus=_soapResults;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"applicant_SSNStatus"])
+    {
+        recordResults = FALSE;
+        _verfymdl.applicantssnstatus=_soapResults;
+        
+        _soapResults = nil;
+        
+    }
+
+
     if([elementName isEqualToString:@"applicant_OtherCrafts"])
     {
        recordResults = FALSE;
            NSLog(@"Appid%d",_verfymdl.applicantid);
-        NSLog(@"Appid%d",_applicantid);
+          NSLog(@"Appid%d",_applicantid);
 
        
 //        if (_applicantid==  _verfymdl.applicantid) {
@@ -1900,7 +2016,7 @@ ssnclck++;
     {
         recordResults = FALSE;
       
-     _verfymdl.i9status=_soapResults;
+     _verfymdl.applicanti9status=_soapResults;
         
          _soapResults = nil;
     
@@ -1919,7 +2035,37 @@ ssnclck++;
         recordResults = FALSE;
         
         _verfymdl.ssnstatus=_soapResults;
+      
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"I9Status"])
+    {
+        
+        recordResults = FALSE;
+        
+        _verfymdl.i9status=_soapResults;
         [_Fetchdetailsarray addObject:_verfymdl];
+        if ([_verfymdl.applicantssnstatus isEqualToString:@"true"]&&[_verfymdl.applicantbgstatus isEqualToString:@"true"]&&[_verfymdl.applicanti9status isEqualToString:@"true"]) {
+            if ([_verfymdl.ssnstatus isEqualToString:@"true"]&&[_verfymdl.bgstatus isEqualToString:@"true"]&&[_verfymdl.i9status isEqualToString:@"true"]) {
+               _veryimgevw.image=[UIImage imageNamed:@"903550-button-ok"];
+                
+                _veryimgevw.hidden=NO;
+                _verifiedcmpldlbl.hidden=NO;
+            }
+            else{
+              
+                _veryimgevw.image=[UIImage imageNamed:@"error"];
+                _veryimgevw.hidden=NO;
+                _verifiedcmpldlbl.hidden=NO;
+
+            }
+            
+        }
+        else{
+            _veryimgevw.hidden=YES;
+            _verifiedcmpldlbl.hidden=YES;
+        }
         
         _soapResults = nil;
     }
@@ -1959,6 +2105,7 @@ ssnclck++;
         
     }
     
+   
     if([elementName isEqualToString:@"ApplyToAllCraft"])
     {
         recordResults = FALSE;
@@ -2092,19 +2239,88 @@ ssnclck++;
         
         _soapResults=nil;
     }
+    if([elementName isEqualToString:@"Vtype"])
+    {
+        recordResults=FALSE;
+        verifytype=_soapResults;
+        
+       _soapResults=nil;
+        
+    }
 
     if([elementName isEqualToString:@"Comment"])
     {
         recordResults=FALSE;
-        _cmmnttextview.editable=NO;
-        _cmmnttextview.text=_soapResults;
-        _verifybtnlbl.enabled=NO;
+        if ([_type isEqualToString:@"BackGround"]) {
+            
+            _cmmnttextview.editable=YES;
+            _cmmnttextview.text=_soapResults;
+            _verifybtnlbl.enabled=YES;
+
+        }
+        else{
+            _cmmnttextview.editable=NO;
+            _cmmnttextview.text=_soapResults;
+            _verifybtnlbl.enabled=NO;
+
+        }
+        
         
         
         _soapResults=nil;
     }
     
+    if([elementName isEqualToString:@"VerificationSSNStatus"])
+    {
+        recordResults = FALSE;
+        if ([_soapResults isEqualToString:@"true"]) {
+            ssnsegmentcheck=0;
+            
+        }
+        else{
+            ssnsegmentcheck=1;
+        }
+        
+        
+        
+        _soapResults=nil;
+        
+    }
     
+    if([elementName isEqualToString:@"VeriI9status"])
+    {
+        recordResults = FALSE;
+        if ([_soapResults isEqualToString:@"true"]) {
+            
+            I9segmentcheck=0;
+            
+        }
+        else{
+            
+             I9segmentcheck=1;
+        }
+
+        
+        _soapResults=nil;
+        
+    }
+    if([elementName isEqualToString:@"VeriBGstatus"])
+    {
+        recordResults = FALSE;
+        
+        if ([_soapResults isEqualToString:@"true"]) {
+            bgsegmentcheck=0;
+            
+        }
+        else{
+            bgsegmentcheck=1;
+        }
+
+        
+        _soapResults=nil;
+        
+    }
+
     if([elementName isEqualToString:@"id"])
     {
         recordResults=FALSE;
@@ -2167,7 +2383,7 @@ ssnclck++;
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     ////NSLog(@"buttonIndex%d",buttonIndex);
     
-    if ([alertView.message isEqualToString:_result]) {
+    if ([alertView.message isEqualToString:@"Verified Successfully"]) {
         
         
         
@@ -2175,16 +2391,29 @@ ssnclck++;
         {
             [self SelectVerificationcomment];
             _verifybtnlbl.enabled=YES;
-            _movebtnlbl.enabled=YES;
+           
             if ([self.delegate respondsToSelector:@selector(newaction)])
             {
                 [self.delegate newaction];
-                [self dismissViewControllerAnimated:YES completion:NULL];
+                //[self dismissViewControllerAnimated:YES completion:NULL];
                 
                 
             }
 
         }
+    }
+    
+    else{
+         _movebtnlbl.enabled=YES;
+        if ([self.delegate respondsToSelector:@selector(newaction)])
+        {
+            [self.delegate newaction];
+            [self dismissViewControllerAnimated:YES completion:NULL];
+            
+            
+        }
+
+        
     }
 }
 
@@ -2365,6 +2594,19 @@ ssnclck++;
     else{
         _movebtnlbl.enabled=NO;
     [self EmployeeInsert];
+    }
+}
+- (IBAction)segmntbtn:(id)sender {
+    NSLog(@"%d", _segmntbtn.selectedSegmentIndex);
+    if (_segmntbtn.selectedSegmentIndex==0) {
+      
+        Segmntcheck=1;
+        
+    }
+    else if (_segmntbtn.selectedSegmentIndex==1){
+      
+        Segmntcheck=0;
+
     }
 }
 @end

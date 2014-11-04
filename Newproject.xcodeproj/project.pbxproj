@@ -232,6 +232,12 @@
 		D4149B6B194966F400A5A6FD /* Siteoutview.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4149B6A194966F400A5A6FD /* Siteoutview.xib */; };
 		D4149BB01949B3F300A5A6FD /* StockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4149BAE1949B3F300A5A6FD /* StockViewController.m */; };
 		D4149BB11949B3F300A5A6FD /* StockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4149BAF1949B3F300A5A6FD /* StockViewController.xib */; };
+		D4149E261A089EB100B1028A /* Check-symbol-1127190741.png in Resources */ = {isa = PBXBuildFile; fileRef = D4149E251A089EB100B1028A /* Check-symbol-1127190741.png */; };
+		D4149E281A089F8500B1028A /* verificationicon@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = D4149E271A089F8500B1028A /* verificationicon@2X.png */; };
+		D4149E2A1A089FA600B1028A /* verificationicon.png in Resources */ = {isa = PBXBuildFile; fileRef = D4149E291A089FA600B1028A /* verificationicon.png */; };
+		D4149E2C1A08A30900B1028A /* Check-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D4149E2B1A08A30900B1028A /* Check-icon.png */; };
+		D4149E2E1A08A38200B1028A /* 903550-button-ok.png in Resources */ = {isa = PBXBuildFile; fileRef = D4149E2D1A08A38200B1028A /* 903550-button-ok.png */; };
+		D4149E321A08E73000B1028A /* error.png in Resources */ = {isa = PBXBuildFile; fileRef = D4149E311A08E73000B1028A /* error.png */; };
 		D4149F28177186C100738AAC /* squareimage1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4149F27177186C100738AAC /* squareimage1.png */; };
 		D41708F919A5B24900F55599 /* UserRightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D41708F719A5B24900F55599 /* UserRightViewController.m */; };
 		D41708FA19A5B24900F55599 /* UserRightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D41708F819A5B24900F55599 /* UserRightViewController.xib */; };
@@ -915,6 +921,12 @@
 		D4149BAD1949B3F300A5A6FD /* StockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockViewController.h; sourceTree = "<group>"; };
 		D4149BAE1949B3F300A5A6FD /* StockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockViewController.m; sourceTree = "<group>"; };
 		D4149BAF1949B3F300A5A6FD /* StockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockViewController.xib; sourceTree = "<group>"; };
+		D4149E251A089EB100B1028A /* Check-symbol-1127190741.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check-symbol-1127190741.png"; sourceTree = "<group>"; };
+		D4149E271A089F8500B1028A /* verificationicon@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "verificationicon@2X.png"; sourceTree = "<group>"; };
+		D4149E291A089FA600B1028A /* verificationicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = verificationicon.png; sourceTree = "<group>"; };
+		D4149E2B1A08A30900B1028A /* Check-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check-icon.png"; sourceTree = "<group>"; };
+		D4149E2D1A08A38200B1028A /* 903550-button-ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "903550-button-ok.png"; sourceTree = "<group>"; };
+		D4149E311A08E73000B1028A /* error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = error.png; sourceTree = "<group>"; };
 		D4149F27177186C100738AAC /* squareimage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squareimage1.png; sourceTree = "<group>"; };
 		D41708F619A5B24800F55599 /* UserRightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRightViewController.h; sourceTree = "<group>"; };
 		D41708F719A5B24900F55599 /* UserRightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = UserRightViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -2024,6 +2036,12 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D4149E311A08E73000B1028A /* error.png */,
+				D4149E2D1A08A38200B1028A /* 903550-button-ok.png */,
+				D4149E2B1A08A30900B1028A /* Check-icon.png */,
+				D4149E291A089FA600B1028A /* verificationicon.png */,
+				D4149E271A089F8500B1028A /* verificationicon@2X.png */,
+				D4149E251A089EB100B1028A /* Check-symbol-1127190741.png */,
 				D4F0940D19F22F3100C3B527 /* pencil.png */,
 				D4F0940B19F22F2300C3B527 /* eraser.png */,
 				D4109A1619DC1EE2008E9949 /* 070537-glossy-black-3d-button-icon-alphanumeric-information2-ps.png */,
@@ -2679,6 +2697,7 @@
 				64A41243194080D6003EE113 /* billing-matrix.png in Resources */,
 				64A936B719E640A600C20D57 /* MasterHrViewController.xib in Resources */,
 				D41A63D61961302A00FBDBC6 /* TimeSheetViewController.xib in Resources */,
+				D4149E261A089EB100B1028A /* Check-symbol-1127190741.png in Resources */,
 				D4A16B5B1974EEA8002CA2A2 /* scaffoldcell.xib in Resources */,
 				D4F19DF118D03AD1007617F0 /* newCommentCell.xib in Resources */,
 				D4FE170C1918ED1000C8DA58 /* Srch.png in Resources */,
@@ -2729,6 +2748,7 @@
 				D4A16B4C1974EEA8002CA2A2 /* Addnoterecordview.xib in Resources */,
 				D4149BB11949B3F300A5A6FD /* StockViewController.xib in Resources */,
 				64A5ED4E19C2C4EC002E0018 /* RSTViewController.xib in Resources */,
+				D4149E2A1A089FA600B1028A /* verificationicon.png in Resources */,
 				D4A16B9E1974EEE0002CA2A2 /* calothereventcell.xib in Resources */,
 				D429C5F01952DD6100CE73A6 /* Siteinexcptncell.xib in Resources */,
 				D40DD2661873ED0800E7BC2C /* Smalltoolcell.xib in Resources */,
@@ -2770,12 +2790,14 @@
 				D4A16B911974EEE0002CA2A2 /* sumbidcell.xib in Resources */,
 				6426F5ED18C060CF002471AC /* planning.png in Resources */,
 				D4036FFA19FE24D10031C4F1 /* Plandocuscell.xib in Resources */,
+				D4149E2E1A08A38200B1028A /* 903550-button-ok.png in Resources */,
 				D4E658CA17F2DDFA00202B14 /* rightdisclosure.png in Resources */,
 				64A41244194080D6003EE113 /* contract-mangement.png in Resources */,
 				D4AA4F8B1965535A00916138 /* AbsentViewController.xib in Resources */,
 				D4EBA8641978FD6C00B612E1 /* Trecell.xib in Resources */,
 				D44DF4F019A5D88C00F3E9AB /* C2jN9.png in Resources */,
 				D42D8C2D18D2E126009D8085 /* customservicescell.xib in Resources */,
+				D4149E2C1A08A30900B1028A /* Check-icon.png in Resources */,
 				D44BEA8218E04D5100719ED5 /* cTypecell.xib in Resources */,
 				D4A16B451974EEA8002CA2A2 /* Jobsiterecord.xib in Resources */,
 				D4A6748F19345E6C00D5A77E /* IconCamera@2x.png in Resources */,
@@ -2831,6 +2853,7 @@
 				649EB48E18A8DF8400CDBE28 /* proHRDetailcell.xib in Resources */,
 				D4A16B941974EEE0002CA2A2 /* Phestcell.xib in Resources */,
 				D4D7A29117F5422000880E38 /* Untitled.png in Resources */,
+				D4149E321A08E73000B1028A /* error.png in Resources */,
 				D453DA2E1873F1F3007EE3DC /* Thirdpartycell.xib in Resources */,
 				D4F7D9CA196E5B4800B8F4D4 /* labourmanagement.png in Resources */,
 				D4A16B391974EEA8002CA2A2 /* AddserviceViewController.xib in Resources */,
@@ -2878,6 +2901,7 @@
 				D4FFBD221855B7880007851D /* carat-open.png in Resources */,
 				64A2F9AE19CBE425009B1018 /* LdtypViewController.xib in Resources */,
 				D4A16B891974EEE0002CA2A2 /* Emtncell.xib in Resources */,
+				D4149E281A089F8500B1028A /* verificationicon@2X.png in Resources */,
 				D40A663B187131CA00AB7496 /* cb_mono_on.png in Resources */,
 				64A3B81E18DFEEC90015887F /* ActivityCustomCell.xib in Resources */,
 				D47A9B2A19407D09001CC416 /* materialsicon.png in Resources */,

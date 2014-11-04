@@ -14,7 +14,7 @@
 @interface InprocessViewController : UIViewController<myDelegate>{
     
   BOOL   recordResults;
-    NSInteger webtype;
+    NSInteger webtype,btnindex;
     UIButton *button;
 
 

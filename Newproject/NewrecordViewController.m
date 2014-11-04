@@ -861,7 +861,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         
     }
 
-      NSString*nestrg=[NSString stringWithFormat:@"%@-%@-%@",[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]],@"Meeting",filename];
+      NSString*nestrg=[NSString stringWithFormat:@"%@-%@-%@",[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]],@"Notes",filename];
     
     soapMessage = [NSString stringWithFormat:
                    
