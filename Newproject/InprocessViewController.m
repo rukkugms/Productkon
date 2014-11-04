@@ -564,7 +564,33 @@
         recordResults = TRUE;
         
     }
-    
+    if([elementName isEqualToString:@"BGStatus"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"SSNStatus"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"I9Status"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     
     if([elementName isEqualToString:@"applicant_photo"])
     {
@@ -863,7 +889,7 @@
     {
         recordResults = FALSE;
         _empdetl.Inproceesstatus=_soapResults;
-        [_newprocesssarray addObject:_empdetl];
+        
         _soapResults = nil;
         
     }
@@ -883,6 +909,32 @@
         _soapResults = nil;
         
     }
+    if([elementName isEqualToString:@"BGStatus"])
+    {
+        recordResults = FALSE;
+        _empdetl.bgstatus=_soapResults;
+        
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"SSNStatus"])
+    {
+        recordResults = FALSE;
+        _empdetl.ssnstatus=_soapResults;
+        
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"I9Status"])
+    {
+        recordResults = FALSE;
+        _empdetl.i9status=_soapResults;
+        
+        [_newprocesssarray addObject:_empdetl];
+        _soapResults = nil;
+        
+    }
+
 
     if([elementName isEqualToString:@"SkillId"])
     {
@@ -969,6 +1021,7 @@
     
     NSLog(@"sectn%d",indexPath.section);
     if (tableView==_popOverTableView) {
+        
         if (indexPath.row==0) {
             
             self.verifictnVCtrl=[[VerificationViewController alloc]initWithNibName:@"NVerificationViewController" bundle:nil];
@@ -982,6 +1035,12 @@
 
         }
         if (indexPath.row==1) {
+              Empdetails*empmdl=(Empdetails *)[_newprocesssarray objectAtIndex:btnindex];
+            if ([empmdl.ssnstatus isEqualToString:@"true"]&&[empmdl.bgstatus isEqualToString:@"true"]&&[empmdl.i9status isEqualToString:@"true"]) {
+              
+                
+            
+
             
             self.verifictnVCtrl=[[VerificationViewController alloc]initWithNibName:@"SendEmployeeview" bundle:nil];
             // }
@@ -991,6 +1050,13 @@
             _verifictnVCtrl.applicantid=_Applicantid;
             [self presentViewController:_verifictnVCtrl
                                animated:YES completion:NULL];
+            }
+            else{
+                
+                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Verification Failed" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                
+            }
 
         }
 
@@ -1103,6 +1169,7 @@
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.processtable];
     NSIndexPath *textFieldIndexPath = [self.processtable indexPathForRowAtPoint:rootViewPoint];
+    btnindex=textFieldIndexPath.row;
     Empdetails*empdet=(Empdetails *)[_newprocesssarray objectAtIndex:textFieldIndexPath.row];
     _Applicantid=empdet.applicantid;
     

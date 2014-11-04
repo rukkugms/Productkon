@@ -40,6 +40,9 @@
 @property(strong,nonatomic)NSString*photo;
 @property(strong,nonatomic)NSString*othercraft;
 @property(strong,nonatomic)NSString*jobsitename;
+@property(strong,nonatomic)NSString*ssnstatus;
+@property(strong,nonatomic)NSString*bgstatus;
+@property(strong,nonatomic)NSString*i9status;
 
 
 

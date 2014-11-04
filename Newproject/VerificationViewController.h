@@ -27,12 +27,13 @@
     UIButton *yearbutton;
     NSInteger poptype;
      NSInteger cmpreid;
-    NSString *docsstring;
+    NSString *docsstring,*verifytype;
     NSInteger ssnclck;
     NSInteger i9clck;
     NSInteger bgclck;
     NSInteger webtype;
-    NSInteger path;
+    NSInteger path,Segmntcheck,ssnsegmentcheck,bgsegmentcheck,I9segmentcheck;
+    
     
 }
 @property(nonatomic,weak)id<myDelegate>delegate;
@@ -166,6 +167,9 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *jobdobtxtfld;
 @property (strong, nonatomic) IBOutlet UIButton *jobsitebtnlbl;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segmntbtn;
+
+
 - (IBAction)dobbtn:(id)sender;
 
 - (IBAction)craftbtn:(id)sender;
@@ -176,6 +180,11 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *verifybtnlbl;
 @property (strong, nonatomic) IBOutlet UIButton *movebtnlbl;
+
+- (IBAction)segmntbtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIImageView *veryimgevw;
+@property (strong, nonatomic) IBOutlet UILabel *verifiedcmpldlbl;
+
 
 
 @end
