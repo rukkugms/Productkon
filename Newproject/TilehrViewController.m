@@ -366,9 +366,9 @@
                 _processhrindictr.hidden=YES;
                 [_processhrindictr stopAnimating];
                 _processview.userInteractionEnabled=YES;
-                if (!self.mgmtVCtrl ) {
+               // if (!self.mgmtVCtrl ) {
                     self.mgmtVCtrl=[[EmplyhrmgntViewController alloc]initWithNibName:@"EmplyhrmgntViewController" bundle:nil];
-                }
+               // }
                 
                 self.mgmtVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
                 

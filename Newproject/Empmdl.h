@@ -16,4 +16,5 @@
 @property(strong,nonatomic)NSString *jobsite;
 @property(strong,nonatomic)NSString *jobname;
 @property(strong,nonatomic)NSString*badgeflag;
+@property(strong,nonatomic)NSString*badgejob;
 @end
