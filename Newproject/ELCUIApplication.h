@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 
 // # of minutes before application times out
-#define kApplicationTimeoutInMinutes 5
+#define kApplicationTimeoutInMinutes 2
 
 // Notification that gets sent when the timeout occurs
 #define kApplicationDidTimeoutNotification @"ApplicationDidTimeout"
