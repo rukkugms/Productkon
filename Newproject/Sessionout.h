@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 // # of minutes before application times out
 #define kApplicationTimeoutInMinutes 2
 
@@ -18,7 +19,7 @@
  * overridden in order to catch all touch events.
  */
 
-@interface ELCUIApplication : UIApplication {
+@interface Sessionout : UIApplication {
 	NSTimer *_idleTimer;
 }
 

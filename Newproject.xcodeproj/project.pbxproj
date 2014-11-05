@@ -74,7 +74,7 @@
 		64A2052319CAB89600BD942F /* IndustrytpeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A2052119CAB89600BD942F /* IndustrytpeViewController.m */; };
 		64A2052419CAB89600BD942F /* IndustrytpeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2052219CAB89600BD942F /* IndustrytpeViewController.xib */; };
 		64A2052619CAB93600BD942F /* Industrycell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2052519CAB93600BD942F /* Industrycell.xib */; };
-		64A2678E1A09FCDC0090CD41 /* ELCUIApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A2678D1A09FCDC0090CD41 /* ELCUIApplication.m */; };
+		64A267941A0A34B80090CD41 /* Sessionout.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A267931A0A34B80090CD41 /* Sessionout.m */; };
 		64A27C2018E1640000D184BF /* Srepcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A27C1F18E1640000D184BF /* Srepcell.xib */; };
 		64A2D0941962C9F000BACE76 /* Reviebidmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A2D0931962C9F000BACE76 /* Reviebidmdl.m */; };
 		64A2F9AD19CBE425009B1018 /* LdtypViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A2F9AB19CBE425009B1018 /* LdtypViewController.m */; };
@@ -699,8 +699,8 @@
 		64A2052119CAB89600BD942F /* IndustrytpeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndustrytpeViewController.m; sourceTree = "<group>"; };
 		64A2052219CAB89600BD942F /* IndustrytpeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndustrytpeViewController.xib; sourceTree = "<group>"; };
 		64A2052519CAB93600BD942F /* Industrycell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Industrycell.xib; sourceTree = "<group>"; };
-		64A2678C1A09FCDC0090CD41 /* ELCUIApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCUIApplication.h; sourceTree = "<group>"; };
-		64A2678D1A09FCDC0090CD41 /* ELCUIApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCUIApplication.m; sourceTree = "<group>"; };
+		64A267921A0A34B80090CD41 /* Sessionout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sessionout.h; sourceTree = "<group>"; };
+		64A267931A0A34B80090CD41 /* Sessionout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sessionout.m; sourceTree = "<group>"; };
 		64A27C1F18E1640000D184BF /* Srepcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Srepcell.xib; sourceTree = "<group>"; };
 		64A2D0921962C9F000BACE76 /* Reviebidmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reviebidmdl.h; sourceTree = "<group>"; };
 		64A2D0931962C9F000BACE76 /* Reviebidmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reviebidmdl.m; sourceTree = "<group>"; };
@@ -2150,8 +2150,8 @@
 		D4D570161772BE8800671A35 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				64A2678C1A09FCDC0090CD41 /* ELCUIApplication.h */,
-				64A2678D1A09FCDC0090CD41 /* ELCUIApplication.m */,
+				64A267921A0A34B80090CD41 /* Sessionout.h */,
+				64A267931A0A34B80090CD41 /* Sessionout.m */,
 				D40407D9192B171A00864BA4 /* myscroll.h */,
 				D40407DA192B171A00864BA4 /* myscroll.m */,
 				D4F093FE19F22C6100C3B527 /* BezierInterpView.h */,
@@ -2968,6 +2968,7 @@
 				D49F875318EEA36B00413CAD /* Manpwr.m in Sources */,
 				D4F61A5618A896D90006093B /* ProcesshrViewController.m in Sources */,
 				D4A16B521974EEA8002CA2A2 /* GdargViewController.m in Sources */,
+				64A267941A0A34B80090CD41 /* Sessionout.m in Sources */,
 				649F45E119457D1800E89F5C /* LabourViewController.m in Sources */,
 				D4A16B3A1974EEA8002CA2A2 /* SitevisitViewController.m in Sources */,
 				D413816A1946BD4A0056574C /* EqOthersMdl.m in Sources */,
@@ -3045,7 +3046,6 @@
 				64AE02B61949AC56002D44B6 /* InOutSiteViewController.m in Sources */,
 				D453DA2B1873F1D0007EE3DC /* AssetsViewController.m in Sources */,
 				D49F876418EEA36B00413CAD /* vendermodel.m in Sources */,
-				64A2678E1A09FCDC0090CD41 /* ELCUIApplication.m in Sources */,
 				D4A85B4118A0E867004E9C8B /* TilehrViewController.m in Sources */,
 				D4A6749B19345F1B00D5A77E /* DPCalendarEvent.m in Sources */,
 				64A2F9BB19CBEC17009B1018 /* FLPViewController.m in Sources */,
