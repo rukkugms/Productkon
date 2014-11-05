@@ -10,7 +10,8 @@
 
 #import "ViewController.h"
 #import "HomeViewController.h"
-//#import "Timeoutmdl.h"
+#import "ELCUIApplication.h"
+
 @implementation AppDelegate
 
 
@@ -19,19 +20,23 @@
 {
    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
     // Override point for customization after application launch.
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     self.navgcntrl=[[UINavigationController alloc]initWithRootViewController:_viewController];
     self.window.rootViewController = self.navgcntrl;
     [self.window makeKeyAndVisible];
-   
-//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidTimeout:) name:kApplicationDidTimeoutNotification object:nil];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidTimeout:) name:kApplicationDidTimeoutNotification object:nil];
 
 return YES;
 }
 
 - (void) applicationDidTimeout:(NSNotification *) notif {
-   // [self targetMethod];
+    [self targetMethod];
+   
+
     
 }
 
@@ -56,7 +61,7 @@ return YES;
 // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
 // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
    
-
+  
 
 }
 

@@ -212,13 +212,13 @@
     _lastnamelabel=(UILabel *)[cell viewWithTag:3];
     _lastnamelabel.text=empmdl.lastname;
     _jobsitelabel=(UILabel *)[cell viewWithTag:4];
-        if ([empmdl.badgejob stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+//        if ([empmdl.badgejob stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
              _jobsitelabel.text=empmdl.jobname;
-        }
-        else
-        {
-            _jobsitelabel.text=empmdl.badgejob;
-        }
+//        }
+//        else
+//        {
+//            _jobsitelabel.text=empmdl.badgejob;
+//        }
    
     }
     
@@ -259,19 +259,9 @@
         _firsttxtfld.text=empmdl.firstname;
         _lastnametxtfld.text=empmdl.lastname;
         _ssntxtfld.text=empmdl.ssn;
-            if ([empmdl.badgejob stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0&&[empmdl.jobname stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
-                [_jobsitebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
-            }
-
-           else if ([empmdl.badgejob stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+            
                [_jobsitebtnlbl setTitle:empmdl.jobname forState:UIControlStateNormal];
-            }
-            else
-            {
-                [_jobsitebtnlbl setTitle:empmdl.badgejob forState:UIControlStateNormal];
-            }
-
-    
+            
             
         }
         else
@@ -929,14 +919,14 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"badgejobsite"])
-    {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
+//    if([elementName isEqualToString:@"badgejobsite"])
+//    {
+//        if(!_soapResults)
+//        {
+//            _soapResults = [[NSMutableString alloc] init];
+//        }
+//        recordResults = TRUE;
+//    }
 
     
     if([elementName isEqualToString:@"result"])
@@ -1041,16 +1031,16 @@
     {
         recordResults = FALSE;
         _empmdl.jobname=_soapResults;
-        //[_employeelistarray addObject:_empmdl];
-        _soapResults = nil;
-    }
-    if([elementName isEqualToString:@"badgejobname"])
-    {
-        recordResults = FALSE;
-        _empmdl.badgejob=_soapResults;
         [_employeelistarray addObject:_empmdl];
         _soapResults = nil;
     }
+//    if([elementName isEqualToString:@"badgejobname"])
+//    {
+//        recordResults = FALSE;
+//        _empmdl.badgejob=_soapResults;
+//        [_employeelistarray addObject:_empmdl];
+//        _soapResults = nil;
+//    }
     if([elementName isEqualToString:@"job_id"])
     {
         recordResults = FALSE;

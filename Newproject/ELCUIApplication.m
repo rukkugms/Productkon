@@ -1,14 +1,14 @@
 //
-//  Timeoutmdl.m
-//  Newproject
+//  ELCUIApplication.m
 //
-//  Created by Riya on 10/22/14.
-//  Copyright (c) 2014 GMSIndia1. All rights reserved.
+//  Created by Brandon Trebitowski on 9/19/11.
+//  Copyright 2011 ELC Technologies. All rights reserved.
 //
 
-#import "Timeoutmdl.h"
+#import "ELCUIApplication.h"
 
-@implementation Timeoutmdl
+@implementation ELCUIApplication
+
 - (void)sendEvent:(UIEvent *)event {
 	[super sendEvent:event];
 	
@@ -22,24 +22,24 @@
     if ([allTouches count] > 0) {
         UITouchPhase phase = ((UITouch *)[allTouches anyObject]).phase;
         if (phase == UITouchPhaseBegan) {
-            [self resetIdleTimer];
+            [self resetIdleTimer];         
 		}
     }
 }
-- (void)resetIdleTimer
+
+- (void)resetIdleTimer 
 {
     if (_idleTimer) {
         [_idleTimer invalidate];
-      
-    }
+            }
 	
 	// Schedule a timer to fire in kApplicationTimeoutInMinutes * 60
 	int timeout = kApplicationTimeoutInMinutes * 60;
     _idleTimer = [NSTimer scheduledTimerWithTimeInterval:timeout
-                                                   target:self
-                                                 selector:@selector(idleTimerExceeded)
-                                                 userInfo:nil
-                                                  repeats:NO];
+												  target:self 
+												selector:@selector(idleTimerExceeded) 
+												userInfo:nil 
+												 repeats:NO] ;
     
 }
 
@@ -49,5 +49,6 @@
 	[[NSNotificationCenter defaultCenter]
 	 postNotificationName:kApplicationDidTimeoutNotification object:nil];
 }
+
 
 @end

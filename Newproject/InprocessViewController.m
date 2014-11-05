@@ -1153,7 +1153,7 @@
     _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 150, 70)];
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
-    _popOverTableView.rowHeight= 32;
+    _popOverTableView.rowHeight= 36;
     
     [popoverView addSubview:_popOverTableView];
     popoverContent.view = popoverView;

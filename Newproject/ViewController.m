@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "AFHTTPClient.h"
 #import "AFJSONRequestOperation.h"
+#import "ELCUIApplication.h"
 
 @interface ViewController ()
 
@@ -175,6 +176,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
     _loginbtn.enabled=YES;
     _usernametxt.text=@"";
     _passwrdtxt.text=@"";
@@ -184,7 +186,7 @@
     locationmanager.delegate=self;
     locationmanager.desiredAccuracy=kCLLocationAccuracyBest;
     [locationmanager startUpdatingLocation];
-
+[self.view resignFirstResponder];
 }
 
 //-(CLLocationManager *)locntnmangr{
@@ -475,10 +477,11 @@
             [defaults setObject:_soapResults forKey:@"UserNameId"];
             [defaults synchronize];
 
-            if (!self.hmeVCtrl) {
+            //if (!self.hmeVCtrl) {
                 self.hmeVCtrl=[[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
-            }
+           // }
            self.hmeVCtrl.username=_usernametxt.text;
+        
             [self.navigationController pushViewController:_hmeVCtrl animated:YES];
 
         }
@@ -532,7 +535,7 @@
 }
 - (IBAction)loginbtn:(id)sender {
     
-    
+   
     if(([_usernametxt.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)||([_passwrdtxt.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)){
         
         if([_usernametxt.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
@@ -549,8 +552,10 @@
         
     }
     else{
+       [self resignFirstResponder];
         _loginbtn.enabled=NO;
   [self Loginselect];
+        
 //        if (!self.hmeVCtrl) {
 //            self.hmeVCtrl=[[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
 //        }
@@ -623,9 +628,9 @@
 - (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (buttonIndex) {
         case 0:
-            if (!self.forgetVCtrl) {
+            //if (!self.forgetVCtrl) {
                 self.forgetVCtrl=[[forgetViewController alloc]initWithNibName:@"forgetViewController" bundle:nil];
-            }
+            //}
             _forgetVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
             _forgetVCtrl.btnindex=buttonIndex;
                     [self presentViewController:_forgetVCtrl
