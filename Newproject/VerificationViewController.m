@@ -2059,14 +2059,14 @@ ssnclck++;
         [_Fetchdetailsarray addObject:_verfymdl];
         if ([_verfymdl.applicantssnstatus isEqualToString:@"true"]&&[_verfymdl.applicantbgstatus isEqualToString:@"true"]&&[_verfymdl.applicanti9status isEqualToString:@"true"]) {
             if ([_verfymdl.ssnstatus isEqualToString:@"true"]&&[_verfymdl.bgstatus isEqualToString:@"true"]&&[_verfymdl.i9status isEqualToString:@"true"]) {
-               _veryimgevw.image=[UIImage imageNamed:@"903550-button-ok"];
+               _veryimgevw.image=[UIImage imageNamed:@"process"];
                 
                 _veryimgevw.hidden=NO;
                 _verifiedcmpldlbl.hidden=NO;
             }
             else{
               
-                _veryimgevw.image=[UIImage imageNamed:@"error"];
+                _veryimgevw.image=[UIImage imageNamed:@"failed"];
                 _veryimgevw.hidden=NO;
                 _verifiedcmpldlbl.hidden=NO;
 

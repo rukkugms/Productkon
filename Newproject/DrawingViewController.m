@@ -144,6 +144,7 @@
    
     
     NSString *soapMessage;
+    
      NSString*filename=[NSString stringWithFormat:@"%@.jpg",_savename];
      NSString * plantrimmestrg=[_planid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
    //  NSString *filename =[NSString stringWithFormat:@"Drawings/%@-%@-%@.jpg",plantrimmestrg,@"Accessibility",_savename];
