@@ -49,7 +49,7 @@ return YES;
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
- 
+   [(Sessionout *)[UIApplication sharedApplication] resetIdleTimer];
 //      _timer=   [NSTimer scheduledTimerWithTimeInterval:600.0
 //                                               target:self
 //                                             selector:@selector(targetMethod)
@@ -67,6 +67,8 @@ return YES;
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidTimeout:) name:kApplicationDidTimeoutNotification object:nil];
+
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 //    // Override point for customization after application launch.
