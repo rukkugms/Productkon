@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "ELCUIApplication.h"
 
 @interface HomeViewController ()
 
@@ -27,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+     
     // Do any additional setup after loading the view from its nib.
     /*new comment*/
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];

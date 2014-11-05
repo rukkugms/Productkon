@@ -21,4 +21,5 @@
 @property (strong, nonatomic) ViewController *viewController;
 @property (strong, nonatomic) HomeViewController *homeVctrl;
 @property (strong, nonatomic) UINavigationController*navgcntrl;
+//@property (strong, nonatomic)ELCUIApplication *eluapp;
 @end

@@ -74,6 +74,7 @@
 		64A2052319CAB89600BD942F /* IndustrytpeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A2052119CAB89600BD942F /* IndustrytpeViewController.m */; };
 		64A2052419CAB89600BD942F /* IndustrytpeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2052219CAB89600BD942F /* IndustrytpeViewController.xib */; };
 		64A2052619CAB93600BD942F /* Industrycell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2052519CAB93600BD942F /* Industrycell.xib */; };
+		64A2678E1A09FCDC0090CD41 /* ELCUIApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A2678D1A09FCDC0090CD41 /* ELCUIApplication.m */; };
 		64A27C2018E1640000D184BF /* Srepcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A27C1F18E1640000D184BF /* Srepcell.xib */; };
 		64A2D0941962C9F000BACE76 /* Reviebidmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A2D0931962C9F000BACE76 /* Reviebidmdl.m */; };
 		64A2F9AD19CBE425009B1018 /* LdtypViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A2F9AB19CBE425009B1018 /* LdtypViewController.m */; };
@@ -221,7 +222,6 @@
 		D413816A1946BD4A0056574C /* EqOthersMdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D41381691946BD4A0056574C /* EqOthersMdl.m */; };
 		D413816C1947107A0056574C /* createjob.png in Resources */ = {isa = PBXBuildFile; fileRef = D413816B1947107A0056574C /* createjob.png */; };
 		D413816E194710830056574C /* site.png in Resources */ = {isa = PBXBuildFile; fileRef = D413816D194710830056574C /* site.png */; };
-		D414174219F7B69900A2E761 /* Timeoutmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D414174119F7B69900A2E761 /* Timeoutmdl.m */; };
 		D41499AF194573A2001E9146 /* ManagemttileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D41499AD194573A2001E9146 /* ManagemttileViewController.m */; };
 		D41499B0194573A2001E9146 /* ManagemttileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D41499AE194573A2001E9146 /* ManagemttileViewController.xib */; };
 		D41499B4194575BB001E9146 /* MovementtileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D41499B2194575BB001E9146 /* MovementtileViewController.m */; };
@@ -703,6 +703,8 @@
 		64A2052119CAB89600BD942F /* IndustrytpeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndustrytpeViewController.m; sourceTree = "<group>"; };
 		64A2052219CAB89600BD942F /* IndustrytpeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndustrytpeViewController.xib; sourceTree = "<group>"; };
 		64A2052519CAB93600BD942F /* Industrycell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Industrycell.xib; sourceTree = "<group>"; };
+		64A2678C1A09FCDC0090CD41 /* ELCUIApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCUIApplication.h; sourceTree = "<group>"; };
+		64A2678D1A09FCDC0090CD41 /* ELCUIApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELCUIApplication.m; sourceTree = "<group>"; };
 		64A27C1F18E1640000D184BF /* Srepcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Srepcell.xib; sourceTree = "<group>"; };
 		64A2D0921962C9F000BACE76 /* Reviebidmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reviebidmdl.h; sourceTree = "<group>"; };
 		64A2D0931962C9F000BACE76 /* Reviebidmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reviebidmdl.m; sourceTree = "<group>"; };
@@ -905,8 +907,6 @@
 		D41381691946BD4A0056574C /* EqOthersMdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EqOthersMdl.m; sourceTree = "<group>"; };
 		D413816B1947107A0056574C /* createjob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = createjob.png; sourceTree = "<group>"; };
 		D413816D194710830056574C /* site.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = site.png; sourceTree = "<group>"; };
-		D414174019F7B69900A2E761 /* Timeoutmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timeoutmdl.h; sourceTree = "<group>"; };
-		D414174119F7B69900A2E761 /* Timeoutmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timeoutmdl.m; sourceTree = "<group>"; };
 		D41499AC194573A2001E9146 /* ManagemttileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagemttileViewController.h; sourceTree = "<group>"; };
 		D41499AD194573A2001E9146 /* ManagemttileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagemttileViewController.m; sourceTree = "<group>"; };
 		D41499AE194573A2001E9146 /* ManagemttileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagemttileViewController.xib; sourceTree = "<group>"; };
@@ -2162,6 +2162,8 @@
 		D4D570161772BE8800671A35 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				64A2678C1A09FCDC0090CD41 /* ELCUIApplication.h */,
+				64A2678D1A09FCDC0090CD41 /* ELCUIApplication.m */,
 				D40407D9192B171A00864BA4 /* myscroll.h */,
 				D40407DA192B171A00864BA4 /* myscroll.m */,
 				D4F093FE19F22C6100C3B527 /* BezierInterpView.h */,
@@ -2326,8 +2328,6 @@
 				D4ED6FEC19EF9F5A00A241F1 /* UIViewController+Neworientation.m */,
 				D4EF9F0A19EE2C5A00C6610B /* UIImagePickerController+Orientationfix.h */,
 				D4EF9F0B19EE2C5A00C6610B /* UIImagePickerController+Orientationfix.m */,
-				D414174019F7B69900A2E761 /* Timeoutmdl.h */,
-				D414174119F7B69900A2E761 /* Timeoutmdl.m */,
 				64B07B651A00B46400304153 /* Fstmarkmdl.h */,
 				64B07B661A00B46400304153 /* Fstmarkmdl.m */,
 				D404A21F1A0361890086E40A /* Catergrymdl.h */,
@@ -2999,7 +2999,6 @@
 				649E1F8018617ECD0010CBD8 /* MaterialsViewController.m in Sources */,
 				D40DE14A19E69DA4008FFD15 /* AFHTTPRequestOperation.m in Sources */,
 				D404F36D197E369E00458EF4 /* payementmdl.m in Sources */,
-				D414174219F7B69900A2E761 /* Timeoutmdl.m in Sources */,
 				D42D8C2618D2DD79009D8085 /* ManViewController.m in Sources */,
 				D49F875B18EEA36B00413CAD /* Validation.m in Sources */,
 				D400405B185B178F00C38E12 /* DocmntViewController.m in Sources */,
@@ -3062,6 +3061,7 @@
 				64AE02B61949AC56002D44B6 /* InOutSiteViewController.m in Sources */,
 				D453DA2B1873F1D0007EE3DC /* AssetsViewController.m in Sources */,
 				D49F876418EEA36B00413CAD /* vendermodel.m in Sources */,
+				64A2678E1A09FCDC0090CD41 /* ELCUIApplication.m in Sources */,
 				D4A85B4118A0E867004E9C8B /* TilehrViewController.m in Sources */,
 				D4A6749B19345F1B00D5A77E /* DPCalendarEvent.m in Sources */,
 				64A2F9BB19CBEC17009B1018 /* FLPViewController.m in Sources */,
