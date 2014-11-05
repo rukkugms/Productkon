@@ -5,9 +5,9 @@
 //  Copyright 2011 ELC Technologies. All rights reserved.
 //
 
-#import "ELCUIApplication.h"
+#import "Sessionout.h"
 
-@implementation ELCUIApplication
+@implementation Sessionout
 
 - (void)sendEvent:(UIEvent *)event {
 	[super sendEvent:event];
@@ -31,16 +31,16 @@
 {
     if (_idleTimer) {
         [_idleTimer invalidate];
-        [_idleTimer release];
+       
     }
 	
 	// Schedule a timer to fire in kApplicationTimeoutInMinutes * 60
 	int timeout = kApplicationTimeoutInMinutes * 60;
-    _idleTimer = [[NSTimer scheduledTimerWithTimeInterval:timeout 
+    _idleTimer = [NSTimer scheduledTimerWithTimeInterval:timeout
 												  target:self 
 												selector:@selector(idleTimerExceeded) 
 												userInfo:nil 
-												 repeats:NO] retain];
+												 repeats:NO];
     
 }
 
@@ -51,9 +51,6 @@
 	 postNotificationName:kApplicationDidTimeoutNotification object:nil];
 }
 
-- (void) dealloc {
-	[_idleTimer release];
-	[super dealloc];
-}
+
 
 @end
