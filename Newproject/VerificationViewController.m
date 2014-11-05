@@ -79,6 +79,7 @@
     [self FetchApplicantId];
     NSLog(@"Applicnt %d",_applicantid);
     _segmntbtn.selectedSegmentIndex=0;
+    _segmntbtn.userInteractionEnabled=YES;
     
 }
 - (void)didReceiveMemoryWarning
@@ -114,6 +115,7 @@
     _verfylbl.text=@"";
     _verifybtnlbl.enabled=YES;
     _segmntbtn.selectedSegmentIndex=0;
+     _segmntbtn.userInteractionEnabled=YES;
     i9clck ++;
     if (!i9clck%2) {
         
@@ -135,6 +137,7 @@
 }
 
 - (IBAction)bgaction:(id)sender {
+     _segmntbtn.userInteractionEnabled=YES;
     _verifybtnlbl.enabled=YES;
     _cmmnttextview.text=@"";
     _verfylbl.text=@"";
@@ -161,6 +164,7 @@ _cmmnttextview.editable=YES;
 }
 
 - (IBAction)ssnaction:(id)sender {
+     _segmntbtn.userInteractionEnabled=YES;
     _verifybtnlbl.enabled=YES;
     _cmmnttextview.text=@"";
     _verfylbl.text=@"";
@@ -1120,13 +1124,15 @@ ssnclck++;
         if ([verifytype isEqualToString:@"SSN"]) {
             
             _segmntbtn.selectedSegmentIndex=ssnsegmentcheck;
+            _segmntbtn.userInteractionEnabled=NO;
         }
        else if ([verifytype isEqualToString:@"I9"]) {
            _segmntbtn.selectedSegmentIndex=I9segmentcheck;
-            
+             _segmntbtn.userInteractionEnabled=NO;
         }
        else if ([verifytype isEqualToString:@"BackGround"]) {
              _segmntbtn.selectedSegmentIndex=bgsegmentcheck;
+            _segmntbtn.userInteractionEnabled=NO;
            
        }
 
