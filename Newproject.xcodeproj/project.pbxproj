@@ -392,8 +392,8 @@
 		D4A123D219A6FE1100A4ED9B /* UserRightsmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A123D119A6FE1100A4ED9B /* UserRightsmdl.m */; };
 		D4A123D419A7249C00A4ED9B /* Newuserrightscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A123D319A7249C00A4ED9B /* Newuserrightscell.xib */; };
 		D4A14A4C19CBEC96003C1193 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A14A4B19CBEC96003C1193 /* search.png */; };
-		D4A14B431A0A27B20039FBE1 /* error.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A14B421A0A27B20039FBE1 /* error.png */; };
-		D4A14B451A0A27B80039FBE1 /* 903550-button-ok.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A14B441A0A27B80039FBE1 /* 903550-button-ok.png */; };
+		D4A14B431A0A27B20039FBE1 /* failed.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A14B421A0A27B20039FBE1 /* failed.png */; };
+		D4A14B451A0A27B80039FBE1 /* process.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A14B441A0A27B80039FBE1 /* process.png */; };
 		D4A16B351974EEA8002CA2A2 /* PlanningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A16AFF1974EEA8002CA2A2 /* PlanningViewController.m */; };
 		D4A16B361974EEA8002CA2A2 /* PlanningViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A16B001974EEA8002CA2A2 /* PlanningViewController.xib */; };
 		D4A16B371974EEA8002CA2A2 /* customplancell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A16B011974EEA8002CA2A2 /* customplancell.xib */; };
@@ -1146,8 +1146,8 @@
 		D4A123D119A6FE1100A4ED9B /* UserRightsmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRightsmdl.m; sourceTree = "<group>"; };
 		D4A123D319A7249C00A4ED9B /* Newuserrightscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Newuserrightscell.xib; sourceTree = "<group>"; };
 		D4A14A4B19CBEC96003C1193 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
-		D4A14B421A0A27B20039FBE1 /* error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = error.png; sourceTree = "<group>"; };
-		D4A14B441A0A27B80039FBE1 /* 903550-button-ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "903550-button-ok.png"; sourceTree = "<group>"; };
+		D4A14B421A0A27B20039FBE1 /* failed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failed.png; sourceTree = "<group>"; };
+		D4A14B441A0A27B80039FBE1 /* process.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = process.png; sourceTree = "<group>"; };
 		D4A16AFE1974EEA8002CA2A2 /* PlanningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanningViewController.h; sourceTree = "<group>"; };
 		D4A16AFF1974EEA8002CA2A2 /* PlanningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanningViewController.m; sourceTree = "<group>"; };
 		D4A16B001974EEA8002CA2A2 /* PlanningViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanningViewController.xib; sourceTree = "<group>"; };
@@ -2028,8 +2028,8 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				D4A14B441A0A27B80039FBE1 /* 903550-button-ok.png */,
-				D4A14B421A0A27B20039FBE1 /* error.png */,
+				D4A14B441A0A27B80039FBE1 /* process.png */,
+				D4A14B421A0A27B20039FBE1 /* failed.png */,
 				D4F0940D19F22F3100C3B527 /* pencil.png */,
 				D4F0940B19F22F2300C3B527 /* eraser.png */,
 				D4109A1619DC1EE2008E9949 /* 070537-glossy-black-3d-button-icon-alphanumeric-information2-ps.png */,
@@ -2680,7 +2680,7 @@
 				D47A9B1319407A8A001CC416 /* basic-requirment.png in Resources */,
 				D4F19DA018D01CDB007617F0 /* NewCustmrViewController.xib in Resources */,
 				D4ACE56819C1B1020060A352 /* CraftViewController.xib in Resources */,
-				D4A14B451A0A27B80039FBE1 /* 903550-button-ok.png in Resources */,
+				D4A14B451A0A27B80039FBE1 /* process.png in Resources */,
 				D4A16B8B1974EEE0002CA2A2 /* BidViewController.xib in Resources */,
 				D4F7D9CC196E5B4D00B8F4D4 /* ProjectSiteRequirement.png in Resources */,
 				64A41243194080D6003EE113 /* billing-matrix.png in Resources */,
@@ -2816,7 +2816,7 @@
 				D4EBA85A1978E05100B612E1 /* Cfecell.xib in Resources */,
 				D42505D519A4A5A8001D16A2 /* lock.png in Resources */,
 				6426F5E718C05E09002471AC /* com.png in Resources */,
-				D4A14B431A0A27B20039FBE1 /* error.png in Resources */,
+				D4A14B431A0A27B20039FBE1 /* failed.png in Resources */,
 				D4E658D417F2EF5B00202B14 /* wrong.png in Resources */,
 				D42D8C1E18D2D91C009D8085 /* customvendercell.xib in Resources */,
 				64A11EE918683BE6008D20CC /* customphase.xib in Resources */,
