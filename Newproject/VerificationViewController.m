@@ -2401,15 +2401,16 @@ ssnclck++;
         if (buttonIndex==0)
         {
             [self SelectVerificationcomment];
+            [self FetchApplicantId];
             _verifybtnlbl.enabled=YES;
            
-            if ([self.delegate respondsToSelector:@selector(newaction)])
-            {
-                [self.delegate newaction];
-                //[self dismissViewControllerAnimated:YES completion:NULL];
-                
-                
-            }
+//            if ([self.delegate respondsToSelector:@selector(newaction)])
+//            {
+//                [self.delegate newaction];
+//                //[self dismissViewControllerAnimated:YES completion:NULL];
+//                
+//                
+//            }
 
         }
     }
