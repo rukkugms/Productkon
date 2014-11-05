@@ -62,6 +62,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     _imgview.layer.borderColor = [UIColor colorWithRed:0/255.0f green:191/255.0f blue:255.0/255.0f alpha:1.0f].CGColor;
 
     // Do any additional setup after loading the view from its nib.
+     imagechecker=0;
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,7 +75,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self Statusselect];
-    imagechecker=0;
+   
     
     
 
@@ -1977,8 +1978,10 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
       NSData *data = UIImagePNGRepresentation(imagename);
     _encodedString = [data base64EncodedString];
        NSLog(@"%@",_encodedString);
+         imagechecker=0;
     
     [self UploadHRDocsImage];
+        
     }
     
 }
@@ -2193,7 +2196,8 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
 }
 
 -(IBAction)selectfileaction:(id)sender{
-    imagechecker=1;
+    
+    
     if ([UIImagePickerController isSourceTypeAvailable:
          UIImagePickerControllerSourceTypeCamera])
     {
@@ -2209,6 +2213,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
         imagePicker.mediaTypes = [NSArray arrayWithObjects:
                                   (NSString *) kUTTypeImage,
                                   nil];
+        imagechecker=1;
         imagePicker.allowsEditing = NO;
         // imagePicker.cameraCaptureMode=YES;
         [self presentViewController:imagePicker animated:YES completion:nil];

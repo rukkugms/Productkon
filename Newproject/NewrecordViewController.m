@@ -591,14 +591,14 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    
                    "<soap:Body>\n"
                    
-                   "<SitevisitInsertmeetingnotes xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SitevisitInsertMeetingnotes xmlns=\"http://ios.kontract360.com/\">\n"
                    "<Datetime>%@</Datetime>\n"
                    "<details>%@</details>\n"
                    "<userId>%d</userId>\n"
                    "<planId>%@</planId>\n"
                    "<FileName>%@</FileName>\n"
                    "<Type>%d</Type>\n"
-                   "</SitevisitInsertmeetingnotes>\n"
+                   "</SitevisitInsertMeetingnotes>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",_datesstrg,_meetgdetailslbl.text,[useridname integerValue],_companyid,nestrg,typ];
     NSLog(@"soapmsg%@",soapMessage);
@@ -613,7 +613,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertmeetingnotes" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertMeetingnotes" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

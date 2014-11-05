@@ -158,10 +158,13 @@
 -(void)toreloaddrawings{
     switch (_drwVCtrl.tabtype) {
         case 1:
-            [self EstmPlanDrawingSelect];
+            //[self EstmPlanDrawingSelect];
+            [self SitevisitInsertEquipmentStag];
+            
             break;
         case 2:
-             [self PlanDrawingSelect];
+             [self SitevisitInsertAccessibility];
+            
             break;
      
 
@@ -1891,6 +1894,152 @@ _passingdate=dateString;
     
     
 }
+-(void)SitevisitInsertAccessibility{
+    recordResults = FALSE;
+    NSString *filename;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    filename = [defaults objectForKey:@"Imagename"];
+
+    NSString*  useridname = [defaults objectForKey:@"Userid"];
+    
+      NSString *soapMessage;
+   
+       NSDate *daa=[NSDate date];
+        NSLog(@"%@",daa);
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSString*curntdate = [dateFormat stringFromDate:daa];
+        NSLog(@"%@",curntdate);
+    
+    
+    NSString*nestrg=[NSString stringWithFormat:@"%@-%@-%@-%@.jpg",[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]],@"Accessibility",curntdate,filename];
+    
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SitevisitInsertAccessibility xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Datetime>%@</Datetime>\n"
+                   "<details>%@</details>\n"
+                   "<userId>%d</userId>\n"
+                   "<planId>%@</planId>\n"
+                   "<FileName>%@</FileName>\n"
+                   "<Type>%d</Type>\n"
+                   "</SitevisitInsertAccessibility>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",curntdate,@"",[useridname integerValue],_companyid,nestrg,0];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertAccessibility" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)SitevisitInsertEquipmentStag{
+    recordResults = FALSE;
+    NSString *filename;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    filename = [defaults objectForKey:@"Imagename"];
+    
+    NSString*  useridname = [defaults objectForKey:@"Userid"];
+    
+    NSString *soapMessage;
+    
+    NSDate *daa=[NSDate date];
+    NSLog(@"%@",daa);
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    NSString*curntdate = [dateFormat stringFromDate:daa];
+    NSLog(@"%@",curntdate);
+    
+    
+    NSString*nestrg=[NSString stringWithFormat:@"%@-%@-%@-%@.jpg",[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]],@"Equipment",curntdate,filename];
+    
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SitevisitInsertEquipmentStag xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Datetime>%@</Datetime>\n"
+                   "<details>%@</details>\n"
+                   "<userId>%d</userId>\n"
+                   "<planId>%@</planId>\n"
+                   "<FileName>%@</FileName>\n"
+                   "<Type>%d</Type>\n"
+                   "</SitevisitInsertEquipmentStag>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",curntdate,@"",[useridname integerValue],_companyid,nestrg,0];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertEquipmentStag" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -3074,6 +3223,15 @@ _passingdate=dateString;
         else{
         UIAlertView *alertview=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alertview show];
+            
+            if (_drwVCtrl.tabtype==2) {
+               
+                [self PlanDrawingSelect];
+
+            }
+            else if (_drwVCtrl.tabtype==1){
+                [self EstmPlanDrawingSelect];
+            }
               _genralbtnlbl.enabled=YES;
             _accebilitybtnlbl.enabled=YES;
             _equpdatebtnlbl.enabled=YES;
