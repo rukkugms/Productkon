@@ -116,6 +116,8 @@
     _verifybtnlbl.enabled=YES;
     _segmntbtn.selectedSegmentIndex=0;
      _segmntbtn.userInteractionEnabled=YES;
+    Segmntcheck=1;
+
     i9clck ++;
     if (!i9clck%2) {
         
@@ -142,6 +144,8 @@
     _cmmnttextview.text=@"";
     _verfylbl.text=@"";
     _segmntbtn.selectedSegmentIndex=0;
+    Segmntcheck=1;
+
     bgclck++;
     if (!bgclck%2) {
         
@@ -170,6 +174,7 @@ _cmmnttextview.editable=YES;
     _verfylbl.text=@"";
 ssnclck++;
     _segmntbtn.selectedSegmentIndex=0;
+    Segmntcheck=1;
     if (!ssnclck%2) {
         
         [_ssnbtnlbl setImage:[UIImage imageNamed:@"RadioButton-UnSelected"] forState:UIControlStateNormal];
@@ -187,7 +192,7 @@ ssnclck++;
         [self SelectVerificationcomment];
         
     }
-
+ 
         
     
     
@@ -1132,7 +1137,7 @@ ssnclck++;
         }
        else if ([verifytype isEqualToString:@"BackGround"]) {
              _segmntbtn.selectedSegmentIndex=bgsegmentcheck;
-            _segmntbtn.userInteractionEnabled=NO;
+            _segmntbtn.userInteractionEnabled=YES;
            
        }
 
