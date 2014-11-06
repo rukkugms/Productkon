@@ -22,7 +22,8 @@
     if (self) {
         self.titleLabel = [[UILabel alloc] initWithFrame:self.bounds];
         self.titleLabel.font = self.font;
-        self.titleLabel.textColor = [UIColor colorWithRed:82/255.0f green:82/255.0f blue:82/255.0f alpha:1];
+       // self.titleLabel.textColor =[UIColor blackColor];
+        self.titleLabel.textColor=[UIColor colorWithRed:0/255.0f green:104/255.0f blue:139/255.0f alpha:1];
         self.titleLabel.highlightedTextColor = [UIColor whiteColor];
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
         self.titleLabel.userInteractionEnabled = NO;

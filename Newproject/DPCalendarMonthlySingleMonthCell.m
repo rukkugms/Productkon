@@ -52,6 +52,7 @@
 #define ICON_EVENT_HORIZONTAL_MARGIN 4.0f
 
 #define ROW_MARGIN 3.0f
+#define ROW_NewMARGIN 40.0f
 #define EVENT_START_MARGIN 1.0f
 #define EVENT_END_MARGIN 1.0f
 #define EVENT_TITLE_MARGIN 2.0f
@@ -90,7 +91,9 @@
     
     BOOL isDayToday = [self.date compare:[[NSDate date] dp_dateWithoutTimeWithCalendar:self.calendar]] == NSOrderedSame;
     if (isDayToday) {
-        [self drawCellWithColor:self.todayBannerBkgColor InRect:CGRectMake(0, 0, rect.size.width, self.rowHeight) context:context];
+        [self drawCellWithColor:self.todayBannerBkgColor InRect:CGRectMake(0, 0, rect.size.width-1, 139) context:context];
+        
+        
     }
     
     //Draw Day
@@ -176,7 +179,7 @@
             //Draw Bar
         
             
-        [self drawCellWithColor:[color colorWithAlphaComponent:0.2] InRect:CGRectMake(startPosition, event.rowIndex * self.rowHeight + ROW_MARGIN, width, self.rowHeight - ROW_MARGIN) context:context];
+        [self drawCellWithColor:[color colorWithAlphaComponent:1] InRect:CGRectMake(startPosition, event.rowIndex * self.rowHeight + ROW_NewMARGIN, width, self.rowHeight - ROW_MARGIN) context:context];
             
         } else {
             //Draw Underline
@@ -188,7 +191,14 @@
             //[self drawCellWithColor:color InRect:CGRectMake(EVENT_START_MARGIN, event.rowIndex * self.rowHeight + ROW_MARGIN, 2, self.rowHeight - ROW_MARGIN) context:context];
             
             
-          [event.title drawInRect:CGRectMake(startPosition + 2 +  EVENT_TITLE_MARGIN, event.rowIndex * self.rowHeight + ROW_MARGIN, rect.size.width - EVENT_END_MARGIN, self.rowHeight - ROW_MARGIN) withAttributes:@{NSFontAttributeName:self.eventFont, NSParagraphStyleAttributeName:textStyle, NSForegroundColorAttributeName:[UIColor colorWithRed:67/255.0f green:67/255.0f blue:67/255.0f alpha:1]}];
+          [event.title drawInRect:CGRectMake(startPosition + 2 +  EVENT_TITLE_MARGIN, event.rowIndex * self.rowHeight + ROW_NewMARGIN, rect.size.width - EVENT_END_MARGIN, self.rowHeight - ROW_MARGIN) withAttributes:@{NSFontAttributeName:self.eventFont, NSParagraphStyleAttributeName:textStyle, NSForegroundColorAttributeName:[UIColor blackColor]}];
+            
+            
+            NSLog(@"%f",startPosition + 2 +  EVENT_TITLE_MARGIN);
+            NSLog(@"%f",event.rowIndex * self.rowHeight + ROW_MARGIN);
+             NSLog(@"%f",rect.size.width - EVENT_END_MARGIN);
+              NSLog(@"%f",self.rowHeight - ROW_MARGIN);
+            
             
                    }
         

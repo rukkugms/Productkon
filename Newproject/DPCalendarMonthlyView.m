@@ -134,12 +134,13 @@ NSString *const DPCalendarViewDayCellIdentifier = @"DPCalendarViewDayCellIdentif
         self.eventColors = [attributes objectForKey:DPCalendarMonthlyViewAttributeEventColors] ? [attributes objectForKey:DPCalendarMonthlyViewAttributeEventColors] :
         [self defaultEventColors];
         
-        self.todayBannerBkgColor = [attributes objectForKey:DPCalendarMonthlyViewAttributeCellTodayBannerBkgColor] ? [attributes objectForKey:DPCalendarMonthlyViewAttributeCellTodayBannerBkgColor] : [UIColor colorWithRed:3/255.f green:138/255.f blue:1 alpha:1];
+       self.todayBannerBkgColor = [attributes objectForKey:DPCalendarMonthlyViewAttributeCellTodayBannerBkgColor] ? [attributes objectForKey:DPCalendarMonthlyViewAttributeCellTodayBannerBkgColor] : [UIColor colorWithRed:255.0/255.0f green:235/255.0f blue:205/255.0f alpha:1.0f];
+         
         
         
         self.dayFont = [attributes objectForKey:DPCalendarMonthlyViewAttributeDayFont] ? [attributes objectForKey:DPCalendarMonthlyViewAttributeDayFont] : [UIFont systemFontOfSize:12];
-        self.dayTextColor = [attributes objectForKey:DPCalendarMonthlyViewAttributeDayTextColor] ? [attributes objectForKey:DPCalendarMonthlyViewAttributeDayTextColor] : [UIColor colorWithRed:156/255.0f green:156/255.0f blue:156/255.0f alpha:1];
-        self.eventFont = [attributes objectForKey:DPCalendarMonthlyViewAttributeEventFont] ? [attributes objectForKey:DPCalendarMonthlyViewAttributeEventFont] : [UIFont systemFontOfSize:12];
+        self.dayTextColor = [attributes objectForKey:DPCalendarMonthlyViewAttributeDayTextColor] ? [attributes objectForKey:DPCalendarMonthlyViewAttributeDayTextColor] : [UIColor blackColor];
+        self.eventFont = [attributes objectForKey:DPCalendarMonthlyViewAttributeEventFont] ? [attributes objectForKey:DPCalendarMonthlyViewAttributeEventFont] : [UIFont fontWithName:@"Helvetica Neue Bold" size:12];
         self.rowHeight = [attributes objectForKey:DPCalendarMonthlyViewAttributeCellRowHeight] ? [[attributes objectForKey:DPCalendarMonthlyViewAttributeCellRowHeight] floatValue] : 18.0f;
         self.iconEventFont = [attributes objectForKey:DPCalendarMonthlyViewAttributeIconEventFont] ? [attributes objectForKey:DPCalendarMonthlyViewAttributeIconEventFont] : [UIFont systemFontOfSize:12];
         self.iconEventBkgColors = [attributes objectForKey:DPCalendarMonthlyViewAttributeIconEventBkgColors] ? [attributes objectForKey:DPCalendarMonthlyViewAttributeIconEventBkgColors] :
@@ -185,12 +186,14 @@ NSString *const DPCalendarViewDayCellIdentifier = @"DPCalendarViewDayCellIdentif
     [self scrollRectToVisible:((UIView *)[self.pagingViews objectAtIndex:1]).frame animated:NO];
 }
 
+
 - (NSArray *)defaultEventColors {
-    return @[[UIColor colorWithRed:254/255.f green:161/255.0f blue:0/255.0f alpha:1], [UIColor colorWithRed:2/255.0f green:63/255.0f blue:155/255.0f alpha:1], [UIColor colorWithRed:255/255.f green:36/255.0f blue:36/255.0f alpha:1]];
+    return @[[UIColor colorWithRed:0/255.f green:100/255.0f blue:0/255.0f alpha:1], [UIColor colorWithRed:32/255.0f green:149/255.0f blue:34/255.0f alpha:1], [UIColor colorWithRed:255/255.f green:36/255.0f blue:36/255.0f alpha:1]];
 }
 
+
 - (NSArray *)defaultIconEventColors {
-    return @[[UIColor clearColor], [UIColor colorWithRed:255/255.0f green:168/255.0f blue:0 alpha:1]];
+    return @[[UIColor colorWithRed:0/255.f green:100/255.0f blue:0/255.0f alpha:1], [UIColor colorWithRed:255/255.0f green:168/255.0f blue:0 alpha:1]];
 }
 
 -(void)setMonthlyViewBackgroundColor:(UIColor *)monthlyViewBackgroundColor {
@@ -209,7 +212,7 @@ NSString *const DPCalendarViewDayCellIdentifier = @"DPCalendarViewDayCellIdentif
     singleMonthView.dataSource = self;
     singleMonthView.delegate = self;
     singleMonthView.allowsMultipleSelection = NO;
-    singleMonthView.backgroundColor = [UIColor clearColor];
+    singleMonthView.backgroundColor = [UIColor whiteColor];
     
     if ([self.monthlyViewDelegate respondsToSelector:@selector(monthlyCellClass)]) {
         [singleMonthView registerClass:[self.monthlyViewDelegate monthlyCellClass]
