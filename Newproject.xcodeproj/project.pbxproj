@@ -127,6 +127,7 @@
 		64B12DDA19D520940074A404 /* BscTypViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64B12DD819D520940074A404 /* BscTypViewController.xib */; };
 		64B12DDC19D520BE0074A404 /* BsictpCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64B12DDB19D520BE0074A404 /* BsictpCell.xib */; };
 		64B1EB7E1A025C980096DC5B /* Issuecommentcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64B1EB7D1A025C980096DC5B /* Issuecommentcell.xib */; };
+		64B1F2251A0B538800B3FCB7 /* failed.png in Resources */ = {isa = PBXBuildFile; fileRef = 64B1F2241A0B538800B3FCB7 /* failed.png */; };
 		64B36211198F4D2000B54191 /* action.png in Resources */ = {isa = PBXBuildFile; fileRef = 64B36210198F4D2000B54191 /* action.png */; };
 		64D23F7D1905103000DEA64A /* Generalmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D23F7C1905103000DEA64A /* Generalmodel.m */; };
 		64F97983185ED60000E7722B /* appbar.addblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F97982185ED60000E7722B /* appbar.addblack.png */; };
@@ -392,7 +393,6 @@
 		D4A123D219A6FE1100A4ED9B /* UserRightsmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A123D119A6FE1100A4ED9B /* UserRightsmdl.m */; };
 		D4A123D419A7249C00A4ED9B /* Newuserrightscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A123D319A7249C00A4ED9B /* Newuserrightscell.xib */; };
 		D4A14A4C19CBEC96003C1193 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A14A4B19CBEC96003C1193 /* search.png */; };
-		D4A14B431A0A27B20039FBE1 /* failed.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A14B421A0A27B20039FBE1 /* failed.png */; };
 		D4A14B451A0A27B80039FBE1 /* process.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A14B441A0A27B80039FBE1 /* process.png */; };
 		D4A16B351974EEA8002CA2A2 /* PlanningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A16AFF1974EEA8002CA2A2 /* PlanningViewController.m */; };
 		D4A16B361974EEA8002CA2A2 /* PlanningViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A16B001974EEA8002CA2A2 /* PlanningViewController.xib */; };
@@ -769,6 +769,7 @@
 		64B12DD819D520940074A404 /* BscTypViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BscTypViewController.xib; sourceTree = "<group>"; };
 		64B12DDB19D520BE0074A404 /* BsictpCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BsictpCell.xib; sourceTree = "<group>"; };
 		64B1EB7D1A025C980096DC5B /* Issuecommentcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Issuecommentcell.xib; sourceTree = "<group>"; };
+		64B1F2241A0B538800B3FCB7 /* failed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failed.png; sourceTree = "<group>"; };
 		64B36210198F4D2000B54191 /* action.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action.png; sourceTree = "<group>"; };
 		64D23F7B1905103000DEA64A /* Generalmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generalmodel.h; sourceTree = "<group>"; };
 		64D23F7C1905103000DEA64A /* Generalmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Generalmodel.m; sourceTree = "<group>"; };
@@ -1146,7 +1147,6 @@
 		D4A123D119A6FE1100A4ED9B /* UserRightsmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRightsmdl.m; sourceTree = "<group>"; };
 		D4A123D319A7249C00A4ED9B /* Newuserrightscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Newuserrightscell.xib; sourceTree = "<group>"; };
 		D4A14A4B19CBEC96003C1193 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
-		D4A14B421A0A27B20039FBE1 /* failed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failed.png; sourceTree = "<group>"; };
 		D4A14B441A0A27B80039FBE1 /* process.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = process.png; sourceTree = "<group>"; };
 		D4A16AFE1974EEA8002CA2A2 /* PlanningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanningViewController.h; sourceTree = "<group>"; };
 		D4A16AFF1974EEA8002CA2A2 /* PlanningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanningViewController.m; sourceTree = "<group>"; };
@@ -2028,8 +2028,8 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				64B1F2241A0B538800B3FCB7 /* failed.png */,
 				D4A14B441A0A27B80039FBE1 /* process.png */,
-				D4A14B421A0A27B20039FBE1 /* failed.png */,
 				D4F0940D19F22F3100C3B527 /* pencil.png */,
 				D4F0940B19F22F2300C3B527 /* eraser.png */,
 				D4109A1619DC1EE2008E9949 /* 070537-glossy-black-3d-button-icon-alphanumeric-information2-ps.png */,
@@ -2719,6 +2719,7 @@
 				D4036FF819FE23310031C4F1 /* PlandocsViewController.xib in Resources */,
 				D4EC1FE11875280500A55942 /* textbox.png in Resources */,
 				D4F0940E19F22F3100C3B527 /* pencil.png in Resources */,
+				64B1F2251A0B538800B3FCB7 /* failed.png in Resources */,
 				64B1EB7E1A025C980096DC5B /* Issuecommentcell.xib in Resources */,
 				D47A9B2819407CF1001CC416 /* othercompanyassestsicon.png in Resources */,
 				D49DE839185EB391006F1CDA /* closebutton@2x.png in Resources */,
@@ -2816,7 +2817,6 @@
 				D4EBA85A1978E05100B612E1 /* Cfecell.xib in Resources */,
 				D42505D519A4A5A8001D16A2 /* lock.png in Resources */,
 				6426F5E718C05E09002471AC /* com.png in Resources */,
-				D4A14B431A0A27B20039FBE1 /* failed.png in Resources */,
 				D4E658D417F2EF5B00202B14 /* wrong.png in Resources */,
 				D42D8C1E18D2D91C009D8085 /* customvendercell.xib in Resources */,
 				64A11EE918683BE6008D20CC /* customphase.xib in Resources */,

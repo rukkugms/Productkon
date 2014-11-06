@@ -1821,7 +1821,7 @@ ssnclck++;
     {
         recordResults = FALSE;
         _photostring=_soapResults;
-               _soapResults = nil;
+        _soapResults = nil;
         
     }
 
