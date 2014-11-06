@@ -89,6 +89,7 @@ return YES;
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
+    [(Sessionout *)[UIApplication sharedApplication] resetIdleTimer];
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
    
 }
@@ -97,8 +98,8 @@ return YES;
 }
 -(void)targetMethod{
     
-    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"Time Out" message:@"5 mins....." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-    [alert show];
+//    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"Time Out" message:@"5 mins....." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+//    [alert show];
        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center postNotification:[NSNotification notificationWithName:@"appDidEnterForeground" object:nil]];
     
