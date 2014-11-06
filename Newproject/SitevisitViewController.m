@@ -1837,17 +1837,20 @@ _passingdate=dateString;
     NSString *soapMessage;
     NSString * plantrimmestrg=[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
       SitevistMdl *sitemdl1=(SitevistMdl *)[_notearray objectAtIndex:fetchindex];
+     NSArray *newarray=[sitemdl1.notedate componentsSeparatedByString:@"T"];
     NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
     [dateFormat1 setDateFormat:@"MM-dd-yyyy"];
-    NSDate *dates = [dateFormat1 dateFromString:sitemdl1.notedate];
+   
+    NSDate *dates = [dateFormat1 dateFromString:[newarray objectAtIndex:0]];
+    NSLog(@"s%@",dates);
     NSLog(@"s%@",dates);
     NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
     [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
     
     NSString*    dateString = [dateFormat2 stringFromDate:dates];
     _passingdate=dateString;
-    NSString *fullURL =[NSString stringWithFormat:@"%@-%@-%@-%@.jpg",plantrimmestrg,@"Notes",dateString,sitemdl1.filename];
-    
+   // NSString *fullURL =[NSString stringWithFormat:@"%@-%@-%@-%@.jpg",plantrimmestrg,@"Notes",dateString,sitemdl1.filename];
+    NSString *fullURL=sitemdl1.filename;
     
     soapMessage = [NSString stringWithFormat:
                    
