@@ -72,24 +72,28 @@
     self.nextButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     self.todayButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     self.optionsButton  = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.createEventButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.previousButton.frame = CGRectMake(0, 20, 100, 20);
-    self.nextButton.frame = CGRectMake(width - 50, 20, 50, 20);
+    self.createEventButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.previousButton.frame = CGRectMake(350, 20, 100, 20);
+    self.nextButton.frame = CGRectMake(width - 420, 20, 50, 20);
     self.todayButton.frame = CGRectMake(width - 50 * 2, 20, 50, 20);
     self.optionsButton.frame = CGRectMake(width - 50 * 3, 20, 50, 20);
-    self.createEventButton.frame = CGRectMake(width - 50 * 5, 20, 100, 20);
+    self.createEventButton.frame = CGRectMake(width - 10 * 5, 0, 30, 30);
    // [self.previousButton setTitle:@"Previous" forState:UIControlStateNormal];
     [self.previousButton setImage:[UIImage imageNamed:@"iconleftblack"] forState:UIControlStateNormal];
       [self.nextButton setImage:[UIImage imageNamed:@"iconarrowright"] forState:UIControlStateNormal];
    // [self.nextButton setTitle:@"Next" forState:UIControlStateNormal];
     //[self.todayButton setTitle:@"Today" forState:UIControlStateNormal];
     //[self.optionsButton setTitle:@"Option" forState:UIControlStateNormal];
-    [self.createEventButton setTitle:@"CLOSE" forState:UIControlStateNormal];
+     [self.createEventButton setImage:[UIImage imageNamed:@"iconclose"] forState:UIControlStateNormal];
+    
+    //[self.createEventButton setTitle:@"CLOSE" forState:UIControlStateNormal];
     [self.createEventButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     self.createEventButton.titleLabel.font = [UIFont systemFontOfSize:20];
     
     
     self.monthLabel = [[UILabel alloc] initWithFrame:CGRectMake((width - 200) / 2, 20, 200, 20)];
+  _monthLabel.font=[UIFont fontWithName:@"Helvetica Neue Bold" size:16];
+    //_monthLabel.textColor=[UIColor colorWithRed:0/255.0f green:153.0/255.0f blue:204.0/255.0f alpha:1.0f];
     [self.monthLabel setTextAlignment:NSTextAlignmentCenter];
     
     [self.previousButton addTarget:self action:@selector(previousButtonSelected:) forControlEvents:UIControlEventTouchUpInside];

@@ -146,6 +146,7 @@
 		D4014FF318E3E05B00DB825A /* SerialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4014FF118E3E05B00DB825A /* SerialViewController.m */; };
 		D4014FF418E3E05B00DB825A /* SerialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4014FF218E3E05B00DB825A /* SerialViewController.xib */; };
 		D4014FF618E3E34000DB825A /* Snumcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4014FF518E3E34000DB825A /* Snumcell.xib */; };
+		D40209761A0B756D00E1428D /* iconclose.png in Resources */ = {isa = PBXBuildFile; fileRef = D40209751A0B756D00E1428D /* iconclose.png */; };
 		D40367F018ED3A5200139E7D /* MangmntdetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40367EE18ED3A5100139E7D /* MangmntdetailsViewController.m */; };
 		D40367F118ED3A5200139E7D /* MangmntdetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40367EF18ED3A5200139E7D /* MangmntdetailsViewController.xib */; };
 		D4036FF319FE0FAF0031C4F1 /* workentrycell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4036FF219FE0FAF0031C4F1 /* workentrycell.xib */; };
@@ -795,6 +796,7 @@
 		D4014FF118E3E05B00DB825A /* SerialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SerialViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D4014FF218E3E05B00DB825A /* SerialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SerialViewController.xib; sourceTree = "<group>"; };
 		D4014FF518E3E34000DB825A /* Snumcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Snumcell.xib; sourceTree = "<group>"; };
+		D40209751A0B756D00E1428D /* iconclose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconclose.png; sourceTree = "<group>"; };
 		D40367ED18ED3A5100139E7D /* MangmntdetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MangmntdetailsViewController.h; sourceTree = "<group>"; };
 		D40367EE18ED3A5100139E7D /* MangmntdetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MangmntdetailsViewController.m; sourceTree = "<group>"; };
 		D40367EF18ED3A5200139E7D /* MangmntdetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MangmntdetailsViewController.xib; sourceTree = "<group>"; };
@@ -2028,6 +2030,7 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D40209751A0B756D00E1428D /* iconclose.png */,
 				64B1F2241A0B538800B3FCB7 /* failed.png */,
 				D4A14B441A0A27B80039FBE1 /* process.png */,
 				D4F0940D19F22F3100C3B527 /* pencil.png */,
@@ -2625,6 +2628,7 @@
 				6426F5F118C06157002471AC /* hr.png in Resources */,
 				D4A16B421974EEA8002CA2A2 /* Meetingnotesview.xib in Resources */,
 				D4F61A5718A896D90006093B /* ProcesshrViewController.xib in Resources */,
+				D40209761A0B756D00E1428D /* iconclose.png in Resources */,
 				D453DA2C1873F1D0007EE3DC /* AssetsViewController.xib in Resources */,
 				648D12FE17716C7F006BB41A /* rectangle3.png in Resources */,
 				D4A5317819CD822B0056EBC1 /* login-1.jpg in Resources */,
