@@ -299,12 +299,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     
     
 }
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    if (editingStyle==UITableViewCellEditingStyleDelete) {
-        }
-    
-}
+
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //alternating cell back ground color
@@ -1865,10 +1860,10 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 160, 90)];
+                           initWithFrame:CGRectMake(0, 0, 200, 90)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 160, 90)];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 90)];
     
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
@@ -1881,7 +1876,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(160, 90);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 90);
     
     //create a popover controller
     
@@ -2110,9 +2105,9 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     urlstring=[_docmntdict objectForKey:[newnamearry objectAtIndex:textFieldIndexPath.row]];
 
 
-    if (!_webVCtrl) {
+   // if (!_webVCtrl) {
         self.webVCtrl=[[WebViewController alloc]initWithNibName:@"WebViewController" bundle:nil];
-    }
+   // }
     _webVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     _webVCtrl.urlstring=urlstring;
     [self presentViewController:_webVCtrl
