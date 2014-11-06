@@ -1159,7 +1159,7 @@ return cell;
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -1822,7 +1822,7 @@ return cell;
     int value1=[val isNumeric:_sitefctrfld.text];
     if(value1==0)
     {
-        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Please enter a valid sitefactor" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Please enter a valid sitefactor" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert1 show];
         _sitefctrfld.text=@"";
         
@@ -1831,7 +1831,7 @@ return cell;
     else{
         
         if(_sitefctrfld.text.length==0){
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Sitefactor is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Sitefactor is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
 
         }

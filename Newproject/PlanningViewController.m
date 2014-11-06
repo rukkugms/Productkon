@@ -389,7 +389,7 @@
         
         if (rightsmodel.DeleteModule==0) {
             
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             
         }
@@ -640,11 +640,11 @@
     
     if (rightsmodel.EditModule==0) {
         if (optionidentifier==1) {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to add a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You dont have rights to add a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }else if(optionidentifier==2)
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         
@@ -661,23 +661,23 @@
 //    
 //    if(value1==0){
 //        
-//        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Zip" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Zip" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 //        [alert show];
 //        
 //    }
 //    else if(value2==0){
-//        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Site Factor" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Site Factor" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 //        [alert show];
 //    }
 
      if([_planselectionbtn.titleLabel.text isEqualToString:@"Select"]||[_planselectionbtn.titleLabel.text isEqualToString:@""])
     {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Lead/Customer is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Lead/Customer is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else if([_typebtnlbl.titleLabel.text isEqualToString:@"Select"]||[_typebtnlbl.titleLabel.text isEqualToString:@""])
     {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Work Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Work Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else
@@ -1573,7 +1573,7 @@
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -2097,7 +2097,7 @@
         if (webtype==3) {
             
         
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         }
         _soapResults = nil;
@@ -2109,7 +2109,7 @@
         recordResults = FALSE;
         if (webtype!=3) {
             
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
                 [self SelectAllPlans];
                 _searchbar.text=@"";
@@ -2124,7 +2124,7 @@
             }
             else
             {
-                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_result delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_result delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
                 [self SelectAllPlans];
                 _searchbar.text=@"";
@@ -2247,7 +2247,7 @@
         int value1=[val isNumeric:_ziptxtfld.text];
         if(value1==0)
         {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Zip" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Zip" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
             
@@ -2260,7 +2260,7 @@
         int value1=[val validatespecialcharacters:_loctntxtfld.text];
         if(value1==0)
         {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Location" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Location" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
             
@@ -2274,7 +2274,7 @@
         int value1=[val isNumeric:_sitefactortxtfld.text];
         if(value1==0)
         {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Site Factor" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Site Factor" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
             

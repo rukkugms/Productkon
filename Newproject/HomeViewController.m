@@ -39,7 +39,7 @@
 -(IBAction)logout:(id)sender
 {   _ModuleID=0;
     _result=@"";
-    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to logout" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
+    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Are you sure you want to logout" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
     [alert show];
    
     
@@ -343,7 +343,7 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -374,7 +374,7 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
         
     
     if ([_result isEqualToString:@"Not yet set"]) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Your rights are not yet set" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Your rights are not yet set" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         _compactivityindctr.hidden=YES;
         [_compactivityindctr stopAnimating];
@@ -451,7 +451,7 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
     else
     {
         
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         _compactivityindctr.hidden=YES;
         [_compactivityindctr stopAnimating];
@@ -559,7 +559,7 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
             
 
            
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         
@@ -608,7 +608,7 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
         else
         {
             
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             _custindictr.hidden=YES;
             [_custindictr stopAnimating];
@@ -683,7 +683,7 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
         else
         {
            
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             _ledactvtyindctr.hidden=YES;
             [_ledactvtyindctr stopAnimating];
@@ -760,7 +760,7 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
         else
         {
             
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             _planactivityindctr.hidden=YES;
             [_planactivityindctr stopAnimating];
@@ -837,7 +837,7 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
         else
         {
             
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             _estactvityindicator.hidden=YES;
             [_estactvityindicator stopAnimating];
@@ -918,7 +918,7 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
         else
         {
             
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             _promgmtindicatr.hidden=YES;
              _projectview.userInteractionEnabled=YES;
@@ -1025,7 +1025,7 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
 
 
 
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         
         }
@@ -1213,7 +1213,7 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
         
         _result=@"Not yet set";
 //        if ([_soapResults isEqualToString:@"0"]) {
-//            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 //            [alert show];
 //        }
         

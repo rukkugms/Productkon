@@ -283,7 +283,7 @@
         
         if (rightsmodel.DeleteModule==0) {
             
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         else
@@ -466,7 +466,7 @@
     
     if ([_crewbtnlbl.titleLabel.text isEqualToString:@"Select"]) {
         
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select Group Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please select Group Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
     }
@@ -576,7 +576,7 @@
                 
                 if (rightsmodel.EditModule==0) {
                     
-                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to drag this item" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You dont have rights to drag this item" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                     [alert show];
                 }
                 else
@@ -605,7 +605,7 @@
                 
                 if (rightsmodel.EditModule==0) {
                     
-                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to drag this item" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You dont have rights to drag this item" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                     [alert show];
                 }
                 else
@@ -1491,7 +1491,7 @@
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -1912,7 +1912,7 @@
        else  if ([_soapResults isEqualToString:@"Inserted Crew"]||[_soapResults isEqualToString:@"Deleted CrewSetUp"]||[_soapResults isEqualToString:@"deletedcrew"]) {
            if ([_soapResults isEqualToString:@"Inserted Crew"]){
                
-//               UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//               UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 //               [alert show];
                setuptype=1;
                [self CrewSetUpSelect];
@@ -1928,7 +1928,7 @@
         }
        else if ([_soapResults isEqualToString:@"This Equipment is  Already Exists"]) {
            _existstring=@"This Equipment is  Already Exists";
-           UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+           UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
            [alert show];
            [self Selectcrewname];
            
@@ -1938,7 +1938,7 @@
        }
 
         else{
-            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             _crewnametxtfld.text=@"";
         }
@@ -1988,7 +1988,7 @@
     
     if (rightsmodel.DeleteModule==0) {
         
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else
@@ -1996,14 +1996,14 @@
 
     if([_crewbtnlbl.titleLabel.text isEqualToString:@"Select"]){
         
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select equipment group" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please select equipment group" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
     }
     else{
         NSString*alertstrg=[NSString stringWithFormat:@"Are you sure you want to delete %@ group",_crewbtnlbl.titleLabel.text];
         _deletegpstring=alertstrg;
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:alertstrg delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:alertstrg delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
         [alert show];
     }
     }
@@ -2043,7 +2043,7 @@
     
     if (rightsmodel.EditModule==0) {
         
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to add a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You dont have rights to add a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else
@@ -2052,7 +2052,7 @@
     if ([_crewnametxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         
         
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Group name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Group name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else{
@@ -2074,7 +2074,7 @@
     
     if (rightsmodel.DeleteModule==0) {
         
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else
@@ -2082,7 +2082,7 @@
 
     if([_crewbtnlbl.titleLabel.text isEqualToString:@"Select"]){
         
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select equipment group" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please select equipment group" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
     }
@@ -2090,7 +2090,7 @@
 
         NSString*alertstrg=[NSString stringWithFormat:@"Are you sure you want to delete all items in %@ group",_crewbtnlbl.titleLabel.text];
         _deleteitemstring=alertstrg;
-    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:alertstrg delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
+    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:alertstrg delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
     [alert show];
     }
     }

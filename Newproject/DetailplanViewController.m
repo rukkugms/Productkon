@@ -226,15 +226,15 @@
 -(IBAction)nextbtnaction:(id)sender
 {
     if ([_scaffoldtyprbtn.titleLabel.text isEqualToString:@""]||[_scaffoldtyprbtn.titleLabel.text isEqualToString:@"Select"]) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Scaffold Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Scaffold Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else if([_sequencebtn.titleLabel.text isEqualToString:@""]||[_sequencebtn.titleLabel.text isEqualToString:@"Select"]) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Sequence is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Sequence is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else if([_phasebtn.titleLabel.text isEqualToString:@""]||[_phasebtn.titleLabel.text isEqualToString:@"Select"]) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phase is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Phase is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else{
@@ -1240,7 +1240,7 @@
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -3390,7 +3390,7 @@
         int value1=[val isNumeric:_lengthtextfield.text];
         if(value1==0)
         {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Length" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Length" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
             
@@ -3403,7 +3403,7 @@
         int value1=[val isNumeric:_heighttextfield.text];
         if(value1==0)
         {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Height" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Height" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
             
@@ -3416,7 +3416,7 @@
         int value1=[val isNumeric:_widthtextfield.text];
         if(value1==0)
         {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Width" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Width" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
             
@@ -3429,7 +3429,7 @@
         int value1=[val isNumeric:_qtytextfield.text];
         if(value1==0)
         {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
             
@@ -3442,7 +3442,7 @@
         int value1=[val isNumeric:_elevationtextfield.text];
         if(value1==0)
         {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Elevation" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Elevation" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
             

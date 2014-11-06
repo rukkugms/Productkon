@@ -983,7 +983,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -1420,7 +1420,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     {
         
         recordResults = FALSE;
-        UIAlertView *alertview=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alertview=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alertview show];
         _resultstring=_soapResults;
         
@@ -1969,11 +1969,11 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
 -(IBAction)updatedoc:(id)sender{
     
     if ([_documentnametextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Name is Required " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Name is Required " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else if(imagechecker==0){
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Document is Required " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Document is Required " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
 
     }
@@ -2074,7 +2074,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     int value1=[val isNumeric:_Dependentstexffld.text];
     if(value1==0)
     {
-        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Dependents" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Dependents" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert1 show];
         _Dependentstexffld.text=@"";
         
@@ -2083,7 +2083,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     else{
         
         if ([_Dependentstexffld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Number of Dependents is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Number of Dependents is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
 
             

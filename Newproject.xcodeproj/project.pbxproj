@@ -1155,7 +1155,7 @@
 		D4A16B001974EEA8002CA2A2 /* PlanningViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanningViewController.xib; sourceTree = "<group>"; };
 		D4A16B011974EEA8002CA2A2 /* customplancell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customplancell.xib; sourceTree = "<group>"; };
 		D4A16B021974EEA8002CA2A2 /* AddserviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddserviceViewController.h; sourceTree = "<group>"; };
-		D4A16B031974EEA8002CA2A2 /* AddserviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddserviceViewController.m; sourceTree = "<group>"; };
+		D4A16B031974EEA8002CA2A2 /* AddserviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AddserviceViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D4A16B041974EEA8002CA2A2 /* AddserviceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddserviceViewController.xib; sourceTree = "<group>"; };
 		D4A16B051974EEA8002CA2A2 /* SitevisitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SitevisitViewController.h; sourceTree = "<group>"; };
 		D4A16B061974EEA8002CA2A2 /* SitevisitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SitevisitViewController.m; sourceTree = "<group>"; };

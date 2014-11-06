@@ -263,7 +263,7 @@
         
         if (rightsmodel.DeleteModule==0) {
             
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You dont have rights to delete a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             
         }
@@ -1162,7 +1162,7 @@
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -1740,7 +1740,7 @@
         recordResults = FALSE;
         if ([_soapResults isEqualToString:@"Already In Use"]) {
             msgstrg=_soapResults;
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         if ([_soapResults isEqualToString:@"Inserted Successfully"]) {
@@ -1748,7 +1748,7 @@
             msgstrg=_soapResults;
             if(imagechecker==1){
                 
-                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
                 _activitybtn.hidden=YES;
                 [_activitybtn stopAnimating];
@@ -1768,7 +1768,7 @@
         if ([_soapResults isEqualToString:@"Description Already Exists"]) {
             
             msgstrg=_soapResults;
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             _activitybtn.hidden=YES;
             [_activitybtn stopAnimating];
@@ -1780,7 +1780,7 @@
             
             if(imagechecker==1){
                 
-                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
                 _activitybtn.hidden=YES;
                 [_activitybtn stopAnimating];
@@ -1799,7 +1799,7 @@
         }
 
                 else if ([_soapResults isEqualToString:@"Fleet Picture Updated"]) {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
                     _activitybtn.hidden=YES;
                     [_activitybtn stopAnimating];
@@ -2020,11 +2020,11 @@ if([elementName isEqualToString:@"url"])
     
     if (rightsmodel.EditModule==0) {
         if (btntype==1) {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to add a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You dont have rights to add a record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }else if(btntype==2)
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You dont have rights to edit this record" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         
@@ -2043,14 +2043,14 @@ if([elementName isEqualToString:@"url"])
     
     if([_destxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
         
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Description is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         
         [alert show];
          _destxtfld.text=@"";
     }
     else if ([_suserachbtnlbl.titleLabel.text isEqualToString:@""]||[_suserachbtnlbl.titleLabel.text isEqualToString:@"Select"]){
         
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Category is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Category is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         
         [alert show];
         
@@ -2075,7 +2075,7 @@ if([elementName isEqualToString:@"url"])
 }
 -(IBAction)closeimage:(id)sender
 {
-    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Are you sure you want to delete this picture?" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Are you sure you want to delete this picture?" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
     [alert show];
 //     imagechecker=1;
 //    _picimageview.image=[UIImage imageNamed:@"mNoImage"];
@@ -2115,7 +2115,7 @@ if([elementName isEqualToString:@"url"])
     if (textField==_purchasetxtfld) {
         int value1=[val isNumeric:_purchasetxtfld.text];
         if (value1==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid purchase value" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid purchase value" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -2124,7 +2124,7 @@ if([elementName isEqualToString:@"url"])
     if (textField==_manufattxtfld) {
         int value2=[val isIntegerValue:_manufattxtfld.text];
         if (value2==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid year" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid year" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -2133,7 +2133,7 @@ if([elementName isEqualToString:@"url"])
     if (textField==_insuredtxtfld) {
         int value3=[val isNumeric:_insuredtxtfld.text];
         if (value3==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid insured value" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid insured value" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -2143,7 +2143,7 @@ if([elementName isEqualToString:@"url"])
     if (textField==_hurstxtfld) {
 //        int value4=[val isNumeric:_hurstxtfld.text];
 //        if (value4==0) {
-//            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid used hours value" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid used hours value" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
 //            [alert1 show];
 //            
 //        }
@@ -2153,7 +2153,7 @@ if([elementName isEqualToString:@"url"])
     if (textField==_fueltxtfld) {
         int value5=[val isNumeric:_fueltxtfld.text];
         if (value5==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Mileage Per Gallon"  delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Mileage Per Gallon"  delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -2163,7 +2163,7 @@ if([elementName isEqualToString:@"url"])
     if (textField==_hurlytxtfld) {
         int value6=[val isNumeric:_hurlytxtfld.text];
         if (value6==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid hourly rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid hourly rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -2182,7 +2182,7 @@ if([elementName isEqualToString:@"url"])
     if (textField==_dailytxtfld) {
         int value7=[val isNumeric:_dailytxtfld.text];
         if (value7==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid daily rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid daily rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -2202,7 +2202,7 @@ if([elementName isEqualToString:@"url"])
     if (textField==_shiftwisetxtfld) {
         int value8=[val isNumeric:_shiftwisetxtfld.text];
         if (value8==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid shiftwise rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid shiftwise rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -2212,7 +2212,7 @@ if([elementName isEqualToString:@"url"])
     if (textField==_weeklytxtfld) {
         int value9=[val isNumeric:_weeklytxtfld.text];
         if (value9==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid weekly rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid weekly rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -2233,7 +2233,7 @@ if([elementName isEqualToString:@"url"])
     if (textField==_monthlytxtfld) {
         int value10=[val isNumeric:_monthlytxtfld.text];
         if (value10==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid monthly rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid monthly rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -2255,7 +2255,7 @@ if([elementName isEqualToString:@"url"])
     if (textField==_yearlytxtfld) {
         int value11=[val isNumeric:_yearlytxtfld.text];
         if (value11==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Loading Capacity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Loading Capacity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -2266,7 +2266,7 @@ if([elementName isEqualToString:@"url"])
     if (textField==_stockinhandtxtfld) {
         int value12=[val isNumeric:_stockinhandtxtfld.text];
         if (value12==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid stock in hand" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid stock in hand" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }

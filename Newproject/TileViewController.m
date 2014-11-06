@@ -480,7 +480,7 @@ _companyinfoview.userInteractionEnabled=YES;
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -510,7 +510,7 @@ _companyinfoview.userInteractionEnabled=YES;
         
     
     if ([_result isEqualToString:@"Not yet set"]) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Your rights are not yet set" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Your rights are not yet set" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         _compinfoindictr.hidden=YES;
         _branchindictr.hidden=YES;
@@ -597,7 +597,7 @@ _companyinfoview.userInteractionEnabled=YES;
         }
         else
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             _compinfoindictr.hidden=YES;
             _companyinfoview.userInteractionEnabled=YES;
@@ -684,7 +684,7 @@ _companyinfoview.userInteractionEnabled=YES;
         }
         else
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             _branchindictr.hidden=YES;
             _Documentsview.userInteractionEnabled=YES;
@@ -769,7 +769,7 @@ _companyinfoview.userInteractionEnabled=YES;
         }
         else
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             _docindictr.hidden=YES;
             _workprocedureview.userInteractionEnabled=YES;
@@ -852,7 +852,7 @@ _companyinfoview.userInteractionEnabled=YES;
         }
         else
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             _setngindictr.hidden=YES;
             _wrksetngview.userInteractionEnabled=YES;
@@ -938,7 +938,7 @@ _companyinfoview.userInteractionEnabled=YES;
         }
         else
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             _typeindicator.hidden=YES;
             _jobsitereqview.userInteractionEnabled=YES;
@@ -1025,7 +1025,7 @@ _companyinfoview.userInteractionEnabled=YES;
         }
         else
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             _compinfoindictr.hidden=YES;
             _branchindictr.hidden=YES;
@@ -1106,7 +1106,7 @@ _companyinfoview.userInteractionEnabled=YES;
         }
         else
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             _branchindictr.hidden=YES;
             _Documentsview.userInteractionEnabled=YES;
@@ -1189,7 +1189,7 @@ _companyinfoview.userInteractionEnabled=YES;
         }
         else
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             _branchindictr.hidden=YES;
             _Documentsview.userInteractionEnabled=YES;
@@ -1355,7 +1355,7 @@ _companyinfoview.userInteractionEnabled=YES;
         
         _result=@"Not yet set";
         //        if ([_soapResults isEqualToString:@"0"]) {
-        //            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        //            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         //            [alert show];
         //        }
         

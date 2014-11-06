@@ -800,7 +800,7 @@
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -1211,7 +1211,7 @@
              
          }
         else if ([_soapResults isEqualToString:@"Sucessfully Updated"]) {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Updated Successfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Updated Successfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
            
             _manpwrtxtfld.text=@"";
@@ -1229,7 +1229,7 @@
         }
 
        else if ([_soapResults isEqualToString:@"Updated Successfully"]) {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
           
             _codetxtfld.text=@"";
@@ -1240,14 +1240,14 @@
         }
         else if ([_soapResults isEqualToString:@"Crew Already Exists in this work. Change the Quantity or hours of existing Crew"]) {
             _existstring=@"Crew Already Exists in this work. Change the Quantity or hours of existing Crew";
-            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
              [self GeneralDetailselect];
             
         }
         else if ([_soapResults isEqualToString:@"Group Already Exists in this work. Change the Quantity  of existing Group"]) {
             _existstring=@"Group Already Exists in this work. Change the Quantity  of existing Group";
-            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             [self GeneralResourceMaterialDetailselect];
             
@@ -2151,12 +2151,12 @@
     int value2=[val isNumeric:_numbertxtfld.text];
     int value1=[val isNumeric:_hourstxtfld.text];
     if (value2==0) {
-        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert1 show];
         
     }
    else if (value1==0) {
-        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Hours" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Hours" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert1 show];
         
     }
@@ -2194,7 +2194,7 @@
     Validation *val=[[Validation alloc]init];
     int value2=[val isNumeric:_quantitytxtfld.text];
     if (value2==0) {
-        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert1 show];
         
     }
@@ -2258,7 +2258,7 @@
     if (textField==_numbertxtfld) {
         int value2=[val isNumeric:_numbertxtfld.text];
         if (value2==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -2267,7 +2267,7 @@
     if (textField==_quantitytxtfld) {
         int value2=[val isNumeric:_quantitytxtfld.text];
         if (value2==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -2277,7 +2277,7 @@
     if (textField==_hourstxtfld) {
         int value2=[val isNumeric:_hourstxtfld.text];
         if (value2==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Hours" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Hours" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }

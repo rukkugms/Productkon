@@ -217,12 +217,12 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
 }
 - (IBAction)processbtn:(id)sender {
     if (office==0&&jobsite==0) {
-        UIAlertView *Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select an option to process the applicant" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please select an option to process the applicant" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [Alert show];
     }
   else if (jobsite==1) {
         if ([_jobsitebtnlbl.titleLabel.text isEqualToString:@"Select Jobsite"]) {
-            UIAlertView *Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select a jobsite" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please select a jobsite" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [Alert show];
         }
         else
@@ -727,7 +727,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -1405,7 +1405,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         recordResults = FALSE;
         
         
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
        
         

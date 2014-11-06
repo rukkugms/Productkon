@@ -559,7 +559,7 @@
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -715,7 +715,7 @@
             [self StockOutInsert];
         }
         else{
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         [_confirmcheckbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
              [_confirmlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
@@ -831,7 +831,7 @@
         if ([_sendtxtfld.text  compare:_orderdtxtfld.text options:NSNumericSearch] == NSOrderedDescending){
             
             
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Quantity should be less than or equal to Ordered Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Quantity should be less than or equal to Ordered Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         else{
@@ -846,7 +846,7 @@
         if ([_sendtxtfld.text  compare:_stocktxtfld.text options:NSNumericSearch] == NSOrderedDescending){
             
             
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Quantity should be less than or equal to Quantity In Stock" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Quantity should be less than or equal to Quantity In Stock" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             
             
@@ -856,7 +856,7 @@
             if ([_sendtxtfld.text  compare:_orderdtxtfld.text options:NSNumericSearch] == NSOrderedDescending){
                 
                 
-                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Quantity should be less than or equal to Ordered Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Quantity should be less than or equal to Ordered Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
             }
             else{
@@ -865,7 +865,7 @@
                      // [self StockOutInsert];
                 }
                 else{
-                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Confirm before Save" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Confirm before Save" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                     [alert show];
 
                 }
@@ -968,7 +968,7 @@
         [self StockInUpdate];
     }
     else{
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Confirm before Save" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Confirm before Save" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
     }
@@ -988,7 +988,7 @@
     if (textField==_sendtxtfld) {
         int value2=[val isNumeric:_sendtxtfld.text];
         if (value2==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }

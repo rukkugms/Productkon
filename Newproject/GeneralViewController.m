@@ -638,7 +638,7 @@
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -978,7 +978,7 @@
         
         recordResults = FALSE;
         msgstrg=_soapResults;
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
          _updatebtn.enabled=YES;
 //        _unittxtfld.text=@"";
@@ -1231,7 +1231,7 @@
 //        
 //        int value1=[val isNumeric:_quantytxtfld.text];
 //        if (value1==0) {
-//            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Qunatity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Qunatity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
 //            [alert1 show];
 //            
 //        }}
@@ -1384,13 +1384,13 @@ else{
         
     if([_unittxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
                         
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Unit is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Unit is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
                     }
 
     else if ([_projectheaderbtnlbl.titleLabel.text isEqualToString:@"Select"]||[_projectheaderbtnlbl.titleLabel.text isEqualToString:@""])
                     {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Sequence is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Sequence is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
                     
                     }
@@ -1399,7 +1399,7 @@ else{
         {
            
             
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phase is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Phase is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             
         }
@@ -1425,18 +1425,18 @@ else{
         _eqmntbtn.hidden=NO;
         if([_unittxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
             
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Unit is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Unit is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         else if ([_projectheaderbtnlbl.titleLabel.text isEqualToString:@"Select"]||[_projectheaderbtnlbl.titleLabel.text isEqualToString:@""])
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Sequence is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Sequence is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
    
       else  if([_phasebtnlbl.titleLabel.text isEqualToString:@"Select"]||[_phasebtnlbl.titleLabel.text isEqualToString:@""])
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phase is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Phase is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
                else
