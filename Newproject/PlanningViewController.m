@@ -2094,12 +2094,12 @@
     {
         _result=_soapResults;
         recordResults = FALSE;
-        if (webtype==3) {
+        //if (webtype==3) {
             
         
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
-        }
+       // }
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"result"])
