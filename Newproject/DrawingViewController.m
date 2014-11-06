@@ -344,7 +344,10 @@
          //filename=[NSString stringWithFormat:@"%@-%@-%@-%@.jpg",[_planid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]],@"Meeting",_datestrg,_savename];
     }
 
-  
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    [defaults setObject:filename forKey:@"filename"];
+    [defaults synchronize];
+
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"

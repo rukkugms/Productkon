@@ -773,7 +773,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         
-        filename = [defaults objectForKey:@"Imagename"];
+        filename = [defaults objectForKey:@"filename"];
     }
     else{
         filename=@"";
