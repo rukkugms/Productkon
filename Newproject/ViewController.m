@@ -186,7 +186,6 @@
     locationmanager.delegate=self;
     locationmanager.desiredAccuracy=kCLLocationAccuracyBest;
     [locationmanager startUpdatingLocation];
-[self.view resignFirstResponder];
 }
 
 //-(CLLocationManager *)locntnmangr{
