@@ -9,7 +9,7 @@
 
 
 // # of minutes before application times out
-#define kApplicationTimeoutInMinutes 2
+#define kApplicationTimeoutInMinutes 10
 
 // Notification that gets sent when the timeout occurs
 #define kApplicationDidTimeoutNotification @"ApplicationDidTimeout"
