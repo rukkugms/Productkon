@@ -84,31 +84,12 @@ return YES;
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-//    if ([_timer isValid]) {
-//        
-//        [_timer invalidate];
-//        
-//        //UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"Time Out" message:@"timerinvalidate." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-//        // [alert show];
-//    }
     
       }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-//    if ([_timer isValid]) {
-//        
-//        [_timer invalidate];
-//        
-//        //UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"Time Out" message:@"timerinvalidate." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-//        // [alert show];
-//    }
-//    _timer=   [NSTimer scheduledTimerWithTimeInterval:900.0
-//                                               target:self
-//                                             selector:@selector(targetMethod)
-//                                             userInfo:nil
-//                                              repeats:NO];
    
 }
 - (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
