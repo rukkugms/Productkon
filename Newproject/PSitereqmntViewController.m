@@ -913,6 +913,15 @@
         }
         recordResults = TRUE;
     }
+
+    if([elementName isEqualToString:@"JobSiteName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     if([elementName isEqualToString:@"SiteRequirementlistselectResponse"])
     {
         _requarray=[[NSMutableArray alloc]init];
@@ -1047,6 +1056,13 @@
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"JobDescDetail"])
+    {
+        recordResults = FALSE;
+      
+        _soapResults = nil;
+    }
+
+    if([elementName isEqualToString:@"JobSiteName"])
     {
         recordResults = FALSE;
         _jobmdl.jobname=_soapResults;
