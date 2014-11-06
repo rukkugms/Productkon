@@ -405,7 +405,7 @@
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -495,7 +495,7 @@
     [_activityindctr stopAnimating];
 //    if ([_textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
 //        
-//        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 //        [alert show];
 //    }
     //else{
@@ -593,7 +593,7 @@ if ([self.delegate respondsToSelector:@selector(toreloaddrawings)]) {
     if (buttonIndex==1) {
         
         if ([[alertView textFieldAtIndex:0].text isEqualToString:@""]) {
-            UIAlertView *newalert=[[UIAlertView alloc]initWithTitle:nil message:@"Name is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *newalert=[[UIAlertView alloc]initWithTitle:@"" message:@"Name is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [newalert show];
             
             }

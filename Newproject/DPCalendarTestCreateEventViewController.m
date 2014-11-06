@@ -99,7 +99,7 @@
 }
 
 //-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"event name" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+//    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"event name" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
 //    [alert show];
 //}
 @end

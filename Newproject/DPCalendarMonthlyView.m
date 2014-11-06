@@ -683,7 +683,7 @@ NSString *const DPCalendarViewDayCellIdentifier = @"DPCalendarViewDayCellIdentif
     if ([self.monthlyViewDelegate respondsToSelector:@selector(didSelectItemWithDate:)]) {
         return [self.monthlyViewDelegate didSelectItemWithDate:self.selectedDate];
     }
-//    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:[NSString stringWithFormat:@"%d",indexPath.item] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+//    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:[NSString stringWithFormat:@"%d",indexPath.item] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
 //      [alert show];
     
 }

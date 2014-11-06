@@ -52,7 +52,7 @@
     [defaults setObject:newid forKey:@"UDID"];
     [defaults synchronize];
     
-  //   UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:newid delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+  //   UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:newid delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
   //   [alert show];
     
     // NSUUID *deviceId;
@@ -63,7 +63,7 @@
      #endif
     NSUUID *myDevice = [NSUUID UUID];
     NSString *deviceUDID = myDevice.UUIDString;
-   // UIAlertView*alert1=[[UIAlertView alloc]initWithTitle:nil message:deviceUDID delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+   // UIAlertView*alert1=[[UIAlertView alloc]initWithTitle:@"" message:deviceUDID delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
   //[alert1 show];
     [self externalipprocess];
     
@@ -336,7 +336,7 @@
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
     _loginbtn.enabled=YES;
@@ -446,7 +446,7 @@
 
         if([_soapResults isEqualToString:@"0"]){
             
-            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Username or Password" delegate:self
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Username or Password" delegate:self
         cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             _loginbtn.enabled=YES;
@@ -454,7 +454,7 @@
         else if([_soapResults isEqualToString:@"-1"]){
             
             NSString*msg=[NSString stringWithFormat:@"You are already login from %@(%@) at %@ ",devicename,devicenumber,logintime];
-          UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:msg delegate:self
+          UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:msg delegate:self
                                               cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             _loginbtn.enabled=YES;
@@ -463,7 +463,7 @@
        else if([_soapResults isEqualToString:@"-2"]){
            
            
-            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"User is not activated please contact admin" delegate:self
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"User is not activated please contact admin" delegate:self
                                               cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
            _loginbtn.enabled=YES;
@@ -538,12 +538,12 @@
     if(([_usernametxt.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)||([_passwrdtxt.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)){
         
         if([_usernametxt.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Enter Username" delegate:self
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Enter Username" delegate:self
                                           cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         }
        else if([_passwrdtxt.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Enter Password" delegate:self
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Enter Password" delegate:self
                                           cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         }
@@ -637,12 +637,12 @@
             break;
          case 1:
             if ([_usernametxt.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
-                UIAlertView *Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please enter your username" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                UIAlertView *Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please enter your username" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [Alert show];
             }
             else if([_passwrdtxt.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
             {
-                UIAlertView *Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please enter your password" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                UIAlertView *Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please enter your password" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [Alert show];
             }
             else

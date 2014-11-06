@@ -566,7 +566,7 @@
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -743,13 +743,13 @@
         }
 
         if (webtype==1) {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
              [self JobsequenceSelect];
         }
         if ([_soapResults isEqualToString:@"Already In Use"]) {
             
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_displaystring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_displaystring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
                [self JobsequenceSelect];
         }
@@ -831,18 +831,18 @@ _addview.hidden=YES;
     int value1=[val isNumeric:_seqnotextfld.text];
     if(value1==0)
     {
-        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Sequence Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Sequence Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert1 show];
         
         
     }
     else if ([_seqnotextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length ==0) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Sequence Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Sequence Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
     }
     else if ([_jobtasktextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length ==0) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Job Task is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Job Task is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
     }
@@ -950,7 +950,7 @@ _addview.hidden=YES;
 //        int value1=[val isBlank:_seqnotextfld.text];
 //        if(value1==0)
 //        {
-//            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Sequence Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Sequence Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
 //            [alert1 show];
 //            
 //        }
@@ -965,7 +965,7 @@ _addview.hidden=YES;
         int value1=[val isNumeric:_seqnotextfld.text];
         if(value1==0)
         {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Sequence Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Sequence Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
             

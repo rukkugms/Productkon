@@ -622,7 +622,7 @@ return cell;
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -863,7 +863,7 @@ return cell;
     {
         recordResults = FALSE;
         _msgstring=_soapResults;
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_msgstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_msgstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
         [alert show];
         
        
@@ -921,7 +921,7 @@ return cell;
 }
 - (IBAction)cmntsavebtn:(id)sender {
     if ([_cmmnttxtview.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Comment is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Comment is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else

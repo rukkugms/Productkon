@@ -1645,7 +1645,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -2175,21 +2175,21 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         {
         if (butnidtfr==1) {
             _resultmsg=_soapResults;
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             _updatebtnlbl.enabled=YES;
         }
         else if(butnidtfr==2)
         {
             _resultmsg=_soapResults;
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             _updatebtnlbl.enabled=YES;
         }
         else if(butnidtfr==3||butnidtfr==6)
         {
             _resultmsg=_soapResults;
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             _savebtnlbl.enabled=YES;
         }
@@ -2198,7 +2198,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         
 //        if (webtype==0&&butnidtfr==1) {
 //             _resultmsg=_soapResults;
-//            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_resultmsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_resultmsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 //            [alert show];
 //        }
 //        else if(webtype==0&&butnidtfr==2)
@@ -2209,7 +2209,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 //            }
 //            else
 //            {
-//            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_resultmsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_resultmsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 //            [alert show];
 //            }
 //        }
@@ -2221,7 +2221,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 //        {
 //            
 //             _resultmsg=_soapResults;
-//            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_resultmsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_resultmsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 //            [alert show];
 //            _savebtnlbl.enabled=YES;
 //        }
@@ -2346,23 +2346,23 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         [self UserLogActivityinsert];
         if ([_dateBtn.titleLabel.text isEqualToString:@"Select"]||[_dateBtn.titleLabel.text isEqualToString:@""])
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Date is required" delegate:self
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Date is required" delegate:self
         cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
        else if ([_activityTxtFld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Activity is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Activity is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
        else if ([_activityTypeBtn.titleLabel.text isEqualToString:@"Select"]||[_activityTypeBtn.titleLabel.text isEqualToString:@""])
        {
-           UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Follow Up Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+           UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Follow Up Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
            [alert show];
        }
        else if ([_empbtnlbl.titleLabel.text isEqualToString:@"Select"]||[_empbtnlbl.titleLabel.text isEqualToString:@""])
        {
-           UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Employee is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+           UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Employee is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
            [alert show];
        }
        
@@ -2380,23 +2380,23 @@ else
          [self Userlogactivityupdate];
         if ([_dateBtn.titleLabel.text isEqualToString:@"Select"]||[_dateBtn.titleLabel.text isEqualToString:@""])
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Date is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Date is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         else if ([_activityTxtFld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Activity is required" delegate:self
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Activity is required" delegate:self
                                                cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         else if ([_activityTypeBtn.titleLabel.text isEqualToString:@"Select"]||[_activityTypeBtn.titleLabel.text isEqualToString:@""])
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Follow Up Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Follow Up Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         else if ([_empbtnlbl.titleLabel.text isEqualToString:@"Select"]||[_empbtnlbl.titleLabel.text isEqualToString:@""])
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Employee is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Employee is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
        
@@ -2466,7 +2466,7 @@ else
     
      [self UserLogsavecomments];
     if ([_cmttxtbox.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Comment is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Comment is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         _savebtnlbl.enabled=YES;
     }
@@ -2549,7 +2549,7 @@ else
         if(value1==0)
         {
             
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Employee" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Employee" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
             
@@ -2563,7 +2563,7 @@ else
         if(value1==0)
         {
             
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Activity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Activity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
             
@@ -2577,7 +2577,7 @@ else
 //        if(value1==0)
 //        {
 //            
-//            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Status" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Status" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
 //            [alert1 show];
 //            
 //            

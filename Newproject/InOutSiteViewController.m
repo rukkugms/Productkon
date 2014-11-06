@@ -120,7 +120,7 @@
         
         outconfirmcheck=1;
         if ([_outqtysendbacktxtfld.text  compare:_outreceivedqtytxtfld.text options:NSNumericSearch] == NSOrderedDescending){
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Quantity Send Back should be less than or equal to Received Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Quantity Send Back should be less than or equal to Received Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         else
@@ -145,7 +145,7 @@
 
     if (outconfirmcheck==1) {
         if ([_outqtysendbacktxtfld.text  compare:_outreceivedqtytxtfld.text options:NSNumericSearch] == NSOrderedDescending){
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Quantity Send Back should be less than or equal to Received Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Quantity Send Back should be less than or equal to Received Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         else
@@ -155,7 +155,7 @@
     }
     else
     {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please confirm before save" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please confirm before save" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
 
@@ -170,7 +170,7 @@ if(confirmcheck==1)
 }
     else
     {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please confirm before save" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please confirm before save" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
 }
@@ -849,7 +849,7 @@ return cell;
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -1073,7 +1073,7 @@ return cell;
     {
         recordResults = FALSE;
         msg=_soapResults;
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
          [_excptnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         
@@ -1163,7 +1163,7 @@ return cell;
     if (textField==_outqtysendbacktxtfld) {
         int value2=[val isNumeric:_outqtysendbacktxtfld.text];
         if (value2==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }

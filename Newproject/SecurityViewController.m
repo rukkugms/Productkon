@@ -545,7 +545,7 @@
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -673,7 +673,7 @@
         recordResults = FALSE;
         
        
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert show];
         [_qustnbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
         _answertxtfld.text=@"";
@@ -690,7 +690,7 @@
         
               if (count>=3) {
             
-            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"You are already reached your entry limit. Remove a question to add a new one" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You are already reached your entry limit. Remove a question to add a new one" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             [alert show];
             [_qustnbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
             _answertxtfld.text=@"";
@@ -759,13 +759,13 @@
 
 - (IBAction)savebtn:(id)sender {
     if ([_qustnbtnlbl.titleLabel.text isEqualToString:@""]||[_qustnbtnlbl.titleLabel.text isEqualToString:@"Select"]) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Select your security question" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Select your security question" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
 
         
     }
   else  if ([_answertxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Answer is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Answer is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else{
@@ -780,13 +780,13 @@
     [self UserLogmaindelete];
     if([_qustnbtnlbl.titleLabel.text isEqualToString:@"Select"])
     {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select a question" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please select a question" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else
     {if(answertype==1)
     {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"This is not your security question" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"This is not your security question" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
 
     }

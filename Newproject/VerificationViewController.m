@@ -201,7 +201,7 @@ ssnclck++;
    
     
     if (_type.length==0) {
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Select Verification" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Select Verification" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
       
   }
@@ -1097,7 +1097,7 @@ ssnclck++;
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Check Your Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -2383,7 +2383,7 @@ ssnclck++;
     {
           recordResults=FALSE;
         _result=_soapResults;
-        UIAlertView*alertview=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView*alertview=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alertview show];
         
           _soapResults=nil;
@@ -2597,7 +2597,7 @@ ssnclck++;
     int value1=[val isNumeric:_payratetxtfld.text];
     if(value1==0)
     {
-        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Please enter a valid rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Please enter a valid rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert1 show];
         _payratetxtfld.text=@"";
         
