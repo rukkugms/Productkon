@@ -68,7 +68,10 @@
 @property(strong,nonatomic)NSMutableString *soapResults;
 @property(strong,nonatomic)NSMutableData *webData;
 
-
+@property(strong,nonatomic)NSMutableArray *detailarray;
+@property(strong,nonatomic)NSMutableArray *montharray;
+@property(strong,nonatomic)NSMutableArray *remontharray;
+@property(strong,nonatomic)NSMutableDictionary *remonthdict;
 /*button*/
 - (IBAction)DetailsBtnAction:(id)sender;
 - (IBAction)DcmntBtnAction:(id)sender;
@@ -83,7 +86,7 @@
 @property(strong,nonatomic)IBOutlet UITableViewCell *detailscell;
 @property (strong, nonatomic) IBOutlet UIButton *vendrnamebtnlbl;
 @property (strong, nonatomic) IBOutlet UIButton *verfictnbtnlbl;
-
+@property(strong,nonatomic)UIImagePickerController *imagePicker;
 //celldetail labels
 @property (strong, nonatomic) IBOutlet UILabel *reqnamelbl;
 @property (strong, nonatomic) IBOutlet UIButton *statuslbl;

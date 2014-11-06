@@ -75,7 +75,10 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self Statusselect];
-   
+    _montharray=[[NSMutableArray alloc]initWithObjects:@"JAN",@"FEB",@"MAR",@"APR",@"MAY",@"JUN",@"JUL",@"AUG",@"SEP",@"OCT",@"NOV",@"DEC",nil];
+    _remontharray=[[NSMutableArray alloc]initWithObjects:@"01",@"02",@"03",@"04",@"05",@"06",@"07",@"08",@"09",@"10",@"11",@"12", nil];
+    _remonthdict=[[NSMutableDictionary alloc]initWithObjects:_montharray forKeys:_remontharray];
+
     
     
 
@@ -190,7 +193,15 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
         _statuslabel=(UILabel*)[cell viewWithTag:2];
         _statuslabel.text=[_restatusdict objectForKey:appreqmdl.status];
         _expirylabel=(UILabel*)[cell viewWithTag:3];
-        _expirylabel.text=appreqmdl.expdate;
+        
+        NSArray*arry1=[[NSArray alloc]init];
+        arry1=[appreqmdl.expdate componentsSeparatedByString:@"/" ];
+        NSString *yr=[arry1 objectAtIndex:2];
+        
+        NSString *mon=[_remonthdict objectForKey:[arry1 objectAtIndex:0]];
+        _expirylabel.text=[NSString stringWithFormat:@"%@ %@",mon,yr];
+
+        //_expirylabel.text=appreqmdl.expdate;
         _verificationlabel=(UILabel*)[cell viewWithTag:4];
         _verificationlabel.text=appreqmdl.verifictnstatus;
         
@@ -1786,10 +1797,10 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 230, 100)];
+                           initWithFrame:CGRectMake(0, 0, 230, 200)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 230, 100)];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 230, 200)];
     
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
@@ -1802,7 +1813,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(230, 100);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(230, 200);
     
     //create a popover controller
     
@@ -2195,36 +2206,66 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
 
 }
 
--(IBAction)selectfileaction:(id)sender{
+//-(IBAction)selectfileaction:(id)sender{
+//    
+//    
+//    if ([UIImagePickerController isSourceTypeAvailable:
+//         UIImagePickerControllerSourceTypeCamera])
+//    {
+//        
+//        
+//        UIImagePickerController *imagePicker =
+//        [[UIImagePickerController alloc] init];
+//        imagePicker.delegate =(id) self;
+//        imagePicker.sourceType =
+//        UIImagePickerControllerSourceTypeCamera;
+//        imagePicker.showsCameraControls=YES;
+//        
+//        imagePicker.mediaTypes = [NSArray arrayWithObjects:
+//                                  (NSString *) kUTTypeImage,
+//                                  nil];
+//        imagechecker=1;
+//        imagePicker.allowsEditing = NO;
+//        // imagePicker.cameraCaptureMode=YES;
+//        [self presentViewController:imagePicker animated:YES completion:nil];
+//        _newMedia = YES;
+//    }
+//}
+- (void)handlePinch:(UITapGestureRecognizer *)pinchGestureRecognizer
+{
     
+    //handle pinch...
     
     if ([UIImagePickerController isSourceTypeAvailable:
          UIImagePickerControllerSourceTypeCamera])
     {
         
         
-        UIImagePickerController *imagePicker =
+        _imagePicker =
         [[UIImagePickerController alloc] init];
-        imagePicker.delegate =(id) self;
-        imagePicker.sourceType =
+        _imagePicker.delegate =(id) self;
+        _imagePicker.sourceType =
         UIImagePickerControllerSourceTypeCamera;
-        imagePicker.showsCameraControls=YES;
+        _imagePicker.showsCameraControls=YES;
         
-        imagePicker.mediaTypes = [NSArray arrayWithObjects:
+        _imagePicker.mediaTypes = [NSArray arrayWithObjects:
                                   (NSString *) kUTTypeImage,
                                   nil];
         imagechecker=1;
-        imagePicker.allowsEditing = NO;
+        _imagePicker.allowsEditing = NO;
         // imagePicker.cameraCaptureMode=YES;
-        [self presentViewController:imagePicker animated:YES completion:nil];
+        [self presentViewController:_imagePicker animated:YES completion:nil];
         _newMedia = YES;
     }
+    
+        
+    
 }
+
 #pragma mark-ImagePicker
 -(void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    // [self.popoverController dismissPopoverAnimated:true];
     NSString *mediaType = [info
                            objectForKey:UIImagePickerControllerMediaType];
     
@@ -2235,18 +2276,41 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         UIImage *image = [info
                           objectForKey:UIImagePickerControllerOriginalImage];
         NSLog(@"dict%@",info);
+        switch (image.imageOrientation) {
+            case UIImageOrientationDown:
+            case UIImageOrientationDownMirrored:
+            case UIImageOrientationLeft:
+            case UIImageOrientationLeftMirrored:
+            case UIImageOrientationRight:
+            case UIImageOrientationRightMirrored:
+                image = [UIImage imageWithCGImage:image.CGImage
+                                            scale:image.scale
+                                      orientation:UIImageOrientationUp]; // change this if you need another orientation
+                break;
+            case UIImageOrientationUp:
+            case UIImageOrientationUpMirrored:
+                // The image is already in correct orientation
+                break;
+        }
         
         
         _previewimg.image=nil;
         _previewimg.image=image;
+
         
-         [self.navigationController dismissViewControllerAnimated: YES completion: nil];
+        imagechecker=1;
+        
+       
+        // [self dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController dismissViewControllerAnimated: YES completion: nil];
         if (_newMedia)
             UIImageWriteToSavedPhotosAlbum(image,
                                            self,
                                            @selector(image:finishedSavingWithError:contextInfo:),
                                            nil);
     }
+    
+
     
     
     
