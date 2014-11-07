@@ -147,7 +147,7 @@
                    "<FLCatDescription>%@</FLCatDescription>\n"
                    "</FleetCategorysubtypeinsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_fleetid,categrymdl.SubTypeId,categrymdl.SubTypeName];
+                   "</soap:Envelope>\n",_fleetid,[categrymdl.entryid integerValue],categrymdl.SubTypeName];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -520,6 +520,7 @@
             
             UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            [_categorybtn setTitle:@"Select" forState:UIControlStateNormal];
         }
         
         [self FleetCategoryselect];
@@ -640,6 +641,7 @@
 
 - (IBAction)addbtn:(id)sender {
     _addview.hidden=NO;
+    [_categorybtn setTitle:@"Select" forState:UIControlStateNormal];
 }
 
 - (IBAction)deletebtn:(id)sender {

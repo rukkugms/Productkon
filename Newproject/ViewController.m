@@ -176,7 +176,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [_passwrdtxt resignFirstResponder];
+        [_passwrdtxt resignFirstResponder];
     [_usernametxt resignFirstResponder];
     [self.view endEditing:YES];
     _loginbtn.enabled=YES;

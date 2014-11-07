@@ -42,7 +42,7 @@
     [self resignFirstResponder];
     UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Are you sure you want to logout" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
     [alert show];
-   
+    [alert resignFirstResponder];
     
    
 }
