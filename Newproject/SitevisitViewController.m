@@ -158,6 +158,7 @@
 -(void)toreloaddrawings{
     switch (_drwVCtrl.tabtype) {
         case 1:
+           
             //[self EstmPlanDrawingSelect];
             [self SitevisitInsertEquipmentStag];
             
@@ -2084,18 +2085,21 @@ _passingdate=dateString;
     [_bidderstable reloadData];
     [_weathertable reloadData];
     [_notestable reloadData];
+     [_accebilitytable reloadData];
+    [_ESAtble reloadData];
     
-    if (webtype==1) {
-         [_accebilitytable reloadData];
-        webtype=0;
-
-    }
-    if (webtype==2) {
-         [_ESAtble reloadData];
-      
-         webtype=0;
-    }
     
+//    if (webtype==1) {
+//         [_accebilitytable reloadData];
+//        webtype=0;
+//
+//    }
+//    if (webtype==2) {
+//         [_ESAtble reloadData];
+//      
+//         webtype=0;
+//    }
+//    
   
     
     
@@ -3075,6 +3079,7 @@ _passingdate=dateString;
 
     if([elementName isEqualToString:@"PlanDrawingSelectResponse"])
     {
+        
         _filenamearray=[[NSMutableArray alloc]init];
         if(!_soapResults)
         {
@@ -3228,11 +3233,12 @@ _passingdate=dateString;
         [alertview show];
             
             if (_drwVCtrl.tabtype==2) {
-               
+                webtype=1;
                 [self PlanDrawingSelect];
 
             }
             else if (_drwVCtrl.tabtype==1){
+                webtype=2;
                 [self EstmPlanDrawingSelect];
             }
               _genralbtnlbl.enabled=YES;

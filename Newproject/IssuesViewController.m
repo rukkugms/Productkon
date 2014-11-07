@@ -1080,6 +1080,11 @@
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         _updatebtnlbl.enabled=YES;
+            [_jobsitebtnlbl setTitle:@"Select Jobsite" forState:UIControlStateNormal];
+            [_typebtnlbl setTitle:@"Select Type" forState:UIControlStateNormal];
+             [_datebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+               [_timebtn setTitle:@"Select" forState:UIControlStateNormal];
+            
         
         [self IssueManagementSelect];
         }
@@ -1127,6 +1132,10 @@
             resultstring=@"";
 }
     
+    }
+    if ([alertView.message isEqualToString:@"Updated Successfully"]) {
+        _addview.hidden=YES;
+        
     }
 }
 

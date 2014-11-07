@@ -1500,8 +1500,9 @@ if ([alertView.message isEqualToString:@"Are you sure you want to logout"]) {
     
     
     if (buttonIndex==[alertView cancelButtonIndex]){
+         [self resignFirstResponder];
         [self Logoutselect];
-        [self resignFirstResponder];
+       
         
     }
     
