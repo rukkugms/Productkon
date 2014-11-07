@@ -31,7 +31,6 @@
                 <outlet property="shiftwisetxtfld" destination="cFd-a1-8Je" id="fds-85-uld"/>
                 <outlet property="stockinhandtxtfld" destination="GiE-wu-zSl" id="Kro-T7-R3w"/>
                 <outlet property="subcheckbtn" destination="deY-1f-VEE" id="sAv-jn-zgd"/>
-                <outlet property="suserachbtnlbl" destination="Wie-Se-tBq" id="Rsc-fY-fmo"/>
                 <outlet property="updatebtn" destination="yJg-A9-aZc" id="Sx5-Eo-P7H"/>
                 <outlet property="view" destination="UXZ-C0-zGD" id="crV-wU-K0K"/>
                 <outlet property="view1" destination="Jlz-Nf-paW" id="YAT-hU-o54"/>
@@ -164,7 +163,7 @@
                                             </items>
                                         </navigationBar>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Eew-aC-sft">
-                                            <rect key="frame" x="55" y="49" width="93" height="26"/>
+                                            <rect key="frame" x="52" y="51" width="93" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                             <nil key="highlightedColor"/>
@@ -230,7 +229,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="rh3-Bo-ljv">
-                                            <rect key="frame" x="51" y="370" width="194" height="30"/>
+                                            <rect key="frame" x="52" y="321" width="194" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -239,13 +238,13 @@
                                             </connections>
                                         </textField>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hourly Rate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Sfg-Jp-zhb">
-                                            <rect key="frame" x="52" y="352" width="88" height="21"/>
+                                            <rect key="frame" x="53" y="303" width="88" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="kWh-4t-la7">
-                                            <rect key="frame" x="51" y="319" width="194" height="30"/>
+                                            <rect key="frame" x="52" y="270" width="194" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -254,13 +253,13 @@
                                             </connections>
                                         </textField>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mileage Per Gallon" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sbI-eD-9cX">
-                                            <rect key="frame" x="51" y="301" width="137" height="21"/>
+                                            <rect key="frame" x="52" y="252" width="137" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="ING-55-9S7">
-                                            <rect key="frame" x="52" y="270" width="194" height="30"/>
+                                            <rect key="frame" x="53" y="221" width="194" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -269,13 +268,13 @@
                                             </connections>
                                         </textField>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insured Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mwM-0W-iyA">
-                                            <rect key="frame" x="52" y="252" width="99" height="21"/>
+                                            <rect key="frame" x="53" y="203" width="99" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="aaH-K5-TUU">
-                                            <rect key="frame" x="51" y="220" width="194" height="30"/>
+                                            <rect key="frame" x="52" y="171" width="194" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -284,13 +283,7 @@
                                             </connections>
                                         </textField>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vin-Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n15-JF-3cb">
-                                            <rect key="frame" x="52" y="200" width="107" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bu2-Oq-sUt">
-                                            <rect key="frame" x="52" y="151" width="78" height="21"/>
+                                            <rect key="frame" x="53" y="151" width="107" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                             <nil key="highlightedColor"/>
@@ -351,13 +344,13 @@
                                             </connections>
                                         </textField>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ShiftWise Rate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wOu-k9-cya">
-                                            <rect key="frame" x="52" y="406" width="99" height="21"/>
+                                            <rect key="frame" x="53" y="357" width="99" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="cFd-a1-8Je">
-                                            <rect key="frame" x="51" y="423" width="194" height="30"/>
+                                            <rect key="frame" x="52" y="374" width="194" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -366,13 +359,13 @@
                                             </connections>
                                         </textField>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Rate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cgI-hg-Par">
-                                            <rect key="frame" x="51" y="459" width="97" height="21"/>
+                                            <rect key="frame" x="52" y="410" width="97" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Lbo-eC-hDh">
-                                            <rect key="frame" x="51" y="479" width="194" height="30"/>
+                                            <rect key="frame" x="52" y="430" width="194" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -433,26 +426,14 @@
                                                 <action selector="updatebtn:" destination="-1" eventType="touchUpInside" id="vPe-IN-k5c"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Wie-Se-tBq">
-                                            <rect key="frame" x="51" y="169" width="194" height="31"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                            <state key="normal" title="Select" backgroundImage="textbox.png">
-                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="subsearchbtn:" destination="-1" eventType="touchUpInside" id="9qn-3B-o3r"/>
-                                            </connections>
-                                        </button>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity in Stock" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tXr-6v-g5r">
-                                            <rect key="frame" x="52" y="516" width="107" height="21"/>
+                                            <rect key="frame" x="53" y="467" width="107" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="GiE-wu-zSl">
-                                            <rect key="frame" x="51" y="537" width="194" height="30"/>
+                                            <rect key="frame" x="52" y="488" width="194" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -520,6 +501,5 @@
         <image name="cb_mono_off.png" width="22" height="21"/>
         <image name="ios7-camera-icon.png" width="128" height="128"/>
         <image name="mNoImage.png" width="512" height="512"/>
-        <image name="textbox.png" width="298" height="64"/>
     </resources>
 </document>
