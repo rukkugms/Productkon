@@ -2761,7 +2761,27 @@ else
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"UserLogmaininsertResponse"])
+    {
+       
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"info"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     
+
 
     
     if([elementName isEqualToString:@"LeadId"])
@@ -3613,6 +3633,11 @@ else
     if([elementName isEqualToString:@"UpdateCLMDemoResult"])
     {
         
+        recordResults = FALSE;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"info"])
+    {
         recordResults = FALSE;
         _soapResults = nil;
     }

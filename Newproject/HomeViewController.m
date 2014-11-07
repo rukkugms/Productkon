@@ -39,6 +39,7 @@
 -(IBAction)logout:(id)sender
 {   _ModuleID=0;
     _result=@"";
+    [self resignFirstResponder];
     UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Are you sure you want to logout" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
     [alert show];
    
@@ -48,6 +49,10 @@
 -(void)inactivelogoutaction{
     [self dismissViewControllerAnimated:YES completion:nil];
     [self Logoutselect];
+}
+-(BOOL)disablesAutomaticKeyboardDismissal
+{
+    return NO;
 }
 -(void)viewWillAppear:(BOOL)animated{
       [super viewWillAppear:animated];

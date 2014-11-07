@@ -2255,7 +2255,7 @@ recordResults
     }
     else if([_wathrcndtnlbl.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
     {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Weather Description is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Weather Condition is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else{
