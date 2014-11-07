@@ -176,7 +176,9 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+        [_passwrdtxt resignFirstResponder];
+    [_usernametxt resignFirstResponder];
+    [self.view endEditing:YES];
     _loginbtn.enabled=YES;
     _usernametxt.text=@"";
     _passwrdtxt.text=@"";
@@ -764,6 +766,10 @@
 
     return addr ? addr : @"0.0.0.0";
     
+}
+-(BOOL)disablesAutomaticKeyboardDismissal
+{
+    return NO;
 }
 
 @end

@@ -14,7 +14,7 @@
 #import "forgetViewController.h"
 
 
-@interface ViewController : UIViewController<CLLocationManagerDelegate,UIActionSheetDelegate>{
+@interface ViewController : UIViewController<CLLocationManagerDelegate,UIActionSheetDelegate,UITextFieldDelegate>{
      BOOL recordResults;
     NSString*logintime;
     NSString*devicename;
