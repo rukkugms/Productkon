@@ -551,6 +551,9 @@
 		D4EE6EC1198B85240027D8C1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EE6EC0198B85240027D8C1 /* CoreLocation.framework */; };
 		D4EF9F0C19EE2C5A00C6610B /* UIImagePickerController+Orientationfix.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EF9F0B19EE2C5A00C6610B /* UIImagePickerController+Orientationfix.m */; };
 		D4F0008818D2C478005A50A9 /* CompanyCmntscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F0008718D2C478005A50A9 /* CompanyCmntscell.xib */; };
+		D4F053E11A0CA37A00672C88 /* planning2@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F053E01A0CA37A00672C88 /* planning2@2X.png */; };
+		D4F053E31A0CA54300672C88 /* planning2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F053E21A0CA54300672C88 /* planning2.png */; };
+		D4F053E51A0CA5D900672C88 /* planning-s.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F053E41A0CA5D800672C88 /* planning-s.png */; };
 		D4F0940019F22C6100C3B527 /* BezierInterpView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F093FF19F22C6100C3B527 /* BezierInterpView.m */; };
 		D4F0940C19F22F2300C3B527 /* eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F0940B19F22F2300C3B527 /* eraser.png */; };
 		D4F0940E19F22F3100C3B527 /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F0940D19F22F3100C3B527 /* pencil.png */; };
@@ -1360,6 +1363,9 @@
 		D4EF9F0A19EE2C5A00C6610B /* UIImagePickerController+Orientationfix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImagePickerController+Orientationfix.h"; sourceTree = "<group>"; };
 		D4EF9F0B19EE2C5A00C6610B /* UIImagePickerController+Orientationfix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImagePickerController+Orientationfix.m"; sourceTree = "<group>"; };
 		D4F0008718D2C478005A50A9 /* CompanyCmntscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyCmntscell.xib; sourceTree = "<group>"; };
+		D4F053E01A0CA37A00672C88 /* planning2@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "planning2@2X.png"; sourceTree = "<group>"; };
+		D4F053E21A0CA54300672C88 /* planning2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planning2.png; sourceTree = "<group>"; };
+		D4F053E41A0CA5D800672C88 /* planning-s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "planning-s.png"; sourceTree = "<group>"; };
 		D4F093FE19F22C6100C3B527 /* BezierInterpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BezierInterpView.h; sourceTree = "<group>"; };
 		D4F093FF19F22C6100C3B527 /* BezierInterpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BezierInterpView.m; sourceTree = "<group>"; };
 		D4F0940B19F22F2300C3B527 /* eraser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraser.png; sourceTree = "<group>"; };
@@ -2030,6 +2036,9 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D4F053E41A0CA5D800672C88 /* planning-s.png */,
+				D4F053E21A0CA54300672C88 /* planning2.png */,
+				D4F053E01A0CA37A00672C88 /* planning2@2X.png */,
 				D40209751A0B756D00E1428D /* iconclose.png */,
 				64B1F2241A0B538800B3FCB7 /* failed.png */,
 				D4A14B441A0A27B80039FBE1 /* process.png */,
@@ -2742,6 +2751,7 @@
 				D4149BB11949B3F300A5A6FD /* StockViewController.xib in Resources */,
 				64A5ED4E19C2C4EC002E0018 /* RSTViewController.xib in Resources */,
 				D4A16B9E1974EEE0002CA2A2 /* calothereventcell.xib in Resources */,
+				D4F053E31A0CA54300672C88 /* planning2.png in Resources */,
 				D429C5F01952DD6100CE73A6 /* Siteinexcptncell.xib in Resources */,
 				D40DD2661873ED0800E7BC2C /* Smalltoolcell.xib in Resources */,
 				D4036FF319FE0FAF0031C4F1 /* workentrycell.xib in Resources */,
@@ -2837,6 +2847,7 @@
 				D47A9B101940405E001CC416 /* Jobdrag.xib in Resources */,
 				D408B81618CF19AC0001AAD5 /* TilecustmrViewController.xib in Resources */,
 				D48F436618A2335500AFDDC2 /* vertical blue.png in Resources */,
+				D4F053E51A0CA5D900672C88 /* planning-s.png in Resources */,
 				D4399EBE186D7BBF00A693F7 /* search-button.png in Resources */,
 				D47A9B2619407CD9001CC416 /* fleeticon.png in Resources */,
 				D410CC5219AB4AE50093DDE6 /* FtileViewController.xib in Resources */,
@@ -2871,6 +2882,7 @@
 				6426F5F518C062F6002471AC /* payroll.png in Resources */,
 				D4A338E418F3EEEF00E53FAC /* MarkupViewController.xib in Resources */,
 				D4A16B621974EEA8002CA2A2 /* Editplanview.xib in Resources */,
+				D4F053E11A0CA37A00672C88 /* planning2@2X.png in Resources */,
 				D4014FF618E3E34000DB825A /* Snumcell.xib in Resources */,
 				649316C219AB4629008CB7BF /* TLLeadsViewController.xib in Resources */,
 				D40736C018BB1E9B00C5DB30 /* right_arrow.png in Resources */,

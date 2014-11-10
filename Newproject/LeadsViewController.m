@@ -51,7 +51,7 @@
     
     
     _scroll.frame=CGRectMake(0, 44, 715,768);
-    [_scroll setContentSize:CGSizeMake(715,1125)];
+    [_scroll setContentSize:CGSizeMake(715,1250)];
     //self.navigationController.navigationBar.tintColor= [UIColor colorWithRed:135.0/255.0f green:206.0/255.0f blue:250.0/255.0f alpha:1.0f];
     _leadTable.layer.borderWidth = 2.0;
     _leadTable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
@@ -3923,6 +3923,7 @@ else
            _leadTable.userInteractionEnabled=YES;
        }
       // [_companybtn setTitle:@"Select" forState:UIControlStateNormal];
+       _cmpnttxtfld.text=@"";
        _contactnametxtfld.text=@"";
        _phonetxtfld.text=@"";
        
