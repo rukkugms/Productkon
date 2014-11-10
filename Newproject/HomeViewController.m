@@ -39,10 +39,10 @@
 -(IBAction)logout:(id)sender
 {   _ModuleID=0;
     _result=@"";
-    [self resignFirstResponder];
+    
     UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Are you sure you want to logout" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
     [alert show];
-    [alert resignFirstResponder];
+    [alert becomeFirstResponder];
     
    
 }
@@ -1500,7 +1500,7 @@ if ([alertView.message isEqualToString:@"Are you sure you want to logout"]) {
     
     
     if (buttonIndex==[alertView cancelButtonIndex]){
-         [self resignFirstResponder];
+         [alertView becomeFirstResponder];
         [self Logoutselect];
        
         
@@ -1511,5 +1511,4 @@ if ([alertView.message isEqualToString:@"Are you sure you want to logout"]) {
         
     }
 }}
-
 @end
