@@ -204,6 +204,8 @@
          _complexitywrklbl.text=planmdl.complexity;
          _sitefactrlbl=(UILabel*)[cell viewWithTag:7];
          _sitefactrlbl.text=planmdl.sitefactor;
+              _sitefactrlbl=(UILabel*)[cell viewWithTag:8];
+              _sitefactrlbl.text=[_revtypelistdict objectForKey:planmdl.worktypeid];
           }
           else{
               
