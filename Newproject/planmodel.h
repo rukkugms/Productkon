@@ -16,6 +16,7 @@
 @property(readwrite)NSInteger customerid;
 @property(readwrite)NSInteger idvalue;
 @property(strong,nonatomic)NSString *worktypeid;
+@property(strong,nonatomic)NSString *worktype;
 @property(strong,nonatomic)NSString *sitefactor;
 @property(strong,nonatomic)NSString *location;
 @property(strong,nonatomic)NSString *zip;

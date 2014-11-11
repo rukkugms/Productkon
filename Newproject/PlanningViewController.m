@@ -205,7 +205,7 @@
          _sitefactrlbl=(UILabel*)[cell viewWithTag:7];
          _sitefactrlbl.text=planmdl.sitefactor;
               _sitefactrlbl=(UILabel*)[cell viewWithTag:8];
-              _sitefactrlbl.text=[_revtypelistdict objectForKey:planmdl.worktypeid];
+              _sitefactrlbl.text=planmdl.worktype;
           }
           else{
               
@@ -758,7 +758,7 @@
     NSLog(@"%@",_revtypelistdict);
       NSLog(@"%@",planmdl.worktypeid);
     
-    [_typebtnlbl setTitle:[_revtypelistdict objectForKey:planmdl.worktypeid] forState:UIControlStateNormal];
+    [_typebtnlbl setTitle:planmdl.worktype forState:UIControlStateNormal];
     _loctntxtfld.text=planmdl.location;
     _ziptxtfld.text=planmdl.zip;
       [_cmplexitybtnlbl setTitle:planmdl.complexity forState:UIControlStateNormal];
@@ -1734,6 +1734,17 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"Worktype"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"SiteFactor"])
     {
         
@@ -2018,6 +2029,16 @@
         _plnmdl.worktypeid=_soapResults;
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"Worktype"])
+    {
+        
+        
+        recordResults = FALSE;
+        _plnmdl.worktype=_soapResults;
+        _soapResults = nil;
+
+    }
+
     if([elementName isEqualToString:@"SiteFactor"])
     {
         

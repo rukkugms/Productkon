@@ -594,6 +594,23 @@
     }
 
    NSString *jobdesc=@"";
+    NSString*newstrg=  [_trainingtextview.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+    NSString*newstrg1=  [_experiencetextview.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg1=  [newstrg1 stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg1=  [newstrg1 stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg1=  [newstrg1 stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+    NSString*newstrg2=  [_jobtasktextview.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg2=  [newstrg2 stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg2=  [newstrg2 stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg2=  [newstrg2 stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+    NSString*newstrg3=  [_eduactiontextview.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg3=  [newstrg3 stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg3=  [newstrg3 stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg3=  [newstrg3 stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -618,7 +635,7 @@
                    "<MPAllSubTypes>%d</MPAllSubTypes>\n"
                    "</InsertManpower>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_itemdestxtfld.text,[_unitcosttxtfld.text floatValue],overhead,_craftcodetextfld.text,[_billingratetextfield.text floatValue],[_payratetextfield.text floatValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text,createcheck];
+                   "</soap:Envelope>\n",@"abc",_itemdestxtfld.text,[_unitcosttxtfld.text floatValue],overhead,_craftcodetextfld.text,[_billingratetextfield.text floatValue],[_payratetextfield.text floatValue],jobdesc,newstrg,newstrg1,newstrg2,newstrg3,createcheck];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -755,7 +772,23 @@
         
     }
 
-    
+    NSString*newstrg=  [_trainingtextview.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+    NSString*newstrg1=  [_experiencetextview.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg1=  [newstrg1 stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg1=  [newstrg1 stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg1=  [newstrg1 stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+    NSString*newstrg2=  [_jobtasktextview.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg2=  [newstrg2 stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg2=  [newstrg2 stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg2=  [newstrg2 stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+    NSString*newstrg3=  [_eduactiontextview.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg3=  [newstrg3 stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg3=  [newstrg3 stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg3=  [newstrg3 stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+
     
  //  NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
    NSString*unitcost=   [_unitcosttxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
@@ -788,7 +821,7 @@
                    "<MPAllSubTypes>%d</MPAllSubTypes>\n"
                     "</UpdateManpower>\n"
                     "</soap:Body>\n"
-                    "</soap:Envelope>\n",pwrmdl.entryid,_itemcodetxtfld.text,_itemdestxtfld.text,[unitcost floatValue],overhead,_craftcodetextfld.text,[_billingratetextfield.text floatValue],[_payratetextfield.text floatValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text,check];
+                    "</soap:Envelope>\n",pwrmdl.entryid,_itemcodetxtfld.text,_itemdestxtfld.text,[unitcost floatValue],overhead,_craftcodetextfld.text,[_billingratetextfield.text floatValue],[_payratetextfield.text floatValue],jobdesc,newstrg,newstrg1,newstrg2,newstrg3,check];
     NSLog(@"soapmsg%@",soapMessage);
     
     
