@@ -89,7 +89,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     useridname = [defaults objectForKey:@"Userid"];
 
-
+drawtype=1;
 
     // Do any additional setup after loading the view from its nib.
     
@@ -1017,6 +1017,225 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     
 }
+-(void)SitevisitInsertAccessibility{
+    recordResults = FALSE;
+    NSString *filename;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    filename = [defaults objectForKey:@"Imagename"];
+    
+    useridname = [defaults objectForKey:@"Userid"];
+    
+    NSString *soapMessage;
+    
+    
+    
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+    [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
+    NSDate *dates = [dateFormat1 dateFromString:_datebtnlbl.titleLabel.text];
+    NSLog(@"s%@",dates);
+    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
+    [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
+    
+    NSString*    dateString = [dateFormat2 stringFromDate:dates];
+    _datesstrg=dateString;
+    
+    
+    
+    NSArray*array1=[_timebtn.titleLabel.text componentsSeparatedByString:@" "];
+    NSString*newformat;
+    if ([[array1 objectAtIndex:1] isEqualToString:@"PM"]) {
+        NSArray*array2=[[array1 objectAtIndex:0]componentsSeparatedByString:@":"];
+        NSInteger a=[[array2 objectAtIndex:0]integerValue]+12;
+        newformat=[NSString stringWithFormat:@"%d:%@:%@",a,[array2 objectAtIndex:1],[array2 objectAtIndex:2]];
+        
+        
+        
+        
+    }
+    else{
+        
+        NSArray*array2=[[array1 objectAtIndex:0]componentsSeparatedByString:@":"];
+        newformat=[NSString stringWithFormat:@"%@:%@:%@",[array2 objectAtIndex:0],[array2 objectAtIndex:1],[array2 objectAtIndex:2]];
+        
+    }
+    _datesstrg=[NSString stringWithFormat:@"%@T%@",dateString,newformat];
+    
+    
+    NSString*dettext;
+    NSString*nestrg;
+    if (drawtype==0) {
+        
+        dettext=@"";
+        nestrg=[NSString stringWithFormat:@"%@-%@-%@-%@.jpg",[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]],@"Accessibility",dateString,filename];
+    }
+    else{
+        
+        dettext=_meetgdetailslbl.text;
+        nestrg=@"";
+        
+    }
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SitevisitInsertAccessibility xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Datetime>%@</Datetime>\n"
+                   "<details>%@</details>\n"
+                   "<userId>%d</userId>\n"
+                   "<planId>%@</planId>\n"
+                   "<FileName>%@</FileName>\n"
+                   "<Type>%d</Type>\n"
+                   "</SitevisitInsertAccessibility>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_datesstrg,dettext,[useridname integerValue],_companyid,nestrg,drawtype];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertAccessibility" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)SitevisitInsertEquipmentStag{
+       _reloadtype=14;
+    recordResults = FALSE;
+    NSString *filename;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    filename = [defaults objectForKey:@"Imagename"];
+    
+      useridname = [defaults objectForKey:@"Userid"];
+    
+    NSString *soapMessage;
+    
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+    [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
+    NSDate *dates = [dateFormat1 dateFromString:_datebtnlbl.titleLabel.text];
+    NSLog(@"s%@",dates);
+    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
+    [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
+    
+    NSString*    dateString = [dateFormat2 stringFromDate:dates];
+    _datesstrg=dateString;
+    
+    
+    
+    NSArray*array1=[_timebtn.titleLabel.text componentsSeparatedByString:@" "];
+    NSString*newformat;
+    if ([[array1 objectAtIndex:1] isEqualToString:@"PM"]) {
+        NSArray*array2=[[array1 objectAtIndex:0]componentsSeparatedByString:@":"];
+        NSInteger a=[[array2 objectAtIndex:0]integerValue]+12;
+        newformat=[NSString stringWithFormat:@"%d:%@:%@",a,[array2 objectAtIndex:1],[array2 objectAtIndex:2]];
+        
+        
+        
+        
+    }
+    else{
+        
+        NSArray*array2=[[array1 objectAtIndex:0]componentsSeparatedByString:@":"];
+        newformat=[NSString stringWithFormat:@"%@:%@:%@",[array2 objectAtIndex:0],[array2 objectAtIndex:1],[array2 objectAtIndex:2]];
+        
+    }
+    _datesstrg=[NSString stringWithFormat:@"%@T%@",dateString,newformat];
+
+    
+    
+    
+    NSString*nestrg;
+        NSString*dettext;
+    if (drawtype==0) {
+        
+        dettext=@"";
+        nestrg=[NSString stringWithFormat:@"%@-%@-%@-%@.jpg",[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]],@"Equipment",dateString,filename];
+    }
+    else{
+        
+        dettext=_meetgdetailslbl.text;
+        nestrg=@"";
+    }
+
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SitevisitInsertEquipmentStag xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Datetime>%@</Datetime>\n"
+                   "<details>%@</details>\n"
+                   "<userId>%d</userId>\n"
+                   "<planId>%@</planId>\n"
+                   "<FileName>%@</FileName>\n"
+                   "<Type>%d</Type>\n"
+                   "</SitevisitInsertEquipmentStag>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_datesstrg,dettext,[useridname integerValue],_companyid,nestrg,drawtype];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertEquipmentStag" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
 
 #pragma mark - Connection
@@ -1754,6 +1973,7 @@ recordResults
         _wathrcndtnlbl.text=@"";
         [_notedatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
         _notestxtfld.text=@"";
+        NSLog(@"reloadtype%d",_reloadtype);
 
     if ([self.delegate respondsToSelector:@selector(toreloadatable)]) {
         [self.delegate toreloadatable];
@@ -2201,15 +2421,35 @@ recordResults
     [self createCalenderPopover];
 }
 - (IBAction)meetgupdatebt:(id)sender {
-    _reloadtype=11;
+  
     if ([_meetgdetailslbl.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Detail is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else
     {
-    _meetupdatebtn.enabled=NO;
-    [self SitevisitInsertmeetingnotes];
+         _meetupdatebtn.enabled=NO;
+        drawtype=1;
+        if (_tabtype==1) {
+             _reloadtype=14;
+             [self SitevisitInsertEquipmentStag];
+        }
+        
+        else  if (_tabtype==2) {
+              _reloadtype=12;
+            [self SitevisitInsertAccessibility];
+        }
+        else  if (_tabtype==3) {
+              _reloadtype=11;
+              [self SitevisitInsertmeetingnotes];
+            
+        }
+
+
+   
+  
+        
+        
     }
 }
 
@@ -2367,6 +2607,19 @@ recordResults
         [self SitevisitInsertNotes];
     }
    
+    else if (_tabtype==2){
+        //[self.view endEditing:YES];
+        _reloadtype=12;
+        drawtype=0;
+         [self SitevisitInsertAccessibility];
+    }
+    else if (_tabtype==1){
+        //[self.view endEditing:YES];
+        _reloadtype=14;
+         drawtype=0;
+        [self SitevisitInsertEquipmentStag];
+    }
+
     
 }
 #pragma mark-textfld delegates

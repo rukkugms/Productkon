@@ -96,6 +96,7 @@
 
 
 - (IBAction)accebilityupdate:(id)sender;
+- (IBAction)addnewaccess:(id)sender;
 
 
 
@@ -110,6 +111,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView *esatitleview;
 
+- (IBAction)addest:(id)sender;
 
 /*Jobsite Views*/
 @property (strong, nonatomic) IBOutlet UIView *jobsiteview;
@@ -262,6 +264,9 @@
 @property(strong,nonatomic)NSMutableArray *bidderarray;
 @property(strong,nonatomic)NSMutableArray *weatherarray;
 @property(strong,nonatomic)NSMutableArray *notearray;
+@property(strong,nonatomic)NSMutableArray *accessarray;
+@property(strong,nonatomic)NSMutableArray *estarray;
+
 
 @property (strong, nonatomic) IBOutlet UINavigationItem *navgitem;
 

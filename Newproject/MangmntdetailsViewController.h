@@ -21,7 +21,7 @@
     BOOL recordResults;
     NSInteger tabletype,markuppath;
     NSString *markup;
-    NSString *docuname,*diststrg;
+    NSString *docuname,*diststrg,*markupidnew;
     UIButton *button;
     
 }
