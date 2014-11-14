@@ -115,7 +115,7 @@
              [self SitevisitSelectproductionrate];
             break;
         case 2:
-          [self SitevisitSelectjobsitereq];
+           [self SitevisitSelectjobsitereq];
             break;
         case 3:
              [self Selectsafetyrulessitevisit];
@@ -145,8 +145,18 @@
         case 11:
             [self SitevisitSelectMeetingNotes];
             break;
+        case 12:
+            [self Accessibilityselect];
+           
+            break;
+        case 14:
+            
+            [self EquipmentStagselect];
+            break;
+
 
         default:
+              [self EquipmentStagselect];
             break;
     }
     
@@ -160,11 +170,11 @@
         case 1:
            
             //[self EstmPlanDrawingSelect];
-            [self SitevisitInsertEquipmentStag];
+            //[self SitevisitInsertEquipmentStag];
             
             break;
         case 2:
-             [self SitevisitInsertAccessibility];
+            // [self SitevisitInsertAccessibility];
             
             break;
      
@@ -1719,9 +1729,24 @@
     recordResults = FALSE;
   
     NSString *soapMessage;
-    NSString * plantrimmestrg=[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    NSString *fullURL =[NSString stringWithFormat:@"%@-%@-%@",plantrimmestrg,@"Accessibility",[_filenamearray objectAtIndex:fetchindex]];
+//    NSString * plantrimmestrg=[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+//    NSString *fullURL =[NSString stringWithFormat:@"%@-%@-%@",plantrimmestrg,@"Accessibility",[_filenamearray objectAtIndex:fetchindex]];
    
+   
+    SitevistMdl *sitemdl1=(SitevistMdl *)[_accessarray objectAtIndex:fetchindex];
+    
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+    [dateFormat1 setDateFormat:@"MM-dd-yyyy"];
+    NSDate *dates = [dateFormat1 dateFromString:sitemdl1.meetingdate];
+    NSLog(@"s%@",dates);
+    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
+    [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
+    
+    NSString*    dateString = [dateFormat2 stringFromDate:dates];
+    _passingdate=dateString;
+    // NSString *fullURL =[NSString stringWithFormat:@"%@-%@-%@-%@.jpg",plantrimmestrg,@"Meeting",dateString,sitemdl1.filename];
+    
+    NSString *fullURL=sitemdl1.filename;
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -2044,6 +2069,112 @@ _passingdate=dateString;
     
     
 }
+-(void)Accessibilityselect{
+    webtype=1;
+    recordResults = FALSE;
+    // SitevistMdl *sitemdl1=(SitevistMdl *)[_wrkschdlearray objectAtIndex:path];
+    NSString * trimmestrg=[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Accessibilityselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planid>%@</planid>\n"
+                   "</Accessibilityselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",trimmestrg];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Accessibilityselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)EquipmentStagselect{
+    webtype=1;
+    recordResults = FALSE;
+    // SitevistMdl *sitemdl1=(SitevistMdl *)[_wrkschdlearray objectAtIndex:path];
+    NSString * trimmestrg=[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<EquipmentStagselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planid>%@</planid>\n"
+                   "</EquipmentStagselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",trimmestrg];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/EquipmentStagselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -2152,8 +2283,13 @@ _passingdate=dateString;
         if (tableView==_notestable) {
             return [_notearray count];
         }
-        if ((tableView==_accebilitytable)||(tableView=_ESAtble )) {
-            return [_filenamearray count];
+        if(tableView==_ESAtble) {
+            return [_estarray count];
+        }
+        if (tableView==_accebilitytable){
+            
+            return [_accessarray count];
+            
         }
 
         }
@@ -2233,17 +2369,17 @@ _passingdate=dateString;
            
         }
  else   if (tableView==_accebilitytable) {
-      [[NSBundle mainBundle]loadNibNamed:@"cellfordocumnt" owner:self options:nil];
+      [[NSBundle mainBundle]loadNibNamed:@"Meetingnotesview" owner:self options:nil];
      
-       cell=_docucell;
+     cell=_meetgcell;
      
 
  }
  else  if (tableView==_ESAtble) {
      
-     [[NSBundle mainBundle]loadNibNamed:@"cellfordocumnt" owner:self options:nil];
+     [[NSBundle mainBundle]loadNibNamed:@"Meetingnotesview" owner:self options:nil];
      
-     cell=_docucell;
+     cell=_meetgcell;
      
  }
 
@@ -2325,25 +2461,28 @@ _passingdate=dateString;
         
         SitevistMdl *sitemdl1=(SitevistMdl *)[_meetgarray objectAtIndex:indexPath.row];
         _mnamelbl=(UILabel *)[cell viewWithTag:1];
-        _mnamelbl.text=sitemdl1.meetingdate;
-        _mdetaillbl=(UILabel *)[cell viewWithTag:2];
+    _mnamelbl.text=sitemdl1.meetingdate;
+        NSLog(@"date%@",sitemdl1.meetingdate);
       
-     // _mnotelbl=(UILabel *)[cell viewWithTag:3];
+        _mdetaillbl=(UILabel *)[cell viewWithTag:2];
+       _mdetaillbl.text=sitemdl1.meetingdetails;
+      
+      _mnotelbl=(UILabel *)[cell viewWithTag:3];
     NSArray*array=[sitemdl1.filename componentsSeparatedByString:@"-"];
       
       NSArray*array1=[[array lastObject]componentsSeparatedByString:@"."];
        NSString*FNAME=[array1 objectAtIndex:0];
-
+    _mnotelbl.text=FNAME;
      
       _typeimagview=(UIImageView*)[cell viewWithTag:5];
       if (sitemdl1.typvalue==0) {
           _typeimagview.image=[UIImage imageNamed:@"Handnotes"];
-            _mdetaillbl.text=FNAME;
+            //_mdetaillbl.text=FNAME;
       }
       else
       {
           _typeimagview.image=[UIImage imageNamed:@"Notepad"];
-          _mdetaillbl.text=sitemdl1.meetingdetails;
+         
       }
 
       
@@ -2370,32 +2509,95 @@ _passingdate=dateString;
      _mnamelbl=(UILabel *)[cell viewWithTag:1];
      _mnamelbl.text=sitemdl1.notedate;
      _mdetaillbl=(UILabel *)[cell viewWithTag:2];
+     _mdetaillbl.text=sitemdl1.Notes;
      
-    // _mnotelbl=(UILabel *)[cell viewWithTag:3];
+     NSArray*array=[sitemdl1.filename componentsSeparatedByString:@"-"];
+     
+     NSArray*array1=[[array lastObject]componentsSeparatedByString:@"."];
+     NSString*FNAME=[array1 objectAtIndex:0];
+  
+
+     
+    _mnotelbl=(UILabel *)[cell viewWithTag:3];
+     _mnotelbl.text=FNAME;
      
       NSLog(@"%d",sitemdl1.notetype);
      _typeimagview=(UIImageView*)[cell viewWithTag:5];
      if (sitemdl1.notetype==0) {
          _typeimagview.image=[UIImage imageNamed:@"Handnotes"];
-         _mdetaillbl.text=sitemdl1.filename;
+        // _mdetaillbl.text=sitemdl1.filename;
      }
      else if(sitemdl1.notetype==1)
      {
          _typeimagview.image=[UIImage imageNamed:@"Notepad"];
-         _mdetaillbl.text=sitemdl1.Notes;
+        // _mdetaillbl.text=sitemdl1.Notes;
      }
      
 
      
     }
-  else if ((tableView==_accebilitytable)||(tableView=_ESAtble )) {
+  else if (tableView==_ESAtble) {
         
         
-        _doculbl=(UILabel *)[cell viewWithTag:1];
-        _doculbl.text=[_filenamearray objectAtIndex:indexPath.row];
+//        _doculbl=(UILabel *)[cell viewWithTag:1];
+//        _doculbl.text=[_filenamearray objectAtIndex:indexPath.row];
+      SitevistMdl *sitemdl1=(SitevistMdl *)[_estarray objectAtIndex:indexPath.row];
+      _mnamelbl=(UILabel *)[cell viewWithTag:1];
+      _mnamelbl.text=sitemdl1.meetingdate;
+      _mdetaillbl=(UILabel *)[cell viewWithTag:2];
+      
+      _mdetaillbl.text=sitemdl1.meetingdetails;
+      
+      _mnotelbl=(UILabel *)[cell viewWithTag:3];
+      NSArray*array=[sitemdl1.filename componentsSeparatedByString:@"-"];
+      
+      NSArray*array1=[[array lastObject]componentsSeparatedByString:@"."];
+      NSString*FNAME=[array1 objectAtIndex:0];
+      _mnotelbl.text=FNAME;
+      
+      _typeimagview=(UIImageView*)[cell viewWithTag:5];
+      if (sitemdl1.typvalue==0) {
+          _typeimagview.image=[UIImage imageNamed:@"Handnotes"];
+          //_mdetaillbl.text=FNAME;
+      }
+      else
+      {
+          _typeimagview.image=[UIImage imageNamed:@"Notepad"];
+          
+      }
 
 
     }
+  else if (tableView==_accebilitytable){
+      
+      
+      SitevistMdl *sitemdl1=(SitevistMdl *)[_accessarray objectAtIndex:indexPath.row];
+      _mnamelbl=(UILabel *)[cell viewWithTag:1];
+      _mnamelbl.text=sitemdl1.meetingdate;
+      _mdetaillbl=(UILabel *)[cell viewWithTag:2];
+      
+      _mdetaillbl.text=sitemdl1.meetingdetails;
+      
+      _mnotelbl=(UILabel *)[cell viewWithTag:3];
+      NSArray*array=[sitemdl1.filename componentsSeparatedByString:@"-"];
+      
+      NSArray*array1=[[array lastObject]componentsSeparatedByString:@"."];
+      NSString*FNAME=[array1 objectAtIndex:0];
+      _mnotelbl.text=FNAME;
+      
+      _typeimagview=(UIImageView*)[cell viewWithTag:5];
+      if (sitemdl1.typvalue==0) {
+          _typeimagview.image=[UIImage imageNamed:@"Handnotes"];
+          //_mdetaillbl.text=FNAME;
+      }
+      else
+      {
+          _typeimagview.image=[UIImage imageNamed:@"Notepad"];
+          
+      }
+
+      
+  }
 
     return cell;
 }
@@ -3120,6 +3322,26 @@ _passingdate=dateString;
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"AccessibilityselectResponse"])
+    {
+        _accessarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"EquipmentStagselectResponse"])
+    {
+        _estarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
 
 
 }
@@ -3234,12 +3456,14 @@ _passingdate=dateString;
             
             if (_drwVCtrl.tabtype==2) {
                 webtype=1;
-                [self PlanDrawingSelect];
+               // [self PlanDrawingSelect];
+                [self Accessibilityselect];
 
             }
             else if (_drwVCtrl.tabtype==1){
                 webtype=2;
-                [self EstmPlanDrawingSelect];
+                 [self EquipmentStagselect];
+                //[self EstmPlanDrawingSelect];
             }
               _genralbtnlbl.enabled=YES;
             _accebilitybtnlbl.enabled=YES;
@@ -3503,7 +3727,8 @@ _passingdate=dateString;
         NSString *myFormattedDate = [dateFormat stringFromDate:dates];
         
         NSArray*array2=[[newarray objectAtIndex:1] componentsSeparatedByString:@"-"];
-        NSArray*array1=[[array2 objectAtIndex:0] componentsSeparatedByString:@":"];
+        NSArray*array3=[[array2 objectAtIndex:0]componentsSeparatedByString:@"+"];
+        NSArray*array1=[[array3 objectAtIndex:0] componentsSeparatedByString:@":"];
         NSString*newformat;
         
         
@@ -3567,6 +3792,8 @@ _passingdate=dateString;
              _sitevistmdl.typvalue=1;
         }
         [_meetgarray addObject:_sitevistmdl];
+        [_accessarray addObject:_sitevistmdl];
+        [_estarray addObject:_sitevistmdl];
         _soapResults = nil;
     }
 
@@ -3969,7 +4196,9 @@ _passingdate=dateString;
 //}
 
 - (IBAction)acceblitybtn:(id)sender {
-    [self PlanDrawingSelect];
+   
+     [self Accessibilityselect];
+     [self PlanDrawingSelect];
  tabtype=2;
     _gernalbtnlbl.tintColor=[UIColor blackColor];
     _pratebtnlbl.tintColor=[UIColor blackColor];
@@ -4004,6 +4233,7 @@ _passingdate=dateString;
 
 - (IBAction)Equmntstgareabtn:(id)sender {
      tabtype=1;
+     [self EquipmentStagselect];
     [self EstmPlanDrawingSelect];
        _gernalbtnlbl.tintColor=[UIColor blackColor];
     _pratebtnlbl.tintColor=[UIColor blackColor];
@@ -4449,6 +4679,20 @@ _passingdate=dateString;
     
     
 }
+
+- (IBAction)addnewaccess:(id)sender {
+    
+    self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"meetingnoterecordaddview" bundle:nil];
+    self.newrecordVCtrl.delegate=self;
+    self.newrecordVCtrl.companyid=_companyid;
+    self.newrecordVCtrl.tabtype=tabtype;
+    
+    
+    self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    [self presentViewController:_newrecordVCtrl
+                       animated:YES completion:NULL];
+    
+}
 - (IBAction)equpmntupdatebtn:(id)sender {
     if ([_equipmnttxtview.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Description is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -4732,7 +4976,26 @@ _passingdate=dateString;
     NSIndexPath *textFieldIndexPath = [self.accebilitytable indexPathForRowAtPoint:rootViewPoint];
     fetchindex=textFieldIndexPath.row;
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
-   [self AccessFetchImage];
+
+        SitevistMdl *sitemdl1=(SitevistMdl *)[_estarray objectAtIndex:fetchindex];
+        if (sitemdl1.typvalue==0) {
+            [self AccessFetchImage];
+        }
+        else
+        {
+            self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"meetingnoterecordaddview" bundle:nil];
+            self.newrecordVCtrl.delegate=self;
+            self.newrecordVCtrl.datendtime=sitemdl1.meetingdate;
+            self.newrecordVCtrl.details=sitemdl1.meetingdetails;
+            self.newrecordVCtrl.viewtype=4;
+            //           self.newrecordVCtrl.companyid=_companyid;
+            //           self.newrecordVCtrl.tabtype=tabtype;
+            self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+            [self presentViewController:_newrecordVCtrl
+                               animated:YES completion:NULL];
+        }
+        
+
     
     }
  else   if (tabtype==1) {
@@ -4745,7 +5008,24 @@ _passingdate=dateString;
         
         NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
         fetchindex=textFieldIndexPath.row;
-        [self FetchImage];
+     SitevistMdl *sitemdl1=(SitevistMdl *)[_estarray objectAtIndex:fetchindex];
+     if (sitemdl1.typvalue==0) {
+                 [self FetchImage];
+     }
+     else
+     {
+         self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"meetingnoterecordaddview" bundle:nil];
+         self.newrecordVCtrl.delegate=self;
+         self.newrecordVCtrl.datendtime=sitemdl1.meetingdate;
+         self.newrecordVCtrl.details=sitemdl1.meetingdetails;
+         self.newrecordVCtrl.viewtype=4;
+         //           self.newrecordVCtrl.companyid=_companyid;
+         //           self.newrecordVCtrl.tabtype=tabtype;
+         self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+         [self presentViewController:_newrecordVCtrl
+                            animated:YES completion:NULL];
+     }
+
      
         
         }
@@ -4810,5 +5090,17 @@ _passingdate=dateString;
         
     }
 
+}
+- (IBAction)addest:(id)sender {
+    
+    self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"meetingnoterecordaddview" bundle:nil];
+    self.newrecordVCtrl.delegate=self;
+    self.newrecordVCtrl.companyid=_companyid;
+    self.newrecordVCtrl.tabtype=tabtype;
+    
+    
+    self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    [self presentViewController:_newrecordVCtrl
+                       animated:YES completion:NULL];
 }
 @end

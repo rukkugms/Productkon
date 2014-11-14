@@ -503,17 +503,18 @@
 //    }
     //else{
     
-    if (_tabtype==1||_tabtype==2) {
-        
-if ([self.delegate respondsToSelector:@selector(toreloaddrawings)]) {
-        [self.delegate toreloaddrawings];
-        
-        [self dismissViewControllerAnimated:YES completion:nil];
+//    if (_tabtype==1) {
+//        
+//if ([self.delegate respondsToSelector:@selector(toreloaddrawings)]) {
+//        [self.delegate toreloaddrawings];
+//        
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//    
+//    }
+//    
+//      }
     
-    }
-    
-      }
-    if (_tabtype==3||_tabtype==4) {
+    if (_tabtype==3||_tabtype==4||_tabtype==2||_tabtype==1) {
         
         if ([self.newdelegate respondsToSelector:@selector(updatingtables)]) {
             [self.newdelegate updatingtables];
@@ -524,7 +525,7 @@ if ([self.delegate respondsToSelector:@selector(toreloaddrawings)]) {
                   }
         
     }
-   // }
+ 
 
     
 }

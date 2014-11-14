@@ -131,7 +131,10 @@
     _deliveryclausetxtview.text=_subcntrct.DeliveryRatesClause;
     _srstxtview.text=_subcntrct.SpecialRatesStructure;
     _tempwrker.text=_subcntrct.TempworkerMarkup;
-    [_markupbtnlbl setTitle:[_revmarkupdict objectForKey:_subcntrct.MarkupId] forState:UIControlStateNormal];
+    
+    markupidnew=_subcntrct.MarkupId;
+    
+  
     
     [self SelectMarkupMaster];
     
@@ -346,7 +349,7 @@
                     "<MarkUpId>%d</MarkUpId>\n"
                    "</BaseWagesselect>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_subcntrct.contractid,[_subcntrct.MarkupId integerValue]];
+                   "</soap:Envelope>\n",_subcntrct.contractid,[markupidnew integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
       NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
@@ -2014,7 +2017,7 @@
         
         markuppath=indexPath.row;
         [_markupbtnlbl setTitle:[_markupnamearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-         [self BaseWagesselect];
+        
     }
     
        [self.popovercontroller dismissPopoverAnimated:YES];
@@ -2130,7 +2133,8 @@ _notesbtn.tintColor=[UIColor blackColor];
 - (IBAction)laborbtn:(id)sender {
      // [self SelectMarkupMaster];
   //  [_markupbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
-   
+     [_markupbtnlbl setTitle:[_revmarkupdict objectForKey:markupidnew] forState:UIControlStateNormal];
+     [self BaseWagesselect];
 
  // _basewagesarray=[[NSMutableArray alloc]init];
    //  [_basetable reloadData];
