@@ -593,7 +593,10 @@ ssnclck++;
 //    if (bgclck%2!=0) {
 //        _type=@"BackGround";
 //    }
-    
+    NSString*newstrg=  [_cmmnttextview.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -610,7 +613,7 @@ ssnclck++;
                    "<Status>%d</Status>\n"
                    "</InsertVerificationComments>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_applicantid,[_useridname integerValue],_cmmnttextview.text,_type,Segmntcheck];
+                   "</soap:Envelope>\n",_applicantid,[_useridname integerValue],newstrg,_type,Segmntcheck];
     NSLog(@"soapmsg%@",soapMessage);
     
     
