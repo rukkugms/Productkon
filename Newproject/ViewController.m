@@ -176,9 +176,9 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-        //[_passwrdtxt resignFirstResponder];
-    //[_usernametxt resignFirstResponder];
-    //[self.view endEditing:YES];
+    [_usernametxt resignFirstResponder];
+    [_passwrdtxt resignFirstResponder];
+    [self disablesAutomaticKeyboardDismissal];
     _loginbtn.enabled=YES;
     _usernametxt.text=@"";
     _passwrdtxt.text=@"";
@@ -188,7 +188,9 @@
     locationmanager.delegate=self;
     locationmanager.desiredAccuracy=kCLLocationAccuracyBest;
     [locationmanager startUpdatingLocation];
+    
 }
+
 
 //-(CLLocationManager *)locntnmangr{
 //    if (_locntnmangr!=nil) {
