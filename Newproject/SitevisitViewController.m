@@ -3836,7 +3836,8 @@ _passingdate=dateString;
         NSString *myFormattedDate = [dateFormat stringFromDate:dates];
         
         NSArray*array2=[[newarray objectAtIndex:1] componentsSeparatedByString:@"-"];
-        NSArray*array1=[[array2 objectAtIndex:0] componentsSeparatedByString:@":"];
+        NSArray*array3=[[array2 objectAtIndex:0]componentsSeparatedByString:@"+"];
+        NSArray*array1=[[array3 objectAtIndex:0] componentsSeparatedByString:@":"];
         NSString*newformat;
         
         
