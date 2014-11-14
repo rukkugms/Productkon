@@ -1198,6 +1198,7 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
         recordResults = FALSE;
         [self.navigationController popToRootViewControllerAnimated:YES];
         
+        
         _soapResults=nil;
       }
     if([elementName isEqualToString:@"EntryId"])
@@ -1500,7 +1501,8 @@ if ([alertView.message isEqualToString:@"Are you sure you want to logout"]) {
     
     
     if (buttonIndex==[alertView cancelButtonIndex]){
-         [alertView becomeFirstResponder];
+         [alertView resignFirstResponder];
+        [self disablesAutomaticKeyboardDismissal];
         [self Logoutselect];
        
         
