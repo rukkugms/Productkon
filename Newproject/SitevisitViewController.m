@@ -1673,13 +1673,29 @@
 
 -(void)FetchImage{
     recordResults = FALSE;
+    
+    SitevistMdl *sitemdl1=(SitevistMdl *)[_estarray objectAtIndex:fetchindex];
+    
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+    [dateFormat1 setDateFormat:@"MM-dd-yyyy"];
+    NSDate *dates = [dateFormat1 dateFromString:sitemdl1.meetingdate];
+    NSLog(@"s%@",dates);
+    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
+    [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
+    
+    NSString*    dateString = [dateFormat2 stringFromDate:dates];
+    _passingdate=dateString;
+    // NSString *fullURL =[NSString stringWithFormat:@"%@-%@-%@-%@.jpg",plantrimmestrg,@"Meeting",dateString,sitemdl1.filename];
+    
+    NSString *fullURL=sitemdl1.filename;
+
     // SitevistMdl *sitemdl1=(SitevistMdl *)[_wrkschdlearray objectAtIndex:path];
   //  NSString * trimmestrg=[[_filenamearray objectAtIndex:fetchindex] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSString *soapMessage;
     NSString * plantrimmestrg=[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 
    // NSArray *newarray=[[_filenamearray objectAtIndex:fetchindex] componentsSeparatedByString:@"."];
-    NSString *fullURL =[NSString stringWithFormat:@"%@-%@-%@",plantrimmestrg,@"Equipment",[_filenamearray objectAtIndex:fetchindex]];
+   // NSString *fullURL =[NSString stringWithFormat:@"%@-%@-%@",plantrimmestrg,@"Equipment",[_filenamearray objectAtIndex:fetchindex]];
 //  NSString *fullURL =[NSString stringWithFormat:@"Folder/Root/Drawings/%@-%@-%@",plantrimmestrg,@"Equipment",[newarray objectAtIndex:0]];
     
           soapMessage = [NSString stringWithFormat:
@@ -5012,6 +5028,7 @@ _passingdate=dateString;
         NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
         fetchindex=textFieldIndexPath.row;
      SitevistMdl *sitemdl1=(SitevistMdl *)[_estarray objectAtIndex:fetchindex];
+   
      if (sitemdl1.typvalue==0) {
                  [self FetchImage];
      }

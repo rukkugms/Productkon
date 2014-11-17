@@ -141,11 +141,28 @@
 
 -(void)AccebilityUploadPlanDrawings{
     recordResults = FALSE;
-   
+   NSString*filename;
     
     NSString *soapMessage;
     
-     NSString*filename=[NSString stringWithFormat:@"%@.jpg",_savename];
+    if (_datestrg.length==0) {
+        NSDate *daa=[NSDate date];
+        NSLog(@"%@",daa);
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSString*curntdate = [dateFormat stringFromDate:daa];
+        NSLog(@"%@",curntdate);
+        filename=[NSString stringWithFormat:@"%@-%@.jpg",curntdate,_savename];
+        //filename=[NSString stringWithFormat:@"%@-%@-%@-%@.jpg",[_planid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]],@"Meeting",curntdate,_savename];
+    }
+    else
+    {
+        filename=[NSString stringWithFormat:@"%@-%@.jpg",_datestrg,_savename];
+        //  filename=[NSString stringWithFormat:@"%@-%@-%@-%@.jpg",[_planid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]],@"Meeting",_datestrg,_savename];
+    }
+
+    
+   //  NSString*filename=[NSString stringWithFormat:@"%@.jpg",_savename];
      NSString * plantrimmestrg=[_planid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
    //  NSString *filename =[NSString stringWithFormat:@"Drawings/%@-%@-%@.jpg",plantrimmestrg,@"Accessibility",_savename];
     soapMessage = [NSString stringWithFormat:
@@ -200,8 +217,30 @@
     recordResults = FALSE;
     
        NSString * trimmestrg=[_planid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    NSString*filename;
+    
+   
+    
+    if (_datestrg.length==0) {
+        NSDate *daa=[NSDate date];
+        NSLog(@"%@",daa);
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSString*curntdate = [dateFormat stringFromDate:daa];
+        NSLog(@"%@",curntdate);
+        filename=[NSString stringWithFormat:@"%@-%@.jpg",curntdate,_savename];
+        //filename=[NSString stringWithFormat:@"%@-%@-%@-%@.jpg",[_planid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]],@"Meeting",curntdate,_savename];
+    }
+    else
+    {
+        filename=[NSString stringWithFormat:@"%@-%@.jpg",_datestrg,_savename];
+        //  filename=[NSString stringWithFormat:@"%@-%@-%@-%@.jpg",[_planid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]],@"Meeting",_datestrg,_savename];
+    }
+    
+
     NSString *soapMessage;
-    NSString*filename=[NSString stringWithFormat:@"%@.jpg",_savename];
+  //  NSString*filename=[NSString stringWithFormat:@"%@.jpg",_savename];
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
