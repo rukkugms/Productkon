@@ -56,7 +56,7 @@
                         <barButtonItem width="148" style="plain" systemItem="fixedSpace" id="fJI-WC-ziY">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
-                        <barButtonItem title="ManPower" width="99" id="r9y-U4-6pY">
+                        <barButtonItem title="Man Power" width="99" id="r9y-U4-6pY">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="manpoweraction:" destination="-1" id="gwG-k0-ijq"/>

@@ -208,7 +208,6 @@
                    "</soap:Envelope>\n",curntdate,[useridname integerValue],_ModuleID,@"View",@"iOS",extnalip,intrnalip,Udid,0];
     NSLog(@"soapmsg%@",soapMessage);
     
-    
     //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
       NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     

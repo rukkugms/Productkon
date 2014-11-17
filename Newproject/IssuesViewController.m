@@ -1080,7 +1080,7 @@
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         _updatebtnlbl.enabled=YES;
-            [_jobsitebtnlbl setTitle:@"Select Jobsite" forState:UIControlStateNormal];
+            [_jobsitebtnlbl setTitle:@"Select Job Site" forState:UIControlStateNormal];
             [_typebtnlbl setTitle:@"Select Type" forState:UIControlStateNormal];
              [_datebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
                [_timebtn setTitle:@"Select" forState:UIControlStateNormal];
@@ -1278,6 +1278,7 @@
     NSString *dateString = [dateFormat stringFromDate:date];
 [_datebtnlbl setTitle:dateString forState:UIControlStateNormal];
    // _datetxtfld.text=dateString;
+    [self.popOverController dismissPopoverAnimated:YES];
 }
 
 #pragma mark-Searchbar
@@ -1413,7 +1414,7 @@
     _cancelbtnlbl.enabled=YES;
     _cancelbtnlbl.titleLabel.textColor=[UIColor colorWithRed:0/255.0f green:122.0/255.0f blue:255.0/255.0f alpha:1.0f];
      _addview.hidden=YES;
-    [_jobsitebtnlbl setTitle:@"Select Jobsite" forState:UIControlStateNormal];
+    [_jobsitebtnlbl setTitle:@"Select Job Site" forState:UIControlStateNormal];
     [_typebtnlbl setTitle:@"Select Type" forState:UIControlStateNormal];
     [_statusbtnlbl setTitle:@"Select Status" forState:UIControlStateNormal];
     [_datebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
@@ -1447,7 +1448,7 @@
     else
     {
 
-    if ([_jobsitebtnlbl.titleLabel.text isEqualToString:@"Select Jobsite"]) {
+    if ([_jobsitebtnlbl.titleLabel.text isEqualToString:@"Select Job Site"]) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Jobsite is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
