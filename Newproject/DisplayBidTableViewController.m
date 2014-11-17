@@ -83,6 +83,13 @@
     _otlabel.hidden=NO;
       _qtylabel.hidden=NO;
     _totqtylabel.hidden=NO;
+    
+    
+    _otherqtlabel.hidden=YES;
+    _othertotqtylbl.hidden=YES;
+    _othercostlabel.hidden=YES;
+   _othertotcostlabl.hidden=YES;
+    _sumlabl.hidden=NO;
     _starray=[[NSMutableArray alloc]init];
     
     _otarray=[[NSMutableArray alloc]init];
@@ -126,6 +133,12 @@
     _starray=[[NSMutableArray alloc]init];
 
     _otarray=[[NSMutableArray alloc]init];
+    _otherqtlabel.hidden=YES;
+    _othertotqtylbl.hidden=YES;
+    _othercostlabel.hidden=YES;
+    _othertotcostlabl.hidden=YES;
+    _sumdisplaylabel.hidden=NO;
+    _sumlabl.hidden=NO;
     sum=0;
     totqty=0;
     TotOT=0;
@@ -164,12 +177,18 @@
     searchctrlr.searchResultsDataSource=(id)self;
     searchctrlr.delegate=(id)self;
 
+    _otherqtlabel.hidden=NO;
+    _othertotqtylbl.hidden=NO;
+    _othercostlabel.hidden=NO;
+    _othertotcostlabl.hidden=NO;
+     _sumdisplaylabel.hidden=YES;
+    _sumlabl.hidden=YES;
     _ST.hidden=YES;
     _OT.hidden=YES;
     _stlabel.hidden=YES;
     _otlabel.hidden=YES;
-     _qtylabel.hidden=NO;
-    _totqtylabel.hidden=NO;
+    _qtylabel.hidden=YES;
+    _totqtylabel.hidden=YES;
     sum=0;
     totqty=0;
     _totalarray=[[NSMutableArray alloc]init];
@@ -199,6 +218,13 @@ _quantityarray=[[NSMutableArray alloc]init];
     searchctrlr.searchResultsDataSource=(id)self;
     searchctrlr.delegate=(id)self;
 
+    
+    _otherqtlabel.hidden=NO;
+    _othertotqtylbl.hidden=NO;
+    _othercostlabel.hidden=NO;
+    _othertotcostlabl.hidden=NO;
+    _sumdisplaylabel.hidden=YES;
+    _sumlabl.hidden=YES;
     tooltype=3;
     sum=0;
     totqty=0;
@@ -206,8 +232,8 @@ _quantityarray=[[NSMutableArray alloc]init];
     _OT.hidden=YES;
     _stlabel.hidden=YES;
     _otlabel.hidden=YES;
-     _qtylabel.hidden=NO;
-    _totqtylabel.hidden=NO;
+    _qtylabel.hidden=YES;
+    _totqtylabel.hidden=YES;
     _totalarray=[[NSMutableArray alloc]init];
 _quantityarray=[[NSMutableArray alloc]init];
     [self BidMaterialReviewselect];
@@ -235,6 +261,12 @@ _quantityarray=[[NSMutableArray alloc]init];
     searchctrlr.searchResultsDataSource=(id)self;
     searchctrlr.delegate=(id)self;
 
+    _sumlabl.hidden=YES;
+    _otherqtlabel.hidden=NO;
+    _othertotqtylbl.hidden=NO;
+    _othercostlabel.hidden=NO;
+    _othertotcostlabl.hidden=NO;
+    _sumdisplaylabel.hidden=YES;
     tooltype=4;
     sum=0;
     totqty=0;
@@ -242,8 +274,8 @@ _quantityarray=[[NSMutableArray alloc]init];
     _OT.hidden=YES;
     _stlabel.hidden=YES;
     _otlabel.hidden=YES;
-     _qtylabel.hidden=NO;
-    _totqtylabel.hidden=NO;
+    _qtylabel.hidden=YES;
+    _totqtylabel.hidden=YES;
     _totalarray=[[NSMutableArray alloc]init];
 _quantityarray=[[NSMutableArray alloc]init];
     [self BidOtherReviewselect];
@@ -270,9 +302,13 @@ _quantityarray=[[NSMutableArray alloc]init];
     _otlabel.hidden=YES;
     _qtylabel.hidden=YES;
     _totqtylabel.hidden=YES;
+    _sumdisplaylabel.hidden=YES;
     _totalarray=[[NSMutableArray alloc]init];
-
-  
+    _sumlabl.hidden=YES;
+    _otherqtlabel.hidden=YES;
+    _othertotqtylbl.hidden=YES;
+    _othercostlabel.hidden=NO;
+    _othertotcostlabl.hidden=NO;
     _manpowertable.hidden=YES;
     _manpowertitle.hidden=YES;
     _Othertable.hidden=YES;
@@ -1979,7 +2015,13 @@ _quantityarray=[[NSMutableArray alloc]init];
     {
         sum=([[_totalarray objectAtIndex:i]integerValue])+sum;
         NSLog(@"%d",sum);
+        if (tooltype==2||tooltype==2||tooltype==3||tooltype==4||tooltype==5) {
+            _othertotcostlabl.text=[NSString stringWithFormat:@"$%d",sum]  ;
+        }
+        else
+        {
         _sumdisplaylabel.text=[NSString stringWithFormat:@"$%d",sum]  ;
+        }
     }
     
 }
@@ -1992,7 +2034,14 @@ _quantityarray=[[NSMutableArray alloc]init];
     {
         sum=([[_totalarray objectAtIndex:i]integerValue])+sum;
         NSLog(@"%d",sum);
-        _sumdisplaylabel.text=[NSString stringWithFormat:@"$%d",sum]  ;
+        if (tooltype==2||tooltype==2||tooltype==3||tooltype==4||tooltype==5) {
+            _othertotcostlabl.text=[NSString stringWithFormat:@"$%d",sum]  ;
+        }
+        else
+        {
+            _sumdisplaylabel.text=[NSString stringWithFormat:@"$%d",sum]  ;
+        }
+
     }
     [self calculateqty];
 }
@@ -2003,7 +2052,14 @@ _quantityarray=[[NSMutableArray alloc]init];
     {
         totqty=([[_quantityarray objectAtIndex:i]integerValue])+totqty;
         NSLog(@"%d",totqty);
+         if (tooltype==2||tooltype==2||tooltype==3||tooltype==4||tooltype==5)
+         {
+             _othertotqtylbl.text=[NSString stringWithFormat:@"%d",totqty]  ;
+         }
+        else
+        {
         _qtylabel.text=[NSString stringWithFormat:@"%d",totqty]  ;
+        }
     }
 
 }

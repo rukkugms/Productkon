@@ -1053,7 +1053,7 @@
             }
             else{
                 
-                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Verification Failed" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Verification not completed/Verification Failed" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
                 
             }

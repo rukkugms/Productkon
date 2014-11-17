@@ -23,6 +23,7 @@
     CLGeocoder *geocoder;
     CLPlacemark *placemark;
     NSString*Naddress;
+    BOOL isKeyBoardHide;
   
 }
 @property(strong,nonatomic)NSString *usernamestrg;

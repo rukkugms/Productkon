@@ -103,4 +103,10 @@
 @property(strong,nonatomic)NSMutableArray *otarray;
 
 
+@property(strong,nonatomic)IBOutlet UILabel *otherqtlabel;
+@property(strong,nonatomic)IBOutlet UILabel *othertotqtylbl;
+@property(strong,nonatomic)IBOutlet UILabel *othercostlabel;
+@property(strong,nonatomic)IBOutlet UILabel *othertotcostlabl;
+@property(strong,nonatomic)IBOutlet UILabel *sumlabl;
+
 @end

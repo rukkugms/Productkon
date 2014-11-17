@@ -221,8 +221,8 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         [Alert show];
     }
   else if (jobsite==1) {
-        if ([_jobsitebtnlbl.titleLabel.text isEqualToString:@"Select Jobsite"]) {
-            UIAlertView *Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please select a jobsite" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        if ([_jobsitebtnlbl.titleLabel.text isEqualToString:@"Select Job Site"]) {
+            UIAlertView *Alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please select a Job Site" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [Alert show];
         }
         else
@@ -411,7 +411,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     NSLog(@"sectn%d",indexPath.section);
        if (tableView==_poovertableview) {
         if (poptype==1) {
-            [_jobsitebtnlbl setTitle:@"Select Jobsite" forState:UIControlStateNormal];
+            [_jobsitebtnlbl setTitle:@"Select Job Site" forState:UIControlStateNormal];
             [_sitechecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             [_officechecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
 
@@ -1426,11 +1426,12 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         if (buttonIndex==0) {
             
             
-            [_jobsitebtnlbl setTitle:@"Select Jobsite" forState:UIControlStateNormal];
+            [_jobsitebtnlbl setTitle:@"Select Job Site" forState:UIControlStateNormal];
             [_sitechecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             [_officechecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             _applicantprocessview.hidden=YES;
             _processbtn.userInteractionEnabled=YES;
+            _searchbar.text=@"";
             [self ListAllApplicants];
             
             
