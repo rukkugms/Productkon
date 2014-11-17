@@ -192,6 +192,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
      _companynametxtfld.text=_companyname;
+    _scrollview.frame=CGRectMake(0,0,990,606);
+    [_scrollview setContentSize:CGSizeMake(990,700)];
       _navgitem.title=[NSString stringWithFormat:@"Site Visit-%@",_companyid];
     [self ListSiteVisitGeneral];
     [self SelectAllItemType];

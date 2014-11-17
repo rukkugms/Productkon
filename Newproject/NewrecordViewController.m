@@ -2308,7 +2308,7 @@ recordResults
 - (IBAction)jobupdatebtn:(id)sender {
     _reloadtype=2;
        if ([_typeidbtnlbl.titleLabel.text isEqualToString:@"Select"]||[_typeidbtnlbl.titleLabel.text isEqualToString:@""]) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Requirement is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else if([_jobcosttxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
