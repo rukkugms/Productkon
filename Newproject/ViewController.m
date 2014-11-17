@@ -188,9 +188,31 @@
     locationmanager.delegate=self;
     locationmanager.desiredAccuracy=kCLLocationAccuracyBest;
     [locationmanager startUpdatingLocation];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidShow:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidHide:)
+                                                 name:UIKeyboardDidHideNotification
+                                               object:nil];
+    if(!isKeyBoardHide) {
+        // Dismiss Keyboard
+        [self.view endEditing:YES];
+    } else {
+        
+        //keyboard is already hidden
+    }
     
 }
+- (void)keyboardDidShow: (NSNotification *) notif{
+    isKeyBoardHide = NO;
+}
 
+- (void)keyboardDidHide: (NSNotification *) notif{
+    isKeyBoardHide = YES;
+}
 
 //-(CLLocationManager *)locntnmangr{
 //    if (_locntnmangr!=nil) {

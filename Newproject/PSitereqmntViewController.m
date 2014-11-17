@@ -346,7 +346,7 @@
     
     if ([_jobsitebtnlbl.titleLabel.text isEqualToString:@"Select"]) {
         
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please select Jobsite" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please select Job Site" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
     }
