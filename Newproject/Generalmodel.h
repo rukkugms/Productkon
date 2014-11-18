@@ -31,6 +31,6 @@
 @property(strong,nonatomic)NSString *PlanId;
 @property(strong,nonatomic)NSString *sequence;
 @property(strong,nonatomic)NSString *EquipmentHours;
-
+@property(strong,nonatomic)NSString *WorkSlNo;
 
 @end

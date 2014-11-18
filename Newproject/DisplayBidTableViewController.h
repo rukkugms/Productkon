@@ -14,7 +14,7 @@
 {
     NSInteger tooltype;
     BOOL recordResults;
-     NSInteger sum;
+     double sum;
      NSInteger totqty;
     NSInteger TotST;
     NSInteger TotOT;

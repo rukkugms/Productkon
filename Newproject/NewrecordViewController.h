@@ -12,6 +12,7 @@
 #import "Validation.h"
 #import "Servicemdl.h"
 #import "basicreqmdl.h"
+#import "BasicReqViewController.h"
 @protocol newrecordDelgate <NSObject>
 
 -(void)toreloadatable;
@@ -31,6 +32,7 @@
     
   //  id <newrecordDelgate>Delegate;
 }
+@property(strong,nonatomic)BasicReqViewController *basicctrl;
 @property (strong, nonatomic) IBOutlet UIButton *timebtn;
 - (IBAction)addtime:(id)sender;
 @property(strong,nonatomic)IBOutlet UIDatePicker *timepick;
@@ -88,6 +90,7 @@
 - (IBAction)typeidbtn:(id)sender;
 
 - (IBAction)jobupdatebtn:(id)sender;
+- (IBAction)tobasicreq:(id)sender;
 
 - (IBAction)cancelbtn:(id)sender;
 @property(strong,nonatomic)IBOutlet UIButton *jobupdatebtn;

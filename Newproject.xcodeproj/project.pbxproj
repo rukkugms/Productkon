@@ -105,6 +105,7 @@
 		64A4124A194080F1003EE113 /* estimate.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A41248194080F1003EE113 /* estimate.png */; };
 		64A4124F19408104003EE113 /* hrinprocess.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A4124C19408104003EE113 /* hrinprocess.png */; };
 		64A4125019408104003EE113 /* hrmaster.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A4124D19408104003EE113 /* hrmaster.png */; };
+		64A4856D1A1B1D0C00B81DDF /* CalEqevnt.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A4856C1A1B1D0C00B81DDF /* CalEqevnt.xib */; };
 		64A4C4E419FF974D00C8BA33 /* InDetailhrviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A4C4E219FF974D00C8BA33 /* InDetailhrviewViewController.m */; };
 		64A4C4E519FF974D00C8BA33 /* InDetailhrviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A4C4E319FF974D00C8BA33 /* InDetailhrviewViewController.xib */; };
 		64A4D097195AE50E00C3F783 /* Bidmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A4D096195AE50E00C3F783 /* Bidmodel.m */; };
@@ -742,6 +743,7 @@
 		64A41248194080F1003EE113 /* estimate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = estimate.png; sourceTree = "<group>"; };
 		64A4124C19408104003EE113 /* hrinprocess.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hrinprocess.png; sourceTree = "<group>"; };
 		64A4124D19408104003EE113 /* hrmaster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hrmaster.png; sourceTree = "<group>"; };
+		64A4856C1A1B1D0C00B81DDF /* CalEqevnt.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalEqevnt.xib; sourceTree = "<group>"; };
 		64A4C4E119FF974D00C8BA33 /* InDetailhrviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InDetailhrviewViewController.h; sourceTree = "<group>"; };
 		64A4C4E219FF974D00C8BA33 /* InDetailhrviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InDetailhrviewViewController.m; sourceTree = "<group>"; };
 		64A4C4E319FF974D00C8BA33 /* InDetailhrviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InDetailhrviewViewController.xib; sourceTree = "<group>"; };
@@ -2431,6 +2433,7 @@
 				D4A16B801974EEE0002CA2A2 /* CalEventDetailViewController.xib */,
 				D4A16B811974EEE0002CA2A2 /* Eventcalcell.xib */,
 				D4A16B821974EEE0002CA2A2 /* Matcalevecell.xib */,
+				64A4856C1A1B1D0C00B81DDF /* CalEqevnt.xib */,
 				D4A16B831974EEE0002CA2A2 /* calothereventcell.xib */,
 				D4A16B841974EEE0002CA2A2 /* Sumcell.xib */,
 			);
@@ -2856,6 +2859,7 @@
 				D4A16B941974EEE0002CA2A2 /* Phestcell.xib in Resources */,
 				D4D7A29117F5422000880E38 /* Untitled.png in Resources */,
 				D453DA2E1873F1F3007EE3DC /* Thirdpartycell.xib in Resources */,
+				64A4856D1A1B1D0C00B81DDF /* CalEqevnt.xib in Resources */,
 				D4F7D9CA196E5B4800B8F4D4 /* labourmanagement.png in Resources */,
 				D4A16B391974EEA8002CA2A2 /* AddserviceViewController.xib in Resources */,
 				D42D8C0918D2D8AC009D8085 /* custonfldrrigtscell.xib in Resources */,

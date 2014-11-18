@@ -43,7 +43,7 @@
 @property(strong,nonatomic)NSString *genralid;
 @property(strong,nonatomic)NSString *Planid;
 @property(strong,nonatomic)NSString *insertedgeneralid;
-
+@property(strong,nonatomic)NSString *sequencestring;
 
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser     *xmlParser;

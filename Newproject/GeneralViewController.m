@@ -952,26 +952,26 @@
 
         
     }
-    
-    if([elementName isEqualToString:@"JobTask"])
-    {
-        
-        recordResults = FALSE;
-        [_sequencearray addObject:_soapResults];
-        [_sequncedict setObject:jobsequnce forKey:_soapResults];
-        _soapResults = nil;
-        
-    }
     if([elementName isEqualToString:@"SequenceNumber"])
     {
         
         recordResults = FALSE;
-     
+        _sequencestring=_soapResults;
         _soapResults = nil;
         
         
     }
 
+    if([elementName isEqualToString:@"JobTask"])
+    {
+        
+        recordResults = FALSE;
+        [_sequencearray addObject:[NSString stringWithFormat:@"%@-%@",_sequencestring,_soapResults]];
+        [_sequncedict setObject:jobsequnce forKey:[NSString stringWithFormat:@"%@-%@",_sequencestring,_soapResults]];
+        _soapResults = nil;
+        
+    }
+   
 
     if([elementName isEqualToString:@"result"])
     {

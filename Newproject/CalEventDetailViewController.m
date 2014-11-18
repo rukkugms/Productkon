@@ -30,6 +30,8 @@
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _mattitleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _mantitleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    _matothertitleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    _eqreviewtitleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _view1.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _summarytitleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _calmanpwrtable.layer.borderWidth = 2.0;
@@ -39,6 +41,8 @@
     tooltype=1;
     _mantitleview.hidden=NO;
     _mattitleview.hidden=YES;
+     _matothertitleview.hidden=YES;
+    _eqreviewtitleview.hidden=YES;
     _summarytitleview.hidden=YES;
     _sumtable.hidden=YES;
     _manpwrbtn.tintColor=[UIColor whiteColor];
@@ -55,6 +59,8 @@
     tooltype=1;
     _mantitleview.hidden=NO;
     _mattitleview.hidden=YES;
+    _matothertitleview.hidden=YES;
+     _eqreviewtitleview.hidden=YES;
     _summarytitleview.hidden=YES;
       _sumtable.hidden=YES;
      _manpwrbtn.tintColor=[UIColor whiteColor];
@@ -110,7 +116,9 @@
      _totalarray=[[NSMutableArray alloc]init];
     _mantitleview.hidden=NO;
     _mattitleview.hidden=YES;
+    _matothertitleview.hidden=YES;
     _summarytitleview.hidden=YES;
+     _eqreviewtitleview.hidden=YES;
     _sumtable.hidden=YES;
     //[_calmanpwrtable reloadData];
     _calmanpwrtable.hidden=NO;
@@ -142,15 +150,19 @@
     _totalarray=[[NSMutableArray alloc]init];
     _mantitleview.hidden=YES;
     _summarytitleview.hidden=YES;
+    _matothertitleview.hidden=YES;
     _mattitleview.hidden=NO;
     _sumtable.hidden=YES;
     _calmanpwrtable.hidden=NO;
     if ([_estimationstring isEqualToString:@"Estimationreview"]) {
         [self EstimationEquipmentReviewSelect];
+        _eqreviewtitleview.hidden=NO;
+         _mattitleview.hidden=YES;
     }
     else
     {
-
+_eqreviewtitleview.hidden=YES;
+         _mattitleview.hidden=NO;
     [self CalenderEquipmentSelect];
     }
    // [_calmanpwrtable reloadData];
@@ -166,9 +178,11 @@
     _totalarray=[[NSMutableArray alloc]init];
     _mantitleview.hidden=YES;
     _summarytitleview.hidden=YES;
-    _mattitleview.hidden=NO;
+    _matothertitleview.hidden=NO;
+    _mattitleview.hidden=YES;
     _sumtable.hidden=YES;
     _calmanpwrtable.hidden=NO;
+    _eqreviewtitleview.hidden=YES;
     if ([_estimationstring isEqualToString:@"Estimationreview"]) {
         [self EstimationOtherReviewSelect];
     }
@@ -190,9 +204,11 @@
     _totalarray=[[NSMutableArray alloc]init];
     _mantitleview.hidden=YES;
     _mattitleview.hidden=YES;
+    _matothertitleview.hidden=YES;
     _summarytitleview.hidden=NO;
     _calmanpwrtable.hidden=YES;
     _sumtable.hidden=NO;
+    _eqreviewtitleview.hidden=YES;
     if ([_estimationstring isEqualToString:@"Estimationreview"]) {
         sum=0;
         _reviewsumarray=[[NSMutableArray alloc]init];
@@ -256,6 +272,7 @@
     
     
     if (cell == nil) {
+        
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
         if (tableView==_calmanpwrtable) {
@@ -264,8 +281,16 @@
                 cell=_calmanpwrcell;
             }
             if (tooltype==2) {
-                [[NSBundle mainBundle]loadNibNamed:@"Matcalevecell" owner:self options:nil];
-                cell=_calmaterialcell;
+                 if ([_estimationstring isEqualToString:@"Estimationreview"]) {
+                     [[NSBundle mainBundle]loadNibNamed:@"Matcalevecell" owner:self options:nil];
+                     cell=_calmaterialcell;
+                    
+                 }
+                else
+                {
+                    [[NSBundle mainBundle]loadNibNamed:@"CalEqevnt" owner:self options:nil];
+                    cell=_caleqcell;
+                }
             }
             if (tooltype==3) {
                 [[NSBundle mainBundle]loadNibNamed:@"calothereventcell" owner:self options:nil];
@@ -314,27 +339,27 @@
                     NSString *myFormattedDate = [dateFormat stringFromDate:dates];
                     _manpdatelabel.text=myFormattedDate;
                     
-                    _manqtylabel.text=manmdl.Qty;
+                    _manqtylabel.text=[NSString stringWithFormat:@"%d",[manmdl.Qty integerValue]];
                    
                     NSInteger totst=([manmdl.ST integerValue ]*[manmdl.Qty integerValue]);
                     _manstlabel.text=[NSString stringWithFormat:@"%d",totst];
                     
-                   
-                    _manotlabel.text=manmdl.OT;
+                    NSInteger totot=([manmdl.OT integerValue ]*[manmdl.Qty integerValue]);
+                    _manotlabel.text=[NSString stringWithFormat:@"%d",totot];
                     
                    
                     _manstratelabel.text=[NSString stringWithFormat:@"$%@",manmdl.STrate];
                    
                     _manotratelabel.text=[NSString stringWithFormat:@"$%@",manmdl.OTrate];
                     
-                    NSInteger A1=([manmdl.ST integerValue])*([manmdl.STrate integerValue]);
-                    NSInteger A2=([manmdl.OT integerValue])*([manmdl.OTrate integerValue]);
-                    NSInteger B=A1+A2;
-                    NSInteger total=B*([manmdl.Qty integerValue]);
-                    NSLog(@"%d",total);
+                    double A1=([manmdl.ST doubleValue])*([manmdl.STrate doubleValue]);
+                    double A2=([manmdl.OT doubleValue])*([manmdl.OTrate doubleValue]);
+                    double B=A1+A2;
+                    double total=B*([manmdl.Qty doubleValue]);
+                    NSLog(@"%.2f",total);
                     
                    
-                    _mantotallabel.text=[NSString stringWithFormat:@"$%d",total];
+                    _mantotallabel.text=[NSString stringWithFormat:@"$%.2f",total];
                    
                     _typelabel.text=manmdl.mtype;
                   
@@ -348,18 +373,18 @@
 //                    NSDate *dates = [dateFormat dateFromString:_selecteddate];
 //                    [dateFormat setDateFormat:@"MM-dd-yyy"];
 //                    NSString *myFormattedDate = [dateFormat stringFromDate:dates];
-                    _manpdatelabel.text=manmdl.Qty;
+                    _manpdatelabel.text=[NSString stringWithFormat:@"%d",[manmdl.Qty integerValue]];
                     NSInteger totst=([manmdl.ST integerValue ]*[manmdl.Qty integerValue]);
                     _manqtylabel.text=[NSString stringWithFormat:@"%d",totst];
                      _manstlabel.text=manmdl.OT;
                     _manotlabel.text=[NSString stringWithFormat:@"$%@",manmdl.STrate];
                 _manstratelabel.text=[NSString stringWithFormat:@"$%@",manmdl.OTrate];
-                    NSInteger A1=([manmdl.ST integerValue])*([manmdl.STrate integerValue]);
-                    NSInteger A2=([manmdl.OT integerValue])*([manmdl.OTrate integerValue]);
-                    NSInteger B=A1+A2;
-                    NSInteger total=B*([manmdl.Qty integerValue]);
-                    NSLog(@"%d",total);
-                    _manotratelabel.text=[NSString stringWithFormat:@"$%d",total];
+                    double A1=([manmdl.ST doubleValue])*([manmdl.STrate doubleValue]);
+                    double A2=([manmdl.OT doubleValue])*([manmdl.OTrate doubleValue]);
+                    double B=A1+A2;
+                    double total=B*([manmdl.Qty doubleValue]);
+                    NSLog(@"%.2f",total);
+                    _manotratelabel.text=[NSString stringWithFormat:@"$%.2f",total];
                     _mantotallabel.text=manmdl.mtype;
                       _typelabel.text=manmdl.phasename;
                     _phaselabel.text=manmdl.sequence;
@@ -398,10 +423,10 @@
 
                 }
                 _otherqtylabel=(UILabel *)[cell viewWithTag:4];
-                _otherqtylabel.text=othmdl.Qty;
+                _otherqtylabel.text=[NSString stringWithFormat:@"%d",[othmdl.Qty integerValue]];
                 _othertotallabel=(UILabel *)[cell viewWithTag:5];
-                NSInteger B1=([othmdl.UnitCost integerValue])*([othmdl.Qty integerValue]);
-                _othertotallabel.text=[NSString stringWithFormat:@"$%d",B1];
+                double B1=([othmdl.UnitCost doubleValue])*([othmdl.Qty doubleValue]);
+                _othertotallabel.text=[NSString stringWithFormat:@"$%.2f",B1];
                 _otherphaselabel=(UILabel *)[cell viewWithTag:6];
                 _otherphaselabel.text=othmdl.otherphasename;
                 
@@ -428,6 +453,8 @@
                     [dateFormat setDateFormat:@"MM-dd-yyy"];
                     NSString *myFormattedDate = [dateFormat stringFromDate:dates];
                    _Eqdatelabel.text=myFormattedDate;
+                  
+
                 }
                 else {
                     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -436,14 +463,18 @@
                     [dateFormat setDateFormat:@"MM-dd-yyy"];
                     NSString *myFormattedDate = [dateFormat stringFromDate:dates];
                 _Eqdatelabel.text=myFormattedDate;
+                    _EqJobtasklabel=(UILabel *)[cell viewWithTag:8];
+                    _EqJobtasklabel.text=eqmdl.EqJobtask;
                 }
                 _Eqqtylabel=(UILabel *)[cell viewWithTag:4];
-                _Eqqtylabel.text=eqmdl.Qty;
+                _Eqqtylabel.text=[NSString stringWithFormat:@"%d",[eqmdl.Qty integerValue]];
                 _Eqtotallabel=(UILabel *)[cell viewWithTag:5];
-                 NSInteger B1=([eqmdl.UnitCost integerValue])*([eqmdl.Qty integerValue]);
-                _Eqtotallabel.text=[NSString stringWithFormat:@"$%d",B1];
+                 double B1=([eqmdl.UnitCost doubleValue])*([eqmdl.Qty doubleValue])*([eqmdl.EqST doubleValue]);
+                _Eqtotallabel.text=[NSString stringWithFormat:@"$%.2f",B1];
                 _Eqphaselabel=(UILabel *)[cell viewWithTag:6];
                 _Eqphaselabel.text=eqmdl.eqphasename;
+                _Eqhourslabel=(UILabel *)[cell viewWithTag:7];
+                _Eqhourslabel.text=eqmdl.EqST;
                 
 
 
@@ -459,7 +490,7 @@
         _summarylabel=(UILabel *)[cell viewWithTag:1];
         _costlabel=(UILabel *)[cell viewWithTag:2];
         _summarylabel.text=[_titlearray objectAtIndex:indexPath.row];
-        _costlabel.text=[NSString stringWithFormat:@"$%@",[_reviewsumarray objectAtIndex:indexPath.row]];
+        _costlabel.text=[NSString stringWithFormat:@"$%.2f",[[_reviewsumarray objectAtIndex:indexPath.row]doubleValue]];
                 }
         else
         {
@@ -467,6 +498,7 @@
         
         NSLog(@"%@",_summaryarray);
         NSArray*array=[[_summaryarray objectAtIndex:indexPath.row ] componentsSeparatedByString:@"$"];
+    
         NSString*newtitile=[array objectAtIndex:0];
       NSString*newtitiles=[array objectAtIndex:1];
          NSLog(@"%@",newtitiles);
@@ -474,7 +506,7 @@
         _summarylabel=(UILabel *)[cell viewWithTag:1];
             _costlabel=(UILabel *)[cell viewWithTag:2];
         _summarylabel.text=newtitile;
-        _costlabel.text=[NSString stringWithFormat:@"%@",newtitiles];
+        _costlabel.text=[NSString stringWithFormat:@"%.2f",[newtitiles doubleValue]];
        
             
         }
@@ -1304,7 +1336,7 @@
         recordResults = TRUE;
 
     }
-    if([elementName isEqualToString:@"EstimationManPowerReviewSelectResult"])
+    if([elementName isEqualToString:@"EstimationManPowerReviewSelectResponse"])
     { _totallabel.text=@"";
         _manpwrarray=[[NSMutableArray alloc]init];
         if(!_soapresults)
@@ -1315,7 +1347,8 @@
         
     }
     if([elementName isEqualToString:@"ManPowerReviewSearchResponse"])
-    {_manpwrarray=[[NSMutableArray alloc]init];
+    {_totallabel.text=@"";
+        _manpwrarray=[[NSMutableArray alloc]init];
         if(!_soapresults)
         {
             _soapresults = [[NSMutableString alloc] init];
@@ -1451,7 +1484,7 @@
         
     }
     if([elementName isEqualToString:@"EquipmentReviewSearchResponse"])
-    {
+    {_totallabel.text=@"";
         _eqpmntarray=[[NSMutableArray alloc]init];
         if(!_soapresults)
         {
@@ -1519,9 +1552,29 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"EqST"])
+    {
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"EqJobtask"])
+    {
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+
 
     if([elementName isEqualToString:@"CalenderOtherSelectResponse"])
-    {
+    {_totallabel.text=@"";
         _otherarray=[[NSMutableArray alloc]init];
         if(!_soapresults)
         {
@@ -1531,7 +1584,7 @@
         
     }
     if([elementName isEqualToString:@"EstimationOtherReviewSelectResponse"])
-    {
+    {_totallabel.text=@"";
         _otherarray=[[NSMutableArray alloc]init];
         if(!_soapresults)
         {
@@ -1541,7 +1594,7 @@
         
     }
     if([elementName isEqualToString:@"OtherReviewSearchResponse"])
-    {
+    {_totallabel.text=@"";
         _otherarray=[[NSMutableArray alloc]init];
         if(!_soapresults)
         {
@@ -1850,15 +1903,37 @@
         //[_eqpmntarray addObject:_eqmdl];
         _soapresults = nil;
         
-    }if([elementName isEqualToString:@"EqPhaseName"])
+    }
+    
+    if([elementName isEqualToString:@"EqPhaseName"])
     {
         recordResults = FALSE;
         
         _eqmdl.eqphasename=_soapresults;
+        //[_eqpmntarray addObject:_eqmdl];
+        _soapresults = nil;
+        
+    }
+    if([elementName isEqualToString:@"EqJobtask"])
+    {
+        recordResults = FALSE;
+        
+        _eqmdl.EqJobtask=_soapresults;
+        //[_eqpmntarray addObject:_eqmdl];
+        _soapresults = nil;
+        
+    }
+
+    if([elementName isEqualToString:@"EqST"])
+    {
+        recordResults = FALSE;
+        
+        _eqmdl.EqST=_soapresults;
         [_eqpmntarray addObject:_eqmdl];
         _soapresults = nil;
         
     }
+
    
     if([elementName isEqualToString:@"OtherItemCode"])
     {     _othrmdl=[[OthereventMaodel alloc]init];
@@ -1924,7 +1999,7 @@
         recordResults = FALSE;
         
         
-        [_reviewsumarray addObject:[_soapresults stringByReplacingOccurrencesOfString:@"$" withString:@""]];
+        [_reviewsumarray addObject:[NSString stringWithFormat:@"%.2f",[_soapresults doubleValue]]];
       
        
         _soapresults = nil;
@@ -1947,9 +2022,9 @@
     int i;
     for (i=0; i<[_totalarray count]; i++)
     {
-        sum=([[_totalarray objectAtIndex:i]integerValue])+sum;
-        NSLog(@"%d",sum);
-        _totallabel.text=[NSString stringWithFormat:@"$%d",sum]  ;
+        sum=([[_totalarray objectAtIndex:i]doubleValue])+sum;
+        NSLog(@"%.2f",sum);
+        _totallabel.text=[NSString stringWithFormat:@"$%.2f",sum]  ;
     }
 }
 
@@ -1966,9 +2041,9 @@
                 
                 for ( int x=0; x<[_reviewsumarray count]; x++)
                 {
-                    sum=([[_totalarray objectAtIndex:x]integerValue])+sum;
-                    NSLog(@"%d",sum);
-                    _totallabel.text=[NSString stringWithFormat:@"$%d",sum]  ;
+                    sum=([[_totalarray objectAtIndex:x]doubleValue])+sum;
+                    NSLog(@"%.2f",sum);
+                    _totallabel.text=[NSString stringWithFormat:@"$%.2f",sum]  ;
                 }
                 
                 sum=0;
@@ -1991,9 +2066,9 @@
             if (i==[_summaryarray count]-1) {
                 for ( int x=0; x<[_totalarray count]; x++)
                 {
-                    sum=([[_totalarray objectAtIndex:x]integerValue])+sum;
-                    NSLog(@"%d",sum);
-                    _totallabel.text=[NSString stringWithFormat:@"$%d",sum]  ;
+                    sum=([[_totalarray objectAtIndex:x]doubleValue])+sum;
+                    NSLog(@"%.2f",sum);
+                    _totallabel.text=[NSString stringWithFormat:@"$%.2f",sum]  ;
                 }
                 
                 
@@ -2013,13 +2088,13 @@
         case 1:
             for (int i=0; i<[_manpwrarray count]; i++) {
              Detaileventmanpwr *manmdl=(Detaileventmanpwr *)[_manpwrarray objectAtIndex:i];
-            NSInteger A1=([manmdl.ST integerValue])*([manmdl.STrate integerValue]);
-            NSInteger A2=([manmdl.OT integerValue])*([manmdl.OTrate integerValue]);
-            NSInteger B=A1+A2;
-            NSInteger total=B*([manmdl.Qty integerValue]);
-            NSLog(@"%d",total);
+            double A1=([manmdl.ST doubleValue])*([manmdl.STrate doubleValue]);
+            double A2=([manmdl.OT doubleValue])*([manmdl.OTrate doubleValue]);
+            double B=A1+A2;
+            double total=B*([manmdl.Qty doubleValue]);
+            NSLog(@"%.2f",total);
             
-           [_totalarray addObject:[NSString stringWithFormat:@"%d",total]];
+           [_totalarray addObject:[NSString stringWithFormat:@"%.2f",total]];
             NSLog(@"%@",_totalarray);
             
             if (i==[_manpwrarray count]-1) {
@@ -2032,8 +2107,8 @@
         case 2:
               for (int i=0; i<[_eqpmntarray count]; i++) {
              Eqeventmdl *eqmdl=(Eqeventmdl *)[_eqpmntarray objectAtIndex:i];
-            NSInteger B1=([eqmdl.UnitCost integerValue])*([eqmdl.Qty integerValue]);
-            [_totalarray addObject:[NSString stringWithFormat:@"%d",B1]];
+            double B1=([eqmdl.UnitCost doubleValue])*([eqmdl.Qty doubleValue])*([eqmdl.EqST doubleValue]);
+            [_totalarray addObject:[NSString stringWithFormat:@"%.2f",B1]];
             NSLog(@"%@",_totalarray);
             
             if (i==[_eqpmntarray count]-1) {
@@ -2048,8 +2123,8 @@
             for (int i=0; i<[_otherarray count]; i++) {
                 
                 OthereventMaodel *othmdl=(OthereventMaodel *)[_otherarray objectAtIndex:i];
-                NSInteger B1=([othmdl.UnitCost integerValue])*([othmdl.Qty integerValue]);
-                [_totalarray addObject:[NSString stringWithFormat:@"%d",B1]];
+                double B1=([othmdl.UnitCost doubleValue])*([othmdl.Qty doubleValue]);
+                [_totalarray addObject:[NSString stringWithFormat:@"%.2f",B1]];
                 NSLog(@"%@",_totalarray);
                 
                 if (i==[_otherarray count]-1) {
