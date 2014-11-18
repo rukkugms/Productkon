@@ -875,7 +875,6 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="addest:" destination="-1" eventType="touchUpInside" id="uMh-WU-IPS"/>
-                                                        <action selector="addnewaccess:" destination="-1" eventType="touchUpInside" id="aO8-Fc-6ea"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

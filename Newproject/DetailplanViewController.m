@@ -487,6 +487,7 @@
          _manhourslabel=(UILabel*)[cell viewWithTag:10];
          _manhourslabel.text=scaffmdl.manhours;
          
+         
 
 
      }
@@ -506,7 +507,7 @@
         //[NSString stringWithFormat:@"%d",scaffmdl.typescaffold];
         
         _generalquanitylabel=(UILabel*)[cell viewWithTag:5];
-        _generalquanitylabel.text=genmdl.TotalHoures;
+        _generalquanitylabel.text=genmdl.Quantity;
         
         _generalphaselabel=(UILabel*)[cell viewWithTag:6];
         _generalphaselabel.text=genmdl.Phase;
@@ -515,6 +516,9 @@
         
         _eqhourlabel=(UILabel*)[cell viewWithTag:8];
         _eqhourlabel.text=genmdl.EquipmentHours;
+        _serilanolbl=(UILabel*)[cell viewWithTag:11];
+        _serilanolbl.text=genmdl.WorkSlNo;
+
     }
 
     if(tableView==_popovertableview)
@@ -1800,6 +1804,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"WorkSlNo"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
     if([elementName isEqualToString:@"GeneralSearchResponse"])
     {
@@ -2153,7 +2167,7 @@
     {
         
         recordResults = FALSE;
-        _scfldmdl.sequencename=_soapresults;
+        _scfldmdl.sequencename=[_soapresults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 //        NSString *sequence=[_sequenceiddict objectForKey:_soapresults];
 //        _scfldmdl.sequencename=sequence;
         //[_scaffoldingplanlistarray addObject:_scfldmdl];
@@ -2530,7 +2544,7 @@
     {
         
         recordResults = FALSE;
-        _gmodel.sequence=_soapresults;
+        _gmodel.sequence=[_soapresults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
        
         _soapresults = nil;
     }
@@ -2539,9 +2553,18 @@
         
         recordResults = FALSE;
         _gmodel.EquipmentHours=_soapresults;
-         [_generallistarray addObject:_gmodel];
+        // [_generallistarray addObject:_gmodel];
         _soapresults = nil;
     }
+    if([elementName isEqualToString:@"WorkSlNo"])
+    {
+        
+        recordResults = FALSE;
+        _gmodel.WorkSlNo=[_soapresults stringByReplacingOccurrencesOfString:@" " withString:@""];
+        [_generallistarray addObject:_gmodel];
+        _soapresults = nil;
+    }
+
     if([elementName isEqualToString:@"MANHOURQuantity"])
     {
         

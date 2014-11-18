@@ -1185,7 +1185,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         dettext=_meetgdetailslbl.text;
         nestrg=@"";
     }
-
+    NSLog(@"%d",_reloadtype);
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -1977,7 +1977,7 @@ recordResults
 
     if ([self.delegate respondsToSelector:@selector(toreloadatable)]) {
         [self.delegate toreloadatable];
-        
+         NSLog(@"reloadtype%d",_reloadtype);
         [self dismissViewControllerAnimated:YES completion:nil];
     }
     }
@@ -2322,6 +2322,11 @@ recordResults
         _jobupdatebtn.enabled=NO;
     [self SitevisitInsertjobsiterequirements];
     }
+}
+- (IBAction)tobasicreq:(id)sender
+{
+    _basicctrl=[[BasicReqViewController alloc]initWithNibName:@"BasicReqViewController" bundle:nil];
+    [self presentViewController:_basicctrl animated:YES completion:nil];
 }
 
 - (IBAction)cancelbtn:(id)sender {

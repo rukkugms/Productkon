@@ -110,6 +110,7 @@
 }
 
 -(void)toreloadatable{
+    NSLog(@"%d",_newrecordVCtrl.reloadtype);
     switch (_newrecordVCtrl.reloadtype) {
         case 1:
              [self SitevisitSelectproductionrate];
@@ -150,14 +151,13 @@
            
             break;
         case 14:
-            
             [self EquipmentStagselect];
             break;
 
 
-        default:
-              [self EquipmentStagselect];
-            break;
+//        default:
+//              [self EquipmentStagselect];
+//            break;
     }
     
    

@@ -399,28 +399,28 @@ _quantityarray=[[NSMutableArray alloc]init];
             _Mdesclabel=(UILabel *)[cell viewWithTag:3];
             _Mdesclabel.text=manmdl.mDescription;
             _Mqtylabel=(UILabel *)[cell viewWithTag:4];
-            _Mqtylabel.text=manmdl.TotalQty;
+            _Mqtylabel.text=[NSString stringWithFormat:@"%d",[manmdl.TotalQty integerValue]];
             
             _Mstlabel=(UILabel *)[cell viewWithTag:5];
-            _Mstlabel.text=[NSString stringWithFormat:@"%d",[manmdl.TotalST integerValue]*[manmdl.TotalQty integerValue]];
+            _Mstlabel.text=manmdl.TotalST;
             
             _Motlabel=(UILabel *)[cell viewWithTag:6];
-            _Motlabel.text=[NSString stringWithFormat:@"%d",[manmdl.TotalOT integerValue]*[manmdl.TotalQty integerValue]];
+            _Motlabel.text=manmdl.TotalOT;
             _Mstratelabel=(UILabel *)[cell viewWithTag:7];
-            _Mstratelabel.text=manmdl.TotalSTRate;
+            _Mstratelabel.text=[NSString stringWithFormat:@"$%.2f",[manmdl.TotalSTRate doubleValue]];
             
             
             _Motratelabel=(UILabel *)[cell viewWithTag:8];
-            _Motratelabel.text=manmdl.TotalOTRate;
+            _Motratelabel.text=[NSString stringWithFormat:@"$%.2f",[manmdl.TotalOTRate doubleValue]];
             _Mtotlabel=(UILabel *)[cell viewWithTag:9];
-            NSInteger A1=([manmdl.TotalST integerValue])*([manmdl.TotalSTRate integerValue]);
-            NSInteger A2=([manmdl.TotalOT integerValue])*([manmdl.TotalOTRate integerValue]);
-            NSInteger B=A1+A2;
-            NSInteger total=B*([manmdl.TotalQty integerValue]);
-            NSLog(@"%d",total);
+            double A1=([manmdl.TotalST doubleValue])*([manmdl.TotalSTRate doubleValue]);
+            double A2=([manmdl.TotalOT doubleValue])*([manmdl.TotalOTRate doubleValue]);
+            double B=A1+A2;
+            double total=B*([manmdl.TotalQty doubleValue]);
+            NSLog(@"%.2f",total);
 
             //NSInteger x=[manmdl.TotalUnitCost integerValue]*[manmdl.TotalQty integerValue];
-            _Mtotlabel.text=[NSString stringWithFormat:@"$%d",total];
+            _Mtotlabel.text=[NSString stringWithFormat:@"$%.2f",total];
             _Mtypelabel=(UILabel *)[cell viewWithTag:10];
             _Mtypelabel.text=manmdl.BidMType;
 
@@ -440,11 +440,11 @@ _quantityarray=[[NSMutableArray alloc]init];
                 _Odesclabel=(UILabel *)[cell viewWithTag:3];
                 _Odesclabel.text=eqmdl.mDescription;
                 _Oqtylabel=(UILabel *)[cell viewWithTag:4];
-                _Oqtylabel.text=eqmdl.TotalQty;
+                _Oqtylabel.text=[NSString stringWithFormat:@"%d",[eqmdl.TotalQty integerValue]];
                 
                 _Ototallabel=(UILabel *)[cell viewWithTag:5];
-                NSInteger e=[eqmdl.TotalUnitCost integerValue]*[eqmdl.TotalQty integerValue];
-                _Ototallabel.text=[NSString stringWithFormat:@"$%d",e];
+                double e=[eqmdl.TotalUnitCost doubleValue]*[eqmdl.TotalQty doubleValue];
+                _Ototallabel.text=[NSString stringWithFormat:@"$%.2f",e];
                 
                 _Otypelabel=(UILabel *)[cell viewWithTag:6];
                 _Otypelabel.text=eqmdl.BidMType;
@@ -463,11 +463,11 @@ _quantityarray=[[NSMutableArray alloc]init];
             _Odesclabel=(UILabel *)[cell viewWithTag:3];
             _Odesclabel.text=mtmdl.mDescription;
             _Oqtylabel=(UILabel *)[cell viewWithTag:4];
-            _Oqtylabel.text=mtmdl.TotalQty;
+            _Oqtylabel.text=[NSString stringWithFormat:@"%d",[mtmdl.TotalQty integerValue]];
             
             _Ototallabel=(UILabel *)[cell viewWithTag:5];
-            NSInteger e=[mtmdl.TotalUnitCost integerValue]*[mtmdl.TotalQty integerValue];
-            _Ototallabel.text=[NSString stringWithFormat:@"$%d",e];
+            double e=[mtmdl.TotalUnitCost doubleValue]*[mtmdl.TotalQty doubleValue];
+            _Ototallabel.text=[NSString stringWithFormat:@"$%.2f",e];
             
             _Otypelabel=(UILabel *)[cell viewWithTag:6];
             _Otypelabel.text=mtmdl.BidMType;
@@ -486,11 +486,11 @@ _quantityarray=[[NSMutableArray alloc]init];
             _Odesclabel=(UILabel *)[cell viewWithTag:3];
             _Odesclabel.text=othmdl.mDescription;
             _Oqtylabel=(UILabel *)[cell viewWithTag:4];
-            _Oqtylabel.text=othmdl.TotalQty;
+            _Oqtylabel.text=[NSString stringWithFormat:@"%d",[othmdl.TotalQty integerValue]];
             
             _Ototallabel=(UILabel *)[cell viewWithTag:5];
-            NSInteger e=[othmdl.TotalUnitCost integerValue]*[othmdl.TotalQty integerValue];
-            _Ototallabel.text=[NSString stringWithFormat:@"$%d",e];
+            double e=[othmdl.TotalUnitCost doubleValue]*[othmdl.TotalQty doubleValue];
+            _Ototallabel.text=[NSString stringWithFormat:@"$%.2f",e];
             
             _Otypelabel=(UILabel *)[cell viewWithTag:6];
             _Otypelabel.text=othmdl.BidMType;
@@ -2013,14 +2013,14 @@ _quantityarray=[[NSMutableArray alloc]init];
     int i;
     for (i=0; i<[_totalarray count]; i++)
     {
-        sum=([[_totalarray objectAtIndex:i]integerValue])+sum;
-        NSLog(@"%d",sum);
+        sum=([[_totalarray objectAtIndex:i]doubleValue])+sum;
+        NSLog(@"%.2f",sum);
         if (tooltype==2||tooltype==2||tooltype==3||tooltype==4||tooltype==5) {
-            _othertotcostlabl.text=[NSString stringWithFormat:@"$%d",sum]  ;
+            _othertotcostlabl.text=[NSString stringWithFormat:@"$%.2f",sum]  ;
         }
         else
         {
-        _sumdisplaylabel.text=[NSString stringWithFormat:@"$%d",sum]  ;
+        _sumdisplaylabel.text=[NSString stringWithFormat:@"$%.2f",sum]  ;
         }
     }
     
@@ -2032,14 +2032,14 @@ _quantityarray=[[NSMutableArray alloc]init];
     int i;
     for (i=0; i<[_totalarray count]; i++)
     {
-        sum=([[_totalarray objectAtIndex:i]integerValue])+sum;
-        NSLog(@"%d",sum);
+        sum=([[_totalarray objectAtIndex:i]doubleValue])+sum;
+        NSLog(@"%.2f",sum);
         if (tooltype==2||tooltype==2||tooltype==3||tooltype==4||tooltype==5) {
-            _othertotcostlabl.text=[NSString stringWithFormat:@"$%d",sum]  ;
+            _othertotcostlabl.text=[NSString stringWithFormat:@"$%.2f",sum]  ;
         }
         else
         {
-            _sumdisplaylabel.text=[NSString stringWithFormat:@"$%d",sum]  ;
+            _sumdisplaylabel.text=[NSString stringWithFormat:@"$%.2f",sum]  ;
         }
 
     }
@@ -2097,16 +2097,16 @@ _quantityarray=[[NSMutableArray alloc]init];
             for (int i=0; i<[_manpowerarray count]; i++) {
                 Reviebidmdl *manmdl=(Reviebidmdl *)[_manpowerarray objectAtIndex:i];
                
-                NSInteger A1=([manmdl.TotalST integerValue])*([manmdl.TotalSTRate integerValue]);
-                NSInteger A2=([manmdl.TotalOT integerValue])*([manmdl.TotalOTRate integerValue]);
-                NSInteger B=A1+A2;
-                NSInteger total=B*([manmdl.TotalQty integerValue]);
-                NSLog(@"%d",total);
+                double A1=([manmdl.TotalST doubleValue])*([manmdl.TotalSTRate doubleValue]);
+                double A2=([manmdl.TotalOT doubleValue])*([manmdl.TotalOTRate doubleValue]);
+                double B=A1+A2;
+                double total=B*([manmdl.TotalQty doubleValue]);
+                NSLog(@"%.2f",total);
                 NSInteger qty=[manmdl.TotalQty integerValue];
-                [_totalarray addObject:[NSString stringWithFormat:@"%d",total]];
+                [_totalarray addObject:[NSString stringWithFormat:@"%.2f",total]];
                 [_quantityarray addObject:[NSString stringWithFormat:@"%d",qty]];
-                [_starray addObject:[NSString stringWithFormat:@"%d",[manmdl.TotalST integerValue]*[manmdl.TotalQty integerValue]]];
-                 [_otarray addObject:[NSString stringWithFormat:@"%d",[manmdl.TotalOT integerValue]*[manmdl.TotalQty integerValue]]];
+                [_starray addObject:[NSString stringWithFormat:@"%d",[manmdl.TotalST integerValue]]];
+                 [_otarray addObject:[NSString stringWithFormat:@"%d",[manmdl.TotalOT integerValue]]];
                 NSLog(@"%@",_totalarray);
                 
                 if (i==[_manpowerarray count]-1) {
@@ -2122,8 +2122,8 @@ _quantityarray=[[NSMutableArray alloc]init];
         case 2:
             for (int i=0; i<[_Equipmentarray count]; i++) {
                 Reviebidmdl *eqmdl=(Reviebidmdl *)[_Equipmentarray objectAtIndex:i];
-                NSInteger B1=([eqmdl.TotalUnitCost integerValue])*([eqmdl.TotalQty integerValue]);
-                [_totalarray addObject:[NSString stringWithFormat:@"%d",B1]];
+                double B1=([eqmdl.TotalUnitCost doubleValue])*([eqmdl.TotalQty doubleValue]);
+                [_totalarray addObject:[NSString stringWithFormat:@"%.2f",B1]];
                 NSLog(@"%@",_totalarray);
                  NSInteger qty=[eqmdl.TotalQty integerValue];
                 [_quantityarray addObject:[NSString stringWithFormat:@"%d",qty]];
@@ -2141,8 +2141,8 @@ _quantityarray=[[NSMutableArray alloc]init];
             for (int i=0; i<[_materialarray count]; i++) {
                 
                 Reviebidmdl *mtmdl=(Reviebidmdl *)[_materialarray objectAtIndex:i];
-                NSInteger B1=([mtmdl.TotalQty integerValue])*([mtmdl.TotalUnitCost integerValue]);
-                [_totalarray addObject:[NSString stringWithFormat:@"%d",B1]];
+                double B1=([mtmdl.TotalQty doubleValue])*([mtmdl.TotalUnitCost doubleValue]);
+                [_totalarray addObject:[NSString stringWithFormat:@"%.2f",B1]];
                 NSLog(@"%@",_totalarray);
                 NSInteger qty=[mtmdl.TotalQty integerValue];
                 [_quantityarray addObject:[NSString stringWithFormat:@"%d",qty]];
@@ -2162,8 +2162,8 @@ _quantityarray=[[NSMutableArray alloc]init];
             for (int i=0; i<[_Otherarray count]; i++) {
                 
                 Reviebidmdl *othmdl=(Reviebidmdl *)[_Otherarray objectAtIndex:i];
-                NSInteger B1=([othmdl.TotalQty integerValue])*([othmdl.TotalUnitCost integerValue]);
-                [_totalarray addObject:[NSString stringWithFormat:@"%d",B1]];
+                double B1=([othmdl.TotalQty doubleValue])*([othmdl.TotalUnitCost doubleValue]);
+                [_totalarray addObject:[NSString stringWithFormat:@"%.2f",B1]];
                 NSLog(@"%@",_totalarray);
                 NSInteger qty=[othmdl.TotalQty integerValue];
                 [_quantityarray addObject:[NSString stringWithFormat:@"%d",qty]];
@@ -2183,7 +2183,7 @@ _quantityarray=[[NSMutableArray alloc]init];
             for (int i=0; i<[_summaryarray count]; i++) {
                 
                 Reviebidmdl *smdl=(Reviebidmdl *)[_summaryarray objectAtIndex:i];
-               [_totalarray addObject:[NSString stringWithFormat:@"%d",[smdl.cost integerValue]]];
+               [_totalarray addObject:[NSString stringWithFormat:@"%.2f",[smdl.cost doubleValue]]];
                 NSLog(@"%@",_totalarray);
                
                 

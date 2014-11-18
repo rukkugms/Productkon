@@ -92,6 +92,7 @@
 @property(strong,nonatomic)IBOutlet UILabel *generalseqlabel;
 @property(strong,nonatomic)IBOutlet UILabel *totalmanhourlabel;
 @property(strong,nonatomic)IBOutlet UILabel *eqhourlabel;
+@property(strong,nonatomic)IBOutlet UILabel *serilanolbl;
 
 
 

@@ -15,9 +15,9 @@
 @interface CalEventDetailViewController : UIViewController
 {
     NSInteger tooltype;
-     NSInteger sum;
-     NSInteger eqsum;
-    NSInteger matsum;
+     double sum;
+     double eqsum;
+    double matsum;
     BOOL recordResults;
 }
 @property(strong,nonatomic)NSString *estimationnumber;
@@ -39,12 +39,15 @@
 
 @property(strong,nonatomic)IBOutlet UITableViewCell *calmanpwrcell;
 @property(strong,nonatomic)IBOutlet UITableViewCell *calmaterialcell;
+@property(strong,nonatomic)IBOutlet UITableViewCell *caleqcell;
 @property(strong,nonatomic)IBOutlet UITableViewCell *calothercell;
 @property(strong,nonatomic)IBOutlet UITableViewCell *sumcell;
 
 @property(strong,nonatomic)IBOutlet UINavigationItem *navitem;
 @property(strong,nonatomic)IBOutlet UIView *mantitleview;
 @property(strong,nonatomic)IBOutlet UIView *mattitleview;
+@property(strong,nonatomic)IBOutlet UIView *eqreviewtitleview;
+@property(strong,nonatomic)IBOutlet UIView *matothertitleview;
 @property(strong,nonatomic)IBOutlet UIView *summarytitleview;
 
 @property(strong,nonatomic)NSMutableArray *manpwrarray;
@@ -93,6 +96,9 @@
 @property(strong,nonatomic)IBOutlet UILabel *Eqqtylabel;
 @property(strong,nonatomic)IBOutlet UILabel *Eqtotallabel;
 @property(strong,nonatomic)IBOutlet UILabel *Eqphaselabel;
+@property(strong,nonatomic)IBOutlet UILabel *Eqhourslabel;
+@property(strong,nonatomic)IBOutlet UILabel *EqJobtasklabel;
+
 
 /*Labels in summary*/
 @property(strong,nonatomic)IBOutlet UILabel *summarylabel;

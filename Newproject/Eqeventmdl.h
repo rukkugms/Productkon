@@ -15,5 +15,7 @@
 @property(strong,nonatomic)NSString *Qty;
 @property(strong,nonatomic)NSString *eqdate;
 @property(strong,nonatomic)NSString *eqphasename;
+@property(strong,nonatomic)NSString *EqST;
+@property(strong,nonatomic)NSString *EqJobtask;
 
 @end
