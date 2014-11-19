@@ -761,7 +761,14 @@
     [_typebtnlbl setTitle:planmdl.worktype forState:UIControlStateNormal];
     _loctntxtfld.text=planmdl.location;
     _ziptxtfld.text=planmdl.zip;
+    
+    if ([planmdl.complexity isEqualToString:@""]) {
+        [_cmplexitybtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+    else{
       [_cmplexitybtnlbl setTitle:planmdl.complexity forState:UIControlStateNormal];
+    }
     
     
 
@@ -984,13 +991,16 @@
     
 }
 -(void)insertplans
-{  webtype=1;
+{
+    webtype=1;
     NSString *ledid;
     NSString *custid;
     NSInteger lead=0;
     NSInteger customer=0;
     
     recordResults = FALSE;
+    
+    
     NSString *soapMessage;
   
     if (leadcheck==0)
@@ -1012,6 +1022,15 @@
     {
         custid=[_customerdict objectForKey:_planselectionbtn.titleLabel.text];
          customer=1;
+        
+    }
+    NSString*complex;
+    if ([_cmplexitybtnlbl.titleLabel.text isEqualToString:@"Select"]) {
+        complex=@"";
+        
+    }
+    else{
+        complex=_cmplexitybtnlbl.titleLabel.text;
         
     }
    
@@ -1039,7 +1058,7 @@
                    "<customer>%d</customer>\n"
                    "</InsertPlan>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_planselectionbtn.titleLabel.text,[ledid integerValue],[custid integerValue],0,0,[[_typelistdict objectForKey:_typebtnlbl.titleLabel.text]integerValue],[_sitefactortxtfld.text floatValue],_loctntxtfld.text,_ziptxtfld.text,_cmplexitybtnlbl.titleLabel.text,lead,customer];
+                   "</soap:Envelope>\n",_planselectionbtn.titleLabel.text,[ledid integerValue],[custid integerValue],0,0,[[_typelistdict objectForKey:_typebtnlbl.titleLabel.text]integerValue],[_sitefactortxtfld.text floatValue],_loctntxtfld.text,_ziptxtfld.text,complex,lead,customer];
     NSLog(@"soapmsg%@",soapMessage);
     
       NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
@@ -1132,6 +1151,17 @@
     }
     
     
+    NSString*complex;
+    if ([_cmplexitybtnlbl.titleLabel.text isEqualToString:@"Select"]) {
+        complex=@"";
+        
+    }
+    else{
+        complex=_cmplexitybtnlbl.titleLabel.text;
+        
+    }
+
+    
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -1155,7 +1185,7 @@
                    "<customer>%d</customer>\n"
                    "</UpdatePlan>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",plmdl.planid,_planselectionbtn.titleLabel.text,lead,cust,0,[[_typelistdict objectForKey:_typebtnlbl.titleLabel.text]integerValue ],[_sitefactortxtfld.text floatValue],_loctntxtfld.text,_ziptxtfld.text,_cmplexitybtnlbl.titleLabel.text,newlead,newcust];
+                   "</soap:Envelope>\n",plmdl.planid,_planselectionbtn.titleLabel.text,lead,cust,0,[[_typelistdict objectForKey:_typebtnlbl.titleLabel.text]integerValue ],[_sitefactortxtfld.text floatValue],_loctntxtfld.text,_ziptxtfld.text,complex,newlead,newcust];
     NSLog(@"soapmsg%@",soapMessage);
     
       NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
