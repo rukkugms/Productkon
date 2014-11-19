@@ -17,4 +17,8 @@
 @property(strong,nonatomic)NSString *jobname;
 @property(strong,nonatomic)NSString*badgeflag;
 @property(strong,nonatomic)NSString*badgejob;
+@property(strong,nonatomic)NSString *phone;
+@property(strong,nonatomic)NSString *dob;
+@property(strong,nonatomic)NSString *badgeno;
+@property(strong,nonatomic)NSString *craft;
 @end

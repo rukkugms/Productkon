@@ -212,26 +212,28 @@
     _lastnamelabel=(UILabel *)[cell viewWithTag:3];
     _lastnamelabel.text=empmdl.lastname;
     _jobsitelabel=(UILabel *)[cell viewWithTag:4];
-//        if ([empmdl.badgejob stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
-             _jobsitelabel.text=empmdl.jobname;
-//        }
-//        else
-//        {
-//            _jobsitelabel.text=empmdl.badgejob;
-//        }
+    _jobsitelabel.text=empmdl.jobname;
+        _doblabel=(UILabel *)[cell viewWithTag:5];
+        NSArray*ary=[empmdl.dob componentsSeparatedByString:@"T"];
+        NSString*news=[ary objectAtIndex:0];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSDate *dates = [dateFormat dateFromString:news];
+        [dateFormat setDateFormat:@"MM-dd-yyy"];
+        NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+       
+
+        _doblabel.text=myFormattedDate;;
+        _phonelbl=(UILabel *)[cell viewWithTag:6];
+        _phonelbl.text=empmdl.phone;
+        _craftlabl=(UILabel *)[cell viewWithTag:7];
+        _craftlabl.text=empmdl.craft;
+        _badgnolabel=(UILabel *)[cell viewWithTag:8];
+        _badgnolabel.text=empmdl.badgeno;
    
     }
     
-    /*detailbtn*/
-//    butn=[UIButton buttonWithType:UIButtonTypeCustom];
-//    [butn setImage:[UIImage imageNamed:@"carat.png"] forState:UIControlStateNormal];
-//    [butn setImage:[UIImage imageNamed:@"carat-open.png"] forState:UIControlStateSelected];
-//    //butn.tag=indexPath.row;
-//    [butn addTarget:self action:@selector(showaction:) forControlEvents:UIControlEventTouchUpInside];
-//    butn.frame = CGRectMake(150.0, 0.0, 50.0, 40.0);
-//
-//       [cell.contentView addSubview:butn];
-
+ 
     return cell;
 }
 
@@ -854,6 +856,25 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"vphone_home"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"dbirth_date"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
 
     if([elementName isEqualToString:@"vaddress1"])
     {
@@ -883,6 +904,24 @@
         
     }
     if([elementName isEqualToString:@"CustJobSiteName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"Description"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"Badge"])
     {
         if(!_soapResults)
         {
@@ -1012,6 +1051,25 @@
            _empmdl.ssn=_soapResults;
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"vaddress1"])
+    {
+        recordResults = FALSE;
+       
+        _soapResults = nil;
+    }
+
+    if([elementName isEqualToString:@"vphone_home"])
+    {
+        recordResults = FALSE;
+        _empmdl.phone=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"dbirth_date"])
+    {
+        recordResults = FALSE;
+        _empmdl.dob=_soapResults;
+        _soapResults = nil;
+    }
     if([elementName isEqualToString:@"not_rate"])
     {
         recordResults = FALSE;
@@ -1031,16 +1089,23 @@
     {
         recordResults = FALSE;
         _empmdl.jobname=_soapResults;
+        //[_employeelistarray addObject:_empmdl];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Badge"])
+    {
+        recordResults = FALSE;
+        _empmdl.badgeno=_soapResults;
+       // [_employeelistarray addObject:_empmdl];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Description"])
+    {
+        recordResults = FALSE;
+        _empmdl.craft=_soapResults;
         [_employeelistarray addObject:_empmdl];
         _soapResults = nil;
     }
-//    if([elementName isEqualToString:@"badgejobname"])
-//    {
-//        recordResults = FALSE;
-//        _empmdl.badgejob=_soapResults;
-//        [_employeelistarray addObject:_empmdl];
-//        _soapResults = nil;
-//    }
     if([elementName isEqualToString:@"job_id"])
     {
         recordResults = FALSE;

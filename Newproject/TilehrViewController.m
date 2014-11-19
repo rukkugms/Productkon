@@ -370,7 +370,7 @@
                     self.mgmtVCtrl=[[EmplyhrmgntViewController alloc]initWithNibName:@"EmplyhrmgntViewController" bundle:nil];
                // }
                 
-                self.mgmtVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+               // self.mgmtVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
                 
                 [self presentViewController:self.mgmtVCtrl
                                    animated:YES completion:NULL];

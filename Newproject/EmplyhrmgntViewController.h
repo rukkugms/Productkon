@@ -60,6 +60,10 @@
 @property(strong,nonatomic)IBOutlet UILabel *firstnamelabel;
 @property(strong,nonatomic)IBOutlet UILabel *lastnamelabel;
 @property(strong,nonatomic)IBOutlet UILabel *jobsitelabel;
+@property(strong,nonatomic)IBOutlet UILabel *craftlabl;
+@property(strong,nonatomic)IBOutlet UILabel *doblabel;
+@property(strong,nonatomic)IBOutlet UILabel *phonelbl;
+@property(strong,nonatomic)IBOutlet UILabel *badgnolabel;
 
 
 @property (strong, nonatomic) IBOutlet UIView *badgeview;
