@@ -1495,6 +1495,8 @@
         [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
         _searchbar.text=@"";
         _updatebtn.enabled=YES;
+         [_activatebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+         [_devicebtn setTitle:@"Select" forState:UIControlStateNormal];
     }
         else if (optionIdentifier==2)
         {
@@ -1506,6 +1508,8 @@
             _usertable.userInteractionEnabled=YES;
             _searchbar.text=@"";
             _updatebtn.enabled=YES;
+             [_activatebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+             [_devicebtn setTitle:@"Select" forState:UIControlStateNormal];
         }
 
     }
@@ -1536,7 +1540,8 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)adduserview:(id)sender
-{_updatebtn.enabled=YES;
+{
+    _updatebtn.enabled=YES;
      _usertable.userInteractionEnabled=NO;
     optionIdentifier=1;
     _resultdisplaylabel.hidden=YES;
@@ -1553,6 +1558,7 @@
      [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
     _type2btnlbl.enabled=NO;
     [_activatebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+      [_devicebtn setTitle:@"Select" forState:UIControlStateNormal];
 }
 -(IBAction)edituserview:(id)sender
 {[self PasswordForUser];
@@ -1829,6 +1835,9 @@
     _pswdtextfld.text=@"";
     [_type1btnlbl setTitle:@"Select" forState:UIControlStateNormal];
     [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    [_type2btnlbl setTitle:@"Select" forState:UIControlStateDisabled];
+    [_activatebtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    [_devicebtn setTitle:@"Select" forState:UIControlStateNormal];
 }
 - (IBAction)Selectdevice:(id)sender
 {poptype=3;
