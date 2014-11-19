@@ -1109,7 +1109,7 @@
         lead=plmdl.leadid;
          newlead=1;
     }
-    if([customerclicked isEqualToString:@"Clicked"])
+    if([customerclicked isEqualToString:@"clicked"])
     {
          NSString *custid;
     if(customercheck==0)
