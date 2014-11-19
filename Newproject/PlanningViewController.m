@@ -710,7 +710,7 @@
     _sitefactortxtfld.text=@"";
     _ziptxtfld.text=@"";
     [_cmplexitybtnlbl setTitle:@"Select" forState:UIControlStateNormal];
-
+ _planselectionbtn.enabled=NO;
 
 
 }
@@ -2186,7 +2186,7 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     if ([alertView.message isEqualToString:_result]) {
-       
+        _planselectionbtn.enabled=NO;
         _sitefactortxtfld.text=@"";
         [_leadcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         [_custcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
