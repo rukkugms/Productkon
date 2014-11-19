@@ -2113,7 +2113,7 @@
         
         
         recordResults = FALSE;
-        _plnmdl.manhrs=_soapResults;
+        _plnmdl.manhrs=[_soapResults stringByReplacingOccurrencesOfString:@"-" withString:@""];
         
         
         _soapResults = nil;
@@ -2123,7 +2123,7 @@
         
         
         recordResults = FALSE;
-        _plnmdl.equphrs=_soapResults;
+        _plnmdl.equphrs=[_soapResults stringByReplacingOccurrencesOfString:@"-" withString:@""];
       
         
         _soapResults = nil;

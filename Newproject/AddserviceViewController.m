@@ -517,7 +517,24 @@
             _soapResults = [[NSMutableString alloc] init];
         }
         recordResults = TRUE;    }
+    if([elementName isEqualToString:@"PlanningdeleteplanserviceResponse"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;    }
     if([elementName isEqualToString:@"result"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Column1"])
     {
         
         if(!_soapResults)
@@ -621,7 +638,16 @@
     }
 
 
-    
+    if([elementName isEqualToString:@"Column1"])
+    {
+        
+        recordResults = FALSE;
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        _soapResults = nil;
+    }
+
 
     
     

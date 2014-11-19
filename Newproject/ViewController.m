@@ -21,6 +21,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   
+   
 	// Do any additional setup after loading the view, typically from a nib.
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -176,39 +178,50 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [_usernametxt resignFirstResponder];
-    [_passwrdtxt resignFirstResponder];
-    [self disablesAutomaticKeyboardDismissal];
+    
     _loginbtn.enabled=YES;
     _usernametxt.text=@"";
     _passwrdtxt.text=@"";
+    _passwrdtxt.enabled=NO;
+
      locationmanager=[[CLLocationManager alloc]init];
     geocoder=[[CLGeocoder alloc]init];
     
     locationmanager.delegate=self;
     locationmanager.desiredAccuracy=kCLLocationAccuracyBest;
     [locationmanager startUpdatingLocation];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardDidShow:)
-                                                 name:UIKeyboardDidShowNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardDidHide:)
-                                                 name:UIKeyboardDidHideNotification
-                                               object:nil];
+     [self.view endEditing:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+
     if(!isKeyBoardHide) {
         // Dismiss Keyboard
         [self.view endEditing:YES];
+        [[self view]endEditing:YES];
+         [self disablesAutomaticKeyboardDismissal];
     } else {
         
         //keyboard is already hidden
     }
-    
+
 }
-- (void)keyboardDidShow: (NSNotification *) notif{
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+      _passwrdtxt.enabled=NO;
+    [_passwrdtxt resignFirstResponder];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
+}
+- (void)keyboardWillShow: (NSNotification *) notif{
     isKeyBoardHide = NO;
 }
+- (void)keyboardWillHide: (NSNotification *) notif{
+    isKeyBoardHide = YES;
+}
+
 
 - (void)keyboardDidHide: (NSNotification *) notif{
     isKeyBoardHide = YES;
@@ -577,7 +590,7 @@
         
     }
     else{
-       [self resignFirstResponder];
+       [sender resignFirstResponder];
         _loginbtn.enabled=NO;
   [self Loginselect];
         
@@ -588,6 +601,41 @@
 //        [self.navigationController pushViewController:_hmeVCtrl animated:YES];
     }
   }
+
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    
+    if(textField==_usernametxt)
+    {
+        _passwrdtxt.enabled=YES;
+
+    }
+    return YES;
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    
+    if(textField==_passwrdtxt)
+    {
+        [_passwrdtxt resignFirstResponder];
+    }
+    if(textField==_usernametxt)
+    {
+         [_usernametxt resignFirstResponder];
+          _passwrdtxt.enabled=YES;
+    }
+   
+
+}
+-(BOOL)textViewShouldEndEditing:(UITextView *)textView {
+    NSArray *wins = [[UIApplication sharedApplication] windows];
+    if ([wins count] > 1) {
+        UIWindow *keyboardWindow = [wins objectAtIndex:1];
+        keyboardWindow.hidden = YES;
+    }
+    return YES;
+}
+
 -(IBAction)toforgetaction:(id)sender
 {
     _loginbtn.enabled=YES;

@@ -32,6 +32,7 @@
     NSString *msgstrg;
     }
 @property(strong,nonatomic)NSString*psitemcode;
+@property(readwrite)NSInteger count;
 @property(nonatomic, weak)id<newgenralDelgate> delegate;
 @property (strong, nonatomic) IBOutlet UINavigationItem *navitm;
 @property(strong,nonatomic) DequipViewController *deqctrl;
@@ -44,6 +45,7 @@
 @property(strong,nonatomic)NSString *Planid;
 @property(strong,nonatomic)NSString *insertedgeneralid;
 @property(strong,nonatomic)NSString *sequencestring;
+@property(strong,nonatomic)NSString *servicename;
 
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser     *xmlParser;

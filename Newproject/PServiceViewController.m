@@ -331,6 +331,7 @@
     _detailVCtrl.planid=_planID;
     _detailVCtrl.wrktpid=_wrktypid;
     _detailVCtrl.skillsid=skillid;
+    _detailVCtrl.servicename=[_servicearray objectAtIndex:textFieldIndexPath.row];
     _detailVCtrl.pscode=planservcemdl.psitemcode;
     _detailVCtrl.modalPresentationStyle=UIModalPresentationFullScreen;
     _detailVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;

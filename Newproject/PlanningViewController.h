@@ -41,6 +41,7 @@
 @property(strong,nonatomic)PlandocsViewController *PlandocsVCtrl;
 @property(strong,nonatomic)PServiceViewController *psctrlr;
 @property(readwrite)NSInteger plntype;
+
 @property(strong,nonatomic)NSString *result;
 @property(strong,nonatomic)planmodel *plnmdl;
 @property(strong,nonatomic)Validation *val;

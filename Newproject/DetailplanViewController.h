@@ -39,6 +39,7 @@
 @property(strong,nonatomic)GeneralViewController *generalworkctrlr;
 @property(strong,nonatomic)Generalmodel *gmodel;
 @property(strong,nonatomic)NSString *pscode;
+@property(strong,nonatomic)NSString *servicename;
 @property (strong, nonatomic) IBOutlet UISearchBar * searchbar;
 @property(strong,nonatomic)NSString *searchstring;
 @property (strong, nonatomic) IBOutlet UISearchBar * searchbar1;

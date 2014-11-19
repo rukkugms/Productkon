@@ -322,6 +322,7 @@
     _generalworkctrlr.delegate=self;
     _generalworkctrlr.psitemcode=_pscode;
     _generalworkctrlr.skillsid=_skillsid;
+    _generalworkctrlr.servicename=_servicename;
     _generalworkctrlr.wrktypid=_wrktpid;
     self.generalworkctrlr.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_generalworkctrlr

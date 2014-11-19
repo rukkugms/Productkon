@@ -42,7 +42,7 @@
     
     UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Are you sure you want to logout" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
     [alert show];
-    [alert becomeFirstResponder];
+    [alert resignFirstResponder];
     
    
 }
@@ -53,6 +53,14 @@
 -(BOOL)disablesAutomaticKeyboardDismissal
 {
     return NO;
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.view endEditing:YES];
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
 }
 -(void)viewWillAppear:(BOOL)animated{
       [super viewWillAppear:animated];
@@ -72,8 +80,12 @@
     _estactvityindicator.hidden=YES;
     _hrindicator.hidden=YES;
     _promgmtindicatr.hidden=YES;
-   
-  
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector:@selector(inactivelogoutaction) name:@"keyboardWillShow" object:nil];
+    NSNotificationCenter *center1 = [NSNotificationCenter defaultCenter];
+    [center1 addObserver:self selector:@selector(inactivelogoutaction) name:@"keyboardWillHide" object:nil];
+    NSNotificationCenter *center2 = [NSNotificationCenter defaultCenter];
+    [center2 addObserver:self selector:@selector(inactivelogoutaction) name:@"keyboardDidHide" object:nil];
     _result=@"";
     _wlcmelbl.text=_username;
 //    UIBarButtonItem *logoutbutton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"logout1"] style:UIBarButtonItemStylePlain target:self action:@selector(logoutAction)];
