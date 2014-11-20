@@ -78,6 +78,7 @@
       [self GeneralSelect];
     [self TotalManHoursSelect];
     [self TotalEqpHoursSelect];
+    [self TotalMaterailQuantitySelect];
     searchtype=1;
     
      [self ScaffoldingSelectScaffoldtype];
@@ -619,7 +620,7 @@
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
     
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -670,7 +671,7 @@
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
     
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -722,7 +723,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -773,7 +774,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -825,8 +826,8 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-   //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+   //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
     NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
@@ -875,8 +876,8 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-   //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+   //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
 
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -926,7 +927,7 @@
 //    
 //    
 //    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-//      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+//      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
 //    
 //    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
 //    
@@ -1054,7 +1055,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1106,7 +1107,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1133,6 +1134,58 @@
     }
 
 }
+-(void)TotalMaterailQuantitySelect
+{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<TotalMaterailQuantitySelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<PlanId>%@</PlanId>\n"
+                  "<GenPSItemCode>%@</GenPSItemCode>\n"
+                   "</TotalMaterailQuantitySelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_planid,_pscode];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/TotalMaterailQuantitySelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 -(void)SelectAllPhases{
     webtype=3;
     recordResults = FALSE;
@@ -1154,8 +1207,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1206,7 +1259,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1955,6 +2008,26 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"TotalMaterailQuantitySelectResponse"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"MaterialQuantity"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
 
 
 
@@ -2662,11 +2735,19 @@
     {
            recordResults = FALSE;
         
-        _totalequmntlbl.text=[_soapresults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        _totalequmntlbl.text=[_soapresults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
           _soapresults = nil;
         
     }
 
+    if([elementName isEqualToString:@"MaterialQuantity"])
+    {
+        recordResults = FALSE;
+        
+        _totmatqtylabel.text=[_soapresults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        _soapresults = nil;
+        
+    }
 
 
 

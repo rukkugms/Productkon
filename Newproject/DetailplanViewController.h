@@ -95,7 +95,7 @@
 @property(strong,nonatomic)IBOutlet UILabel *eqhourlabel;
 @property(strong,nonatomic)IBOutlet UILabel *serilanolbl;
 @property(strong,nonatomic)IBOutlet UILabel *materialhrlabel;
-
+@property(strong,nonatomic)IBOutlet UILabel *totmatqtylabel;
 
 
 /*outlets in scaffoldingcell*/

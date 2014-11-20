@@ -225,12 +225,11 @@
               _wplanlbl=(UILabel*)[cell viewWithTag:3];
               _wplanlbl.text=planmdl.planid;
               _wmanhrslbl=(UILabel*)[cell viewWithTag:5];
-              _wmanhrslbl.text=planmdl.manhrs;
+              _wmanhrslbl.text=[NSString stringWithFormat:@"%.2f",[planmdl.manhrs doubleValue]];
               _weqhrslbl=(UILabel*)[cell viewWithTag:6];
-              _weqhrslbl.text=planmdl.equphrs;
-
-
-
+              _weqhrslbl.text=[NSString stringWithFormat:@"%.2f",[planmdl.equphrs doubleValue]];
+              _mathrslabel=(UILabel*)[cell viewWithTag:7];
+              _mathrslabel.text=[NSString stringWithFormat:@"%d",[planmdl.mathrs integerValue]];
               
           }
          
@@ -872,9 +871,9 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
- //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+ //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
 
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -921,10 +920,10 @@
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
- //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+ //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -971,9 +970,9 @@
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
     
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-  //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+  //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1071,9 +1070,9 @@
                    "</soap:Envelope>\n",_planselectionbtn.titleLabel.text,[ledid integerValue],[custid integerValue],0,0,[[_typelistdict objectForKey:_typebtnlbl.titleLabel.text]integerValue],[_sitefactortxtfld.text floatValue],_loctntxtfld.text,_ziptxtfld.text,complex,lead,customer];
     NSLog(@"soapmsg%@",soapMessage);
     
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
 //NSURL *url = [NSURL URLWithString:@"testUSA.kontract360.com/service.asmx"];
- //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+ //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1198,9 +1197,9 @@
                    "</soap:Envelope>\n",plmdl.planid,_planselectionbtn.titleLabel.text,lead,cust,0,[[_typelistdict objectForKey:_typebtnlbl.titleLabel.text]integerValue ],[_sitefactortxtfld.text floatValue],_loctntxtfld.text,_ziptxtfld.text,complex,newlead,newcust];
     NSLog(@"soapmsg%@",soapMessage);
     
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-  //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+  //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1250,9 +1249,9 @@
                    "</soap:Envelope>\n",plnmdl.planid];
     NSLog(@"soapmsg%@",soapMessage);
     
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-  //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+  //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1300,9 +1299,9 @@
                    "</soap:Envelope>\n",_searchstring];
     NSLog(@"soapmsg%@",soapMessage);
     
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-  //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+  //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1349,9 +1348,9 @@
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
     
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-  //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+  //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1423,8 +1422,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1498,8 +1497,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1573,8 +1572,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1844,6 +1843,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"Mathrs"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
 
     if([elementName isEqualToString:@"DeletePlanResult"])
     {
@@ -1937,7 +1946,7 @@
         recordResults = TRUE;
         
     }
-
+    
 
 }
 
@@ -2135,6 +2144,16 @@
         recordResults = FALSE;
         _plnmdl.equphrs=[_soapResults stringByReplacingOccurrencesOfString:@"-" withString:@""];
       
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Mathrs"])
+    {
+        
+        
+        recordResults = FALSE;
+        _plnmdl.mathrs=[_soapResults stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        
         
         _soapResults = nil;
     }

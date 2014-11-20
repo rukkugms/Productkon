@@ -24,6 +24,7 @@
 @property(strong,nonatomic)NSString *complexity;
 @property(strong,nonatomic)NSString *manhrs;
 @property(strong,nonatomic)NSString *equphrs;
+@property(strong,nonatomic)NSString *mathrs;
 
 
 @end

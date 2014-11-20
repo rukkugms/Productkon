@@ -73,6 +73,7 @@
 
 @property(strong,nonatomic)IBOutlet UITableViewCell *planingcell;
 @property(strong,nonatomic)IBOutlet UILabel *organizationname;
+@property(strong,nonatomic)IBOutlet UILabel *mathrslabel;
 @property(strong,nonatomic)IBOutlet UILabel *leadlabel;
 @property(strong,nonatomic)IBOutlet UILabel *planidlabel;
 @property(strong,nonatomic)IBOutlet UILabel *wrktypelabel;
