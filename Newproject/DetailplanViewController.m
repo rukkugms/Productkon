@@ -508,7 +508,7 @@
         //[NSString stringWithFormat:@"%d",scaffmdl.typescaffold];
         
         _generalquanitylabel=(UILabel*)[cell viewWithTag:5];
-        _generalquanitylabel.text=genmdl.Quantity;
+        _generalquanitylabel.text=[NSString stringWithFormat:@"%.2f",[genmdl.Quantity doubleValue]];
         
         _generalphaselabel=(UILabel*)[cell viewWithTag:6];
         _generalphaselabel.text=genmdl.Phase;
@@ -516,9 +516,10 @@
         _generalseqlabel.text=genmdl.sequence;
         
         _eqhourlabel=(UILabel*)[cell viewWithTag:8];
-        _eqhourlabel.text=genmdl.EquipmentHours;
-        _serilanolbl=(UILabel*)[cell viewWithTag:11];
+        _eqhourlabel.text=[NSString stringWithFormat:@"%.2f",[genmdl.EquipmentHours doubleValue]];        _serilanolbl=(UILabel*)[cell viewWithTag:11];
         _serilanolbl.text=genmdl.WorkSlNo;
+        _materialhrlabel=(UILabel*)[cell viewWithTag:9];
+        _materialhrlabel.text=[NSString stringWithFormat:@"%d",[genmdl.materialhrs integerValue]];
 
     }
 
@@ -1814,6 +1815,15 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"MaterialHours"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
 
     if([elementName isEqualToString:@"GeneralSearchResponse"])
@@ -2562,6 +2572,14 @@
         
         recordResults = FALSE;
         _gmodel.WorkSlNo=[_soapresults stringByReplacingOccurrencesOfString:@" " withString:@""];
+        //[_generallistarray addObject:_gmodel];
+        _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"MaterialHours"])
+    {
+        
+        recordResults = FALSE;
+        _gmodel.materialhrs=_soapresults;
         [_generallistarray addObject:_gmodel];
         _soapresults = nil;
     }

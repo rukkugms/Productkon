@@ -94,6 +94,7 @@
 @property(strong,nonatomic)IBOutlet UILabel *totalmanhourlabel;
 @property(strong,nonatomic)IBOutlet UILabel *eqhourlabel;
 @property(strong,nonatomic)IBOutlet UILabel *serilanolbl;
+@property(strong,nonatomic)IBOutlet UILabel *materialhrlabel;
 
 
 

@@ -582,9 +582,10 @@
                    "<GenPSItemCode>%@</GenPSItemCode>\n"
                    "<WorkSlNo>%@</WorkSlNo>\n"
                    "<getCount>%d</getCount>\n"
+                   "<MaterialHours>%d</MaterialHours>\n"
                    "</GeneralInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_unittxtfld.text,_subunittxtfld.text,_equipmnttxtfld.text,_prjcthdrtxtfld.text,[[_phasedict objectForKey:_phasebtnlbl.titleLabel.text]integerValue ],_destextview.text,[totalhrs floatValue],_Planid,[[_sequncedict objectForKey:_projectheaderbtnlbl.titleLabel.text]integerValue ],0,0,_psitemcode,worksl,_count+1];
+                   "</soap:Envelope>\n",_unittxtfld.text,_subunittxtfld.text,_equipmnttxtfld.text,_prjcthdrtxtfld.text,[[_phasedict objectForKey:_phasebtnlbl.titleLabel.text]integerValue ],_destextview.text,[totalhrs floatValue],_Planid,[[_sequncedict objectForKey:_projectheaderbtnlbl.titleLabel.text]integerValue ],0,0,_psitemcode,worksl,_count+1,0];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -644,10 +645,11 @@
                    "<SequenceId>%d</SequenceId>\n"
                    "<Quantity>%d</Quantity>\n"
                    "<EquipmentHours>%d</EquipmentHours>\n"
-                    "<GenPSItemCode>%@</GenPSItemCode>\n"
+                   "<GenPSItemCode>%@</GenPSItemCode>\n"
+                   "<MaterialHours>%d</MaterialHours>\n"
                    "</GeneralUpdates>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[_genralid integerValue],_unittxtfld.text,_subunittxtfld.text,_equipmnttxtfld.text,_prjcthdrtxtfld.text,[[_phasedict objectForKey:_phasebtnlbl.titleLabel.text]integerValue ],_destextview.text,[_generalmdl.TotalHoures floatValue],_Planid,[[_sequncedict objectForKey:_projectheaderbtnlbl.titleLabel.text]integerValue ],[_generalmdl.Quantity integerValue],[_generalmdl.EquipmentHours integerValue],_psitemcode];
+                   "</soap:Envelope>\n",[_genralid integerValue],_unittxtfld.text,_subunittxtfld.text,_equipmnttxtfld.text,_prjcthdrtxtfld.text,[[_phasedict objectForKey:_phasebtnlbl.titleLabel.text]integerValue ],_destextview.text,[_generalmdl.TotalHoures floatValue],_Planid,[[_sequncedict objectForKey:_projectheaderbtnlbl.titleLabel.text]integerValue ],[_generalmdl.Quantity integerValue],[_generalmdl.EquipmentHours integerValue],_psitemcode,[_generalmdl.materialhrs integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
