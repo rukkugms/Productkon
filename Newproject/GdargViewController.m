@@ -87,7 +87,7 @@
     }
   
     
-    [self selectmanpowercrew];
+  //  [self selectmanpowercrew];
     [self GeneralDetailselect];
     [self MatrialCrewSetupSelect];
    [self GeneralResourceMaterialDetailselect];
@@ -1051,7 +1051,7 @@
     }
 
     if([elementName isEqualToString:@"CrewSetUpSelectResponse"])
-    {_crewnamearray=[[NSMutableArray alloc]init];
+    { _crewnamearray=[[NSMutableArray alloc]init];
         _crewdict=[[NSMutableDictionary alloc]init];
         _revcrewdict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
@@ -1376,7 +1376,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView==_manpwrtable){
-        return [_crewnamearray count];
+        return [_manpowerarray count];
     }
     if (tableView==_generaltable){
         return [_generaldetailarray count];
@@ -1435,7 +1435,7 @@
     
     if (tableView==_manpwrtable) {
         _manpwr1lbl=(UILabel *)[cell viewWithTag:1];
-             _manpwr1lbl.text=[_crewnamearray objectAtIndex:indexPath.row]     ;
+             _manpwr1lbl.text=[_manpowerarray objectAtIndex:indexPath.row]     ;
         
 //        Manpwr *manpwr=(Manpwr *)[_manpowerarray objectAtIndex:indexPath.row];
 //        _manpwr1lbl=(UILabel *)[cell viewWithTag:1];
@@ -2314,9 +2314,12 @@
     if ([alertView.message isEqualToString:@"Updated Successfully"])
     {
         _materleditview.hidden=YES;
+        _editview.hidden=YES;
+
     }
 
     if ([alertView.message isEqualToString:@"Sucessfully Updated"])
+        
     {
         _editview.hidden=YES;
     }
