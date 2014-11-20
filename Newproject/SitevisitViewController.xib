@@ -17,6 +17,7 @@
                 <outlet property="bidderstable" destination="RoK-Ip-x4J" id="eeF-SX-YGq"/>
                 <outlet property="bidderstitle" destination="dob-cd-BSf" id="sEm-lh-45y"/>
                 <outlet property="biddersview" destination="Q5V-lz-SOH" id="5wz-Ur-972"/>
+                <outlet property="companynametxtfld" destination="dEm-Gs-86K" id="avV-gq-GCy"/>
                 <outlet property="docmntview" destination="XNq-fp-i9s" id="o9T-mc-ft0"/>
                 <outlet property="documenttable" destination="TML-lG-QA2" id="aSf-8Z-Z6H"/>
                 <outlet property="docutypebtnlbl" destination="Jkw-ff-kSx" id="0nL-Wv-Y02"/>
@@ -99,6 +100,19 @@
                                                         <action selector="updatebtn:" destination="-1" eventType="touchUpInside" id="dad-TI-Lva"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="F70-oY-i8j">
+                                                    <rect key="frame" x="166" y="-6" width="121" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="dEm-Gs-86K">
+                                                    <rect key="frame" x="179" y="14" width="226" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="MGX-iK-94e">
                                                     <rect key="frame" x="178" y="234" width="651" height="109"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -114,14 +128,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="DFC-Xp-kpQ">
-                                                    <rect key="frame" x="178" y="56" width="651" height="109"/>
+                                                    <rect key="frame" x="178" y="70" width="651" height="109"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Facility Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="di1-Bq-m0n">
-                                                    <rect key="frame" x="178" y="35" width="96" height="21"/>
+                                                    <rect key="frame" x="178" y="49" width="96" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
