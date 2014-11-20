@@ -11,6 +11,7 @@
 #import "PhsestViewController.h"
 #import "DPCalendarTestViewController.h"
 #import "CalEventDetailViewController.h"
+#import "PlanningViewController.h"
 @interface EstimationViewController : UIViewController{
     
     NSInteger poptype;
@@ -22,9 +23,11 @@
     UIButton *button;
     NSString * typestg;
     NSInteger disindex;
+    UILabel *label;
     
     
 }
+@property(strong,nonatomic)PlanningViewController *PlanVCtrl;
 @property(strong,nonatomic)CalEventDetailViewController * calctrl;
 @property(strong,nonatomic)PhsestViewController *phestVCtrl;
 @property(strong,nonatomic) ModlEstimation *mdlestmtn;
@@ -88,5 +91,7 @@
 
 
 - (IBAction)editbtn:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UILabel *eglbl;
 
 @end

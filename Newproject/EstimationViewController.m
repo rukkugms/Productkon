@@ -37,11 +37,17 @@
 
     _listarray=[[NSMutableArray alloc]initWithObjects:@"Estimation Calendar",@"Estimation Review", nil];
     [self WorkTypeSelect];
+    
+  
+  
 
 }
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self EstimateSelect];
+    
+   
     
 }
 
@@ -195,7 +201,13 @@ if (tableView==_estmntable) {
     _cmpnylbl=(UILabel *)[cell viewWithTag:2];
     _cmpnylbl.text=estmdl.Name;
     _planidlabel=(UILabel *)[cell viewWithTag:3];
+    
+    UITapGestureRecognizer *tapGesture =
+    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap:)];
+    [_planidlabel addGestureRecognizer:tapGesture];
     _planidlabel.text=estmdl.PlanId;
+    
+    
     _startdatelabel=(UILabel *)[cell viewWithTag:4];
     NSArray*array=[estmdl.startdate componentsSeparatedByString:@"T"];
     NSString*news=[array objectAtIndex:0];
@@ -215,6 +227,11 @@ if (tableView==_estmntable) {
     NSString *myFormattedDate1 = [dateFormat1 stringFromDate:dates1];
 
     _enddatelabel.text=myFormattedDate1;
+    
+    
+    
+  
+ 
 
     
 }
@@ -223,6 +240,8 @@ if (tableView==_estmntable) {
     
        return cell;
 }
+
+
 #pragma mark-tableview datasource
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -309,6 +328,42 @@ if (tableView==_estmntable) {
     }
 }
 
+
+
+-(void)labelTap:(UITapGestureRecognizer *)sender{
+    
+    CGPoint location = [sender locationInView:self.view];
+    CGPoint locationInTableview = [self.estmntable convertPoint:location fromView:self.view];
+    NSIndexPath *indexPath = [self.estmntable indexPathForRowAtPoint:locationInTableview];
+    
+//    if (CGRectContainsPoint([self.view convertRect:self.estmntable.frame fromView:self.estmntable.superview], location))
+//    {
+//        CGPoint locationInTableview = [self.estmntable convertPoint:location fromView:self.view];
+//        NSIndexPath *indexPath = [self.estmntable indexPathForRowAtPoint:locationInTableview];
+//        if (indexPath)
+//            [self tableView:self.estmntable didSelectRowAtIndexPath:indexPath];
+//        
+//        return;
+//    }
+    
+//    CGPoint rootViewPoint = [label.superview convertPoint:center toView:self.estmntable];
+//    NSIndexPath *textFieldIndexPath = [self.estmntable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",indexPath.row);
+   
+ ModlEstimation*estmdl=(ModlEstimation *)[_Estimationarray objectAtIndex:indexPath.row];
+    
+    self.PlanVCtrl=[[PlanningViewController alloc]initWithNibName:@"PlanningViewController" bundle:nil];
+    _PlanVCtrl.modalPresentationStyle=UIModalPresentationCustom;
+    _PlanVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+ 
+    _PlanVCtrl.plntype=1;
+    _PlanVCtrl.fromestmn=1;
+    NSLog(@"%d",_PlanVCtrl.fromestmn);
+    _PlanVCtrl.Estmnplan=estmdl.PlanId;
+    [self presentViewController:_PlanVCtrl
+                       animated:YES completion:NULL];
+    
+}
 #pragma mark-Webservice
 -(void)SelectAllCustomer{
     recordResults = FALSE;

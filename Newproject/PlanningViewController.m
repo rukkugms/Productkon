@@ -75,7 +75,17 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self SelectAllPlans];
+   
+    if (_fromestmn==1) {
+        _searchstring=_Estmnplan;
+        [self SearchPlan];
+        
+        
+    }
+    else{
+         [self SelectAllPlans];
+    }
+    
     
 }
 
