@@ -14,5 +14,7 @@
 @property(strong,nonatomic)NSString*serviceid;
 @property(strong,nonatomic)NSString*psitemcode;
 @property(strong,nonatomic)NSString*skillname;
-
+@property(strong,nonatomic)NSString*mnhr;
+@property(strong,nonatomic)NSString*eqhr;
+@property(strong,nonatomic)NSString*mthr;
 @end

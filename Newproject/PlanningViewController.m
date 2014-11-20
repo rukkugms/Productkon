@@ -314,7 +314,7 @@
                         _psctrlr.planID=planmdl.planid;
                         NSLog(@"%@",planmdl.planid);
                         _psctrlr.wrktypid=planmdl.worktypeid;
-                        _psctrlr.modalPresentationStyle=UIModalPresentationFormSheet;
+                        _psctrlr.modalPresentationStyle=UIModalPresentationPageSheet;
                         _psctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
                         [self presentViewController:_psctrlr
                                            animated:YES completion:NULL];
