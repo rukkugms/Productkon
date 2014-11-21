@@ -2601,7 +2601,7 @@
         }
         recordresults = TRUE;
     }
-    if([elementName isEqualToString:@"Column1"])
+    if([elementName isEqualToString:@"VendorName"])
     {
         
         if(!_soapResults)
@@ -3091,7 +3091,7 @@
         
         
     }
-    if([elementName isEqualToString:@"Column1"])
+    if([elementName isEqualToString:@"VendorName"])
     {
         recordresults=FALSE;
         if([_soapResults isEqualToString:@"No Vendor"])

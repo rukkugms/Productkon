@@ -12,6 +12,8 @@
 #import "DPCalendarTestViewController.h"
 #import "CalEventDetailViewController.h"
 #import "PlanningViewController.h"
+#import "LeadsViewController.h"
+#import "NewCustmrViewController.h"
 @interface EstimationViewController : UIViewController{
     
     NSInteger poptype;
@@ -27,6 +29,8 @@
     
     
 }
+@property(strong,nonatomic)LeadsViewController *leadctrl;
+@property(strong,nonatomic)NewCustmrViewController *custctrl;
 @property(strong,nonatomic)PlanningViewController *PlanVCtrl;
 @property(strong,nonatomic)CalEventDetailViewController * calctrl;
 @property(strong,nonatomic)PhsestViewController *phestVCtrl;
