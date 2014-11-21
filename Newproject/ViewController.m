@@ -590,7 +590,7 @@
         
     }
     else{
-       [sender resignFirstResponder];
+       [self resignFirstResponder];
         _loginbtn.enabled=NO;
   [self Loginselect];
         

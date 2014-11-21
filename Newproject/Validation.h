@@ -16,4 +16,5 @@
 -(BOOL) validEmailAddress:(NSString*) emailStr;
 - (BOOL) validateUrl: (NSString *) candidate;
 -(BOOL)validatespecialcharacters:(NSString *)input;
+-(BOOL)isvalidpass:(NSString *)input;
 @end

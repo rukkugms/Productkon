@@ -70,6 +70,19 @@
     }
     return YES;
 }
+-(BOOL)isvalidpass:(NSString *)input{
+    
+    for(int i=0;i<[input length];i++){
+        char c=[input characterAtIndex:i];
+        if ((c>=' ')) {
+            return NO;
+            
+        }
+        
+    }
+    return YES;
+}
+
 -(BOOL)isdataformat:(NSString *)input{
     
     for(int i=0;i<[input length];i++){
