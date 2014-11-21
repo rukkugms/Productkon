@@ -226,6 +226,10 @@
               planmodel*planmdl=(planmodel *)[_planlistarray objectAtIndex:indexPath.row];
               _worgnztnlbl=(UILabel*)[cell viewWithTag:1];
               _worgnztnlbl.text=planmdl.customername;
+              UITapGestureRecognizer *tapGesture =
+              [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap:)];
+              [_worgnztnlbl addGestureRecognizer:tapGesture];
+
               _wplanlbl=(UILabel*)[cell viewWithTag:3];
               _wplanlbl.text=planmdl.planid;
               _wmanhrslbl=(UILabel*)[cell viewWithTag:5];
