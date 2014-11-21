@@ -183,8 +183,11 @@
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        if(tableView==_mgmttableview)
+        {
         [[NSBundle mainBundle]loadNibNamed:@"empmgmtcell" owner:self options:nil];
         cell=_mgmtcell;
+        }
     }
     if (tableView==_popovertableview) {
         

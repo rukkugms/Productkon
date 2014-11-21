@@ -200,6 +200,10 @@ if (tableView==_estmntable) {
     _estlbl.text=estmdl.EstimationId;
     _cmpnylbl=(UILabel *)[cell viewWithTag:2];
     _cmpnylbl.text=estmdl.Name;
+    UITapGestureRecognizer *tapGesture1 =
+    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap1:)];
+    [_cmpnylbl addGestureRecognizer:tapGesture1];
+
     _planidlabel=(UILabel *)[cell viewWithTag:3];
     
     UITapGestureRecognizer *tapGesture =
@@ -364,6 +368,54 @@ if (tableView==_estmntable) {
                        animated:YES completion:NULL];
     
 }
+-(void)labelTap1:(UITapGestureRecognizer *)sender{
+    
+    CGPoint location = [sender locationInView:self.view];
+    CGPoint locationInTableview = [self.estmntable convertPoint:location fromView:self.view];
+    NSIndexPath *indexPath = [self.estmntable indexPathForRowAtPoint:locationInTableview];
+    
+    //    if (CGRectContainsPoint([self.view convertRect:self.estmntable.frame fromView:self.estmntable.superview], location))
+    //    {
+    //        CGPoint locationInTableview = [self.estmntable convertPoint:location fromView:self.view];
+    //        NSIndexPath *indexPath = [self.estmntable indexPathForRowAtPoint:locationInTableview];
+    //        if (indexPath)
+    //            [self tableView:self.estmntable didSelectRowAtIndexPath:indexPath];
+    //
+    //        return;
+    //    }
+    
+    //    CGPoint rootViewPoint = [label.superview convertPoint:center toView:self.estmntable];
+    //    NSIndexPath *textFieldIndexPath = [self.estmntable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",indexPath.row);
+    
+    ModlEstimation*estmdl=(ModlEstimation *)[_Estimationarray objectAtIndex:indexPath.row];
+    NSLog(@"texIndexPath%@",estmdl.CId);
+      NSLog(@"texIndexPath%@",estmdl.leadid);
+    if ([estmdl.leadid isEqualToString:@"0"]) {
+        
+        
+    }
+    else{
+        _leadctrl=[[LeadsViewController alloc]initWithNibName:@"LeadsViewController" bundle:nil];
+        _leadctrl.frmplan=1;
+        _leadctrl.planorganztn=estmdl.Name;
+        [self presentViewController:_leadctrl animated:YES completion:nil];
+    }
+    if ([estmdl.CId isEqualToString:@"0"]) {
+        
+        
+    }
+    else{
+        _custctrl=[[NewCustmrViewController alloc]initWithNibName:@"NewCustmrViewController" bundle:nil];
+        _custctrl.frmplan=1;
+        _custctrl.planorganztn=estmdl.Name;
+        [self presentViewController:_custctrl animated:YES completion:nil];
+        
+    }
+
+    
+}
+
 #pragma mark-Webservice
 -(void)SelectAllCustomer{
     recordResults = FALSE;
@@ -1007,7 +1059,7 @@ if (tableView==_estmntable) {
     {
         
         recordResults = FALSE;
-        _mdlestmtn.leadid=_soapResults;
+       // _mdlestmtn.leadid=_soapResults;
 
         _soapResults = nil;
     }
@@ -1076,7 +1128,7 @@ if (tableView==_estmntable) {
         recordResults = FALSE;
         
         _mdlestmtn.enddate=_soapResults;
-        [_Estimationarray addObject:_mdlestmtn];
+        //[_Estimationarray addObject:_mdlestmtn];
         _soapResults = nil;
         
     }
@@ -1085,7 +1137,7 @@ if (tableView==_estmntable) {
         
         recordResults = FALSE;
         
-        _mdlestmtn.enddate=_soapResults;
+        _mdlestmtn.leadid=_soapResults;
         [_Estimationarray addObject:_mdlestmtn];
         _soapResults = nil;
         
