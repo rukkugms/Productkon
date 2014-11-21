@@ -909,6 +909,16 @@ if (tableView==_estmntable) {
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"leadid"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     
     if([elementName isEqualToString:@"WorkTypeSelectResult"])
     {
@@ -1061,6 +1071,16 @@ if (tableView==_estmntable) {
         
     }
     if([elementName isEqualToString:@"EndDate"])
+    {
+        
+        recordResults = FALSE;
+        
+        _mdlestmtn.enddate=_soapResults;
+        [_Estimationarray addObject:_mdlestmtn];
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"leadid"])
     {
         
         recordResults = FALSE;
