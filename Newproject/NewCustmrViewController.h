@@ -118,5 +118,6 @@
 @property(strong,nonatomic)Rightscheck *rights;
 @property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 
-
+@property(readwrite)NSInteger frmplan;
+@property(strong,nonatomic)NSString *planorganztn;
 @end

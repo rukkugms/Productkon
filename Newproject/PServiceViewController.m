@@ -285,7 +285,7 @@
         
         recordResults = FALSE;
         
-        _servicemdl.mnhr=_soapResults;
+        _servicemdl.mnhr=[_soapResults stringByReplacingOccurrencesOfString:@"-" withString:@""];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"eqphrs"])
@@ -293,7 +293,7 @@
         
         recordResults = FALSE;
         
-        _servicemdl.eqhr=_soapResults;
+        _servicemdl.eqhr=[_soapResults stringByReplacingOccurrencesOfString:@"-" withString:@""];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"Mathrs"])
@@ -301,7 +301,7 @@
         
         recordResults = FALSE;
         
-        _servicemdl.mthr=_soapResults;
+        _servicemdl.mthr=[_soapResults stringByReplacingOccurrencesOfString:@"-" withString:@""];
        
         _soapResults = nil;
     }
@@ -388,9 +388,9 @@
     skillid=[[_servicedict objectForKey:[_servicearray objectAtIndex:textFieldIndexPath.row]]integerValue];
     //];
     _detailVCtrl.modalPresentationStyle=UIModalPresentationCustom;
-    _detailVCtrl.planid=_planID;
+    _detailVCtrl.planid=planservcemdl.planid;
     _detailVCtrl.wrktpid=_wrktypid;
-    _detailVCtrl.skillsid=skillid;
+    _detailVCtrl.skillsid=[planservcemdl.serviceid integerValue];
     _detailVCtrl.servicename=[_servicearray objectAtIndex:textFieldIndexPath.row];
     _detailVCtrl.pscode=planservcemdl.psitemcode;
     _detailVCtrl.modalPresentationStyle=UIModalPresentationFullScreen;

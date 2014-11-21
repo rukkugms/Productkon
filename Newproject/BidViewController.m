@@ -106,7 +106,7 @@ self.openviewindex=NSNotFound;
     _namelabel=(UILabel *)[cell viewWithTag:2];
     _namelabel.text=bmdl.customername;
     _amountlabel=(UILabel *)[cell viewWithTag:3];
-    _amountlabel.text=bmdl.totalamount;
+    _amountlabel.text=[NSString stringWithFormat:@"$%@",bmdl.totalamount];
     _statuslabel=(UILabel *)[cell viewWithTag:4];
     _statuslabel.text=bmdl.bidstatus;
 
@@ -547,7 +547,7 @@ self.openviewindex=NSNotFound;
     {
         
         recordResults = FALSE;
-        _bidmdl.totalamount=_soapResults;
+        _bidmdl.totalamount=[_soapResults stringByReplacingOccurrencesOfString:@"-" withString:@""];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"bidstatus"])

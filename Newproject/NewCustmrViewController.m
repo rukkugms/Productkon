@@ -62,11 +62,23 @@
     [super viewWillAppear:animated];
     _SearchingBar.text=@"";
     _addview.hidden=YES;
-    [self Stateselect];
-    [self countryselect];
+    if (_frmplan==1) {
+        _searchstring=_planorganztn;
+        [self Stateselect];
+        [self countryselect];
+        [self CustomerMaster1Search];
+           }
+    else
+    {
+        [self Stateselect];
+        [self countryselect];
+         [self CustomerMasterselect];
+    }
+
+   
     //[_cuntrybtnlbl setTitle:[_countryarray objectAtIndex:214] forState:UIControlStateNormal];
 
-    [self CustomerMasterselect];
+   
 }
 - (void)didReceiveMemoryWarning
 {
