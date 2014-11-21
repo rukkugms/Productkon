@@ -33,6 +33,9 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *servicecell;
 @property (strong, nonatomic) IBOutlet UIButton *addwrkbtnlbl;
 @property (strong, nonatomic) IBOutlet UILabel *servicelbl;
+@property (strong, nonatomic) IBOutlet UILabel *mnhrlbl;
+@property (strong, nonatomic) IBOutlet UILabel *eqhrlbl;
+@property (strong, nonatomic) IBOutlet UILabel *mthrlbl;
 - (IBAction)wrkbtn:(id)sender;
 
 - (IBAction)clsebtn:(id)sender;

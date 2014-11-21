@@ -479,9 +479,9 @@
                    
                    "<soap:Body>\n"
                    
-                   "<MatrialCrewSetupSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planMaterailCrewSetUpSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    
-                   "</MatrialCrewSetupSelect>\n"
+                   "</planMaterailCrewSetUpSelect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
@@ -496,7 +496,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/MatrialCrewSetupSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/planMaterailCrewSetUpSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -592,7 +592,7 @@
                    "<Houres>%f</Houres>\n"
                    "<Rate>%@</Rate>\n"
                    "<Quantity>%d</Quantity>\n"
-                    "</GeneralResourceDetailInsert>\n"
+                   "</GeneralResourceDetailInsert>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",_generalid,[[_matrlcrewdict objectForKey:[_materialarray objectAtIndex:materialpath]]integerValue],@"Material Group",[hours floatValue],@"Hourly Rate",1];
     NSLog(@"soapmsg%@",soapMessage);
@@ -1078,7 +1078,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"MatrialCrewSetupSelectResponse"])
+    if([elementName isEqualToString:@"planMaterailCrewSetUpSelectResponse"])
     {  _materialarray=[[NSMutableArray alloc]init];
         _matrlcrewdict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)

@@ -203,6 +203,10 @@
          _organizationname=(UILabel*)[cell viewWithTag:1];
          cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
          _organizationname.text=planmdl.customername;
+              UITapGestureRecognizer *tapGesture =
+              [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap:)];
+              [_organizationname addGestureRecognizer:tapGesture];
+
 //         _leadlabel=(UILabel*)[cell viewWithTag:2];
 //         NSString *led=[NSString stringWithFormat:@"%d",planmdl.leadid];
 //         _leadlabel.text=led;
@@ -222,6 +226,10 @@
               planmodel*planmdl=(planmodel *)[_planlistarray objectAtIndex:indexPath.row];
               _worgnztnlbl=(UILabel*)[cell viewWithTag:1];
               _worgnztnlbl.text=planmdl.customername;
+              UITapGestureRecognizer *tapGesture =
+              [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap:)];
+              [_worgnztnlbl addGestureRecognizer:tapGesture];
+
               _wplanlbl=(UILabel*)[cell viewWithTag:3];
               _wplanlbl.text=planmdl.planid;
               _wmanhrslbl=(UILabel*)[cell viewWithTag:5];
@@ -314,7 +322,7 @@
                         _psctrlr.planID=planmdl.planid;
                         NSLog(@"%@",planmdl.planid);
                         _psctrlr.wrktypid=planmdl.worktypeid;
-                        _psctrlr.modalPresentationStyle=UIModalPresentationFormSheet;
+                        _psctrlr.modalPresentationStyle=UIModalPresentationPageSheet;
                         _psctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
                         [self presentViewController:_psctrlr
                                            animated:YES completion:NULL];
@@ -463,6 +471,52 @@
 
 
 
+-(void)labelTap:(UITapGestureRecognizer *)sender{
+    
+    CGPoint location = [sender locationInView:self.view];
+    CGPoint locationInTableview = [self.plangtable convertPoint:location fromView:self.view];
+    NSIndexPath *indexPath = [self.plangtable indexPathForRowAtPoint:locationInTableview];
+    
+    //    if (CGRectContainsPoint([self.view convertRect:self.estmntable.frame fromView:self.estmntable.superview], location))
+    //    {
+    //        CGPoint locationInTableview = [self.estmntable convertPoint:location fromView:self.view];
+    //        NSIndexPath *indexPath = [self.estmntable indexPathForRowAtPoint:locationInTableview];
+    //        if (indexPath)
+    //            [self tableView:self.estmntable didSelectRowAtIndexPath:indexPath];
+    //
+    //        return;
+    //    }
+    
+    //    CGPoint rootViewPoint = [label.superview convertPoint:center toView:self.estmntable];
+    //    NSIndexPath *textFieldIndexPath = [self.estmntable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",indexPath.row);
+    
+    planmodel*pmdl=(planmodel *)[_planlistarray objectAtIndex:indexPath.row];
+    
+    if (pmdl.leadid==0) {
+        
+        
+    }
+    else{
+        _leadctrl=[[LeadsViewController alloc]initWithNibName:@"LeadsViewController" bundle:nil];
+        _leadctrl.frmplan=1;
+        _leadctrl.planorganztn=pmdl.customername;
+        [self presentViewController:_leadctrl animated:YES completion:nil];
+    }
+    if (pmdl.customerid==0) {
+        
+        
+    }
+    else{
+        _customerctrl=[[NewCustmrViewController alloc]initWithNibName:@"NewCustmrViewController" bundle:nil];
+        _customerctrl.frmplan=1;
+        _customerctrl.planorganztn=pmdl.customername;
+        [self presentViewController:_customerctrl animated:YES completion:nil];
+
+    }
+
+    
+}
 
 #pragma mark-Button Actions
 - (IBAction)clseVCtrlbtn:(id)sender {

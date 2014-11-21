@@ -2605,7 +2605,7 @@
     {
         
         recordResults = FALSE;
-        _gmodel.Quantity=_soapresults;
+        _gmodel.Quantity=[_soapresults stringByReplacingOccurrencesOfString:@"-" withString:@""];
         
         _soapresults = nil;
     }
@@ -2636,8 +2636,7 @@
     {
         
         recordResults = FALSE;
-        _gmodel.EquipmentHours=_soapresults;
-        // [_generallistarray addObject:_gmodel];
+        _gmodel.EquipmentHours=[_soapresults stringByReplacingOccurrencesOfString:@"-" withString:@""];        // [_generallistarray addObject:_gmodel];
         _soapresults = nil;
     }
     if([elementName isEqualToString:@"WorkSlNo"])

@@ -132,7 +132,7 @@
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
-    if([elementName isEqualToString:@"WorkentryserviceselectResult"])
+    if([elementName isEqualToString:@"WorkentryserviceselectResponse"])
     {
         _servicearray=[[NSMutableArray alloc]init];
         _servicedict=[[NSMutableDictionary alloc]init];
@@ -182,6 +182,34 @@
         recordResults = TRUE;
     }
     if([elementName isEqualToString:@"SkillName"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"manhrs"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"eqphrs"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"Mathrs"])
     {
         
         if(!_soapResults)
@@ -244,11 +272,37 @@
         
         recordResults = FALSE;
             _servicemdl.skillname=_soapResults;
-        [_servicemdlarray addObject:_servicemdl];
+       
         [_servicedict setObject:servicestrg forKey:_soapResults];
         
         
         [_servicearray addObject:_soapResults];
+         [_servicemdlarray addObject:_servicemdl];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"manhrs"])
+    {
+        
+        recordResults = FALSE;
+        
+        _servicemdl.mnhr=[_soapResults stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"eqphrs"])
+    {
+        
+        recordResults = FALSE;
+        
+        _servicemdl.eqhr=[_soapResults stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Mathrs"])
+    {
+        
+        recordResults = FALSE;
+        
+        _servicemdl.mthr=[_soapResults stringByReplacingOccurrencesOfString:@"-" withString:@""];
+       
         _soapResults = nil;
     }
     
@@ -286,9 +340,15 @@
         
        
     }
-    
+    Plaservcemdl *pmdl=(Plaservcemdl*)[_servicemdlarray objectAtIndex:indexPath.row];
     _servicelbl=(UILabel *)[cell viewWithTag:1];
-    _servicelbl.text=[_servicearray objectAtIndex:indexPath.row];
+    _servicelbl.text=pmdl.skillname;
+    _mnhrlbl=(UILabel *)[cell viewWithTag:2];
+    _mnhrlbl.text=pmdl.mnhr;
+    _eqhrlbl=(UILabel *)[cell viewWithTag:3];
+    _eqhrlbl.text=pmdl.eqhr;
+    _mthrlbl=(UILabel *)[cell viewWithTag:4];
+    _mthrlbl.text=pmdl.mthr;
     
            return cell;
 }
@@ -328,9 +388,9 @@
     skillid=[[_servicedict objectForKey:[_servicearray objectAtIndex:textFieldIndexPath.row]]integerValue];
     //];
     _detailVCtrl.modalPresentationStyle=UIModalPresentationCustom;
-    _detailVCtrl.planid=_planID;
+    _detailVCtrl.planid=planservcemdl.planid;
     _detailVCtrl.wrktpid=_wrktypid;
-    _detailVCtrl.skillsid=skillid;
+    _detailVCtrl.skillsid=[planservcemdl.serviceid integerValue];
     _detailVCtrl.servicename=[_servicearray objectAtIndex:textFieldIndexPath.row];
     _detailVCtrl.pscode=planservcemdl.psitemcode;
     _detailVCtrl.modalPresentationStyle=UIModalPresentationFullScreen;

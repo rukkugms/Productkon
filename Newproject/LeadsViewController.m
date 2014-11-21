@@ -85,9 +85,15 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+    if (_frmplan==1) {
+        _searchstring=_planorganztn;
+        [self SearchLead];
+    }
+    else
+    {
    
     [self getLeads];
+    }
    
     
     _view2.hidden=YES;

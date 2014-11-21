@@ -56,7 +56,7 @@
     [super viewWillAppear:animated];
     [self equipsetupSourceTableWithFrame:CGRectMake(0, 0, 266,610)];
     [self equipsetupDestinationTableWithFrame:CGRectMake(0, 0, 682, 533)];
-    [self CrewSetUpSelect];
+    [self planEquipmentCrewSetUpSelect];
     //[self SelectAllEquipment];
     [self GeneralResourceDetailselect];
     
@@ -410,7 +410,7 @@
     
 }
 #pragma mark-webservices
--(void)CrewSetUpSelect{
+-(void)planEquipmentCrewSetUpSelect{
     
     recordResults = FALSE;
     NSString *soapMessage;
@@ -424,9 +424,9 @@
                    
                    "<soap:Body>\n"
                    
-                   "<EquipmentCrewSetUpSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planEquipmentCrewSetUpSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    
-                   "</EquipmentCrewSetUpSelect>\n"
+                   "</planEquipmentCrewSetUpSelect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
@@ -441,7 +441,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/EquipmentCrewSetUpSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/planEquipmentCrewSetUpSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -992,7 +992,7 @@
    attributes: (NSDictionary *)attributeDict{
     
     
-    if([elementName isEqualToString:@"PlanEquipmentSelectResponse"])
+    if([elementName isEqualToString:@"planEquipmentCrewSetUpSelectResponse"])
     {
         _equipsrcarray=[[NSMutableArray alloc]init];
         if(!_soapResults)
@@ -1095,55 +1095,6 @@
         }
         recordResults = TRUE;
     }
-//    if([elementName isEqualToString:@"Qty"])
-//    {
-//        if(!_soapResults)
-//        {
-//            _soapResults = [[NSMutableString alloc] init];
-//        }
-//        recordResults = TRUE;
-//    }
-//    
-//    if([elementName isEqualToString:@"HourlyRate"])
-//    {
-//        if(!_soapResults)
-//        {
-//            _soapResults = [[NSMutableString alloc] init];
-//        }
-//        recordResults = TRUE;
-//    }
-//    if([elementName isEqualToString:@"DailyRate"])
-//    {
-//        if(!_soapResults)
-//        {
-//            _soapResults = [[NSMutableString alloc] init];
-//        }
-//        recordResults = TRUE;
-//    }
-//    if([elementName isEqualToString:@"WeeklyRate"])
-//    {
-//        if(!_soapResults)
-//        {
-//            _soapResults = [[NSMutableString alloc] init];
-//        }
-//        recordResults = TRUE;
-//    }
-//    if([elementName isEqualToString:@"MonthlyRate"])
-//    {
-//        if(!_soapResults)
-//        {
-//            _soapResults = [[NSMutableString alloc] init];
-//        }
-//        recordResults = TRUE;
-//    }
-//    if([elementName isEqualToString:@"Rate"])
-//    {
-//        if(!_soapResults)
-//        {
-//            _soapResults = [[NSMutableString alloc] init];
-//        }
-//        recordResults = TRUE;
-//    }
 
         if([elementName isEqualToString:@"GeneralResourceDetailUpdateResult"])
     {
@@ -1170,7 +1121,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"EquipmentCrewSetUpSelectResponse"])
+    if([elementName isEqualToString:@"planEquipmentCrewSetUpSelectResponse"])
     {_crenamearray=[[NSMutableArray alloc]init];
         _crewdict=[[NSMutableDictionary alloc]init];
         _revcrewdict=[[NSMutableDictionary alloc]init];

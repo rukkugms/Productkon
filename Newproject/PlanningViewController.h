@@ -16,6 +16,8 @@
 #import "Rightscheck.h"
 #import "PServiceViewController.h"
 #import "PlandocsViewController.h"
+#import "LeadsViewController.h"
+#import "NewCustmrViewController.h"
 @interface PlanningViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
     NSInteger leadcheck;
@@ -39,6 +41,8 @@
 
 /* newcomment*/
 @property(strong,nonatomic)PlandocsViewController *PlandocsVCtrl;
+@property(strong,nonatomic)NewCustmrViewController *customerctrl;
+@property(strong,nonatomic)LeadsViewController *leadctrl;
 @property(strong,nonatomic)PServiceViewController *psctrlr;
 @property(readwrite)NSInteger plntype;
 @property(readwrite)NSInteger fromestmn;

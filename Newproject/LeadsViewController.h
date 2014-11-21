@@ -123,6 +123,10 @@
 -(IBAction)addnewlead:(id)sender;
 -(IBAction)deletelead:(id)sender;
 
+
+@property(readwrite)NSInteger frmplan;
+@property(strong,nonatomic)NSString *planorganztn;
+
 /*Arrays*/
 @property(strong,nonatomic)NSMutableArray*CommentsArray;
 @property(strong,nonatomic)NSMutableArray*leadinfoArray;
