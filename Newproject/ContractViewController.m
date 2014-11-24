@@ -40,6 +40,7 @@
     UISearchDisplayController *searchdisplaycontroller=[[UISearchDisplayController alloc]initWithSearchBar:_searchbar contentsController:self];
     searchdisplaycontroller.searchResultsDataSource=(id)self;
     searchdisplaycontroller.searchResultsDelegate=(id)self;
+   
     searchdisplaycontroller.delegate=(id)self;
    // [[self.infotext layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
     [[self.infoview layer] setBorderColor:[UIColor blackColor].CGColor];

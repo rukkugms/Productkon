@@ -61,15 +61,7 @@
         _plnnavitem.title=@"Work Entry";
        // _editbtn.hidden=YES;
     }
-    _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
-    _searchbar.delegate=(id)self;
-    _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
-    self.plangtable.tableHeaderView=_searchbar;
-    UISearchDisplayController *searchctrlr=[[UISearchDisplayController alloc]initWithSearchBar:_searchbar contentsController:self];
-    searchctrlr.searchResultsDelegate=(id)self;
-    searchctrlr.searchResultsDataSource=(id)self;
-    searchctrlr.delegate=(id)self;
-
+   
     [self WorkTypeSelect];
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -78,17 +70,43 @@
    
     if (_fromestmn==1) {
         _searchstring=_Estmnplan;
+        _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
+        _searchbar.delegate=(id)self;
+        _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+        self.plangtable.tableHeaderView=_searchbar;
+        UISearchDisplayController *searchctrlr=[[UISearchDisplayController alloc]initWithSearchBar:_searchbar contentsController:self];
+        searchctrlr.searchResultsDelegate=(id)self;
+        searchctrlr.searchResultsDataSource=(id)self;
+        searchctrlr.delegate=(id)self;
+        searchctrlr.searchBar.text=_Estmnplan;
+
         [self SearchPlan];
         
         
     }
     else{
+        _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
+        _searchbar.delegate=(id)self;
+        _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+        self.plangtable.tableHeaderView=_searchbar;
+        UISearchDisplayController *searchctrlr=[[UISearchDisplayController alloc]initWithSearchBar:_searchbar contentsController:self];
+        searchctrlr.searchResultsDelegate=(id)self;
+        searchctrlr.searchResultsDataSource=(id)self;
+        searchctrlr.delegate=(id)self;
+      
+
+
          [self SelectAllPlans];
     }
     
     
 }
 
+-(void)workreload{
+    
+    
+     [self SelectAllPlans];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -218,8 +236,16 @@
          _complexitywrklbl.text=planmdl.complexity;
          _sitefactrlbl=(UILabel*)[cell viewWithTag:7];
          _sitefactrlbl.text=planmdl.sitefactor;
-              _sitefactrlbl=(UILabel*)[cell viewWithTag:8];
-              _sitefactrlbl.text=planmdl.worktype;
+              _wrktypelabel=(UILabel*)[cell viewWithTag:8];
+              _wrktypelabel.text=planmdl.worktype;
+              _pmanhrslbl=(UILabel*)[cell viewWithTag:9];
+              _pmanhrslbl.text=planmdl.manhrs;
+              _peqhrslbl=(UILabel*)[cell viewWithTag:10];
+              _peqhrslbl.text=planmdl.equphrs;
+              _pmatqty=(UILabel*)[cell viewWithTag:11];
+              _pmatqty.text=planmdl.mathrs;
+
+              
           }
           else{
               
@@ -320,6 +346,7 @@
                        // }
                         planmodel*planmdl=(planmodel *)[_planlistarray objectAtIndex:btnindex];
                         _psctrlr.planID=planmdl.planid;
+                        _psctrlr.delegate=self;
                         NSLog(@"%@",planmdl.planid);
                         _psctrlr.wrktypid=planmdl.worktypeid;
                         _psctrlr.modalPresentationStyle=UIModalPresentationPageSheet;

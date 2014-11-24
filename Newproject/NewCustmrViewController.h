@@ -29,6 +29,7 @@
     NSString *phnnostring;
     NSInteger deletepath;
     NSString *msgstrg;
+   
 
 }
 @property(strong,nonatomic)NSString *custmrcode;

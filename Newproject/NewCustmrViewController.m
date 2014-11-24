@@ -41,17 +41,7 @@
   [[self.addresstxtview layer] setCornerRadius:10];
 
     
-    /*searchbar*/
-    _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
-    _SearchingBar.delegate = (id)self;
-    _SearchingBar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
-    self.custmrtable.tableHeaderView=_SearchingBar;
-    
-    UISearchDisplayController *searchdisplaycontroller=[[UISearchDisplayController alloc]initWithSearchBar:_SearchingBar contentsController:self];
-    searchdisplaycontroller.searchResultsDataSource=(id)self;
-    searchdisplaycontroller.searchResultsDelegate=(id)self;
-    searchdisplaycontroller.delegate=(id)self;
-
+   
     _popoverArry=[[NSMutableArray alloc]initWithObjects:@"Contact Info",@"Sales Rep Info", nil];
 
     _addview.hidden=YES;
@@ -67,12 +57,38 @@
         [self Stateselect];
         [self countryselect];
         [self CustomerMaster1Search];
+        
+        /*searchbar*/
+        _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+        _SearchingBar.delegate = (id)self;
+        _SearchingBar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+        self.custmrtable.tableHeaderView=_SearchingBar;
+        
+        UISearchDisplayController * searchdisplaycontroller=[[UISearchDisplayController alloc]initWithSearchBar:_SearchingBar contentsController:self];
+        searchdisplaycontroller.searchResultsDataSource=(id)self;
+        searchdisplaycontroller.searchResultsDelegate=(id)self;
+        searchdisplaycontroller.delegate=(id)self;
+
+         searchdisplaycontroller.searchBar.text=_planorganztn;
            }
     else
     {
         [self Stateselect];
         [self countryselect];
          [self CustomerMasterselect];
+        /*searchbar*/
+        _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+        _SearchingBar.delegate = (id)self;
+        _SearchingBar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+        self.custmrtable.tableHeaderView=_SearchingBar;
+        
+        UISearchDisplayController * searchdisplaycontroller=[[UISearchDisplayController alloc]initWithSearchBar:_SearchingBar contentsController:self];
+        searchdisplaycontroller.searchResultsDataSource=(id)self;
+        searchdisplaycontroller.searchResultsDelegate=(id)self;
+        searchdisplaycontroller.delegate=(id)self;
+        
+       // searchdisplaycontroller.searchBar.text=_planorganztn;
+
     }
 
    
@@ -1422,10 +1438,13 @@
     
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    // _searchstring=@"";
+      //[searchBar resignFirstResponder];
     [self CustomerMasterselect];
     
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    
     
     if ([_SearchingBar.text length]==0) {
         
