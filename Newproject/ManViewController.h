@@ -35,6 +35,9 @@
     NSInteger createcheck;
     
 }
+
+@property(readwrite)NSInteger frmplan;
+@property(strong,nonatomic)NSString *itemcode;
 @property(strong,nonatomic)ServiceViewController *serviceVCtrl;
 @property(strong,nonatomic)NSMutableDictionary *skilldict;
 @property(strong,nonatomic)NSMutableDictionary *revskilldict;

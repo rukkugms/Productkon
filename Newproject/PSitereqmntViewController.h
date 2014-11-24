@@ -10,6 +10,7 @@
 #import "Manpwr.h"
 #import "jobsitemodel.h"
 #import "Rightscheck.h"
+#import "BasicReqViewController.h"
 @interface PSitereqmntViewController : UIViewController{
     BOOL recordResults;
     UITableViewCell*    draggedCell;
@@ -27,6 +28,7 @@
     NSInteger webpath;
 
 }
+@property(strong,nonatomic)BasicReqViewController *basicctrl;
 @property(strong,nonatomic)NSString *existstring;
 @property(strong,nonatomic)Manpwr *requmdl;
 @property(strong,nonatomic)NSMutableArray*requarray;
@@ -64,6 +66,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *jobdesclbl;
 @property (strong, nonatomic) IBOutlet UILabel *jobdisplaylabel;
 @property (strong, nonatomic) IBOutlet UITableViewCell *jobcell;
+
+- (IBAction)tobasicrequirement:(id)sender;
 
 - (IBAction)deletebtn:(id)sender;
 - (IBAction)jobsitebtn:(id)sender;

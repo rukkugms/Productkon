@@ -11,6 +11,7 @@
 #import "Manpwr.h"
 #import "Crewmodel.h"
 #import "Rightscheck.h"
+#import "ManViewController.h"
 
 @interface CrewsetupViewController : UIViewController<UIGestureRecognizerDelegate>{
     BOOL recordResults;
@@ -31,7 +32,7 @@
     NSInteger clear;
 
 }
-
+@property(strong,nonatomic)ManViewController *manctrl;
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;
 @property(strong,nonatomic)UITableView *popOverTableView;

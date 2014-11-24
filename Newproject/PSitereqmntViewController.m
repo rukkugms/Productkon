@@ -1144,6 +1144,12 @@
 
 }
 #pragma mark-Button Action
+- (IBAction)tobasicrequirement:(id)sender
+{
+    _basicctrl=[[BasicReqViewController alloc]initWithNibName:@"BasicReqViewController" bundle:nil];
+    [self presentViewController:_basicctrl animated:YES completion:nil];
+}
+
 - (IBAction)deletebtn:(id)sender {
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
