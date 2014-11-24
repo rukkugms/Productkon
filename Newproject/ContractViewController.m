@@ -141,6 +141,10 @@
     {
     subcontract*submdl=(subcontract *)[_contractlistarray objectAtIndex:indexPath.row];
     _namelabel=(UILabel*)[cell viewWithTag:1];
+        UITapGestureRecognizer *tapGesture =
+        [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap:)];
+        [_namelabel addGestureRecognizer:tapGesture];
+       
     _namelabel.text=submdl.CustomerName;
     _numberlabel=(UILabel*)[cell viewWithTag:2];
     _numberlabel.text=submdl.Number;
@@ -382,6 +386,28 @@
 //    
 //   
 //}
+
+#pragma mark-TapGesture
+-(void)labelTap:(UITapGestureRecognizer *)sender{
+    
+    CGPoint location = [sender locationInView:self.view];
+    CGPoint locationInTableview = [self.contracttable convertPoint:location fromView:self.view];
+    NSIndexPath *indexPath = [self.contracttable indexPathForRowAtPoint:locationInTableview];
+    
+   
+    NSLog(@"textFieldIndexPath%d",indexPath.row);
+    subcontract*submdl=(subcontract *)[_contractlistarray objectAtIndex:indexPath.row];
+    
+    self.custmrVCtrl=[[NewCustmrViewController alloc]initWithNibName:@"NewCustmrViewController" bundle:nil];
+     //_custmrVCtrl.userrightsarray=_userrightsarray;
+    _custmrVCtrl.frmplan=1;
+    _custmrVCtrl.planorganztn=submdl.CustomerName;
+    [self presentViewController:_custmrVCtrl
+                       animated:YES completion:NULL];
+    
+   
+    
+}
 
 #pragma mark-Searchbar
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{

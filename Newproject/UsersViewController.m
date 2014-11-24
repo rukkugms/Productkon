@@ -1561,7 +1561,7 @@
       [_devicebtn setTitle:@"Select" forState:UIControlStateNormal];
 }
 -(IBAction)edituserview:(id)sender
-{[self PasswordForUser];
+{   [self PasswordForUser];
     [self Employeeselect];
     [self SelectAllCustomer];
    
@@ -1714,6 +1714,8 @@
 }
 -(IBAction)insertuser:(id)sender
 {
+    
+    NSString*password= [_pswdtextfld.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
     if (rightsmodel.EditModule==0) {
@@ -1733,9 +1735,14 @@
 
     if(optionIdentifier==1)
     {
+        
+        
         Validation *val=[[Validation alloc]init];
         int value1=[val isBlank:[_usrnametextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
-        int value2=[val isBlank:[_pswdtextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        int value2=[val isBlank:[password stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        
+     
+      
         
         if (value1==0||value2==0) {
             if(value1==0)
@@ -1749,7 +1756,9 @@
                 [alert1 show];
             }
                    }
-        else if([_pswdtextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length<5)
+        
+        
+        else if([password stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length<5)
         {
             UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Please enter atleast 5 characters for password field" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
@@ -1787,7 +1796,7 @@
     {
         Validation *val=[[Validation alloc]init];
         int value1=[val isBlank:_usrnametextfld.text];
-        int value2=[val isBlank:_pswdtextfld.text];
+        int value2=[val isBlank:password];
         if (value1==0||value2==0) {
             if(value1==0)
             {
@@ -1801,6 +1810,13 @@
             }
             
         }
+        else if([password stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length<5)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Please enter atleast 5 characters for password field" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            _pswdtextfld.text=@"";
+        }
+
     else if ([_type1btnlbl.titleLabel.text isEqualToString:@"Select"]||[_type1btnlbl.titleLabel.text isEqualToString:@""])
             
             
