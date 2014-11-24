@@ -509,7 +509,7 @@
         //[NSString stringWithFormat:@"%d",scaffmdl.typescaffold];
         
         _generalquanitylabel=(UILabel*)[cell viewWithTag:5];
-        _generalquanitylabel.text=[NSString stringWithFormat:@"%.2f",[genmdl.Quantity doubleValue]];
+        _generalquanitylabel.text=[NSString stringWithFormat:@"%.2f",[genmdl.TotalHoures doubleValue]];
         
         _generalphaselabel=(UILabel*)[cell viewWithTag:6];
         _generalphaselabel.text=genmdl.Phase;

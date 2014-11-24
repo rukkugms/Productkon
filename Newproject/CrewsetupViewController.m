@@ -282,6 +282,9 @@
           Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:indexPath.row];
           _crwmanpwrlbl=(UILabel *)[cell viewWithTag:1];
           _crwmanpwrlbl.text=crewmdl1.manpower;
+          UITapGestureRecognizer *tapGesture =
+          [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap1:)];
+          [_crwmanpwrlbl addGestureRecognizer:tapGesture];
           _crwdeslbl1=(UILabel *)[cell viewWithTag:2];
           _crwdeslbl1.text=crewmdl1.mandescptn;
           _crwdeslbl2=(UILabel *)[cell viewWithTag:3];
@@ -405,6 +408,33 @@
     _manctrl.itemcode=manpwr.itemcode;
     [self presentViewController:_manctrl animated:YES completion:nil];
 }
+-(void)labelTap1:(UITapGestureRecognizer *)sender{
+    
+    CGPoint location = [sender locationInView:self.view];
+    CGPoint locationInTableview = [self.crewnametable convertPoint:location fromView:self.view];
+    NSIndexPath *indexPath = [self.crewnametable indexPathForRowAtPoint:locationInTableview];
+    
+    //    if (CGRectContainsPoint([self.view convertRect:self.estmntable.frame fromView:self.estmntable.superview], location))
+    //    {
+    //        CGPoint locationInTableview = [self.estmntable convertPoint:location fromView:self.view];
+    //        NSIndexPath *indexPath = [self.estmntable indexPathForRowAtPoint:locationInTableview];
+    //        if (indexPath)
+    //            [self tableView:self.estmntable didSelectRowAtIndexPath:indexPath];
+    //
+    //        return;
+    //    }
+    
+    //    CGPoint rootViewPoint = [label.superview convertPoint:center toView:self.estmntable];
+    //    NSIndexPath *textFieldIndexPath = [self.estmntable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",indexPath.row);
+    
+     Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:indexPath.row];
+    _manctrl=[[ManViewController alloc]initWithNibName:@"ManViewController" bundle:nil];
+    _manctrl.frmplan=1;
+    _manctrl.itemcode=crewmdl1.manpower;
+    [self presentViewController:_manctrl animated:YES completion:nil];
+}
+
 - (void)searchAutocompleteEntriesWithSubstring:(NSString *)substring {
     
     // Put anything that starts with this substring into the autocompleteUrls array

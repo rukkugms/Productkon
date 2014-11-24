@@ -31,18 +31,7 @@
           _materialTable.layer.borderWidth = 2.0;
     _materialTable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _titleView.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
-    /*searchbar*/
-    _searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
-    _searchbar.delegate = (id)self;
-    _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
-    
-    self.materialTable.tableHeaderView =_searchbar;
-    
-    UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_searchbar contentsController:self];
-    searchController.searchResultsDataSource = (id)self;
-    searchController.searchResultsDelegate =(id)self;
-    searchController.delegate = (id)self;
-    _picimageview.layer.borderColor=[UIColor blackColor].CGColor;
+       _picimageview.layer.borderColor=[UIColor blackColor].CGColor;
     _picimageview.layer.borderWidth=2;
     _picimageview.userInteractionEnabled = YES;
     UITapGestureRecognizer *pgr = [[UITapGestureRecognizer alloc]
@@ -56,7 +45,40 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    if (_frmplan==1) {
+        /*searchbar*/
+        _searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+        _searchbar.delegate = (id)self;
+        _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+        
+        self.materialTable.tableHeaderView =_searchbar;
+        
+        UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_searchbar contentsController:self];
+        searchController.searchResultsDataSource = (id)self;
+        searchController.searchResultsDelegate =(id)self;
+        searchController.delegate = (id)self;
+
+        _searchstring=_itemfromgp;
+        _searchbar.text=_itemfromgp;
+        [self SearchMaterials];
+    }
+    else
+    {
+        /*searchbar*/
+        _searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+        _searchbar.delegate = (id)self;
+        _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+        
+        self.materialTable.tableHeaderView =_searchbar;
+        
+        UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_searchbar contentsController:self];
+        searchController.searchResultsDataSource = (id)self;
+        searchController.searchResultsDelegate =(id)self;
+        searchController.delegate = (id)self;
+_searchbar.text=@"";
+       
     [self AllSkills];
+    }
     _activitybtn.hidden=YES;
   
     _addmatView.userInteractionEnabled=YES;

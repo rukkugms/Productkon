@@ -48,21 +48,21 @@
     _titleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     
     
-    /*searchbar*/
-    
-    _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
-    _SearchingBar.delegate = (id)self;
-    _SearchingBar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
-    
-   // _navitem.titleView.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
-
-    
-    self.manpowerTable.tableHeaderView =_SearchingBar;
-    
-    UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_SearchingBar contentsController:self];
-    searchController.searchResultsDataSource = (id)self;
-    searchController.searchResultsDelegate =(id)self;
-    searchController.delegate = (id)self;
+//    /*searchbar*/
+//    
+//    _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+//    _SearchingBar.delegate = (id)self;
+//    _SearchingBar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+//    
+//   // _navitem.titleView.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+//
+//    
+//    self.manpowerTable.tableHeaderView =_SearchingBar;
+//    
+//    UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_SearchingBar contentsController:self];
+//    searchController.searchResultsDataSource = (id)self;
+//    searchController.searchResultsDelegate =(id)self;
+//    searchController.delegate = (id)self;
 
     
     _addscrollview.frame=CGRectMake(0, 44, 583,622);
@@ -71,15 +71,46 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [super viewWillAppear:animated];
+   
     if (_frmplan==1) {
-        _searchstring=_itemcode;
+        _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+        _SearchingBar.delegate = (id)self;
+        _SearchingBar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
         
+        // _navitem.titleView.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+        
+        
+        self.manpowerTable.tableHeaderView =_SearchingBar;
+        
+        UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_SearchingBar contentsController:self];
+        searchController.searchResultsDataSource = (id)self;
+        searchController.searchResultsDelegate =(id)self;
+        searchController.delegate = (id)self;
+        
+
+        _searchstring=_itemcode;
+        _SearchingBar.text=_itemcode;
+        webtype=2;
         [self SearchManpower];
     }
     else
     {
+        _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+        _SearchingBar.delegate = (id)self;
+        _SearchingBar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+        
+        // _navitem.titleView.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+        
+        
+        self.manpowerTable.tableHeaderView =_SearchingBar;
+        
+        UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_SearchingBar contentsController:self];
+        searchController.searchResultsDataSource = (id)self;
+        searchController.searchResultsDelegate =(id)self;
+        searchController.delegate = (id)self;
+        
 
+_SearchingBar.text=@"";
     [self AllSkills];
     }
     _result=@"";
@@ -1225,7 +1256,10 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-   
+   if (webtype==2)
+   {
+        [_manpowerTable reloadData];
+   }
     if (webtype==1) {
         [self Selectallmanpower];
         _SearchingBar.text=@"";

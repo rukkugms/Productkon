@@ -10,6 +10,7 @@
 #import "Manpwr.h"
 #import "Crewmodel.h"
 #import "Rightscheck.h"
+#import "EqpmViewController.h"
 @interface GroupEqupViewController : UIViewController<UIGestureRecognizerDelegate>{
     
      NSInteger poptype;
@@ -32,7 +33,7 @@
 
     
 }
-
+@property(strong,nonatomic)EqpmViewController *equipctrl;
 @property (strong, nonatomic)Manpwr *manpwrmdl;
 @property (strong, nonatomic)Crewmodel *crewmdl1;
 
