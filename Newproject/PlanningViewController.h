@@ -18,7 +18,7 @@
 #import "PlandocsViewController.h"
 #import "LeadsViewController.h"
 #import "NewCustmrViewController.h"
-@interface PlanningViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface PlanningViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,WorkentryDelgate>
 {
     NSInteger leadcheck;
     NSInteger customercheck;
@@ -165,5 +165,10 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *wdisbtn;
 - (IBAction)wsdisclre:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UILabel *pmanhrslbl;
+@property (strong, nonatomic) IBOutlet UILabel *peqhrslbl;
+@property (strong, nonatomic) IBOutlet UILabel *pmatqty;
+-(void)workreload;
 
 @end

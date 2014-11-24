@@ -13,7 +13,7 @@
 @end
 
 @implementation PServiceViewController
-
+@synthesize delegate;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -402,6 +402,15 @@
 }
 
 - (IBAction)clsebtn:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+    
+    
+    if ([self.delegate respondsToSelector:@selector(workreload)]) {
+        [self.delegate workreload];
+        
+        [self dismissViewControllerAnimated:YES completion:NULL];
+        
+        
+    }
+
+    }
 @end

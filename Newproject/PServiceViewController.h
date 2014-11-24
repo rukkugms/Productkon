@@ -10,12 +10,21 @@
 #import "DetailplanViewController.h"
 #import "Plaservcemdl.h"
 
+@protocol WorkentryDelgate <NSObject>
+
+-(void)workreload;
+
+
+@end
+
+
 @interface PServiceViewController : UIViewController{
     BOOL recordResults;
     NSString*servicestrg;
     UIButton *button;
     NSInteger skillid;
 }
+@property(nonatomic, weak)id<WorkentryDelgate>delegate;
 @property (strong, nonatomic) IBOutlet UITableView *servicetable;
 @property (strong, nonatomic) IBOutlet UIView *titleview;
 @property (strong, nonatomic)NSMutableDictionary*servicedict;
