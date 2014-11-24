@@ -71,7 +71,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-   
+    [super viewWillAppear:animated];
     if (_frmplan==1) {
         _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
         _SearchingBar.delegate = (id)self;
@@ -89,8 +89,7 @@
         
 
         _searchstring=_itemcode;
-        _SearchingBar.text=_itemcode;
-        webtype=2;
+        
         [self SearchManpower];
     }
     else
@@ -1256,10 +1255,7 @@ _SearchingBar.text=@"";
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-   if (webtype==2)
-   {
-        [_manpowerTable reloadData];
-   }
+   
     if (webtype==1) {
         [self Selectallmanpower];
         _SearchingBar.text=@"";
