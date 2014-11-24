@@ -10,6 +10,7 @@
 #import "Manpwr.h"
 #import "Crewmodel.h"
 #import "Rightscheck.h"
+#import "MaterialsViewController.h"
 
 @interface GpMaterViewController : UIViewController<UIGestureRecognizerDelegate>
 {
@@ -31,7 +32,7 @@
     NSInteger clear;
 
 }
-
+@property(strong,nonatomic)MaterialsViewController *mtrlctrl;
 @property (strong, nonatomic)Manpwr *manpwrmdl;
 @property (strong, nonatomic)Crewmodel *crewmdl1;
 /*popover*/

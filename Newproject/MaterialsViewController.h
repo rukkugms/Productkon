@@ -32,6 +32,9 @@
     NSString *createstring;
       NSInteger imagechecker;
 }
+@property(readwrite)NSInteger frmplan;
+@property(strong,nonatomic)NSString *itemfromgp;
+
 @property(strong,nonatomic)RSTViewController *rstctrlr;
 @property(strong,nonatomic)NSMutableDictionary *skilldict;
 @property(strong,nonatomic)NSMutableDictionary *revskilldict;

@@ -37,19 +37,7 @@ _scroll_addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255
     _equipmenttbl.layer.borderWidth = 2.0;
     _equipmenttbl.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _titleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
-    /*searchbar*/
-    _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
-   _SearchingBar.delegate = (id)self;
-   _SearchingBar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
-    
-    self.equipmenttbl.tableHeaderView =_SearchingBar;
-    
-    UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_SearchingBar contentsController:self];
-    searchController.searchResultsDataSource = (id)self;
-    searchController.searchResultsDelegate =(id)self;
-    searchController.delegate = (id)self;
-
-    _picimageview.layer.borderColor=[UIColor blackColor].CGColor;
+       _picimageview.layer.borderColor=[UIColor blackColor].CGColor;
 
     _picimageview.layer.borderWidth=2;
     _picimageview.userInteractionEnabled = YES;
@@ -64,7 +52,41 @@ _scroll_addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
+    if (_frmplan==1) {
+        /*searchbar*/
+        _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+        _SearchingBar.delegate = (id)self;
+        _SearchingBar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+        
+        self.equipmenttbl.tableHeaderView =_SearchingBar;
+        
+        UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_SearchingBar contentsController:self];
+        searchController.searchResultsDataSource = (id)self;
+        searchController.searchResultsDelegate =(id)self;
+        searchController.delegate = (id)self;
+        
+
+        _searchstring=_itemfromgp;
+        _SearchingBar.text=_itemfromgp;
+        [self SearchEquipment];
+    }
+    else
+    {
+        /*searchbar*/
+        _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+        _SearchingBar.delegate = (id)self;
+        _SearchingBar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+        
+        self.equipmenttbl.tableHeaderView =_SearchingBar;
+        
+        UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_SearchingBar contentsController:self];
+        searchController.searchResultsDataSource = (id)self;
+        searchController.searchResultsDelegate =(id)self;
+        searchController.delegate = (id)self;
+        _SearchingBar.text=@"";
+
     [self AllSkills];
+    }
     _equipmenttbl.userInteractionEnabled=YES;
     //[self SelectAllEquipment];
     _activitybtn.hidden=YES;
