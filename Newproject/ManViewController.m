@@ -71,7 +71,17 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [super viewWillAppear:animated];
+    if (_frmplan==1) {
+        _searchstring=_itemcode;
+        
+        [self SearchManpower];
+    }
+    else
+    {
+
     [self AllSkills];
+    }
     _result=@"";
     moduleid=0;
   //  [self Selectallmanpower];
@@ -1215,7 +1225,7 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-    
+   
     if (webtype==1) {
         [self Selectallmanpower];
         _SearchingBar.text=@"";

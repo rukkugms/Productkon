@@ -266,6 +266,10 @@
         Manpwr *manpwr=(Manpwr *)[_manpwrarray objectAtIndex:indexPath.row];
         _manpwritmlbl=(UILabel *)[cell viewWithTag:1];
         _manpwritmlbl.text=manpwr.itemcode;
+        UITapGestureRecognizer *tapGesture =
+        [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap:)];
+        [_manpwritmlbl addGestureRecognizer:tapGesture];
+
         _manpwrdeslbl=(UILabel *)[cell viewWithTag:2];
         _manpwrdeslbl.text=manpwr.itemdescptn;
         _hurlyratelbl=(UILabel *)[cell viewWithTag:3];
@@ -375,7 +379,32 @@
     
 }
 
-
+-(void)labelTap:(UITapGestureRecognizer *)sender{
+    
+    CGPoint location = [sender locationInView:self.view];
+    CGPoint locationInTableview = [self.manpwrtable convertPoint:location fromView:self.view];
+    NSIndexPath *indexPath = [self.manpwrtable indexPathForRowAtPoint:locationInTableview];
+    
+    //    if (CGRectContainsPoint([self.view convertRect:self.estmntable.frame fromView:self.estmntable.superview], location))
+    //    {
+    //        CGPoint locationInTableview = [self.estmntable convertPoint:location fromView:self.view];
+    //        NSIndexPath *indexPath = [self.estmntable indexPathForRowAtPoint:locationInTableview];
+    //        if (indexPath)
+    //            [self tableView:self.estmntable didSelectRowAtIndexPath:indexPath];
+    //
+    //        return;
+    //    }
+    
+    //    CGPoint rootViewPoint = [label.superview convertPoint:center toView:self.estmntable];
+    //    NSIndexPath *textFieldIndexPath = [self.estmntable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",indexPath.row);
+    
+    Manpwr *manpwr=(Manpwr *)[_manpwrarray objectAtIndex:indexPath.row];
+    _manctrl=[[ManViewController alloc]initWithNibName:@"ManViewController" bundle:nil];
+    _manctrl.frmplan=1;
+    _manctrl.itemcode=manpwr.itemcode;
+    [self presentViewController:_manctrl animated:YES completion:nil];
+}
 - (void)searchAutocompleteEntriesWithSubstring:(NSString *)substring {
     
     // Put anything that starts with this substring into the autocompleteUrls array
