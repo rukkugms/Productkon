@@ -11,6 +11,7 @@
 #import "MangmntdetailsViewController.h"
 #import "subcontract.h"
 #import "Rightscheck.h"
+#import "NewCustmrViewController.h"
 
 @interface ContractViewController : UIViewController
 {
@@ -24,7 +25,7 @@
 }
 
 
-
+@property (strong, nonatomic) NewCustmrViewController *custmrVCtrl;
 @property(strong,nonatomic)MangmntdetailsViewController *mgmtdetails;
 @property(strong,nonatomic)subcontract *sub;
 @property(strong,nonatomic)NSString *searchstring;
