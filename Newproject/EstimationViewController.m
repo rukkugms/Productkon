@@ -295,21 +295,6 @@ if (tableView==_estmntable) {
         }
        
         
-//        switch (poptype) {
-//            case 1:
-//                [_leadcustmrbtnlbl setTitle:[_leadcustmrarry objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-//                
-//                break;
-//            case 2:
-//                
-//                  [_planbtnlbl setTitle:[_planarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-//                  [self EstimationWorkTypeSelect];
-//               
-//                
-//                break;
-//            default:
-//                break;
-//        }
         [self.popOverController dismissPopoverAnimated:YES];
 
     }
@@ -1279,6 +1264,8 @@ if (tableView==_estmntable) {
     
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(170.0f, 70.0f);
+    self.popOverController=_popOverController;
     
     //
     //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];

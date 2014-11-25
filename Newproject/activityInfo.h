@@ -15,7 +15,7 @@
 @property(strong,nonatomic)NSString *ename;
 @property(strong,nonatomic)NSString *employer;
 @property(strong,nonatomic)NSString *status;
-@property(strong,nonatomic)NSString *description;
+@property(strong,nonatomic)NSString *actdesion;
 @property(strong,nonatomic)NSString *datest;
 @property(strong,nonatomic)NSString *communicationtype;
 

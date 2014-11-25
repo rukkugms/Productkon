@@ -49,7 +49,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *disclsebtn;
 -(IBAction)selectdisclosure:(id)sender;
 @property(strong,nonatomic)IBOutlet UITableView *popovertableview;
-@property(strong,nonatomic)UIPopoverController *popovercontroller;
+@property(strong,nonatomic)UIPopoverController *popOvercontroller;
 @property(strong,nonatomic)NSMutableArray *disclosurearray;
 
 

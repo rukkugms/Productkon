@@ -147,8 +147,11 @@ self.openviewindex=NSNotFound;
                 self.Displayctrlr=[[DisplayBidTableViewController alloc]initWithNibName:@"DisplayBidTableViewController" bundle:nil];
         
             _Displayctrlr.bidid=bmdl.bidid;
-            [self presentViewController:_Displayctrlr animated:YES completion:nil];
-         [self.popovercontroller dismissPopoverAnimated:YES];
+        [self dismissViewControllerAnimated:YES completion:^{   [self presentViewController:_Displayctrlr
+                                                                                   animated:YES completion:NULL];
+            
+        }];
+         [self.popOvercontroller dismissPopoverAnimated:YES];
               }
   
     
@@ -619,8 +622,12 @@ self.openviewindex=NSNotFound;
     btnindex=textFieldIndexPath.row;
     
     
-    self.popovercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
-    [self.popovercontroller presentPopoverFromRect:_disclsebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    self.popOvercontroller
+    = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
+    _popOvercontroller.popoverContentSize=CGSizeMake(130.0f, 44.0f);
+    self.popOvercontroller=_popOvercontroller;
+
+    [self.popOvercontroller presentPopoverFromRect:_disclsebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
     
 }
 

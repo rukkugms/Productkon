@@ -405,8 +405,11 @@ if (tableView==_leadTable) {
                      
 //                     [self dismissViewControllerAnimated:YES completion:^{ [self presentViewController:_activityVCtrl
 //                                                                                              animated:YES completion:NULL];}];
-                     [self presentViewController:_activityVCtrl
-                                        animated:YES completion:NULL];
+                     [self dismissViewControllerAnimated:YES completion:^{   [self presentViewController:_activityVCtrl
+                                                                                                animated:YES completion:NULL];
+                         
+                     }];
+
                      [self.popOverController dismissPopoverAnimated:YES];
 
                  }
@@ -743,6 +746,8 @@ if (tableView==_leadTable) {
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(200.0f, 250.0f);
+    self.popOverController=_popOverController;
     [self.popOverController presentPopoverFromRect:_leadtypebtnlbl.frame
                                             inView:self.scroll
                           permittedArrowDirections:UIPopoverArrowDirectionUp
@@ -775,6 +780,8 @@ if (tableView==_leadTable) {
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(200.0f, 250.0f);
+    self.popOverController=_popOverController;
     [self.popOverController presentPopoverFromRect:_projecttype.frame
                                             inView:self.scroll
                           permittedArrowDirections:UIPopoverArrowDirectionUp
@@ -808,6 +815,8 @@ if (tableView==_leadTable) {
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(200.0f, 250.0f);
+    self.popOverController=_popOverController;
     [self.popOverController presentPopoverFromRect:_leadstatusBtn.frame
                                             inView:self.scroll
                           permittedArrowDirections:UIPopoverArrowDirectionUp
@@ -840,6 +849,8 @@ if (tableView==_leadTable) {
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(200.0f, 250.0f);
+    self.popOverController=_popOverController;
     [self.popOverController presentPopoverFromRect:_industrytypetxtfld.frame
                                             inView:self.scroll
                           permittedArrowDirections:UIPopoverArrowDirectionUp
@@ -868,10 +879,14 @@ if (tableView==_leadTable) {
     //resize the popover view shown
     //in the current view to the view's size
     popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 250);
+    self.popOverController.popoverContentSize=CGSizeMake(200.0f, 250.0f);
+    self.popOverController=_popOverController;
     
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(200.0f, 250.0f);
+    self.popOverController=_popOverController;
     [self.popOverController presentPopoverFromRect:_prjctexcutntxtfld.frame
                                             inView:self.scroll
                           permittedArrowDirections:UIPopoverArrowDirectionUp
@@ -910,6 +925,8 @@ if (tableView==_leadTable) {
     
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(120.0f, 82.0f);
+    self.popOverController=_popOverController;
     
      button = (UIButton *)sender;
     UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
@@ -965,7 +982,8 @@ if (tableView==_leadTable) {
     
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
-    
+    self.popOverController.popoverContentSize=CGSizeMake(120.0f, 82.0f);
+    self.popOverController=_popOverController;
 //    button = (UIButton *)sender;
 //    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
 //    CGPoint center= button.center;
@@ -1163,6 +1181,8 @@ else
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(200.0f, 250.0f);
+    self.popOverController=_popOverController;
     [self.popOverController presentPopoverFromRect:_companybtn.frame
                                             inView:self.scroll
                           permittedArrowDirections:UIPopoverArrowDirectionUp
@@ -1186,6 +1206,8 @@ else
     popovercontent.view=popoverview;
     popovercontent.contentSizeForViewInPopover=CGSizeMake(200, 250);
     self.popOverController=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
+    self.popOverController.popoverContentSize=CGSizeMake(200.0f, 250.0f);
+    self.popOverController=_popOverController;
     [self.popOverController presentPopoverFromRect:_statebutton.frame inView:_scroll permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
     
@@ -4069,7 +4091,9 @@ else
     
     self.popOverController1 = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
-    
+    self.popOverController1.popoverContentSize=CGSizeMake(520.0f, 530.0f);
+    self.popOverController1=_popOverController1;
+
     //
     //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     //    CGRect rect=CGRectMake(cell.bounds.origin.x+90, cell.bounds.origin.y+10, 50, 30);
@@ -4459,6 +4483,8 @@ else
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(200.0f, 250.0f);
+    self.popOverController=_popOverController;
     [self.popOverController presentPopoverFromRect:_assignto.frame
                                             inView:self.scroll
                           permittedArrowDirections:UIPopoverArrowDirectionUp
