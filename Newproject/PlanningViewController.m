@@ -328,11 +328,11 @@
                     _servVctrl.modalPresentationStyle=UIModalPresentationPageSheet;
                     _servVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
                     
-//                    [self dismissViewControllerAnimated:YES completion:^{ [self presentViewController:_servVctrl
-//                                                                                             animated:YES completion:NULL];
-//                    }];
-                    [self presentViewController:_servVctrl
-                                       animated:YES completion:NULL];
+                    [self dismissViewControllerAnimated:YES completion:^{    [self presentViewController:_servVctrl
+                                                                                                animated:YES completion:NULL];
+                    }];
+//                    [self presentViewController:_servVctrl
+//                                       animated:YES completion:NULL];
                     _searchbar.text=@"";
                     [self SelectAllPlans];
                 }
@@ -351,8 +351,12 @@
                         _psctrlr.wrktypid=planmdl.worktypeid;
                         _psctrlr.modalPresentationStyle=UIModalPresentationPageSheet;
                         _psctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-                        [self presentViewController:_psctrlr
-                                           animated:YES completion:NULL];
+                        [self dismissViewControllerAnimated:YES completion:^{     [self presentViewController:_psctrlr
+                                                                                                     animated:YES completion:NULL];
+                        }];
+
+//                        [self presentViewController:_psctrlr
+//                                           animated:YES completion:NULL];
                         _searchbar.text=@"";
                         [self SelectAllPlans];
 
@@ -368,12 +372,12 @@
                     NSLog(@"%@",planmdl.customername);
                     _sitevisitVctrl.modalPresentationStyle=UIModalPresentationFullScreen;
                     _sitevisitVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-//                    [self dismissViewControllerAnimated:YES completion:^{   [self presentViewController:_sitevisitVctrl
-//                                                                                               animated:YES completion:NULL];
-//
-//                    }];
-                    [self presentViewController:_sitevisitVctrl
-                                       animated:YES completion:NULL];
+                    [self dismissViewControllerAnimated:YES completion:^{   [self presentViewController:_sitevisitVctrl
+                                                                                               animated:YES completion:NULL];
+
+                    }];
+//                    [self presentViewController:_sitevisitVctrl
+//                                       animated:YES completion:NULL];
                     
                     
                 _searchbar.text=@"";
@@ -386,9 +390,13 @@
                   planmodel*planmdl=(planmodel *)[_planlistarray objectAtIndex:btnindex];
                 _PlandocsVCtrl.planid=planmdl.planid;
                    self.PlandocsVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+                    [self dismissViewControllerAnimated:YES completion:^{       [self presentViewController:_PlandocsVCtrl
+                                                                                                   animated:YES completion:NULL];
+                    }];
+
                 
-                [self presentViewController:_PlandocsVCtrl
-                                   animated:YES completion:NULL];
+//                [self presentViewController:_PlandocsVCtrl
+//                                   animated:YES completion:NULL];
                 
 //                if (indexPath.row==2) {
 //                    if (!self.DetailplanVctrl) {
@@ -679,6 +687,8 @@
     popovercontent.view=popoverview;
     popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 200);
     self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
+    self.popovercontroller.popoverContentSize=CGSizeMake(210.0f, 200.0f);
+    self.popovercontroller=_popovercontroller;
     [self.popovercontroller presentPopoverFromRect:_planselectionbtn.frame inView:_addplanview permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
     
@@ -712,6 +722,8 @@
     
     //UITableView *table = (UITableView *)[cell superview];
     self.popovercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
+        self.popovercontroller.popoverContentSize=CGSizeMake(130.0f, 110.0f);
+        self.popovercontroller=_popovercontroller;
     [self.popovercontroller presentPopoverFromRect:_disclosurebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
     }
        //[_popovertableview reloadData];
@@ -879,6 +891,9 @@
     popovercontent.view=popoverview;
     popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 120);
     self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
+    self.popovercontroller.popoverContentSize=CGSizeMake(210.0f, 120.0f);
+    self.popovercontroller=_popovercontroller;
+
     [self.popovercontroller presentPopoverFromRect:_cmplexitybtnlbl.frame inView:_addplanview permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     [_popovertableview reloadData];
 
@@ -898,6 +913,9 @@
     popovercontent.view=popoverview;
     popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 200);
     self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
+    self.popovercontroller.popoverContentSize=CGSizeMake(210.0f, 200.0f);
+    self.popovercontroller=_popovercontroller;
+
     [self.popovercontroller presentPopoverFromRect:_typebtnlbl.frame inView:_addplanview permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
     [self WorkTypeSelect];
@@ -2473,6 +2491,8 @@
         
         //UITableView *table = (UITableView *)[cell superview];
         self.popovercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
+    self.popovercontroller.popoverContentSize=CGSizeMake(132.0f, 43.0f);
+    self.popovercontroller=_popovercontroller;
         [self.popovercontroller presentPopoverFromRect:_wdisbtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
         
     

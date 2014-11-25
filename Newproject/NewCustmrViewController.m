@@ -291,12 +291,16 @@
                 break;
                 case 3:
                 if (indexPath.row==0) {
-                    //if (!self.cntctVctrl) {
+                   
                         self.cntctVctrl=[[ContactInfoViewController alloc]initWithNibName:@"ContactInfoViewController" bundle:nil];
-                   // }
+                  
                     _cntctVctrl.custmrcode=_custmrcode;
-                    [self presentViewController:_cntctVctrl
-                                       animated:YES completion:NULL];
+                    [self dismissViewControllerAnimated:YES completion:^{   [self presentViewController:_cntctVctrl
+                                                                                                                  animated:YES completion:NULL];
+                    
+                                       }];
+//                    [self presentViewController:_cntctVctrl
+//                                       animated:YES completion:NULL];
                 }
                 
                 if (indexPath.row==1) {
@@ -305,8 +309,14 @@
                         self.salesVCtrl=[[SalesRepInfoViewController alloc]initWithNibName:@"SalesRepInfoViewController" bundle:nil];
                   //  }
                     _salesVCtrl.ccode=_custmrcode;
-                                      [self presentViewController:_salesVCtrl
-                                       animated:YES completion:NULL];
+                    
+                    [self dismissViewControllerAnimated:YES completion:^{   [self presentViewController:_salesVCtrl
+                                                                                               animated:YES completion:NULL];
+                        
+                    }];
+
+//                                      [self presentViewController:_salesVCtrl
+//                                       animated:YES completion:NULL];
 
                     
                     
@@ -1412,6 +1422,10 @@
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     
+    self.popOverController.popoverContentSize=CGSizeMake(220.0f, 300.0f);
+    self.popOverController=_popOverController;
+
+    
     if(poptype==1){
         
      [self.popOverController presentPopoverFromRect:_statebtnlbl.frame
@@ -1692,6 +1706,9 @@
     
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(120.0f, 80.0f);
+    self.popOverController=_popOverController;
+
     
     
     button = (UIButton *)sender;

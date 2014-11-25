@@ -98,6 +98,8 @@
     
     //UITableView *table = (UITableView *)[cell superview];
     self.popOverController = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(93.0f, 43.0f);
+    self.popOverController=_popOverController;
     [self.popOverController presentPopoverFromRect:_disclosurebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
     
 }
@@ -126,9 +128,14 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
+        
+         if (tableView==_popOvertableview) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+         }
+         else{
         [[NSBundle mainBundle]loadNibNamed:@"Contractcell" owner:self options:nil];
         cell=_contrctcell;
+         }
         
     }
     if (tableView==_popOvertableview) {
@@ -252,9 +259,13 @@
         //  }
         _mgmtdetails.detailsarray=_passingarray;
         //_custmrVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
-        
-        [self presentViewController:_mgmtdetails
-                           animated:YES completion:NULL];
+        [self dismissViewControllerAnimated:YES completion:^{   [self presentViewController:_mgmtdetails
+                                                                                   animated:YES completion:NULL];
+            
+        }];
+//
+//        [self presentViewController:_mgmtdetails
+//                           animated:YES completion:NULL];
                 }
     [self.popOverController dismissPopoverAnimated:YES];
     
