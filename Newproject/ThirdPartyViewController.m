@@ -178,10 +178,10 @@ finishedSavingWithError:(NSError *)error
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
     
-    UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 200, 120)];
-    
-    popoverView.backgroundColor = [UIColor whiteColor];
+//    UIView* popoverView = [[UIView alloc]
+//                           initWithFrame:CGRectMake(0, 0, 200, 120)];
+    popoverContent.view.bounds=CGRectMake(10, 20, 20, 10);
+    //popoverView.backgroundColor = [UIColor whiteColor];
     _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 120)];
     
     _popOverTableView.delegate=(id)self;
@@ -190,18 +190,22 @@ finishedSavingWithError:(NSError *)error
     _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
     
     
+    
     // CGRect rect = frame;
-    [popoverView addSubview:_popOverTableView];
-    popoverContent.view = popoverView;
+   // [popoverView addSubview:_popOverTableView];
+    popoverContent.view = _popOverTableView;
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 120);
+    //popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 120);
     
+    [popoverContent setContentSizeForViewInPopover: CGSizeMake(20, 0)];
     //create a popover controller
     
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(200.0f, 120.0f);
+    self.popOverController=_popOverController;
     
     //
     //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -1855,12 +1859,14 @@ finishedSavingWithError:(NSError *)error
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
         cell.textLabel.font=[UIFont systemFontOfSize:12];
+        
         if(tableView==_thirdprtyTable){
             [[NSBundle mainBundle]loadNibNamed:@"Thirdpartycell" owner:self options:nil];
             cell=_thirdpartycell;
         }
     }
     if (tableView==_popOverTableView){
+        //cell.textLabel.textAlignment=NSTextAlignmentCenter;
         if (popvr==1) {
             cell.textLabel.text=[_subtypearray objectAtIndex:indexPath.row];
         }
