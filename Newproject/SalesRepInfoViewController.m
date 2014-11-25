@@ -189,7 +189,9 @@
     self.popovercontroller = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     
-    
+    self.popovercontroller.popoverContentSize=CGSizeMake(220.0f, 300.0f);
+    self.popovercontroller=_popovercontroller;
+
         
         [self.popovercontroller presentPopoverFromRect:_namebtn.frame
                                                 inView:self.addView permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];

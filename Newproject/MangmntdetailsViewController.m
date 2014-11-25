@@ -2052,6 +2052,9 @@
     popovercontent.view=popoverview;
     popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 200);
     self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
+    self.popovercontroller.popoverContentSize=CGSizeMake(210.0f, 200.0f);
+    self.popovercontroller=_popovercontroller;
+
     [self.popovercontroller presentPopoverFromRect:_markupbtnlbl.frame inView:self.labrview permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
 }
