@@ -451,6 +451,8 @@
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(200.0f, 250.0f);
+    self.popOverController=_popOverController;
     [self.popOverController presentPopoverFromRect:_phasebtn.frame
                                             inView:self.workphasesview
                           permittedArrowDirections:UIPopoverArrowDirectionUp
@@ -485,6 +487,9 @@
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(200.0f, 250.0f);
+    self.popOverController=_popOverController;
+
     [self.popOverController presentPopoverFromRect:_servicebtn.frame
                                             inView:self.workphasesview
                           permittedArrowDirections:UIPopoverArrowDirectionUp

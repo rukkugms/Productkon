@@ -78,31 +78,32 @@
     poptype=1;
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
-    
-    UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 250, 400)];
-    
-    popoverView.backgroundColor = [UIColor whiteColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 250, 400)];
+    popoverContent.view.bounds=CGRectMake(10, 20, 20, 10);
+//    UIView* popoverView = [[UIView alloc]
+//                           initWithFrame:CGRectMake(0, 0, 250, 400)];
+//    
+    //popoverView.backgroundColor = [UIColor whiteColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
     
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
     _popOverTableView.rowHeight= 32;
     _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
-    
+
     
     // CGRect rect = frame;
-    [popoverView addSubview:_popOverTableView];
-    popoverContent.view = popoverView;
+  //  [popoverView addSubview:_popOverTableView];
+    popoverContent.view = _popOverTableView;
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(250, 400);
+   // popoverContent.contentSizeForViewInPopover = CGSizeMake(250, 400);
       //create a popover controller
-    
+    [popoverContent setContentSizeForViewInPopover:CGSizeMake(20, 0)];
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
-    
+    self.popOverController.popoverContentSize=CGSizeMake(250.0f, 310.0f);
+    self.popOverController=_popOverController;
           [self.popOverController presentPopoverFromRect:_docutyebtn.frame
                                                 inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
@@ -137,7 +138,8 @@
                               initWithContentViewController:popoverContent];
     
     
-    
+    self.popOverController.popoverContentSize=CGSizeMake(520.0f, 530.0f);
+    self.popOverController=_popOverController;
     
     [self.popOverController presentPopoverFromRect: CGRectMake(230, 210, 300, 500)
                                             inView:self.view
