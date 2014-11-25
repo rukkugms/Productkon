@@ -105,6 +105,9 @@
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(200.0f, 200.0f);
+    self.popOverController=_popOverController;
+
     [self.popOverController presentPopoverFromRect:_subtypebutton.frame
                                             inView:self.addview
                           permittedArrowDirections:UIPopoverArrowDirectionUp

@@ -98,7 +98,8 @@
     //    [self.popOverController presentPopoverFromRect:_disclsurelbl.bounds inView:self.view permittedArrowDirections:nil animated:YES];
     
     
-    
+    self.popOverController.popoverContentSize=CGSizeMake(200.0f, 250.0f);
+    self.popOverController=_popOverController;
     
     
     
@@ -144,7 +145,8 @@
     //    [self.popOverController presentPopoverFromRect:_disclsurelbl.bounds inView:self.view permittedArrowDirections:nil animated:YES];
     
     
-    
+    self.popOverController.popoverContentSize=CGSizeMake(200.0f, 250.0f);
+    self.popOverController=_popOverController;
     
     
     
