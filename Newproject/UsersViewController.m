@@ -1909,6 +1909,9 @@
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+        self.popOverController.popoverContentSize=CGSizeMake(230.0f, 150.0f);
+        self.popOverController=_popOverController;
+
     
         [self.popOverController presentPopoverFromRect:_type1btnlbl.frame
                                                 inView:self.addview
@@ -1939,7 +1942,9 @@
         //create a popover controller
         self.popOverController = [[UIPopoverController alloc]
                                   initWithContentViewController:popoverContent];
-        
+        self.popOverController.popoverContentSize=CGSizeMake(200.0f, 250.0f);
+        self.popOverController=_popOverController;
+
         [self.popOverController presentPopoverFromRect:_type2btnlbl.frame
                                                 inView:self.addview
                               permittedArrowDirections:UIPopoverArrowDirectionUp
@@ -1970,7 +1975,8 @@
         //create a popover controller
         self.popOverController = [[UIPopoverController alloc]
                                   initWithContentViewController:popoverContent];
-        
+        self.popOverController.popoverContentSize=CGSizeMake(230.0f, 150.0f);
+        self.popOverController=_popOverController;
         [self.popOverController presentPopoverFromRect:_devicebtn.frame
                                                 inView:self.addview
                               permittedArrowDirections:UIPopoverArrowDirectionUp

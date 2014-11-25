@@ -98,6 +98,8 @@
     
     //UITableView *table = (UITableView *)[cell superview];
     self.popovercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
+    self.popovercontroller.popoverContentSize=CGSizeMake(130.0f, 44.0f);
+    self.popovercontroller=_popovercontroller;
     [self.popovercontroller presentPopoverFromRect:_disclosurebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
     
     

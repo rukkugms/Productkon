@@ -85,8 +85,8 @@
     
     
     
-    
-    
+    self.popOverController.popoverContentSize=CGSizeMake(400.0f, 200.0f);
+    self.popOverController=_popOverController;
     
     [self.popOverController presentPopoverFromRect:_qustnbtnlbl.frame
                                             inView:self.view1

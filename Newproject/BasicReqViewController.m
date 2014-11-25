@@ -1210,6 +1210,8 @@
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(150.0f, 200.0f);
+    self.popOverController=_popOverController;
     [self.popOverController presentPopoverFromRect:_jobbtn.frame
                                             inView:self.addreqview
                           permittedArrowDirections:UIPopoverArrowDirectionLeft
@@ -1244,6 +1246,8 @@
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(150.0f, 200.0f);
+    self.popOverController=_popOverController;
     [self.popOverController presentPopoverFromRect:_craftbtn.frame
                                             inView:self.craftview
                           permittedArrowDirections:UIPopoverArrowDirectionUp
@@ -1278,6 +1282,8 @@
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(211.0f, 275.0f);
+    self.popOverController=_popOverController;
     [self.popOverController presentPopoverFromRect:_typebtn.frame
                                             inView:self.addreqview
                           permittedArrowDirections:UIPopoverArrowDirectionUp
@@ -1325,6 +1331,8 @@
         
     //UITableView *table = (UITableView *)[cell superview];
     self.popOverController = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
+        self.popOverController.popoverContentSize=CGSizeMake(130.0f, 43.0f);
+        self.popOverController=_popOverController;
     [self.popOverController presentPopoverFromRect:_vendorbtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
     
    
