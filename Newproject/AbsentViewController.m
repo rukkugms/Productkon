@@ -157,14 +157,14 @@
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 315, 330)];
+                           initWithFrame:CGRectMake(10,10, 300, 320)];
     
     popoverView.backgroundColor = [UIColor lightTextColor];
     popoverContent.view = popoverView;
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(315, 330);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(300, 320);
     
     CKCalendarView *calendar = [[CKCalendarView alloc] initWithStartDay:startMonday];
     self.calendar = calendar;
@@ -203,6 +203,8 @@
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(320.0f, 340.0f);
+    self.popOverController=_popOverController;
     [self.popOverController presentPopoverFromRect:_datebtnlbl.frame
                                             inView:self.view
                           permittedArrowDirections:UIPopoverArrowDirectionUp

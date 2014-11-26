@@ -50,7 +50,7 @@
 @property(strong,nonatomic)IBOutlet UITableViewCell *mgmtcell;
 @property(strong,nonatomic)NSString *searchstring;
 @property(strong,nonatomic)IBOutlet UITableView *popovertableview;
-@property(strong,nonatomic)UIPopoverController *popovercontroller;
+@property(strong,nonatomic)UIPopoverController *popOvercontroller;
 
 /*Array*/
 @property(strong,nonatomic)NSMutableArray *employeelistarray;

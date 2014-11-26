@@ -175,6 +175,8 @@
     //create a popover controller
     self.popover = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popover.popoverContentSize=CGSizeMake(200.0f, 200.0f);
+    self.popover=_popover;
     
     //
     //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];

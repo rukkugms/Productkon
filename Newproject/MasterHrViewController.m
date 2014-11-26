@@ -93,6 +93,8 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     ssn=empdetls1.ssn;
     //UITableView *table = (UITableView *)[cell superview];
     self.poovercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
+    self.poovercontroller.popoverContentSize=CGSizeMake(130.0f, 42.0f);
+    self.poovercontroller=_poovercontroller;
     [self.poovercontroller presentPopoverFromRect:_disclosurebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
 }
 }
@@ -143,7 +145,9 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     self.poovercontroller = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     
-    
+    self.poovercontroller.popoverContentSize=CGSizeMake(170.0f, 170.0f);
+    self.poovercontroller=_poovercontroller;
+
     
     [self.poovercontroller presentPopoverFromRect:_jobsitebtnlbl.frame
                                             inView:self.applicantprocessview

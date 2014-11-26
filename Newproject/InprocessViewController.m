@@ -1030,8 +1030,10 @@
             //_verifictnVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
             _verifictnVCtrl.applicantid=_Applicantid;
              _verifictnVCtrl.delegate=self;
-            [self presentViewController:_verifictnVCtrl
-                               animated:YES completion:NULL];
+            [self dismissViewControllerAnimated:YES completion:^{   [self presentViewController:_verifictnVCtrl
+                                                                                       animated:YES completion:NULL];
+                
+            }];
 
         }
         if (indexPath.row==1) {
@@ -1048,8 +1050,10 @@
             _verifictnVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
             _verifictnVCtrl.delegate=self;
             _verifictnVCtrl.applicantid=_Applicantid;
-            [self presentViewController:_verifictnVCtrl
-                               animated:YES completion:NULL];
+                [self dismissViewControllerAnimated:YES completion:^{   [self presentViewController:_verifictnVCtrl
+                                                                                           animated:YES completion:NULL];
+                    
+                }];
             }
             else{
                 
@@ -1175,6 +1179,8 @@
     
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(150.0f, 70.0f);
+    self.popOverController=_popOverController;
     [self.popOverController presentPopoverFromRect:_secnddisbtnlbl.frame
                                             inView:cell
                           permittedArrowDirections:UIPopoverArrowDirectionLeft

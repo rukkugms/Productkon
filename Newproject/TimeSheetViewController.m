@@ -388,6 +388,9 @@
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(320.0f, 340.0f);
+    self.popOverController=_popOverController;
+   
     [self.popOverController presentPopoverFromRect:_datebtnlbl.frame
                                             inView:self.scroll
                           permittedArrowDirections:UIPopoverArrowDirectionUp
@@ -442,10 +445,10 @@
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 200, 120)];
+                           initWithFrame:CGRectMake(0, 0, 200, 200)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 120)];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
     
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
@@ -459,12 +462,14 @@
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 120);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 200);
     
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     
+    self.popOverController.popoverContentSize=CGSizeMake(200.0f, 120.0f);
+    self.popOverController=_popOverController;
     //
     //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     //    CGRect rect=CGRectMake(cell.bounds.origin.x+90, cell.bounds.origin.y+10, 50, 30);
@@ -561,6 +566,8 @@
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     
+    self.popOverController.popoverContentSize=CGSizeMake(200.0f, 120.0f);
+    self.popOverController=_popOverController;
     //
     //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     //    CGRect rect=CGRectMake(cell.bounds.origin.x+90, cell.bounds.origin.y+10, 50, 30);

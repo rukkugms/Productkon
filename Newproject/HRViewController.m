@@ -1818,6 +1818,9 @@ chektouch++;
    
     //UITableView *table = (UITableView *)[cell superview];
     self.popOverController = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(130.0f, 43.0f);
+    self.popOverController=_popOverController;
+
     [self.popOverController presentPopoverFromRect:aSection.sectionHeaderView.disclosureButton.frame inView:v permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
 }
 
