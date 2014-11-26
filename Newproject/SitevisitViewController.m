@@ -2479,7 +2479,7 @@ _passingdate=dateString;
         
         SitevistMdl *sitemdl1=(SitevistMdl *)[_meetgarray objectAtIndex:indexPath.row];
         _mnamelbl=(UILabel *)[cell viewWithTag:1];
-    _mnamelbl.text=sitemdl1.meetingdate;
+       _mnamelbl.text=sitemdl1.meetingdate;
         NSLog(@"date%@",sitemdl1.meetingdate);
       
         _mdetaillbl=(UILabel *)[cell viewWithTag:2];
