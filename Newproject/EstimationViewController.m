@@ -239,10 +239,7 @@ if (tableView==_estmntable) {
     _eqphrlbl=(UILabel *)[cell viewWithTag:7];
     _eqphrlbl.text=[NSString stringWithFormat:@"%d",[estmdl.eqhr integerValue]];
 
-   // _mathrlbl=(UILabel *)[cell viewWithTag:8];
-    //_mathrlbl.text=[NSString stringWithFormat:@"%d",[estmdl.mathr integerValue]];
-  
- 
+    
 
     
 }
@@ -454,7 +451,7 @@ if (tableView==_estmntable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -503,7 +500,7 @@ if (tableView==_estmntable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -552,7 +549,7 @@ if (tableView==_estmntable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -633,7 +630,7 @@ if (tableView==_estmntable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -682,7 +679,7 @@ if (tableView==_estmntable) {
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     
     //NSURL *url = [NSURL URLWithString:@"testUSA.kontract360.com/service.asmx"];
     
@@ -733,7 +730,7 @@ if (tableView==_estmntable) {
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     
     //NSURL *url = [NSURL URLWithString:@"testUSA.kontract360.com/service.asmx"];
     
@@ -785,7 +782,7 @@ if (tableView==_estmntable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
