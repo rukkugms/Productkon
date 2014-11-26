@@ -98,7 +98,7 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *eglbl;
 @property(strong,nonatomic)IBOutlet UILabel *manhrlbl;
-@property(strong,nonatomic)IBOutlet UILabel *mathrlbl;
+
 @property(strong,nonatomic)IBOutlet UILabel *eqphrlbl;
 
 @end

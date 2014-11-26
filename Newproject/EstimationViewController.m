@@ -239,10 +239,7 @@ if (tableView==_estmntable) {
     _eqphrlbl=(UILabel *)[cell viewWithTag:7];
     _eqphrlbl.text=[NSString stringWithFormat:@"%d",[estmdl.eqhr integerValue]];
 
-   // _mathrlbl=(UILabel *)[cell viewWithTag:8];
-    //_mathrlbl.text=[NSString stringWithFormat:@"%d",[estmdl.mathr integerValue]];
-  
- 
+    
 
     
 }
