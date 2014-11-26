@@ -235,16 +235,15 @@
          _complexitywrklbl=(UILabel*)[cell viewWithTag:6];
          _complexitywrklbl.text=planmdl.complexity;
          _sitefactrlbl=(UILabel*)[cell viewWithTag:7];
-         _sitefactrlbl.text=planmdl.sitefactor;
+         _sitefactrlbl.text=[NSString stringWithFormat:@"%d",[planmdl.sitefactor integerValue]];
               _wrktypelabel=(UILabel*)[cell viewWithTag:8];
               _wrktypelabel.text=planmdl.worktype;
               _pmanhrslbl=(UILabel*)[cell viewWithTag:9];
-              _pmanhrslbl.text=planmdl.manhrs;
+              _pmanhrslbl.text=[NSString stringWithFormat:@"%.2f",[planmdl.manhrs doubleValue]];;
               _peqhrslbl=(UILabel*)[cell viewWithTag:10];
-              _peqhrslbl.text=planmdl.equphrs;
+              _peqhrslbl.text=[NSString stringWithFormat:@"%.2f",[planmdl.equphrs doubleValue]];
               _pmatqty=(UILabel*)[cell viewWithTag:11];
-              _pmatqty.text=planmdl.mathrs;
-
+              _pmatqty.text=[NSString stringWithFormat:@"%d",[planmdl.mathrs integerValue]];
               
           }
           else{

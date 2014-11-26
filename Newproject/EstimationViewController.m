@@ -233,7 +233,14 @@ if (tableView==_estmntable) {
     _enddatelabel.text=myFormattedDate1;
     
     
-    
+    _manhrlbl=(UILabel *)[cell viewWithTag:6];
+    _manhrlbl.text=[NSString stringWithFormat:@"%d",[estmdl.manhr integerValue]];
+
+    _eqphrlbl=(UILabel *)[cell viewWithTag:7];
+    _eqphrlbl.text=[NSString stringWithFormat:@"%d",[estmdl.eqhr integerValue]];
+
+   // _mathrlbl=(UILabel *)[cell viewWithTag:8];
+    //_mathrlbl.text=[NSString stringWithFormat:@"%d",[estmdl.mathr integerValue]];
   
  
 
@@ -948,6 +955,25 @@ if (tableView==_estmntable) {
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"ManPowerHrs"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"EquipmentHrs"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
     if([elementName isEqualToString:@"EstimationPlanSelectResponse"])
     {
@@ -1150,6 +1176,27 @@ if (tableView==_estmntable) {
         _soapResults = nil;
         
     }
+    if([elementName isEqualToString:@"ManPowerHrs"])
+    {
+        
+        recordResults = FALSE;
+        
+        _mdlestmtn.manhr=_soapResults;
+       // [_Estimationarray addObject:_mdlestmtn];
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"EquipmentHrs"])
+    {
+        
+        recordResults = FALSE;
+        
+        _mdlestmtn.eqhr=_soapResults;
+        //[_Estimationarray addObject:_mdlestmtn];
+        _soapResults = nil;
+        
+    }
+
 
     
     if([elementName isEqualToString:@"planid"])
