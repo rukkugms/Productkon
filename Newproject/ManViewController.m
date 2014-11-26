@@ -427,8 +427,8 @@ _SearchingBar.text=@"";
     NSLog(@"soapmsg%@",soapMessage);
     
     
-        NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
-  //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+        NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+  //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -477,7 +477,7 @@ _SearchingBar.text=@"";
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
@@ -528,7 +528,7 @@ _SearchingBar.text=@"";
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -591,7 +591,7 @@ _SearchingBar.text=@"";
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -679,8 +679,8 @@ _SearchingBar.text=@"";
     NSLog(@"soapmsg%@",soapMessage);
     
     
-        NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
-  //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+        NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+  //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -731,8 +731,8 @@ _SearchingBar.text=@"";
     NSLog(@"soapmsg%@",soapMessage);
     
     
-        NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
-  //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+        NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+  //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -865,8 +865,8 @@ _SearchingBar.text=@"";
     NSLog(@"soapmsg%@",soapMessage);
     
     
-        NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
-   //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+        NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+   //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -915,7 +915,7 @@ _SearchingBar.text=@"";
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -972,8 +972,8 @@ _SearchingBar.text=@"";
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1047,8 +1047,8 @@ _SearchingBar.text=@"";
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1121,8 +1121,8 @@ _SearchingBar.text=@"";
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1195,8 +1195,8 @@ _SearchingBar.text=@"";
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
