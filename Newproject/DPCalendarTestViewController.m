@@ -74,10 +74,10 @@
     self.optionsButton  = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     self.createEventButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.previousButton.frame = CGRectMake(350, 20, 100, 20);
-    self.nextButton.frame = CGRectMake(width - 420, 20, 50, 20);
-    self.todayButton.frame = CGRectMake(width - 50 * 2, 20, 50, 20);
-    self.optionsButton.frame = CGRectMake(width - 50 * 3, 20, 50, 20);
-    self.createEventButton.frame = CGRectMake(width - 10 * 5, 0, 30, 30);
+    self.nextButton.frame = CGRectMake(height - 420, 20, 50, 20);
+    self.todayButton.frame = CGRectMake(height - 50 * 2, 20, 50, 20);
+    self.optionsButton.frame = CGRectMake(height - 50 * 3, 20, 50, 20);
+    self.createEventButton.frame = CGRectMake(height - 10 * 5, 0, 30, 30);
    // [self.previousButton setTitle:@"Previous" forState:UIControlStateNormal];
     [self.previousButton setImage:[UIImage imageNamed:@"iconleftblack"] forState:UIControlStateNormal];
       [self.nextButton setImage:[UIImage imageNamed:@"iconarrowright"] forState:UIControlStateNormal];
@@ -91,7 +91,7 @@
     self.createEventButton.titleLabel.font = [UIFont systemFontOfSize:20];
     
     
-    self.monthLabel = [[UILabel alloc] initWithFrame:CGRectMake((width - 200) / 2, 20, 200, 20)];
+    self.monthLabel = [[UILabel alloc] initWithFrame:CGRectMake((height - 200) / 2, 20, 200, 20)];
   _monthLabel.font=[UIFont fontWithName:@"Helvetica Neue Bold" size:16];
     //_monthLabel.textColor=[UIColor colorWithRed:0/255.0f green:153.0/255.0f blue:204.0/255.0f alpha:1.0f];
     [self.monthLabel setTextAlignment:NSTextAlignmentCenter];
@@ -110,7 +110,7 @@
     [self.view addSubview:self.optionsButton];
     [self.view addSubview:self.createEventButton];
     [self.monthlyView removeFromSuperview];
-    self.monthlyView = [[DPCalendarMonthlyView alloc] initWithFrame:CGRectMake(0, 45, width, height - 45) delegate:self];
+    self.monthlyView = [[DPCalendarMonthlyView alloc] initWithFrame:CGRectMake(0, 45, height, width-45) delegate:self];
     [self.view addSubview:self.monthlyView];
 }
 
