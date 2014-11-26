@@ -257,59 +257,67 @@ if (tableView==_estmntable) {
     [defaults synchronize];
 
     if (tableView==_popOverTableView) {
-        switch (indexPath.row) {
-//            case 0:
-//                self.phestVCtrl=[[PhsestViewController alloc]initWithNibName:@"PhsestViewController" bundle:nil];
-//                
-//                _phestVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
-//                _phestVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-//                _phestVCtrl.estmtnid=estmdl.estimateid;
-//                [self presentViewController:_phestVCtrl
-//                                   animated:YES completion:NULL];
-//
-//                break;
-            case 0:
-               
-                   // self.DPVCtrl=[[DPCalendarTestViewController alloc]initWithNibName:@"DPCalendarTestViewController" bundle:nil];
-                    self.DPVCtrl=[DPCalendarTestViewController new];
+        if(indexPath.row==0)
+        {
+            self.DPVCtrl=[DPCalendarTestViewController new];
+            
+            [self dismissViewControllerAnimated:YES completion:^{   [self presentViewController:_DPVCtrl
+                                                                                       animated:YES completion:NULL];
                 
-                //_DPVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
-               // _phestVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-               // DPVCtrl.estmtnid=estmdl.estimateid;
-                [self presentViewController:_DPVCtrl
-                                   animated:YES completion:NULL];
-                
-                break;
-                 case 1:
-                //if (!self.calctrl) {
-                    self.calctrl=[[CalEventDetailViewController alloc]initWithNibName:@"CalEventDetailViewController" bundle:nil];
-                //}
-                _calctrl.estimationstring=@"Estimationreview";
-                _calctrl.estid=estmdl.estimateid;
-                _calctrl.estimationnumber=estmdl.EstimationId;
-                [self presentViewController:_calctrl
-                                   animated:YES completion:NULL];
-           break;
-            default:
-                break;
+            }];
+
         }
-       
-        
-//        switch (poptype) {
-//            case 1:
-//                [_leadcustmrbtnlbl setTitle:[_leadcustmrarry objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-//                
-//                break;
-//            case 2:
-//                
-//                  [_planbtnlbl setTitle:[_planarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-//                  [self EstimationWorkTypeSelect];
+        if(indexPath.row==1)
+        {  self.calctrl=[[CalEventDetailViewController alloc]initWithNibName:@"CalEventDetailViewController" bundle:nil];
+            //}
+            _calctrl.estimationstring=@"Estimationreview";
+            _calctrl.estid=estmdl.estimateid;
+            _calctrl.estimationnumber=estmdl.EstimationId;
+            [self dismissViewControllerAnimated:YES completion:^{   [self presentViewController:_calctrl
+                                                                                       animated:YES completion:NULL];
+                
+            }];
+
+        }
+
+//        switch (indexPath.row) {
+////            case 0:
+////                self.phestVCtrl=[[PhsestViewController alloc]initWithNibName:@"PhsestViewController" bundle:nil];
+////                
+////                _phestVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+////                _phestVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+////                _phestVCtrl.estmtnid=estmdl.estimateid;
+////                [self presentViewController:_phestVCtrl
+////                                   animated:YES completion:NULL];
+////
+////                break;
+//            case 0:
 //               
+//                   // self.DPVCtrl=[[DPCalendarTestViewController alloc]initWithNibName:@"DPCalendarTestViewController" bundle:nil];
+//                    self.DPVCtrl=[DPCalendarTestViewController new];
+//                
+//                //_DPVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+//               // _phestVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+//               // DPVCtrl.estmtnid=estmdl.estimateid;
+//                [self presentViewController:_DPVCtrl
+//                                   animated:YES completion:NULL];
 //                
 //                break;
+//                 case 1:
+//                //if (!self.calctrl) {
+//                    self.calctrl=[[CalEventDetailViewController alloc]initWithNibName:@"CalEventDetailViewController" bundle:nil];
+//                //}
+//                _calctrl.estimationstring=@"Estimationreview";
+//                _calctrl.estid=estmdl.estimateid;
+//                _calctrl.estimationnumber=estmdl.EstimationId;
+//                [self presentViewController:_calctrl
+//                                   animated:YES completion:NULL];
+//           break;
 //            default:
 //                break;
 //        }
+       
+        
         [self.popOverController dismissPopoverAnimated:YES];
 
     }
@@ -1279,6 +1287,8 @@ if (tableView==_estmntable) {
     
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(170.0f, 70.0f);
+    self.popOverController=_popOverController;
     
     //
     //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];

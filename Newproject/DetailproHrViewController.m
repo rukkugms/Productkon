@@ -1739,6 +1739,8 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(320.0f, 340.0f);
+    self.popOverController=_popOverController;
    
       if (dateselctor==12) {
        [self.popOverController presentPopoverFromRect:_expbtn.frame
@@ -1815,7 +1817,8 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     
-    
+    self.popOverController.popoverContentSize=CGSizeMake(230.0f, 200.0f);
+    self.popOverController=_popOverController;
     
     switch (webtype) {
         case 1:
@@ -1883,7 +1886,8 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     
-    
+    self.popOverController.popoverContentSize=CGSizeMake(200.0f, 90.0f);
+    self.popOverController=_popOverController;
         
     
     

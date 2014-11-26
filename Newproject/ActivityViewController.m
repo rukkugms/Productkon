@@ -219,7 +219,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         _employee.text=info.ename;
         
         _detailslbl=(UILabel*)[cell viewWithTag:4];
-        _detailslbl.text=info.description;
+        _detailslbl.text=info.actdesion;
         
         _status=(UILabel*)[cell viewWithTag:5];
         _status.text=info.status;
@@ -494,6 +494,9 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(239.0f, 200.0f);
+    self.popOverController=_popOverController;
+
     [self.popOverController presentPopoverFromRect:_activityTypeBtn.frame
                                             inView:_newviewactivity
                           permittedArrowDirections:UIPopoverArrowDirectionUp
@@ -555,6 +558,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+
     [self.popOverController presentPopoverFromRect:_dateBtn.frame
                                             inView:self.newviewactivity
                           permittedArrowDirections:UIPopoverArrowDirectionUp
@@ -707,7 +711,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     _employerTxtfld.text=info1.employer;
     _statusTxtFld.text=info1.status;
     _activityTxtFld.text=info1.activity;
-    _descptionTextview.text=info1.description;
+    _descptionTextview.text=info1.actdesion;
     //_dateBtn.enabled=NO;
     //_dateBtn.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
    // _activityTxtFld.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
@@ -2007,6 +2011,24 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         recordResults = TRUE;
     }
 
+    if([elementName isEqualToString:@"UserLogmaininsertResponse"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"info"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
 
 
     
@@ -2072,6 +2094,12 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         recordResults = FALSE;
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"info"])
+    {
+        
+        recordResults = FALSE;
+        _soapResults = nil;
+    }
     
     if([elementName isEqualToString:@"Id"])
     {
@@ -2119,7 +2147,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     {
         
         recordResults = FALSE;
-        _act.description=_soapResults;
+        _act.actdesion=_soapResults;
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"Status"])
@@ -2437,7 +2465,9 @@ else
     
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
-    
+    self.popOverController.popoverContentSize=CGSizeMake(520.0f, 530.0f);
+    self.popOverController=_popOverController;
+
     //
     //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     //    CGRect rect=CGRectMake(cell.bounds.origin.x+90, cell.bounds.origin.y+10, 50, 30);
@@ -2511,6 +2541,8 @@ else
     
     //UITableView *table = (UITableView *)[cell superview];
     self.popOverController = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(130.0f, 44.0f);
+    self.popOverController=_popOverController;
     [self.popOverController presentPopoverFromRect:_disclosurebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
 
 }
@@ -2621,6 +2653,9 @@ else
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(239.0f, 200.0f);
+    self.popOverController=_popOverController;
+
     [self.popOverController presentPopoverFromRect:_empbtnlbl.frame
                                             inView:_newviewactivity
                           permittedArrowDirections:UIPopoverArrowDirectionUp

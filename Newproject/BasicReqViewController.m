@@ -649,7 +649,11 @@
                     _venderVCtrl.itemid=reqmdl.eid;
                     _venderVCtrl.moduleid=_moduleid;
                    _venderVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
-                   [self presentViewController:_venderVCtrl animated:YES completion:NULL];
+                    [self dismissViewControllerAnimated:YES completion:^{   [self presentViewController:_venderVCtrl
+                                                                                               animated:YES completion:NULL];
+                        
+                    }];
+
                 }
                 
                 break;
@@ -3094,7 +3098,7 @@
             _basicmdl.inhouse=1;
             inhouse=1;
         }
-
+ [_allrequirementarray addObject:_basicmdl];
         _soapResults = nil;
         
         
@@ -3111,7 +3115,7 @@
         
         _basicmdl.vendername=_soapResults;
         }
-        [_allrequirementarray addObject:_basicmdl];
+       
         _soapResults = nil;
         
         

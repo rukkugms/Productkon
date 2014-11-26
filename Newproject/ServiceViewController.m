@@ -307,7 +307,11 @@
               // }
                _jobseqctrl.skillid=smdl.servid;
                _jobseqctrl.modalPresentationStyle=UIModalPresentationFormSheet;
-               [self presentViewController:_jobseqctrl animated:YES completion:nil];
+               //[self presentViewController:_jobseqctrl animated:YES completion:nil];
+                            [self dismissViewControllerAnimated:YES completion:^{   [self presentViewController:_jobseqctrl
+                                                                                                      animated:YES completion:NULL];
+        
+                            }];
          [self.popovercontroller dismissPopoverAnimated:YES];
     }
     _searchbar.text=@"";

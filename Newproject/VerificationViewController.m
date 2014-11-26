@@ -251,6 +251,9 @@ ssnclck++;
     
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(120.0f, 100.0f);
+    self.popOverController=_popOverController;
+
     
     
 //    UIButton *button = (UIButton *)sender;
@@ -409,9 +412,9 @@ ssnclck++;
                 case 3:
                 _doc=[_docspathDict objectForKey:[_docsarray objectAtIndex:indexPath.row]];
                 NSLog(@"%@",_doc);
-                if (!self.webctrl) {
+               // if (!self.webctrl) {
                     _webctrl=[[WebViewController alloc]initWithNibName:@"WebViewController" bundle:nil];
-                }
+               // }
                 _webctrl.docpdf=_doc;
                 [self.navigationController pushViewController:_webctrl animated:YES];
                 [self.popOverController dismissPopoverAnimated:YES];
@@ -2458,7 +2461,8 @@ ssnclck++;
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     
-    
+    self.popOverController.popoverContentSize=CGSizeMake(200.0f, 250.0f);
+    self.popOverController=_popOverController;
     
     
     if (poptype==5) {
@@ -2508,6 +2512,8 @@ ssnclck++;
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                                initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(60.0f, 250.0f);
+    self.popOverController=_popOverController;
     
     
     button = (UIButton *)sender;
@@ -2549,7 +2555,8 @@ ssnclck++;
     self.popOverController = [[UIPopoverController alloc]
                                initWithContentViewController:popoverContent];
     
-    
+    self.popOverController.popoverContentSize=CGSizeMake(60.0f, 250.0f);
+    self.popOverController=_popOverController;
     yearbutton = (UIButton *)sender;
     
     UITableViewCell *cell = (UITableViewCell *)[[yearbutton superview] superview];

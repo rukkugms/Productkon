@@ -85,8 +85,10 @@
     btnindex=textFieldIndexPath.row;
   
     
-        self.popovercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
-        [self.popovercontroller presentPopoverFromRect:_disclsebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+        self.popOvercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
+    self.popOvercontroller.popoverContentSize=CGSizeMake(130.0f, 44.0f);
+    self.popOvercontroller=_popOvercontroller;
+        [self.popOvercontroller presentPopoverFromRect:_disclsebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
     
 }
 
@@ -117,10 +119,10 @@
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 170, 170)];
+                           initWithFrame:CGRectMake(0, 0, 200, 170)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
-    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 170, 170)];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 170)];
     
     _popovertableview.delegate=(id)self;
     _popovertableview.dataSource=(id)self;
@@ -133,16 +135,17 @@
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(170, 170);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 170);
     
     //create a popover controller
     
-    self.popovercontroller = [[UIPopoverController alloc]
+    self.popOvercontroller = [[UIPopoverController alloc]
                              initWithContentViewController:popoverContent];
     
+    self.popOvercontroller.popoverContentSize=CGSizeMake(200.0f, 170.0f);
+    self.popOvercontroller=_popOvercontroller;
     
-    
-    [self.popovercontroller presentPopoverFromRect:_jobsitebtnlbl.frame
+    [self.popOvercontroller presentPopoverFromRect:_jobsitebtnlbl.frame
                                            inView:self.badgeview
                          permittedArrowDirections:UIPopoverArrowDirectionUp
                                          animated:YES];
@@ -256,7 +259,7 @@
             
         
             
-        [self.popovercontroller dismissPopoverAnimated:YES];
+        [self.popOvercontroller dismissPopoverAnimated:YES];
         _badgeview.hidden=NO;
         Empmdl *empmdl=(Empmdl *)[_employeelistarray objectAtIndex:btnindex];
         [self SelectEmployeeBadge];
@@ -272,7 +275,7 @@
         else
         {
             [_jobsitebtnlbl setTitle:[_jobsitearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-            [self.popovercontroller dismissPopoverAnimated:YES];
+            [self.popOvercontroller dismissPopoverAnimated:YES];
         }
         }
        // }
