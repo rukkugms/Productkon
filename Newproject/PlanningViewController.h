@@ -31,8 +31,9 @@
     NSInteger btnindex;
     NSString *customerclicked;
     NSString *leadclicked;
-    NSString *typestrg;
+    NSString *typestrg,*floderplan;
     NSInteger newpoptype;
+    
     
     
     

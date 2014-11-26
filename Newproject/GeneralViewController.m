@@ -1437,6 +1437,8 @@ else{
     popovercontent.view=popoverview;
     popovercontent.contentSizeForViewInPopover=CGSizeMake(260, 300);
     self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
+    self.popovercontroller.popoverContentSize=CGSizeMake(260.0f, 300.0f);
+    self.popovercontroller=_popovercontroller;
     [self.popovercontroller presentPopoverFromRect:_phasebtnlbl.frame inView:self.scroll permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
    
 }
@@ -1460,6 +1462,8 @@ else{
     popovercontent.view=popoverview;
     popovercontent.contentSizeForViewInPopover=CGSizeMake(260, 300);
     self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
+    self.popovercontroller.popoverContentSize=CGSizeMake(260.0f, 300.0f);
+    self.popovercontroller=_popovercontroller;
     [self.popovercontroller presentPopoverFromRect:_projectheaderbtnlbl.frame inView:self.scroll permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
  
 

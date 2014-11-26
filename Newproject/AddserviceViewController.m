@@ -83,6 +83,9 @@
     popovercontent.view=popoverview;
     popovercontent.contentSizeForViewInPopover=CGSizeMake(235, 300);
     self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
+    self.popovercontroller.popoverContentSize=CGSizeMake(235.0f, 300.0f);
+    self.popovercontroller=_popovercontroller;
+
     [self.popovercontroller presentPopoverFromRect:_servicebtn.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
 

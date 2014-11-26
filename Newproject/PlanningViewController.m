@@ -972,7 +972,7 @@
     
  //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
 
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1019,7 +1019,7 @@
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
  //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
@@ -1069,7 +1069,7 @@
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
     
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
   //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
@@ -1169,7 +1169,7 @@
                    "</soap:Envelope>\n",_planselectionbtn.titleLabel.text,[ledid integerValue],[custid integerValue],0,0,[[_typelistdict objectForKey:_typebtnlbl.titleLabel.text]integerValue],[_sitefactortxtfld.text floatValue],_loctntxtfld.text,_ziptxtfld.text,complex,lead,customer];
     NSLog(@"soapmsg%@",soapMessage);
     
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
 //NSURL *url = [NSURL URLWithString:@"testUSA.kontract360.com/service.asmx"];
  //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
@@ -1197,6 +1197,98 @@
         ////NSLog(@"theConnection is NULL");
     }
 
+}
+-(void)CreateFolderforPlan
+{
+    webtype=1;
+    NSString *ledid;
+    NSString *custid;
+    NSInteger lead=0;
+    NSInteger customer=0;
+    
+    recordResults = FALSE;
+    
+    
+    NSString *soapMessage;
+    
+    if (leadcheck==0)
+    {
+        ledid=0;
+        lead=0;
+    }
+    else if(leadcheck==1)
+    {
+        ledid=[_leaddict objectForKey:_planselectionbtn.titleLabel.text];
+        lead=1;
+    }
+    if(customercheck==0)
+    {
+        custid=0;
+        customer=0;
+    }
+    else if(customercheck==1)
+    {
+        custid=[_customerdict objectForKey:_planselectionbtn.titleLabel.text];
+        customer=1;
+        
+    }
+    NSString*complex;
+    if ([_cmplexitybtnlbl.titleLabel.text isEqualToString:@"Select"]) {
+        complex=@"";
+        
+    }
+    else{
+        complex=_cmplexitybtnlbl.titleLabel.text;
+        
+    }
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<CreateFolderforPlan xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planid>%@</planid>\n"
+                   "<customername>%@</customername>\n"
+                   "<lead>%d</lead>\n"
+                   "<customer>%d</customer>\n"
+                   "</CreateFolderforPlan>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",floderplan,_planselectionbtn.titleLabel.text,lead,customer];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"testUSA.kontract360.com/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/CreateFolderforPlan" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
 }
 
 
@@ -1296,7 +1388,7 @@
                    "</soap:Envelope>\n",plmdl.planid,_planselectionbtn.titleLabel.text,lead,cust,0,[[_typelistdict objectForKey:_typebtnlbl.titleLabel.text]integerValue ],[_sitefactortxtfld.text floatValue],_loctntxtfld.text,_ziptxtfld.text,complex,newlead,newcust];
     NSLog(@"soapmsg%@",soapMessage);
     
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
   //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
@@ -1348,7 +1440,7 @@
                    "</soap:Envelope>\n",plnmdl.planid];
     NSLog(@"soapmsg%@",soapMessage);
     
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
   //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
@@ -1398,7 +1490,7 @@
                    "</soap:Envelope>\n",_searchstring];
     NSLog(@"soapmsg%@",soapMessage);
     
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
   //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
@@ -1447,7 +1539,7 @@
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
     
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
   //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
@@ -2288,7 +2380,14 @@
         
         _result=_soapResults;
         recordResults = FALSE;
-        if (webtype!=3) {
+         if(webtype==1){
+            floderplan=_soapResults;
+            [self CreateFolderforPlan];
+        }
+
+      else  if (webtype!=3) {
+            
+          
             
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
@@ -2297,7 +2396,7 @@
 
         
         }
-        if (webtype==3) {
+        else if (webtype==3) {
             if ([_soapResults isEqualToString:@"deleted"]) {
                 [self SelectAllPlans];
                 _searchbar.text=@"";
@@ -2312,7 +2411,7 @@
             }
  
         }
-
+        
         _soapResults = nil;
 
         
