@@ -14,6 +14,7 @@
 #import "PlanningViewController.h"
 #import "LeadsViewController.h"
 #import "NewCustmrViewController.h"
+#import "DetailplanViewController.h"
 @interface EstimationViewController : UIViewController{
     
     NSInteger poptype;
@@ -29,6 +30,7 @@
     
     
 }
+@property(strong,nonatomic)DetailplanViewController *detailctrl;
 @property(strong,nonatomic)LeadsViewController *leadctrl;
 @property(strong,nonatomic)NewCustmrViewController *custctrl;
 @property(strong,nonatomic)PlanningViewController *PlanVCtrl;

@@ -235,9 +235,15 @@ if (tableView==_estmntable) {
     
     _manhrlbl=(UILabel *)[cell viewWithTag:6];
     _manhrlbl.text=[NSString stringWithFormat:@"%d",[estmdl.manhr integerValue]];
+    UITapGestureRecognizer *tapGesture2 =
+    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap2:)];
+    [_manhrlbl addGestureRecognizer:tapGesture2];
 
     _eqphrlbl=(UILabel *)[cell viewWithTag:7];
     _eqphrlbl.text=[NSString stringWithFormat:@"%d",[estmdl.eqhr integerValue]];
+    UITapGestureRecognizer *tapGesture3 =
+    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap3:)];
+    [_eqphrlbl addGestureRecognizer:tapGesture3];
 
     
 
@@ -427,6 +433,65 @@ if (tableView==_estmntable) {
 
     
 }
+-(void)labelTap2:(UITapGestureRecognizer *)sender{
+    
+    CGPoint location = [sender locationInView:self.view];
+    CGPoint locationInTableview = [self.estmntable convertPoint:location fromView:self.view];
+    NSIndexPath *indexPath = [self.estmntable indexPathForRowAtPoint:locationInTableview];
+    
+    //    if (CGRectContainsPoint([self.view convertRect:self.estmntable.frame fromView:self.estmntable.superview], location))
+    //    {
+    //        CGPoint locationInTableview = [self.estmntable convertPoint:location fromView:self.view];
+    //        NSIndexPath *indexPath = [self.estmntable indexPathForRowAtPoint:locationInTableview];
+    //        if (indexPath)
+    //            [self tableView:self.estmntable didSelectRowAtIndexPath:indexPath];
+    //
+    //        return;
+    //    }
+    
+    //    CGPoint rootViewPoint = [label.superview convertPoint:center toView:self.estmntable];
+    //    NSIndexPath *textFieldIndexPath = [self.estmntable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",indexPath.row);
+    
+    ModlEstimation*estmdl=(ModlEstimation *)[_Estimationarray objectAtIndex:indexPath.row];
+  
+    _detailctrl=[[DetailplanViewController alloc]initWithNibName:@"DetailplanViewController" bundle:nil];
+    _detailctrl.fromestmn=1;
+    _detailctrl.Estmnhr=estmdl.manhr;
+     _detailctrl.Estmnpln=estmdl.PlanId;
+    [self presentViewController:_detailctrl animated:YES completion:nil];
+    
+}
+-(void)labelTap3:(UITapGestureRecognizer *)sender{
+    
+    CGPoint location = [sender locationInView:self.view];
+    CGPoint locationInTableview = [self.estmntable convertPoint:location fromView:self.view];
+    NSIndexPath *indexPath = [self.estmntable indexPathForRowAtPoint:locationInTableview];
+    
+    //    if (CGRectContainsPoint([self.view convertRect:self.estmntable.frame fromView:self.estmntable.superview], location))
+    //    {
+    //        CGPoint locationInTableview = [self.estmntable convertPoint:location fromView:self.view];
+    //        NSIndexPath *indexPath = [self.estmntable indexPathForRowAtPoint:locationInTableview];
+    //        if (indexPath)
+    //            [self tableView:self.estmntable didSelectRowAtIndexPath:indexPath];
+    //
+    //        return;
+    //    }
+    
+    //    CGPoint rootViewPoint = [label.superview convertPoint:center toView:self.estmntable];
+    //    NSIndexPath *textFieldIndexPath = [self.estmntable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",indexPath.row);
+    
+    ModlEstimation*estmdl=(ModlEstimation *)[_Estimationarray objectAtIndex:indexPath.row];
+    
+    _detailctrl=[[DetailplanViewController alloc]initWithNibName:@"DetailplanViewController" bundle:nil];
+    _detailctrl.fromestmn=1;
+    _detailctrl.Estmnhr=estmdl.eqhr;
+      _detailctrl.Estmnpln=estmdl.PlanId;
+    [self presentViewController:_detailctrl animated:YES completion:nil];
+    
+}
+
 
 #pragma mark-Webservice
 -(void)SelectAllCustomer{

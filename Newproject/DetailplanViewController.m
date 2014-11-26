@@ -45,16 +45,7 @@
     _scaffoldbtn.tintColor=[UIColor blackColor];
      _fireproofingbtn.tintColor=[UIColor blackColor];
      _insulationbtn.tintColor=[UIColor blackColor];
-    _searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
-    _searchbar.delegate = (id)self;
-    _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     
-    UISearchDisplayController *searchctrlr=[[UISearchDisplayController alloc]initWithSearchBar:_searchbar contentsController:self];
-    searchctrlr.searchResultsDelegate=(id)self;
-    searchctrlr.searchResultsDataSource=(id)self;
-    searchctrlr.delegate=(id)self;
-    self.generaltable.tableHeaderView=_searchbar;
-   
 
 }
 
@@ -75,7 +66,28 @@
     _fireproofingbtn.tintColor=[UIColor blackColor];
     _insulationbtn.tintColor=[UIColor blackColor];
         _navabar.title=[NSString stringWithFormat:@"Plan-%@",_planid];
+    if (_fromestmn==1) {
+        _searchstring=_Estmnhr;
+        _searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+        _searchbar.delegate = (id)self;
+        _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+        
+        UISearchDisplayController *searchctrlr=[[UISearchDisplayController alloc]initWithSearchBar:_searchbar contentsController:self];
+        searchctrlr.searchResultsDelegate=(id)self;
+        searchctrlr.searchResultsDataSource=(id)self;
+        searchctrlr.delegate=(id)self;
+        self.generaltable.tableHeaderView=_searchbar;
+        searchctrlr.searchBar.text=_Estmnhr;
+        _navabar.title=[NSString stringWithFormat:@"Plan-%@",_Estmnpln];
+        [self GeneralSearch];
+        
+        
+    }
+    else
+    {
+
       [self GeneralSelect];
+    }
     [self TotalManHoursSelect];
     [self TotalEqpHoursSelect];
     [self TotalMaterailQuantitySelect];

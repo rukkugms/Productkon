@@ -31,6 +31,11 @@
     NSInteger searchtype;
    
 }
+
+@property(readwrite)NSInteger fromestmn;
+@property(strong,nonatomic)NSString *Estmnhr;
+@property(strong,nonatomic)NSString *Estmnpln;
+@property(strong,nonatomic)NSString *Estmngencode;
 @property(strong,nonatomic)IBOutlet UINavigationItem *navabar;
 
 @property(strong,nonatomic)Customscaffoldingplan *scfldmdl;
