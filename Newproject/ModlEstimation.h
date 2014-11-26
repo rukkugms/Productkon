@@ -18,6 +18,10 @@
 @property(strong,nonatomic)NSString *startdate;
 @property(strong,nonatomic)NSString *enddate;
 @property(strong,nonatomic)NSString *foldid;
+@property(strong,nonatomic)NSString *manhr;
+@property(strong,nonatomic)NSString *eqhr;
+@property(strong,nonatomic)NSString *mathr
+;
 
 
 @end
