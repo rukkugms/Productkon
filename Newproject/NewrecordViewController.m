@@ -1773,6 +1773,9 @@ recordResults
     
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(230.0f, 200.0f);
+    self.popOverController=_popOverController;
+
     
     //
     //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -2035,6 +2038,9 @@ recordResults
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(315.0f, 330.0f);
+    self.popOverController=_popOverController;
+    
     if (istr==1) {
 
     [self.popOverController presentPopoverFromRect:_startdatebtnlbl.frame
@@ -2214,6 +2220,7 @@ recordResults
     _popOverController = [[UIPopoverController alloc] initWithContentViewController:viewCon];
     
     
+    
     [_popOverController presentPopoverFromRect:_timebtn.frame
                                         inView:self.view
                       permittedArrowDirections:UIPopoverArrowDirectionUp | UIPopoverArrowDirectionDown
@@ -2249,6 +2256,9 @@ recordResults
     popovercontent.view=popoverview;
     popovercontent.contentSizeForViewInPopover=CGSizeMake(235, 250);
     self.popOverController=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
+    self.popOverController.popoverContentSize=CGSizeMake(235.0f, 250.0f);
+    self.popOverController=_popOverController;
+
     [self.popOverController presentPopoverFromRect:_servcbtn.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 
 }
