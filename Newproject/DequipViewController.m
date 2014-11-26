@@ -329,7 +329,7 @@
         _equipitemdestlabel=(UILabel *)[cell viewWithTag:1];
         _equipitemdestlabel.text=dmodel.EquipmentCrewName;
         _equipdescdestlabel=(UILabel *)[cell viewWithTag:2];
-        _equipdescdestlabel.text=dmodel.hours;
+        _equipdescdestlabel.text=[NSString stringWithFormat:@"%.2f",[dmodel.hours doubleValue]];
         _equipquantdestlabel=(UILabel *)[cell viewWithTag:3];
         _equipquantdestlabel.text=dmodel.qty;
            NSLog(@"%@",dmodel.ratestring);

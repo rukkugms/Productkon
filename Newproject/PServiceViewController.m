@@ -344,13 +344,13 @@
     _servicelbl=(UILabel *)[cell viewWithTag:1];
     _servicelbl.text=pmdl.skillname;
     _mnhrlbl=(UILabel *)[cell viewWithTag:2];
-    _mnhrlbl.text=pmdl.mnhr;
+    _mnhrlbl.text=[NSString stringWithFormat:@"%.2f",[pmdl.mnhr doubleValue]];
     _eqhrlbl=(UILabel *)[cell viewWithTag:3];
-    _eqhrlbl.text=pmdl.eqhr;
+    _eqhrlbl.text=[NSString stringWithFormat:@"%.2f",[pmdl.eqhr doubleValue]];
     _mthrlbl=(UILabel *)[cell viewWithTag:4];
-    _mthrlbl.text=pmdl.mthr;
+    _mthrlbl.text=[NSString stringWithFormat:@"%d",[pmdl.mthr integerValue]];
     
-           return cell;
+    return cell;
 }
 #pragma mark-Tableview UITableViewDelegate
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
