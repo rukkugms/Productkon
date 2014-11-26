@@ -2038,7 +2038,7 @@ recordResults
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
-    self.popOverController.popoverContentSize=CGSizeMake(315.0f, 330.0f);
+    self.popOverController.popoverContentSize=CGSizeMake(320.0f, 340.0f);
     self.popOverController=_popOverController;
     
     if (istr==1) {
