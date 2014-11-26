@@ -78,7 +78,7 @@
         searchctrlr.delegate=(id)self;
         self.generaltable.tableHeaderView=_searchbar;
         searchctrlr.searchBar.text=_Estmnhr;
-        
+        _navabar.title=[NSString stringWithFormat:@"Plan-%@",_Estmnpln];
         [self GeneralSearch];
         
         

@@ -458,7 +458,7 @@ if (tableView==_estmntable) {
     _detailctrl=[[DetailplanViewController alloc]initWithNibName:@"DetailplanViewController" bundle:nil];
     _detailctrl.fromestmn=1;
     _detailctrl.Estmnhr=estmdl.manhr;
-     _detailctrl.Estmnhr=estmdl.PlanId;
+     _detailctrl.Estmnpln=estmdl.PlanId;
     [self presentViewController:_detailctrl animated:YES completion:nil];
     
 }
@@ -487,7 +487,7 @@ if (tableView==_estmntable) {
     _detailctrl=[[DetailplanViewController alloc]initWithNibName:@"DetailplanViewController" bundle:nil];
     _detailctrl.fromestmn=1;
     _detailctrl.Estmnhr=estmdl.eqhr;
-      _detailctrl.Estmnhr=estmdl.PlanId;
+      _detailctrl.Estmnpln=estmdl.PlanId;
     [self presentViewController:_detailctrl animated:YES completion:nil];
     
 }
