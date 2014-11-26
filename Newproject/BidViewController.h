@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Bidmodel.h"
 #import "DisplayBidTableViewController.h"
+#import "LeadsViewController.h"
+#import "NewCustmrViewController.h"
+
 
 @interface BidViewController : UIViewController
 {
@@ -18,7 +21,8 @@
     NSInteger btnindex;
      NSInteger selectedcell;
 }
-
+@property(strong,nonatomic)NewCustmrViewController *customerctrl;
+@property(strong,nonatomic)LeadsViewController *leadctrl;
 @property(strong,nonatomic)Bidmodel *bidmdl;
 @property(strong,nonatomic)NSString *searchstring;
 @property(strong,nonatomic)DisplayBidTableViewController *Displayctrlr;
