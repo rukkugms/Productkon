@@ -1456,7 +1456,7 @@
         _numberlbl=(UILabel *)[cell viewWithTag:3];
         _numberlbl.text=gendtdlmdl.numbers;
         _hurslbl=(UILabel *)[cell viewWithTag:4];
-        _hurslbl.text=gendtdlmdl.hours;
+        _hurslbl.text=[NSString stringWithFormat:@"%.2f",[gendtdlmdl.hours doubleValue]];
 
         }
     if (tableView==_materialtable){

@@ -106,7 +106,7 @@ self.openviewindex=NSNotFound;
     _namelabel=(UILabel *)[cell viewWithTag:2];
     _namelabel.text=bmdl.customername;
     _amountlabel=(UILabel *)[cell viewWithTag:3];
-    _amountlabel.text=[NSString stringWithFormat:@"$%@",bmdl.totalamount];
+    _amountlabel.text=[NSString stringWithFormat:@"$%.2f",[bmdl.totalamount doubleValue]];
     _statuslabel=(UILabel *)[cell viewWithTag:4];
     _statuslabel.text=bmdl.bidstatus;
 
