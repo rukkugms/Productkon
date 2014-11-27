@@ -104,6 +104,10 @@ self.openviewindex=NSNotFound;
     _bididlabel=(UILabel *)[cell viewWithTag:1];
     _bididlabel.text=bmdl.bidid;
     _namelabel=(UILabel *)[cell viewWithTag:2];
+        UITapGestureRecognizer *tapGesture1 =
+        [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap:)];
+        [_namelabel addGestureRecognizer:tapGesture1];
+
     _namelabel.text=bmdl.customername;
     _amountlabel=(UILabel *)[cell viewWithTag:3];
     _amountlabel.text=[NSString stringWithFormat:@"$%.2f",[bmdl.totalamount doubleValue]];
@@ -137,6 +141,44 @@ self.openviewindex=NSNotFound;
         }
     }
 }
+#pragma mark - Tap Gesture
+-(void)labelTap:(UITapGestureRecognizer *)sender{
+    
+//    CGPoint location = [sender locationInView:self.view];
+//    CGPoint locationInTableview = [self.bidtable convertPoint:location fromView:self.view];
+//    NSIndexPath *indexPath = [self.bidtable indexPathForRowAtPoint:locationInTableview];
+//    
+//  
+//    NSLog(@"textFieldIndexPath%d",indexPath.row);
+//    
+//    Bidmodel*bmdl=(Bidmodel *)[_bidlistarray objectAtIndex:indexPath.row];
+//
+//    
+//    if (bmdl.leadid==0) {
+//        
+//        
+//    }
+//    else{
+//        _leadctrl=[[LeadsViewController alloc]initWithNibName:@"LeadsViewController" bundle:nil];
+//        _leadctrl.frmplan=1;
+//        _leadctrl.planorganztn=bmdl.customername;
+//        [self presentViewController:_leadctrl animated:YES completion:nil];
+//    }
+//    if (bmdl.customerid==0) {
+//        
+//        
+//    }
+//    else{
+//        _customerctrl=[[NewCustmrViewController alloc]initWithNibName:@"NewCustmrViewController" bundle:nil];
+//        _customerctrl.frmplan=1;
+//        _customerctrl.planorganztn=bmdl.customername;
+//        [self presentViewController:_customerctrl animated:YES completion:nil];
+//        
+//    }
+
+    
+}
+
 #pragma mark - Table View delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

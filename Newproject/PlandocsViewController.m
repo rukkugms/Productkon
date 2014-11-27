@@ -205,7 +205,7 @@
         
         recordResults = FALSE;
         //jobtypeitm=_soapResults;
-        docname=_soapResults;
+        
         
         
         _soapResults = nil;
@@ -214,7 +214,7 @@
     if([elementName isEqualToString:@"DocumentType"])
     {
         recordResults = FALSE;
-       
+       docname=_soapResults;
     _soapResults = nil;
     }
     if([elementName isEqualToString:@"FilePath"])

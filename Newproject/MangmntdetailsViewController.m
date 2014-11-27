@@ -2640,7 +2640,7 @@ _notesbtn.tintColor=[UIColor blackColor];
     NSIndexPath *textFieldIndexPath = [self.docutable indexPathForRowAtPoint:rootViewPoint];
     
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
-    NSString *fullURL =[NSString stringWithFormat:@"http://ios.kontract360.com%@",[_documntdict objectForKey:[_documentarray objectAtIndex:textFieldIndexPath.row]]];
+    NSString *fullURL =[NSString stringWithFormat:@"http://192.168.0.175:7342%@",[_documntdict objectForKey:[_documentarray objectAtIndex:textFieldIndexPath.row]]];
         //if (!self.webctrl) {
         self.webctrl=[[WebViewController alloc]initWithNibName:@"WebViewController" bundle:nil];
    // }
