@@ -544,6 +544,10 @@
 		D4EBA8601978F40800B612E1 /* eqtermsmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EBA85F1978F40800B612E1 /* eqtermsmdl.m */; };
 		D4EBA8641978FD6C00B612E1 /* Trecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4EBA8631978FD6C00B612E1 /* Trecell.xib */; };
 		D4EBA8671978FE7700B612E1 /* Thrtrmsmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EBA8661978FE7700B612E1 /* Thrtrmsmdl.m */; };
+		D4EBB9571A26E15C006A8795 /* GpFleetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EBB9551A26E15B006A8795 /* GpFleetViewController.m */; };
+		D4EBB9581A26E15C006A8795 /* GpFleetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4EBB9561A26E15B006A8795 /* GpFleetViewController.xib */; };
+		D4EBB95A1A26E194006A8795 /* Gpfleetcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4EBB9591A26E194006A8795 /* Gpfleetcell.xib */; };
+		D4EBB95C1A26E1C3006A8795 /* Fleetgroupcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4EBB95B1A26E1C3006A8795 /* Fleetgroupcell.xib */; };
 		D4EC1FE11875280500A55942 /* textbox.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EC1FE01875280500A55942 /* textbox.png */; };
 		D4EC7E3C192A09FD00C60BA9 /* DrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7E3A192A09FD00C60BA9 /* DrawingViewController.m */; };
 		D4EC7E3D192A09FD00C60BA9 /* DrawingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4EC7E3B192A09FD00C60BA9 /* DrawingViewController.xib */; };
@@ -1353,6 +1357,11 @@
 		D4EBA8631978FD6C00B612E1 /* Trecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Trecell.xib; sourceTree = "<group>"; };
 		D4EBA8651978FE7700B612E1 /* Thrtrmsmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thrtrmsmdl.h; sourceTree = "<group>"; };
 		D4EBA8661978FE7700B612E1 /* Thrtrmsmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thrtrmsmdl.m; sourceTree = "<group>"; };
+		D4EBB9541A26E15B006A8795 /* GpFleetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GpFleetViewController.h; sourceTree = "<group>"; };
+		D4EBB9551A26E15B006A8795 /* GpFleetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GpFleetViewController.m; sourceTree = "<group>"; };
+		D4EBB9561A26E15B006A8795 /* GpFleetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GpFleetViewController.xib; sourceTree = "<group>"; };
+		D4EBB9591A26E194006A8795 /* Gpfleetcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Gpfleetcell.xib; sourceTree = "<group>"; };
+		D4EBB95B1A26E1C3006A8795 /* Fleetgroupcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Fleetgroupcell.xib; sourceTree = "<group>"; };
 		D4EC1FE01875280500A55942 /* textbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textbox.png; sourceTree = "<group>"; };
 		D4EC7E39192A09FD00C60BA9 /* DrawingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingViewController.h; sourceTree = "<group>"; };
 		D4EC7E3A192A09FD00C60BA9 /* DrawingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingViewController.m; sourceTree = "<group>"; };
@@ -1616,6 +1625,11 @@
 				D4F0AD4019306866004821DD /* GpMaterViewController.xib */,
 				D4F0AD4119306866004821DD /* Magpcell.xib */,
 				D4F0AD4219306866004821DD /* Metgroupcell.xib */,
+				D4EBB9541A26E15B006A8795 /* GpFleetViewController.h */,
+				D4EBB9551A26E15B006A8795 /* GpFleetViewController.m */,
+				D4EBB9561A26E15B006A8795 /* GpFleetViewController.xib */,
+				D4EBB9591A26E194006A8795 /* Gpfleetcell.xib */,
+				D4EBB95B1A26E1C3006A8795 /* Fleetgroupcell.xib */,
 			);
 			name = "Group SetUp";
 			sourceTree = "<group>";
@@ -2661,6 +2675,7 @@
 				D4149F28177186C100738AAC /* squareimage1.png in Resources */,
 				64A09DAE1860549E001F74E2 /* appbar.checkmark.thick.png in Resources */,
 				D40736C118BB1E9B00C5DB30 /* right_arrow@2x.png in Resources */,
+				D4EBB95C1A26E1C3006A8795 /* Fleetgroupcell.xib in Resources */,
 				D4F0AD4619306866004821DD /* Metgroupcell.xib in Resources */,
 				D4A16B371974EEA8002CA2A2 /* customplancell.xib in Resources */,
 				D4F19DEC18D03AD1007617F0 /* FollowupViewController.xib in Resources */,
@@ -2671,6 +2686,7 @@
 				D4A16B561974EEA8002CA2A2 /* SecondMdragcell.xib in Resources */,
 				64A3B81518DFEE980015887F /* CustomLeadCell.xib in Resources */,
 				D47A9B3019407D53001CC416 /* smalltoolsicon.png in Resources */,
+				D4EBB9581A26E15C006A8795 /* GpFleetViewController.xib in Resources */,
 				D4399EBC186D7BB100A693F7 /* search-button@2x.png in Resources */,
 				D4A6749119345E6C00D5A77E /* IconDateGrey@2x.png in Resources */,
 				D44DF4EE19A5D73B00F3E9AB /* Sign-RadioButton01.png in Resources */,
@@ -2696,6 +2712,7 @@
 				D47A9B2C19407D22001CC416 /* manpowericon.png in Resources */,
 				D47A9B1319407A8A001CC416 /* basic-requirment.png in Resources */,
 				D4F19DA018D01CDB007617F0 /* NewCustmrViewController.xib in Resources */,
+				D4EBB95A1A26E194006A8795 /* Gpfleetcell.xib in Resources */,
 				D4ACE56819C1B1020060A352 /* CraftViewController.xib in Resources */,
 				D4A14B451A0A27B80039FBE1 /* process.png in Resources */,
 				D4A16B8B1974EEE0002CA2A2 /* BidViewController.xib in Resources */,
@@ -3088,6 +3105,7 @@
 				64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */,
 				64B07B671A00B46400304153 /* Fstmarkmdl.m in Sources */,
 				D4A338D518F3EE8700E53FAC /* subheadermarkmodel.m in Sources */,
+				D4EBB9571A26E15C006A8795 /* GpFleetViewController.m in Sources */,
 				D4F0940019F22C6100C3B527 /* BezierInterpView.m in Sources */,
 				646A28B91937351D00902C4A /* Eqeventmdl.m in Sources */,
 				D410CC5119AB4AE50093DDE6 /* FtileViewController.m in Sources */,

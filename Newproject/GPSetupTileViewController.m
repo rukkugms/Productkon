@@ -48,6 +48,12 @@
     doubleTap2.numberOfTapsRequired=1;
     doubleTap2.delegate=(id)self;
     [self.materview addGestureRecognizer:doubleTap2];
+    UITapGestureRecognizer *doubleTap3 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(fleetPage)];
+    doubleTap3.numberOfTapsRequired=1;
+    doubleTap3.delegate=(id)self;
+    [self.fleetview addGestureRecognizer:doubleTap3];
    
     // Do any additional setup after loading the view from its nib.
 }
@@ -117,6 +123,27 @@
       _materview.userInteractionEnabled=NO;
 
     }
+
+-(void)FleetPage
+{
+    
+    //_gpmateractivity.hidden=NO;
+    //[_gpmateractivity startAnimating];
+    
+   // _ModuleID=33;
+   // [self UserLogmaininsert];
+   // [self UserRightsforparticularmoduleselect];
+    //_materview.userInteractionEnabled=NO;
+    _fleetVCtrl=[[GpFleetViewController alloc]initWithNibName:@"GpFleetViewController" bundle:nil];
+    // }
+    //_crewctrl.modalPresentationStyle = UIModalPresentationPageSheet;
+   
+    [self presentViewController:_fleetVCtrl
+                       animated:YES completion:NULL];
+
+    
+}
+
 #pragma mark-Webservice
 -(void)UserRightsforparticularmoduleselect{
     recordResults = FALSE;

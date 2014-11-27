@@ -10,6 +10,7 @@
 #import "CrewsetupViewController.h"
 #import "GroupEqupViewController.h"
 #import "GpMaterViewController.h"
+#import "GpFleetViewController.h"
 #import "Rightscheck.h"
 
 @interface GPSetupTileViewController : UIViewController
@@ -26,10 +27,13 @@
 @property(strong,nonatomic)IBOutlet UIView *manview;
 @property(strong,nonatomic)IBOutlet UIView *equipview;
 @property(strong,nonatomic)IBOutlet UIView *materview;
+@property (strong, nonatomic) IBOutlet UIView *fleetview;
 
 @property(strong,nonatomic)CrewsetupViewController *crewctrl;
 @property(strong,nonatomic)GroupEqupViewController *equipVCtrl;
 @property(strong,nonatomic)GpMaterViewController *materialVCtrl;
+@property(strong,nonatomic)GpFleetViewController*fleetVCtrl;
+
 @property(strong,nonatomic)Rightscheck *rights;
 
 @property(readwrite)NSInteger ModuleID;
