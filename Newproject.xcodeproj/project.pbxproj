@@ -1665,7 +1665,6 @@
 				D42428151A2832B700E1F58E /* GPConusumViewController.h */,
 				D42428161A2832B700E1F58E /* GPConusumViewController.m */,
 				D42428171A2832B700E1F58E /* GPConusumViewController.xib */,
-				D4B3E2A81A2833E900D398ED /* Consumgroupcell.xib */,
 				D4B3E2AA1A28343F00D398ED /* Gpconsumcell.xib */,
 				64C3BB381A2836D000E5A3EA /* SmallgpViewController.h */,
 				64C3BB391A2836D000E5A3EA /* SmallgpViewController.m */,
