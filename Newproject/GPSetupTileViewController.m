@@ -130,7 +130,7 @@
 
     }
 
--(void)FleetPage
+-(void)fleetPage
 {
     
     //_gpmateractivity.hidden=NO;
