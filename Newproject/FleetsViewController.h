@@ -31,7 +31,9 @@ NSInteger popvr;
     NSString*skill;
     NSString *fleetcode;
     NSString *createstring;
+      NSString *categorystring;
     NSInteger createcheck;
+     NSInteger categorycheck;
     NSInteger imagechecker;
     
 
@@ -149,7 +151,7 @@ NSInteger popvr;
 @property(strong,nonatomic)IBOutlet UIButton *subcheckbtn;
 @property (strong, nonatomic) IBOutlet UIButton *categrybtnlbl;
 
-- (IBAction)categrybtn:(id)sender;
-
+- (IBAction)checkcategory:(id)sender;
+@property(strong,nonatomic)IBOutlet UIButton *catcheck;
 
 @end

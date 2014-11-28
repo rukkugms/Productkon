@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FleetsViewController">
@@ -10,6 +10,7 @@
                 <outlet property="activitybtn" destination="ctO-Ok-4ka" id="S4J-bW-e38"/>
                 <outlet property="addview" destination="O7G-oF-xvt" id="BbP-Jw-4zW"/>
                 <outlet property="cancelbtn" destination="BL7-x6-gLH" id="9Pr-jo-8uF"/>
+                <outlet property="catcheck" destination="Ydw-EK-yBV" id="3DV-FI-KVS"/>
                 <outlet property="codetxtfld" destination="AS8-Qh-Qqm" id="sn8-ry-LdZ"/>
                 <outlet property="condtntxtfld" destination="hkI-kJ-F6W" id="mSL-3Y-frr"/>
                 <outlet property="dailytxtfld" destination="vUn-gB-dJF" id="A37-Ym-HfS"/>
@@ -479,6 +480,23 @@
                                                 <action selector="closeimage:" destination="-1" eventType="touchUpInside" id="zKX-Om-sri"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ydw-EK-yBV">
+                                            <rect key="frame" x="147" y="122" width="31" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="cb_mono_off.png">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="checkcategory:" destination="-1" eventType="touchUpInside" id="yXk-T0-orY"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sHs-2c-Arf">
+                                            <rect key="frame" x="147" y="104" width="107" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" red="0.78902264030000002" green="0.78902264030000002" blue="0.78902264030000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </scrollView>
@@ -502,4 +520,9 @@
         <image name="ios7-camera-icon.png" width="128" height="128"/>
         <image name="mNoImage.png" width="512" height="512"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
 </document>
