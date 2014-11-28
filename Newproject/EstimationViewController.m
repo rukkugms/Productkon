@@ -357,7 +357,7 @@ if (tableView==_estmntable) {
     CGPoint location = [sender locationInView:self.view];
     CGPoint locationInTableview = [self.estmntable convertPoint:location fromView:self.view];
     NSIndexPath *indexPath = [self.estmntable indexPathForRowAtPoint:locationInTableview];
-    
+   
 //    if (CGRectContainsPoint([self.view convertRect:self.estmntable.frame fromView:self.estmntable.superview], location))
 //    {
 //        CGPoint locationInTableview = [self.estmntable convertPoint:location fromView:self.view];
@@ -434,11 +434,11 @@ if (tableView==_estmntable) {
     
 }
 -(void)labelTap2:(UITapGestureRecognizer *)sender{
-    
+    _seperator=1;
     CGPoint location = [sender locationInView:self.view];
     CGPoint locationInTableview = [self.estmntable convertPoint:location fromView:self.view];
     NSIndexPath *indexPath = [self.estmntable indexPathForRowAtPoint:locationInTableview];
-    
+     planpath=indexPath.row;
     //    if (CGRectContainsPoint([self.view convertRect:self.estmntable.frame fromView:self.estmntable.superview], location))
     //    {
     //        CGPoint locationInTableview = [self.estmntable convertPoint:location fromView:self.view];
@@ -452,22 +452,16 @@ if (tableView==_estmntable) {
     //    CGPoint rootViewPoint = [label.superview convertPoint:center toView:self.estmntable];
     //    NSIndexPath *textFieldIndexPath = [self.estmntable indexPathForRowAtPoint:rootViewPoint];
     NSLog(@"textFieldIndexPath%d",indexPath.row);
-    
-    ModlEstimation*estmdl=(ModlEstimation *)[_Estimationarray objectAtIndex:indexPath.row];
+    [self GetSkillforEstimation];
   
-    _detailctrl=[[DetailplanViewController alloc]initWithNibName:@"DetailplanViewController" bundle:nil];
-    _detailctrl.fromestmn=1;
-    _detailctrl.Estmnhr=estmdl.manhr;
-     _detailctrl.Estmnpln=estmdl.PlanId;
-    [self presentViewController:_detailctrl animated:YES completion:nil];
     
 }
 -(void)labelTap3:(UITapGestureRecognizer *)sender{
-    
+    _seperator=2;
     CGPoint location = [sender locationInView:self.view];
     CGPoint locationInTableview = [self.estmntable convertPoint:location fromView:self.view];
     NSIndexPath *indexPath = [self.estmntable indexPathForRowAtPoint:locationInTableview];
-    
+     planpath=indexPath.row;
     //    if (CGRectContainsPoint([self.view convertRect:self.estmntable.frame fromView:self.estmntable.superview], location))
     //    {
     //        CGPoint locationInTableview = [self.estmntable convertPoint:location fromView:self.view];
@@ -481,14 +475,14 @@ if (tableView==_estmntable) {
     //    CGPoint rootViewPoint = [label.superview convertPoint:center toView:self.estmntable];
     //    NSIndexPath *textFieldIndexPath = [self.estmntable indexPathForRowAtPoint:rootViewPoint];
     NSLog(@"textFieldIndexPath%d",indexPath.row);
-    
-    ModlEstimation*estmdl=(ModlEstimation *)[_Estimationarray objectAtIndex:indexPath.row];
-    
-    _detailctrl=[[DetailplanViewController alloc]initWithNibName:@"DetailplanViewController" bundle:nil];
-    _detailctrl.fromestmn=1;
-    _detailctrl.Estmnhr=estmdl.eqhr;
-      _detailctrl.Estmnpln=estmdl.PlanId;
-    [self presentViewController:_detailctrl animated:YES completion:nil];
+    [self GetSkillforEstimation];
+//    ModlEstimation*estmdl=(ModlEstimation *)[_Estimationarray objectAtIndex:indexPath.row];
+//    
+//    _detailctrl=[[DetailplanViewController alloc]initWithNibName:@"DetailplanViewController" bundle:nil];
+//    _detailctrl.fromestmn=1;
+//    _detailctrl.Estmnhr=estmdl.eqhr;
+//      _detailctrl.Estmnpln=estmdl.PlanId;
+//    [self presentViewController:_detailctrl animated:YES completion:nil];
     
 }
 
@@ -641,6 +635,57 @@ if (tableView==_estmntable) {
     }
     
 }
+-(void)GetSkillforEstimation{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    ModlEstimation*estmdl=(ModlEstimation *)[_Estimationarray objectAtIndex:planpath];
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<GetSkillforEstimation xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<PlanId>%@</PlanId>\n"
+                   "<ServiceId>%d</ServiceId>\n"
+                   "</GetSkillforEstimation>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",estmdl.PlanId,[estmdl.skill integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/GetSkillforEstimation" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 -(void)EstimateInsert{
     recordResults = FALSE;
     
@@ -1122,6 +1167,27 @@ if (tableView==_estmntable) {
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"GetSkillforEstimationResponse"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"PSItemCode"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     
 
 
@@ -1137,6 +1203,7 @@ if (tableView==_estmntable) {
         [_soapResults appendString: string];
     }
 }
+
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
     
@@ -1177,7 +1244,8 @@ if (tableView==_estmntable) {
     {
         
         recordResults = FALSE;
-                 _soapResults = nil;
+         _mdlestmtn.skill=_soapResults;
+        _soapResults = nil;
 
     }
     if([elementName isEqualToString:@"PlanId"])
@@ -1291,6 +1359,27 @@ if (tableView==_estmntable) {
         recordResults = FALSE;
         [_wrktypebtnlbl setTitle:[_revtypelistarray objectForKey:_soapResults] forState:UIControlStateNormal];
             _soapResults = nil;
+        
+    }
+    
+    if([elementName isEqualToString:@"PSItemCode"])
+    {
+        recordResults = FALSE;
+        ModlEstimation*estmdl=(ModlEstimation *)[_Estimationarray objectAtIndex:planpath];
+        
+        _detailctrl=[[DetailplanViewController alloc]initWithNibName:@"DetailplanViewController" bundle:nil];
+        _detailctrl.fromestmn=1;
+        if (_seperator==1) {
+            _detailctrl.Estmnhr=estmdl.manhr;
+        }
+        else if (_seperator==2) {
+            _detailctrl.Estmnhr=estmdl.eqhr;
+        }
+
+        _detailctrl.Estmnpln=[estmdl.PlanId stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        _detailctrl.Estmngencode=_soapResults;
+        [self presentViewController:_detailctrl animated:YES completion:nil];
+        _soapResults = nil;
         
     }
     

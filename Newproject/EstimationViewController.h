@@ -27,9 +27,11 @@
     NSString * typestg;
     NSInteger disindex;
     UILabel *label;
+    NSInteger planpath;
     
     
 }
+@property(readwrite)NSInteger seperator;
 @property(strong,nonatomic)DetailplanViewController *detailctrl;
 @property(strong,nonatomic)LeadsViewController *leadctrl;
 @property(strong,nonatomic)NewCustmrViewController *custctrl;

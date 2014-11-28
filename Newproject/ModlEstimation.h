@@ -20,7 +20,7 @@
 @property(strong,nonatomic)NSString *foldid;
 @property(strong,nonatomic)NSString *manhr;
 @property(strong,nonatomic)NSString *eqhr;
-@property(strong,nonatomic)NSString *mathr;
+@property(strong,nonatomic)NSString *skill;
 
 
 @end
