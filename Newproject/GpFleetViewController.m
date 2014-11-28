@@ -1161,8 +1161,9 @@
             
            
         }
+    }
 
-     
+    
         if(tableView==_popOverTableView){
             switch (poptype) {
                 case 1:
@@ -1195,7 +1196,7 @@
 
         }
         
-    }
+    
     if (tableView==_groupfleettable) {
         
         Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:indexPath.row];
