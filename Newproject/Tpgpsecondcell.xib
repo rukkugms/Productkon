@@ -31,15 +31,15 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kD5-Dn-F7f">
-                        <rect key="frame" x="174" y="0.0" width="1" height="43"/>
+                        <rect key="frame" x="174" y="0.0" width="1" height="45"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bSr-XH-xC5">
-                        <rect key="frame" x="323" y="0.0" width="1" height="43"/>
+                        <rect key="frame" x="323" y="0.0" width="1" height="45"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <label opaque="NO" clipsSubviews="YES" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKw-pt-Tpi">
-                        <rect key="frame" x="8" y="11" width="133" height="21"/>
+                        <rect key="frame" x="18" y="11" width="133" height="21"/>
                         <string key="text" base64-UTF8="YES">
 SXRlbSAQY29kZQ
 </string>
