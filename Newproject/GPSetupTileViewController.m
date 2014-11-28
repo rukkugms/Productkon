@@ -191,7 +191,7 @@
 }
 -(void)smalltoolpage{
     
-    _smallVCtrl=[[SmallgpViewController alloc]initWithNibName:@"SmallgpViewController" bundle:nil];
+    _smallVCtrl=[[GSmallViewController alloc]initWithNibName:@"GSmallViewController" bundle:nil];
     // }
     //_crewctrl.modalPresentationStyle = UIModalPresentationPageSheet;
     
