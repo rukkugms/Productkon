@@ -16,6 +16,7 @@
                 <outlet property="gpmateractivity" destination="oNf-zf-7KS" id="v6z-Qr-gXi"/>
                 <outlet property="manview" destination="cRA-LT-RkS" id="gfi-fH-bBk"/>
                 <outlet property="materview" destination="DO1-2D-JUb" id="JQm-M4-kfx"/>
+                <outlet property="smalltoolview" destination="dH8-cC-AzU" id="IUj-uB-5zm"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>
@@ -184,6 +185,29 @@
                     </subviews>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
+                <view contentMode="scaleToFill" id="dH8-cC-AzU">
+                    <rect key="frame" x="27" y="462" width="149" height="150"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smalltoolsicon.png" id="btC-4j-Iqs">
+                            <rect key="frame" x="37" y="21" width="75" height="75"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="Ich-sS-JbH">
+                            <rect key="frame" x="56" y="40" width="37" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Small Tools" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="abE-y0-eYV">
+                            <rect key="frame" x="37" y="104" width="91" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -198,6 +222,7 @@
         <image name="appbar.close.png" width="76" height="76"/>
         <image name="consumablesicon.png" width="512" height="512"/>
         <image name="fleeticon.png" width="512" height="512"/>
+        <image name="smalltoolsicon.png" width="512" height="512"/>
         <image name="thridpartyicon.png" width="512" height="512"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
