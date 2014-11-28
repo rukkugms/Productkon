@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SitevisitViewController">
@@ -24,7 +24,7 @@
                 <outlet property="equipmentview" destination="yH7-LT-N8m" id="A9V-Nt-nTW"/>
                 <outlet property="equpmntslbl" destination="egx-hO-R4Q" id="DYk-CM-d6J"/>
                 <outlet property="esatitleview" destination="SQ1-XX-9jj" id="PTt-0j-5xb"/>
-                <outlet property="facilitytxtview" destination="MGX-iK-94e" id="OTF-JM-82p"/>
+                <outlet property="facilitytxtview" destination="DFC-Xp-kpQ" id="q6q-Qd-Aoj"/>
                 <outlet property="genralbtnlbl" destination="h1n-MT-2Ns" id="EZU-6v-Kus"/>
                 <outlet property="gernalbtnlbl" destination="a3h-G4-w0u" id="d7c-3A-hEr"/>
                 <outlet property="gernalview" destination="Gcq-hx-B5r" id="sMX-XN-iaT"/>
@@ -54,7 +54,7 @@
                 <outlet property="safetyview" destination="M4O-Ol-Vze" id="UPs-rv-3gd"/>
                 <outlet property="safteytitleview" destination="9nf-TD-E7d" id="6lf-28-HEq"/>
                 <outlet property="saftybtnlbl" destination="17p-bj-zEs" id="saY-N5-eXa"/>
-                <outlet property="scpeofwrktxtview" destination="DFC-Xp-kpQ" id="fjh-YX-WRf"/>
+                <outlet property="scpeofwrktxtview" destination="MGX-iK-94e" id="G1Z-el-mC0"/>
                 <outlet property="scrollview" destination="y3Y-fN-Sv9" id="lQv-fr-afv"/>
                 <outlet property="tabletitleview" destination="PHA-u6-Q1v" id="Q8Z-n5-vu0"/>
                 <outlet property="view" destination="2" id="3"/>
@@ -1055,4 +1055,9 @@
         <image name="rectangle3.png" width="551" height="327"/>
         <image name="textbox.png" width="298" height="64"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
 </document>

@@ -234,6 +234,20 @@
             
             
         }
+        if ([eqmdl.Eqcategory isEqualToString:@"true"]) {
+            _categrybtnlbl.enabled=NO;
+            // [_allcrftbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_categrybtnlbl setTitle:@"All Category" forState:UIControlStateNormal];
+            
+        }
+        else if([eqmdl.Eqcategory isEqualToString:@"false"]){
+            _categrybtnlbl.enabled=YES;
+            // [_allcrftbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+            [_categrybtnlbl setTitle:@"Category" forState:UIControlStateNormal];
+            
+            
+        }
+
 
     }
     return cell;
@@ -441,7 +455,7 @@
                    "<Insertfleet xmlns=\"http://ios.kontract360.com/\">\n"
                    "<ItemCode>%@</ItemCode>\n"
                    "<Description>%@</Description>\n"
-                   "<SubType>%@</SubType>\n"
+                   "<SubType>%d</SubType>\n"
                    "<PurchaseValue>%f</PurchaseValue>\n"
                    "<SerialNo>%@</SerialNo>\n"
                    "<ManufacturedYear>%d</ManufacturedYear>\n"
@@ -460,7 +474,7 @@
                    "<FLAllCrafts>%d</FLAllCrafts>\n"
                    "</Insertfleet>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,@"",[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[insured floatValue],_hurstxtfld.text,[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[_yearlytxtfld.text floatValue],[_stockinhandtxtfld.text floatValue],createcheck];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,categorycheck,[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[insured floatValue],_hurstxtfld.text,[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[_yearlytxtfld.text floatValue],[_stockinhandtxtfld.text floatValue],createcheck];
     NSLog(@"soapmsg%@",soapMessage);
    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
     
@@ -541,6 +555,34 @@
         
         
     }
+    NSInteger xcheck;
+    
+    if([categorystring isEqualToString:@"create"])
+    {
+        if (categorycheck==0) {
+            xcheck=0;
+        }
+        else{
+            xcheck=1;
+            
+        }
+        categorystring=@"";
+    }
+    else
+    {
+        if ([eqmdl.Eqcategory isEqualToString:@"true"]) {
+            
+            xcheck=1;
+        }
+        else //if([eqmdl.EqAllSubTypes isEqualToString:@"false"])
+        {
+            
+            xcheck=0;
+            
+        }
+        
+        
+    }
 
     
     soapMessage = [NSString stringWithFormat:
@@ -554,7 +596,7 @@
                    "<Updatefleet xmlns=\"http://ios.kontract360.com/\">\n"
                    "<ItemCode>%@</ItemCode>\n"
                    "<Description>%@</Description>\n"
-                   "<SubType>%@</SubType>\n"
+                   "<SubType>%d</SubType>\n"
                    "<PurchaseValue>%f</PurchaseValue>\n"
                    "<SerialNo>%@</SerialNo>\n"
                    "<ManufacturedYear>%d</ManufacturedYear>\n"
@@ -574,7 +616,7 @@
                    "<FLAllCrafts>%d</FLAllCrafts>\n"
                    "</Updatefleet>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,@"",[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[insured floatValue],_hurstxtfld.text ,[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[_yearlytxtfld.text floatValue],eqmdl.entryid,[_stockinhandtxtfld.text floatValue],check];
+                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,xcheck,[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[insured floatValue],_hurstxtfld.text ,[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[_yearlytxtfld.text floatValue],eqmdl.entryid,[_stockinhandtxtfld.text floatValue],check];
     NSLog(@"soapmsg%@",soapMessage);
     
     //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
@@ -1601,7 +1643,7 @@
     {
         
         recordResults = FALSE;
-        _Fleetmdl.subtype=[_revskilldict objectForKey:_soapResults];;
+        _Fleetmdl.Eqcategory=_soapResults;
         
         _soapResults = nil;    }
     
@@ -1907,6 +1949,7 @@ if([elementName isEqualToString:@"url"])
     _purchasetxtfld.text=@"";
     _serialtxtfld.text=@"";
      [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    [_catcheck setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     _manufattxtfld.text =@"";
     _insuredtxtfld.text=@"";
     _hurstxtfld.text=@"";
@@ -1990,6 +2033,20 @@ if([elementName isEqualToString:@"url"])
         
         
     }
+    if ([eqmdl.Eqcategory isEqualToString:@"true"]) {
+        
+        [_catcheck setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        categorycheck=1;
+        
+    }
+    else if([eqmdl.Eqcategory isEqualToString:@"false"]){
+        
+        [_catcheck setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        categorycheck=1;
+        
+        
+    }
+
     if(eqmdl.PictureLocation.length==0||[eqmdl.PictureLocation isEqualToString:@"NoImage.png"]){
         imagechecker=1;
     }
@@ -2098,6 +2155,7 @@ if([elementName isEqualToString:@"url"])
     _monthlytxtfld.text=@"";
     _yearlytxtfld.text=@"";
     _stockinhandtxtfld.text=@"";
+    [_catcheck setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     _picimageview.image=[UIImage imageNamed:@"mNoImage"];
     [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
      [_subcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
@@ -2306,8 +2364,13 @@ if([elementName isEqualToString:@"url"])
         _monthlytxtfld.text=@"";
         _yearlytxtfld.text=@"";
         _stockinhandtxtfld.text=@"";
+        createcheck=0;
+        categorycheck=0;
+        
         _picimageview.image=[UIImage imageNamed:@"mNoImage"];
         [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        [_catcheck setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_subcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         _searchbar.text=@"";
 
 
@@ -2633,5 +2696,21 @@ finishedSavingWithError:(NSError *)error
     self.CategryVCtrl.fleetid=_fleetid;
     [self presentViewController:self.CategryVCtrl animated:YES completion:nil];
     
+}
+- (IBAction)checkcategory:(id)sender
+{
+    categorystring=@"create";
+    if (categorycheck==0) {
+        [_catcheck setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        categorycheck=1;
+        
+    }
+    
+    else{
+        [_catcheck setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        categorycheck=0;
+        
+    }
+
 }
 @end
