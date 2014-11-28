@@ -1151,7 +1151,7 @@
         cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
         
         if (tableView==_consumtable) {
-            [[NSBundle mainBundle]loadNibNamed:@"Gpconsumcell" owner:self options:nil];
+            [[NSBundle mainBundle]loadNibNamed:@"ConsumbleGPcell" owner:self options:nil];
             
             cell=_consumcell;
         }
