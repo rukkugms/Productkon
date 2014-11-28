@@ -60,6 +60,15 @@
     doubleTap4.numberOfTapsRequired=1;
     doubleTap4.delegate=(id)self;
     [self.Thirdpartyview addGestureRecognizer:doubleTap4];
+    
+    
+    UITapGestureRecognizer *doubleTap5 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(Consumpage)];
+    doubleTap5.numberOfTapsRequired=1;
+    doubleTap5.delegate=(id)self;
+    [self.consumview addGestureRecognizer:doubleTap5];
+
    
     // Do any additional setup after loading the view from its nib.
 }
@@ -162,6 +171,17 @@
     
 }
 
+
+-(void)Consumpage{
+    
+    _consumVCtrl=[[GPConusumViewController alloc]initWithNibName:@"GPConusumViewController" bundle:nil];
+    // }
+    //_crewctrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    
+    [self presentViewController:_consumVCtrl
+                       animated:YES completion:NULL];
+    
+}
 
 #pragma mark-Webservice
 -(void)UserRightsforparticularmoduleselect{

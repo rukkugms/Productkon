@@ -13,6 +13,7 @@
 #import "GpFleetViewController.h"
 #import "Rightscheck.h"
 #import "TPGPViewController.h"
+#import "GPConusumViewController.h"
 
 @interface GPSetupTileViewController : UIViewController
 {
@@ -30,12 +31,16 @@
 @property(strong,nonatomic)IBOutlet UIView *materview;
 @property (strong, nonatomic) IBOutlet UIView *fleetview;
 @property (strong, nonatomic) IBOutlet UIView *Thirdpartyview;
+@property (strong, nonatomic) IBOutlet UIView *consumview;
+
+
 
 @property(strong,nonatomic)CrewsetupViewController *crewctrl;
 @property(strong,nonatomic)GroupEqupViewController *equipVCtrl;
 @property(strong,nonatomic)GpMaterViewController *materialVCtrl;
 @property(strong,nonatomic)GpFleetViewController*fleetVCtrl;
 @property(strong,nonatomic)TPGPViewController*thirdpartyVCtrl;
+@property(strong,nonatomic)GPConusumViewController*consumVCtrl;
 
 @property(strong,nonatomic)Rightscheck *rights;
 

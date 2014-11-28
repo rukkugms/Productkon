@@ -251,6 +251,8 @@
 		D41B14E9195C0CF500DEED6E /* RelatedtoMdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D41B14E8195C0CF500DEED6E /* RelatedtoMdl.m */; };
 		D41B14EB195C2D3F00DEED6E /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = D41B14EA195C2D3F00DEED6E /* images.png */; };
 		D41B14ED195C2F1700DEED6E /* calendarimg.png in Resources */ = {isa = PBXBuildFile; fileRef = D41B14EC195C2F1700DEED6E /* calendarimg.png */; };
+		D42428181A2832B700E1F58E /* GPConusumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42428161A2832B700E1F58E /* GPConusumViewController.m */; };
+		D42428191A2832B700E1F58E /* GPConusumViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42428171A2832B700E1F58E /* GPConusumViewController.xib */; };
 		D42505CA19A46830001D16A2 /* SecurityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42505C819A46830001D16A2 /* SecurityViewController.m */; };
 		D42505CB19A46830001D16A2 /* SecurityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42505C919A46830001D16A2 /* SecurityViewController.xib */; };
 		D42505D519A4A5A8001D16A2 /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = D42505D419A4A5A8001D16A2 /* lock.png */; };
@@ -525,6 +527,8 @@
 		D4ACE56819C1B1020060A352 /* CraftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4ACE56619C1B1010060A352 /* CraftViewController.xib */; };
 		D4ACE56A19C1B1120060A352 /* craftcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4ACE56919C1B1120060A352 /* craftcell.xib */; };
 		D4ACE56D19C1B12D0060A352 /* Craftreqmtmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACE56C19C1B12D0060A352 /* Craftreqmtmdl.m */; };
+		D4B3E2A91A2833E900D398ED /* Consumgroupcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4B3E2A81A2833E900D398ED /* Consumgroupcell.xib */; };
+		D4B3E2AB1A28343F00D398ED /* Gpconsumcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4B3E2AA1A28343F00D398ED /* Gpconsumcell.xib */; };
 		D4B4CBA119738ED500696D37 /* Appreqmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B4CBA019738ED500696D37 /* Appreqmdl.m */; };
 		D4CA2FD9176EC33E007EEF7D /* Customercell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA2FD8176EC33E007EEF7D /* Customercell.xib */; };
 		D4CA2FDB176ED128007EEF7D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4CA2FDA176ED128007EEF7D /* QuartzCore.framework */; };
@@ -954,6 +958,9 @@
 		D41B14E8195C0CF500DEED6E /* RelatedtoMdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelatedtoMdl.m; sourceTree = "<group>"; };
 		D41B14EA195C2D3F00DEED6E /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
 		D41B14EC195C2F1700DEED6E /* calendarimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendarimg.png; sourceTree = "<group>"; };
+		D42428151A2832B700E1F58E /* GPConusumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPConusumViewController.h; sourceTree = "<group>"; };
+		D42428161A2832B700E1F58E /* GPConusumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPConusumViewController.m; sourceTree = "<group>"; };
+		D42428171A2832B700E1F58E /* GPConusumViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPConusumViewController.xib; sourceTree = "<group>"; };
 		D42505C719A46830001D16A2 /* SecurityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityViewController.h; sourceTree = "<group>"; };
 		D42505C819A46830001D16A2 /* SecurityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityViewController.m; sourceTree = "<group>"; };
 		D42505C919A46830001D16A2 /* SecurityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecurityViewController.xib; sourceTree = "<group>"; };
@@ -1338,6 +1345,8 @@
 		D4ACE56919C1B1120060A352 /* craftcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = craftcell.xib; sourceTree = "<group>"; };
 		D4ACE56B19C1B12D0060A352 /* Craftreqmtmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Craftreqmtmdl.h; sourceTree = "<group>"; };
 		D4ACE56C19C1B12D0060A352 /* Craftreqmtmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Craftreqmtmdl.m; sourceTree = "<group>"; };
+		D4B3E2A81A2833E900D398ED /* Consumgroupcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Consumgroupcell.xib; sourceTree = "<group>"; };
+		D4B3E2AA1A28343F00D398ED /* Gpconsumcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Gpconsumcell.xib; sourceTree = "<group>"; };
 		D4B4CB9F19738ED500696D37 /* Appreqmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appreqmdl.h; sourceTree = "<group>"; };
 		D4B4CBA019738ED500696D37 /* Appreqmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appreqmdl.m; sourceTree = "<group>"; };
 		D4CA2FD8176EC33E007EEF7D /* Customercell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Customercell.xib; sourceTree = "<group>"; };
@@ -1644,6 +1653,11 @@
 				6424B9C91A27190B00BC4648 /* TPGPViewController.xib */,
 				6424B9CC1A27194300BC4648 /* Tpgpfirstcell.xib */,
 				6424B9CE1A27195F00BC4648 /* Tpgpsecondcell.xib */,
+				D42428151A2832B700E1F58E /* GPConusumViewController.h */,
+				D42428161A2832B700E1F58E /* GPConusumViewController.m */,
+				D42428171A2832B700E1F58E /* GPConusumViewController.xib */,
+				D4B3E2A81A2833E900D398ED /* Consumgroupcell.xib */,
+				D4B3E2AA1A28343F00D398ED /* Gpconsumcell.xib */,
 			);
 			name = "Group SetUp";
 			sourceTree = "<group>";
@@ -2615,6 +2629,7 @@
 				6426F5F918C06824002471AC /* fleet.png in Resources */,
 				D49BF6A119540450000226FD /* IssueCell.xib in Resources */,
 				64A27C2018E1640000D184BF /* Srepcell.xib in Resources */,
+				D42428191A2832B700E1F58E /* GPConusumViewController.xib in Resources */,
 				64A41245194080D6003EE113 /* customermanagement.png in Resources */,
 				64A11EE718683792008D20CC /* workPhasesViewController.xib in Resources */,
 				D4FFBD201855B7830007851D /* carat.png in Resources */,
@@ -2651,6 +2666,7 @@
 				64A09DB118605711001F74E2 /* appbar.delete.png in Resources */,
 				D4F0AD4519306866004821DD /* Magpcell.xib in Resources */,
 				D4F0940C19F22F2300C3B527 /* eraser.png in Resources */,
+				D4B3E2A91A2833E900D398ED /* Consumgroupcell.xib in Resources */,
 				64428BBF192E08E800CB2CF9 /* Notepad.png in Resources */,
 				64A3B82418DFEF0B0015887F /* CommentsViewController.xib in Resources */,
 				6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */,
@@ -2698,6 +2714,7 @@
 				64B36211198F4D2000B54191 /* action.png in Resources */,
 				D47A9B3819407DEB001CC416 /* equipmenticon.png in Resources */,
 				64A41246194080D6003EE113 /* markupmaster.png in Resources */,
+				D4B3E2AB1A28343F00D398ED /* Gpconsumcell.xib in Resources */,
 				D4A16B561974EEA8002CA2A2 /* SecondMdragcell.xib in Resources */,
 				64A3B81518DFEE980015887F /* CustomLeadCell.xib in Resources */,
 				D47A9B3019407D53001CC416 /* smalltoolsicon.png in Resources */,
@@ -3138,6 +3155,7 @@
 				64A654B4192F1F14004DDB84 /* GPSetupTileViewController.m in Sources */,
 				64A3B81C18DFEEC90015887F /* ActivityViewController.m in Sources */,
 				D44BEA7618E0254900719ED5 /* TypeViewController.m in Sources */,
+				D42428181A2832B700E1F58E /* GPConusumViewController.m in Sources */,
 				D49F876218EEA36B00413CAD /* NewscfldDetails.m in Sources */,
 				D4149BB01949B3F300A5A6FD /* StockViewController.m in Sources */,
 				D49F874E18EEA36B00413CAD /* Verfymdl.m in Sources */,
