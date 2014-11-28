@@ -68,6 +68,13 @@
     doubleTap5.numberOfTapsRequired=1;
     doubleTap5.delegate=(id)self;
     [self.consumview addGestureRecognizer:doubleTap5];
+    UITapGestureRecognizer *doubleTap6 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(smalltoolpage)];
+    doubleTap6.numberOfTapsRequired=1;
+    doubleTap6.delegate=(id)self;
+    [self.smalltoolview addGestureRecognizer:doubleTap6];
+
 
    
     // Do any additional setup after loading the view from its nib.
@@ -182,6 +189,17 @@
                        animated:YES completion:NULL];
     
 }
+-(void)smalltoolpage{
+    
+    _smallVCtrl=[[SmallgpViewController alloc]initWithNibName:@"SmallgpViewController" bundle:nil];
+    // }
+    //_crewctrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    
+    [self presentViewController:_smallVCtrl
+                       animated:YES completion:NULL];
+    
+}
+
 
 #pragma mark-Webservice
 -(void)UserRightsforparticularmoduleselect{
