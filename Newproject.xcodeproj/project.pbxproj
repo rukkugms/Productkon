@@ -134,10 +134,10 @@
 		64B1EB7E1A025C980096DC5B /* Issuecommentcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64B1EB7D1A025C980096DC5B /* Issuecommentcell.xib */; };
 		64B1F2251A0B538800B3FCB7 /* failed.png in Resources */ = {isa = PBXBuildFile; fileRef = 64B1F2241A0B538800B3FCB7 /* failed.png */; };
 		64B36211198F4D2000B54191 /* action.png in Resources */ = {isa = PBXBuildFile; fileRef = 64B36210198F4D2000B54191 /* action.png */; };
-		64C3BB3B1A2836D000E5A3EA /* SmallgpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C3BB391A2836D000E5A3EA /* SmallgpViewController.m */; };
-		64C3BB3C1A2836D000E5A3EA /* SmallgpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C3BB3A1A2836D000E5A3EA /* SmallgpViewController.xib */; };
-		64C3BB3E1A2836F500E5A3EA /* STfcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C3BB3D1A2836F500E5A3EA /* STfcell.xib */; };
-		64C3BB401A28370900E5A3EA /* StSecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C3BB3F1A28370900E5A3EA /* StSecell.xib */; };
+		64C3BB3B1A2836D000E5A3EA /* GSmallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C3BB391A2836D000E5A3EA /* GSmallViewController.m */; };
+		64C3BB3C1A2836D000E5A3EA /* GSmallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C3BB3A1A2836D000E5A3EA /* GSmallViewController.xib */; };
+		64C3BB3E1A2836F500E5A3EA /* GSTfcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C3BB3D1A2836F500E5A3EA /* GSTfcell.xib */; };
+		64C3BB401A28370900E5A3EA /* GStSecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C3BB3F1A28370900E5A3EA /* GStSecell.xib */; };
 		64D23F7D1905103000DEA64A /* Generalmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D23F7C1905103000DEA64A /* Generalmodel.m */; };
 		64F97983185ED60000E7722B /* appbar.addblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F97982185ED60000E7722B /* appbar.addblack.png */; };
 		64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F9798F185EF8B000E7722B /* jobsitereqViewController.m */; };
@@ -798,11 +798,11 @@
 		64B1EB7D1A025C980096DC5B /* Issuecommentcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Issuecommentcell.xib; sourceTree = "<group>"; };
 		64B1F2241A0B538800B3FCB7 /* failed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failed.png; sourceTree = "<group>"; };
 		64B36210198F4D2000B54191 /* action.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action.png; sourceTree = "<group>"; };
-		64C3BB381A2836D000E5A3EA /* SmallgpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallgpViewController.h; sourceTree = "<group>"; };
-		64C3BB391A2836D000E5A3EA /* SmallgpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallgpViewController.m; sourceTree = "<group>"; };
-		64C3BB3A1A2836D000E5A3EA /* SmallgpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallgpViewController.xib; sourceTree = "<group>"; };
-		64C3BB3D1A2836F500E5A3EA /* STfcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STfcell.xib; sourceTree = "<group>"; };
-		64C3BB3F1A28370900E5A3EA /* StSecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StSecell.xib; sourceTree = "<group>"; };
+		64C3BB381A2836D000E5A3EA /* GSmallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSmallViewController.h; sourceTree = "<group>"; };
+		64C3BB391A2836D000E5A3EA /* GSmallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSmallViewController.m; sourceTree = "<group>"; };
+		64C3BB3A1A2836D000E5A3EA /* GSmallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSmallViewController.xib; sourceTree = "<group>"; };
+		64C3BB3D1A2836F500E5A3EA /* GSTfcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSTfcell.xib; sourceTree = "<group>"; };
+		64C3BB3F1A28370900E5A3EA /* GStSecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GStSecell.xib; sourceTree = "<group>"; };
 		64D23F7B1905103000DEA64A /* Generalmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generalmodel.h; sourceTree = "<group>"; };
 		64D23F7C1905103000DEA64A /* Generalmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Generalmodel.m; sourceTree = "<group>"; };
 		64F97982185ED60000E7722B /* appbar.addblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.addblack.png; sourceTree = "<group>"; };
@@ -1666,11 +1666,11 @@
 				D42428161A2832B700E1F58E /* GPConusumViewController.m */,
 				D42428171A2832B700E1F58E /* GPConusumViewController.xib */,
 				D4B3E2AA1A28343F00D398ED /* Gpconsumcell.xib */,
-				64C3BB381A2836D000E5A3EA /* SmallgpViewController.h */,
-				64C3BB391A2836D000E5A3EA /* SmallgpViewController.m */,
-				64C3BB3A1A2836D000E5A3EA /* SmallgpViewController.xib */,
-				64C3BB3D1A2836F500E5A3EA /* STfcell.xib */,
-				64C3BB3F1A28370900E5A3EA /* StSecell.xib */,
+				64C3BB381A2836D000E5A3EA /* GSmallViewController.h */,
+				64C3BB391A2836D000E5A3EA /* GSmallViewController.m */,
+				64C3BB3A1A2836D000E5A3EA /* GSmallViewController.xib */,
+				64C3BB3D1A2836F500E5A3EA /* GSTfcell.xib */,
+				64C3BB3F1A28370900E5A3EA /* GStSecell.xib */,
 			);
 			name = "Group SetUp";
 			sourceTree = "<group>";
@@ -2648,7 +2648,7 @@
 				D4FFBD201855B7830007851D /* carat.png in Resources */,
 				D49FA2F0196164560037BA7A /* TEqupcell.xib in Resources */,
 				64A5ED5019C2D7D3002E0018 /* Subcell.xib in Resources */,
-				64C3BB3C1A2836D000E5A3EA /* SmallgpViewController.xib in Resources */,
+				64C3BB3C1A2836D000E5A3EA /* GSmallViewController.xib in Resources */,
 				D4A16B901974EEE0002CA2A2 /* Bidreviewcell.xib in Resources */,
 				D4A16B4F1974EEA8002CA2A2 /* PGcell.xib in Resources */,
 				D4A338EC18F3EEEF00E53FAC /* billingcell.xib in Resources */,
@@ -2911,7 +2911,7 @@
 				D404A21E1A03483A0086E40A /* CategoryViewController.xib in Resources */,
 				D404966F192F3DCE00685109 /* ecrewcell.xib in Resources */,
 				D4D7A28D17F5401000880E38 /* profilepicture.png in Resources */,
-				64C3BB3E1A2836F500E5A3EA /* STfcell.xib in Resources */,
+				64C3BB3E1A2836F500E5A3EA /* GSTfcell.xib in Resources */,
 				D47A9B101940405E001CC416 /* Jobdrag.xib in Resources */,
 				D408B81618CF19AC0001AAD5 /* TilecustmrViewController.xib in Resources */,
 				D48F436618A2335500AFDDC2 /* vertical blue.png in Resources */,
@@ -2959,7 +2959,7 @@
 				D4A16B3D1974EEA8002CA2A2 /* cellfordocumnt.xib in Resources */,
 				D4097D0E1963D00B00D8E910 /* PSitereqmntViewController.xib in Resources */,
 				D4D8D7A517FA817C006B6CE3 /* requirmentcell.xib in Resources */,
-				64C3BB401A28370900E5A3EA /* StSecell.xib in Resources */,
+				64C3BB401A28370900E5A3EA /* GStSecell.xib in Resources */,
 				649E1F8118617ECD0010CBD8 /* MaterialsViewController.xib in Resources */,
 				640622E819669FA900D5EC33 /* lgout.png in Resources */,
 				D4A85B4218A0E867004E9C8B /* TilehrViewController.xib in Resources */,
@@ -3217,7 +3217,7 @@
 				D4FED40F17F16EEE004BE242 /* VerificationViewController.m in Sources */,
 				D4A3977D19D0191A00E2514C /* Plaservcemdl.m in Sources */,
 				D42505CA19A46830001D16A2 /* SecurityViewController.m in Sources */,
-				64C3BB3B1A2836D000E5A3EA /* SmallgpViewController.m in Sources */,
+				64C3BB3B1A2836D000E5A3EA /* GSmallViewController.m in Sources */,
 				64B12DD919D520940074A404 /* BscTypViewController.m in Sources */,
 				D47A9B0B19402B89001CC416 /* EmpJobViewController.m in Sources */,
 				D40DE14E19E69DA4008FFD15 /* AFPropertyListRequestOperation.m in Sources */,

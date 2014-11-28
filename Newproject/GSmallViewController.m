@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 GMSIndia1. All rights reserved.
 //
 
-#import "SmallgpViewController.h"
+#import "GSmallViewController.h"
 
-@interface SmallgpViewController ()
+@interface GSmallViewController ()
 
 @end
 
-@implementation SmallgpViewController
+@implementation GSmallViewController
 #define kCellHeight 44
 #define kNavBarHeight 30
 
@@ -1460,12 +1460,12 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
         if (tableView==_smallfirsttable) {
-            [[NSBundle mainBundle]loadNibNamed:@"STfcell" owner:self options:nil];
+            [[NSBundle mainBundle]loadNibNamed:@"GSTfcell" owner:self options:nil];
             cell=_smallfirstcell;
             
         }
         if (tableView==_smallsectable) {
-            [[NSBundle mainBundle]loadNibNamed:@"StSecell" owner:self options:nil];
+            [[NSBundle mainBundle]loadNibNamed:@"GStSecell" owner:self options:nil];
             
             cell=_smallseccell;
         }

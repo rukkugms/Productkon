@@ -10,7 +10,7 @@
 #import "Manpwr.h"
 #import "Crewmodel.h"
 
-@interface SmallgpViewController : UIViewController<UIGestureRecognizerDelegate>
+@interface GSmallViewController : UIViewController<UIGestureRecognizerDelegate>
 {
     NSInteger poptype;
     BOOL recordResults;

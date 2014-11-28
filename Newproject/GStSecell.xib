@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SmallgpViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GSmallViewController">
             <connections>
                 <outlet property="seccrewnamelabel" destination="JFt-PH-4i1" id="yPy-iX-5eZ"/>
                 <outlet property="secdesclabel" destination="Jrv-Ag-WcV" id="oil-Xh-yir"/>

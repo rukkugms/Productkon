@@ -14,7 +14,7 @@
 #import "Rightscheck.h"
 #import "TPGPViewController.h"
 #import "GPConusumViewController.h"
-#import "SmallgpViewController.h"
+#import "GSmallViewController.h"
 
 @interface GPSetupTileViewController : UIViewController
 {
@@ -43,7 +43,7 @@
 @property(strong,nonatomic)GpFleetViewController*fleetVCtrl;
 @property(strong,nonatomic)TPGPViewController*thirdpartyVCtrl;
 @property(strong,nonatomic)GPConusumViewController*consumVCtrl;
-@property(strong,nonatomic)SmallgpViewController*smallVCtrl;
+@property(strong,nonatomic)GSmallViewController*smallVCtrl;
 
 @property(strong,nonatomic)Rightscheck *rights;
 
