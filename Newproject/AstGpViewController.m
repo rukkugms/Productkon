@@ -1,18 +1,18 @@
 //
-//  SmallgpViewController.m
+//  AstGpViewController.m
 //  Newproject
 //
 //  Created by GMSIndia 2 on 28/11/14.
 //  Copyright (c) 2014 GMSIndia1. All rights reserved.
 //
 
-#import "GSmallViewController.h"
+#import "AstGpViewController.h"
 
-@interface GSmallViewController ()
+@interface AstGpViewController ()
 
 @end
 
-@implementation GSmallViewController
+@implementation AstGpViewController
 #define kCellHeight 44
 #define kNavBarHeight 30
 
@@ -20,25 +20,30 @@
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _touchview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
-    _smallfirsttable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
-    _smallfirsttable.layer.borderWidth=3.0f;
-    _smallsectable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
-    _smallsectable.layer.borderWidth=2.0f;
+    _otherfirsttable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
+    _otherfirsttable.layer.borderWidth=3.0f;
+    _othersectable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    _othersectable.layer.borderWidth=2.0f;
     UIPanGestureRecognizer* panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanning:)];
     panGesture.delegate=self;
     [self.touchview addGestureRecognizer:panGesture];
-
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [_smallgpbtn setTitle:@"Select" forState:UIControlStateNormal];
+    [_othergpbtn setTitle:@"Select" forState:UIControlStateNormal];
     [_servicebtn setTitle:@"Select" forState:UIControlStateNormal];
     
     [self setupSourceTableWithFrame:CGRectMake(0, 0, 266,610)];
     [self setupDestinationTableWithFrame:CGRectMake(0, 0, 460, 533)];
     [self AllSkills];
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 #pragma mark UIGestureRecognizer
 
@@ -65,7 +70,7 @@
 - (void)setupSourceTableWithFrame:(CGRect)frame
 {
     
-    [self.touchview addSubview:_smallfirsttable];
+    [self.touchview addSubview:_otherfirsttable];
 }
 - (void)setupDestinationTableWithFrame:(CGRect)frame
 {
@@ -89,12 +94,12 @@
     // dropAreaLabel.text = @"Drop items here...";
     [dropArea addSubview:dropAreaLabel];
     
-    [dropArea addSubview:_smallsectable];
+    [dropArea addSubview:_othersectable];
     
 }
 - (void)initDraggedCellWithCell:(UITableViewCell*)cell AtPoint:(CGPoint)point
 {
-    NSIndexPath* indexPath = [_smallfirsttable indexPathForRowAtPoint:point];
+    NSIndexPath* indexPath = [_otherfirsttable indexPathForRowAtPoint:point];
     //UITableViewCell* cell = [_subtypetable cellForRowAtIndexPath:indexPath];
     // get rid of old cell, if it wasn't disposed already
     if(draggedCell != nil)
@@ -108,8 +113,8 @@
     
     draggedCell = [[UITableViewCell alloc] init];
     draggedCell.selectionStyle = UITableViewCellSelectionStyleGray;
-    Manpwr*manmdl1=(Manpwr *)[_smallfirstarray objectAtIndex:indexPath.row];
-    draggedCell.textLabel.text =manmdl1.itemcode;
+    Equpmntmdl*eqmdl=(Equpmntmdl *)[_otherfirstarray objectAtIndex:indexPath.row];
+    draggedCell.textLabel.text =eqmdl.itemcode;
     draggedCell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
     
     draggedCell.textLabel.textColor = cell.textLabel.textColor;
@@ -125,15 +130,15 @@
 {
     
     
-    CGPoint pointInSrc = [gestureRecognizer locationInView:_smallfirsttable];
-    CGPoint pointInDst = [gestureRecognizer locationInView:_smallsectable];
+    CGPoint pointInSrc = [gestureRecognizer locationInView:_otherfirsttable];
+    CGPoint pointInDst = [gestureRecognizer locationInView:_othersectable];
     
-    if([_smallfirsttable pointInside:pointInSrc withEvent:nil])
+    if([_otherfirsttable pointInside:pointInSrc withEvent:nil])
     {
         [self startDraggingFromSrcAtPoint:pointInSrc];
         dragFromSource = YES;
     }
-    else if([_smallsectable pointInside:pointInDst withEvent:nil])
+    else if([_othersectable pointInside:pointInDst withEvent:nil])
     {
         //[self startDraggingFromDstAtPoint:pointInDst];
         dragFromSource = NO;
@@ -144,7 +149,7 @@
 - (void)startDraggingFromSrcAtPoint:(CGPoint)point
 {
     
-    if ([_smallgpbtn.titleLabel.text isEqualToString:@"Select"]) {
+    if ([_othergpbtn.titleLabel.text isEqualToString:@"Select"]) {
         
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please select Group Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
@@ -152,14 +157,14 @@
     }
     else{
         
-        NSIndexPath* indexPath = [_smallfirsttable indexPathForRowAtPoint:point];
-        UITableViewCell* cell = [_smallfirsttable cellForRowAtIndexPath:indexPath];
+        NSIndexPath* indexPath = [_otherfirsttable indexPathForRowAtPoint:point];
+        UITableViewCell* cell = [_otherfirsttable cellForRowAtIndexPath:indexPath];
         
         if(cell != nil)
         {
             CGPoint origin = cell.frame.origin;
-            origin.x += _smallfirsttable.frame.origin.x;
-            origin.y += _smallfirsttable.frame.origin.y;
+            origin.x += _otherfirsttable.frame.origin.x;
+            origin.y += _otherfirsttable.frame.origin.y;
             
             [self initDraggedCellWithCell:cell AtPoint:origin];
             cell.highlighted = NO;
@@ -172,10 +177,10 @@
             
             crewpath=indexPath.row;
             
-            Manpwr*manmdl1=(Manpwr *)[_smallfirstarray objectAtIndex:crewpath];
+            Equpmntmdl*emdl=(Equpmntmdl *)[_otherfirstarray objectAtIndex:crewpath];
             
-            draggedData = manmdl1.itemcode;
-            NSLog(@"%@",manmdl1.itemdescptn);
+            draggedData = emdl.itemcode;
+            NSLog(@"%@",emdl.itemdescptn);
         }
     }
     
@@ -204,15 +209,15 @@
         if([gestureRecognizer state] == UIGestureRecognizerStateEnded
            && [dropArea pointInside:[gestureRecognizer locationInView:dropArea] withEvent:nil])
         {
-            NSIndexPath* indexPath = [_smallsectable indexPathForRowAtPoint:[gestureRecognizer locationInView:_smallsectable]];
+            NSIndexPath* indexPath = [_othersectable indexPathForRowAtPoint:[gestureRecognizer locationInView:_othersectable]];
             if(indexPath != nil)
             {
-                Crewmodel *crewmdl1=(Crewmodel *)[_smallsecarray objectAtIndex:indexPath.row];
+                Crewmodel *crewmdl1=(Crewmodel *)[_othersecarray objectAtIndex:indexPath.row];
                 crewmdl1.manpower=draggedData;
-                [_smallsecarray addObject:crewmdl1];
+                [_othersecarray addObject:crewmdl1];
                 
                 //  [_crewmembersarray insertObject:draggedData atIndex:indexPath.row];
-                [_smallsectable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+                [_othersectable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
                 //[self UserLogcrewMove];
                 //                Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
                 //
@@ -225,22 +230,22 @@
                 //                {
                 //
                 
-                [self SmallToolcrewinsert];
+                [self Othercrewinsert];
                 //}
                 
             }
             else
             {
-                if ([_smallsecarray count]==0) {
+                if ([_othersecarray count]==0) {
                     Crewmodel *crewmdl1=[[Crewmodel alloc]init];
                     crewmdl1.manpower=draggedData;
-                    [_smallsecarray addObject:crewmdl1];
+                    [_othersecarray addObject:crewmdl1];
                     
                 }
                 else{
-                    Crewmodel *crewmdl1=(Crewmodel *)[_smallsecarray objectAtIndex:indexPath.row];
+                    Crewmodel *crewmdl1=(Crewmodel *)[_othersecarray objectAtIndex:indexPath.row];
                     crewmdl1.manpower=draggedData;
-                    [_smallsecarray addObject:crewmdl1];
+                    [_othersecarray addObject:crewmdl1];
                 }
                 //[self UserLogcrewMove];
                 //                Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
@@ -254,20 +259,20 @@
                 //                {
                 
                 
-                  [self SmallToolcrewinsert];
+                [self Othercrewinsert];
                 //}
             }
         }
         else if(!dragFromSource && pathFromDstTable != nil)
         {
             // insert cell back where it came from
-            [_smallsecarray insertObject:draggedData atIndex:pathFromDstTable.row];
-            [_smallsectable insertRowsAtIndexPaths:[NSArray arrayWithObject:pathFromDstTable] withRowAnimation:UITableViewRowAnimationMiddle];
+            [_othersecarray insertObject:draggedData atIndex:pathFromDstTable.row];
+            [_othersectable insertRowsAtIndexPaths:[NSArray arrayWithObject:pathFromDstTable] withRowAnimation:UITableViewRowAnimationMiddle];
             
             //[pathFromDstTable release];
             pathFromDstTable = nil;
         }
-        if ([_existingstring isEqualToString:@"This Third Party is  Already Exists"]) {
+        if ([_existingstring isEqualToString:@"This Other Assets is  Already Exists"]) {
             [draggedCell removeFromSuperview];
             //[draggedCell release];
             draggedCell = nil;
@@ -280,9 +285,9 @@
             
             [UIView animateWithDuration:0.3 animations:^
              {
-                 CGRect frame = _smallsectable.frame;
+                 CGRect frame = _othersectable.frame;
                  //frame.size.height = kCellHeight * [_Maintablescflddetailsarray count];
-                 _smallsectable.frame = frame;
+                 _othersectable.frame = frame;
              }];
             
             [draggedCell removeFromSuperview];
@@ -295,13 +300,6 @@
     }
 }
 
-
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 #pragma mark - IBActions
 - (IBAction)clsebtn:(id)sender
 {
@@ -309,37 +307,37 @@
 }
 - (IBAction)deleteallitems:(id)sender
 {
-    if([_smallgpbtn.titleLabel.text isEqualToString:@"Select"]){
+    if([_othergpbtn.titleLabel.text isEqualToString:@"Select"]){
         
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please select Small Tools group" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please select Other Asset group" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
     }
     else{
         
-        NSString*alertstrg=[NSString stringWithFormat:@"Are you sure you want to delete all items in %@ group",_smallgpbtn.titleLabel.text];
+        NSString*alertstrg=[NSString stringWithFormat:@"Are you sure you want to delete all items in %@ group",_othergpbtn.titleLabel.text];
         _deleteitemstring=alertstrg;
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:alertstrg delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
         [alert show];
     }
-
+    
 }
 
 - (IBAction)deletegpaction:(id)sender
 {
-    if([_smallgpbtn.titleLabel.text isEqualToString:@"Select"]){
+    if([_othergpbtn.titleLabel.text isEqualToString:@"Select"]){
         
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please select Small Tools group" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please select Other Asset group" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
     }
     else{
-        NSString*alertstrg=[NSString stringWithFormat:@"Are you sure you want to delete %@ group",_smallgpbtn.titleLabel.text];
+        NSString*alertstrg=[NSString stringWithFormat:@"Are you sure you want to delete %@ group",_othergpbtn.titleLabel.text];
         _deletegpstring=alertstrg;
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:alertstrg delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
         [alert show];
     }
-
+    
 }
 - (IBAction)serviceselection:(id)sender
 {
@@ -348,30 +346,30 @@
 }
 - (IBAction)savebtn:(id)sender
 {
-    if([_smallgpnametextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
+    if([_othergpnametextfield.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
     {
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Group name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else
     {
-        [self SmallToolCrewSave];
+        [self OtherCrewSave];
     }
 }
 
-- (IBAction)smallgpselection:(id)sender
+- (IBAction)othergpselection:(id)sender
 {
     poptype=2;
-    [self SmallToolCrewSetUpSelect];
+    [self OtherCrewSetUpSelect];
     [self grouppopover];
-
+    
 }
 - (IBAction)Deleterowitem:(id)sender
 {
     if (self.editing) {
         [super setEditing:NO animated:NO];
-        [_smallsectable setEditing:NO animated:NO];
-        [_smallsectable reloadData];
+        [_othersectable setEditing:NO animated:NO];
+        [_othersectable reloadData];
         
         
         
@@ -379,12 +377,12 @@
     
     else{
         [super setEditing:YES animated:YES];
-        [_smallsectable setEditing:YES animated:YES];
-        [_smallsectable reloadData];
+        [_othersectable setEditing:YES animated:YES];
+        [_othersectable reloadData];
         
         
     }
-
+    
 }
 #pragma mark-Popover
 -(void)createpopover{
@@ -476,7 +474,7 @@
     
     
     
-    [self.popOverController presentPopoverFromRect:_smallgpbtn.frame
+    [self.popOverController presentPopoverFromRect:_othergpbtn.frame
                                             inView:self.view
                           permittedArrowDirections:UIPopoverArrowDirectionUp
                                           animated:YES];
@@ -536,7 +534,7 @@
     
     
 }
--(void)SmallToolCrewSave{
+-(void)OtherCrewSave{
     
     recordResults = FALSE;
     NSString *soapMessage;
@@ -550,11 +548,11 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SmallToolCrewSave xmlns=\"http://ios.kontract360.com/\">\n"
-                   "<SCrewname>%@</SCrewname>\n"
-                   "</SmallToolCrewSave>\n"
+                   "<OtherCrewSave xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<OCrewname>%@</OCrewname>\n"
+                   "</OtherCrewSave>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_smallgpnametextfield.text];
+                   "</soap:Envelope>\n",_othergpnametextfield.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -567,7 +565,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SmallToolCrewSave" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/OtherCrewSave" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -586,7 +584,7 @@
     }
     
 }
--(void)SmallToolCrewSetUpSelect{
+-(void)OtherCrewSetUpSelect{
     
     recordResults = FALSE;
     NSString *soapMessage;
@@ -600,9 +598,9 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SmallToolCrewSetUpSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<OtherCrewSetUpSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    
-                   "</SmallToolCrewSetUpSelect>\n"
+                   "</OtherCrewSetUpSelect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
@@ -617,7 +615,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SmallToolCrewSetUpSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/OtherCrewSetUpSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -636,7 +634,7 @@
     }
     
 }
--(void)CrewSmallToolsSelect{
+-(void)CrewOtherSelect{
     webpath=1;
     recordResults = FALSE;
     NSString *soapMessage;
@@ -649,9 +647,9 @@
                    
                    "<soap:Body>\n"
                    
-                   "<CrewSmallToolsSelect xmlns=\"http://ios.kontract360.com/\">\n"
-                   "<STStSubTypeId>%d</STStSubTypeId>\n"
-                   "</CrewSmallToolsSelect>\n"
+                   "<CrewOtherSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<OCStSubTypeId>%d</OCStSubTypeId>\n"
+                   "</CrewOtherSelect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",[[_servicedict objectForKey:_servicebtn.titleLabel.text]integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
@@ -666,7 +664,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/CrewSmallToolsSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/CrewOtherSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -687,8 +685,7 @@
     
     
 }
-
--(void)SmallToolsCrewNameSelect{
+-(void)OtherCrewNameSelect{
     
     webpath=2;
     
@@ -704,11 +701,11 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SmallToolsCrewNameSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<OtherCrewNameSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<CrewId>%d</CrewId>\n"
-                   "</SmallToolsCrewNameSelect>\n"
+                   "</OtherCrewNameSelect>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[[_crewdict objectForKey:_smallgpbtn.titleLabel.text]integerValue]];
+                   "</soap:Envelope>\n",[[_crewdict objectForKey:_othergpbtn.titleLabel.text]integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -721,7 +718,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SmallToolsCrewNameSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/OtherCrewNameSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -740,12 +737,13 @@
     }
     
 }
--(void)SmallToolCrewdelete{
+
+-(void)OtherCrewdelete{
     
     recordResults = FALSE;
     NSString *soapMessage;
     
-    Crewmodel *crewmdl1=(Crewmodel *)[_smallsecarray objectAtIndex:deletepath];
+    Crewmodel *crewmdl1=(Crewmodel *)[_othersecarray objectAtIndex:deletepath];
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -755,9 +753,9 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SmallToolCrewdelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<OtherCrewdelete xmlns=\"http://ios.kontract360.com/\">\n"
                    "<ID>%d</ID>\n"
-                   "</SmallToolCrewdelete>\n"
+                   "</OtherCrewdelete>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",[crewmdl1.ID integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
@@ -772,58 +770,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SmallToolCrewdelete" forHTTPHeaderField:@"Soapaction"];
-    
-    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
-    [theRequest setHTTPMethod:@"POST"];
-    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    
-    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-    
-    if( theConnection )
-    {
-        _webData = [NSMutableData data];
-    }
-    else
-    {
-        ////NSLog(@"theConnection is NULL");
-    }
-    
-}
--(void)SmallToolCrewSetUpDelete{
-    
-    recordResults = FALSE;
-    NSString *soapMessage;
-    
-    //  Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:path];
-    
-    soapMessage = [NSString stringWithFormat:
-                   
-                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
-                   
-                   
-                   "<soap:Body>\n"
-                   
-                   "<SmallToolCrewSetUpDelete xmlns=\"http://ios.kontract360.com/\">\n"
-                   "<SCrewId>%d</SCrewId>\n"
-                   "</SmallToolCrewSetUpDelete>\n"
-                   "</soap:Body>\n"
-                   "</soap:Envelope>\n",[[_crewdict objectForKey:_smallgpbtn.titleLabel.text]integerValue]];
-    NSLog(@"soapmsg%@",soapMessage);
-    
-    
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
-    
-    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
-    
-    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
-    
-    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-    
-    [theRequest addValue: @"http://ios.kontract360.com/SmallToolCrewSetUpDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/OtherCrewdelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -843,10 +790,11 @@
     
 }
 
--(void)AllSmallToolCrewDelete{
+-(void)OtherCrewSetUpDelete{
     
     recordResults = FALSE;
     NSString *soapMessage;
+    
     //  Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:path];
     
     soapMessage = [NSString stringWithFormat:
@@ -857,11 +805,11 @@
                    
                    "<soap:Body>\n"
                    
-                   "<AllSmallToolCrewDelete xmlns=\"http://ios.kontract360.com/\">\n"
-                   "<CrewId>%d</CrewId>\n"
-                   "</AllSmallToolCrewDelete>\n"
+                   "<OtherCrewSetUpDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<OCrewId>%d</OCrewId>\n"
+                   "</OtherCrewSetUpDelete>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[[_crewdict objectForKey:_smallgpbtn.titleLabel.text]integerValue]];
+                   "</soap:Envelope>\n",[[_crewdict objectForKey:_othergpbtn.titleLabel.text]integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -874,7 +822,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/AllSmallToolCrewDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/OtherCrewSetUpDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -893,11 +841,12 @@
     }
     
 }
--(void)SmallToolcrewinsert{
+
+-(void)AllOtherCrewDelete{
     
     recordResults = FALSE;
     NSString *soapMessage;
-    Manpwr *manpwr=(Manpwr *)[_smallfirstarray objectAtIndex:crewpath];
+    //  Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:path];
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -907,16 +856,66 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SmallToolcrewinsert xmlns=\"http://ios.kontract360.com/\">\n"
-                   "<SmallTool>%@</SmallTool>\n"
+                   "<AllOtherCrewDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<CrewId>%d</CrewId>\n"
+                   "</AllOtherCrewDelete>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[[_crewdict objectForKey:_othergpbtn.titleLabel.text]integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/AllOtherCrewDelete" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)Othercrewinsert{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    Equpmntmdl *manpwr=(Equpmntmdl *)[_otherfirstarray objectAtIndex:crewpath];
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Othercrewinsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Other>%@</Other>\n"
                    "<Description>%@</Description>\n"
                    "<Type>%@</Type>\n"
                    "<HourlyRate>%f</HourlyRate>\n"
                    "<Name>%@</Name>\n"
                    "<CrewId>%d</CrewId>\n"
-                   "</SmallToolcrewinsert>\n"
+                   "</Othercrewinsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",manpwr.itemcode,manpwr.itemdescptn,@"ST",[manpwr.unitcost floatValue],@"Small Tools",[[_crewdict objectForKey:_smallgpbtn.titleLabel.text]integerValue]];
+                   "</soap:Envelope>\n",manpwr.itemcode,manpwr.itemdescptn,@"OC",[manpwr.unitcost floatValue],@"Other",[[_crewdict objectForKey:_othergpbtn.titleLabel.text]integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -929,7 +928,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SmallToolcrewinsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/Othercrewinsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -948,7 +947,6 @@
     }
     
 }
-
 
 
 #pragma mark - Connection
@@ -985,12 +983,12 @@
     
     [_popOverTableView reloadData];
     if (webpath==1) {
-        [_smallfirsttable reloadData];
+        [_otherfirsttable reloadData];
         webpath=0;
     }
     
     if (webpath==2) {
-        [_smallsectable reloadData];
+        [_othersectable reloadData];
         
     }
     
@@ -1030,7 +1028,7 @@
         recordResults = TRUE;
         
     }
-    if([elementName isEqualToString:@"SmallToolCrewSaveResponse"])
+    if([elementName isEqualToString:@"OtherCrewSaveResponse"])
     {
         if(!_soapResults)
         {
@@ -1049,7 +1047,7 @@
         recordResults = TRUE;
         
     }
-    if([elementName isEqualToString:@"SmallToolCrewSetUpSelectResponse"])
+    if([elementName isEqualToString:@"OtherCrewSetUpSelectResponse"])
     {
         if (setuptype==1) {
             setuptype=2;
@@ -1064,7 +1062,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"SCrewId"])
+    if([elementName isEqualToString:@"OCrewId"])
     {
         if(!_soapResults)
         {
@@ -1073,7 +1071,7 @@
         recordResults = TRUE;
         
     }
-    if([elementName isEqualToString:@"SCrewName"])
+    if([elementName isEqualToString:@"OCrewName"])
     {
         
         if(!_soapResults)
@@ -1082,9 +1080,9 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"CrewSmallToolsSelectResponse"])
+    if([elementName isEqualToString:@"CrewOtherSelectResponse"])
     {
-        _smallfirstarray=[[NSMutableArray alloc]init];
+        _otherfirstarray =[[NSMutableArray alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -1092,15 +1090,6 @@
         recordResults = TRUE;
     }
     if([elementName isEqualToString:@"EntryId"])
-    {
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"ItemCode"])
     {
         
         if(!_soapResults)
@@ -1118,7 +1107,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"UnitCost"])
+    if([elementName isEqualToString:@"Condition"])
     {
         
         if(!_soapResults)
@@ -1127,9 +1116,36 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"SmallToolsCrewNameSelectResponse"])
+    if([elementName isEqualToString:@"HourlyRate"])
     {
-        _smallsecarray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"FLAllCrafts"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"ItemCode"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"OtherCrewNameSelectResponse"])
+    {
+        _othersecarray=[[NSMutableArray alloc]init];
         
         if(!_soapResults)
         {
@@ -1146,7 +1162,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"SmallCrewName"])
+    if([elementName isEqualToString:@"OtherCrewName"])
     {
         
         if(!_soapResults)
@@ -1157,7 +1173,7 @@
     }
     
     
-    if([elementName isEqualToString:@"smallDescription"])
+    if([elementName isEqualToString:@"OtherDescription"])
     {
         
         if(!_soapResults)
@@ -1196,7 +1212,7 @@
         recordResults = TRUE;
     }
     
-    if([elementName isEqualToString:@"SmallTool"])
+    if([elementName isEqualToString:@"Other"])
     {
         
         if(!_soapResults)
@@ -1205,6 +1221,7 @@
         }
         recordResults = TRUE;
     }
+    
 
 
 
@@ -1246,13 +1263,13 @@
     {     recordResults =FALSE;
         if ([_soapResults isEqualToString:@"Deleted All Members"]) {
             if (clear==1) {
-                [self SmallToolCrewSetUpDelete];
-                [_smallgpbtn setTitle:@"Select" forState:UIControlStateNormal];
+                [self OtherCrewSetUpDelete];
+                [_othergpbtn setTitle:@"Select" forState:UIControlStateNormal];
                 clear=0;
             }
             else if(clear==0)
             {
-                [self SmallToolsCrewNameSelect];
+                [self OtherCrewNameSelect];
             }
         }
         else if ([_soapResults isEqualToString:@"Inserted Crew"]||[_soapResults isEqualToString:@"Deleted CrewSetUp"]||[_soapResults isEqualToString:@"deletedcrew"]) {
@@ -1261,41 +1278,41 @@
                 //               UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 //               [alert show];
                 setuptype=1;
-                [self SmallToolCrewSetUpSelect];
-                _smallgpnametextfield.text=@"";
+                [self OtherCrewSetUpSelect];
+                _othergpnametextfield.text=@"";
                 // [_crewbtnlbl setTitle:_crewnametxtfld.text forState:UIControlStateNormal];
             }
             else
             {
                 
-                _smallgpnametextfield.text=@"";
-                [self SmallToolsCrewNameSelect];
+                _othergpnametextfield.text=@"";
+                [self OtherCrewNameSelect];
             }
             
         }
-        else if ([_soapResults isEqualToString:@"This Small Tool is  Already Exists"]) {
-            _existingstring=@"This Small Tool is  Already Exists";
+        else if ([_soapResults isEqualToString:@"This Other Assets is  Already Exists"]) {
+            _existingstring=@"This Other Assets is  Already Exists";
             UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
-            [self SmallToolsCrewNameSelect];
+            [self OtherCrewNameSelect];
             
         }
         else if ([_soapResults isEqualToString:@"Inserted"]){
-            [self SmallToolsCrewNameSelect];
+        [self OtherCrewNameSelect];
         }
         
         else
         {
             
-            _smallgpnametextfield.text=@"";
-            [self SmallToolsCrewNameSelect];
+            _othergpnametextfield.text=@"";
+            [self OtherCrewNameSelect];
         }
         
         
         _soapResults = nil;
         
     }
-    if([elementName isEqualToString:@"SCrewId"])
+    if([elementName isEqualToString:@"OCrewId"])
     {
         recordResults =FALSE;
         crewid=_soapResults;
@@ -1304,7 +1321,7 @@
         
     }
     
-    if([elementName isEqualToString:@"SCrewName"])
+    if([elementName isEqualToString:@"OCrewName"])
     {
         
         recordResults = FALSE;
@@ -1315,42 +1332,50 @@
     }
     if([elementName isEqualToString:@"EntryId"])
     {
-        _manpwrmdl=[[Manpwr alloc]init];
         
         recordResults = FALSE;
-        
-        _manpwrmdl.entryid=[_soapResults integerValue];
-        _soapResults = nil;
-    }
-    if([elementName isEqualToString:@"ItemCode"])
-    {
-        
-        recordResults = FALSE;
-        _manpwrmdl.itemcode=_soapResults;
-        [_smallfirstarray addObject:_manpwrmdl];
+        _eqmdl=[[Equpmntmdl alloc]init];
+        _eqmdl.entryid=[_soapResults integerValue];
         
         _soapResults = nil;
+        
+        
     }
     if([elementName isEqualToString:@"Description"])
     {
         
         recordResults = FALSE;
         
-        _manpwrmdl.itemdescptn=_soapResults;
-        NSLog(@"%@",_manpwrmdl.itemdescptn);
-        
-        
-        
+        _eqmdl.itemdescptn=_soapResults;
         _soapResults = nil;
     }
-    
-    if([elementName isEqualToString:@"UnitCost"])
+    if([elementName isEqualToString:@"Condition"])
     {
         
         recordResults = FALSE;
-        _manpwrmdl.unitcost=_soapResults;
         
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"HourlyRate"])
+    {
         
+        recordResults = FALSE;
+        _eqmdl.HourlyRate=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"FLAllCrafts"])
+    {
+        
+        recordResults = FALSE;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"ItemCode"])
+    {
+        
+        recordResults = FALSE;
+        _eqmdl.itemcode=_soapResults;
+        [_otherfirstarray addObject:_eqmdl];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"ID"])
@@ -1360,22 +1385,28 @@
         _crewmdl1.ID=_soapResults;
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"SmallCrewName"])
+    if([elementName isEqualToString:@"OtherCrewName"])
     {
-        
         recordResults = FALSE;
         _crewmdl1.crewname=_soapResults;
+        
         _soapResults = nil;
     }
     
-    if([elementName isEqualToString:@"smallDescription"])
+    if([elementName isEqualToString:@"Other"])
+    {
+        recordResults = FALSE;
+        _crewmdl1.manpower=_soapResults;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"OtherDescription"])
     {
         recordResults = FALSE;
         _crewmdl1.mandescptn=_soapResults;
         
         _soapResults = nil;
     }
-    
     
     
     
@@ -1393,49 +1424,30 @@
         _crewmdl1.unitcost=_soapResults;
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"SmallTool"])
-    {
-        
-        recordResults = FALSE;
-        _crewmdl1.manpower=_soapResults;
-        _soapResults = nil;
-    }
     
     if([elementName isEqualToString:@"Name"])
     {
         
         recordResults = FALSE;
         _crewmdl1.name=_soapResults;
-        [_smallsecarray addObject:_crewmdl1];
-        
+        [_othersecarray addObject:_crewmdl1];
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"SmallToolCrewdeleteResponse"])
-    {
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
     
-}
 
-    
-    
+
+
+}
 - (void)parserDidEndDocument:(NSXMLParser *)parser
 {
     
     if (setuptype==2) {
-        [_smallgpbtn setTitle:[_gplistarray lastObject] forState:UIControlStateNormal];
-        [self SmallToolsCrewNameSelect];
+        [_othergpbtn setTitle:[_gplistarray lastObject] forState:UIControlStateNormal];
+        [self OtherCrewNameSelect];
         setuptype=0;
     }
     
 }
-
-
 #pragma mark-alert
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
@@ -1445,7 +1457,7 @@
         
         if (buttonIndex==[alertView cancelButtonIndex]){
             clear=1;
-            [self AllSmallToolCrewDelete];
+            [self AllOtherCrewDelete];
             
         }
         
@@ -1458,7 +1470,7 @@
         
         
         if (buttonIndex==[alertView cancelButtonIndex]){
-            [self AllSmallToolCrewDelete];
+            [self AllOtherCrewDelete];
             
         }
         
@@ -1498,14 +1510,14 @@
         
     }
     
-    if (tableView==_smallfirsttable) {
-        return [_smallfirstarray count];
+    if (tableView==_otherfirsttable) {
+        return [_otherfirstarray count];
         
         
     }
-    if (tableView==_smallsectable) {
+    if (tableView==_othersectable) {
         
-        return [_smallsecarray count];
+        return [_othersecarray count];
         
     }
     
@@ -1523,15 +1535,15 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
-        if (tableView==_smallfirsttable) {
-            [[NSBundle mainBundle]loadNibNamed:@"GSTfcell" owner:self options:nil];
-            cell=_smallfirstcell;
+        if (tableView==_otherfirsttable) {
+            [[NSBundle mainBundle]loadNibNamed:@"GPastFcell" owner:self options:nil];
+            cell=_otherfirstcell;
             
         }
-        if (tableView==_smallsectable) {
-            [[NSBundle mainBundle]loadNibNamed:@"GStSecell" owner:self options:nil];
+        if (tableView==_othersectable) {
+            [[NSBundle mainBundle]loadNibNamed:@"GpASSecell" owner:self options:nil];
             
-            cell=_smallseccell;
+            cell=_otherseccell;
         }
         
         cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
@@ -1557,20 +1569,20 @@
     }
     
     
-    if (tableView==_smallfirsttable) {
-        Manpwr *manpwr=(Manpwr *)[_smallfirstarray objectAtIndex:indexPath.row];
+    if (tableView==_otherfirsttable) {
+        Equpmntmdl *manpwr=(Equpmntmdl *)[_otherfirstarray objectAtIndex:indexPath.row];
         _firstitemlabel=(UILabel *)[cell viewWithTag:1];
         _firstitemlabel.text=manpwr.itemcode;
         _firstdesclabel=(UILabel *)[cell viewWithTag:2];
         _firstdesclabel.text=manpwr.itemdescptn;
         _firstunitcostlabel=(UILabel *)[cell viewWithTag:3];
-        _firstunitcostlabel.text=manpwr.unitcost;
+        _firstunitcostlabel.text=manpwr.HourlyRate;
         
         
     }
     
-    if (tableView==_smallsectable) {
-        Crewmodel *tp=(Crewmodel *)[_smallsecarray objectAtIndex:indexPath.row];
+    if (tableView==_othersectable) {
+        Crewmodel *tp=(Crewmodel *)[_othersecarray objectAtIndex:indexPath.row];
         _secitemlabel=(UILabel *)[cell viewWithTag:1];
         _secitemlabel.text=tp.manpower;
         _secdesclabel=(UILabel *)[cell viewWithTag:2];
@@ -1582,13 +1594,13 @@
 }
 #pragma mark UITableViewDelegate methods
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (tableView==_smallsectable) {
+    if (tableView==_othersectable) {
         
         if (editingStyle==UITableViewCellEditingStyleDelete) {
             deletepath=indexPath.row;
             
-            [self SmallToolCrewdelete];
-            [_smallsecarray removeObject:indexPath];
+            [self OtherCrewdelete];
+            [_othersecarray removeObject:indexPath];
             
             
         }
@@ -1598,7 +1610,7 @@
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //alternating cell back ground color
-    if(tableView==_smallfirsttable||tableView==_smallsectable)
+    if(tableView==_otherfirsttable||tableView==_othersectable)
     {
         if (indexPath.row%2 == 0) {
             [cell setBackgroundColor:[UIColor whiteColor]];
@@ -1621,13 +1633,13 @@
             case 1:
                 
                 [_servicebtn setTitle:[_Servicelistarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-                [self CrewSmallToolsSelect];
+                [self CrewOtherSelect];
                 
                 break;
             case 2:
                 
-                [_smallgpbtn setTitle:[_gplistarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-                [self SmallToolsCrewNameSelect];
+                [_othergpbtn setTitle:[_gplistarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                [self OtherCrewNameSelect];
                 
                 break;
                 
@@ -1645,7 +1657,7 @@
 }
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(tableView==_smallfirsttable||tableView==_popOverTableView)
+    if(tableView==_otherfirsttable||tableView==_popOverTableView)
         
     {
         return self.editing ;
@@ -1653,6 +1665,7 @@
     return YES;
     
 }
+
 
 
 

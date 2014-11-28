@@ -671,7 +671,7 @@
         _secdesclabel=(UILabel *)[cell viewWithTag:2];
         _secdesclabel.text=tp.mandescptn;
         _seccrewnamelabel=(UILabel *)[cell viewWithTag:3];
-        _seccrewnamelabel.text=tp.name;
+        _seccrewnamelabel.text=tp.crewname;
     }
     return cell;
 }

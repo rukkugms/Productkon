@@ -74,6 +74,12 @@
     doubleTap6.numberOfTapsRequired=1;
     doubleTap6.delegate=(id)self;
     [self.smalltoolview addGestureRecognizer:doubleTap6];
+    UITapGestureRecognizer *doubleTap7 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(assetpage)];
+    doubleTap7.numberOfTapsRequired=1;
+    doubleTap7.delegate=(id)self;
+    [self.Astview addGestureRecognizer:doubleTap7];
 
 
    
@@ -177,7 +183,18 @@
     
     
 }
-
+-(void)assetpage
+{
+    
+    _assetVCtrl=[[AstGpViewController alloc]initWithNibName:@"AstGpViewController" bundle:nil];
+    // }
+    //_crewctrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    
+    [self presentViewController:_assetVCtrl
+                       animated:YES completion:NULL];
+    
+    
+}
 
 -(void)Consumpage{
     

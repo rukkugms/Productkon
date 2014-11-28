@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GPSetupTileViewController">
             <connections>
+                <outlet property="Astview" destination="3P1-i8-j5T" id="OaB-B3-h8l"/>
                 <outlet property="Thirdpartyview" destination="YVb-Bh-fnc" id="tOY-sG-SbU"/>
                 <outlet property="consumview" destination="Zyf-6G-yqZ" id="Wnx-oc-5f0"/>
                 <outlet property="equipview" destination="n1F-Vu-VCS" id="Wmo-l3-6Ql"/>
@@ -208,6 +209,29 @@
                     </subviews>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
+                <view contentMode="scaleToFill" id="3P1-i8-j5T">
+                    <rect key="frame" x="206" y="462" width="149" height="150"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="othercompanyassestsicon.png" id="5aj-lr-dl2">
+                            <rect key="frame" x="37" y="21" width="75" height="75"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="dCF-5y-kKu">
+                            <rect key="frame" x="56" y="40" width="37" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other Company Assets" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9SR-qH-V5t">
+                            <rect key="frame" x="3" y="104" width="146" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -222,6 +246,7 @@
         <image name="appbar.close.png" width="76" height="76"/>
         <image name="consumablesicon.png" width="512" height="512"/>
         <image name="fleeticon.png" width="512" height="512"/>
+        <image name="othercompanyassestsicon.png" width="512" height="512"/>
         <image name="smalltoolsicon.png" width="512" height="512"/>
         <image name="thridpartyicon.png" width="512" height="512"/>
     </resources>

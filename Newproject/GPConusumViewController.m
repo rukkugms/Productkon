@@ -32,8 +32,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-//    [self setupSourceTableWithFrame:CGRectMake(0, 0, 266,610)];
-//    [self setupDestinationTableWithFrame:CGRectMake(0, 0, 460, 533)];
+    [self setupSourceTableWithFrame:CGRectMake(0, 0, 266,610)];
+    [self setupDestinationTableWithFrame:CGRectMake(0, 0, 460, 533)];
     
     }
 
@@ -570,7 +570,7 @@
                    "<CrewId>%d</CrewId>\n"
                    "</Consumablecrewinsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",manpwr.itemcode,manpwr.itemdescptn,@"MT",[manpwr.unitcost floatValue],@"Material",[cid integerValue]];
+                   "</soap:Envelope>\n",manpwr.itemcode,manpwr.itemdescptn,@"CO",[manpwr.unitcost floatValue],@"Consumables",[cid integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -783,7 +783,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"FleetCrewNameSelectResponse"])
+    if([elementName isEqualToString:@"ConsumableCrewNameSelectResponse"])
     {
         _crewmembersarray=[[NSMutableArray alloc]init];
         
@@ -802,7 +802,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"FtCrewName"])
+    if([elementName isEqualToString:@"ConCrewName"])
     {
         
         if(!_soapResults)
@@ -813,7 +813,7 @@
     }
     
     
-    if([elementName isEqualToString:@"Fleet"])
+    if([elementName isEqualToString:@"Consumables"])
     {
         
         if(!_soapResults)
@@ -823,7 +823,7 @@
         recordResults = TRUE;
     }
     
-    if([elementName isEqualToString:@"FLDescription"])
+    if([elementName isEqualToString:@"ConDescription"])
     {
         
         if(!_soapResults)
@@ -974,8 +974,8 @@
             
             
         }
-        else if ([_soapResults isEqualToString:@"This Fleet is  Already Exists"]) {
-            existstring=@"This Fleet is  Already Exists";
+        else if ([_soapResults isEqualToString:@"This Consumable is  Already Exists"]) {
+            existstring=@"This Consumable is  Already Exists";
             UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             [self ConsumableCrewNameSelect];
@@ -1016,7 +1016,7 @@
         
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"FCrewId"])
+    if([elementName isEqualToString:@"CCrewId"])
     {
         recordResults = FALSE;
         
@@ -1025,7 +1025,7 @@
         _soapResults = nil;
         
     }
-    if([elementName isEqualToString:@"FCrewName"])
+    if([elementName isEqualToString:@"CCrewName"])
     {
         recordResults = FALSE;
         [_crewnamearray addObject:_soapResults];
@@ -1041,7 +1041,7 @@
         _crewmdl1.ID=_soapResults;
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"FtCrewName"])
+    if([elementName isEqualToString:@"ConCrewName"])
     {
         recordResults = FALSE;
         _crewmdl1.crewname=_soapResults;
@@ -1049,14 +1049,14 @@
         _soapResults = nil;
     }
     
-    if([elementName isEqualToString:@"Fleet"])
+    if([elementName isEqualToString:@"Consumables"])
     {
         recordResults = FALSE;
         _crewmdl1.manpower=_soapResults;
         
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"FLDescription"])
+    if([elementName isEqualToString:@"ConDescription"])
     {
         recordResults = FALSE;
         _crewmdl1.mandescptn=_soapResults;
@@ -1151,13 +1151,13 @@
         cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
         
         if (tableView==_consumtable) {
-            [[NSBundle mainBundle]loadNibNamed:@"ConsumbleGPcell" owner:self options:nil];
+            [[NSBundle mainBundle]loadNibNamed:@"Setconsumcell" owner:self options:nil];
             
             cell=_consumcell;
         }
         if (tableView==_groupconsumtable) {
-            [[NSBundle mainBundle]loadNibNamed:@"Consumgroupcell" owner:self options:nil];
-            cell=_Gpconsumcell;
+            [[NSBundle mainBundle]loadNibNamed:@"congroupcell" owner:self options:nil];
+            cell=_Gpcconsumcell;
             
             
         }
@@ -1199,19 +1199,19 @@
     if (tableView==_groupconsumtable) {
         
         Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:indexPath.row];
-        _Gpitemlbl=(UILabel *)[cell viewWithTag:1];
-        _Gpitemlbl.text=crewmdl1.manpower;
+        _Gpcitemlbl=(UILabel *)[cell viewWithTag:1];
+        _Gpcitemlbl.text=crewmdl1.manpower;
         UITapGestureRecognizer *tapGesture =
         [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap1:)];
-        [_Gpitemlbl addGestureRecognizer:tapGesture];
+        [_Gpcitemlbl addGestureRecognizer:tapGesture];
         
         
-        _Gpdeslbl=(UILabel *)[cell viewWithTag:2];
-        _Gpdeslbl.text=crewmdl1.mandescptn;
-        _crewnamelbl=(UILabel *)[cell viewWithTag:3];
+        _Gpcdeslbl=(UILabel *)[cell viewWithTag:2];
+        _Gpcdeslbl.text=crewmdl1.mandescptn;
+        _ccrewnamelbl=(UILabel *)[cell viewWithTag:3];
         
         
-        _crewnamelbl.text=crewmdl1.crewname;
+        _ccrewnamelbl.text=crewmdl1.crewname;
         
         
     }
@@ -1674,7 +1674,7 @@
             //[pathFromDstTable release];
             pathFromDstTable = nil;
         }
-        if ([existstring isEqualToString:@"This Fleet is  Already Exists"]) {
+        if ([existstring isEqualToString:@"This Consumable is  Already Exists"]) {
             [draggedCell removeFromSuperview];
             //[draggedCell release];
             draggedCell = nil;

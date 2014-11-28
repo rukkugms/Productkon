@@ -72,13 +72,13 @@
 /*cell2outlets*/
 
 
-@property (strong, nonatomic) IBOutlet UITableViewCell *Gpconsumcell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *Gpcconsumcell;
 
-@property (strong, nonatomic) IBOutlet UILabel *Gpitemlbl;
+@property (strong, nonatomic) IBOutlet UILabel *Gpcitemlbl;
 
-@property (strong, nonatomic) IBOutlet UILabel *Gpdeslbl;
+@property (strong, nonatomic) IBOutlet UILabel *Gpcdeslbl;
 
-@property (strong, nonatomic) IBOutlet UILabel *crewnamelbl;
+@property (strong, nonatomic) IBOutlet UILabel *ccrewnamelbl;
 
 /*Actions*/
 - (IBAction)servicebtn:(UIButton *)sender;
