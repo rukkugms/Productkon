@@ -11,6 +11,10 @@
 		640622EA1966A10100D5EC33 /* clarity-shutdown-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 640622E91966A10100D5EC33 /* clarity-shutdown-icon.png */; };
 		64161C0D17FEB511007D4D89 /* squre.png in Resources */ = {isa = PBXBuildFile; fileRef = 64161C0C17FEB511007D4D89 /* squre.png */; };
 		641A35D6196175F80080403B /* LbmgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 641A35D5196175F80080403B /* LbmgModel.m */; };
+		6424B9CA1A27190B00BC4648 /* TPGPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6424B9C81A27190B00BC4648 /* TPGPViewController.m */; };
+		6424B9CB1A27190B00BC4648 /* TPGPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6424B9C91A27190B00BC4648 /* TPGPViewController.xib */; };
+		6424B9CD1A27194300BC4648 /* Tpgpfirstcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6424B9CC1A27194300BC4648 /* Tpgpfirstcell.xib */; };
+		6424B9CF1A27195F00BC4648 /* Tpgpsecondcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6424B9CE1A27195F00BC4648 /* Tpgpsecondcell.xib */; };
 		6426F5E318C05C12002471AC /* bgmetro1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5E218C05C12002471AC /* bgmetro1.png */; };
 		6426F5E518C05D2B002471AC /* res.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5E418C05D2B002471AC /* res.png */; };
 		6426F5E718C05E09002471AC /* com.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5E618C05E09002471AC /* com.png */; };
@@ -622,6 +626,11 @@
 		64161C0C17FEB511007D4D89 /* squre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squre.png; sourceTree = "<group>"; };
 		641A35D4196175F80080403B /* LbmgModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LbmgModel.h; sourceTree = "<group>"; };
 		641A35D5196175F80080403B /* LbmgModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LbmgModel.m; sourceTree = "<group>"; };
+		6424B9C71A27190A00BC4648 /* TPGPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPGPViewController.h; sourceTree = "<group>"; };
+		6424B9C81A27190B00BC4648 /* TPGPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPGPViewController.m; sourceTree = "<group>"; };
+		6424B9C91A27190B00BC4648 /* TPGPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPGPViewController.xib; sourceTree = "<group>"; };
+		6424B9CC1A27194300BC4648 /* Tpgpfirstcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tpgpfirstcell.xib; sourceTree = "<group>"; };
+		6424B9CE1A27195F00BC4648 /* Tpgpsecondcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tpgpsecondcell.xib; sourceTree = "<group>"; };
 		6426F5E218C05C12002471AC /* bgmetro1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgmetro1.png; sourceTree = "<group>"; };
 		6426F5E418C05D2B002471AC /* res.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = res.png; sourceTree = "<group>"; };
 		6426F5E618C05E09002471AC /* com.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = com.png; sourceTree = "<group>"; };
@@ -1630,6 +1639,11 @@
 				D4EBB9561A26E15B006A8795 /* GpFleetViewController.xib */,
 				D4EBB9591A26E194006A8795 /* Gpfleetcell.xib */,
 				D4EBB95B1A26E1C3006A8795 /* Fleetgroupcell.xib */,
+				6424B9C71A27190A00BC4648 /* TPGPViewController.h */,
+				6424B9C81A27190B00BC4648 /* TPGPViewController.m */,
+				6424B9C91A27190B00BC4648 /* TPGPViewController.xib */,
+				6424B9CC1A27194300BC4648 /* Tpgpfirstcell.xib */,
+				6424B9CE1A27195F00BC4648 /* Tpgpsecondcell.xib */,
 			);
 			name = "Group SetUp";
 			sourceTree = "<group>";
@@ -2660,6 +2674,7 @@
 				648D12FE17716C7F006BB41A /* rectangle3.png in Resources */,
 				D4A5317819CD822B0056EBC1 /* login-1.jpg in Resources */,
 				D4FE723C187EA3BA00FF4DEF /* ios7-camera-icon.png in Resources */,
+				6424B9CB1A27190B00BC4648 /* TPGPViewController.xib in Resources */,
 				D4A16B571974EEA8002CA2A2 /* Gnmatlfirstcell.xib in Resources */,
 				D47A9B1D19407AA2001CC416 /* company-documents.png in Resources */,
 				D400A5E61980EB78003D5F4C /* company-info.png in Resources */,
@@ -2884,6 +2899,7 @@
 				64B12DDC19D520BE0074A404 /* BsictpCell.xib in Resources */,
 				D41B14ED195C2F1700DEED6E /* calendarimg.png in Resources */,
 				64A2052419CAB89600BD942F /* IndustrytpeViewController.xib in Resources */,
+				6424B9CF1A27195F00BC4648 /* Tpgpsecondcell.xib in Resources */,
 				D48B607F17F941A5001A53C8 /* RadioButton-Selected.png in Resources */,
 				64A4124F19408104003EE113 /* hrinprocess.png in Resources */,
 				D404966D192F2DEA00685109 /* GEqupcell.xib in Resources */,
@@ -2925,6 +2941,7 @@
 				64A2F9AE19CBE425009B1018 /* LdtypViewController.xib in Resources */,
 				D4A16B891974EEE0002CA2A2 /* Emtncell.xib in Resources */,
 				D40A663B187131CA00AB7496 /* cb_mono_on.png in Resources */,
+				6424B9CD1A27194300BC4648 /* Tpgpfirstcell.xib in Resources */,
 				64A3B81E18DFEEC90015887F /* ActivityCustomCell.xib in Resources */,
 				D47A9B2A19407D09001CC416 /* materialsicon.png in Resources */,
 				D4F29B0E19DD19FF009A30F8 /* 070537-glossy-black-3d-button-icon-alphanumeric-information2-ps copy@2X.png in Resources */,
@@ -3056,6 +3073,7 @@
 				64A14D7C187546D20028B43A /* jobdetailsViewController.m in Sources */,
 				D40DE14D19E69DA4008FFD15 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				D4A674B319345FAB00D5A77E /* DPCalendarMonthlyView.m in Sources */,
+				6424B9CA1A27190B00BC4648 /* TPGPViewController.m in Sources */,
 				D40DE14B19E69DA4008FFD15 /* AFImageRequestOperation.m in Sources */,
 				D4EC7E40192A10D400C60BA9 /* MyLineDrawingView.m in Sources */,
 				64A4D097195AE50E00C3F783 /* Bidmodel.m in Sources */,

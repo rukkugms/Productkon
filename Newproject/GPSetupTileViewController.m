@@ -54,6 +54,12 @@
     doubleTap3.numberOfTapsRequired=1;
     doubleTap3.delegate=(id)self;
     [self.fleetview addGestureRecognizer:doubleTap3];
+    UITapGestureRecognizer *doubleTap4 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(Thirdpartypage)];
+    doubleTap4.numberOfTapsRequired=1;
+    doubleTap4.delegate=(id)self;
+    [self.Thirdpartyview addGestureRecognizer:doubleTap4];
    
     // Do any additional setup after loading the view from its nib.
 }
@@ -143,6 +149,19 @@
 
     
 }
+-(void)Thirdpartypage
+{
+    
+      _thirdpartyVCtrl=[[TPGPViewController alloc]initWithNibName:@"TPGPViewController" bundle:nil];
+    // }
+    //_crewctrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    
+    [self presentViewController:_thirdpartyVCtrl
+                       animated:YES completion:NULL];
+    
+    
+}
+
 
 #pragma mark-Webservice
 -(void)UserRightsforparticularmoduleselect{
