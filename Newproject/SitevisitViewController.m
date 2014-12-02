@@ -1183,6 +1183,112 @@
     
     
 }
+-(void)Sitevisitdeleteaccessibility{
+    recordResults = FALSE;
+    SitevistMdl *sitemdl1=(SitevistMdl *)[_accessarray objectAtIndex:path];
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Sitevisitdeleteaccessibility xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planid>%@</planid>\n"
+                   "<entryid>%d</entryid>\n"
+                   "</Sitevisitdeleteaccessibility>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_companyid,[sitemdl1.meetgentryid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Sitevisitdeleteaccessibility" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)SitevisitdeleteEquipmentstag{
+    recordResults = FALSE;
+    SitevistMdl *sitemdl1=(SitevistMdl *)[_estarray objectAtIndex:path];
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SitevisitdeleteEquipmentstag xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planid>%@</planid>\n"
+                   "<entryid>%d</entryid>\n"
+                   "</SitevisitdeleteEquipmentstag>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_companyid,[sitemdl1.meetgentryid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SitevisitdeleteEquipmentstag" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
 -(void)Sitevisitdeletenotes{
     recordResults = FALSE;
@@ -2656,6 +2762,19 @@ _passingdate=dateString;
         [_productionratearray removeObject:indexPath];
         
         }
+        if (tableView==_ESAtble) {
+            [self SitevisitdeleteEquipmentstag];
+            [_estarray removeObject:indexPath];
+            
+        }
+        if (tableView==_accebilitytable) {
+            [self Sitevisitdeleteaccessibility];
+            [_accessarray removeObject:indexPath];
+            
+        }
+        
+
+
         
         if (tableView==_jobsitetable) {
             [self Sitevisitdeletejobsiterequirements];
@@ -3467,6 +3586,15 @@ _passingdate=dateString;
             
             [self SitevisitSelectproductionrate];
         }
+       else   if ([_soapResults isEqualToString:@"deletedAccessibility"]) {
+           
+           [self Accessibilityselect];
+       }
+       else   if ([_soapResults isEqualToString:@"deletedEquipmentstaging"]) {
+           
+           [self EquipmentStagselect];
+       }
+        
 
         else{
         UIAlertView *alertview=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -4986,6 +5114,46 @@ _passingdate=dateString;
         [_jobsitetable reloadData];
         
     }
+}
+-(IBAction)deleteaccessbility:(id)sender
+{
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+        
+        [_accebilitytable setEditing:NO animated:NO];
+        [_accebilitytable reloadData];
+        
+        
+        
+    }
+    
+    else{
+        [super setEditing:YES animated:YES];
+        [_accebilitytable setEditing:YES animated:YES];
+        [_accebilitytable reloadData];
+        
+    }
+
+}
+-(IBAction)deleteequip:(id)sender
+{
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+        
+        [_ESAtble setEditing:NO animated:NO];
+        [_ESAtble reloadData];
+        
+        
+        
+    }
+    
+    else{
+        [super setEditing:YES animated:YES];
+        [_ESAtble setEditing:YES animated:YES];
+        [_ESAtble reloadData];
+        
+    }
+
 }
 - (IBAction)viewbtn:(id)sender {
     viewclck=1;
