@@ -35,7 +35,7 @@
     _estmntable.layer.borderWidth = 2.0;
     _estmntable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
 
-    _listarray=[[NSMutableArray alloc]initWithObjects:@"Estimation Calendar",@"Estimation Review", nil];
+    _listarray=[[NSMutableArray alloc]initWithObjects:@"Estimation Calendar",@"Estimation Review",@"Man Power Chart" ,nil];
     [self WorkTypeSelect];
     
   
@@ -289,43 +289,17 @@ if (tableView==_estmntable) {
             }];
 
         }
+        if(indexPath.row==2)
+        {
+            self.mpVCtrl=[MPChartcalViewController new];
+            
+            [self dismissViewControllerAnimated:YES completion:^{   [self presentViewController:_mpVCtrl
+                                                                                       animated:YES completion:NULL];
+                
+            }];
+        }
 
-//        switch (indexPath.row) {
-////            case 0:
-////                self.phestVCtrl=[[PhsestViewController alloc]initWithNibName:@"PhsestViewController" bundle:nil];
-////                
-////                _phestVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
-////                _phestVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-////                _phestVCtrl.estmtnid=estmdl.estimateid;
-////                [self presentViewController:_phestVCtrl
-////                                   animated:YES completion:NULL];
-////
-////                break;
-//            case 0:
-//               
-//                   // self.DPVCtrl=[[DPCalendarTestViewController alloc]initWithNibName:@"DPCalendarTestViewController" bundle:nil];
-//                    self.DPVCtrl=[DPCalendarTestViewController new];
-//                
-//                //_DPVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
-//               // _phestVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-//               // DPVCtrl.estmtnid=estmdl.estimateid;
-//                [self presentViewController:_DPVCtrl
-//                                   animated:YES completion:NULL];
-//                
-//                break;
-//                 case 1:
-//                //if (!self.calctrl) {
-//                    self.calctrl=[[CalEventDetailViewController alloc]initWithNibName:@"CalEventDetailViewController" bundle:nil];
-//                //}
-//                _calctrl.estimationstring=@"Estimationreview";
-//                _calctrl.estid=estmdl.estimateid;
-//                _calctrl.estimationnumber=estmdl.EstimationId;
-//                [self presentViewController:_calctrl
-//                                   animated:YES completion:NULL];
-//           break;
-//            default:
-//                break;
-//        }
+
        
         
         [self.popOverController dismissPopoverAnimated:YES];
@@ -1462,10 +1436,10 @@ if (tableView==_estmntable) {
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 170, 70)];
+                           initWithFrame:CGRectMake(0, 0, 170, 100)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 170, 70)];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 170, 100)];
     
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
@@ -1479,13 +1453,13 @@ if (tableView==_estmntable) {
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(170, 70);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(170, 100);
     
     //create a popover controller
     
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
-    self.popOverController.popoverContentSize=CGSizeMake(170.0f, 70.0f);
+    self.popOverController.popoverContentSize=CGSizeMake(170.0f,100.0f);
     self.popOverController=_popOverController;
     
     //

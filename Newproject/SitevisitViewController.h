@@ -97,6 +97,7 @@
 
 - (IBAction)accebilityupdate:(id)sender;
 - (IBAction)addnewaccess:(id)sender;
+-(IBAction)deleteaccessbility:(id)sender;
 
 
 
@@ -112,6 +113,7 @@
 @property (strong, nonatomic) IBOutlet UIView *esatitleview;
 
 - (IBAction)addest:(id)sender;
+-(IBAction)deleteequip:(id)sender;
 
 /*Jobsite Views*/
 @property (strong, nonatomic) IBOutlet UIView *jobsiteview;
