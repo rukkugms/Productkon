@@ -1327,7 +1327,16 @@
 }
 
 - (IBAction)savecrewbtn:(UIButton *)sender {
+    if ([_crewtextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+        
+        
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Group name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else{
+
     [self FleetCrewSave];
+    }
 }
 
 - (IBAction)closebtn:(id)sender {

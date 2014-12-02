@@ -1076,6 +1076,8 @@ if([elementName isEqualToString:@"BRDescription"])
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(150.0f, 200.0f);
+    self.popOverController=_popOverController;
     [self.popOverController presentPopoverFromRect:_craftbtnlbl.frame
                                             inView:self.addview
                           permittedArrowDirections:UIPopoverArrowDirectionUp
