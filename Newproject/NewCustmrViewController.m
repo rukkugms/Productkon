@@ -1690,7 +1690,7 @@
     
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
-    _popOverTableView.rowHeight= 40;
+    _popOverTableView.rowHeight= 42;
     _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
     
     

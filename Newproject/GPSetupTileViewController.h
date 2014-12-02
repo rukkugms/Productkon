@@ -66,5 +66,12 @@
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *gpmateractivity;
 
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *gpfleetactivity;
+
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *gpthirdactivity;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *gpconsumactivity;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *gpsmallactivity;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *gpassetactivity;
+
 
 @end

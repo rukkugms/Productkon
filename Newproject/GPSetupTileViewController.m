@@ -99,10 +99,26 @@
     _gpequactivity.hidden=YES;
     _materview.userInteractionEnabled=YES;
     _gpmateractivity.hidden=YES;
+    _gpfleetactivity.hidden=YES;
+    _gpconsumactivity.hidden=YES;
+    _gpthirdactivity.hidden=YES;
+    _gpsmallactivity.hidden=YES;
+    _gpassetactivity.hidden=YES;
     [_gpmateractivity stopAnimating];
     [_gpequactivity stopAnimating];
     [_gpmanactivity stopAnimating];
-
+    [_gpfleetactivity stopAnimating];
+    [_gpthirdactivity stopAnimating];
+    [_gpconsumactivity stopAnimating];
+    [_gpsmallactivity stopAnimating];
+    [_gpassetactivity stopAnimating];
+    _fleetview.userInteractionEnabled=YES;
+    _Thirdpartyview.userInteractionEnabled=YES;
+    _consumview.userInteractionEnabled=YES;
+    _smalltoolview.userInteractionEnabled=YES;
+    _Astview.userInteractionEnabled=YES;
+    
+    
 
     
     
@@ -162,6 +178,8 @@
    // [self UserLogmaininsert];
    // [self UserRightsforparticularmoduleselect];
     //_materview.userInteractionEnabled=NO;
+     _gpfleetactivity.hidden=NO;
+      [_gpfleetactivity startAnimating];
     _fleetVCtrl=[[GpFleetViewController alloc]initWithNibName:@"GpFleetViewController" bundle:nil];
     // }
     //_crewctrl.modalPresentationStyle = UIModalPresentationPageSheet;
@@ -173,7 +191,9 @@
 }
 -(void)Thirdpartypage
 {
-    
+    _gpthirdactivity.hidden=NO;
+    [_gpthirdactivity startAnimating];
+
       _thirdpartyVCtrl=[[TPGPViewController alloc]initWithNibName:@"TPGPViewController" bundle:nil];
     // }
     //_crewctrl.modalPresentationStyle = UIModalPresentationPageSheet;
@@ -185,7 +205,8 @@
 }
 -(void)assetpage
 {
-    
+    _gpassetactivity.hidden=NO;
+    [_gpassetactivity  startAnimating];
     _assetVCtrl=[[AstGpViewController alloc]initWithNibName:@"AstGpViewController" bundle:nil];
     // }
     //_crewctrl.modalPresentationStyle = UIModalPresentationPageSheet;
@@ -197,6 +218,8 @@
 }
 
 -(void)Consumpage{
+    _gpconsumactivity.hidden=NO;
+    [_gpconsumactivity  startAnimating];
     
     _consumVCtrl=[[GPConusumViewController alloc]initWithNibName:@"GPConusumViewController" bundle:nil];
     // }
@@ -207,7 +230,9 @@
     
 }
 -(void)smalltoolpage{
-    
+    _gpsmallactivity.hidden=NO;
+    [_gpsmallactivity  startAnimating];
+
     _smallVCtrl=[[GSmallViewController alloc]initWithNibName:@"GSmallViewController" bundle:nil];
     // }
     //_crewctrl.modalPresentationStyle = UIModalPresentationPageSheet;
@@ -404,6 +429,17 @@
         _materview.userInteractionEnabled=YES;
         _gpmateractivity.hidden=YES;
            [_gpmateractivity stopAnimating];
+        [_gpfleetactivity stopAnimating];
+        [_gpthirdactivity stopAnimating];
+        [_gpconsumactivity stopAnimating];
+        [_gpsmallactivity stopAnimating];
+        [_gpassetactivity stopAnimating];
+        _fleetview.userInteractionEnabled=YES;
+        _Thirdpartyview.userInteractionEnabled=YES;
+        _consumview.userInteractionEnabled=YES;
+        _smalltoolview.userInteractionEnabled=YES;
+        _Astview.userInteractionEnabled=YES;
+
        
         
     }
@@ -429,6 +465,17 @@
                 _materview.userInteractionEnabled=YES;
                 _gpmateractivity.hidden=YES;
                 [_gpmateractivity stopAnimating];
+                [_gpfleetactivity stopAnimating];
+                [_gpthirdactivity stopAnimating];
+                [_gpconsumactivity stopAnimating];
+                [_gpsmallactivity stopAnimating];
+                [_gpassetactivity stopAnimating];
+                _fleetview.userInteractionEnabled=YES;
+                _Thirdpartyview.userInteractionEnabled=YES;
+                _consumview.userInteractionEnabled=YES;
+                _smalltoolview.userInteractionEnabled=YES;
+                _Astview.userInteractionEnabled=YES;
+
                 //if (!self.crewctrl) {
                 _crewctrl=[[CrewsetupViewController alloc]initWithNibName:@"CrewsetupViewController" bundle:nil];
                 // }
@@ -454,6 +501,17 @@
                 _materview.userInteractionEnabled=YES;
                 _gpmateractivity.hidden=YES;
                 [_gpmateractivity stopAnimating];
+                [_gpfleetactivity stopAnimating];
+                [_gpthirdactivity stopAnimating];
+                [_gpconsumactivity stopAnimating];
+                [_gpsmallactivity stopAnimating];
+                [_gpassetactivity stopAnimating];
+                _fleetview.userInteractionEnabled=YES;
+                _Thirdpartyview.userInteractionEnabled=YES;
+                _consumview.userInteractionEnabled=YES;
+                _smalltoolview.userInteractionEnabled=YES;
+                _Astview.userInteractionEnabled=YES;
+
 
                 //You don’t have right to view this form
             }
@@ -474,6 +532,17 @@
                 _materview.userInteractionEnabled=YES;
                 _gpmateractivity.hidden=YES;
                 [_gpmateractivity stopAnimating];
+                [_gpfleetactivity stopAnimating];
+                [_gpthirdactivity stopAnimating];
+                [_gpconsumactivity stopAnimating];
+                [_gpsmallactivity stopAnimating];
+                [_gpassetactivity stopAnimating];
+                _fleetview.userInteractionEnabled=YES;
+                _Thirdpartyview.userInteractionEnabled=YES;
+                _consumview.userInteractionEnabled=YES;
+                _smalltoolview.userInteractionEnabled=YES;
+                _Astview.userInteractionEnabled=YES;
+
 
                 
                 //  if (!self.equipVCtrl) {
@@ -500,6 +569,17 @@
                 _materview.userInteractionEnabled=YES;
                 _gpmateractivity.hidden=YES;
                 [_gpmateractivity stopAnimating];
+                [_gpfleetactivity stopAnimating];
+                [_gpthirdactivity stopAnimating];
+                [_gpconsumactivity stopAnimating];
+                [_gpsmallactivity stopAnimating];
+                [_gpassetactivity stopAnimating];
+                _fleetview.userInteractionEnabled=YES;
+                _Thirdpartyview.userInteractionEnabled=YES;
+                _consumview.userInteractionEnabled=YES;
+                _smalltoolview.userInteractionEnabled=YES;
+                _Astview.userInteractionEnabled=YES;
+
 
             }
           
@@ -520,6 +600,17 @@
                 _materview.userInteractionEnabled=YES;
                 _gpmateractivity.hidden=YES;
                 [_gpmateractivity stopAnimating];
+                [_gpfleetactivity stopAnimating];
+                [_gpthirdactivity stopAnimating];
+                [_gpconsumactivity stopAnimating];
+                [_gpsmallactivity stopAnimating];
+                [_gpassetactivity stopAnimating];
+                _fleetview.userInteractionEnabled=YES;
+                _Thirdpartyview.userInteractionEnabled=YES;
+                _consumview.userInteractionEnabled=YES;
+                _smalltoolview.userInteractionEnabled=YES;
+                _Astview.userInteractionEnabled=YES;
+
 
                 //if (!self.materialVCtrl) {
                 _materialVCtrl=[[GpMaterViewController alloc]initWithNibName:@"GpMaterViewController" bundle:nil];
@@ -544,6 +635,17 @@
                 _materview.userInteractionEnabled=YES;
                 _gpmateractivity.hidden=YES;
                 [_gpmateractivity stopAnimating];
+                [_gpfleetactivity stopAnimating];
+                [_gpthirdactivity stopAnimating];
+                [_gpconsumactivity stopAnimating];
+                [_gpsmallactivity stopAnimating];
+                [_gpassetactivity stopAnimating];
+                _fleetview.userInteractionEnabled=YES;
+                _Thirdpartyview.userInteractionEnabled=YES;
+                _consumview.userInteractionEnabled=YES;
+                _smalltoolview.userInteractionEnabled=YES;
+                _Astview.userInteractionEnabled=YES;
+
 
             }
            
