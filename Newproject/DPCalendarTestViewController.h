@@ -35,4 +35,7 @@
 @property(strong,nonatomic)NSMutableArray *alldatearray;
 @property(strong,nonatomic)NSMutableDictionary*titledict;
 @property(strong,nonatomic)NSMutableArray *alltitlearray;
+
+
+
 @end

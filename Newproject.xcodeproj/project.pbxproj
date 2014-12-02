@@ -142,7 +142,7 @@
 		64B1EB7E1A025C980096DC5B /* Issuecommentcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64B1EB7D1A025C980096DC5B /* Issuecommentcell.xib */; };
 		64B1F2251A0B538800B3FCB7 /* failed.png in Resources */ = {isa = PBXBuildFile; fileRef = 64B1F2241A0B538800B3FCB7 /* failed.png */; };
 		64B36211198F4D2000B54191 /* action.png in Resources */ = {isa = PBXBuildFile; fileRef = 64B36210198F4D2000B54191 /* action.png */; };
-		64BE9F8D1A2D88AA00AC7A81 /* MPChartcalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BE9F8C1A2D88AA00AC7A81 /* MPChartcalViewController.m */; };
+		64BE9F8D1A2D88AA00AC7A81 /* DPChartcalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BE9F8C1A2D88AA00AC7A81 /* DPChartcalViewController.m */; };
 		64C3BB3B1A2836D000E5A3EA /* GSmallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C3BB391A2836D000E5A3EA /* GSmallViewController.m */; };
 		64C3BB3C1A2836D000E5A3EA /* GSmallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C3BB3A1A2836D000E5A3EA /* GSmallViewController.xib */; };
 		64C3BB3E1A2836F500E5A3EA /* GSTfcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C3BB3D1A2836F500E5A3EA /* GSTfcell.xib */; };
@@ -813,8 +813,8 @@
 		64B1EB7D1A025C980096DC5B /* Issuecommentcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Issuecommentcell.xib; sourceTree = "<group>"; };
 		64B1F2241A0B538800B3FCB7 /* failed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failed.png; sourceTree = "<group>"; };
 		64B36210198F4D2000B54191 /* action.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action.png; sourceTree = "<group>"; };
-		64BE9F8B1A2D88AA00AC7A81 /* MPChartcalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPChartcalViewController.h; sourceTree = "<group>"; };
-		64BE9F8C1A2D88AA00AC7A81 /* MPChartcalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPChartcalViewController.m; sourceTree = "<group>"; };
+		64BE9F8B1A2D88AA00AC7A81 /* DPChartcalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPChartcalViewController.h; sourceTree = "<group>"; };
+		64BE9F8C1A2D88AA00AC7A81 /* DPChartcalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPChartcalViewController.m; sourceTree = "<group>"; };
 		64C3BB381A2836D000E5A3EA /* GSmallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSmallViewController.h; sourceTree = "<group>"; };
 		64C3BB391A2836D000E5A3EA /* GSmallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSmallViewController.m; sourceTree = "<group>"; };
 		64C3BB3A1A2836D000E5A3EA /* GSmallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSmallViewController.xib; sourceTree = "<group>"; };
@@ -2006,8 +2006,8 @@
 			children = (
 				D4A674B519345FFD00D5A77E /* DPCalendarTestViewController.h */,
 				D4A674B619345FFD00D5A77E /* DPCalendarTestViewController.m */,
-				64BE9F8B1A2D88AA00AC7A81 /* MPChartcalViewController.h */,
-				64BE9F8C1A2D88AA00AC7A81 /* MPChartcalViewController.m */,
+				64BE9F8B1A2D88AA00AC7A81 /* DPChartcalViewController.h */,
+				64BE9F8C1A2D88AA00AC7A81 /* DPChartcalViewController.m */,
 				D4A674B719345FFD00D5A77E /* DPCalendarTestOptionsViewController.h */,
 				D4A674B819345FFD00D5A77E /* DPCalendarTestOptionsViewController.m */,
 				D4A674B919345FFD00D5A77E /* DPCalendarTestOptionsCell.h */,
@@ -3219,7 +3219,7 @@
 				D4A16B921974EEE0002CA2A2 /* PhsestViewController.m in Sources */,
 				64A11EE618683792008D20CC /* workPhasesViewController.m in Sources */,
 				D40A99CC18C5A9B5005384F9 /* EmplyhrmgntViewController.m in Sources */,
-				64BE9F8D1A2D88AA00AC7A81 /* MPChartcalViewController.m in Sources */,
+				64BE9F8D1A2D88AA00AC7A81 /* DPChartcalViewController.m in Sources */,
 				D49F874918EEA36B00413CAD /* Section.m in Sources */,
 				64335939198B81F800982CFC /* forgetViewController.m in Sources */,
 				D49F874B18EEA36B00413CAD /* Processsectionheaderview.m in Sources */,

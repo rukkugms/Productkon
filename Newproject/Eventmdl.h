@@ -14,5 +14,6 @@
 @property(strong,nonatomic)NSString*enddate;
 @property(strong,nonatomic)NSString*Title;
 @property(strong,nonatomic)NSString*sum1;
+@property(strong,nonatomic)NSString*Destitle;
 
 @end
