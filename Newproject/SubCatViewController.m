@@ -640,6 +640,7 @@
     self.CategryVCtrl=[[CategoryViewController alloc]initWithNibName:@"CategoryViewController" bundle:nil];
     self.CategryVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:self.CategryVCtrl animated:YES completion:nil];
+     [_categorybtn setTitle:@"Select" forState:UIControlStateNormal];
 }
 
 - (IBAction)addbtn:(id)sender {

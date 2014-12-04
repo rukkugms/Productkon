@@ -2689,7 +2689,10 @@
     {
         
         recordResults = FALSE;
-        _totalmanhourlabel.text=[_soapresults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        NSString*abc=  [_soapresults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        _totalmanhourlabel.text= [NSString stringWithFormat:@"%.2f",[abc doubleValue]];
+
+       
         _soapresults = nil;
     }
     if([elementName isEqualToString:@"ServiceJobSequenceselectResponse"])
@@ -2763,7 +2766,10 @@
     {
            recordResults = FALSE;
         
-        _totalequmntlbl.text=[_soapresults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        NSString*abc=  [_soapresults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        _totalequmntlbl.text= [NSString stringWithFormat:@"%.2f",[abc doubleValue]];
+        NSLog(@"%@",[NSString stringWithFormat:@"%.2f",[abc doubleValue]]);
+       
           _soapresults = nil;
         
     }
@@ -2771,8 +2777,11 @@
     if([elementName isEqualToString:@"MaterialQuantity"])
     {
         recordResults = FALSE;
+        NSString*abc=  [_soapresults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        _totmatqtylabel.text= [NSString stringWithFormat:@"%.2f",[abc doubleValue]];
+
         
-        _totmatqtylabel.text=[_soapresults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+     
         _soapresults = nil;
         
     }

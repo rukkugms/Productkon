@@ -1353,7 +1353,7 @@
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:alertstrg delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
         [alert show];
         
-        [self FleetCrewSetUpDelete];
+        //[self FleetCrewSetUpDelete];
         
     }
 
