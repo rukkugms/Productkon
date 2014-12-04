@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MPEvntcalViewController : UIViewController
+@interface MPwrEvntcalViewController : UIViewController
 {
     BOOL recordResults;
 }

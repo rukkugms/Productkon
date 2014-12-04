@@ -15,7 +15,7 @@
 #import "LeadsViewController.h"
 #import "NewCustmrViewController.h"
 #import "DetailplanViewController.h"
-#import "DPCalendarmanViewController.h"
+#import "DPCalendarmnViewController.h"
 @interface EstimationViewController : UIViewController{
     
     NSInteger poptype;
@@ -41,7 +41,7 @@
 @property(strong,nonatomic)PhsestViewController *phestVCtrl;
 @property(strong,nonatomic) ModlEstimation *mdlestmtn;
 @property(strong,nonatomic)DPCalendarTestViewController *DPVCtrl;
-@property(strong,nonatomic)DPCalendarmanViewController *mpVCtrl;
+@property(strong,nonatomic)DPCalendarmnViewController *mpVCtrl;
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;
 @property(strong,nonatomic)UITableView *popOverTableView;

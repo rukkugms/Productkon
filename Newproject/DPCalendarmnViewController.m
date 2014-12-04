@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 GMSIndia1. All rights reserved.
 //
 
-#import "DPCalendarmanViewController.h"
+#import "DPCalendarmnViewController.h"
 #import "DPCalendarMonthlySingleMonthViewLayout.h"
 
 #import "DPCalendarMonthlyView.h"
@@ -17,7 +17,7 @@
 #import "DPCalendarTestCreateEventViewController.h"
 
 
-@interface DPCalendarmanViewController ()<DPCalendarMonthlyViewDelegate>
+@interface DPCalendarmnViewController ()<DPCalendarMonthlyViewDelegate>
 
 @property (nonatomic, strong) UILabel *monthLabel;
 @property (nonatomic, strong) UIButton *previousButton;
@@ -34,7 +34,7 @@
 @end
 
 
-@implementation DPCalendarmanViewController
+@implementation DPCalendarmnViewController
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -348,7 +348,7 @@
         else
         {
             //if (!self.calctrl) {
-            self.calctrl=[[MPEvntcalViewController alloc]initWithNibName:@"MPEvntcalViewController" bundle:nil];
+            self.calctrl=[[MPwrEvntcalViewController alloc]initWithNibName:@"MPwrEvntcalViewController" bundle:nil];
             // }
             _calctrl.selecteddate=stringFromDate;
            _calctrl.modalPresentationStyle = UIModalPresentationFormSheet;
@@ -527,6 +527,7 @@
     
         
   
+    
    
     
     [self updateData];

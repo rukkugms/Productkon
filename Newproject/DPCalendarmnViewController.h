@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MPEvntcalViewController.h"
+#import "MPwrEvntcalViewController.h"
 #import "Eventmdl.h"
-@interface DPCalendarmanViewController : UINavigationController<UIActionSheetDelegate>{
+@interface DPCalendarmnViewController : UINavigationController<UIActionSheetDelegate>{
     BOOL recordResults;
     NSString*olddate;
     NSString*previoustitle;
@@ -17,9 +17,10 @@
     
     
     
+    
 }
 @property(strong,nonatomic)Eventmdl*eventmdl;
-@property(strong,nonatomic)MPEvntcalViewController * calctrl;
+@property(strong,nonatomic)MPwrEvntcalViewController * calctrl;
 @property(strong,nonatomic)NSDate*previousdate;
 /*xmlParser*/
 @property(strong,nonatomic)NSMutableData *webData;

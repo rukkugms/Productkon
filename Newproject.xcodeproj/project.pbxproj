@@ -142,10 +142,10 @@
 		64B1EB7E1A025C980096DC5B /* Issuecommentcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64B1EB7D1A025C980096DC5B /* Issuecommentcell.xib */; };
 		64B1F2251A0B538800B3FCB7 /* failed.png in Resources */ = {isa = PBXBuildFile; fileRef = 64B1F2241A0B538800B3FCB7 /* failed.png */; };
 		64B36211198F4D2000B54191 /* action.png in Resources */ = {isa = PBXBuildFile; fileRef = 64B36210198F4D2000B54191 /* action.png */; };
-		64BF72281A2ECB5A00946718 /* DPCalendarmanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BF72271A2ECB5A00946718 /* DPCalendarmanViewController.m */; };
-		64BF722C1A2EE70D00946718 /* MPEvntcalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BF722A1A2EE70D00946718 /* MPEvntcalViewController.m */; };
-		64BF722D1A2EE70D00946718 /* MPEvntcalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BF722B1A2EE70D00946718 /* MPEvntcalViewController.xib */; };
-		64BF722F1A2F079F00946718 /* Evempcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BF722E1A2F079F00946718 /* Evempcell.xib */; };
+		64BF72281A2ECB5A00946718 /* DPCalendarmnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BF72271A2ECB5A00946718 /* DPCalendarmnViewController.m */; };
+		64BF722C1A2EE70D00946718 /* MPwrEvntcalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BF722A1A2EE70D00946718 /* MPwrEvntcalViewController.m */; };
+		64BF722D1A2EE70D00946718 /* MPwrEvntcalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BF722B1A2EE70D00946718 /* MPwrEvntcalViewController.xib */; };
+		64BF722F1A2F079F00946718 /* Evempwrcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BF722E1A2F079F00946718 /* Evempwrcell.xib */; };
 		64C3BB3B1A2836D000E5A3EA /* GSmallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C3BB391A2836D000E5A3EA /* GSmallViewController.m */; };
 		64C3BB3C1A2836D000E5A3EA /* GSmallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C3BB3A1A2836D000E5A3EA /* GSmallViewController.xib */; };
 		64C3BB3E1A2836F500E5A3EA /* GSTfcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C3BB3D1A2836F500E5A3EA /* GSTfcell.xib */; };
@@ -818,12 +818,12 @@
 		64B1EB7D1A025C980096DC5B /* Issuecommentcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Issuecommentcell.xib; sourceTree = "<group>"; };
 		64B1F2241A0B538800B3FCB7 /* failed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failed.png; sourceTree = "<group>"; };
 		64B36210198F4D2000B54191 /* action.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action.png; sourceTree = "<group>"; };
-		64BF72261A2ECB5A00946718 /* DPCalendarmanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPCalendarmanViewController.h; sourceTree = "<group>"; };
-		64BF72271A2ECB5A00946718 /* DPCalendarmanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPCalendarmanViewController.m; sourceTree = "<group>"; };
-		64BF72291A2EE70D00946718 /* MPEvntcalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEvntcalViewController.h; sourceTree = "<group>"; };
-		64BF722A1A2EE70D00946718 /* MPEvntcalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPEvntcalViewController.m; sourceTree = "<group>"; };
-		64BF722B1A2EE70D00946718 /* MPEvntcalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MPEvntcalViewController.xib; sourceTree = "<group>"; };
-		64BF722E1A2F079F00946718 /* Evempcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Evempcell.xib; sourceTree = "<group>"; };
+		64BF72261A2ECB5A00946718 /* DPCalendarmnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPCalendarmnViewController.h; sourceTree = "<group>"; };
+		64BF72271A2ECB5A00946718 /* DPCalendarmnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPCalendarmnViewController.m; sourceTree = "<group>"; };
+		64BF72291A2EE70D00946718 /* MPwrEvntcalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPwrEvntcalViewController.h; sourceTree = "<group>"; };
+		64BF722A1A2EE70D00946718 /* MPwrEvntcalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPwrEvntcalViewController.m; sourceTree = "<group>"; };
+		64BF722B1A2EE70D00946718 /* MPwrEvntcalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MPwrEvntcalViewController.xib; sourceTree = "<group>"; };
+		64BF722E1A2F079F00946718 /* Evempwrcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Evempwrcell.xib; sourceTree = "<group>"; };
 		64C3BB381A2836D000E5A3EA /* GSmallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSmallViewController.h; sourceTree = "<group>"; };
 		64C3BB391A2836D000E5A3EA /* GSmallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSmallViewController.m; sourceTree = "<group>"; };
 		64C3BB3A1A2836D000E5A3EA /* GSmallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSmallViewController.xib; sourceTree = "<group>"; };
@@ -2017,8 +2017,8 @@
 			children = (
 				D4A674B519345FFD00D5A77E /* DPCalendarTestViewController.h */,
 				D4A674B619345FFD00D5A77E /* DPCalendarTestViewController.m */,
-				64BF72261A2ECB5A00946718 /* DPCalendarmanViewController.h */,
-				64BF72271A2ECB5A00946718 /* DPCalendarmanViewController.m */,
+				64BF72261A2ECB5A00946718 /* DPCalendarmnViewController.h */,
+				64BF72271A2ECB5A00946718 /* DPCalendarmnViewController.m */,
 				D4A674B719345FFD00D5A77E /* DPCalendarTestOptionsViewController.h */,
 				D4A674B819345FFD00D5A77E /* DPCalendarTestOptionsViewController.m */,
 				D4A674B919345FFD00D5A77E /* DPCalendarTestOptionsCell.h */,
@@ -2524,10 +2524,10 @@
 				64A4856C1A1B1D0C00B81DDF /* CalEqevnt.xib */,
 				D4A16B831974EEE0002CA2A2 /* calothereventcell.xib */,
 				D4A16B841974EEE0002CA2A2 /* Sumcell.xib */,
-				64BF72291A2EE70D00946718 /* MPEvntcalViewController.h */,
-				64BF722A1A2EE70D00946718 /* MPEvntcalViewController.m */,
-				64BF722B1A2EE70D00946718 /* MPEvntcalViewController.xib */,
-				64BF722E1A2F079F00946718 /* Evempcell.xib */,
+				64BF72291A2EE70D00946718 /* MPwrEvntcalViewController.h */,
+				64BF722A1A2EE70D00946718 /* MPwrEvntcalViewController.m */,
+				64BF722B1A2EE70D00946718 /* MPwrEvntcalViewController.xib */,
+				64BF722E1A2F079F00946718 /* Evempwrcell.xib */,
 			);
 			name = Estimation;
 			sourceTree = "<group>";
@@ -2833,7 +2833,7 @@
 				D42D8C3818D2E3E3009D8085 /* UsersViewController.xib in Resources */,
 				D4A16B4B1974EEA8002CA2A2 /* Outlookrecordaddview.xib in Resources */,
 				D4F7D9C6196E5B3B00B8F4D4 /* absentmanagement.png in Resources */,
-				64BF722D1A2EE70D00946718 /* MPEvntcalViewController.xib in Resources */,
+				64BF722D1A2EE70D00946718 /* MPwrEvntcalViewController.xib in Resources */,
 				D4036FF819FE23310031C4F1 /* PlandocsViewController.xib in Resources */,
 				D4EC1FE11875280500A55942 /* textbox.png in Resources */,
 				D4F0940E19F22F3100C3B527 /* pencil.png in Resources */,
@@ -3031,7 +3031,7 @@
 				64955C9C180E52D5000A86A1 /* WebViewController.xib in Resources */,
 				D404A2231A0364270086E40A /* CatergryCell.xib in Resources */,
 				D4A16B4A1974EEA8002CA2A2 /* otherbiddrecordaddview.xib in Resources */,
-				64BF722F1A2F079F00946718 /* Evempcell.xib in Resources */,
+				64BF722F1A2F079F00946718 /* Evempwrcell.xib in Resources */,
 				64A3B81618DFEE980015887F /* CommentsCells.xib in Resources */,
 				D47A9B2E19407D3A001CC416 /* groupsetupicon.png in Resources */,
 				D4F0008818D2C478005A50A9 /* CompanyCmntscell.xib in Resources */,
@@ -3212,13 +3212,13 @@
 				D4A16B5E1974EEA8002CA2A2 /* AllDetailsplandisplayViewController.m in Sources */,
 				D4004056185B174A00C38E12 /* TileViewController.m in Sources */,
 				D41B14DF195BF18400DEED6E /* RelatedtoViewController.m in Sources */,
-				64BF722C1A2EE70D00946718 /* MPEvntcalViewController.m in Sources */,
+				64BF722C1A2EE70D00946718 /* MPwrEvntcalViewController.m in Sources */,
 				64A654B4192F1F14004DDB84 /* GPSetupTileViewController.m in Sources */,
 				64A3B81C18DFEEC90015887F /* ActivityViewController.m in Sources */,
 				D44BEA7618E0254900719ED5 /* TypeViewController.m in Sources */,
 				D49F876218EEA36B00413CAD /* NewscfldDetails.m in Sources */,
 				D4149BB01949B3F300A5A6FD /* StockViewController.m in Sources */,
-				64BF72281A2ECB5A00946718 /* DPCalendarmanViewController.m in Sources */,
+				64BF72281A2ECB5A00946718 /* DPCalendarmnViewController.m in Sources */,
 				D49F874E18EEA36B00413CAD /* Verfymdl.m in Sources */,
 				D49F874618EEA36B00413CAD /* PDFImageConverter.m in Sources */,
 				D4A6749919345F1B00D5A77E /* DPCalendarIconEvent.m in Sources */,
