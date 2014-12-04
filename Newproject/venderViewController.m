@@ -168,7 +168,7 @@
 
     optionidentifier=2;
     _cancelbtn.enabled=NO;
-    _cancelbtn.titleLabel.textColor=[UIColor grayColor];
+    [_cancelbtn setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     _venderaddview.hidden=NO;
     _resultdispaylabel.hidden=YES;
     _navitem.title=@"Edit";

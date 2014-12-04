@@ -1764,7 +1764,7 @@ else
     butntype=2;
      _Tooltable.userInteractionEnabled=NO;
     _cancelbtnlbl.enabled=NO;
-    _cancelbtnlbl.titleLabel.textColor=[UIColor grayColor];
+    [_cancelbtnlbl setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     _resultdisplaylabel.hidden=YES;
     button = (UIButton *)sender;
     CGPoint center= button.center;

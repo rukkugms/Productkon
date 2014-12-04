@@ -893,7 +893,7 @@
     _headrtxtfld.text=addmdl.header;
     _adrsstxtview.text=addmdl.address;
     _cancelbtn.enabled=NO;
-    _cancelbtn.titleLabel.textColor=[UIColor grayColor];
+    [_cancelbtn setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
 
 }
 @end

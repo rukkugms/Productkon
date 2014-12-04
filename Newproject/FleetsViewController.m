@@ -2055,7 +2055,7 @@ if([elementName isEqualToString:@"url"])
       [_picimageview setImage:[UIImage imageNamed:@"mNoImage"]];
     _uplodpiclctn=eqmdl.PictureLocation;
     _cancelbtn.enabled=NO;
-    _cancelbtn.titleLabel.textColor=[UIColor grayColor];
+    [_cancelbtn setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     if ([eqmdl.EqAllSubTypes isEqualToString:@"true"]) {
         
         [_subcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
