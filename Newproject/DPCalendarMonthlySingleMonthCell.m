@@ -85,7 +85,7 @@
     //Set text style
     NSMutableParagraphStyle *textStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
     textStyle.lineBreakMode = NSLineBreakByWordWrapping;
-    textStyle.alignment = NSTextAlignmentLeft;
+    textStyle.alignment = NSTextAlignmentCenter;
     NSStringDrawingContext *stringContext = [[NSStringDrawingContext alloc] init];
     stringContext.minimumScaleFactor = 1;
     
@@ -162,7 +162,7 @@
         UIColor *color = [self.eventColors objectAtIndex:event.colorIndex % self.eventColors.count];
 
         
-        if (event.rowIndex == 0 || ((event.rowIndex + 2) * self.rowHeight  > rect.size.height)) {
+        if (event.rowIndex > 3 || ((event.rowIndex + 2) * self.rowHeight  > rect.size.height)) {
             eventsNotShowingCount++;
             continue;
         }
@@ -179,7 +179,7 @@
             //Draw Bar
         
             
-        [self drawCellWithColor:[color colorWithAlphaComponent:1] InRect:CGRectMake(startPosition, event.rowIndex * self.rowHeight + ROW_NewMARGIN, width, self.rowHeight - ROW_MARGIN) context:context];
+        [self drawCellWithColor:[color colorWithAlphaComponent:1] InRect:CGRectMake(startPosition, event.rowIndex * self.rowHeight + ROW_NewMARGIN-35, width, self.rowHeight - ROW_MARGIN) context:context];
             
         } else {
             //Draw Underline
@@ -191,7 +191,7 @@
             //[self drawCellWithColor:color InRect:CGRectMake(EVENT_START_MARGIN, event.rowIndex * self.rowHeight + ROW_MARGIN, 2, self.rowHeight - ROW_MARGIN) context:context];
             
             
-          [event.title drawInRect:CGRectMake(startPosition + 2 +  EVENT_TITLE_MARGIN, event.rowIndex * self.rowHeight + ROW_NewMARGIN, rect.size.width - EVENT_END_MARGIN, self.rowHeight - ROW_MARGIN) withAttributes:@{NSFontAttributeName:self.eventFont, NSParagraphStyleAttributeName:textStyle, NSForegroundColorAttributeName:[UIColor blackColor]}];
+          [event.title drawInRect:CGRectMake(startPosition + 2 +  EVENT_TITLE_MARGIN, event.rowIndex * self.rowHeight + ROW_NewMARGIN-35, rect.size.width - EVENT_END_MARGIN, self.rowHeight - ROW_MARGIN) withAttributes:@{NSFontAttributeName:self.eventFont, NSParagraphStyleAttributeName:textStyle, NSForegroundColorAttributeName:[UIColor blackColor]}];
             
             
             NSLog(@"%f",startPosition + 2 +  EVENT_TITLE_MARGIN);
@@ -207,10 +207,21 @@
     }
     if (eventsNotShowingCount > 0) {
         //show more
-        [[NSString stringWithFormat:@"%d more...", eventsNotShowingCount] drawInRect:CGRectMake(5, (self.events.count - eventsNotShowingCount + 1) * self.rowHeight + 2, rect.size.width - 5, self.rowHeight - 2) withAttributes:@{NSFontAttributeName:self.eventFont, NSParagraphStyleAttributeName:textStyle, NSForegroundColorAttributeName:[UIColor colorWithRed:67/255.0f green:67/255.0f blue:67/255.0f alpha:1]}];
-    }
+//        [[NSString stringWithFormat:@"%d more...", eventsNotShowingCount] drawInRect:CGRectMake(5, (self.events.count - eventsNotShowingCount + 1) * self.rowHeight + 2, rect.size.width - 5, self.rowHeight - 2) withAttributes:@{NSFontAttributeName:self.eventFont, NSParagraphStyleAttributeName:textStyle, NSForegroundColorAttributeName:[UIColor colorWithRed:67/255.0f green:67/255.0f blue:67/255.0f alpha:1]}];
     
-    
+    [[NSString stringWithFormat:@"More....."] drawInRect:CGRectMake(8, (self.events.count - 2 +1) * self.rowHeight + 35, rect.size.width - 5, self.rowHeight - 2) withAttributes:@{NSFontAttributeName:self.eventFont, NSParagraphStyleAttributeName:textStyle, NSForegroundColorAttributeName:[UIColor blackColor]}];
+        
+        
+        
+        NSLog(@"%f",(self.events.count - eventsNotShowingCount + 1) * self.rowHeight + 2);
+        NSLog(@"%f",rect.size.width - 5);
+        NSLog(@"%f",self.rowHeight - 2);
+        //NSLog(@"%f",self.rowHeight - ROW_MARGIN);
+        
+}
+
+
+
 }
 
 -(void)setIsPreviousSelectedCell:(BOOL)isPreviousSelectedCell {

@@ -188,9 +188,9 @@ NSString *const DPCalendarViewDayCellIdentifier = @"DPCalendarViewDayCellIdentif
 
 
 - (NSArray *)defaultEventColors {
-    return @[[UIColor colorWithRed:0/255.f green:100/255.0f blue:0/255.0f alpha:1], [UIColor colorWithRed:32/255.0f green:149/255.0f blue:34/255.0f alpha:1], [UIColor colorWithRed:255/255.f green:36/255.0f blue:36/255.0f alpha:1]];
+    return @[[UIColor colorWithRed:99.0/255.0f green:184.0/255.0f blue:255.0/255.0f alpha:1.0f], [UIColor colorWithRed:32/255.0f green:149/255.0f blue:34/255.0f alpha:1],[UIColor colorWithRed:32/255.0f green:149/255.0f blue:34/255.0f alpha:1]];
 }
-
+ //[UIColor colorWithRed:255/255.f green:36/255.0f blue:36/255.0f alpha:1]
 
 - (NSArray *)defaultIconEventColors {
     return @[[UIColor colorWithRed:0/255.f green:100/255.0f blue:0/255.0f alpha:1], [UIColor colorWithRed:255/255.0f green:168/255.0f blue:0 alpha:1]];
