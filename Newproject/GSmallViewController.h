@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Manpwr.h"
 #import "Crewmodel.h"
+#import "SmalltoolsViewController.h"
 
 @interface GSmallViewController : UIViewController<UIGestureRecognizerDelegate>
 {
@@ -30,7 +31,7 @@
     NSIndexPath*    pathFromDstTable;
 }
 
-
+@property(strong,nonatomic)SmalltoolsViewController *smallVCtrl;
 @property(strong,nonatomic)NSString *deletegpstring;
 @property(strong,nonatomic)NSString *existingstring;
 @property(strong,nonatomic)NSString *deleteitemstring;

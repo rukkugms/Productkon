@@ -25,7 +25,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
                     <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
-                        <navigationItem title="Small Tools" id="zpt-3e-RlQ">
+                        <navigationItem title="Other Company Assets" id="zpt-3e-RlQ">
                             <barButtonItem key="rightBarButtonItem" id="zFb-0N-cMD">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="e3X-mc-dlT">
                                     <rect key="frame" x="958" y="-3" width="50" height="50"/>

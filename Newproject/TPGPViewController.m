@@ -656,6 +656,9 @@
         Manpwr *manpwr=(Manpwr *)[_thirdfirstarray objectAtIndex:indexPath.row];
         _firstitemlabel=(UILabel *)[cell viewWithTag:1];
         _firstitemlabel.text=manpwr.itemcode;
+        UITapGestureRecognizer *tapGesture =
+        [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap1:)];
+        [_firstitemlabel addGestureRecognizer:tapGesture];
         _firstdesclabel=(UILabel *)[cell viewWithTag:2];
         _firstdesclabel.text=manpwr.itemdescptn;
         _firstunitcostlabel=(UILabel *)[cell viewWithTag:3];
@@ -668,6 +671,9 @@
          Crewmodel *tp=(Crewmodel *)[_thirdsecarray objectAtIndex:indexPath.row];
         _secitemlabel=(UILabel *)[cell viewWithTag:1];
         _secitemlabel.text=tp.manpower;
+        UITapGestureRecognizer *tapGesture =
+        [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap:)];
+        [_secitemlabel addGestureRecognizer:tapGesture];
         _secdesclabel=(UILabel *)[cell viewWithTag:2];
         _secdesclabel.text=tp.mandescptn;
         _seccrewnamelabel=(UILabel *)[cell viewWithTag:3];
@@ -747,6 +753,39 @@
     }
     return YES;
     
+}
+#pragma mark-Touch Gesture
+-(void)labelTap:(UITapGestureRecognizer *)sender{
+    
+    CGPoint location = [sender locationInView:self.view];
+    CGPoint locationInTableview = [self.thirdsectable convertPoint:location fromView:self.view];
+    NSIndexPath *indexPath = [self.thirdsectable indexPathForRowAtPoint:locationInTableview];
+    
+    
+    NSLog(@"textFieldIndexPath%d",indexPath.row);
+    
+    Crewmodel *tp=(Crewmodel *)[_thirdsecarray objectAtIndex:indexPath.row];
+    _thirdVCtrl=[[ThirdPartyViewController alloc]initWithNibName:@"ThirdPartyViewController" bundle:nil];
+    _thirdVCtrl.frmplan=1;
+    _thirdVCtrl.itemfromgp=tp.manpower;
+    _thirdVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    [self presentViewController:_thirdVCtrl animated:YES completion:nil];
+}
+-(void)labelTap1:(UITapGestureRecognizer *)sender{
+    
+    CGPoint location = [sender locationInView:self.view];
+    CGPoint locationInTableview = [self.thirdfirsttable convertPoint:location fromView:self.view];
+    NSIndexPath *indexPath = [self.thirdfirsttable indexPathForRowAtPoint:locationInTableview];
+    
+    
+    NSLog(@"textFieldIndexPath%d",indexPath.row);
+    
+  Manpwr *manpwr=(Manpwr *)[_thirdfirstarray objectAtIndex:indexPath.row];
+    _thirdVCtrl=[[ThirdPartyViewController alloc]initWithNibName:@"ThirdPartyViewController" bundle:nil];
+    _thirdVCtrl.frmplan=1;
+    _thirdVCtrl.itemfromgp=manpwr.itemcode;
+    _thirdVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    [self presentViewController:_thirdVCtrl animated:YES completion:nil];
 }
 
 #pragma mark- WebService
@@ -1556,15 +1595,21 @@
                 [self ThirdPartyCrewNameSelect];
                 
             }
-            else if ([_soapResults isEqualToString:@"Inserted"]){
+            else  if ([_soapResults isEqualToString:@"Inserted"]){
                 [self ThirdPartyCrewNameSelect];
             }
 
             else
             {
+               
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [alert show];
                 
+                    
+              
+
                 _tpgpnametextfield.text=@"";
-                [self ThirdPartyCrewNameSelect];
+                //[self ThirdPartyCrewNameSelect];
             }
         
 

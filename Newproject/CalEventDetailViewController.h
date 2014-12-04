@@ -11,7 +11,7 @@
 #import "Eqeventmdl.h"
 #import "Eventmdl.h"
 #import "OthereventMaodel.h"
-#import "ABCViewController.h"
+
 
 @interface CalEventDetailViewController : UIViewController
 {

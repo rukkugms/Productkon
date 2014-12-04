@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Equpmntmdl.h"
 #import "Crewmodel.h"
+#import "AssetsViewController.h"
 
 @interface AstGpViewController : UIViewController<UIGestureRecognizerDelegate>
 {
@@ -32,7 +33,7 @@
 }
 
 
-
+@property(strong,nonatomic)AssetsViewController *assetVCtrl;
 @property(strong,nonatomic)NSString *deletegpstring;
 @property(strong,nonatomic)NSString *existingstring;
 @property(strong,nonatomic)NSString *deleteitemstring;

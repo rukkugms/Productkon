@@ -1304,8 +1304,12 @@
         else
         {
             
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+
+            
             _othergpnametextfield.text=@"";
-            [self OtherCrewNameSelect];
+          //  [self OtherCrewNameSelect];
         }
         
         
@@ -1573,6 +1577,11 @@
         Equpmntmdl *manpwr=(Equpmntmdl *)[_otherfirstarray objectAtIndex:indexPath.row];
         _firstitemlabel=(UILabel *)[cell viewWithTag:1];
         _firstitemlabel.text=manpwr.itemcode;
+        
+        UITapGestureRecognizer *tapGesture =
+        [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap:)];
+        [_firstitemlabel addGestureRecognizer:tapGesture];
+
         _firstdesclabel=(UILabel *)[cell viewWithTag:2];
         _firstdesclabel.text=manpwr.itemdescptn;
         _firstunitcostlabel=(UILabel *)[cell viewWithTag:3];
@@ -1585,6 +1594,10 @@
         Crewmodel *tp=(Crewmodel *)[_othersecarray objectAtIndex:indexPath.row];
         _secitemlabel=(UILabel *)[cell viewWithTag:1];
         _secitemlabel.text=tp.manpower;
+        UITapGestureRecognizer *tapGesture =
+        [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap1:)];
+        [_secitemlabel addGestureRecognizer:tapGesture];
+        
         _secdesclabel=(UILabel *)[cell viewWithTag:2];
         _secdesclabel.text=tp.mandescptn;
         _seccrewnamelabel=(UILabel *)[cell viewWithTag:3];
@@ -1663,6 +1676,40 @@
         return self.editing ;
     }
     return YES;
+    
+}
+#pragma mark-Touch Gesture
+-(void)labelTap1:(UITapGestureRecognizer *)sender{
+    
+    CGPoint location = [sender locationInView:self.view];
+    CGPoint locationInTableview = [self.othersectable convertPoint:location fromView:self.view];
+    NSIndexPath *indexPath = [self.othersectable indexPathForRowAtPoint:locationInTableview];
+    
+    
+    NSLog(@"textFieldIndexPath%d",indexPath.row);
+    
+    Crewmodel *tp=(Crewmodel *)[_othersecarray objectAtIndex:indexPath.row];
+    _assetVCtrl=[[AssetsViewController alloc]initWithNibName:@"AssetsViewController" bundle:nil];
+    _assetVCtrl.frmplan=1;
+    _assetVCtrl.itemfromgp=tp.manpower;
+    _assetVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    [self presentViewController:_assetVCtrl animated:YES completion:nil];
+}
+-(void)labelTap:(UITapGestureRecognizer *)sender{
+    
+    CGPoint location = [sender locationInView:self.view];
+    CGPoint locationInTableview = [self.otherfirsttable convertPoint:location fromView:self.view];
+    NSIndexPath *indexPath = [self.otherfirsttable indexPathForRowAtPoint:locationInTableview];
+    
+    
+    NSLog(@"textFieldIndexPath%d",indexPath.row);
+    
+   Equpmntmdl *manpwr=(Equpmntmdl *)[_otherfirstarray objectAtIndex:indexPath.row];
+    _assetVCtrl=[[AssetsViewController alloc]initWithNibName:@"AssetsViewController" bundle:nil];
+    _assetVCtrl.frmplan=1;
+    _assetVCtrl.itemfromgp=manpwr.itemcode;
+    _assetVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    [self presentViewController:_assetVCtrl animated:YES completion:nil];
     
 }
 

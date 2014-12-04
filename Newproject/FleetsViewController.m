@@ -91,7 +91,43 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self FleetSubTypeSelect];
+  
+    if (_frmplan==1) {
+        /*searchbar*/
+        _searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+        _searchbar.delegate = (id)self;
+        _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+        
+        self.fleetTable.tableHeaderView =_searchbar;
+        
+        UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_searchbar contentsController:self];
+        searchController.searchResultsDataSource = (id)self;
+        searchController.searchResultsDelegate =(id)self;
+        searchController.delegate = (id)self;
+        
+        _searchstring=[_itemfromgp stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        _searchbar.text=[_itemfromgp stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        [self Searchfleet];
+    }
+    else
+    {
+        /*searchbar*/
+        _searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+        _searchbar.delegate = (id)self;
+        _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+        
+        self.fleetTable.tableHeaderView =_searchbar;
+        
+        UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_searchbar contentsController:self];
+        searchController.searchResultsDataSource = (id)self;
+        searchController.searchResultsDelegate =(id)self;
+        searchController.delegate = (id)self;
+        _searchbar.text=@"";
+        [self FleetSubTypeSelect];
+
+        
+    }
+   
     _activitybtn.hidden=YES;
     _addview.userInteractionEnabled=YES;
    

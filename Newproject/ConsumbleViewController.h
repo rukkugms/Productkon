@@ -28,6 +28,9 @@
     
 }
 
+@property(readwrite)NSInteger frmplan;
+@property(strong,nonatomic)NSString *itemfromgp;
+
 /*cameraAction*/
 @property (nonatomic) BOOL newMedia;
 @property(strong,nonatomic)NSData*basedata;

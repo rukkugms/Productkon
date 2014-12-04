@@ -1287,8 +1287,11 @@
         else
         {
             
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+
             _smallgpnametextfield.text=@"";
-            [self SmallToolsCrewNameSelect];
+           // [self SmallToolsCrewNameSelect];
         }
         
         
@@ -1561,6 +1564,10 @@
         Manpwr *manpwr=(Manpwr *)[_smallfirstarray objectAtIndex:indexPath.row];
         _firstitemlabel=(UILabel *)[cell viewWithTag:1];
         _firstitemlabel.text=manpwr.itemcode;
+        UITapGestureRecognizer *tapGesture =
+        [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap:)];
+        [_firstitemlabel addGestureRecognizer:tapGesture];
+
         _firstdesclabel=(UILabel *)[cell viewWithTag:2];
         _firstdesclabel.text=manpwr.itemdescptn;
         _firstunitcostlabel=(UILabel *)[cell viewWithTag:3];
@@ -1573,6 +1580,10 @@
         Crewmodel *tp=(Crewmodel *)[_smallsecarray objectAtIndex:indexPath.row];
         _secitemlabel=(UILabel *)[cell viewWithTag:1];
         _secitemlabel.text=tp.manpower;
+        UITapGestureRecognizer *tapGesture =
+        [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap1:)];
+        [_secitemlabel addGestureRecognizer:tapGesture];
+
         _secdesclabel=(UILabel *)[cell viewWithTag:2];
         _secdesclabel.text=tp.mandescptn;
         _seccrewnamelabel=(UILabel *)[cell viewWithTag:3];
@@ -1655,6 +1666,41 @@
 }
 
 
+#pragma mark-Touch Gesture
+-(void)labelTap1:(UITapGestureRecognizer *)sender{
+    
+    CGPoint location = [sender locationInView:self.view];
+    CGPoint locationInTableview = [self.smallsectable convertPoint:location fromView:self.view];
+    NSIndexPath *indexPath = [self.smallsectable indexPathForRowAtPoint:locationInTableview];
+    
+    
+    NSLog(@"textFieldIndexPath%d",indexPath.row);
+    
+      Crewmodel *tp=(Crewmodel *)[_smallsecarray objectAtIndex:indexPath.row];
+    _smallVCtrl=[[SmalltoolsViewController alloc]initWithNibName:@"SmalltoolsViewController" bundle:nil];
+    _smallVCtrl.frmplan=1;
+    _smallVCtrl.itemfromgp=tp.manpower;
+    _smallVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    [self presentViewController:_smallVCtrl animated:YES completion:nil];
+}
+-(void)labelTap:(UITapGestureRecognizer *)sender{
+    
+    CGPoint location = [sender locationInView:self.view];
+    CGPoint locationInTableview = [self.smallfirsttable convertPoint:location fromView:self.view];
+    NSIndexPath *indexPath = [self.smallfirsttable indexPathForRowAtPoint:locationInTableview];
+    
+    
+    NSLog(@"textFieldIndexPath%d",indexPath.row);
+    
+    Manpwr *manpwr=(Manpwr *)[_smallfirstarray objectAtIndex:indexPath.row];
+
+    _smallVCtrl=[[SmalltoolsViewController alloc]initWithNibName:@"SmalltoolsViewController" bundle:nil];
+    _smallVCtrl.frmplan=1;
+    _smallVCtrl.itemfromgp=manpwr.itemcode;
+    _smallVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    [self presentViewController:_smallVCtrl animated:YES completion:nil];
+
+}
 
 /*
 #pragma mark - Navigation

@@ -503,7 +503,7 @@
     }
 }
 
-
+#pragma mark-Touch Gesture
 
 -(void)labelTap:(UITapGestureRecognizer *)sender{
     
