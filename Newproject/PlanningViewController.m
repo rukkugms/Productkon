@@ -732,6 +732,7 @@
 {
     if(optionidentifier==1)
     {
+        _updatebtn.enabled=NO;
         [self UserLogmaininsert];
     }
     else if(optionidentifier==2)
@@ -812,6 +813,8 @@
     _ziptxtfld.text=@"";
     [_cmplexitybtnlbl setTitle:@"Select" forState:UIControlStateNormal];
  _planselectionbtn.enabled=NO;
+    _loctntxtfld.text=@"";
+    
 
 
 }
@@ -2459,6 +2462,7 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     if ([alertView.message isEqualToString:_result]) {
+        _updatebtn.enabled=YES;
         _planselectionbtn.enabled=NO;
         _sitefactortxtfld.text=@"";
         [_leadcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
