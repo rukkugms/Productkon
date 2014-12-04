@@ -36,6 +36,9 @@
     
     
 }
+
+@property(readwrite)NSInteger frmplan;
+@property(strong,nonatomic)NSString *itemfromgp;
 @property(strong,nonatomic)NSMutableDictionary *skilldict;
 @property(strong,nonatomic)NSMutableDictionary *revskilldict;
 @property(strong,nonatomic)UIImagePickerController *imagePicker;

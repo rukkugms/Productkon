@@ -10,6 +10,7 @@
 #import "PlanningViewController.h"
 #import "Rightscheck.h"
 
+
 @interface PlngTileViewController : UIViewController
 {
     NSString*userid;

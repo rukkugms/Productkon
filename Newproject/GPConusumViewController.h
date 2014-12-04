@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Manpwr.h"
 #import "Crewmodel.h"
+#import "ConsumbleViewController.h"
 
 
 @interface GPConusumViewController : UIViewController{
@@ -27,7 +28,7 @@
     
 }
 @property(strong,nonatomic) Manpwr*mmdl;
-
+@property(strong,nonatomic) ConsumbleViewController *conVCtrl;
 @property(strong,nonatomic)Crewmodel*crewmdl1;
 /*Arrays*/
 @property(strong,nonatomic)NSMutableArray*skillarray;

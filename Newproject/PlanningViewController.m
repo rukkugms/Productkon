@@ -503,7 +503,7 @@
     }
 }
 
-
+#pragma mark-Touch Gesture
 
 -(void)labelTap:(UITapGestureRecognizer *)sender{
     
@@ -2136,7 +2136,15 @@
         recordResults = TRUE;
         
     }
-    
+    if([elementName isEqualToString:@"result1"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
 }
 
@@ -2374,17 +2382,26 @@
        // }
         _soapResults = nil;
     }
+    
+    if([elementName isEqualToString:@"result1"])
+    {
+         recordResults = FALSE;
+        floderplan=_soapResults;
+        [self CreateFolderforPlan];
+        _soapResults = nil;
+
+    }
     if([elementName isEqualToString:@"result"])
     {
         
         _result=_soapResults;
         recordResults = FALSE;
-         if(webtype==1){
-            floderplan=_soapResults;
-            [self CreateFolderforPlan];
-        }
+         //if(webtype==1){
+           
+       // }
 
-      else  if (webtype!=3) {
+      //else
+          if (webtype!=3) {
             
           
             

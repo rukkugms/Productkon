@@ -268,6 +268,8 @@
 		D41B14E9195C0CF500DEED6E /* RelatedtoMdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D41B14E8195C0CF500DEED6E /* RelatedtoMdl.m */; };
 		D41B14EB195C2D3F00DEED6E /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = D41B14EA195C2D3F00DEED6E /* images.png */; };
 		D41B14ED195C2F1700DEED6E /* calendarimg.png in Resources */ = {isa = PBXBuildFile; fileRef = D41B14EC195C2F1700DEED6E /* calendarimg.png */; };
+		D41BAF3D1A2D925F00674DDB /* leadsnew.png in Resources */ = {isa = PBXBuildFile; fileRef = D41BAF3C1A2D925E00674DDB /* leadsnew.png */; };
+		D41BAF3F1A2D9B6F00674DDB /* work-entry.png in Resources */ = {isa = PBXBuildFile; fileRef = D41BAF3E1A2D9B6F00674DDB /* work-entry.png */; };
 		D42505CA19A46830001D16A2 /* SecurityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42505C819A46830001D16A2 /* SecurityViewController.m */; };
 		D42505CB19A46830001D16A2 /* SecurityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42505C919A46830001D16A2 /* SecurityViewController.xib */; };
 		D42505D519A4A5A8001D16A2 /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = D42505D419A4A5A8001D16A2 /* lock.png */; };
@@ -994,6 +996,8 @@
 		D41B14E8195C0CF500DEED6E /* RelatedtoMdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelatedtoMdl.m; sourceTree = "<group>"; };
 		D41B14EA195C2D3F00DEED6E /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
 		D41B14EC195C2F1700DEED6E /* calendarimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendarimg.png; sourceTree = "<group>"; };
+		D41BAF3C1A2D925E00674DDB /* leadsnew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leadsnew.png; sourceTree = "<group>"; };
+		D41BAF3E1A2D9B6F00674DDB /* work-entry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "work-entry.png"; sourceTree = "<group>"; };
 		D42505C719A46830001D16A2 /* SecurityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityViewController.h; sourceTree = "<group>"; };
 		D42505C819A46830001D16A2 /* SecurityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityViewController.m; sourceTree = "<group>"; };
 		D42505C919A46830001D16A2 /* SecurityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecurityViewController.xib; sourceTree = "<group>"; };
@@ -1746,12 +1750,12 @@
 				648D130A1771A29B006BB41A /* Company */,
 				D400402F185B12A600C38E12 /* Resources */,
 				D4A2AFFB176EED2A00F4E196 /* Customer */,
-				D44BEA7818E0257400719ED5 /* others */,
-				D4FED40417F15AC5004BE242 /* hr */,
 				D4F19DCC18D03AA4007617F0 /* Leads */,
 				D4B7017C18AB3E490060BE0A /* Planning */,
 				D4F34351191C9C2E0023D715 /* Estimation */,
 				D41499AB19457312001E9146 /* Project Management */,
+				D4FED40417F15AC5004BE242 /* hr */,
+				D44BEA7818E0257400719ED5 /* others */,
 				D4A6748519345E1400D5A77E /* Estimation Calendar */,
 				D4EC7E38192A09BA00C60BA9 /* Drawpad */,
 				D40D1EB1176B086F00379DD5 /* Supporting Files */,
@@ -2125,6 +2129,8 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D41BAF3E1A2D9B6F00674DDB /* work-entry.png */,
+				D41BAF3C1A2D925E00674DDB /* leadsnew.png */,
 				D4F053E41A0CA5D800672C88 /* planning-s.png */,
 				D4F053E21A0CA54300672C88 /* planning2.png */,
 				D4F053E01A0CA37A00672C88 /* planning2@2X.png */,
@@ -2615,7 +2621,6 @@
 				ORGANIZATIONNAME = GMSIndia1;
 				TargetAttributes = {
 					D40D1EA6176B086E00379DD5 = {
-						DevelopmentTeam = 8TB89SJ777;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -2747,6 +2752,7 @@
 				D4A123D419A7249C00A4ED9B /* Newuserrightscell.xib in Resources */,
 				D4F7D9D6196E646200B8F4D4 /* labour.png in Resources */,
 				64B12DDA19D520940074A404 /* BscTypViewController.xib in Resources */,
+				D41BAF3D1A2D925F00674DDB /* leadsnew.png in Resources */,
 				D453DA321873F215007EE3DC /* Assetcell.xib in Resources */,
 				D4A338CA18F3BD1900E53FAC /* WorktypeViewController.xib in Resources */,
 				D42D8C3D18D2E411009D8085 /* usercell.xib in Resources */,
@@ -2913,6 +2919,7 @@
 				D4A6748E19345E6C00D5A77E /* IconCamera.png in Resources */,
 				D4A16B3E1974EEA8002CA2A2 /* Jobsitecellview.xib in Resources */,
 				D4E658CC17F2DED100202B14 /* detailDisclosureButton.png in Resources */,
+				D41BAF3F1A2D9B6F00674DDB /* work-entry.png in Resources */,
 				D413816E194710830056574C /* site.png in Resources */,
 				D49F86CF18EE6C5700413CAD /* volumediscountcell.xib in Resources */,
 				D4A16B9D1974EEE0002CA2A2 /* Matcalevecell.xib in Resources */,
@@ -3328,7 +3335,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "03399249-3703-4669-8E9D-83AD7CCF1538";
+				PROVISIONING_PROFILE = "940fc7b4-45b1-425b-b31c-d9b476f20491";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -3355,7 +3362,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "03399249-3703-4669-8E9D-83AD7CCF1538";
+				PROVISIONING_PROFILE = "940fc7b4-45b1-425b-b31c-d9b476f20491";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -3366,13 +3373,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iOS Distribution: Arvin Varghese";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Newproject/Newproject-Prefix.pch";
 				INFOPLIST_FILE = "Newproject/Newproject-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "940fc7b4-45b1-425b-b31c-d9b476f20491";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
@@ -3382,13 +3389,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iOS Distribution: Arvin Varghese";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Newproject/Newproject-Prefix.pch";
 				INFOPLIST_FILE = "Newproject/Newproject-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "940fc7b4-45b1-425b-b31c-d9b476f20491";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};

@@ -39,6 +39,8 @@ NSInteger popvr;
 
     
 }
+@property(readwrite)NSInteger frmplan;
+@property(strong,nonatomic)NSString *itemfromgp;
 @property(readwrite)NSInteger fleetid;
 @property(strong,nonatomic)SubCatViewController *CategryVCtrl;
 @property(strong,nonatomic)NSMutableDictionary *skilldict;

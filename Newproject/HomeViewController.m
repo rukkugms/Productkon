@@ -37,6 +37,8 @@
     
 }
 -(IBAction)logout:(id)sender
+
+
 {   _ModuleID=0;
     _result=@"";
     

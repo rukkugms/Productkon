@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Equpmntmdl.h"
 #import "Crewmodel.h"
+#import "FleetsViewController.h"
 
 
 @interface GpFleetViewController : UIViewController{
@@ -27,6 +28,7 @@
    
     
 }
+@property(strong,nonatomic)FleetsViewController *fleetVCtrl;
 @property(strong,nonatomic) Equpmntmdl*eqmdl;
 
 @property(strong,nonatomic)Crewmodel*crewmdl1;

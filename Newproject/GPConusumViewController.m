@@ -1289,6 +1289,39 @@
         }
     }
 }
+#pragma mark-Touch Gesture
+-(void)labelTap1:(UITapGestureRecognizer *)sender{
+    
+    CGPoint location = [sender locationInView:self.view];
+    CGPoint locationInTableview = [self.groupconsumtable convertPoint:location fromView:self.view];
+    NSIndexPath *indexPath = [self.groupconsumtable indexPathForRowAtPoint:locationInTableview];
+    
+    
+    NSLog(@"textFieldIndexPath%d",indexPath.row);
+    
+    Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:indexPath.row];
+    _conVCtrl=[[ConsumbleViewController alloc]initWithNibName:@"ConsumbleViewController" bundle:nil];
+    _conVCtrl.frmplan=1;
+    _conVCtrl.itemfromgp=crewmdl1.manpower;
+    _conVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    [self presentViewController:_conVCtrl animated:YES completion:nil];
+}
+-(void)labelTap:(UITapGestureRecognizer *)sender{
+    
+    CGPoint location = [sender locationInView:self.view];
+    CGPoint locationInTableview = [self.consumtable convertPoint:location fromView:self.view];
+    NSIndexPath *indexPath = [self.consumtable indexPathForRowAtPoint:locationInTableview];
+    
+    
+    NSLog(@"textFieldIndexPath%d",indexPath.row);
+    
+    Manpwr*emdl=(Manpwr *)[_consumarray objectAtIndex:indexPath.row];
+    _conVCtrl=[[ConsumbleViewController alloc]initWithNibName:@"ConsumbleViewController" bundle:nil];
+    _conVCtrl.frmplan=1;
+    _conVCtrl.itemfromgp=emdl.itemcode;
+    _conVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    [self presentViewController:_conVCtrl animated:YES completion:nil];
+}
 
 #pragma mark-Actions
 - (IBAction)servicebtn:(UIButton *)sender {

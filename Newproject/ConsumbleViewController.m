@@ -55,6 +55,7 @@
     [_imageview addGestureRecognizer:pgr];
     
 }
+
 - (void)handlePinch:(UITapGestureRecognizer *)pinchGestureRecognizer
 {
     //handle pinch...
@@ -166,15 +167,51 @@ finishedSavingWithError:(NSError *)error
 
 
 -(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-        _activitybtn.hidden=YES;
-    _addView.userInteractionEnabled=YES;
     _updatebtn.enabled=YES;
-   
-    [self AllSkills];
+    [super viewWillAppear:animated];
+    
+    if (_frmplan==1) {
+        /*searchbar*/
+        _searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+        _searchbar.delegate = (id)self;
+        _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+        
+        self.consumbleTable.tableHeaderView =_searchbar;
+        
+        UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_searchbar contentsController:self];
+        searchController.searchResultsDataSource = (id)self;
+        searchController.searchResultsDelegate =(id)self;
+        searchController.delegate = (id)self;
+        
+        _searchstring=[_itemfromgp stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        _searchbar.text=[_itemfromgp stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        [self SearchConsumables];
+    }
+    else
+    {
+        /*searchbar*/
+        _searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+        _searchbar.delegate = (id)self;
+        _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+        
+        self.consumbleTable.tableHeaderView =_searchbar;
+        
+        UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_searchbar contentsController:self];
+        searchController.searchResultsDataSource = (id)self;
+        searchController.searchResultsDelegate =(id)self;
+        searchController.delegate = (id)self;
+        _searchbar.text=@"";
+        [self AllSkills];
+        
+    }
+    
 
-   // [self SelectAllConsumables];
+    
+    
+    _activitybtn.hidden=YES;
+    _addView.userInteractionEnabled=YES;
 }
+
 
 #pragma mark-Popover
 -(void)createpopover{

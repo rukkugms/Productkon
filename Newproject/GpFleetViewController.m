@@ -1186,7 +1186,7 @@
             _itemcodelbl=(UILabel *)[cell viewWithTag:1];
             _itemcodelbl.text=emdl.itemcode;
             UITapGestureRecognizer *tapGesture =
-            [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap:)];
+            [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap1:)];
             [_itemcodelbl addGestureRecognizer:tapGesture];
             
             _fdeslbl=(UILabel *)[cell viewWithTag:2];
@@ -1203,7 +1203,7 @@
         _Gpitemlbl=(UILabel *)[cell viewWithTag:1];
         _Gpitemlbl.text=crewmdl1.manpower;
         UITapGestureRecognizer *tapGesture =
-        [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap1:)];
+        [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap:)];
         [_Gpitemlbl addGestureRecognizer:tapGesture];
         
         
@@ -1289,6 +1289,39 @@
             
         }
     }
+}
+#pragma mark-Touch Gesture
+-(void)labelTap:(UITapGestureRecognizer *)sender{
+    
+    CGPoint location = [sender locationInView:self.view];
+    CGPoint locationInTableview = [self.groupfleettable convertPoint:location fromView:self.view];
+    NSIndexPath *indexPath = [self.groupfleettable indexPathForRowAtPoint:locationInTableview];
+    
+  
+    NSLog(@"textFieldIndexPath%d",indexPath.row);
+    
+    Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:indexPath.row];
+    _fleetVCtrl=[[FleetsViewController alloc]initWithNibName:@"FleetsViewController" bundle:nil];
+    _fleetVCtrl.frmplan=1;
+    _fleetVCtrl.itemfromgp=crewmdl1.manpower;
+     _fleetVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    [self presentViewController:_fleetVCtrl animated:YES completion:nil];
+}
+-(void)labelTap1:(UITapGestureRecognizer *)sender{
+    
+    CGPoint location = [sender locationInView:self.view];
+    CGPoint locationInTableview = [self.fleettable convertPoint:location fromView:self.view];
+    NSIndexPath *indexPath = [self.fleettable indexPathForRowAtPoint:locationInTableview];
+    
+    
+    NSLog(@"textFieldIndexPath%d",indexPath.row);
+    
+     Equpmntmdl*emdl=(Equpmntmdl *)[_fleetarray objectAtIndex:indexPath.row];
+    _fleetVCtrl=[[FleetsViewController alloc]initWithNibName:@"FleetsViewController" bundle:nil];
+    _fleetVCtrl.frmplan=1;
+    _fleetVCtrl.itemfromgp=emdl.itemcode;
+    _fleetVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    [self presentViewController:_fleetVCtrl animated:YES completion:nil];
 }
 
 #pragma mark-Actions

@@ -558,6 +558,8 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    self.popOverController.popoverContentSize=CGSizeMake(320.0f, 335.0f);
+    self.popOverController=_popOverController;
 
     [self.popOverController presentPopoverFromRect:_dateBtn.frame
                                             inView:self.newviewactivity

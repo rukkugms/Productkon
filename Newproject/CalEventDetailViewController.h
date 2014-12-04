@@ -12,6 +12,7 @@
 #import "Eventmdl.h"
 #import "OthereventMaodel.h"
 
+
 @interface CalEventDetailViewController : UIViewController
 {
     NSInteger tooltype;
