@@ -142,7 +142,6 @@
 		64B1EB7E1A025C980096DC5B /* Issuecommentcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64B1EB7D1A025C980096DC5B /* Issuecommentcell.xib */; };
 		64B1F2251A0B538800B3FCB7 /* failed.png in Resources */ = {isa = PBXBuildFile; fileRef = 64B1F2241A0B538800B3FCB7 /* failed.png */; };
 		64B36211198F4D2000B54191 /* action.png in Resources */ = {isa = PBXBuildFile; fileRef = 64B36210198F4D2000B54191 /* action.png */; };
-		64BE9F8D1A2D88AA00AC7A81 /* DPChartcalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BE9F8C1A2D88AA00AC7A81 /* DPChartcalViewController.m */; };
 		64BF72281A2ECB5A00946718 /* DPCalendarmanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BF72271A2ECB5A00946718 /* DPCalendarmanViewController.m */; };
 		64BF722C1A2EE70D00946718 /* MPEvntcalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BF722A1A2EE70D00946718 /* MPEvntcalViewController.m */; };
 		64BF722D1A2EE70D00946718 /* MPEvntcalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BF722B1A2EE70D00946718 /* MPEvntcalViewController.xib */; };
@@ -819,8 +818,6 @@
 		64B1EB7D1A025C980096DC5B /* Issuecommentcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Issuecommentcell.xib; sourceTree = "<group>"; };
 		64B1F2241A0B538800B3FCB7 /* failed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failed.png; sourceTree = "<group>"; };
 		64B36210198F4D2000B54191 /* action.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action.png; sourceTree = "<group>"; };
-		64BE9F8B1A2D88AA00AC7A81 /* DPChartcalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPChartcalViewController.h; sourceTree = "<group>"; };
-		64BE9F8C1A2D88AA00AC7A81 /* DPChartcalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPChartcalViewController.m; sourceTree = "<group>"; };
 		64BF72261A2ECB5A00946718 /* DPCalendarmanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPCalendarmanViewController.h; sourceTree = "<group>"; };
 		64BF72271A2ECB5A00946718 /* DPCalendarmanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPCalendarmanViewController.m; sourceTree = "<group>"; };
 		64BF72291A2EE70D00946718 /* MPEvntcalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEvntcalViewController.h; sourceTree = "<group>"; };
@@ -2020,8 +2017,6 @@
 			children = (
 				D4A674B519345FFD00D5A77E /* DPCalendarTestViewController.h */,
 				D4A674B619345FFD00D5A77E /* DPCalendarTestViewController.m */,
-				64BE9F8B1A2D88AA00AC7A81 /* DPChartcalViewController.h */,
-				64BE9F8C1A2D88AA00AC7A81 /* DPChartcalViewController.m */,
 				64BF72261A2ECB5A00946718 /* DPCalendarmanViewController.h */,
 				64BF72271A2ECB5A00946718 /* DPCalendarmanViewController.m */,
 				D4A674B719345FFD00D5A77E /* DPCalendarTestOptionsViewController.h */,
@@ -3246,7 +3241,6 @@
 				D4A16B921974EEE0002CA2A2 /* PhsestViewController.m in Sources */,
 				64A11EE618683792008D20CC /* workPhasesViewController.m in Sources */,
 				D40A99CC18C5A9B5005384F9 /* EmplyhrmgntViewController.m in Sources */,
-				64BE9F8D1A2D88AA00AC7A81 /* DPChartcalViewController.m in Sources */,
 				D49F874918EEA36B00413CAD /* Section.m in Sources */,
 				64335939198B81F800982CFC /* forgetViewController.m in Sources */,
 				D49F874B18EEA36B00413CAD /* Processsectionheaderview.m in Sources */,
