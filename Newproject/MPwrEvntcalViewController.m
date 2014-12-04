@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 GMSIndia1. All rights reserved.
 //
 
-#import "MPEvntcalViewController.h"
+#import "MPwrEvntcalViewController.h"
 
-@interface MPEvntcalViewController ()
+@interface MPwrEvntcalViewController ()
 
 @end
 
-@implementation MPEvntcalViewController
+@implementation MPwrEvntcalViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -77,7 +77,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
-        [[NSBundle mainBundle]loadNibNamed:@"Evempcell" owner:self options:nil];
+        [[NSBundle mainBundle]loadNibNamed:@"Evempwrcell" owner:self options:nil];
             cell=_mpcell;
             
         }

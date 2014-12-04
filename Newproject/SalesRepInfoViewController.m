@@ -116,7 +116,7 @@
     _updatebtn.enabled=YES;
     _salesRepTable.userInteractionEnabled=NO;
    // [_salesRepTable setEditing:NO animated:NO];
-       _cancelbtnlbl.titleLabel.textColor=[UIColor grayColor];
+      [_cancelbtnlbl setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     _addView.hidden=NO;
     _navbar.title=@"Edit";
     optionidentifier=2;

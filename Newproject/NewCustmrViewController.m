@@ -1648,7 +1648,7 @@
     _custmrtable.userInteractionEnabled=NO;
     _cancelbtnlbl.enabled=NO;
     optionidentifier=2;
-    _cancelbtnlbl.titleLabel.textColor=[UIColor grayColor];
+    [_cancelbtnlbl setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     webtype=2;
     _navtitle.title=@"Edit";
      _addview.hidden=NO;

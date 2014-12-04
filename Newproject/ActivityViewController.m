@@ -676,7 +676,8 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     butnidtfr=2;
     self.activityNav.title = @"Edit";
     _cancelbtnlbl.enabled=NO;
-    _cancelbtnlbl.titleLabel.textColor=[UIColor grayColor];
+    [_cancelbtnlbl setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
+
     _activityTable.userInteractionEnabled=NO;
     _newviewactivity.hidden=NO;
 

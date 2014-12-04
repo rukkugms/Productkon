@@ -775,7 +775,7 @@
 - (IBAction)editbtn:(id)sender {
     _cancelbtn.enabled=NO;
     _updatebtn.enabled=YES;
-    _cancelbtn.titleLabel.textColor=[UIColor grayColor];
+    [_cancelbtn setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
   //  [_typetable setEditing:NO animated:NO];
     _typetable.userInteractionEnabled=NO;
     optionidentifier=2;

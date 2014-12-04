@@ -893,7 +893,7 @@
     _navItem.title=@"Edit";
     _updatebtn.enabled=YES;
     _cancelbtn.enabled=NO;
-    _cancelbtn.titleLabel.textColor=[UIColor grayColor];
+    [_cancelbtn setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
      self.openviewindex=NSNotFound;
     _resultdisplaylabel.hidden=YES;
     button = (UIButton *)sender;

@@ -71,8 +71,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [super viewWillAppear:animated];
+   
     if (_frmplan==1) {
+        webtype=20;
         _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
         _SearchingBar.delegate = (id)self;
         _SearchingBar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
@@ -89,6 +90,7 @@
         
 
         _searchstring=_itemcode;
+        _SearchingBar.text=_itemcode;
         
         [self SearchManpower];
     }
@@ -2040,7 +2042,8 @@ _SearchingBar.text=@"";
 {
       _updatebtn.enabled=YES;
       _cancelbtn.enabled=NO;
-    _cancelbtn.titleLabel.textColor=[UIColor grayColor];
+    [_cancelbtn setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
+   // _cancelbtn.titleLabel.textColor=[UIColor grayColor];
     btnidtfr=11;
        _manpowerTable.userInteractionEnabled=NO;
      _cancelbtnlbl.enabled=NO;

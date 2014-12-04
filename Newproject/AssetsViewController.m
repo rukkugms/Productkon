@@ -2076,7 +2076,7 @@ recordResults = FALSE;
     _stckinhandtxtfld.text=eqmdl.stockinhand;
     _uplodpiclctn=eqmdl.PictureLocation;
     _cancelbtn.enabled=NO;
-    _cancelbtn.titleLabel.textColor=[UIColor grayColor];
+    [_cancelbtn setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
       [_pictureimgview setImage:[UIImage imageNamed:@"mNoImage"]];
       _addview.hidden=NO;
     _navItem.title=@"Edit";

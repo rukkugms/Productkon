@@ -620,7 +620,7 @@ if (tableView==_leadTable) {
     _leadTable.userInteractionEnabled=NO;
     //[_leadTable setEditing:NO animated:NO];
     _ancelbtnlbl.enabled=NO;
-    _ancelbtnlbl.titleLabel.textColor=[UIColor grayColor];
+    [_ancelbtnlbl setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     
      self.navbaritem.title = @"Edit";
     _view2.hidden=NO;
