@@ -3679,7 +3679,7 @@ _passingdate=dateString;
     {
      
         recordResults = FALSE;
-        //_sitevistmdl.jobsitname=_soapResults;
+        _sitevistmdl.jobsitereqid=_soapResults;
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"ItemName"])
@@ -5115,6 +5115,7 @@ _passingdate=dateString;
         
     }
 }
+
 -(IBAction)deleteaccessbility:(id)sender
 {
     if (self.editing) {
@@ -5294,4 +5295,31 @@ _passingdate=dateString;
     [self presentViewController:_newrecordVCtrl
                        animated:YES completion:NULL];
 }
+
+- (IBAction)jobeditbtn:(id)sender {
+   
+   
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.jobsitetable];
+    NSIndexPath *textFieldIndexPath = [self.jobsitetable indexPathForRowAtPoint:rootViewPoint];
+     NSLog(@"%d",textFieldIndexPath.row);
+     NSLog(@"%@",_jobsiteArray );
+ SitevistMdl *sitemdl1=(SitevistMdl *)[_jobsiteArray objectAtIndex:textFieldIndexPath.row];
+    NSMutableArray*newarray=[[NSMutableArray alloc]init];
+    [newarray addObject:sitemdl1];
+    
+    
+         self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"Jobsiterecord" bundle:nil];
+    self.newrecordVCtrl.delegate=self;
+    self.newrecordVCtrl.companyid=_companyid;
+    self.newrecordVCtrl.navjobsitearry=newarray;
+    self.newrecordVCtrl.optionidntfr=2;
+     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    [self presentViewController:_newrecordVCtrl
+                       animated:YES completion:NULL];
+    
+    
+}
+
 @end

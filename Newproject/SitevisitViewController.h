@@ -26,6 +26,7 @@
     NSInteger fetchindex;
     NSInteger viewclck;
     NSInteger webtype;
+    NSInteger optionidntfr;
 
 }
 
@@ -126,6 +127,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *jobtype;
 @property (strong, nonatomic) IBOutlet UILabel *jobcost;
 - (IBAction)deletejobsite:(id)sender;
+- (IBAction)jobeditbtn:(id)sender;
 
 
 

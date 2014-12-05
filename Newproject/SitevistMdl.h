@@ -50,6 +50,7 @@
 @property(readwrite)NSInteger typvalue;
 @property(readwrite)NSInteger notetype;
 @property(strong,nonatomic)NSString *servcid;
+@property(strong,nonatomic)NSString *jobsitereqid;
 
 
 

@@ -94,6 +94,16 @@ drawtype=1;
     // Do any additional setup after loading the view from its nib.
     
     //_navbar.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    
+    
+    
+    
+    /*jobsite requirements*/
+     NSLog(@"%@",[_navjobsitearry objectAtIndex:0]);
+    SitevistMdl*sitemd=(SitevistMdl *)[_navjobsitearry objectAtIndex:0];
+    [_typeidbtnlbl setTitle:sitemd.jobsitname forState:UIControlStateNormal];
+    _jobcosttxtfld.text=sitemd.jobcost;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -1236,6 +1246,86 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     
 }
+-(void)SitevisitJobsiteRequirementUpdate{
+    recordResults = FALSE;
+    
+    NSString *soapMessage;
+    basicreqmdl*breq=(basicreqmdl *)[_allrequirementarray objectAtIndex:reqindex];
+    // NSInteger typeid=[[_JobtypeDic objectForKey:_typeidbtnlbl.titleLabel.text]integerValue];
+   
+    NSString *code;
+    NSInteger typeid;
+    NSString*name;
+    SitevistMdl*sitemd=(SitevistMdl *)[_navjobsitearry objectAtIndex:0];
+
+    
+    if(checkclick==1){
+        typeid=breq.type;
+        code=breq.code;
+        name=[NSString stringWithFormat:@"%d",breq.eid];
+    }
+    else{
+        
+        typeid=[sitemd.jobtypeid integerValue];
+        code=sitemd.jobcode;
+        name=sitemd.jobsitereqid;
+        
+        
+    }
+    
+    
+    
+  
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SitevisitJobsiteRequirementUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<EntryId>%d</EntryId>\n"
+                   "<Name>%@</Name>\n"
+                   "<Code>%@</Code>\n"
+                   "<TypeId>%d</TypeId>\n"
+                   "<Cost>%f</Cost>\n"
+                   "<PlanId>%@</PlanId>\n"
+                   "</SitevisitJobsiteRequirementUpdate>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[sitemd.jobentryid integerValue],name,code,typeid,[_jobcosttxtfld.text floatValue],_companyid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SitevisitJobsiteRequirementUpdate" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
 
 #pragma mark - Connection
@@ -1855,6 +1945,7 @@ recordResults
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
        if (tableView==_popOverTableView){
             if (poptype==1) {
+                checkclick=1;
            // NSArray *array1=[_JobtypeDic allKeys];
            //[_typeidbtnlbl setTitle:[array1 objectAtIndex:indexPath.row] forState:UIControlStateNormal];
                  basicreqmdl*breq=(basicreqmdl *)[_allrequirementarray objectAtIndex:indexPath.row];
@@ -2330,7 +2421,16 @@ recordResults
     else
     {
         _jobupdatebtn.enabled=NO;
-    [self SitevisitInsertjobsiterequirements];
+        
+        if(_optionidntfr==2){
+            [self SitevisitJobsiteRequirementUpdate];
+            
+        }
+        else{
+             [self SitevisitInsertjobsiterequirements];
+        }
+   
+        
     }
 }
 - (IBAction)tobasicreq:(id)sender
