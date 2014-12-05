@@ -1977,13 +1977,13 @@
         _tmntlylbl.text=[NSString stringWithFormat:@"$%@",thrmdl.mnthlyrate];
       
         if([thrmdl.fueled isEqualToString:@"true"]){
-            [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+            [_tcheckbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
             
             
         }
         else
         {
-            [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_tcheckbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             
             
         }
