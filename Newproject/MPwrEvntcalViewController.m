@@ -63,9 +63,30 @@
     return [fgf count];
     
 }
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
      return [_phasearray objectAtIndex:section];
+}
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _mptable.bounds.size.width, 30)];
+   
+    [headerView setBackgroundColor:[UIColor lightGrayColor]];
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    headerLabel.backgroundColor = [UIColor clearColor];
+    headerLabel.opaque = NO;
+    headerLabel.textColor = [UIColor whiteColor];
+    headerLabel.font = [UIFont boldSystemFontOfSize:14];
+    headerLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);
+    headerLabel.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
+    headerLabel.frame = CGRectMake(5,-11, 150.0, 44.0);
+    headerLabel.textAlignment = NSTextAlignmentLeft;
+    //headerLabel.text = [NSString stringWithFormat:@"Phase-%@",[_phasearray objectAtIndex:section]];
+    headerLabel.text = [_phasearray objectAtIndex:section];
+    [headerView addSubview:headerLabel];
+  
+    return headerView;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

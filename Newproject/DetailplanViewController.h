@@ -29,6 +29,7 @@
     NSInteger sec;
     NSInteger third;
     NSInteger searchtype;
+    NSInteger deletepath;
    
 }
 
@@ -162,6 +163,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *sequencebtn;
 - (IBAction)Sequenceselectaction:(id)sender;
 
+- (IBAction)Deleteworkentry:(id)sender;
 
 -(void)navgteanimtn;
 -(void)updatedata;

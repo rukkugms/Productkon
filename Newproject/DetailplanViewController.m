@@ -425,6 +425,27 @@
     [self.popovercontroller presentPopoverFromRect:_sequencebtn.frame inView:self.addscaffoldrecordview permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 
+- (IBAction)Deleteworkentry:(id)sender
+{
+    
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+        [_generaltable setEditing:NO animated:NO];
+        [_generaltable reloadData];
+        
+        
+        
+    }
+    
+    else{
+        [super setEditing:YES animated:YES];
+        [_generaltable setEditing:YES animated:YES];
+        [_generaltable reloadData];
+        
+    }
+
+}
+
 
 #pragma mark-Tableview
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -606,6 +627,21 @@
             }
     [self.popovercontroller dismissPopoverAnimated:YES];
 }
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle==UITableViewCellEditingStyleDelete) {
+        deletepath=indexPath.row;
+        [self Workentrydelete];
+        [_generallistarray removeObject:indexPath];
+        
+        
+        
+        
+        
+    }
+    
+}
+
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //alternating cell back ground color
     if(tableView==_generaltable||tableView==_scaffoldtable)
@@ -1264,6 +1300,58 @@
     }
     
 }
+-(void)Workentrydelete
+{
+        
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    Generalmodel*gmodel=(Generalmodel *)[_generallistarray objectAtIndex:deletepath];
+
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   "<Workentrydelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Id>%d</Id>\n"
+                   "</Workentrydelete>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[gmodel.gid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Workentrydelete" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 -(void)TotalEqpHoursSelect
 {
     recordResults = FALSE;
@@ -2563,9 +2651,11 @@
 //            [self.navigationController.view.layer addAnimation:animation forKey:@"WebPageCurl"];
 //            [self.navigationController pushViewController:_allctrlr animated:NO];
         }
-        
+        if([_soapresults isEqualToString:@"deleted"])
+        {
+            [self GeneralSelect];
 
-        
+        }
         _soapresults = nil;
     }
     if([elementName isEqualToString:@"GeneralSelectResult"])
