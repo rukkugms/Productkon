@@ -334,7 +334,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
                    
                    "<soap:Body>\n"
                    
-                   "<UpdateW4 xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UpdateW4 xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<appid>%d</appid>\n"
                    "<dependent>%d</dependent>\n"
                    "<mart>%d</mart>\n"
@@ -352,7 +352,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UpdateW4" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/UpdateW4" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -414,7 +414,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
                    
                    "<soap:Body>\n"
                    
-                   "<UpdateDirectDeposit xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UpdateDirectDeposit xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<appid>%d</appid>\n"
                    "<payment>%d</payment>\n"
                    "<fname>%@</fname>\n"
@@ -438,7 +438,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UpdateDirectDeposit" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/UpdateDirectDeposit" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -475,7 +475,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
                    
                    "<soap:Body>\n"
                    
-                   "<UploadHRDocsImage xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UploadHRDocsImage xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<f>%@</f>\n"
                    "<fileName>%@</fileName>\n"
                    "<appid>%d</appid>\n"
@@ -494,7 +494,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UploadHRDocsImage" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/UploadHRDocsImage" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -532,7 +532,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
                    
                    "<soap:Body>\n"
                    
-                   "<SelectHRDocs xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SelectHRDocs xmlns=\"http://testUSA.kontract360.com/\">\n"
               
                    "<appid>%d</appid>\n"
                   "</SelectHRDocs>\n"
@@ -549,7 +549,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SelectHRDocs" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SelectHRDocs" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -588,7 +588,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
                    
                    "<soap:Body>\n"
                    
-                   "<Applicantrequirementselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Applicantrequirementselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "<Applicant_Id>%d</Applicant_Id>\n"
                    "</Applicantrequirementselect>\n"
@@ -605,7 +605,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Applicantrequirementselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/Applicantrequirementselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -644,7 +644,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
                    
                    "<soap:Body>\n"
                    
-                   "<Statusselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Statusselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                 
                    "</Statusselect>\n"
@@ -661,7 +661,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Statusselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/Statusselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -700,7 +700,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
                    
                    "<soap:Body>\n"
                    
-                   "<ReqVendorselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ReqVendorselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    
                    "</ReqVendorselect>\n"
@@ -717,7 +717,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ReqVendorselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/ReqVendorselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -774,7 +774,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
                    
                    "<soap:Body>\n"
                    
-                   "<ApplicantReqirement2Update xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ApplicantReqirement2Update xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<EntryId>%d</EntryId>\n"
                    "<Applicant_Id>%d</Applicant_Id>\n"
                
@@ -797,7 +797,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ApplicantReqirement2Update" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/ApplicantReqirement2Update" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -832,7 +832,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
                    
                    "<soap:Body>\n"
                    
-                   "<Stateselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Stateselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "</Stateselect>\n"
                    "</soap:Body>\n"
@@ -849,7 +849,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Stateselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/Stateselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -883,7 +883,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
                    
                    "<soap:Body>\n"
                    
-                   "<PaymentTypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<PaymentTypeselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                     "<applicant_id>%d</applicant_id>\n"
                    "</PaymentTypeselect>\n"
                    "</soap:Body>\n"
@@ -900,7 +900,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/PaymentTypeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/PaymentTypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -934,7 +934,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
                    
                    "<soap:Body>\n"
                    
-                   "<W4select xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<W4select xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<applicant_id>%d</applicant_id>\n"
                    "</W4select>\n"
                    "</soap:Body>\n"
@@ -951,7 +951,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/W4select" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/W4select" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
