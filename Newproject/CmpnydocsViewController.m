@@ -906,7 +906,7 @@ return cell;
     USerdocid=[[_fileiddict objectForKey:[_documntarray objectAtIndex:textFieldIndexPath.row]]integerValue];
     
     [self UserLogmainview];
-     NSString *fullURL =[NSString stringWithFormat:@"http://192.168.0.175:7342%@",[_docdict objectForKey:[_documntarray objectAtIndex:textFieldIndexPath.row]]];
+     NSString *fullURL =[NSString stringWithFormat:@"https://testusa.kontract360.com%@",[_docdict objectForKey:[_documntarray objectAtIndex:textFieldIndexPath.row]]];
     NSLog(@"fullurl%@",fullURL);
     //_urlstring=[_docdict objectForKey:[_documntarray objectAtIndex:textFieldIndexPath.row]];
    // _urlstring=[NSString stringWithFormat:@"http://192.168.0.1:443/Folder/Root/EmployeeHandbook/accounts.xlsx"];
