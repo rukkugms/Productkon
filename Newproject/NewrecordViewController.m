@@ -82,9 +82,9 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     NSDate *dtime=[NSDate date];
     [dateFormatter setDateFormat:@"hh:mm:ss a"];
-    NSString *currentTime = [dateFormatter stringFromDate:dtime];
-    NSLog(@"%@", currentTime);
-    [_timebtn setTitle:currentTime forState:UIControlStateNormal];
+    _currntime = [dateFormatter stringFromDate:dtime];
+    NSLog(@"%@", _currntime);
+    [_timebtn setTitle:_currntime forState:UIControlStateNormal];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     useridname = [defaults objectForKey:@"Userid"];
@@ -2337,6 +2337,7 @@ recordResults
 {
     _basicctrl=[[BasicReqViewController alloc]initWithNibName:@"BasicReqViewController" bundle:nil];
     [self presentViewController:_basicctrl animated:YES completion:nil];
+    [_typeidbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
 }
 
 - (IBAction)cancelbtn:(id)sender {
@@ -2471,6 +2472,7 @@ recordResults
 - (IBAction)meetgcancelbtn:(id)sender {
     
     [_datebtnlbl setTitle:_curntdatestrg forState:UIControlStateNormal];
+    [_timebtn setTitle:_currntime forState:UIControlStateNormal];
     _meetgdetailslbl.text=@"";
     
 }
@@ -2546,6 +2548,7 @@ recordResults
 
 - (IBAction)notescancelbtn:(id)sender {
     [_notedatebtnlbl  setTitle:_curntdatestrg forState:UIControlStateNormal];
+     [_timebtn  setTitle:_currntime forState:UIControlStateNormal];
     _notestxtfld.text=@"";
    
 }

@@ -1227,6 +1227,18 @@
             [self GeneralResourceMaterialDetailselect];
             
         }
+       else if ([_soapResults isEqualToString:@"Cannot Edit as Man Hours are used in Equipment"]){
+           UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+           [alert show];
+           [self GeneralDetailselect];
+           
+       }
+       else if ([_soapResults isEqualToString:@"Cannot Delete as Man Hours are used in Equipment"]){
+           UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+           [alert show];
+           [self GeneralDetailselect];
+           
+       }
 
        else if ([_soapResults isEqualToString:@"Updated Successfully"]) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -2184,7 +2196,7 @@
        _manpwrtxtfld.text=gendtdlmdl.itemcode;
         _descptntxtfld.text=gendtdlmdl.itemdescptn;
        _numbertxtfld.text=gendtdlmdl.numbers;
-       _hourstxtfld.text=gendtdlmdl.hours;
+       _hourstxtfld.text=[NSString stringWithFormat:@"%.2f",[gendtdlmdl.hours doubleValue]];;
     
     
     

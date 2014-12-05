@@ -89,7 +89,9 @@
     
 }
 - (IBAction)editequip:(id)sender
-{
+{   option=1;
+    [self PlanHoursSelect];
+
     _EQdgupdate.enabled=YES;
     _equipeditview.hidden=NO;
     equipbtn = (UIButton *)sender;
@@ -101,7 +103,7 @@
     
     Drageqmodel*dmodel=(Drageqmodel *)[_equipdestarray objectAtIndex:btnindex];
     _equipitemcodetextfield.text=dmodel.EquipmentCrewName;
-    _equipitemdesctextfield.text=dmodel.hours;
+    _equipitemdesctextfield.text=[NSString stringWithFormat:@"%.2f",[dmodel.hours doubleValue]];
     _equipqtytextfield.text=dmodel.qty;
    
 //    if ([dmodel.ratestring isEqualToString:@"Hourly Rate"]) {
@@ -147,6 +149,8 @@
 }
 - (IBAction)updateequip:(id)sender
 {
+    NSLog(@"%.2f",[planhours doubleValue]);
+     NSLog(@"%.2f",[_equipitemdesctextfield.text doubleValue]);
         Validation*val=[[Validation alloc]init];
         int value1=[val isNumeric:_equipqtytextfield.text];
         int value2=[val isNumeric:_equipitemdesctextfield.text];
@@ -167,7 +171,12 @@
             
             
         }
-        
+    else if ([_equipitemdesctextfield.text doubleValue]  > [planhours doubleValue])
+    {
+        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Equipment hours must be less than or equal to Man Hours" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert1 show];
+        _equipitemdesctextfield.text=@"";
+    }
     else
     {
         _EQdgupdate.enabled=NO;
@@ -1461,8 +1470,14 @@
     {
         
         recordResults = FALSE;
+        if (option==1) {
+            planhours=_soapResults;
+        }
+        else
+        {
         planhours=_soapResults;
         [self GeneralResourceDetailInsert];
+        }
         _soapResults = nil;
     }
 

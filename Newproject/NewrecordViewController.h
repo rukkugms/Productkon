@@ -40,6 +40,7 @@
 @property(strong,nonatomic)basicreqmdl*basicmdl;
 @property(strong,nonatomic)NSMutableArray * allrequirementarray;
 @property(strong,nonatomic)NSString*curntdatestrg;
+@property(strong,nonatomic)NSString*currntime;
 @property(strong,nonatomic)Validation *val;
 @property(readwrite)NSInteger tabtype;
 @property(readwrite)NSInteger reloadtype;

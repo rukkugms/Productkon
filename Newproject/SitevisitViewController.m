@@ -5166,7 +5166,8 @@ _passingdate=dateString;
     fetchindex=textFieldIndexPath.row;
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
 
-        SitevistMdl *sitemdl1=(SitevistMdl *)[_estarray objectAtIndex:fetchindex];
+        SitevistMdl *sitemdl1=(SitevistMdl *)[_accessarray objectAtIndex:fetchindex];
+         NSLog(@"%d",sitemdl1.typvalue);
         if (sitemdl1.typvalue==0) {
             [self AccessFetchImage];
         }
