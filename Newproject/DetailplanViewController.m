@@ -2656,6 +2656,12 @@
             [self GeneralSelect];
 
         }
+        if([_soapresults isEqualToString:@"Cannot Delete.Work Entry is used in Estimate"])
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:_soapresults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+          
+        }
         _soapresults = nil;
     }
     if([elementName isEqualToString:@"GeneralSelectResult"])
