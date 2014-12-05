@@ -308,7 +308,7 @@
     //USerdocid=[[_fileiddict objectForKey:[_documntarray objectAtIndex:textFieldIndexPath.row]]integerValue];
     
    
-    NSString *fullURL =[NSString stringWithFormat:@"http://192.168.0.175:7342%@",[_docmntdict objectForKey:[_documntarray objectAtIndex:textFieldIndexPath.row]]];
+    NSString *fullURL =[NSString stringWithFormat:@"https://testusa.kontract360.com%@",[_docmntdict objectForKey:[_documntarray objectAtIndex:textFieldIndexPath.row]]];
     NSLog(@"fullurl%@",fullURL);
     self.webVCtrl=[[WebViewController alloc]initWithNibName:@"WebViewController" bundle:nil];
    
