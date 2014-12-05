@@ -84,7 +84,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<HRProcessselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<HRProcessselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "</HRProcessselect>\n"
                    "</soap:Body>\n"
@@ -101,7 +101,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/HRProcessselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/HRProcessselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -136,7 +136,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<AllSkills xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<AllSkills xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "</AllSkills>\n"
                    "</soap:Body>\n"
@@ -153,7 +153,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/AllSkills" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/AllSkills" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -187,7 +187,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<HREmployeeProcessSearch xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<HREmployeeProcessSearch xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "</HREmployeeProcessSearch>\n"
                    "</soap:Body>\n"
@@ -204,7 +204,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/HREmployeeProcessSearch" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/HREmployeeProcessSearch" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

@@ -348,7 +348,7 @@ self.openviewindex=NSNotFound;
                    
                    "<soap:Body>\n"
                    
-                   "<BidSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<BidSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "</BidSelect>\n"
                    "</soap:Body>\n"
@@ -365,7 +365,7 @@ self.openviewindex=NSNotFound;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/BidSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/BidSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -398,7 +398,7 @@ self.openviewindex=NSNotFound;
                    
                    
                    "<soap:Body>\n"
-                   "<BidSearch xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<BidSearch xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "</BidSearch>\n"
                    "</soap:Body>\n"
@@ -415,7 +415,7 @@ self.openviewindex=NSNotFound;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/BidSearch" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/BidSearch" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

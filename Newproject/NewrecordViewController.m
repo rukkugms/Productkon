@@ -155,7 +155,7 @@ drawtype=1;
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllServices xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SelectAllServices xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "</SelectAllServices>\n"
                    "</soap:Body>\n"
@@ -172,7 +172,7 @@ drawtype=1;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SelectAllServices" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllServices" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -211,7 +211,7 @@ drawtype=1;
                    
                    "<soap:Body>\n"
                    
-                   "<InsertSitevisitProductionRates xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<InsertSitevisitProductionRates xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<Description>%@</Description>\n"
                    "<Value>%f</Value>\n"
                    "<PlanId>%@</PlanId>\n"
@@ -231,7 +231,7 @@ drawtype=1;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/InsertSitevisitProductionRates" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/InsertSitevisitProductionRates" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -267,7 +267,7 @@ drawtype=1;
                    
                    "<soap:Body>\n"
                    
-                   "<SitevisitInsertjobsiterequirements xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SitevisitInsertjobsiterequirements xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<name>%@</name>\n"
                    "<code>%@</code>\n"
                    "<typeId>%d</typeId>\n"
@@ -288,7 +288,7 @@ drawtype=1;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertjobsiterequirements" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SitevisitInsertjobsiterequirements" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -327,7 +327,7 @@ drawtype=1;
                    
                    "<soap:Body>\n"
                    
-                   "<SitevisitInsertsafetyrules xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SitevisitInsertsafetyrules xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<ruletitle>%@</ruletitle>\n"
                    "<description>%@</description>\n"
                    "<planId>%@</planId>\n"
@@ -346,7 +346,7 @@ drawtype=1;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertsafetyrules" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SitevisitInsertsafetyrules" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -384,7 +384,7 @@ drawtype=1;
                    
                    "<soap:Body>\n"
                    
-                   "<SitevisitInsertequipment xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SitevisitInsertequipment xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<equipmentnumber>%@</equipmentnumber>\n"
                    "<description>%@</description>\n"
                    "<area>%f</area>\n"
@@ -405,7 +405,7 @@ drawtype=1;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertequipment" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SitevisitInsertequipment" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -462,7 +462,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    
                    "<soap:Body>\n"
                    
-                   "<SitevisitInsertworkschedule xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SitevisitInsertworkschedule xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<Fromdate>%@</Fromdate>\n"
                    "<enddate>%@</enddate>\n"
                    "<description>%@</description>\n"
@@ -482,7 +482,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertworkschedule" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SitevisitInsertworkschedule" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -630,7 +630,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    
                    "<soap:Body>\n"
                    
-                   "<SitevisitInsertMeetingnotes xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SitevisitInsertMeetingnotes xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<Datetime>%@</Datetime>\n"
                    "<details>%@</details>\n"
                    "<userId>%d</userId>\n"
@@ -652,7 +652,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertMeetingnotes" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SitevisitInsertMeetingnotes" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -687,7 +687,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    
                    "<soap:Body>\n"
                    
-                   "<SitevisitInsertotherbidders xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SitevisitInsertotherbidders xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<biddername>%@</biddername>\n"
                    "<planId>%@</planId>\n"
                    "</SitevisitInsertotherbidders>\n"
@@ -705,7 +705,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertotherbidders" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SitevisitInsertotherbidders" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -763,7 +763,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    
                    "<soap:Body>\n"
                    
-                   "<SitevisitInsertweatheroutlook xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SitevisitInsertweatheroutlook xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<WeatherFrom>%@</WeatherFrom>\n"
                    "<WeatherTo>%@</WeatherTo>\n"
                    "<WeatherDescription>%@</WeatherDescription>\n"
@@ -783,7 +783,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertweatheroutlook" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SitevisitInsertweatheroutlook" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -910,7 +910,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    
                    "<soap:Body>\n"
                    
-                   "<SitevisitInsertNotes xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SitevisitInsertNotes xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<NoteDate>%@</NoteDate>\n"
                    "<Notes>%@</Notes>\n"
                    "<UserId>%d</UserId>\n"
@@ -933,7 +933,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertNotes" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SitevisitInsertNotes" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -968,7 +968,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllItemType xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SelectAllItemType xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "</SelectAllItemType>\n"
                    "</soap:Body>\n"
@@ -985,7 +985,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SelectAllItemType" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllItemType" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1019,7 +1019,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllRequirements xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SelectAllRequirements xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "</SelectAllRequirements>\n"
                    "</soap:Body>\n"
@@ -1036,7 +1036,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SelectAllRequirements" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllRequirements" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1124,7 +1124,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    
                    "<soap:Body>\n"
                    
-                   "<SitevisitInsertAccessibility xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SitevisitInsertAccessibility xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<Datetime>%@</Datetime>\n"
                    "<details>%@</details>\n"
                    "<userId>%d</userId>\n"
@@ -1146,7 +1146,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertAccessibility" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SitevisitInsertAccessibility" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1233,7 +1233,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    
                    "<soap:Body>\n"
                    
-                   "<SitevisitInsertEquipmentStag xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SitevisitInsertEquipmentStag xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<Datetime>%@</Datetime>\n"
                    "<details>%@</details>\n"
                    "<userId>%d</userId>\n"
@@ -1255,7 +1255,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertEquipmentStag" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SitevisitInsertEquipmentStag" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1313,7 +1313,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    
                    "<soap:Body>\n"
                    
-                   "<SitevisitJobsiteRequirementUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SitevisitJobsiteRequirementUpdate xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<EntryId>%d</EntryId>\n"
                    "<Name>%@</Name>\n"
                    "<Code>%@</Code>\n"
@@ -1335,7 +1335,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SitevisitJobsiteRequirementUpdate" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SitevisitJobsiteRequirementUpdate" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1375,7 +1375,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    
                    "<soap:Body>\n"
                    
-                   "<SitevisitSafetyRulesUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SitevisitSafetyRulesUpdate xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<EntryId>%d</EntryId>\n"
                    "<RuleTitle>%@</RuleTitle>\n"
                    "<Description>%@</Description>\n"
@@ -1395,7 +1395,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SitevisitSafetyRulesUpdate" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SitevisitSafetyRulesUpdate" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1433,7 +1433,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    
                    "<soap:Body>\n"
                    
-                   "<SitevisitSiteunitinfoUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SitevisitSiteunitinfoUpdate xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<EntryId>%d</EntryId>\n"
                    "<EquipmentNumber>%@</EquipmentNumber>\n"
                    "<Description>%@</Description>\n"
@@ -1455,7 +1455,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SitevisitSiteunitinfoUpdate" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SitevisitSiteunitinfoUpdate" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1513,7 +1513,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    
                    "<soap:Body>\n"
                    
-                   "<SitevisitworkscheduleUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SitevisitworkscheduleUpdate xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<EntryId>%d</EntryId>\n"
                    "<FromDate>%@</FromDate>\n"
                    "<EndDate>%@</EndDate>\n"
@@ -1534,7 +1534,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SitevisitworkscheduleUpdate" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SitevisitworkscheduleUpdate" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1568,7 +1568,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 //                   
 //                   "<soap:Body>\n"
 //                   
-//                   "<SitevisitbidderUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+//                   "<SitevisitbidderUpdate xmlns=\"http://testUSA.kontract360.com/\">\n"
 //                   "<EntryId>int</EntryId>\n"
 //                   "<BidderName>string</BidderName>\n"
 //                   "<PlanId>string</PlanId>\n"
@@ -1587,7 +1587,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 //    
 //    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
 //    
-//    [theRequest addValue: @"http://ios.kontract360.com/SitevisitbidderUpdate" forHTTPHeaderField:@"Soapaction"];
+//    [theRequest addValue: @"http://testUSA.kontract360.com/SitevisitbidderUpdate" forHTTPHeaderField:@"Soapaction"];
 //    
 //    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
 //    [theRequest setHTTPMethod:@"POST"];
@@ -1646,7 +1646,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 //                   
 //                   "<soap:Body>\n"
 //                   
-//                   "<SitevisitWeatheruotlookUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+//                   "<SitevisitWeatheruotlookUpdate xmlns=\"http://testUSA.kontract360.com/\">\n"
 //                   "<EntryId>%d</EntryId>\n"
 //                   "<WeatherFrom>%@</WeatherFrom>\n"
 //                   "<WeatherTo>%@</WeatherTo>\n"
@@ -1667,7 +1667,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 //    
 //    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
 //    
-//    [theRequest addValue: @"http://ios.kontract360.com/SitevisitWeatheruotlookUpdate" forHTTPHeaderField:@"Soapaction"];
+//    [theRequest addValue: @"http://testUSA.kontract360.com/SitevisitWeatheruotlookUpdate" forHTTPHeaderField:@"Soapaction"];
 //    
 //    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
 //    [theRequest setHTTPMethod:@"POST"];

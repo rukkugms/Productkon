@@ -242,7 +242,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<VolumeDiscountselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<VolumeDiscountselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<ContractId>%d</ContractId>\n"
                    "</VolumeDiscountselect>\n"
                    "</soap:Body>\n"
@@ -259,7 +259,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/VolumeDiscountselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/VolumeDiscountselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -293,7 +293,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectMarkupMaster xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SelectMarkupMaster xmlns=\"http://testUSA.kontract360.com/\">\n"
                  
                    "</SelectMarkupMaster>\n"
                    "</soap:Body>\n"
@@ -310,7 +310,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SelectMarkupMaster" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SelectMarkupMaster" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -344,7 +344,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<BaseWagesselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<BaseWagesselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                     "<ContractId>%d</ContractId>\n"
                     "<MarkUpId>%d</MarkUpId>\n"
                    "</BaseWagesselect>\n"
@@ -362,7 +362,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/BaseWagesselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/BaseWagesselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -397,7 +397,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ContractFuelesEquipmentselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ContractFuelesEquipmentselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<ContractId>%d</ContractId>\n"
                    "</ContractFuelesEquipmentselect>\n"
                    "</soap:Body>\n"
@@ -414,7 +414,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ContractFuelesEquipmentselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/ContractFuelesEquipmentselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -448,7 +448,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ContractNonFuelesEquipmentselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ContractNonFuelesEquipmentselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<ContractId>%d</ContractId>\n"
                    "</ContractNonFuelesEquipmentselect>\n"
                    "</soap:Body>\n"
@@ -465,7 +465,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ContractNonFuelesEquipmentselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/ContractNonFuelesEquipmentselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -499,7 +499,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ContractScaffoldRateselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ContractScaffoldRateselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<ContractId>%d</ContractId>\n"
                    "</ContractScaffoldRateselect>\n"
                    "</soap:Body>\n"
@@ -516,7 +516,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ContractScaffoldRateselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/ContractScaffoldRateselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -550,7 +550,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Equipmenttermscontractorselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Equipmenttermscontractorselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<ContractId>%d</ContractId>\n"
                    "</Equipmenttermscontractorselect>\n"
                    "</soap:Body>\n"
@@ -567,7 +567,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Equipmenttermscontractorselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/Equipmenttermscontractorselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -601,7 +601,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<EquipmenttermsThirdPartyselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<EquipmenttermsThirdPartyselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<ContractId>%d</ContractId>\n"
                    "</EquipmenttermsThirdPartyselect>\n"
                    "</soap:Body>\n"
@@ -618,7 +618,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/EquipmenttermsThirdPartyselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/EquipmenttermsThirdPartyselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -652,7 +652,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ContractDoumentselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ContractDoumentselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<ContractId>%d</ContractId>\n"
                    "</ContractDoumentselect>\n"
                    "</soap:Body>\n"
@@ -669,7 +669,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ContractDoumentselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/ContractDoumentselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -703,7 +703,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<DeliveryRateselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<DeliveryRateselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<ContractId>%d</ContractId>\n"
                    "</DeliveryRateselect>\n"
                    "</soap:Body>\n"
@@ -720,7 +720,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/DeliveryRateselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/DeliveryRateselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -754,7 +754,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Notescontractselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Notescontractselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<ContraId>%d</ContraId>\n"
                    "</Notescontractselect>\n"
                    "</soap:Body>\n"
@@ -771,7 +771,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Notescontractselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/Notescontractselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

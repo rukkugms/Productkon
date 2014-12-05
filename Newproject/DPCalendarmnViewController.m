@@ -454,7 +454,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ManpowerCalenderSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ManpowerCalenderSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<LeadID>%d</LeadID>\n"
                    "</ManpowerCalenderSelect>\n"
                    "</soap:Body>\n"
@@ -471,7 +471,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ManpowerCalenderSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/ManpowerCalenderSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

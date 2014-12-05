@@ -264,7 +264,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<AbsentManagementselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<AbsentManagementselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                     "<datepassed>%@</datepassed>\n"
                    "</AbsentManagementselect>\n"
@@ -281,7 +281,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/AbsentManagementselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/AbsentManagementselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -327,7 +327,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<AbsentEmployeeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<AbsentEmployeeselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "<AMDate>%@</AMDate>\n"
                    "</AbsentEmployeeselect>\n"
@@ -344,7 +344,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/AbsentEmployeeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/AbsentEmployeeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -396,7 +396,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<AbsentManagementInsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<AbsentManagementInsert xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "<AMJobSite>%@</AMJobSite>\n"
                    "<AMEmployeeId>%d</AMEmployeeId>\n"
@@ -416,7 +416,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/AbsentManagementInsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/AbsentManagementInsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -465,7 +465,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<AbsentManagementUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<AbsentManagementUpdate xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "<AMJobSite>%@</AMJobSite>\n"
                    "<AMEmployeeId>%d</AMEmployeeId>\n"
@@ -485,7 +485,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/AbsentManagementUpdate" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/AbsentManagementUpdate" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

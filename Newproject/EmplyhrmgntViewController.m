@@ -516,7 +516,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<CustEmployeeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<CustEmployeeselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "</CustEmployeeselect>\n"
                    "</soap:Body>\n"
@@ -533,7 +533,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/CustEmployeeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/CustEmployeeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -567,7 +567,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<HREmployeeManagementSearch xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<HREmployeeManagementSearch xmlns=\"http://testUSA.kontract360.com/\">\n"
                     "<searchtext>%@</searchtext>\n"
                    "</HREmployeeManagementSearch>\n"
                    "</soap:Body>\n"
@@ -584,7 +584,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/HREmployeeManagementSearch" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/HREmployeeManagementSearch" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -620,7 +620,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllJobSites xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SelectAllJobSites xmlns=\"http://testUSA.kontract360.com/\">\n"
                    
                    "</SelectAllJobSites>\n"
                    "</soap:Body>\n"
@@ -637,7 +637,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SelectAllJobSites" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllJobSites" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -671,7 +671,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectEmployeeBadge xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SelectEmployeeBadge xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<cempId>%d</cempId>\n"
                    "</SelectEmployeeBadge>\n"
                    "</soap:Body>\n"
@@ -688,7 +688,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SelectEmployeeBadge" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/SelectEmployeeBadge" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -722,7 +722,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<InsertEmployeeBadge xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<InsertEmployeeBadge xmlns=\"http://testUSA.kontract360.com/\">\n"
                     "<CempId>%d</CempId>\n"
                    "<BadgeNo>%@</BadgeNo>\n"
                     "<JobId>%@</JobId>\n"
@@ -741,7 +741,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/InsertEmployeeBadge" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/InsertEmployeeBadge" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

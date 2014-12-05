@@ -107,7 +107,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UserRightsforparticularmoduleselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserRightsforparticularmoduleselect xmlns=\"http://testUSA.kontract360.com/\">\n"
                    "<UserId>%d</UserId>\n"
                    "<ModuleId>%d</ModuleId>\n"
                    "</UserRightsforparticularmoduleselect>\n"
@@ -125,7 +125,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UserRightsforparticularmoduleselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://testUSA.kontract360.com/UserRightsforparticularmoduleselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
