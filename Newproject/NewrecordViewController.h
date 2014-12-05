@@ -13,6 +13,7 @@
 #import "Servicemdl.h"
 #import "basicreqmdl.h"
 #import "BasicReqViewController.h"
+#import "SitevistMdl.h"
 @protocol newrecordDelgate <NSObject>
 
 -(void)toreloadatable;
@@ -28,7 +29,7 @@
     NSInteger poptype;
     NSInteger reqindex;
     NSString*useridname;
-    NSInteger drawtype;
+    NSInteger drawtype,checkclick;
     
   //  id <newrecordDelgate>Delegate;
 }
@@ -44,6 +45,7 @@
 @property(strong,nonatomic)Validation *val;
 @property(readwrite)NSInteger tabtype;
 @property(readwrite)NSInteger reloadtype;
+@property(readwrite)NSInteger optionidntfr;
 @property(nonatomic, strong)DrawingViewController *drwVCtrl;
 @property(nonatomic, weak)id<newrecordDelgate>delegate;
 @property(nonatomic, weak) CKCalendarView *calendar;
@@ -95,6 +97,7 @@
 
 - (IBAction)cancelbtn:(id)sender;
 @property(strong,nonatomic)IBOutlet UIButton *jobupdatebtn;
+@property(strong,nonatomic) NSMutableArray  *navjobsitearry;
 
 
 /*Safty rules */
