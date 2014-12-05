@@ -5298,7 +5298,7 @@ _passingdate=dateString;
 
 - (IBAction)jobeditbtn:(id)sender {
    
-   
+    Edittype=1;
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.jobsitetable];
@@ -5313,6 +5313,7 @@ _passingdate=dateString;
          self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"Jobsiterecord" bundle:nil];
     self.newrecordVCtrl.delegate=self;
     self.newrecordVCtrl.companyid=_companyid;
+    self.newrecordVCtrl.edittype=Edittype;
     self.newrecordVCtrl.navjobsitearry=newarray;
     self.newrecordVCtrl.optionidntfr=2;
      self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
@@ -5322,4 +5323,82 @@ _passingdate=dateString;
     
 }
 
+- (IBAction)saftyedit:(id)sender {
+    Edittype=2;
+    
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.safetytableview];
+    NSIndexPath *textFieldIndexPath = [self.safetytableview indexPathForRowAtPoint:rootViewPoint];
+ 
+    SitevistMdl *sitemdl1=(SitevistMdl *)[_saftyArray objectAtIndex:textFieldIndexPath.row];
+    NSMutableArray*newarray=[[NSMutableArray alloc]init];
+    [newarray addObject:sitemdl1];
+    
+    
+    self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"Roolsrecordaddview" bundle:nil];
+    self.newrecordVCtrl.delegate=self;
+    self.newrecordVCtrl.edittype=Edittype;
+    self.newrecordVCtrl.companyid=_companyid;
+    self.newrecordVCtrl.navsaftyarray=newarray;
+    self.newrecordVCtrl.optionidntfr=2;
+    self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    [self presentViewController:_newrecordVCtrl
+                       animated:YES completion:NULL];
+
+}
+- (IBAction)siteeditbtn:(id)sender {
+    Edittype=3;
+    
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.newequipmenttable];
+    NSIndexPath *textFieldIndexPath = [self.newequipmenttable indexPathForRowAtPoint:rootViewPoint];
+    
+     SitevistMdl *sitemdl1=(SitevistMdl *)[_Equpmntarray objectAtIndex:textFieldIndexPath.row];
+    NSMutableArray*newarray=[[NSMutableArray alloc]init];
+    [newarray addObject:sitemdl1];
+    
+    
+    
+    self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"EqaddRecordview" bundle:nil];
+
+    self.newrecordVCtrl.delegate=self;
+    self.newrecordVCtrl.edittype=Edittype;
+    self.newrecordVCtrl.companyid=_companyid;
+    self.newrecordVCtrl.Navequipmntarray=newarray;
+    self.newrecordVCtrl.optionidntfr=2;
+    self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    [self presentViewController:_newrecordVCtrl
+                       animated:YES completion:NULL];
+
+    
+}
+- (IBAction)worksdleedit:(id)sender {
+    Edittype=4;
+    
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.workscdletable];
+    NSIndexPath *textFieldIndexPath = [self.workscdletable indexPathForRowAtPoint:rootViewPoint];
+    
+    SitevistMdl *sitemdl1=(SitevistMdl *)[_wrkschdlearray objectAtIndex:textFieldIndexPath.row];
+    NSMutableArray*newarray=[[NSMutableArray alloc]init];
+    [newarray addObject:sitemdl1];
+    
+    
+    
+    self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"addworkscheduleview" bundle:nil];
+
+    
+    self.newrecordVCtrl.delegate=self;
+    self.newrecordVCtrl.edittype=Edittype;
+    self.newrecordVCtrl.companyid=_companyid;
+    self.newrecordVCtrl.Navwrkschdulearray=newarray;
+    self.newrecordVCtrl.optionidntfr=2;
+    self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    [self presentViewController:_newrecordVCtrl
+                       animated:YES completion:NULL];
+
+}
 @end

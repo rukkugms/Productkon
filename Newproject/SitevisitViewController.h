@@ -26,7 +26,7 @@
     NSInteger fetchindex;
     NSInteger viewclck;
     NSInteger webtype;
-    NSInteger optionidntfr;
+    NSInteger optionidntfr,Edittype;
 
 }
 
@@ -132,6 +132,7 @@
 
 
 /*safety views*/
+- (IBAction)siteeditbtn:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIView *safetyview;
 @property (strong, nonatomic) IBOutlet UIView *safteytitleview;
@@ -139,15 +140,18 @@
 @property (strong, nonatomic) IBOutlet UITableView *safetytableview;
 - (IBAction)addsafetyrules:(id)sender;
 @property (strong, nonatomic) IBOutlet UITableViewCell *saftycell;
+- (IBAction)saftyedit:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UILabel *rultitllbl;
 @property (strong, nonatomic) IBOutlet UILabel *ruledesptn;
 
 - (IBAction)deletesfty:(id)sender;
 
+
 /*Equipments views*/
 @property (strong, nonatomic) IBOutlet UIView *neweqmntview;
 @property (strong, nonatomic) IBOutlet UIView *neweqmnttitile;
+
 
 @property (strong, nonatomic) IBOutlet UITableView *newequipmenttable;
 - (IBAction)addnewequipment:(id)sender;
@@ -174,8 +178,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *enddatelbl;
 @property (strong, nonatomic) IBOutlet UILabel *wrkschdledscrptn;
 - (IBAction)deletewrkschdle:(id)sender;
+- (IBAction)worksdleedit:(id)sender;
 
-
+@property (strong, nonatomic) IBOutlet UIButton *editweather;
 
 /*meetingnote*/
 

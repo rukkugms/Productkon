@@ -78,6 +78,7 @@
                     </button>
                 </subviews>
             </tableViewCellContentView>
+            <point key="canvasLocation" x="261" y="165"/>
         </tableViewCell>
     </objects>
     <resources>

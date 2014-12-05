@@ -33,6 +33,7 @@
     
   //  id <newrecordDelgate>Delegate;
 }
+@property(readwrite)NSInteger edittype;
 @property(strong,nonatomic)BasicReqViewController *basicctrl;
 @property (strong, nonatomic) IBOutlet UIButton *timebtn;
 - (IBAction)addtime:(id)sender;
@@ -101,6 +102,7 @@
 
 
 /*Safty rules */
+@property(strong,nonatomic) NSMutableArray  *navsaftyarray;
 @property (strong, nonatomic) IBOutlet UITextField *ruletxtfld;
 
 @property (strong, nonatomic) IBOutlet UITextField *ruldescptn;
@@ -110,6 +112,7 @@
 @property(strong,nonatomic)IBOutlet UIButton *ruleupdatebtn;
 
 /*Equpment */
+@property (strong, nonatomic)NSMutableArray *Navequipmntarray;
 @property (strong, nonatomic) IBOutlet UITextField *equpnotxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *equpdscptn;
 
@@ -122,6 +125,7 @@
 
 
 /*wrkschedule*/
+@property (strong, nonatomic)NSMutableArray *Navwrkschdulearray;
 - (IBAction)startdatebtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *startdatebtnlbl;
 - (IBAction)enddatebtn:(id)sender;

@@ -96,13 +96,42 @@ drawtype=1;
     //_navbar.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     
     
-    
+    if(_edittype==1){
     
     /*jobsite requirements*/
      NSLog(@"%@",[_navjobsitearry objectAtIndex:0]);
     SitevistMdl*sitemd=(SitevistMdl *)[_navjobsitearry objectAtIndex:0];
     [_typeidbtnlbl setTitle:sitemd.jobsitname forState:UIControlStateNormal];
     _jobcosttxtfld.text=sitemd.jobcost;
+    }
+    
+    else  if(_edittype==2){
+    
+    
+    SitevistMdl*sitemd1=(SitevistMdl *)[_navsaftyarray objectAtIndex:0];
+        _ruletxtfld.text=sitemd1.RuleTitle;
+        _ruldescptn.text=sitemd1.Ruledesptn;
+    }
+    else  if(_edittype==3){
+        
+        
+        SitevistMdl*sitemd1=(SitevistMdl *)[_Navequipmntarray objectAtIndex:0];
+        _equpnotxtfld.text=sitemd1.EquipmentNumber;
+        _equpdscptn.text=sitemd1.equpdescptn;
+        _equpareatxtfld.text=sitemd1.equparea;
+        _equnittxtfld.text=sitemd1.equpunit;
+    }
+    else  if(_edittype==4){
+        
+        
+        SitevistMdl*sitemd1=(SitevistMdl *)[_Navwrkschdulearray objectAtIndex:0];
+        [_startdatebtnlbl setTitle:sitemd1.wrkstartdate forState:UIControlStateNormal];
+        [_enddatebtnlbl setTitle:sitemd1.wrkenddate forState:UIControlStateNormal];
+
+        _wrkdesctxtfld.text=sitemd1.wrkshdledescptn;
+    }
+    
+
 
 }
 
@@ -1327,6 +1356,337 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
 }
 
+-(void)SitevisitSafetyRulesUpdate{
+    recordResults = FALSE;
+      SitevistMdl*sitemd1=(SitevistMdl *)[_navsaftyarray objectAtIndex:0];
+    NSString *soapMessage;
+    
+    NSString*newstrg=  [_ruletxtfld.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SitevisitSafetyRulesUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<EntryId>%d</EntryId>\n"
+                   "<RuleTitle>%@</RuleTitle>\n"
+                   "<Description>%@</Description>\n"
+                   "<PlanId>%@</PlanId>\n"
+                   "</SitevisitSafetyRulesUpdate>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[sitemd1.Saftruleentry integerValue],newstrg,_ruldescptn.text,_companyid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SitevisitSafetyRulesUpdate" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)SitevisitSiteunitinfoUpdate{
+    recordResults = FALSE;
+    
+    NSString *soapMessage;
+    NSString*newstrg=  [_equpdscptn.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+    
+      SitevistMdl*sitemd1=(SitevistMdl *)[_Navequipmntarray objectAtIndex:0];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SitevisitSiteunitinfoUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<EntryId>%d</EntryId>\n"
+                   "<EquipmentNumber>%@</EquipmentNumber>\n"
+                   "<Description>%@</Description>\n"
+                   "<Area>%f</Area>\n"
+                   "<Unit>%@</Unit>\n"
+                   "<PlanId>%@</PlanId>\n"
+                   "</SitevisitSiteunitinfoUpdate>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[sitemd1.equpentryid integerValue],_equpnotxtfld.text,newstrg,[_equpareatxtfld.text floatValue],_equnittxtfld.text,_companyid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SitevisitSiteunitinfoUpdate" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)SitevisitworkscheduleUpdate{
+    recordResults = FALSE;
+    
+    NSString *soapMessage;
+    NSString*newstrg=  [_wrkdesctxtfld.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+    
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+    [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
+    NSDate *dates = [dateFormat1 dateFromString:_startdatebtnlbl.titleLabel.text];
+    NSLog(@"s%@",dates);
+    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
+    [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
+    
+    NSString*    dateString = [dateFormat2 stringFromDate:dates];
+    
+    
+    NSDateFormatter *dateFormat3 = [[NSDateFormatter alloc] init];
+    [dateFormat3 setDateFormat:@"MM/dd/yyyy"];
+    NSDate *datesss = [dateFormat1 dateFromString:_enddatebtnlbl.titleLabel.text];
+    NSLog(@"s%@",dates);
+    NSDateFormatter *dateFormat4 = [[NSDateFormatter alloc]init];
+    [dateFormat4 setDateFormat: @"yyyy-MM-dd"];
+    
+    NSString*    dateString1 = [dateFormat4 stringFromDate:datesss];
+     SitevistMdl *sitemdl1=(SitevistMdl *)[_Navwrkschdulearray objectAtIndex:0];
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SitevisitworkscheduleUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<EntryId>%d</EntryId>\n"
+                   "<FromDate>%@</FromDate>\n"
+                   "<EndDate>%@</EndDate>\n"
+                   "<Description>%@</Description>\n"
+                   "<PlanId>%@</PlanId>\n"
+                   "</SitevisitworkscheduleUpdate>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[sitemdl1.wrkschdlentryid integerValue],dateString, dateString1,newstrg,_companyid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SitevisitworkscheduleUpdate" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+//-(void)SitevisitbidderUpdate{
+//    recordResults = FALSE;
+//    
+//    NSString *soapMessage;
+//    
+//    
+//    soapMessage = [NSString stringWithFormat:
+//                   
+//                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+//                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+//                   
+//                   
+//                   "<soap:Body>\n"
+//                   
+//                   "<SitevisitbidderUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+//                   "<EntryId>int</EntryId>\n"
+//                   "<BidderName>string</BidderName>\n"
+//                   "<PlanId>string</PlanId>\n"
+//                   "</SitevisitbidderUpdate>\n"
+//                   "</soap:Body>\n"
+//                   "</soap:Envelope>\n",_bidnamelbl.text,_companyid];
+//    NSLog(@"soapmsg%@",soapMessage);
+//    
+//    
+//    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+//    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+//    
+//    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+//    
+//    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+//    
+//    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+//    
+//    [theRequest addValue: @"http://ios.kontract360.com/SitevisitbidderUpdate" forHTTPHeaderField:@"Soapaction"];
+//    
+//    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+//    [theRequest setHTTPMethod:@"POST"];
+//    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+//    
+//    
+//    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+//    
+//    if( theConnection )
+//    {
+//        _webData = [NSMutableData data];
+//    }
+//    else
+//    {
+//        ////NSLog(@"theConnection is NULL");
+//    }
+//    
+//    
+//}
+
+//-(void)SitevisitWeatheruotlookUpdate{
+//    recordResults = FALSE;
+//    
+//    NSString *soapMessage;
+//    NSString*newstrg=  [_wathrcndtnlbl.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+//    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+//    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+//    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
+//    
+//    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+//    [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
+//    NSDate *dates = [dateFormat1 dateFromString:_wethrfrmdatebtnlbl.titleLabel.text];
+//    NSLog(@"s%@",dates);
+//    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
+//    [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
+//    
+//    NSString*    dateString = [dateFormat2 stringFromDate:dates];
+//    
+//    
+//    NSDateFormatter *dateFormat3 = [[NSDateFormatter alloc] init];
+//    [dateFormat3 setDateFormat:@"MM/dd/yyyy"];
+//    NSDate *datesss = [dateFormat1 dateFromString:_wethrendbtnlbl.titleLabel.text];
+//    NSLog(@"s%@",dates);
+//    NSDateFormatter *dateFormat4 = [[NSDateFormatter alloc]init];
+//    [dateFormat4 setDateFormat: @"yyyy-MM-dd"];
+//    
+//    NSString*    dateString1 = [dateFormat4 stringFromDate:datesss];
+//    
+//    
+//    
+//    soapMessage = [NSString stringWithFormat:
+//                   
+//                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+//                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+//                   
+//                   
+//                   "<soap:Body>\n"
+//                   
+//                   "<SitevisitWeatheruotlookUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+//                   "<EntryId>%d</EntryId>\n"
+//                   "<WeatherFrom>%@</WeatherFrom>\n"
+//                   "<WeatherTo>%@</WeatherTo>\n"
+//                   "<WeatherDescription>%@</WeatherDescription>\n"
+//                   "<PlanId>%@</PlanId>\n"
+//                   "</SitevisitWeatheruotlookUpdate>\n"
+//                   "</soap:Body>\n"
+//                   "</soap:Envelope>\n",dateString ,dateString1,_wathrcndtnlbl.text,_companyid];
+//    NSLog(@"soapmsg%@",soapMessage);
+//    
+//    
+//    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+//    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175:7342/service.asmx"];
+//    
+//    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+//    
+//    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+//    
+//    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+//    
+//    [theRequest addValue: @"http://ios.kontract360.com/SitevisitWeatheruotlookUpdate" forHTTPHeaderField:@"Soapaction"];
+//    
+//    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+//    [theRequest setHTTPMethod:@"POST"];
+//    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+//    
+//    
+//    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+//    
+//    if( theConnection )
+//    {
+//        _webData = [NSMutableData data];
+//    }
+//    else
+//    {
+//        ////NSLog(@"theConnection is NULL");
+//    }
+//    
+//    
+//}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -2457,7 +2817,12 @@ recordResults
     else
     {
         _ruleupdatebtn.enabled=NO;
+        if(_optionidntfr==2){
+         [self SitevisitSafetyRulesUpdate];
+        }
+        else{
         [self SitevisitInsertsafetyrules];
+        }
     }
 
     
@@ -2485,7 +2850,14 @@ recordResults
     else
     {
         _equupdatebtn.enabled=NO;
-    [self SitevisitInsertequipment];
+        if(_optionidntfr==2){
+            [self SitevisitSiteunitinfoUpdate];
+        }
+        else{
+          [self SitevisitInsertequipment];
+        
+        
+        }
     }
 }
 
@@ -2520,10 +2892,15 @@ recordResults
     }
     else{
         _wrkschedupdatebtn.enabled=NO;
+        if(_optionidntfr==2){
+            [self SitevisitworkscheduleUpdate];
+        }
+        else{
         [self SitevisitInsertworkschedule];
+            
           }
 
-    
+    }
 }
 
 - (IBAction)wrkschdlecancel:(id)sender {
