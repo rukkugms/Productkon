@@ -39,6 +39,7 @@
 @property(strong,nonatomic)NSMutableDictionary *servicedict;
 @property(strong,nonatomic)NSMutableDictionary *serviceadddict;
 @property(strong,nonatomic)NSString *servicestring;
+@property(strong,nonatomic)NSMutableArray *itemcodearray;
 
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;

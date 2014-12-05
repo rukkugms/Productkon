@@ -1392,7 +1392,14 @@ else{
 - (IBAction)equpmntbtn:(id)sender {
      _updatebtn.enabled=YES;
     self.deqctrl=[[DequipViewController alloc]initWithNibName:@"Dragequip" bundle:nil];
-    _deqctrl.generalid=_genralid;
+    if (_optionidentfr==1) {
+        _deqctrl.generalid=_insertedgeneralid;
+        
+    }
+    else{
+        _deqctrl.generalid=_genralid;
+    }
+
     [self presentViewController:_deqctrl
                        animated:YES completion:NULL];
     

@@ -35,6 +35,7 @@
     
      NSString * crewid;
     NSString *planhours;
+    NSInteger option;
     
 }
 

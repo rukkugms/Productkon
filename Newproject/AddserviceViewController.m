@@ -311,6 +311,7 @@
 -(void)Planningdeleteplanservice{
     
     NSString *servid=[_servicedict objectForKey:[_serviceaddedarray objectAtIndex:path]];
+    NSString *itemcode=[_itemcodearray objectAtIndex:path];
     NSLog(@"%@",servid);
     webtype=1;
     recordResults = FALSE;
@@ -328,9 +329,10 @@
                    "<Planningdeleteplanservice xmlns=\"http://ios.kontract360.com/\">\n"
                    "<planid>%@</planid>\n"
                    "<serviceid>%d</serviceid>\n"
+                   "<GenPsItemcode>%@</GenPsItemcode>\n"
                    "</Planningdeleteplanservice>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_planID,[servid integerValue]];
+                   "</soap:Envelope>\n",_planID,[servid integerValue],itemcode];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -492,7 +494,7 @@
     if([elementName isEqualToString:@"SelectPlanServicesResponse"])
     {
         _serviceaddedarray=[[NSMutableArray alloc]init];
-      
+        _itemcodearray=[[NSMutableArray alloc]init];
         
         if(!_soapResults)
         {
@@ -511,6 +513,16 @@
         recordResults = TRUE;
     }
     
+    if([elementName isEqualToString:@"PSItemCode"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
     if([elementName isEqualToString:@"InsertPlanServiceResult"])
     {
@@ -613,6 +625,16 @@
         [_serviceaddedarray addObject:servicename];
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"PSItemCode"])
+    {
+        
+        recordResults = FALSE;
+        
+      
+        [_itemcodearray addObject:_soapResults];
+        _soapResults = nil;
+    }
+
     if([elementName isEqualToString:@"InsertPlanServiceResult"])
     {
         
