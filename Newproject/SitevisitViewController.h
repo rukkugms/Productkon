@@ -310,5 +310,11 @@
 @property (strong, nonatomic) IBOutlet UIButton *accebilitybtnlbl;
 @property (strong, nonatomic) IBOutlet UIButton *equpdatebtnlbl;
 
+- (IBAction)wthreditbtnlbl:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UITableViewCell *bidcell;
+- (IBAction)bidedit:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UILabel *bidnamelbl;
 
 @end

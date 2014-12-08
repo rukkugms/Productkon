@@ -126,6 +126,8 @@
 
 /*wrkschedule*/
 @property (strong, nonatomic)NSMutableArray *Navwrkschdulearray;
+@property (strong, nonatomic)NSMutableArray *Navwatherarray;
+@property (strong, nonatomic)NSMutableArray *Navbidderarray;
 - (IBAction)startdatebtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *startdatebtnlbl;
 - (IBAction)enddatebtn:(id)sender;

@@ -39,6 +39,7 @@
                         </state>
                         <connections>
                             <action selector="celleditbtn:" destination="-1" eventType="touchUpInside" id="7ED-Cg-Vbm"/>
+                            <action selector="wthreditbtnlbl:" destination="-1" eventType="touchUpInside" id="08H-v7-3M9"/>
                         </connections>
                     </button>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Prb-k8-eTl">
