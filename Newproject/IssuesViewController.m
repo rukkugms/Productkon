@@ -1572,7 +1572,8 @@
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     
-    
+    self.popOverController.popoverContentSize=CGSizeMake(520.0f, 530.0f);
+    self.popOverController=_popOverController;
     
     
     [self.popOverController presentPopoverFromRect: CGRectMake(350, 210, 300, 500)
