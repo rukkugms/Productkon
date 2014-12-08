@@ -16,8 +16,6 @@
 		6424B9CD1A27194300BC4648 /* Tpgpfirstcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6424B9CC1A27194300BC4648 /* Tpgpfirstcell.xib */; };
 		6424B9CF1A27195F00BC4648 /* Tpgpsecondcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6424B9CE1A27195F00BC4648 /* Tpgpsecondcell.xib */; };
 		6426F5E318C05C12002471AC /* bgmetro1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5E218C05C12002471AC /* bgmetro1.png */; };
-		6426F5E518C05D2B002471AC /* res.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5E418C05D2B002471AC /* res.png */; };
-		6426F5E718C05E09002471AC /* com.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5E618C05E09002471AC /* com.png */; };
 		6426F5E918C05E88002471AC /* cos.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5E818C05E88002471AC /* cos.png */; };
 		6426F5EB18C06062002471AC /* leads.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5EA18C06062002471AC /* leads.png */; };
 		6426F5ED18C060CF002471AC /* planning.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5EC18C060CF002471AC /* planning.png */; };
@@ -146,6 +144,15 @@
 		64BF722C1A2EE70D00946718 /* MPwrEvntcalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BF722A1A2EE70D00946718 /* MPwrEvntcalViewController.m */; };
 		64BF722D1A2EE70D00946718 /* MPwrEvntcalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BF722B1A2EE70D00946718 /* MPwrEvntcalViewController.xib */; };
 		64BF722F1A2F079F00946718 /* Evempwrcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BF722E1A2F079F00946718 /* Evempwrcell.xib */; };
+		64C27A571A35987400B66C77 /* com.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C27A561A35987400B66C77 /* com.png */; };
+		64C27A591A35995F00B66C77 /* rs.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C27A581A35995F00B66C77 /* rs.png */; };
+		64C27A5F1A35A3B300B66C77 /* company-documents.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C27A5E1A35A3B200B66C77 /* company-documents.png */; };
+		64C27A611A35A91B00B66C77 /* company-info.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C27A601A35A91B00B66C77 /* company-info.png */; };
+		64C27A631A35A95400B66C77 /* branches.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C27A621A35A95400B66C77 /* branches.png */; };
+		64C27A651A35AAFC00B66C77 /* users.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C27A641A35AAFC00B66C77 /* users.png */; };
+		64C27A691A35AB9B00B66C77 /* requirement-type.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C27A681A35AB9B00B66C77 /* requirement-type.png */; };
+		64C27A6B1A35ABBE00B66C77 /* basic-requirment.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C27A6A1A35ABBE00B66C77 /* basic-requirment.png */; };
+		64C27A6D1A35AE9E00B66C77 /* worksettings.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C27A6C1A35AE9E00B66C77 /* worksettings.png */; };
 		64C3BB3B1A2836D000E5A3EA /* GSmallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C3BB391A2836D000E5A3EA /* GSmallViewController.m */; };
 		64C3BB3C1A2836D000E5A3EA /* GSmallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C3BB3A1A2836D000E5A3EA /* GSmallViewController.xib */; };
 		64C3BB3E1A2836F500E5A3EA /* GSTfcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C3BB3D1A2836F500E5A3EA /* GSTfcell.xib */; };
@@ -163,7 +170,6 @@
 		D4004074185B183600C38E12 /* EqpmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4004072185B183600C38E12 /* EqpmViewController.m */; };
 		D4004075185B183600C38E12 /* EqpmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4004073185B183600C38E12 /* EqpmViewController.xib */; };
 		D400A5E41980EA03003D5F4C /* customer-&con (1).png in Resources */ = {isa = PBXBuildFile; fileRef = D400A5E31980EA03003D5F4C /* customer-&con (1).png */; };
-		D400A5E61980EB78003D5F4C /* company-info.png in Resources */ = {isa = PBXBuildFile; fileRef = D400A5E51980EB78003D5F4C /* company-info.png */; };
 		D4014FF318E3E05B00DB825A /* SerialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4014FF118E3E05B00DB825A /* SerialViewController.m */; };
 		D4014FF418E3E05B00DB825A /* SerialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4014FF218E3E05B00DB825A /* SerialViewController.xib */; };
 		D4014FF618E3E34000DB825A /* Snumcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4014FF518E3E34000DB825A /* Snumcell.xib */; };
@@ -325,14 +331,8 @@
 		D47A9B0C19402B89001CC416 /* EmpJobViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D47A9B0A19402B89001CC416 /* EmpJobViewController.xib */; };
 		D47A9B0E19403CA5001CC416 /* Empjobcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D47A9B0D19403CA5001CC416 /* Empjobcell.xib */; };
 		D47A9B101940405E001CC416 /* Jobdrag.xib in Resources */ = {isa = PBXBuildFile; fileRef = D47A9B0F1940405E001CC416 /* Jobdrag.xib */; };
-		D47A9B1319407A8A001CC416 /* basic-requirment.png in Resources */ = {isa = PBXBuildFile; fileRef = D47A9B1219407A8A001CC416 /* basic-requirment.png */; };
-		D47A9B1C19407AA2001CC416 /* branches.png in Resources */ = {isa = PBXBuildFile; fileRef = D47A9B1419407AA2001CC416 /* branches.png */; };
-		D47A9B1D19407AA2001CC416 /* company-documents.png in Resources */ = {isa = PBXBuildFile; fileRef = D47A9B1519407AA2001CC416 /* company-documents.png */; };
 		D47A9B1F19407AA2001CC416 /* folder-rights.png in Resources */ = {isa = PBXBuildFile; fileRef = D47A9B1719407AA2001CC416 /* folder-rights.png */; };
-		D47A9B2019407AA2001CC416 /* requirement-type.png in Resources */ = {isa = PBXBuildFile; fileRef = D47A9B1819407AA2001CC416 /* requirement-type.png */; };
 		D47A9B2119407AA2001CC416 /* serialnumbers.png in Resources */ = {isa = PBXBuildFile; fileRef = D47A9B1919407AA2001CC416 /* serialnumbers.png */; };
-		D47A9B2219407AA2001CC416 /* users.png in Resources */ = {isa = PBXBuildFile; fileRef = D47A9B1A19407AA2001CC416 /* users.png */; };
-		D47A9B2319407AA2001CC416 /* worksettings.png in Resources */ = {isa = PBXBuildFile; fileRef = D47A9B1B19407AA2001CC416 /* worksettings.png */; };
 		D47A9B2619407CD9001CC416 /* fleeticon.png in Resources */ = {isa = PBXBuildFile; fileRef = D47A9B2519407CD9001CC416 /* fleeticon.png */; };
 		D47A9B2819407CF1001CC416 /* othercompanyassestsicon.png in Resources */ = {isa = PBXBuildFile; fileRef = D47A9B2719407CF1001CC416 /* othercompanyassestsicon.png */; };
 		D47A9B2A19407D09001CC416 /* materialsicon.png in Resources */ = {isa = PBXBuildFile; fileRef = D47A9B2919407D09001CC416 /* materialsicon.png */; };
@@ -651,8 +651,6 @@
 		6424B9CC1A27194300BC4648 /* Tpgpfirstcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tpgpfirstcell.xib; sourceTree = "<group>"; };
 		6424B9CE1A27195F00BC4648 /* Tpgpsecondcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tpgpsecondcell.xib; sourceTree = "<group>"; };
 		6426F5E218C05C12002471AC /* bgmetro1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgmetro1.png; sourceTree = "<group>"; };
-		6426F5E418C05D2B002471AC /* res.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = res.png; sourceTree = "<group>"; };
-		6426F5E618C05E09002471AC /* com.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = com.png; sourceTree = "<group>"; };
 		6426F5E818C05E88002471AC /* cos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cos.png; sourceTree = "<group>"; };
 		6426F5EA18C06062002471AC /* leads.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leads.png; sourceTree = "<group>"; };
 		6426F5EC18C060CF002471AC /* planning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planning.png; sourceTree = "<group>"; };
@@ -825,6 +823,15 @@
 		64BF722A1A2EE70D00946718 /* MPwrEvntcalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPwrEvntcalViewController.m; sourceTree = "<group>"; };
 		64BF722B1A2EE70D00946718 /* MPwrEvntcalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MPwrEvntcalViewController.xib; sourceTree = "<group>"; };
 		64BF722E1A2F079F00946718 /* Evempwrcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Evempwrcell.xib; sourceTree = "<group>"; };
+		64C27A561A35987400B66C77 /* com.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = com.png; sourceTree = "<group>"; };
+		64C27A581A35995F00B66C77 /* rs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rs.png; sourceTree = "<group>"; };
+		64C27A5E1A35A3B200B66C77 /* company-documents.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "company-documents.png"; sourceTree = "<group>"; };
+		64C27A601A35A91B00B66C77 /* company-info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "company-info.png"; sourceTree = "<group>"; };
+		64C27A621A35A95400B66C77 /* branches.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = branches.png; sourceTree = "<group>"; };
+		64C27A641A35AAFC00B66C77 /* users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = users.png; sourceTree = "<group>"; };
+		64C27A681A35AB9B00B66C77 /* requirement-type.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "requirement-type.png"; sourceTree = "<group>"; };
+		64C27A6A1A35ABBE00B66C77 /* basic-requirment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "basic-requirment.png"; sourceTree = "<group>"; };
+		64C27A6C1A35AE9E00B66C77 /* worksettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = worksettings.png; sourceTree = "<group>"; };
 		64C3BB381A2836D000E5A3EA /* GSmallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSmallViewController.h; sourceTree = "<group>"; };
 		64C3BB391A2836D000E5A3EA /* GSmallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSmallViewController.m; sourceTree = "<group>"; };
 		64C3BB3A1A2836D000E5A3EA /* GSmallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSmallViewController.xib; sourceTree = "<group>"; };
@@ -849,7 +856,6 @@
 		D4004072185B183600C38E12 /* EqpmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EqpmViewController.m; sourceTree = "<group>"; };
 		D4004073185B183600C38E12 /* EqpmViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EqpmViewController.xib; sourceTree = "<group>"; };
 		D400A5E31980EA03003D5F4C /* customer-&con (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "customer-&con (1).png"; sourceTree = "<group>"; };
-		D400A5E51980EB78003D5F4C /* company-info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "company-info.png"; sourceTree = "<group>"; };
 		D4014FF018E3E05B00DB825A /* SerialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerialViewController.h; sourceTree = "<group>"; };
 		D4014FF118E3E05B00DB825A /* SerialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SerialViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D4014FF218E3E05B00DB825A /* SerialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SerialViewController.xib; sourceTree = "<group>"; };
@@ -1067,14 +1073,8 @@
 		D47A9B0A19402B89001CC416 /* EmpJobViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmpJobViewController.xib; sourceTree = "<group>"; };
 		D47A9B0D19403CA5001CC416 /* Empjobcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Empjobcell.xib; sourceTree = "<group>"; };
 		D47A9B0F1940405E001CC416 /* Jobdrag.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Jobdrag.xib; sourceTree = "<group>"; };
-		D47A9B1219407A8A001CC416 /* basic-requirment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "basic-requirment.png"; sourceTree = "<group>"; };
-		D47A9B1419407AA2001CC416 /* branches.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = branches.png; sourceTree = "<group>"; };
-		D47A9B1519407AA2001CC416 /* company-documents.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "company-documents.png"; sourceTree = "<group>"; };
 		D47A9B1719407AA2001CC416 /* folder-rights.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "folder-rights.png"; sourceTree = "<group>"; };
-		D47A9B1819407AA2001CC416 /* requirement-type.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "requirement-type.png"; sourceTree = "<group>"; };
 		D47A9B1919407AA2001CC416 /* serialnumbers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = serialnumbers.png; sourceTree = "<group>"; };
-		D47A9B1A19407AA2001CC416 /* users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = users.png; sourceTree = "<group>"; };
-		D47A9B1B19407AA2001CC416 /* worksettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = worksettings.png; sourceTree = "<group>"; };
 		D47A9B2519407CD9001CC416 /* fleeticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fleeticon.png; sourceTree = "<group>"; };
 		D47A9B2719407CF1001CC416 /* othercompanyassestsicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = othercompanyassestsicon.png; sourceTree = "<group>"; };
 		D47A9B2919407D09001CC416 /* materialsicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = materialsicon.png; sourceTree = "<group>"; };
@@ -1883,15 +1883,15 @@
 		D47A9B1119407A67001CC416 /* Company icons */ = {
 			isa = PBXGroup;
 			children = (
-				D400A5E51980EB78003D5F4C /* company-info.png */,
-				D47A9B1219407A8A001CC416 /* basic-requirment.png */,
-				D47A9B1419407AA2001CC416 /* branches.png */,
-				D47A9B1519407AA2001CC416 /* company-documents.png */,
+				64C27A621A35A95400B66C77 /* branches.png */,
+				64C27A6A1A35ABBE00B66C77 /* basic-requirment.png */,
+				64C27A601A35A91B00B66C77 /* company-info.png */,
+				64C27A5E1A35A3B200B66C77 /* company-documents.png */,
+				64C27A681A35AB9B00B66C77 /* requirement-type.png */,
+				64C27A641A35AAFC00B66C77 /* users.png */,
+				64C27A6C1A35AE9E00B66C77 /* worksettings.png */,
 				D47A9B1719407AA2001CC416 /* folder-rights.png */,
-				D47A9B1819407AA2001CC416 /* requirement-type.png */,
 				D47A9B1919407AA2001CC416 /* serialnumbers.png */,
-				D47A9B1A19407AA2001CC416 /* users.png */,
-				D47A9B1B19407AA2001CC416 /* worksettings.png */,
 			);
 			name = "Company icons";
 			sourceTree = "<group>";
@@ -2127,6 +2127,8 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				64C27A561A35987400B66C77 /* com.png */,
+				64C27A581A35995F00B66C77 /* rs.png */,
 				D41BAF3E1A2D9B6F00674DDB /* work-entry.png */,
 				D41BAF3C1A2D925E00674DDB /* leadsnew.png */,
 				D4F053E41A0CA5D800672C88 /* planning-s.png */,
@@ -2203,8 +2205,6 @@
 				6426F5EC18C060CF002471AC /* planning.png */,
 				6426F5EA18C06062002471AC /* leads.png */,
 				6426F5E818C05E88002471AC /* cos.png */,
-				6426F5E618C05E09002471AC /* com.png */,
-				6426F5E418C05D2B002471AC /* res.png */,
 				6426F5E218C05C12002471AC /* bgmetro1.png */,
 				D48F436518A2335400AFDDC2 /* vertical blue.png */,
 				D4EC1FE01875280500A55942 /* textbox.png */,
@@ -2700,11 +2700,9 @@
 				D453DA271873F1AF007EE3DC /* ConsumbleViewController.xib in Resources */,
 				D4F19DEE18D03AD1007617F0 /* FollowCommentcell.xib in Resources */,
 				D4F7D9E4196E669B00B8F4D4 /* Serofred.png in Resources */,
-				6426F5E518C05D2B002471AC /* res.png in Resources */,
 				D453DA221873F18C007EE3DC /* ThirdPartyViewController.xib in Resources */,
 				D4EC7E3D192A09FD00C60BA9 /* DrawingViewController.xib in Resources */,
 				D49F8A5518EECD3800413CAD /* fuelcell.xib in Resources */,
-				D47A9B2019407AA2001CC416 /* requirement-type.png in Resources */,
 				64A2F9B519CBE72E009B1018 /* STViewController.xib in Resources */,
 				D4F7D9DE196E65C800B8F4D4 /* GroupManpower.png in Resources */,
 				D4A16B9F1974EEE0002CA2A2 /* Sumcell.xib in Resources */,
@@ -2744,8 +2742,6 @@
 				D4FE723C187EA3BA00FF4DEF /* ios7-camera-icon.png in Resources */,
 				6424B9CB1A27190B00BC4648 /* TPGPViewController.xib in Resources */,
 				D4A16B571974EEA8002CA2A2 /* Gnmatlfirstcell.xib in Resources */,
-				D47A9B1D19407AA2001CC416 /* company-documents.png in Resources */,
-				D400A5E61980EB78003D5F4C /* company-info.png in Resources */,
 				D443A33317716FE60011C5DB /* appbar.close.png in Resources */,
 				D4A123D419A7249C00A4ED9B /* Newuserrightscell.xib in Resources */,
 				D4F7D9D6196E646200B8F4D4 /* labour.png in Resources */,
@@ -2794,7 +2790,6 @@
 				D410CC5419AB4C8F0093DDE6 /* userrights.png in Resources */,
 				D49FA2F21961647A0037BA7A /* TOtherscell.xib in Resources */,
 				D47A9B2C19407D22001CC416 /* manpowericon.png in Resources */,
-				D47A9B1319407A8A001CC416 /* basic-requirment.png in Resources */,
 				D4F19DA018D01CDB007617F0 /* NewCustmrViewController.xib in Resources */,
 				D4EBB95A1A26E194006A8795 /* Gpfleetcell.xib in Resources */,
 				D4ACE56819C1B1020060A352 /* CraftViewController.xib in Resources */,
@@ -2836,6 +2831,7 @@
 				649B1F8B18C9CE800081B1F1 /* SendEmployeeview.xib in Resources */,
 				D42D8C3818D2E3E3009D8085 /* UsersViewController.xib in Resources */,
 				D4A16B4B1974EEA8002CA2A2 /* Outlookrecordaddview.xib in Resources */,
+				64C27A691A35AB9B00B66C77 /* requirement-type.png in Resources */,
 				D4F7D9C6196E5B3B00B8F4D4 /* absentmanagement.png in Resources */,
 				64BF722D1A2EE70D00946718 /* MPwrEvntcalViewController.xib in Resources */,
 				D4036FF819FE23310031C4F1 /* PlandocsViewController.xib in Resources */,
@@ -2850,6 +2846,7 @@
 				D4A16B531974EEA8002CA2A2 /* GdargViewController.xib in Resources */,
 				D4A6749019345E6C00D5A77E /* IconDateGrey.png in Resources */,
 				64A3B81D18DFEEC90015887F /* ActivityViewController.xib in Resources */,
+				64C27A571A35987400B66C77 /* com.png in Resources */,
 				D4A16B601974EEA8002CA2A2 /* Subtypecell.xib in Resources */,
 				D453DA301873F206007EE3DC /* Consumblecell.xib in Resources */,
 				D4A16B881974EEE0002CA2A2 /* EstimationViewController.xib in Resources */,
@@ -2895,7 +2892,6 @@
 				D4A16B9C1974EEE0002CA2A2 /* Eventcalcell.xib in Resources */,
 				D4A16B5A1974EEA8002CA2A2 /* Dragequip.xib in Resources */,
 				D4FED41817F1A04E004BE242 /* 2.png in Resources */,
-				D47A9B1C19407AA2001CC416 /* branches.png in Resources */,
 				D41499BC19458121001E9146 /* Eqotherscell.xib in Resources */,
 				D4E6156418D971C500D7EAA0 /* logo.png in Resources */,
 				D4E658C017F2A54F00202B14 /* I9view.xib in Resources */,
@@ -2927,6 +2923,7 @@
 				D4F7D9E2196E661B00B8F4D4 /* work-type.png in Resources */,
 				64A14D7F18755B910028B43A /* customdetlcell.xib in Resources */,
 				D40736C318BB1E9B00C5DB30 /* left_arrow@2x.png in Resources */,
+				64C27A611A35A91B00B66C77 /* company-info.png in Resources */,
 				D47A9B0C19402B89001CC416 /* EmpJobViewController.xib in Resources */,
 				D47A9B2119407AA2001CC416 /* serialnumbers.png in Resources */,
 				D4A0BCF419667D0B00A421C3 /* newlogo.png in Resources */,
@@ -2936,6 +2933,7 @@
 				D4E7AD09192DC91F00C07497 /* Handnotes.png in Resources */,
 				D40DD2621873D29B00E7BC2C /* SmalltoolsViewController.xib in Resources */,
 				D42D8C0818D2D8AC009D8085 /* folderrightsViewController.xib in Resources */,
+				64C27A651A35AAFC00B66C77 /* users.png in Resources */,
 				D48A34701876901B00898913 /* FleetCell.xib in Resources */,
 				6433593A198B81F800982CFC /* forgetViewController.xib in Resources */,
 				D4014FF418E3E05B00DB825A /* SerialViewController.xib in Resources */,
@@ -2943,12 +2941,11 @@
 				D4A16B461974EEA8002CA2A2 /* Roolsrecordaddview.xib in Resources */,
 				D4EBA85A1978E05100B612E1 /* Cfecell.xib in Resources */,
 				D42505D519A4A5A8001D16A2 /* lock.png in Resources */,
-				6426F5E718C05E09002471AC /* com.png in Resources */,
 				D4E658D417F2EF5B00202B14 /* wrong.png in Resources */,
 				D42D8C1E18D2D91C009D8085 /* customvendercell.xib in Resources */,
 				64A11EE918683BE6008D20CC /* customphase.xib in Resources */,
-				D47A9B2319407AA2001CC416 /* worksettings.png in Resources */,
 				D4DEEDDB17F40BE70096A908 /* UploadDocViewController.xib in Resources */,
+				64C27A631A35A95400B66C77 /* branches.png in Resources */,
 				D40DE0C119E64C9A008FFD15 /* InprocessViewController.xib in Resources */,
 				D41499B0194573A2001E9146 /* ManagemttileViewController.xib in Resources */,
 				D4A3977819CFE8DE00E2514C /* PServiceViewController.xib in Resources */,
@@ -2959,6 +2956,7 @@
 				D4D7A28D17F5401000880E38 /* profilepicture.png in Resources */,
 				64C3BB3E1A2836F500E5A3EA /* GSTfcell.xib in Resources */,
 				D47A9B101940405E001CC416 /* Jobdrag.xib in Resources */,
+				64C27A591A35995F00B66C77 /* rs.png in Resources */,
 				D408B81618CF19AC0001AAD5 /* TilecustmrViewController.xib in Resources */,
 				D48F436618A2335500AFDDC2 /* vertical blue.png in Resources */,
 				D4F053E51A0CA5D900672C88 /* planning-s.png in Resources */,
@@ -2995,6 +2993,7 @@
 				D40A99CD18C5A9B5005384F9 /* EmplyhrmgntViewController.xib in Resources */,
 				D4109A1519DC1B8B008E9949 /* ICON_Biz_P_info-grey.png in Resources */,
 				D400405C185B178F00C38E12 /* DocmntViewController.xib in Resources */,
+				64C27A5F1A35A3B300B66C77 /* company-documents.png in Resources */,
 				6426F5F518C062F6002471AC /* payroll.png in Resources */,
 				D4A338E418F3EEEF00E53FAC /* MarkupViewController.xib in Resources */,
 				D4A16B621974EEA8002CA2A2 /* Editplanview.xib in Resources */,
@@ -3010,7 +3009,6 @@
 				640622E819669FA900D5EC33 /* lgout.png in Resources */,
 				D4A85B4218A0E867004E9C8B /* TilehrViewController.xib in Resources */,
 				D4F7D9D0196E5B5600B8F4D4 /* timesheet.png in Resources */,
-				D47A9B2219407AA2001CC416 /* users.png in Resources */,
 				64161C0D17FEB511007D4D89 /* squre.png in Resources */,
 				64F97992185EF8B000E7722B /* jobsitereqViewController.xib in Resources */,
 				D4004075185B183600C38E12 /* EqpmViewController.xib in Resources */,
@@ -3048,6 +3046,8 @@
 				D42D8C4218D2E450009D8085 /* ServiceViewController.xib in Resources */,
 				6426F5E918C05E88002471AC /* cos.png in Resources */,
 				D4A16B3F1974EEA8002CA2A2 /* Wrkschdulecell.xib in Resources */,
+				64C27A6B1A35ABBE00B66C77 /* basic-requirment.png in Resources */,
+				64C27A6D1A35AE9E00B66C77 /* worksettings.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

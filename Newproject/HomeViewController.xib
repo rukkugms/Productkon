@@ -234,7 +234,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="com.png" id="gSe-gt-Ipl">
-                            <rect key="frame" x="14" y="11" width="122" height="116"/>
+                            <rect key="frame" x="27" y="19" width="96" height="96"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Company" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="27">
@@ -245,7 +245,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="uv9-pn-bAp">
-                            <rect key="frame" x="57" y="50" width="37" height="37"/>
+                            <rect key="frame" x="57" y="48" width="37" height="37"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </activityIndicatorView>
@@ -279,8 +279,8 @@
                     <rect key="frame" x="194" y="168" width="150" height="144"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="res.png" id="1gz-bU-rN4">
-                            <rect key="frame" x="14" y="14" width="116" height="116"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rs.png" id="1gz-bU-rN4">
+                            <rect key="frame" x="27" y="38" width="96" height="68"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resources" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lbU-Hi-G0s">
@@ -291,7 +291,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="hZq-KF-JMm">
-                            <rect key="frame" x="54" y="53" width="37" height="37"/>
+                            <rect key="frame" x="57" y="53" width="37" height="37"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </activityIndicatorView>
@@ -374,7 +374,7 @@
         <image name="accounting.png" width="512" height="512"/>
         <image name="bgmetro1.png" width="1346" height="1200"/>
         <image name="clarity-shutdown-icon.png" width="50" height="50"/>
-        <image name="com.png" width="512" height="512"/>
+        <image name="com.png" width="96" height="96"/>
         <image name="customer-&amp;con (1).png" width="350" height="350"/>
         <image name="estimation.png" width="512" height="512"/>
         <image name="fleet.png" width="512" height="512"/>
@@ -384,7 +384,7 @@
         <image name="login-1.jpg" width="20" height="21"/>
         <image name="payroll.png" width="512" height="512"/>
         <image name="planning.png" width="512" height="512"/>
-        <image name="res.png" width="512" height="512"/>
+        <image name="rs.png" width="96" height="68"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
