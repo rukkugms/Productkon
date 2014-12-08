@@ -299,6 +299,7 @@
 		D43DAA3418D1B0A700280AA6 /* CmpnydocsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D43DAA3218D1B0A700280AA6 /* CmpnydocsViewController.m */; };
 		D43DAA3518D1B0A800280AA6 /* CmpnydocsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43DAA3318D1B0A700280AA6 /* CmpnydocsViewController.xib */; };
 		D43DAA3718D1B62700280AA6 /* cmpnydocucell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43DAA3618D1B62700280AA6 /* cmpnydocucell.xib */; };
+		D4434B2B1A35736700A82CCF /* OtherBidcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4434B2A1A35736700A82CCF /* OtherBidcell.xib */; };
 		D443A33317716FE60011C5DB /* appbar.close.png in Resources */ = {isa = PBXBuildFile; fileRef = 648D12FF17716E0E006BB41A /* appbar.close.png */; };
 		D44BEA6C18E0243500719ED5 /* AddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D44BEA6A18E0243500719ED5 /* AddressViewController.m */; };
 		D44BEA6D18E0243500719ED5 /* AddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44BEA6B18E0243500719ED5 /* AddressViewController.xib */; };
@@ -1034,6 +1035,7 @@
 		D43DAA3218D1B0A700280AA6 /* CmpnydocsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CmpnydocsViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D43DAA3318D1B0A700280AA6 /* CmpnydocsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CmpnydocsViewController.xib; sourceTree = "<group>"; };
 		D43DAA3618D1B62700280AA6 /* cmpnydocucell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cmpnydocucell.xib; sourceTree = "<group>"; };
+		D4434B2A1A35736700A82CCF /* OtherBidcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherBidcell.xib; sourceTree = "<group>"; };
 		D44BEA6918E0243500719ED5 /* AddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressViewController.h; sourceTree = "<group>"; };
 		D44BEA6A18E0243500719ED5 /* AddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AddressViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		D44BEA6B18E0243500719ED5 /* AddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressViewController.xib; sourceTree = "<group>"; };
@@ -2064,6 +2066,7 @@
 				D4A16B051974EEA8002CA2A2 /* SitevisitViewController.h */,
 				D4A16B061974EEA8002CA2A2 /* SitevisitViewController.m */,
 				D4A16B071974EEA8002CA2A2 /* SitevisitViewController.xib */,
+				D4434B2A1A35736700A82CCF /* OtherBidcell.xib */,
 				D4A16B081974EEA8002CA2A2 /* Ratecellview.xib */,
 				D4A16B091974EEA8002CA2A2 /* cellfordocumnt.xib */,
 				D4A16B0A1974EEA8002CA2A2 /* Jobsitecellview.xib */,
@@ -2805,6 +2808,7 @@
 				D4F19DF118D03AD1007617F0 /* newCommentCell.xib in Resources */,
 				D4FE170C1918ED1000C8DA58 /* Srch.png in Resources */,
 				D404A22A1A03940F0086E40A /* SubcatCell.xib in Resources */,
+				D4434B2B1A35736700A82CCF /* OtherBidcell.xib in Resources */,
 				D44BEA7218E0252600719ED5 /* BranchViewController.xib in Resources */,
 				D4A6748C19345E6C00D5A77E /* IconPubHol.png in Resources */,
 				D4A16B4E1974EEA8002CA2A2 /* DetailplanViewController.xib in Resources */,

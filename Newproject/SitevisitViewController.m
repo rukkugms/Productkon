@@ -2437,13 +2437,7 @@ _passingdate=dateString;
             
              cell=_ratecell;
         }
-//     else   if (tableView==_documenttable) {
-//                 [[NSBundle mainBundle]loadNibNamed:@"cellfordocumnt" owner:self options:nil];
-//            
-//            cell=_docucell;
-//            
-//        }
-
+   
         
       else    if (tableView==_jobsitetable) {
             [[NSBundle mainBundle]loadNibNamed:@"Jobsitecellview" owner:self options:nil];
@@ -2478,6 +2472,8 @@ _passingdate=dateString;
         }
       else    if (tableView==_bidderstable) {
             cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
+             [[NSBundle mainBundle]loadNibNamed:@"OtherBidcell" owner:self options:nil];
+          cell=_bidcell;
             
         }
       else    if (tableView==_weathertable) {
@@ -2614,7 +2610,9 @@ _passingdate=dateString;
   else   if (tableView==_bidderstable) {
           SitevistMdl *sitemdl1=(SitevistMdl *)[_bidderarray objectAtIndex:indexPath.row];
         
-        cell.textLabel.text=[NSString stringWithFormat:@"\t\t\t\t\t\t%@",sitemdl1.biddername];
+       // cell.textLabel.text=[NSString stringWithFormat:@"\t\t\t\t\t\t%@",sitemdl1.biddername];
+      _biddernamelbl=(UILabel *)[cell viewWithTag:1];
+      _biddernamelbl.text=sitemdl1.biddername;
             }
     
     
@@ -5399,6 +5397,59 @@ _passingdate=dateString;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl
                        animated:YES completion:NULL];
+
+}
+- (IBAction)wthreditbtnlbl:(id)sender {
+    Edittype=5;
+    
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.weathertable];
+    NSIndexPath *textFieldIndexPath = [self.weathertable indexPathForRowAtPoint:rootViewPoint];
+    
+    SitevistMdl *sitemdl1=(SitevistMdl *)[_weatherarray objectAtIndex:textFieldIndexPath.row];
+    NSMutableArray*newarray=[[NSMutableArray alloc]init];
+    [newarray addObject:sitemdl1];
+    
+    
+    
+     self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"Outlookrecordaddview" bundle:nil];
+    
+    
+    self.newrecordVCtrl.delegate=self;
+    self.newrecordVCtrl.edittype=Edittype;
+    self.newrecordVCtrl.companyid=_companyid;
+    self.newrecordVCtrl.Navwatherarray=newarray;
+    self.newrecordVCtrl.optionidntfr=2;
+    self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    [self presentViewController:_newrecordVCtrl
+                       animated:YES completion:NULL];
+
+    
+}
+- (IBAction)bidedit:(id)sender {
+    Edittype=6;
+    
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.bidderstable];
+    NSIndexPath *textFieldIndexPath = [self.bidderstable indexPathForRowAtPoint:rootViewPoint];
+    
+    SitevistMdl *sitemdl1=(SitevistMdl *)[_bidderarray objectAtIndex:textFieldIndexPath.row];
+    NSMutableArray*newarray=[[NSMutableArray alloc]init];
+    [newarray addObject:sitemdl1];
+   
+
+    self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"otherbiddrecordaddview" bundle:nil];
+    self.newrecordVCtrl.delegate=self;
+    self.newrecordVCtrl.edittype=Edittype;
+    self.newrecordVCtrl.companyid=_companyid;
+    self.newrecordVCtrl.Navbidderarray=newarray;
+    self.newrecordVCtrl.optionidntfr=2;
+    self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    [self presentViewController:_newrecordVCtrl
+                       animated:YES completion:NULL];
+
 
 }
 @end
