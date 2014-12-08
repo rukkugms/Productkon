@@ -29,11 +29,11 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leadsnew.png" id="nbI-q2-Eih">
-                            <rect key="frame" x="16" y="22" width="122" height="116"/>
+                            <rect key="frame" x="40" y="40" width="80" height="80"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="lAr-dj-Hw3">
-                            <rect key="frame" x="59" y="60" width="37" height="37"/>
+                            <rect key="frame" x="62" y="61" width="37" height="37"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </activityIndicatorView>
