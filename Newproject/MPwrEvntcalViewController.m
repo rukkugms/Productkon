@@ -30,7 +30,14 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-     _navitem.title=[NSString stringWithFormat:@"Man Power Calendar Details-%@",_selecteddate];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    NSDate *dates = [dateFormat dateFromString:_selecteddate];
+    [dateFormat setDateFormat:@"MM-dd-yyy"];
+    NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+    
+
+     _navitem.title=[NSString stringWithFormat:@"Man Power Calendar Details-%@",myFormattedDate];
     [self ManpowerCalenderDaySelect];
 }
 /*
