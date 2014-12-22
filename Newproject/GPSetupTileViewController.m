@@ -439,6 +439,7 @@
         _consumview.userInteractionEnabled=YES;
         _smalltoolview.userInteractionEnabled=YES;
         _Astview.userInteractionEnabled=YES;
+        _result=@"";
 
        
         

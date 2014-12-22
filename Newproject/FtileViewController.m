@@ -270,6 +270,7 @@
         [_Urightsindicator stopAnimating];
         _fldrview.userInteractionEnabled=YES;
         _usrview.userInteractionEnabled=YES;
+        _result=@"";
     }
     
     

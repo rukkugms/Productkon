@@ -245,6 +245,7 @@
         _leadView.userInteractionEnabled=YES;
         _leadactivity.hidden=YES;
         [_leadactivity stopAnimating];
+        _result=@"";
     }
     
     

@@ -539,7 +539,7 @@ _companyinfoview.userInteractionEnabled=YES;
         _basicreqview.userInteractionEnabled=YES;
         _jobsitereqview.userInteractionEnabled=YES;
         _workprocedureview.userInteractionEnabled=YES;
-        
+        _result=@"";
 
     }
     

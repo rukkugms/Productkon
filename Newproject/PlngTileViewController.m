@@ -289,7 +289,7 @@
         
         _planngview.userInteractionEnabled=YES;
         _workentryview.userInteractionEnabled=YES;
-        
+        _result=@"";
     }
     
     
