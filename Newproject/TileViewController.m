@@ -215,7 +215,7 @@ _companyinfoview.userInteractionEnabled=YES;
   
     
     [_rightsindictr startAnimating];
-    _Moduleid=22;
+    _Moduleid=1011;
        [self UserLogmaininsert];
     [self UserRightsforparticularmoduleselect];
       _foldersview.userInteractionEnabled=NO;
@@ -226,7 +226,7 @@ _companyinfoview.userInteractionEnabled=YES;
     
     
     [_usersindicator startAnimating];
-    _Moduleid=21;
+    _Moduleid=1012;
        [self UserLogmaininsert];
     [self UserRightsforparticularmoduleselect];
     _usersview.userInteractionEnabled=NO;
@@ -975,7 +975,7 @@ _companyinfoview.userInteractionEnabled=YES;
 
         }
     }
-    if (_Moduleid==21)
+    if (_Moduleid==1012)
     {
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
@@ -1058,7 +1058,7 @@ _companyinfoview.userInteractionEnabled=YES;
 
         }
     }
-    if (_Moduleid==22)
+    if (_Moduleid==1011)
     {
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
         if (rightsmodel.ViewModule==1) {
