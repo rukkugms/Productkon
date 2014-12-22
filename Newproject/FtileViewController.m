@@ -57,7 +57,7 @@
 }
 
 -(void)folderpage
-{ _Moduleid=22;
+{ _Moduleid=1013;
     [self UserLogmainview];
     
     
@@ -71,7 +71,7 @@
     
 }
 -(void)userpage{
-      _Moduleid=25;
+      _Moduleid=1014;
        [self UserLogmainview];
     _Urightsindicator.hidden=NO;
     [_Urightsindicator startAnimating];
@@ -277,7 +277,7 @@
     else
     {
         
-        if (_Moduleid==22) {
+        if (_Moduleid==1013) {
             
             
             Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
@@ -314,7 +314,7 @@
             
             
         }
-        if (_Moduleid==25) {
+        if (_Moduleid==1014) {
             Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
             if (rightsmodel.ViewModule==1) {
                 
