@@ -139,6 +139,11 @@ NSInteger popvr;
 - (IBAction)subsearchbtn:(id)sender;
 - (IBAction)addbtn:(id)sender;
 - (IBAction)editbtn:(id)sender;
+- (IBAction)checkcategory:(id)sender;
+- (IBAction)checksubtypebtn:(id)sender;
+-(IBAction)cellsubtypeselection:(id)sender;
+
+
 
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
@@ -146,14 +151,12 @@ NSInteger popvr;
 @property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 
 @property(strong,nonatomic)IBOutlet UIButton *cellsubtypebtn;
--(IBAction)cellsubtypeselection:(id)sender;
 @property(readwrite)NSInteger moduleid;
 @property(strong,nonatomic)RSTViewController *rstctrlr;
-- (IBAction)checksubtypebtn:(id)sender;
+
 @property(strong,nonatomic)IBOutlet UIButton *subcheckbtn;
 @property (strong, nonatomic) IBOutlet UIButton *categrybtnlbl;
 
-- (IBAction)checkcategory:(id)sender;
 @property(strong,nonatomic)IBOutlet UIButton *catcheck;
 
 @end

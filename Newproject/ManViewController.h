@@ -44,7 +44,7 @@
 
 @property(strong,nonatomic)Manpwr *manpwrmdl;
 @property(strong,nonatomic)Validation *vald;
-- (IBAction)servicebtn:(id)sender;
+
 
 /*For Sqlite Database*/
 
@@ -107,12 +107,19 @@
 - (IBAction)selectQualificatin:(id)sender;
 - (IBAction)closeQualificatin:(id)sender;
 - (IBAction)saveQualificatin:(id)sender;
-
+- (IBAction)clsebtn:(id)sender;
+- (IBAction)deletebtn:(id)sender;
+-(IBAction)closemanpower:(id)sender;
+- (IBAction)addmanpwer:(id)sender;
+-(IBAction)editmanpower:(id)sender;
+-(IBAction)cellsubtypeselection:(id)sender;
+- (IBAction)checksubtypebtn:(id)sender;
+- (IBAction)servicebtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *checkbtnlbl;
 
-- (IBAction)clsebtn:(id)sender;
 
-- (IBAction)deletebtn:(id)sender;
+
+
 @property (strong, nonatomic)NSString*searchstring;
 
 @property (strong, nonatomic) IBOutlet UISearchBar * SearchingBar;
@@ -121,11 +128,9 @@
 @property(strong,nonatomic)IBOutlet UITableView *manpowerTable;
 @property(strong,nonatomic)IBOutlet UITableViewCell *manpowecell;
 @property(strong,nonatomic)IBOutlet UIView *titleview;
--(IBAction)closemanpower:(id)sender;
 
 @property(strong,nonatomic)IBOutlet UIView *addview;
-- (IBAction)addmanpwer:(id)sender;
--(IBAction)editmanpower:(id)sender;
+
 @property(strong,nonatomic)IBOutlet UINavigationItem *navitem;
 
 
@@ -145,9 +150,9 @@
 @property(strong,nonatomic)IBOutlet UIButton *cancelbtn;
 
 @property(strong,nonatomic)IBOutlet UIButton *cellsubtypebtn;
--(IBAction)cellsubtypeselection:(id)sender;
+
 @property(readwrite)NSInteger moduleid;
 @property(strong,nonatomic)RSTViewController *rstctrlr;
-- (IBAction)checksubtypebtn:(id)sender;
+
 @property(strong,nonatomic)IBOutlet UIButton *subcheckbtn;
 @end
