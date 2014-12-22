@@ -24,7 +24,7 @@
 
 
 @property(readwrite)NSInteger moduleid;
--(IBAction)closesubtype:(id)sender;
+
 @property(strong,nonatomic)Rightscheck *rights;
 @property(strong,nonatomic)ServiceViewController *servicectrl;
 @property(strong,nonatomic)Craftreqmtmdl *subtypemdl;
@@ -50,6 +50,7 @@
 - (IBAction)addbtn:(id)sender;
 - (IBAction)deletebtn:(id)sender;
 -(IBAction)toservice:(id)sender;
+-(IBAction)closesubtype:(id)sender;
 
 @property(strong,nonatomic)NSMutableArray *Subtypelistarray;
 @property(strong,nonatomic)NSMutableArray *selectedsubtypearray;
