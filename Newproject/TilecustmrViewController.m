@@ -315,7 +315,7 @@
         _custmrview.userInteractionEnabled=YES;
         _cntrctview.userInteractionEnabled=YES;
         _markupview.userInteractionEnabled=YES;
-
+        _result=@"";
     }
     
     

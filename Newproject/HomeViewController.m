@@ -419,7 +419,7 @@ NSString*useridname = [defaults objectForKey:@"Userid"];
         _estimtnview.userInteractionEnabled=YES;
         _projectview.userInteractionEnabled=YES;
         _hrview.userInteractionEnabled=YES;
-
+        _result=@"";
     }
 
     

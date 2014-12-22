@@ -448,6 +448,7 @@
         _cmpanyassetview.userInteractionEnabled=YES;
         _assetactivity.hidden=YES;
           [_assetactivity stopAnimating];
+        _result=@"";
 
     }
     

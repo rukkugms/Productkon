@@ -234,7 +234,8 @@
         _mangmntview.userInteractionEnabled=YES;
         _processhrindictr.hidden=YES;
         [_processhrindictr stopAnimating];
-        _processview.userInteractionEnabled=YES;    }
+        _processview.userInteractionEnabled=YES;
+    _result=@"";}
     
     
     else

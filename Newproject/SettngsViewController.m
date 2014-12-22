@@ -314,6 +314,7 @@
         [_servcindicator stopAnimating];
         [_phaseindicator stopAnimating];
         [_wrktypeindicator stopAnimating];
+        _result=@"";
     }
     
     
