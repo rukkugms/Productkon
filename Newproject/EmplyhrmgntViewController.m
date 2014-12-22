@@ -1102,14 +1102,14 @@
     {
         recordResults = FALSE;
         _empmdl.badgeno=_soapResults;
-       // [_employeelistarray addObject:_empmdl];
+    [_employeelistarray addObject:_empmdl];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"Description"])
     {
         recordResults = FALSE;
         _empmdl.craft=_soapResults;
-        [_employeelistarray addObject:_empmdl];
+        //[_employeelistarray addObject:_empmdl];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"job_id"])
