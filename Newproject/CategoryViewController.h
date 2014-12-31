@@ -46,6 +46,7 @@
 
 
 - (IBAction)catgrybtn:(id)sender;
+- (IBAction)editbtn:(id)sender;
 
 
 @property (strong, nonatomic) IBOutlet UITextField *categrytxtfld;
@@ -53,7 +54,7 @@
 /* Cell outlets*/
 @property (strong, nonatomic) IBOutlet UITableViewCell *catgrycell;
 @property (strong, nonatomic) IBOutlet UILabel *catgrylbl;
-- (IBAction)editbtn:(id)sender;
+
 @property (strong, nonatomic) IBOutlet UIButton *updatebtnlbl;
 
 

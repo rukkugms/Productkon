@@ -134,16 +134,18 @@
 - (IBAction)addbtn:(id)sender;
 - (IBAction)editbtn:(id)sender;
 -(IBAction)closeimage:(id)sender;
+- (IBAction)subtypebtn:(id)sender;
+- (IBAction)checksubtype:(id)sender;
 
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;
 
-- (IBAction)subtypebtn:(id)sender;
+
 @property (strong, nonatomic) IBOutlet UIButton *subtypebtnlbl;
 @property (strong, nonatomic)RSTViewController *subtypctrlr;
 
 @property (strong, nonatomic) IBOutlet UIButton *checksubtypebtnlbl;
-- (IBAction)checksubtype:(id)sender;
+
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activitybtn;
 @property(strong,nonatomic)IBOutlet UIButton *updatebtn;
 

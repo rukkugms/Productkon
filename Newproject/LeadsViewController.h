@@ -68,16 +68,15 @@
 @property(strong,nonatomic)FollowupViewController*followupVCtrl;
 
 @property(strong,nonatomic)CommentsViewController*cmtsVCtrl;
-- (IBAction)Addbtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIView *view2;
-- (IBAction)clsebtn:(id)sender;
+
 @property (strong, nonatomic) IBOutlet UINavigationItem *navbaritem;
 
 @property (strong, nonatomic) IBOutlet UIView *view3;
 
-- (IBAction)editcellbtn:(id)sender;
+
 @property (strong, nonatomic) IBOutlet UIButton *editbtncelllbl;
-- (IBAction)disclosurebtn:(id)sender;
+
 @property (strong, nonatomic) IBOutlet UIButton *disclsurelbl;
 
 @property (strong, nonatomic)NSIndexPath *Path;
@@ -106,6 +105,12 @@
 @property(strong,nonatomic)IBOutlet UIButton *companybtn;
 @property (strong, nonatomic)commentmdl*cmtmdl;
 @property (strong, nonatomic) UIBarButtonItem*Editbtn;
+- (IBAction)Addbtn:(id)sender;
+
+- (IBAction)clsebtn:(id)sender;
+- (IBAction)editcellbtn:(id)sender;
+- (IBAction)disclosurebtn:(id)sender;
+
 - (IBAction)leadtypebtn:(id)sender;
 - (IBAction)prjcttypebtn:(id)sender;
 - (IBAction)industrytypetxtfld:(id)sender;
