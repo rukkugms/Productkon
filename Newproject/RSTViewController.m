@@ -1653,7 +1653,7 @@
     }
     
 }
-#pragma mark-Consumables
+#pragma mark-Small Tools
 
 -(void)SmallToolsSubTypeselect{
     recordResults = FALSE;
@@ -1857,8 +1857,8 @@
 }
 
 #pragma mark-Assets
-
--(void)OthercompanySubTypeselect{
+-(void)OthercompanySubTypeselect
+{
     recordResults = FALSE;
     NSString *soapMessage;
     
