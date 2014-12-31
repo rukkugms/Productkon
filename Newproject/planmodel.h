@@ -20,7 +20,7 @@
 @property(strong,nonatomic)NSString *sitefactor;
 @property(strong,nonatomic)NSString *location;
 @property(strong,nonatomic)NSString *zip;
-
+@property(strong,nonatomic)NSString *masterplan;
 @property(strong,nonatomic)NSString *complexity;
 @property(strong,nonatomic)NSString *manhrs;
 @property(strong,nonatomic)NSString *equphrs;

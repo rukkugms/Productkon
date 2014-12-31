@@ -44,7 +44,7 @@
     if (_plntype==1) {
         _tabletitleview.hidden=NO;
     
-         _disclosurearry=[[NSMutableArray alloc]initWithObjects:@"Add Services",@"Site Visit",@"Documents",nil];
+         _disclosurearry=[[NSMutableArray alloc]initWithObjects:@"Add Services",@"Site Visit",@"Documents",@"Create a New Plan",nil];
         _addbtn.hidden=NO;
         _deletebtn.hidden=NO;
         _plnnavitem.title=@"Planning";
@@ -244,7 +244,9 @@
               _peqhrslbl.text=[NSString stringWithFormat:@"%.2f",[planmdl.equphrs doubleValue]];
               _pmatqty=(UILabel*)[cell viewWithTag:11];
               _pmatqty.text=[NSString stringWithFormat:@"%d",[planmdl.mathrs integerValue]];
-              
+              _masterplanlabel=(UILabel*)[cell viewWithTag:12];
+              _masterplanlabel.text=planmdl.masterplan;
+
           }
           else{
               
@@ -700,16 +702,16 @@
         
     
     UIViewController* popoverContent = [[UIViewController alloc]init];
-    UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 130, 110)];
+    UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 135, 120)];
     popoverView.backgroundColor = [UIColor whiteColor];
-    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 130, 110)];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 135, 120)];
     _popovertableview.delegate=(id)self;
     _popovertableview.dataSource=(id)self;
-    _popovertableview.rowHeight= 39;
+    _popovertableview.rowHeight= 31;
     //_popovertableview.separatorColor=[UIColor blackColor];
     [popoverView addSubview:_popovertableview];
     popoverContent.view = popoverView;
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(130, 110);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(135, 120);
     
     button = (UIButton *)sender;
     UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
@@ -721,7 +723,7 @@
     
     //UITableView *table = (UITableView *)[cell superview];
     self.popovercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
-        self.popovercontroller.popoverContentSize=CGSizeMake(130.0f, 110.0f);
+        self.popovercontroller.popoverContentSize=CGSizeMake(135.0f, 120.0f);
         self.popovercontroller=_popovercontroller;
     [self.popovercontroller presentPopoverFromRect:_disclosurebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
     }
@@ -969,7 +971,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllPlans xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SelectAllPlans xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</SelectAllPlans>\n"
                    "</soap:Body>\n"
@@ -979,7 +981,7 @@
     
  //   NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
 
-     NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -987,7 +989,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllPlans" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SelectAllPlans" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1158,7 +1160,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<InsertPlan xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<InsertPlan xmlns=\"http://ios.kontract360.com/\">\n"
                    "<customername>%@</customername>\n"
                    "<leadid>%d</leadid>\n"
                    "<cusid>%d</cusid>\n"
@@ -1176,7 +1178,7 @@
                    "</soap:Envelope>\n",_planselectionbtn.titleLabel.text,[ledid integerValue],[custid integerValue],0,0,[[_typelistdict objectForKey:_typebtnlbl.titleLabel.text]integerValue],[_sitefactortxtfld.text floatValue],_loctntxtfld.text,_ziptxtfld.text,complex,lead,customer];
     NSLog(@"soapmsg%@",soapMessage);
     
-      NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
 //NSURL *url = [NSURL URLWithString:@"testUSA.kontract360.com/service.asmx"];
  //   NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
     
@@ -1186,7 +1188,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/InsertPlan" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/InsertPlan" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1377,7 +1379,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UpdatePlan xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<UpdatePlan xmlns=\"http://ios.kontract360.com/\">\n"
                    "<planid>%@</planid>\n"
                    "<customername>%@</customername>\n"
                    "<leadid>%d</leadid>\n"
@@ -1395,7 +1397,7 @@
                    "</soap:Envelope>\n",plmdl.planid,_planselectionbtn.titleLabel.text,lead,cust,0,[[_typelistdict objectForKey:_typebtnlbl.titleLabel.text]integerValue ],[_sitefactortxtfld.text floatValue],_loctntxtfld.text,_ziptxtfld.text,complex,newlead,newcust];
     NSLog(@"soapmsg%@",soapMessage);
     
-      NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
   //  NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
     
@@ -1405,7 +1407,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/UpdatePlan" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/UpdatePlan" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -2062,6 +2064,17 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"masterplan"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"Complexity"])
     {
         
@@ -2389,6 +2402,16 @@
         
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"masterplan"])
+    {
+        
+        
+        recordResults = FALSE;
+        _plnmdl.masterplan=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        
+        _soapResults = nil;
+    }
+
     if([elementName isEqualToString:@"Complexity"])
     {
         

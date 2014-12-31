@@ -82,6 +82,7 @@
 @property(strong,nonatomic)IBOutlet UILabel *leadlabel;
 @property(strong,nonatomic)IBOutlet UILabel *planidlabel;
 @property(strong,nonatomic)IBOutlet UILabel *wrktypelabel;
+@property(strong,nonatomic)IBOutlet UILabel *masterplanlabel;
 @property(strong,nonatomic)UITableView *popovertableview;
 @property(strong,nonatomic)UIPopoverController *popovercontroller;
 @property(strong,nonatomic)UISearchBar *searchbar;
