@@ -294,9 +294,22 @@
             case 1:
                 if (newpoptype==2) {
                      [_planselectionbtn setTitle:[_planslectionarray objectAtIndex:indexPath.row]forState:UIControlStateNormal];
+                    NSString *checkvalue=[_leadbiddict objectForKey:[_planslectionarray objectAtIndex:indexPath.row]];
+                    NSLog(@"%@",checkvalue);
+                           NSLog(@"%@",_planselectionbtn.titleLabel.text);
+                    if ([checkvalue isEqualToString:@"true"]) {
+                        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"This lead is already changed as a customer" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                        [alert show];
+                    }
+                    else
+                    {
+                        
+                    }
+                    
                 }
                 else if (newpoptype==3){
                      [_typebtnlbl setTitle:[_typelistarray objectAtIndex:indexPath.row]forState:UIControlStateNormal];
+                    
                  
                     
                 }
@@ -568,7 +581,7 @@
     _loctntxtfld.text=@"";
     _ziptxtfld.text=@"";
     _selectionlabel.hidden=YES;
-    
+    _typebtnlbl.enabled=YES;
   
 
 }
@@ -857,7 +870,7 @@
     NSLog(@"%@",_revtypelistdict);
       NSLog(@"%@",planmdl.worktypeid);
     
-    [_typebtnlbl setTitle:planmdl.worktype forState:UIControlStateNormal];
+   
     _loctntxtfld.text=planmdl.location;
     _ziptxtfld.text=planmdl.zip;
     
@@ -874,6 +887,7 @@
         _custcheckbtn.enabled=NO;
         _planselectionbtn.enabled=NO;
         _typebtnlbl.enabled=NO;
+         [_typebtnlbl setTitle:planmdl.worktype forState:UIControlStateDisabled];
     }
     else
     {
@@ -881,6 +895,7 @@
         _custcheckbtn.enabled=YES;
         _planselectionbtn.enabled=YES;
         _typebtnlbl.enabled=YES;
+         [_typebtnlbl setTitle:planmdl.worktype forState:UIControlStateNormal];
 
     }
     
@@ -1903,6 +1918,7 @@
     {
         _planslectionarray=[[NSMutableArray alloc]init];
         _leaddict=[[NSMutableDictionary alloc]init];
+        _leadbiddict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -1918,6 +1934,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"BidStatus"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"CompanyName"])
     {
         
@@ -2264,14 +2290,24 @@
         _leadstring=_soapResults;
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"CompanyName"])
+       if([elementName isEqualToString:@"CompanyName"])
     {
         
         recordResults = FALSE;
         [_leaddict setObject:_leadstring forKey:_soapResults];
+         bidstring=_soapResults;
         [_planslectionarray addObject:_soapResults];
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"BidStatus"])
+    {
+        
+        recordResults = FALSE;
+       
+        [_leadbiddict setObject:_soapResults forKey:bidstring];
+        _soapResults = nil;
+    }
+
     if([elementName isEqualToString:@"SelectAllLeadsResult"])
     {
         
@@ -2594,6 +2630,10 @@
         _searchbar.text=@"";
         
     }
+    
+     if ([alertView.message isEqualToString:@"This lead is already changed as a customer"]) {
+         [_planselectionbtn setTitle:@"Select" forState:UIControlStateNormal
+          ];     }
     if ([alertView.message isEqualToString:@"Invalid Zip"]) {
         
         

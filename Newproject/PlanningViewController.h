@@ -33,6 +33,7 @@
     NSString *leadclicked;
     NSString *typestrg,*floderplan;
     NSInteger newpoptype;
+    NSString *bidstring;
     
     
     
@@ -119,6 +120,7 @@
 
 /*Dict*/
 @property(strong,nonatomic)NSMutableDictionary *leaddict;
+@property(strong,nonatomic)NSMutableDictionary *leadbiddict;
 @property(strong,nonatomic)NSMutableDictionary *customerdict;
 @property(strong,nonatomic)NSMutableDictionary *typelistdict;
 @property(strong,nonatomic)NSMutableDictionary *revtypelistdict;
