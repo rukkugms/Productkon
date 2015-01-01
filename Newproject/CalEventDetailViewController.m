@@ -561,7 +561,7 @@ _eqreviewtitleview.hidden=YES;
                    
                    "<soap:Body>\n"
                    
-                   "<CalenderManPowerSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<CalenderManPowerSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<LeadId>%d</LeadId>\n"
                    "<CalenderDate>%@</CalenderDate>\n"
                    "</CalenderManPowerSelect>\n"
@@ -571,7 +571,7 @@ _eqreviewtitleview.hidden=YES;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -579,7 +579,7 @@ _eqreviewtitleview.hidden=YES;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/CalenderManPowerSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/CalenderManPowerSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -622,7 +622,7 @@ _eqreviewtitleview.hidden=YES;
                    
                    "<soap:Body>\n"
                    
-                   "<CalenderEquipmentSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<CalenderEquipmentSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<LeadId>%d</LeadId>\n"
                    "<CalenderDate>%@</CalenderDate>\n"
                    "</CalenderEquipmentSelect>\n"
@@ -632,7 +632,7 @@ _eqreviewtitleview.hidden=YES;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -640,7 +640,7 @@ _eqreviewtitleview.hidden=YES;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/CalenderEquipmentSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/CalenderEquipmentSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -683,7 +683,7 @@ _eqreviewtitleview.hidden=YES;
                    
                    "<soap:Body>\n"
                    
-                   "<CalenderOtherSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<CalenderOtherSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<LeadId>%d</LeadId>\n"
                    "<CalenderDate>%@</CalenderDate>\n"
                    "</CalenderOtherSelect>\n"
@@ -693,7 +693,7 @@ _eqreviewtitleview.hidden=YES;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -701,7 +701,7 @@ _eqreviewtitleview.hidden=YES;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/CalenderOtherSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/CalenderOtherSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -737,7 +737,7 @@ _eqreviewtitleview.hidden=YES;
                    
                    "<soap:Body>\n"
                    
-                   "<SummarySelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SummarySelect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<LeadId>%d</LeadId>\n"
                    "<start>%@</start>\n"
                    "</SummarySelect>\n"
@@ -747,7 +747,7 @@ _eqreviewtitleview.hidden=YES;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -755,7 +755,7 @@ _eqreviewtitleview.hidden=YES;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SummarySelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SummarySelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -793,7 +793,7 @@ _eqreviewtitleview.hidden=YES;
                    
                    "<soap:Body>\n"
                    
-                   "<EstimationManPowerReviewSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<EstimationManPowerReviewSelect xmlns=\"http://ios.kontract360.com/\">\n"
                     "<LeadId>%d</LeadId>\n"
                    "</EstimationManPowerReviewSelect>\n"
                    "</soap:Body>\n"
@@ -802,7 +802,7 @@ _eqreviewtitleview.hidden=YES;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -810,7 +810,7 @@ _eqreviewtitleview.hidden=YES;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/EstimationManPowerReviewSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/EstimationManPowerReviewSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -847,7 +847,7 @@ _eqreviewtitleview.hidden=YES;
                    
                    "<soap:Body>\n"
                    
-                   "<EstimationEquipmentReviewSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<EstimationEquipmentReviewSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<LeadId>%d</LeadId>\n"
                    "</EstimationEquipmentReviewSelect>\n"
                    "</soap:Body>\n"
@@ -856,7 +856,7 @@ _eqreviewtitleview.hidden=YES;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -864,7 +864,7 @@ _eqreviewtitleview.hidden=YES;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/EstimationEquipmentReviewSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/EstimationEquipmentReviewSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -901,7 +901,7 @@ _eqreviewtitleview.hidden=YES;
                    
                    "<soap:Body>\n"
                    
-                   "<EstimationOtherReviewSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<EstimationOtherReviewSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<LeadId>%d</LeadId>\n"
                    "</EstimationOtherReviewSelect>\n"
                    "</soap:Body>\n"
@@ -910,7 +910,7 @@ _eqreviewtitleview.hidden=YES;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -918,7 +918,7 @@ _eqreviewtitleview.hidden=YES;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/EstimationOtherReviewSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/EstimationOtherReviewSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -956,7 +956,7 @@ _eqreviewtitleview.hidden=YES;
                    
                    "<soap:Body>\n"
                    
-                   "<SummaryManPowerSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SummaryManPowerSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<LeadId>%d</LeadId>\n"
                    "</SummaryManPowerSelect>\n"
                    "</soap:Body>\n"
@@ -965,7 +965,7 @@ _eqreviewtitleview.hidden=YES;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -973,7 +973,7 @@ _eqreviewtitleview.hidden=YES;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SummaryManPowerSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SummaryManPowerSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1011,7 +1011,7 @@ _eqreviewtitleview.hidden=YES;
                    
                    "<soap:Body>\n"
                    
-                   "<SummaryEquipmentSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SummaryEquipmentSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<LeadId>%d</LeadId>\n"
                    "</SummaryEquipmentSelect>\n"
                    "</soap:Body>\n"
@@ -1020,7 +1020,7 @@ _eqreviewtitleview.hidden=YES;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1028,7 +1028,7 @@ _eqreviewtitleview.hidden=YES;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SummaryEquipmentSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SummaryEquipmentSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1066,7 +1066,7 @@ _eqreviewtitleview.hidden=YES;
                    
                    "<soap:Body>\n"
                    
-                   "<SummaryMaterialSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SummaryMaterialSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<LeadId>%d</LeadId>\n"
                    "</SummaryMaterialSelect>\n"
                    "</soap:Body>\n"
@@ -1075,7 +1075,7 @@ _eqreviewtitleview.hidden=YES;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1083,7 +1083,7 @@ _eqreviewtitleview.hidden=YES;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SummaryMaterialSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SummaryMaterialSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1116,7 +1116,7 @@ _eqreviewtitleview.hidden=YES;
                    
                    
                    "<soap:Body>\n"
-                   "<ManPowerReviewSearch xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<ManPowerReviewSearch xmlns=\"http://ios.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "<LeadId>%d</LeadId>\n"
                    "</ManPowerReviewSearch>\n"
@@ -1126,7 +1126,7 @@ _eqreviewtitleview.hidden=YES;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1134,7 +1134,7 @@ _eqreviewtitleview.hidden=YES;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/ManPowerReviewSearch" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/ManPowerReviewSearch" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1167,7 +1167,7 @@ _eqreviewtitleview.hidden=YES;
                    
                    
                    "<soap:Body>\n"
-                   "<EquipmentReviewSearch xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<EquipmentReviewSearch xmlns=\"http://ios.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "<LeadId>%d</LeadId>\n"
                    "</EquipmentReviewSearch>\n"
@@ -1177,7 +1177,7 @@ _eqreviewtitleview.hidden=YES;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1185,7 +1185,7 @@ _eqreviewtitleview.hidden=YES;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/EquipmentReviewSearch" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/EquipmentReviewSearch" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1218,7 +1218,7 @@ _eqreviewtitleview.hidden=YES;
                    
                    
                    "<soap:Body>\n"
-                   "<OtherReviewSearch xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<OtherReviewSearch xmlns=\"http://ios.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "<LeadId>%d</LeadId>\n"
                    "</OtherReviewSearch>\n"
@@ -1228,7 +1228,7 @@ _eqreviewtitleview.hidden=YES;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1236,7 +1236,7 @@ _eqreviewtitleview.hidden=YES;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/OtherReviewSearch" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/OtherReviewSearch" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

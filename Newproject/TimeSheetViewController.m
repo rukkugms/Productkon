@@ -629,7 +629,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<JobsSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<JobsSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    
                    "</JobsSelect>\n"
@@ -638,7 +638,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-      NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -646,7 +646,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/JobsSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/JobsSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -686,7 +686,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<TimesheetServiceselect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<TimesheetServiceselect xmlns=\"http://ios.kontract360.com/\">\n"
                    
                     "<jobid>%@</jobid>\n"
                    "</TimesheetServiceselect>\n"
@@ -695,7 +695,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-      NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -703,7 +703,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/TimesheetServiceselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/TimesheetServiceselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -744,7 +744,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ForemanSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<ForemanSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<job_id>%@</job_id>\n"
                    
                    "</ForemanSelect>\n"
@@ -753,7 +753,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-      NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -761,7 +761,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/ForemanSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/ForemanSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -799,7 +799,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<TimeSheetPhasesSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<TimeSheetPhasesSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<ServicesId>%d</ServicesId>\n"
                    
                    "</TimeSheetPhasesSelect>\n"
@@ -808,7 +808,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-      NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -816,7 +816,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/TimeSheetPhasesSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/TimeSheetPhasesSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -855,7 +855,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<TimeSheetSequenceSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<TimeSheetSequenceSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<jobid>%@</jobid>\n"
                    
                    "</TimeSheetSequenceSelect>\n"
@@ -864,7 +864,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-      NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -872,7 +872,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/TimeSheetSequenceSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/TimeSheetSequenceSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -912,7 +912,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<TimeSheetSequenceGeneralSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<TimeSheetSequenceGeneralSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<jobid>%@</jobid>\n"
                    
                    "</TimeSheetSequenceGeneralSelect>\n"
@@ -921,7 +921,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-      NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -929,7 +929,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/TimeSheetSequenceGeneralSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/TimeSheetSequenceGeneralSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -968,7 +968,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<PurchaseOrderselect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<PurchaseOrderselect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<JobId>%@</JobId>\n"
                    
                    "</PurchaseOrderselect>\n"
@@ -977,7 +977,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-      NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -985,7 +985,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/PurchaseOrderselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/PurchaseOrderselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1024,7 +1024,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<WorkOrderselect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<WorkOrderselect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<JobId>%@</JobId>\n"
                    "<PurchaseId>%d</PurchaseId>\n"
                    "</WorkOrderselect>\n"
@@ -1033,7 +1033,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-      NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1041,7 +1041,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/WorkOrderselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/WorkOrderselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1091,7 +1091,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<TimesheetLaborselect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<TimesheetLaborselect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<TSLJobNumber>%@</TSLJobNumber>\n"
                    "<TSLDate>%@</TSLDate>\n"
                    "</TimesheetLaborselect>\n"
@@ -1100,7 +1100,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-      NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1108,7 +1108,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/TimesheetLaborselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/TimesheetLaborselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1158,7 +1158,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<TimesheetEquipmentselect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<TimesheetEquipmentselect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<TSEqJobNumber>%@</TSEqJobNumber>\n"
                    "<TSEqDate>%@</TSEqDate>\n"
                    "</TimesheetEquipmentselect>\n"
@@ -1167,7 +1167,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-      NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1175,7 +1175,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/TimesheetEquipmentselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/TimesheetEquipmentselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1225,7 +1225,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<TimesheetFleetselect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<TimesheetFleetselect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<TSFlJobNumber>%@</TSFlJobNumber>\n"
                    "<TSFlDate>%@</TSFlDate>\n"
                    "</TimesheetFleetselect>\n"
@@ -1234,7 +1234,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-      NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1242,7 +1242,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/TimesheetFleetselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/TimesheetFleetselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1292,7 +1292,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<TimesheetMaterialselect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<TimesheetMaterialselect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<TSMTJobNumber>%@</TSMTJobNumber>\n"
                    "<TSMTDate>%@</TSMTDate>\n"
                    "</TimesheetMaterialselect>\n"
@@ -1301,7 +1301,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-      NSURL *url = [NSURL URLWithString:@"https://testUSA.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1309,7 +1309,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/TimesheetMaterialselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/TimesheetMaterialselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
