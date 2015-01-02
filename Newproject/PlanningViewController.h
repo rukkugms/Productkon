@@ -34,6 +34,7 @@
     NSString *typestrg,*floderplan;
     NSInteger newpoptype;
     NSString *bidstring;
+    NSString*Existplanstrg;
     
     
     

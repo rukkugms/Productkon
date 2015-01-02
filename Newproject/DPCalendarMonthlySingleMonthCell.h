@@ -32,6 +32,8 @@ typedef enum
 @property (nonatomic, strong) UIFont *eventFont;
 @property (nonatomic) CGFloat rowHeight;
 @property (nonatomic, strong) NSArray *eventColors;
+@property (nonatomic, strong) NSArray *eventColors1;
+
 @property (nonatomic, strong) UIFont *iconEventFont;
 @property (nonatomic, strong) NSArray *iconEventBkgColors;
 

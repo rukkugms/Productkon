@@ -19,6 +19,7 @@
     
     
 }
+@property(readwrite)NSInteger calendartype;
 @property(strong,nonatomic)Eventmdl*eventmdl;
 @property(strong,nonatomic)MPwrEvntcalViewController * calctrl;
 @property(strong,nonatomic)NSDate*previousdate;

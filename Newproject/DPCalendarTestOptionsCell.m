@@ -88,7 +88,7 @@ enum CellType{
         
         _datePopover = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
         _datePopover.popoverContentSize = CGSizeMake(320.f, 250.f);
-        _datePopover.delegate = self;
+        _datePopover.delegate =(id) self;
     }
     
     return _datePopover;

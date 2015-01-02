@@ -1973,7 +1973,7 @@ finishedSavingWithError:(NSError *)error
     }
 
 }
--(UIImage*)imageWithImage:(UIImage*)image
++(UIImage*)imageWithImage:(UIImage*)image
               scaledToSize:(CGSize)newSize;
 {
     UIGraphicsBeginImageContext( newSize );

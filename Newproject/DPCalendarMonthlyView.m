@@ -55,6 +55,7 @@ NSString *const DPCalendarMonthlyViewAttributeMonthRows = @"DPCalendarMonthlyVie
 @property (nonatomic, strong) UIFont *eventFont;
 @property (nonatomic) CGFloat rowHeight;
 @property (nonatomic, strong) NSArray *eventColors;
+@property (nonatomic, strong) NSArray *eventColors1;
 @property (nonatomic, strong) UIFont *iconEventFont;
 @property (nonatomic, strong) NSArray *iconEventBkgColors;
 @property (nonatomic) DPCalendarMonthlyViewEventDrawingStyle eventDrawingStyle;
@@ -133,6 +134,7 @@ NSString *const DPCalendarViewDayCellIdentifier = @"DPCalendarViewDayCellIdentif
         
         self.eventColors = [attributes objectForKey:DPCalendarMonthlyViewAttributeEventColors] ? [attributes objectForKey:DPCalendarMonthlyViewAttributeEventColors] :
         [self defaultEventColors];
+        
         
        self.todayBannerBkgColor = [attributes objectForKey:DPCalendarMonthlyViewAttributeCellTodayBannerBkgColor] ? [attributes objectForKey:DPCalendarMonthlyViewAttributeCellTodayBannerBkgColor] : [UIColor colorWithRed:255.0/255.0f green:235/255.0f blue:205/255.0f alpha:1.0f];
          
@@ -236,6 +238,7 @@ NSString *const DPCalendarViewDayCellIdentifier = @"DPCalendarViewDayCellIdentif
 
 -(NSDate *) dateOfCollectionView:(UICollectionView *)collectionView {
     return [self.pagingMonths objectAtIndex:[self.pagingViews indexOfObject:collectionView]];
+    
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
