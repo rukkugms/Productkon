@@ -869,7 +869,29 @@
     _sitefactortxtfld.text=planmdl.sitefactor;
     NSLog(@"%@",_revtypelistdict);
       NSLog(@"%@",planmdl.worktypeid);
-    
+     //planmodel*planmdl=(planmodel *)[_planlistarray objectAtIndex:textFieldIndexPath.row];
+    if([planmdl.masterplan stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
+    {
+        _leadcheckbtn.enabled=YES;
+        _custcheckbtn.enabled=YES;
+        _planselectionbtn.enabled=YES;
+        _typebtnlbl.enabled=YES;
+        //_typebtnlbl.userInteractionEnabled=YES;
+        [_typebtnlbl setTitle:planmdl.worktype forState:UIControlStateNormal];
+        
+    }
+    else
+    {
+        
+        _leadcheckbtn.enabled=NO;
+        _custcheckbtn.enabled=NO;
+        _planselectionbtn.enabled=NO;
+        _typebtnlbl.enabled=NO;
+        //_typebtnlbl.userInteractionEnabled=NO;
+        [_typebtnlbl setTitle:planmdl.worktype forState:UIControlStateDisabled];
+        
+    }
+
    
     _loctntxtfld.text=planmdl.location;
     _ziptxtfld.text=planmdl.zip;
@@ -880,23 +902,6 @@
     }
     else{
       [_cmplexitybtnlbl setTitle:planmdl.complexity forState:UIControlStateNormal];
-    }
-    if(planmdl.masterplan.length!=0)
-    {
-        _leadcheckbtn.enabled=NO;
-        _custcheckbtn.enabled=NO;
-        _planselectionbtn.enabled=NO;
-        _typebtnlbl.enabled=NO;
-         [_typebtnlbl setTitle:planmdl.worktype forState:UIControlStateDisabled];
-    }
-    else
-    {
-        _leadcheckbtn.enabled=YES;
-        _custcheckbtn.enabled=YES;
-        _planselectionbtn.enabled=YES;
-        _typebtnlbl.enabled=YES;
-         [_typebtnlbl setTitle:planmdl.worktype forState:UIControlStateNormal];
-
     }
     
 
@@ -2596,10 +2601,19 @@
             
         }
         else{
-               _typebtnlbl.enabled=YES;
+            planmodel*planmdl=(planmodel *)[_planlistarray objectAtIndex:btnindex];
+            if([planmdl.masterplan stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
+            {
+                _typebtnlbl.enabled=YES;
+            }
+            else
+            {
+                _typebtnlbl.enabled=NO;
+            }
+
             
         }
-        _soapResults = nil;
+                _soapResults = nil;
 
     }
 

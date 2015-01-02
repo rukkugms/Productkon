@@ -206,12 +206,18 @@ if (tableView==_estmntable) {
     [_cmpnylbl addGestureRecognizer:tapGesture1];
 
     _planidlabel=(UILabel *)[cell viewWithTag:3];
-    
+    if ([estmdl.PlanId isEqualToString:@"NP"]) {
+       _planidlabel.text=estmdl.PlanId;
+        _planidlabel.textColor=[UIColor blackColor];
+        _planidlabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
+    }
+    else
+    {
     UITapGestureRecognizer *tapGesture =
     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap:)];
     [_planidlabel addGestureRecognizer:tapGesture];
     _planidlabel.text=estmdl.PlanId;
-    
+}
     
     _startdatelabel=(UILabel *)[cell viewWithTag:4];
     NSArray*array=[estmdl.startdate componentsSeparatedByString:@"T"];
