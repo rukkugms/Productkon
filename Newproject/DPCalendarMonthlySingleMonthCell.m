@@ -157,9 +157,21 @@
     //Draw Events
     for (DPCalendarEvent *event in self.events) {
         
-        NSDate *day = self.date;
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSInteger calendartype = [defaults integerForKey:@"Estcal"];
         
-        UIColor *color = [self.eventColors objectAtIndex:event.colorIndex % self.eventColors.count];
+        NSDate *day = self.date;
+       _eventColors1=[[NSArray alloc]initWithObjects:[UIColor colorWithRed:0/255.f green:100/255.0f blue:0/255.0f alpha:1], [UIColor colorWithRed:255/255.0f green:255/255.0f blue:0 alpha:1],[UIColor colorWithRed:100/255.f green:0/255.0f blue:0/255.0f alpha:1], nil];
+        UIColor *color;
+        if (calendartype==1) {
+               color = [self.eventColors1 objectAtIndex:event.colorIndex % self.eventColors1.count];
+            
+        }
+        else{
+               color = [self.eventColors objectAtIndex:event.colorIndex % self.eventColors.count];
+            
+        }
+     
 
         
         if (event.rowIndex > 3 || ((event.rowIndex + 2) * self.rowHeight  > rect.size.height)) {
@@ -167,6 +179,8 @@
             continue;
         }
         
+      
+     
         
         NSDate *tomorrow = [self.date dateByAddingYears:0 months:0 days:1];
         BOOL isEventEndedToday = [event.endTime compare:tomorrow] == NSOrderedAscending;
@@ -198,6 +212,7 @@
             NSLog(@"%f",event.rowIndex * self.rowHeight + ROW_MARGIN);
              NSLog(@"%f",rect.size.width - EVENT_END_MARGIN);
               NSLog(@"%f",self.rowHeight - ROW_MARGIN);
+            
             
             
                    }

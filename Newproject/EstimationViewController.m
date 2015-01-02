@@ -276,7 +276,11 @@ if (tableView==_estmntable) {
     if (tableView==_popOverTableView) {
         if(indexPath.row==0)
         {
+            _calendartype=1;
             self.DPVCtrl=[DPCalendarTestViewController new];
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setInteger:1 forKey:@"Estcal"];
+            [defaults synchronize];
             
             [self dismissViewControllerAnimated:YES completion:^{   [self presentViewController:_DPVCtrl
                                                                                        animated:YES completion:NULL];
@@ -298,8 +302,11 @@ if (tableView==_estmntable) {
         }
         if(indexPath.row==2)
         {
+              _calendartype=2;
             self.mpVCtrl=[DPCalendarmnViewController new];
-            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setInteger:2 forKey:@"Estcal"];
+            [defaults synchronize];
             [self dismissViewControllerAnimated:YES completion:^{   [self presentViewController:_mpVCtrl
                                                                                        animated:YES completion:NULL];
                 

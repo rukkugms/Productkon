@@ -15,10 +15,12 @@
     NSString*previoustitle;
     NSString*lastdate;
    
+   
     
 
 }
 @property(strong,nonatomic)Eventmdl*eventmdl;
+@property(readwrite)NSInteger calendartype;
 @property(strong,nonatomic)CalEventDetailViewController * calctrl;
 @property(strong,nonatomic)NSDate*previousdate;
 /*xmlParser*/

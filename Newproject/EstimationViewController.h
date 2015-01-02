@@ -33,6 +33,7 @@
     
 }
 @property(readwrite)NSInteger seperator;
+@property(readwrite)NSInteger calendartype;
 @property(strong,nonatomic)DetailplanViewController *detailctrl;
 @property(strong,nonatomic)LeadsViewController *leadctrl;
 @property(strong,nonatomic)NewCustmrViewController *custctrl;
