@@ -153,10 +153,10 @@
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 200, 200)];
+                           initWithFrame:CGRectMake(0, 0, 250, 200)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
-    _popovertable=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
+    _popovertable=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 250, 200)];
     
     _popovertable.delegate=(id)self;
     _popovertable.dataSource=(id)self;
@@ -170,12 +170,12 @@
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 200);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(250, 200);
     
     //create a popover controller
     self.popover = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
-    self.popover.popoverContentSize=CGSizeMake(200.0f, 200.0f);
+    self.popover.popoverContentSize=CGSizeMake(250.0f, 200.0f);
     self.popover=_popover;
     
     //
@@ -260,10 +260,14 @@
     }
     cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
     if (tableView==_popovertable) {
+           jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:indexPath.row];
         switch (btnindex) {
+              
             case 1:
                 
-                cell.textLabel.text=[_jobarray objectAtIndex:indexPath.row];
+               
+                cell.textLabel.text=[NSString stringWithFormat:@"%@-%@-%@",jobsmdl.jobname,jobsmdl.jobno,jobsmdl.skill];
+                
                 break;
             case 2:
                 
@@ -329,11 +333,12 @@
     
     
     if (tableView==_popovertable) {
+        jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:indexPath.row];
         switch (btnindex) {
             case 1:
+                rowindex=indexPath.row;
                 
-                
-                [_jobbtn setTitle:[_jobarray objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
+                [_jobbtn setTitle:[NSString stringWithFormat:@"%@-%@-%@",jobsmdl.jobname,jobsmdl.jobno,jobsmdl.skill]forState:UIControlStateNormal];
                 break;
             case 2:
                 
@@ -436,7 +441,8 @@
  //   NSString*jobno=[NSString stringWithFormat:@"%@-%@",[array objectAtIndex:0],[array objectAtIndex:1]];
 //    NSInteger job=[jobno integerValue];
 //    jobno=[NSString stringWithFormat:@"%d",job];
-    NSString *job=[NSString stringWithFormat:@"%@",[_jobiddict objectForKey:_jobbtn.titleLabel.text]];
+     jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:rowindex];
+    NSString *job=[NSString stringWithFormat:@"%d",jobsmdl.jobid];
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -487,9 +493,10 @@
 {
     recordResults=FALSE;
     NSString *soapMessage;
-    NSArray*array=[_jobbtn.titleLabel.text componentsSeparatedByString:@"-"];
+   // NSArray*array=[_jobbtn.titleLabel.text componentsSeparatedByString:@"-"];
+      jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:rowindex];
    // NSString*jobno=[NSString stringWithFormat:@"%@-%@",[array objectAtIndex:0],[array objectAtIndex:1]];
-    NSString*jobno=[_jobsitedict objectForKey:_jobbtn.titleLabel.text];
+    NSString*jobno=jobsmdl.jobno;
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -648,6 +655,7 @@
    attributes: (NSDictionary *)attributeDict{
             if([elementName isEqualToString:@"JobsSelectResponse"])
     {
+        _jobmdlarray=[[NSMutableArray alloc]init];
         _jobarray=[[NSMutableArray alloc]init];
         _jobiddict=[[NSMutableDictionary alloc]init];
         _jobsitedict=[[NSMutableDictionary alloc]init];
@@ -674,6 +682,14 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"SkillName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     if([elementName isEqualToString:@"JobDescDetail"])
     {
         if(!_soapResults)
@@ -682,6 +698,7 @@
         }
         recordResults = TRUE;
     }
+
     if([elementName isEqualToString:@"JobSiteName"])
     {
         if(!_soapResults)
@@ -802,7 +819,9 @@
     
     if([elementName isEqualToString:@"id"])
     {
+        _jobmdl=[[jobsitemodel alloc]init];
         recordResults = FALSE;
+        _jobmdl.jobid=[_soapResults integerValue];
         _jobid=_soapResults;
         _soapResults = nil;
     }
@@ -810,7 +829,7 @@
     {
         recordResults = FALSE;
         _jobnumber=_soapResults;
-   
+        _jobmdl.jobno=_soapResults;
         _soapResults = nil;
     }
     
@@ -821,9 +840,10 @@
      
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"JobSiteName"])
+        if([elementName isEqualToString:@"JobSiteName"])
     {
         recordResults = FALSE;
+        _jobmdl.jobname=_soapResults;
         //[_jobarray addObject:[NSString stringWithFormat:@"%@-%@",_jobnumber,_soapResults]];
         [_jobarray addObject:_soapResults];
              [_jobiddict setObject:_jobid forKey:_soapResults];
@@ -831,6 +851,15 @@
         _soapResults = nil;
         
     }
+    if([elementName isEqualToString:@"SkillName"])
+    {
+        recordResults = FALSE;
+        _skillname=_soapResults;
+        _jobmdl.skill=_soapResults;
+        [_jobmdlarray addObject:_jobmdl];
+        _soapResults = nil;
+    }
+
 
     if([elementName isEqualToString:@"name"])
     {

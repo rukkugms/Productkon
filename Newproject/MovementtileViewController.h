@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "EqothersViewController.h"
-#import "LabourViewController.h"
+#import "RMLaborViewController.h"
 #import "Rightscheck.h"
 @interface MovementtileViewController : UIViewController
 {
@@ -18,7 +18,7 @@
 @property (strong, nonatomic) IBOutlet UIView *labourview;
 @property (strong, nonatomic) IBOutlet UIView *equview;
 @property (strong, nonatomic)EqothersViewController*EquVCtrl;
-@property (strong, nonatomic)LabourViewController*labrVCtrl;
+@property (strong, nonatomic)RMLaborViewController*labrVCtrl;
 - (IBAction)clsebtn:(id)sender;
 
 /* xmlparser*/

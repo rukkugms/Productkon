@@ -12,5 +12,6 @@
 @property(readwrite)NSInteger jobid;
 @property(strong,nonatomic)NSString *jobname;
 @property(strong,nonatomic)NSString *jobno;
+@property(strong,nonatomic)NSString *skill;
 
 @end

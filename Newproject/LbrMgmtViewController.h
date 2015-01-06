@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "LbmgModel.h"
 #import "Rightscheck.h"
+#import "jobsitemodel.h"
 
 @interface LbrMgmtViewController : UIViewController
 {
@@ -20,9 +21,12 @@
     UIButton *button;
     NSInteger webtype;
     NSInteger btnclick;
+    NSInteger rowindex;
     
 }
 @property(strong,nonatomic)LbmgModel *lbmdl;
+@property(strong,nonatomic)jobsitemodel *jobmdl;
+
 
 @property (strong, nonatomic) IBOutlet UITableView *mgmttable;
 @property (strong, nonatomic) IBOutlet UIView *titleview;
@@ -43,12 +47,14 @@
 @property(strong,nonatomic)NSMutableArray *jobarray;
 @property(strong,nonatomic)NSMutableArray *formanarray;
 @property(strong,nonatomic)NSString  *jobnumber;
+@property(strong,nonatomic)NSString  *skillname;
 @property(strong,nonatomic)NSString  *jobid;
 @property(strong,nonatomic)NSMutableDictionary  *jobiddict;
 @property(strong,nonatomic)NSMutableDictionary  *jobsitedict;
 @property(strong,nonatomic)NSMutableDictionary  *formandict;
 @property(strong,nonatomic)NSString  *forman;
 @property(strong,nonatomic)NSMutableArray *lbrmgmtarray;
+@property(strong,nonatomic)NSMutableArray *jobmdlarray;
 
 /*uilabel in cell*/
 @property(strong,nonatomic)IBOutlet UILabel *emplabel;

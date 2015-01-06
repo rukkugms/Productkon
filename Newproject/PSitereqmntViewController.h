@@ -26,6 +26,7 @@
     NSString*jobnumber;
     NSString*jobid;
     NSInteger webpath;
+    NSInteger webtype;
 
 }
 @property(strong,nonatomic)BasicReqViewController *basicctrl;

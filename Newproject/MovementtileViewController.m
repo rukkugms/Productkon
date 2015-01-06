@@ -198,7 +198,7 @@
                 
                 
                 //  if (!_labrVCtrl) {
-                _labrVCtrl=[[LabourViewController alloc]initWithNibName:@"LabourViewController" bundle:nil];
+                _labrVCtrl=[[RMLaborViewController alloc]initWithNibName:@"RMLaborViewController" bundle:nil];
                 //}
                 //_EquVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
                 // _EquVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;

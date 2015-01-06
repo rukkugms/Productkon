@@ -59,10 +59,10 @@
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 200, 200)];
+                           initWithFrame:CGRectMake(0, 0, 250, 200)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 250, 200)];
     
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
@@ -76,13 +76,13 @@
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 200);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(250, 200);
     
     //create a popover controller
     
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
-    self.popOverController.popoverContentSize=CGSizeMake(200.0f, 200.0f);
+    self.popOverController.popoverContentSize=CGSizeMake(250.0f, 200.0f);
     self.popOverController=_popOverController;
     
     //
@@ -153,7 +153,8 @@
         
     }
        if (tableView==_popOverTableView) {
-           cell.textLabel.text=[_jobarray objectAtIndex:indexPath.row];
+             jobsitemodel*jobsitemdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:indexPath.row];
+           cell.textLabel.text=[NSString stringWithFormat:@"%@-%@-%@",jobsitemdl.jobname,jobsitemdl.jobno,jobsitemdl.skill];
        }
     if (tableView==_requmnttable) {
         
@@ -204,8 +205,9 @@
     
     if (tableView==_popOverTableView) {
         Selectedpath=indexPath.row;
-        [_jobsitebtnlbl setTitle:[_jobarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-        _jobdisplaylabel.text=[_jobarray objectAtIndex:indexPath.row];
+        jobsitemodel*jobsitemdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:indexPath.row];
+        [_jobsitebtnlbl setTitle:[NSString stringWithFormat:@"%@-%@-%@",jobsitemdl.jobname,jobsitemdl.jobno,jobsitemdl.skill] forState:UIControlStateNormal];
+        _jobdisplaylabel.text=[NSString stringWithFormat:@"%@-%@-%@",jobsitemdl.jobname,jobsitemdl.jobno,jobsitemdl.skill];
          [self SiteRequirementlist2select];
         [_jobtble reloadData];
         [self.popOverController dismissPopoverAnimated:YES];
@@ -771,6 +773,7 @@
     
 }
 -(void)SiterequirementlistDelete{
+    webtype=1;
        recordResults=FALSE;
     NSString *soapMessage;
     
@@ -870,9 +873,13 @@
         case 2:
             [_jobtble reloadData];
             break;
-
+            
         default:
             break;
+    }
+    if (webtype==1) {
+        [self SiteRequirementlist2select];
+        webtype=0;
     }
    
     
@@ -915,6 +922,15 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"SkillName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
     if([elementName isEqualToString:@"JobSiteName"])
     {
@@ -1063,6 +1079,13 @@
       
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"SkillName"])
+    {
+        recordResults = FALSE;
+        _jobmdl.skill=_soapResults;
+        _soapResults = nil;
+    }
+
 
     if([elementName isEqualToString:@"JobSiteName"])
     {

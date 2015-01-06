@@ -70,7 +70,7 @@
     [_activity startAnimating];
 
 }
-- (void)webViewDidFinishLoad:(UIWebView *)webView
+- (void)webViewDidFinishLoad:(UIWebView *)webView 
 {
    [_activity stopAnimating];
     _activity.hidden=YES;

@@ -157,6 +157,9 @@
 		64C3BB3C1A2836D000E5A3EA /* GSmallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C3BB3A1A2836D000E5A3EA /* GSmallViewController.xib */; };
 		64C3BB3E1A2836F500E5A3EA /* GSTfcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C3BB3D1A2836F500E5A3EA /* GSTfcell.xib */; };
 		64C3BB401A28370900E5A3EA /* GStSecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C3BB3F1A28370900E5A3EA /* GStSecell.xib */; };
+		64CB04F01A5BAB85005394D5 /* create-a-new-job.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CB04EF1A5BAB85005394D5 /* create-a-new-job.png */; };
+		64CB04F41A5BAE00005394D5 /* RMLaborViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CB04F21A5BAE00005394D5 /* RMLaborViewController.m */; };
+		64CB04F51A5BAE00005394D5 /* RMLaborViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64CB04F31A5BAE00005394D5 /* RMLaborViewController.xib */; };
 		64D23F7D1905103000DEA64A /* Generalmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D23F7C1905103000DEA64A /* Generalmodel.m */; };
 		64F97983185ED60000E7722B /* appbar.addblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F97982185ED60000E7722B /* appbar.addblack.png */; };
 		64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F9798F185EF8B000E7722B /* jobsitereqViewController.m */; };
@@ -837,6 +840,10 @@
 		64C3BB3A1A2836D000E5A3EA /* GSmallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSmallViewController.xib; sourceTree = "<group>"; };
 		64C3BB3D1A2836F500E5A3EA /* GSTfcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSTfcell.xib; sourceTree = "<group>"; };
 		64C3BB3F1A28370900E5A3EA /* GStSecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GStSecell.xib; sourceTree = "<group>"; };
+		64CB04EF1A5BAB85005394D5 /* create-a-new-job.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "create-a-new-job.png"; sourceTree = "<group>"; };
+		64CB04F11A5BADFF005394D5 /* RMLaborViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMLaborViewController.h; sourceTree = "<group>"; };
+		64CB04F21A5BAE00005394D5 /* RMLaborViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMLaborViewController.m; sourceTree = "<group>"; };
+		64CB04F31A5BAE00005394D5 /* RMLaborViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMLaborViewController.xib; sourceTree = "<group>"; };
 		64D23F7B1905103000DEA64A /* Generalmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generalmodel.h; sourceTree = "<group>"; };
 		64D23F7C1905103000DEA64A /* Generalmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Generalmodel.m; sourceTree = "<group>"; };
 		64F97982185ED60000E7722B /* appbar.addblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.addblack.png; sourceTree = "<group>"; };
@@ -1858,6 +1865,9 @@
 				D4AA4F881965535A00916138 /* AbsentViewController.m */,
 				D4AA4F891965535A00916138 /* AbsentViewController.xib */,
 				D4AA4F8E19655A5C00916138 /* Absentview.xib */,
+				64CB04F11A5BADFF005394D5 /* RMLaborViewController.h */,
+				64CB04F21A5BAE00005394D5 /* RMLaborViewController.m */,
+				64CB04F31A5BAE00005394D5 /* RMLaborViewController.xib */,
 			);
 			name = "Project Management";
 			sourceTree = "<group>";
@@ -2127,6 +2137,7 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				64CB04EF1A5BAB85005394D5 /* create-a-new-job.png */,
 				64C27A561A35987400B66C77 /* com.png */,
 				64C27A581A35995F00B66C77 /* rs.png */,
 				D41BAF3E1A2D9B6F00674DDB /* work-entry.png */,
@@ -2733,10 +2744,12 @@
 				D49E056518C71B9300AF6330 /* Namecrewcell.xib in Resources */,
 				D4A338CC18F3C22C00E53FAC /* worktypecell.xib in Resources */,
 				6426F5F118C06157002471AC /* hr.png in Resources */,
+				64CB04F51A5BAE00005394D5 /* RMLaborViewController.xib in Resources */,
 				D4A16B421974EEA8002CA2A2 /* Meetingnotesview.xib in Resources */,
 				D4F61A5718A896D90006093B /* ProcesshrViewController.xib in Resources */,
 				D40209761A0B756D00E1428D /* iconclose.png in Resources */,
 				D453DA2C1873F1D0007EE3DC /* AssetsViewController.xib in Resources */,
+				64CB04F01A5BAB85005394D5 /* create-a-new-job.png in Resources */,
 				648D12FE17716C7F006BB41A /* rectangle3.png in Resources */,
 				D4A5317819CD822B0056EBC1 /* login-1.jpg in Resources */,
 				D4FE723C187EA3BA00FF4DEF /* ios7-camera-icon.png in Resources */,
@@ -3185,6 +3198,7 @@
 				D49F876418EEA36B00413CAD /* vendermodel.m in Sources */,
 				D4A85B4118A0E867004E9C8B /* TilehrViewController.m in Sources */,
 				D4A6749B19345F1B00D5A77E /* DPCalendarEvent.m in Sources */,
+				64CB04F41A5BAE00005394D5 /* RMLaborViewController.m in Sources */,
 				64A2F9BB19CBEC17009B1018 /* FLPViewController.m in Sources */,
 				D408B81518CF19AC0001AAD5 /* TilecustmrViewController.m in Sources */,
 				D40427E819237F980049A709 /* Rephase.m in Sources */,
