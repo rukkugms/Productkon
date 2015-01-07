@@ -163,6 +163,7 @@
 		64C0AD151A5D2A8800B31F52 /* LbrRMmaincell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C0AD141A5D2A8800B31F52 /* LbrRMmaincell.xib */; };
 		64C0AD171A5D2AB000B31F52 /* LbrFstdgcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C0AD161A5D2AB000B31F52 /* LbrFstdgcell.xib */; };
 		64C0AD191A5D2ABF00B31F52 /* LbrSecdgcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C0AD181A5D2ABF00B31F52 /* LbrSecdgcell.xib */; };
+		64C0AD1C1A5D40C900B31F52 /* RMLaborMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AD1B1A5D40C900B31F52 /* RMLaborMain.m */; };
 		64C27A571A35987400B66C77 /* com.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C27A561A35987400B66C77 /* com.png */; };
 		64C27A591A35995F00B66C77 /* rs.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C27A581A35995F00B66C77 /* rs.png */; };
 		64C27A5F1A35A3B300B66C77 /* company-documents.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C27A5E1A35A3B200B66C77 /* company-documents.png */; };
@@ -866,6 +867,8 @@
 		64C0AD141A5D2A8800B31F52 /* LbrRMmaincell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LbrRMmaincell.xib; sourceTree = "<group>"; };
 		64C0AD161A5D2AB000B31F52 /* LbrFstdgcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LbrFstdgcell.xib; sourceTree = "<group>"; };
 		64C0AD181A5D2ABF00B31F52 /* LbrSecdgcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LbrSecdgcell.xib; sourceTree = "<group>"; };
+		64C0AD1A1A5D40C800B31F52 /* RMLaborMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMLaborMain.h; sourceTree = "<group>"; };
+		64C0AD1B1A5D40C900B31F52 /* RMLaborMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMLaborMain.m; sourceTree = "<group>"; };
 		64C27A561A35987400B66C77 /* com.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = com.png; sourceTree = "<group>"; };
 		64C27A581A35995F00B66C77 /* rs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rs.png; sourceTree = "<group>"; };
 		64C27A5E1A35A3B200B66C77 /* company-documents.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "company-documents.png"; sourceTree = "<group>"; };
@@ -2496,6 +2499,8 @@
 				64CB04F71A5C0321005394D5 /* formanmdl.m */,
 				D44ECC631A5D166C00B3082A /* PMjobsmdl.h */,
 				D44ECC641A5D166C00B3082A /* PMjobsmdl.m */,
+				64C0AD1A1A5D40C800B31F52 /* RMLaborMain.h */,
+				64C0AD1B1A5D40C900B31F52 /* RMLaborMain.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -3319,6 +3324,7 @@
 				646A28B61937350400902C4A /* Detaileventmanpwr.m in Sources */,
 				D4ACE56719C1B1020060A352 /* CraftViewController.m in Sources */,
 				64A2F9AD19CBE425009B1018 /* LdtypViewController.m in Sources */,
+				64C0AD1C1A5D40C900B31F52 /* RMLaborMain.m in Sources */,
 				64A3B81318DFEE980015887F /* LeadsViewController.m in Sources */,
 				D499D29A196AB39A008D248A /* Timesheetmdl.m in Sources */,
 				D404A2211A0361890086E40A /* Catergrymdl.m in Sources */,
