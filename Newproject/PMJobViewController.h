@@ -12,6 +12,7 @@
     UIButton *button;
 }
 
+/*comment*/
 @property (strong, nonatomic) IBOutlet UIView *titleview;
 @property (strong, nonatomic) IBOutlet UITableView *jobtable;
 @property (strong, nonatomic) IBOutlet UITableViewCell *jobcell;
