@@ -89,6 +89,21 @@
     
     
 }
+#pragma mark - Table View delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    LinkViewController* content = [[LinkViewController alloc] init];
+    UIPopoverController* aPopover = [[UIPopoverController alloc]
+                                     initWithContentViewController:content];
+    aPopover.delegate = (id)self;
+    
+    // Store the popover in a custom property for later use.
+    self.popovercontroller = aPopover;
+    
+    [self.popovercontroller presentPopoverFromBarButtonItem:nil
+                                   permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    
+}
 
 - (IBAction)clsebtn:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
