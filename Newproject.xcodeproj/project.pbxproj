@@ -164,6 +164,8 @@
 		64C0AD171A5D2AB000B31F52 /* LbrFstdgcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C0AD161A5D2AB000B31F52 /* LbrFstdgcell.xib */; };
 		64C0AD191A5D2ABF00B31F52 /* LbrSecdgcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C0AD181A5D2ABF00B31F52 /* LbrSecdgcell.xib */; };
 		64C0AD1C1A5D40C900B31F52 /* RMLaborMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AD1B1A5D40C900B31F52 /* RMLaborMain.m */; };
+		64C0AD1F1A5D41D500B31F52 /* LbrFirst.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AD1E1A5D41D500B31F52 /* LbrFirst.m */; };
+		64C0AD221A5D41F600B31F52 /* LBSecond.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AD211A5D41F600B31F52 /* LBSecond.m */; };
 		64C27A571A35987400B66C77 /* com.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C27A561A35987400B66C77 /* com.png */; };
 		64C27A591A35995F00B66C77 /* rs.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C27A581A35995F00B66C77 /* rs.png */; };
 		64C27A5F1A35A3B300B66C77 /* company-documents.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C27A5E1A35A3B200B66C77 /* company-documents.png */; };
@@ -869,6 +871,10 @@
 		64C0AD181A5D2ABF00B31F52 /* LbrSecdgcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LbrSecdgcell.xib; sourceTree = "<group>"; };
 		64C0AD1A1A5D40C800B31F52 /* RMLaborMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMLaborMain.h; sourceTree = "<group>"; };
 		64C0AD1B1A5D40C900B31F52 /* RMLaborMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMLaborMain.m; sourceTree = "<group>"; };
+		64C0AD1D1A5D41D500B31F52 /* LbrFirst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LbrFirst.h; sourceTree = "<group>"; };
+		64C0AD1E1A5D41D500B31F52 /* LbrFirst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LbrFirst.m; sourceTree = "<group>"; };
+		64C0AD201A5D41F600B31F52 /* LBSecond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBSecond.h; sourceTree = "<group>"; };
+		64C0AD211A5D41F600B31F52 /* LBSecond.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBSecond.m; sourceTree = "<group>"; };
 		64C27A561A35987400B66C77 /* com.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = com.png; sourceTree = "<group>"; };
 		64C27A581A35995F00B66C77 /* rs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rs.png; sourceTree = "<group>"; };
 		64C27A5E1A35A3B200B66C77 /* company-documents.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "company-documents.png"; sourceTree = "<group>"; };
@@ -2501,6 +2507,10 @@
 				D44ECC641A5D166C00B3082A /* PMjobsmdl.m */,
 				64C0AD1A1A5D40C800B31F52 /* RMLaborMain.h */,
 				64C0AD1B1A5D40C900B31F52 /* RMLaborMain.m */,
+				64C0AD1D1A5D41D500B31F52 /* LbrFirst.h */,
+				64C0AD1E1A5D41D500B31F52 /* LbrFirst.m */,
+				64C0AD201A5D41F600B31F52 /* LBSecond.h */,
+				64C0AD211A5D41F600B31F52 /* LBSecond.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -3167,6 +3177,7 @@
 				D40720871772F37D0070629A /* ContactInfoViewController.m in Sources */,
 				D49F876C18EEA36B00413CAD /* Matrixmark.m in Sources */,
 				D49F8A5018EEBEA400413CAD /* Wagesmdl.m in Sources */,
+				64C0AD1F1A5D41D500B31F52 /* LbrFirst.m in Sources */,
 				D4EBA8671978FE7700B612E1 /* Thrtrmsmdl.m in Sources */,
 				D4A3977719CFE8DE00E2514C /* PServiceViewController.m in Sources */,
 				64C0AD131A5D296400B31F52 /* LDrsgSecmdl.m in Sources */,
@@ -3262,6 +3273,7 @@
 				D4A338D318F3EE8700E53FAC /* Mastermarkmodel.m in Sources */,
 				D4ED6FED19EF9F5A00A241F1 /* UIViewController+Neworientation.m in Sources */,
 				D4A338EA18F3EEEF00E53FAC /* BillingViewController.m in Sources */,
+				64C0AD221A5D41F600B31F52 /* LBSecond.m in Sources */,
 				D4A16B871974EEE0002CA2A2 /* EstimationViewController.m in Sources */,
 				D4F0AD4319306866004821DD /* GpMaterViewController.m in Sources */,
 				649316BC19AB45D7008CB7BF /* PlngTileViewController.m in Sources */,
