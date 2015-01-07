@@ -29,6 +29,13 @@
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _maintabletitleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
      self.dropview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    _maintableview.layer.borderWidth=3.0;
+    _maintableview.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
+    _firstdgtable.layer.borderWidth=3.0;
+    _firstdgtable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
+    _secdgtable.layer.borderWidth=3.0;
+    _secdgtable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
+
 
     [self JobsSelect];
 }
@@ -248,6 +255,18 @@
         }
     
     }
+    if (tableView==_maintableview) {
+        //return [_mainlistarray count];
+         return 5;
+    }
+    if (tableView==_firstdgtable) {
+        //return [_firstdgarray count];
+         return 5;
+    }
+    if (tableView==_secdgtable) {
+        //return [_secdgarray count];
+         return 5;
+    }
     return YES;
     
 }
@@ -257,6 +276,20 @@
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellidentifier];
     if (cell==nil) {
         cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellidentifier];
+        if (tableView==_maintableview) {
+            [[NSBundle mainBundle]loadNibNamed:@"RMmaincell" owner:self options:nil];
+            cell=_maincell;
+        }
+        else if (tableView==_firstdgtable)
+        {
+            [[NSBundle mainBundle]loadNibNamed:@"Fstdgcell" owner:self options:nil];
+            cell=_fdgcell;
+        }
+        else if (tableView==_secdgtable)
+        {
+            [[NSBundle mainBundle]loadNibNamed:@"Secdgcell" owner:self options:nil];
+            cell=_Sdgcell;
+        }
         
             }
     cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
@@ -275,11 +308,22 @@
         
         
     }
+     if (tableView==_maintableview)
+     {
+         
+         
+     }
     
+     else if (tableView==_firstdgtable)
+     {
+         
+     }
     
-        
-        
-    
+    else if (tableView==_secdgtable)
+     {
+         
+         
+     }
     
     
     return cell;
