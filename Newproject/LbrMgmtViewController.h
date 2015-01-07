@@ -10,6 +10,7 @@
 #import "LbmgModel.h"
 #import "Rightscheck.h"
 #import "jobsitemodel.h"
+#import "formanmdl.h"
 
 @interface LbrMgmtViewController : UIViewController
 {
@@ -26,6 +27,8 @@
 }
 @property(strong,nonatomic)LbmgModel *lbmdl;
 @property(strong,nonatomic)jobsitemodel *jobmdl;
+@property(strong,nonatomic)formanmdl *formanmdl;
+
 
 
 @property (strong, nonatomic) IBOutlet UITableView *mgmttable;

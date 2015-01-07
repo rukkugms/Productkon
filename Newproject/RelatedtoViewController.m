@@ -105,7 +105,9 @@
 {
     if(tableView==_popOverTableView){
        
-                [_namebtnlbl setTitle:[_Addarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+        [_namebtnlbl setTitle:[NSString stringWithFormat:@" %@",[_Addarray objectAtIndex:indexPath.row]] forState:UIControlStateNormal];
+       // _namebtnlbl.titleLabel.text=[_Addarray objectAtIndex:indexPath.row];
+        
     }
     [self.popOverController dismissPopoverAnimated:YES];
 }
@@ -785,12 +787,24 @@
 }
 #pragma mark-Button Action
 - (IBAction)editbtn:(id)sender {
+    if([_status isEqualToString:@"Closed"]){
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Already Closed issue" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else{
     _addnavitem.title=@"EDIT";
      _addview.hidden=NO;
+    }
 }
 
 - (IBAction)addbtn:(id)sender {
-       _addnavitem.title=@"ADD";
+    if([_status isEqualToString:@"Closed"]){
+        
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Already Closed issue" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else{
+        _addnavitem.title=@"ADD";
      [_namebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
     if([_type isEqualToString:@"MP"]){
         _labeltitle.text=@"Select Man Power";
@@ -821,6 +835,7 @@
 
    
     _addview.hidden=NO;
+    }
 }
 
 - (IBAction)savebtn:(id)sender {

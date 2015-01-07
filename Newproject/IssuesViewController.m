@@ -40,8 +40,8 @@
 //    _addview.layer.borderWidth=3.0;
 //    _addview.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
     _titleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f];
-    _statusarray=[[NSMutableArray alloc]initWithObjects:@"Open",@"In Process",@"Closed" ,nil];
-    _Typearray=[[NSMutableArray alloc]initWithObjects:@"Man Power",@"Equipment",@"Materials",@"Fleet",@"Third Party",@"Consumables",@"Small Tools",@"Other Company Assets" ,nil];
+    _statusarray=[[NSMutableArray alloc]initWithObjects:@"In Process",@"Closed" ,nil];
+    _Typearray=[[NSMutableArray alloc]initWithObjects:@"Man Power",@"Equipment",@"Materials",@"Fleet",@"Third Party",@"Consumables",@"Small Tools",@"Other Company Assets",@"General" ,nil];
     [[self.cmmttxtview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
     [[self.cmmttxtview layer] setBorderWidth:2];
     [[self.cmmttxtview layer] setCornerRadius:10];
@@ -54,6 +54,7 @@
      [_typedict setObject:@"CO" forKey:@"Consumables"];
        [_typedict setObject:@"ST" forKey:@"Small Tools"];
       [_typedict setObject:@"OC" forKey:@"Other Company Assets"];
+     [_typedict setObject:@"GN" forKey:@"General"];
     
     NSArray*keyarray=[_typedict allKeys];
     NSArray*valuearray=[_typedict allValues];
@@ -211,6 +212,16 @@
     _cmmtlbl.text=issues.comments;
          _statuslbl=(UILabel *)[cell viewWithTag:5];
          _statuslbl.text=issues.status;
+         if([issues.type isEqualToString:@"GN"]){
+             _relatedtobtnlbl.enabled=NO;
+             [_relatedtobtnlbl setTitle:@"General" forState:UIControlStateDisabled];
+             
+         }
+         else{
+             _relatedtobtnlbl.enabled=YES;
+             [_relatedtobtnlbl setTitle:@"Related To" forState:UIControlStateDisabled];
+             
+         }
 
      }
     return cell;
@@ -374,6 +385,9 @@
     _cmmttxtview.text=@"";
     NSString*type=[_typedict objectForKey:_typebtnlbl.titleLabel.text];
     NSString*datetime=[NSString stringWithFormat:@"%@ %@",_datebtnlbl.titleLabel.text,_timebtn.titleLabel.text];
+    NSArray*array=[_jobsitebtnlbl.titleLabel.text componentsSeparatedByString:@"-"];
+    NSString*job=[array objectAtIndex:0];
+    
     NSString *soapMessage;
     
     
@@ -394,7 +408,7 @@
                    "<IMStatus>%@</IMStatus>\n"
                    "</IssueManagementInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[_jobdict objectForKey:_jobsitebtnlbl.titleLabel.text],datetime,type,0,_cmmttxtview.text,_statusbtnlbl.titleLabel.text];
+                   "</soap:Envelope>\n",[_jobdict objectForKey:job],datetime,type,0,_cmmttxtview.text,@"Open"];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -435,7 +449,8 @@
       NSString*datetime=[NSString stringWithFormat:@"%@ %@",_datebtnlbl.titleLabel.text,_timebtn.titleLabel.text];
     NSString*type=[_typedict objectForKey:_typebtnlbl.titleLabel.text];
     NSString *soapMessage;
-    
+    NSArray*array=[_jobsitebtnlbl.titleLabel.text componentsSeparatedByString:@"-"];
+    NSString*job=[array objectAtIndex:0];
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -455,7 +470,7 @@
                    "<IMStatus>%@</IMStatus>\n"
                    "</IssueManagementUpdate>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[ismdl.entryid integerValue],_jobsitebtnlbl.titleLabel.text,datetime,type,0,_cmmttxtview.text,_statusbtnlbl.titleLabel.text];
+                   "</soap:Envelope>\n",[ismdl.entryid integerValue],[_jobdict objectForKey:job],datetime,type,0,_cmmttxtview.text,_statusbtnlbl.titleLabel.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -683,6 +698,59 @@
     
 }
 
+-(void)IssueRelationFlag{
+    
+    Issuemdl *issuemdl=(Issuemdl *)[_Issuearray objectAtIndex:btnindex];
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<IssueRelationFlag xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<IMItemcode>%@</IMItemcode>\n"
+                   "</IssueRelationFlag>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",issuemdl.itemcode];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/IssueRelationFlag" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
 
 #pragma mark - Connection
@@ -832,6 +900,7 @@
         _jobarray=[[NSMutableArray alloc]init];
         _jobdict=[[NSMutableDictionary alloc]init];
         _revjobdict=[[NSMutableDictionary alloc]init];
+        _skilldict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -855,6 +924,23 @@
         recordResults = TRUE;
     }
     if([elementName isEqualToString:@"JobSiteName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JobSkillId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"SkillName"])
     {
         if(!_soapResults)
         {
@@ -930,7 +1016,23 @@
         recordResults = TRUE;
     }
     
+    if([elementName isEqualToString:@"IssueRelationFlagResponse"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
+    if([elementName isEqualToString:@"Column1"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
 
 }
@@ -1056,10 +1158,23 @@
     if([elementName isEqualToString:@"JobSiteName"])
     {
         recordResults = FALSE;
+        jobsitename=_soapResults;
         [_jobdict setObject:jobnumber forKey:_soapResults];
         [_revjobdict setObject:_soapResults forKey:jobnumber];
-       // [_jobarray addObject:[NSString stringWithFormat:@"%@-%@",jobnumber,_soapResults]];
-        [_jobarray addObject:_soapResults];
+      
+       // [_jobarray addObject:_soapResults];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"JobSkillId"])
+    {
+        recordResults = FALSE;
+          _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"SkillName"])
+    {
+        recordResults = FALSE;
+         [_jobarray addObject:[NSString stringWithFormat:@"%@-%@-%@",jobsitename,jobnumber,_soapResults]];
+        [_skilldict setObject:_soapResults forKey:jobnumber];
         _soapResults = nil;
     }
 
@@ -1117,6 +1232,34 @@
         _soapResults = nil;
     }
 
+    if([elementName isEqualToString:@"Column1"])
+    {
+         recordResults = FALSE;
+        issuerelatnflag=[_soapResults integerValue];
+        if([statustype isEqualToString:@"Closed"]){
+            _statusbtnlbl.enabled=NO;
+            _datebtnlbl.enabled=NO;
+            _timebtn.enabled=NO;
+        }
+        else{
+            _statusbtnlbl.enabled=YES;
+            //_datebtnlbl.enabled=YES;
+            // _timebtn.enabled=YES;
+            if(issuerelatnflag==0){
+                _datebtnlbl.enabled=YES;
+                _timebtn.enabled=YES;
+                
+            }
+            else{
+                _datebtnlbl.enabled=NO;
+                _timebtn.enabled=NO;
+            }
+            
+            
+        }
+
+              _soapResults = nil;
+    }
 
 
 }
@@ -1145,10 +1288,10 @@
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 200, 200)];
+                           initWithFrame:CGRectMake(0, 0, 220, 200)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 220, 200)];
     
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
@@ -1162,12 +1305,12 @@
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 200);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(220, 200);
     
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
-    self.popOverController.popoverContentSize=CGSizeMake(200.0f, 200.0f);
+    self.popOverController.popoverContentSize=CGSizeMake(220.0f, 220.0f);
     self.popOverController=_popOverController;
     
     //
@@ -1368,10 +1511,14 @@
 - (IBAction)addbtn:(id)sender {
     btntype=1;
     
-     [_statusbtnlbl setTitle:[_statusarray objectAtIndex:0] forState:UIControlStateNormal];
-    _statusbtnlbl.enabled=NO;
-    _addview.hidden=NO;
+     //[_statusbtnlbl setTitle:[_statusarray objectAtIndex:0] forState:UIControlStateNormal];
+     _statusbtnlbl.enabled=NO;
+     _addview.hidden=NO;
       _cancelbtnlbl.enabled=YES;
+    _jobsitebtnlbl.enabled=YES;
+    _typebtnlbl.enabled=YES;
+    _datetxtfld.enabled=YES;
+    _timebtn.enabled=YES;
     
     
 }
@@ -1382,7 +1529,7 @@
 - (IBAction)editbtn:(id)sender {
     _navtitle.title=@"Edit";
     _cancelbtnlbl.enabled=NO;
-    _statusbtnlbl.enabled=YES;
+   
     _cancelbtnlbl.titleLabel.textColor=[UIColor grayColor];
      btntype=2;
     _addview.hidden=NO;
@@ -1393,11 +1540,17 @@
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
     btnindex=textFieldIndexPath.row;
     Issuemdl*ismdl=(Issuemdl*)[_Issuearray objectAtIndex:textFieldIndexPath.row];
-    [_jobsitebtnlbl setTitle:[_revjobdict objectForKey:ismdl.jobnumbr] forState:UIControlStateNormal];
+    //[_jobsitebtnlbl setTitle:[_revjobdict objectForKey:ismdl.jobnumbr] forState:UIControlStateNormal];
+    _jobsitebtnlbl.enabled=NO;
+    _typebtnlbl.enabled=NO;
+    [self IssueRelationFlag];
     
+    NSString*jobtxt=[NSString stringWithFormat:@"%@-%@-%@",[_revjobdict objectForKey:ismdl.jobnumbr],ismdl.jobnumbr,[_skilldict objectForKey:ismdl.jobnumbr]];
+    
+    [_jobsitebtnlbl setTitle:jobtxt forState:UIControlStateNormal];
     [_typebtnlbl setTitle:[_revtypedict objectForKey:ismdl.type]forState:UIControlStateNormal];
     
-  
+    
      [_statusbtnlbl setTitle:ismdl.status forState:UIControlStateNormal];
     _cmmttxtview.text=ismdl.comments;
     
@@ -1406,9 +1559,11 @@
   
     [_timebtn setTitle:  [NSString stringWithFormat:@"%@ %@",[arry objectAtIndex:1],[arry objectAtIndex:2]] forState:UIControlStateNormal];
 
-    _datetxtfld.text=ismdl.datetime;
+    //_datetxtfld.text=ismdl.datetime;
+    statustype=ismdl.status;
     
-  
+    
+ 
 
 }
 
@@ -1461,11 +1616,11 @@
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
-    else if([_statusbtnlbl.titleLabel.text isEqualToString:@"Select Status"])
-    {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Status is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-    }
+//    else if([_statusbtnlbl.titleLabel.text isEqualToString:@"Select Status"])
+//    {
+//        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Status is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        [alert show];
+//    }
     else if([_datebtnlbl.titleLabel.text isEqualToString:@"Select"])
     {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Date is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -1484,7 +1639,14 @@
          [self IssueManagementInsert];
     }
     if (btntype==2) {
-        [self IssueManagementUpdate];
+        if([statustype isEqualToString:@"Closed"]){
+            
+            _addview.hidden=YES;
+        }
+        else{
+            [self IssueManagementUpdate];
+        }
+        
     }
     }
     }
@@ -1521,6 +1683,7 @@
     _relatedtoVCtrl.jobnumber=ismdl.jobnumbr;
     _relatedtoVCtrl.type=ismdl.type;
     _relatedtoVCtrl.issueid=ismdl.entryid;
+    _relatedtoVCtrl.status=ismdl.status;
     [self presentViewController:_relatedtoVCtrl
                        animated:YES completion:NULL];
 
@@ -1536,6 +1699,7 @@
     btnindex=textFieldIndexPath.row;
      Issuemdl*ismdl=(Issuemdl*)[_Issuearray objectAtIndex:textFieldIndexPath.row];
     _issueid=ismdl.entryid;
+    statustype=ismdl.status;
     [self IssueManagementcommentselect];
     [self commentpopover];
     
@@ -1590,9 +1754,21 @@
     [self.popOverController dismissPopoverAnimated:YES];
 }
 - (IBAction)addcmt:(id)sender
-{_cmmttxtview.text=@"";
+{
+    
+    if([statustype isEqualToString:@"Closed"]){
+        
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Already Closed issue" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else{
+        
+    
+    _cmmttxtview.text=@"";
     _savecmntbtn.enabled=YES;
     _newcmntview.hidden=NO;
+    }
+    
 
 }
 - (IBAction)cmntsavebtn:(id)sender
