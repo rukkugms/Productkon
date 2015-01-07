@@ -14,7 +14,7 @@
 #import "PSitereqmntViewController.h"
 #import "AbsentViewController.h"
 #import "Rightscheck.h"
-#import "PMJobViewController.h"
+#import "PMJobsViewController.h"
 //ghfgh
 @interface ManagemttileViewController : UIViewController
 
@@ -35,7 +35,7 @@
 @property (strong, nonatomic)LbrMgmtViewController *lbrmgmtvctrl;
 @property (strong, nonatomic)PSitereqmntViewController*SitereqVCtrl;
 @property (strong, nonatomic)AbsentViewController*absentVCtrl;
-@property (strong, nonatomic)PMJobViewController *jobVCtrl;
+@property (strong, nonatomic)PMJobsViewController *jobVCtrl;
 
 - (IBAction)clsebtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIView *siteview;

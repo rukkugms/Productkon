@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 GMSIndia1. All rights reserved.
 //
 
-#import "PMJobViewController.h"
+#import "PMJobsViewController.h"
 
-@interface PMJobViewController ()
+@interface PMJobsViewController ()
 
 @end
 
-@implementation PMJobViewController
+@implementation PMJobsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

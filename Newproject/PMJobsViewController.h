@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PMJobViewController : UIViewController{
+@interface PMJobsViewController : UIViewController{
     UIButton *button;
 }
 

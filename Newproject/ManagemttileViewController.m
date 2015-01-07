@@ -135,7 +135,7 @@
 
 }
 -(void)Jobpage{
-    self.jobVCtrl=[[PMJobViewController alloc]initWithNibName:@"PMJobViewController" bundle:nil];
+    self.jobVCtrl=[[PMJobsViewController alloc]initWithNibName:@"PMJobsViewController" bundle:nil];
     self.jobVCtrl.modalPresentationStyle=UIModalPresentationFullScreen;
     [self presentViewController:self.jobVCtrl animated:YES completion:nil];
 }

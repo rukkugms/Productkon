@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PMjobmdl : NSObject
+@interface PMjobsmdl : NSObject
 
 @end
