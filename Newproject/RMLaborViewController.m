@@ -312,17 +312,25 @@
      {
          
          _craftlabel=(UILabel *)[cell viewWithTag:1];
+         _declabel=(UILabel*)[cell viewWithTag:2];
+         _requiredlabel=(UILabel*)[cell viewWithTag:3];
+         _filledlabel=(UILabel*)[cell viewWithTag:4];
+         _balancelabel=(UILabel*)[cell viewWithTag:5];
      }
     
      else if (tableView==_firstdgtable)
      {
-         
+         _Firstnamelabel=(UILabel *)[cell viewWithTag:1];
+         _secnamelabel=(UILabel*)[cell viewWithTag:2];
      }
     
     else if (tableView==_secdgtable)
      {
          
-         
+         _flabel=(UILabel *)[cell viewWithTag:1];
+         _Llabel=(UILabel*)[cell viewWithTag:2];
+         _Dgcraftlabel=(UILabel*)[cell viewWithTag:3];
+         _assigndatelabel=(UILabel*)[cell viewWithTag:4];
      }
     
     
@@ -351,7 +359,7 @@
             
         }
         
-        //   [_optionbtnlbl setTitle:[_Optionarray objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
+       
     }
     [self.popovercontroller dismissPopoverAnimated:YES];
     
