@@ -1,5 +1,5 @@
 //
-//  DragFirstmodel.h
+//  LBMainmodel.h
 //  Newproject
 //
 //  Created by GMSIndia 2 on 07/01/15.
@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DragFirstmodel : NSObject
+@interface RLBMainmodel : NSObject
 
 @end

@@ -277,17 +277,17 @@
     if (cell==nil) {
         cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellidentifier];
         if (tableView==_maintableview) {
-            [[NSBundle mainBundle]loadNibNamed:@"RMmaincell" owner:self options:nil];
+            [[NSBundle mainBundle]loadNibNamed:@"LbrRMmaincell" owner:self options:nil];
             cell=_maincell;
         }
         else if (tableView==_firstdgtable)
         {
-            [[NSBundle mainBundle]loadNibNamed:@"Fstdgcell" owner:self options:nil];
+            [[NSBundle mainBundle]loadNibNamed:@"LbrFstdgcell" owner:self options:nil];
             cell=_fdgcell;
         }
         else if (tableView==_secdgtable)
         {
-            [[NSBundle mainBundle]loadNibNamed:@"Secdgcell" owner:self options:nil];
+            [[NSBundle mainBundle]loadNibNamed:@"LbrSecdgcell" owner:self options:nil];
             cell=_Sdgcell;
         }
         
