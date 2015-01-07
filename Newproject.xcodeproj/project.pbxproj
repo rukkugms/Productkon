@@ -336,6 +336,8 @@
 		D44ECC601A5D098500B3082A /* PMJobsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44ECC5E1A5D098500B3082A /* PMJobsViewController.xib */; };
 		D44ECC621A5D12CD00B3082A /* PMjobscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44ECC611A5D12CD00B3082A /* PMjobscell.xib */; };
 		D44ECC651A5D166C00B3082A /* PMjobsmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D44ECC641A5D166C00B3082A /* PMjobsmdl.m */; };
+		D44ECC691A5D3E0100B3082A /* LinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D44ECC671A5D3E0100B3082A /* LinkViewController.m */; };
+		D44ECC6A1A5D3E0100B3082A /* LinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44ECC681A5D3E0100B3082A /* LinkViewController.xib */; };
 		D453DA211873F18C007EE3DC /* ThirdPartyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D453DA1F1873F18C007EE3DC /* ThirdPartyViewController.m */; };
 		D453DA221873F18C007EE3DC /* ThirdPartyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D453DA201873F18C007EE3DC /* ThirdPartyViewController.xib */; };
 		D453DA261873F1AF007EE3DC /* ConsumbleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D453DA241873F1AF007EE3DC /* ConsumbleViewController.m */; };
@@ -854,11 +856,8 @@
 		64C0AD041A5CF84400B31F52 /* StockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockViewController.xib; sourceTree = "<group>"; };
 		64C0AD051A5CF84400B31F52 /* Siteoutview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Siteoutview.xib; sourceTree = "<group>"; };
 		64C0AD061A5CF84400B31F52 /* Exceptioncell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Exceptioncell.xib; sourceTree = "<group>"; };
-		64C0AD0B1A5D291600B31F52 /* RLBMainmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLBMainmodel.h; sourceTree = "<group>"; };
 		64C0AD0C1A5D291600B31F52 /* RLBMainmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLBMainmodel.m; sourceTree = "<group>"; };
-		64C0AD0E1A5D294A00B31F52 /* LDragFirstmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDragFirstmodel.h; sourceTree = "<group>"; };
 		64C0AD0F1A5D294A00B31F52 /* LDragFirstmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDragFirstmodel.m; sourceTree = "<group>"; };
-		64C0AD111A5D296400B31F52 /* LDrsgSecmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDrsgSecmdl.h; sourceTree = "<group>"; };
 		64C0AD121A5D296400B31F52 /* LDrsgSecmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDrsgSecmdl.m; sourceTree = "<group>"; };
 		64C0AD141A5D2A8800B31F52 /* LbrRMmaincell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LbrRMmaincell.xib; sourceTree = "<group>"; };
 		64C0AD161A5D2AB000B31F52 /* LbrFstdgcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LbrFstdgcell.xib; sourceTree = "<group>"; };
@@ -1096,6 +1095,9 @@
 		D44ECC611A5D12CD00B3082A /* PMjobscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMjobscell.xib; sourceTree = "<group>"; };
 		D44ECC631A5D166C00B3082A /* PMjobsmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMjobsmdl.h; sourceTree = "<group>"; };
 		D44ECC641A5D166C00B3082A /* PMjobsmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMjobsmdl.m; sourceTree = "<group>"; };
+		D44ECC661A5D3E0100B3082A /* LinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkViewController.h; sourceTree = "<group>"; };
+		D44ECC671A5D3E0100B3082A /* LinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkViewController.m; sourceTree = "<group>"; };
+		D44ECC681A5D3E0100B3082A /* LinkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LinkViewController.xib; sourceTree = "<group>"; };
 		D453DA1E1873F18C007EE3DC /* ThirdPartyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdPartyViewController.h; sourceTree = "<group>"; };
 		D453DA1F1873F18C007EE3DC /* ThirdPartyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdPartyViewController.m; sourceTree = "<group>"; };
 		D453DA201873F18C007EE3DC /* ThirdPartyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdPartyViewController.xib; sourceTree = "<group>"; };
@@ -1851,6 +1853,9 @@
 				D44ECC5D1A5D098500B3082A /* PMJobsViewController.m */,
 				D44ECC5E1A5D098500B3082A /* PMJobsViewController.xib */,
 				D44ECC611A5D12CD00B3082A /* PMjobscell.xib */,
+				D44ECC661A5D3E0100B3082A /* LinkViewController.h */,
+				D44ECC671A5D3E0100B3082A /* LinkViewController.m */,
+				D44ECC681A5D3E0100B3082A /* LinkViewController.xib */,
 				D41499B6194576D5001E9146 /* EqothersViewController.h */,
 				D41499B7194576D5001E9146 /* EqothersViewController.m */,
 				D41499B8194576D5001E9146 /* EqothersViewController.xib */,
@@ -2475,12 +2480,6 @@
 				64CB04F71A5C0321005394D5 /* formanmdl.m */,
 				D44ECC631A5D166C00B3082A /* PMjobsmdl.h */,
 				D44ECC641A5D166C00B3082A /* PMjobsmdl.m */,
-				64C0AD0B1A5D291600B31F52 /* RLBMainmodel.h */,
-				64C0AD0C1A5D291600B31F52 /* RLBMainmodel.m */,
-				64C0AD0E1A5D294A00B31F52 /* LDragFirstmodel.h */,
-				64C0AD0F1A5D294A00B31F52 /* LDragFirstmodel.m */,
-				64C0AD111A5D296400B31F52 /* LDrsgSecmdl.h */,
-				64C0AD121A5D296400B31F52 /* LDrsgSecmdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -2707,6 +2706,7 @@
 			files = (
 				D4F7D9DA196E65B900B8F4D4 /* GroupMaterial.png in Resources */,
 				D413816C1947107A0056574C /* createjob.png in Resources */,
+				D44ECC6A1A5D3E0100B3082A /* LinkViewController.xib in Resources */,
 				6426F5EF18C06100002471AC /* estimation.png in Resources */,
 				D4A16B3B1974EEA8002CA2A2 /* SitevisitViewController.xib in Resources */,
 				D40D1EB5176B086F00379DD5 /* InfoPlist.strings in Resources */,
@@ -3231,6 +3231,7 @@
 				D4A16B351974EEA8002CA2A2 /* PlanningViewController.m in Sources */,
 				D49F876018EEA36B00413CAD /* Scfflddetails.m in Sources */,
 				D4A16B501974EEA8002CA2A2 /* GeneralViewController.m in Sources */,
+				D44ECC691A5D3E0100B3082A /* LinkViewController.m in Sources */,
 				D49F876E18EEA36B00413CAD /* Vlumedismdl.m in Sources */,
 				646A28BC193743CF00902C4A /* OthereventMaodel.m in Sources */,
 				D49F875218EEA36B00413CAD /* commentmdl.m in Sources */,
