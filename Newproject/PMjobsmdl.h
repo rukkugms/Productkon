@@ -1,13 +1,13 @@
 //
-//  PMjobmdl.m
+//  PMjobmdl.h
 //  Newproject
 //
 //  Created by Riya on 1/7/15.
 //  Copyright (c) 2015 GMSIndia1. All rights reserved.
 //
 
-#import "PMjobmdl.h"
+#import <Foundation/Foundation.h>
 
-@implementation PMjobmdl
+@interface PMjobsmdl : NSObject
 
 @end

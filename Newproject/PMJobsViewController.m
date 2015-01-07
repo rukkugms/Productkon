@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 GMSIndia1. All rights reserved.
 //
 
-#import "PMJobViewController.h"
+#import "PMJobsViewController.h"
 
-@interface PMJobViewController ()
+@interface PMJobsViewController ()
 
 @end
 
-@implementation PMJobViewController
+@implementation PMJobsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +22,7 @@
     _jobtable.layer.borderWidth=3.0;
     _jobtable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
     _titleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f];
+    _disclurearray=[[NSMutableArray alloc]initWithObjects:@"Link Contract",@"Purchase Order",@"Work Order", nil];
 
 }
 
@@ -52,8 +53,15 @@
 {
     
     // Return the number of rows in the section.
+    if (tableView==_popovertableview) {
+        return [_disclurearray count];
+    }
+    else  if (tableView==_jobtable) {
+        return 1;
+        
+    }
     
-    return 1;
+    return YES;
    
     
 }
@@ -69,11 +77,14 @@
             
             
             [[NSBundle mainBundle]loadNibNamed:@"PMjobcell" owner:self options:nil];
-            //cell=_eqcell;
+            cell=_jobcell;
         }
     }
     cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
-        
+    
+     if (tableView==_popovertableview) {
+         cell.textLabel.text=[_disclurearray objectAtIndex:indexPath.row];
+     }
     return cell;
     
     
@@ -81,5 +92,33 @@
 
 - (IBAction)clsebtn:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)disclurebtn:(id)sender {
+    UIViewController* popoverContent = [[UIViewController alloc]init];
+    UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 132, 125)];
+    // popoverView.backgroundColor = [UIColor whiteColor];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 132, 125)];
+    _popovertableview.delegate=(id)self;
+    _popovertableview.dataSource=(id)self;
+    _popovertableview.rowHeight= 40;
+    //_popovertableview.separatorStyle=UITableViewCellSeparatorStyleNone;
+    //_popovertableview.separatorColor=[UIColor blackColor];
+    [popoverView addSubview:_popovertableview];
+    popoverContent.view = popoverView;
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(132, 125);
+    
+    button = (UIButton *)sender;
+    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.jobtable];
+    NSIndexPath *textFieldIndexPath = [self.jobtable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    //btnindex=textFieldIndexPath.row;
+    
+    //UITableView *table = (UITableView *)[cell superview];
+    self.popovercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
+    self.popovercontroller.popoverContentSize=CGSizeMake(132.0f, 125.0f);
+    self.popovercontroller=_popovercontroller;
+    [self.popovercontroller presentPopoverFromRect:_disclsurbtnlbl.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
 }
 @end
