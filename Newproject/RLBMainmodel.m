@@ -1,13 +1,13 @@
 //
-//  DrsgSecmdl.h
+//  LBMainmodel.m
 //  Newproject
 //
 //  Created by GMSIndia 2 on 07/01/15.
 //  Copyright (c) 2015 GMSIndia1. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "RLBMainmodel.h"
 
-@interface DrsgSecmdl : NSObject
+@implementation RLBMainmodel
 
 @end
