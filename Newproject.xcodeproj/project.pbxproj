@@ -157,9 +157,6 @@
 		64C0AD081A5CF84400B31F52 /* StockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C0AD041A5CF84400B31F52 /* StockViewController.xib */; };
 		64C0AD091A5CF84400B31F52 /* Siteoutview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C0AD051A5CF84400B31F52 /* Siteoutview.xib */; };
 		64C0AD0A1A5CF84400B31F52 /* Exceptioncell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C0AD061A5CF84400B31F52 /* Exceptioncell.xib */; };
-		64C0AD0D1A5D291600B31F52 /* RLBMainmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AD0C1A5D291600B31F52 /* RLBMainmodel.m */; };
-		64C0AD101A5D294A00B31F52 /* LDragFirstmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AD0F1A5D294A00B31F52 /* LDragFirstmodel.m */; };
-		64C0AD131A5D296400B31F52 /* LDrsgSecmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C0AD121A5D296400B31F52 /* LDrsgSecmdl.m */; };
 		64C0AD151A5D2A8800B31F52 /* LbrRMmaincell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C0AD141A5D2A8800B31F52 /* LbrRMmaincell.xib */; };
 		64C0AD171A5D2AB000B31F52 /* LbrFstdgcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C0AD161A5D2AB000B31F52 /* LbrFstdgcell.xib */; };
 		64C0AD191A5D2ABF00B31F52 /* LbrSecdgcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C0AD181A5D2ABF00B31F52 /* LbrSecdgcell.xib */; };
@@ -863,9 +860,6 @@
 		64C0AD041A5CF84400B31F52 /* StockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockViewController.xib; sourceTree = "<group>"; };
 		64C0AD051A5CF84400B31F52 /* Siteoutview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Siteoutview.xib; sourceTree = "<group>"; };
 		64C0AD061A5CF84400B31F52 /* Exceptioncell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Exceptioncell.xib; sourceTree = "<group>"; };
-		64C0AD0C1A5D291600B31F52 /* RLBMainmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLBMainmodel.m; sourceTree = "<group>"; };
-		64C0AD0F1A5D294A00B31F52 /* LDragFirstmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDragFirstmodel.m; sourceTree = "<group>"; };
-		64C0AD121A5D296400B31F52 /* LDrsgSecmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDrsgSecmdl.m; sourceTree = "<group>"; };
 		64C0AD141A5D2A8800B31F52 /* LbrRMmaincell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LbrRMmaincell.xib; sourceTree = "<group>"; };
 		64C0AD161A5D2AB000B31F52 /* LbrFstdgcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LbrFstdgcell.xib; sourceTree = "<group>"; };
 		64C0AD181A5D2ABF00B31F52 /* LbrSecdgcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LbrSecdgcell.xib; sourceTree = "<group>"; };
@@ -3180,7 +3174,6 @@
 				64C0AD1F1A5D41D500B31F52 /* LbrFirst.m in Sources */,
 				D4EBA8671978FE7700B612E1 /* Thrtrmsmdl.m in Sources */,
 				D4A3977719CFE8DE00E2514C /* PServiceViewController.m in Sources */,
-				64C0AD131A5D296400B31F52 /* LDrsgSecmdl.m in Sources */,
 				D40D1EB7176B086F00379DD5 /* main.m in Sources */,
 				D40D1EBB176B086F00379DD5 /* AppDelegate.m in Sources */,
 				D49F874F18EEA36B00413CAD /* Coursemdl.m in Sources */,
@@ -3238,7 +3231,6 @@
 				D4F19DEB18D03AD1007617F0 /* FollowupViewController.m in Sources */,
 				D49F874518EEA36B00413CAD /* CKCalendarView.m in Sources */,
 				D49F875118EEA36B00413CAD /* Infoleads.m in Sources */,
-				64C0AD101A5D294A00B31F52 /* LDragFirstmodel.m in Sources */,
 				D4014FF318E3E05B00DB825A /* SerialViewController.m in Sources */,
 				64A1317D19485599009F5431 /* Countmdl.m in Sources */,
 				64A4C4E419FF974D00C8BA33 /* InDetailhrviewViewController.m in Sources */,
@@ -3280,7 +3272,6 @@
 				649EE4C219614866008DEF02 /* LbrMgmtViewController.m in Sources */,
 				D4F19D9F18D01CDB007617F0 /* NewCustmrViewController.m in Sources */,
 				64C0ACFF1A5CF80E00B31F52 /* RelatedtoViewController.m in Sources */,
-				64C0AD0D1A5D291600B31F52 /* RLBMainmodel.m in Sources */,
 				D4A674C019345FFD00D5A77E /* DPCalendarTestCreateEventViewController.m in Sources */,
 				D404A2271A0389BD0086E40A /* SubCatViewController.m in Sources */,
 				D4AA4F9219655D0200916138 /* Absentmdl.m in Sources */,
