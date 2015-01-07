@@ -11,6 +11,7 @@
                 <outlet property="absntview" destination="QmD-3P-84m" id="y1O-H3-9ry"/>
                 <outlet property="iactivitybtn" destination="Nui-Dl-JmQ" id="HkI-1Y-hjb"/>
                 <outlet property="issueview" destination="Ow7-cb-0rz" id="Hz5-Lg-x8p"/>
+                <outlet property="jobview" destination="V9L-w8-Rgk" id="sFS-ad-bSg"/>
                 <outlet property="laboractivitybtn" destination="U4i-sc-tiy" id="qbV-ZS-HaF"/>
                 <outlet property="labrview" destination="YCM-tv-dGt" id="m3Y-Dt-Mze"/>
                 <outlet property="resurceactivitybtn" destination="PwS-pf-F2n" id="ogd-cp-3A5"/>
