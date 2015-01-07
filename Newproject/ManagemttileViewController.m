@@ -70,6 +70,13 @@
     doubleTap5.numberOfTapsRequired=1;
     doubleTap5.delegate=(id)self;
     [self.absntview addGestureRecognizer:doubleTap5];
+    
+    UITapGestureRecognizer *doubleTap6 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(Jobpage)];
+    doubleTap6.numberOfTapsRequired=1;
+    doubleTap6.delegate=(id)self;
+    [self.jobview addGestureRecognizer:doubleTap6];
 
 
 
@@ -126,6 +133,11 @@
     [self UserRightsforparticularmoduleselect];
     
 
+}
+-(void)Jobpage{
+    self.jobVCtrl=[[PMJobViewController alloc]initWithNibName:@"PMJobViewController" bundle:nil];
+    self.jobVCtrl.modalPresentationStyle=UIModalPresentationFullScreen;
+    [self presentViewController:self.jobVCtrl animated:YES completion:nil];
 }
 - (void)didReceiveMemoryWarning
 {
