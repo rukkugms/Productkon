@@ -40,5 +40,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *disclsurbtnlbl;
 - (IBAction)disclurebtn:(id)sender;
 
- 
+
+/*link view */
+
+
 @end

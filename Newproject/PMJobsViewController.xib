@@ -127,6 +127,50 @@
                         <outlet property="delegate" destination="-1" id="XLA-SW-XDF"/>
                     </connections>
                 </tableView>
+                <view contentMode="scaleToFill" id="TSY-sc-lJw">
+                    <rect key="frame" x="256" y="165" width="512" height="236"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <navigationBar contentMode="scaleToFill" id="eld-Xe-NFk">
+                            <rect key="frame" x="0.0" y="0.0" width="512" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.51819839400000001" green="0.92708352270000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <items>
+                                <navigationItem title="Link Contract" id="TII-8f-e2y">
+                                    <barButtonItem key="rightBarButtonItem" style="plain" id="ptD-aZ-WQ3">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xa4-Fe-GXQ">
+                                            <rect key="frame" x="958" y="-3" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <state key="normal" backgroundImage="appbar.close.png">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Sqh-MT-JjN">
+                            <rect key="frame" x="142" y="130" width="228" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                            <state key="normal" title="Select" backgroundImage="textbox.png">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VYF-Bt-fJU">
+                            <rect key="frame" x="219" y="193" width="74" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                            <state key="normal" title="Update">
+                                <color key="titleColor" red="0.27450980390000002" green="0.50980392159999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -136,6 +180,7 @@
     </objects>
     <resources>
         <image name="appbar.close.png" width="76" height="76"/>
+        <image name="textbox.png" width="298" height="64"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
