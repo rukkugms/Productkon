@@ -311,7 +311,7 @@
      if (tableView==_maintableview)
      {
          
-         
+         _craftlabel=(UILabel *)[cell viewWithTag:1];
      }
     
      else if (tableView==_firstdgtable)
