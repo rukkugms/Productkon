@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface LbmgModel : NSObject
-@property(strong,nonatomic)NSString *lmentryid;
+@property(strong,nonatomic)NSString *LMEntryId;
+@property(strong,nonatomic)NSString *LMItemCode;
+@property(strong,nonatomic)NSString *LMJobSite;
 @property(strong,nonatomic)NSString *LMEmployeeId;
 @property(strong,nonatomic)NSString *LMForemanId;
-@property(strong,nonatomic)NSString *EmployeeName;
+@property(strong,nonatomic)NSString *LMCheck;
+@property(strong,nonatomic)NSString *employeename;
 @property(strong,nonatomic)NSString *ForemanName;
 
 @end

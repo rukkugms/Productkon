@@ -79,7 +79,7 @@
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
         if (tableView==_absenttable) {
             
             [[NSBundle mainBundle]loadNibNamed:@"Absentview" owner:self options:nil];
@@ -148,6 +148,23 @@
             
             
         }
+    }
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if(tableView==_absenttable){
+        if ([empdate isEqualToString:_curntdate]) {
+            
+            
+        }
+        else{
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Absent can only mark in Current date" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [alert show];
+            
+            
+        }
+
+        
     }
 }
 

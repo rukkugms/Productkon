@@ -602,6 +602,15 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"id"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"JobNumber"])
     {
         if(!_soapResults)
@@ -696,6 +705,12 @@
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
+    if([elementName isEqualToString:@"id"])
+    {
+       recordResults = FALSE;
+        _soapResults = nil;
+    }
+
     if([elementName isEqualToString:@"JobNumber"])
     {
         recordResults = FALSE;
@@ -824,6 +839,11 @@
 - (IBAction)savebtn:(id)sender {
           
     
+    NSInteger deliver=[_delivrdtxtfld.text integerValue];
+    NSInteger order=[_orderdtxtfld.text integerValue];
+    NSInteger balance=order-deliver;
+    NSLog(@"%d",balance);
+    
     
     if (thirdparty==1) {
         
@@ -834,6 +854,7 @@
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Quantity should be less than or equal to Ordered Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+     
         else{
             [self SiteInInsert];
              //[self StockOutInsert];

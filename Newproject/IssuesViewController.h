@@ -15,13 +15,13 @@
 @interface IssuesViewController : UIViewController{
     
      BOOL  recordResults;
-    NSString*jobnumber;
+    NSString*jobnumber,*jobsitename;
     NSInteger poptype ,webtype;
     UIButton*button;
-    NSInteger btntype;
+    NSInteger btntype,issuerelatnflag;
      NSInteger btnindex;
  UIDatePicker *timePick;
-    NSString *resultstring;
+    NSString *resultstring,*statustype;
 }
 
 @property(strong,nonatomic)RelatedtoViewController*relatedtoVCtrl;
@@ -34,6 +34,7 @@
 @property(strong,nonatomic)NSMutableDictionary*revtypedict;
 @property(strong,nonatomic)NSMutableDictionary*jobdict;
 @property(strong,nonatomic)NSMutableDictionary*revjobdict;
+@property(strong,nonatomic)NSMutableDictionary*skilldict;
 
 @property (strong, nonatomic) IBOutlet UIButton *updatebtnlbl;
 
@@ -97,6 +98,7 @@
 - (IBAction)statusbtn:(id)sender;
 - (IBAction)relatedtobtn:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UIButton *relatedtobtnlbl;
 
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)Rightscheck *rights;

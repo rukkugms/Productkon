@@ -71,7 +71,7 @@
     else
     {
     [self createpopover];
-    [self ForemanSelect];
+    [self LaborForemanSelect];
     }
 }
 -(IBAction)checkaction:(id)sender
@@ -89,7 +89,13 @@
     
     else
     {
-        
+        if([_formanbtn.titleLabel.text isEqualToString:@"Select"])
+        {
+            _mgmttable.userInteractionEnabled=NO;
+        }
+        else
+        {
+            _mgmttable.userInteractionEnabled=YES;
 
     _checkstring=@"clickd";
    
@@ -126,6 +132,7 @@
   [_mgmttable reloadData];
        [self ForemanUpdate];
    
+    }
     }
     
 }
@@ -260,24 +267,20 @@
     }
     cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
     if (tableView==_popovertable) {
-           jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:indexPath.row];
-        switch (btnindex) {
-              
-            case 1:
-                
+        
+        if (btnindex==1) {
+             jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:indexPath.row];
+        
                
                 cell.textLabel.text=[NSString stringWithFormat:@"%@-%@-%@",jobsmdl.jobname,jobsmdl.jobno,jobsmdl.skill];
-                
-                break;
-            case 2:
-                
-                cell.textLabel.text=[_formanarray objectAtIndex:indexPath.row];
-                break;
-                
-                
-            default:
-                break;
         }
+        
+              else if(btnindex==2)
+              {
+                  formanmdl *formdl=(formanmdl*)[_formanarray objectAtIndex:indexPath.row];
+                  
+                  cell.textLabel.text=formdl.ForemanName;
+              }
         
         
     }
@@ -287,14 +290,23 @@
         LbmgModel*lmdl=(LbmgModel *)[_lbrmgmtarray objectAtIndex:indexPath.row];
         _emplabel=(UILabel*)[cell viewWithTag:1];
         cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
-        _emplabel.text=lmdl.EmployeeName;
+        _emplabel.text=lmdl.employeename;
         _formanlabel=(UILabel*)[cell viewWithTag:2];
         
         _formanlabel.text=lmdl.ForemanName;
-        NSLog(@"%@",lmdl.ForemanName);
-         NSLog(@"%@",fname);
-        
-        if ([fname isEqualToString:lmdl.ForemanName]) {
+       
+//        if ([fname isEqualToString:lmdl.ForemanName]) {
+//            [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+//            check=1;
+//            
+//        }
+//        else
+//        {
+//            [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//            check=0;
+//        }
+
+        if ([lmdl.LMCheck isEqualToString:@"true"]) {
             [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
             check=1;
 
@@ -304,20 +316,6 @@
             [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             check=0;
         }
-//        if (indexPath.row==btnindex) {
-//                    if(check==0)
-//                    {
-//                         [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-//                        check=1;
-//                   }
-//                else if(check==1)
-//                    {
-//                         [_checkbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-//                        check=0;
-//                    }
-//            
-//            
-//        }
 
      
         
@@ -333,27 +331,44 @@
     
     
     if (tableView==_popovertable) {
-        jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:indexPath.row];
-        switch (btnindex) {
-            case 1:
-                rowindex=indexPath.row;
-                
-                [_jobbtn setTitle:[NSString stringWithFormat:@"%@-%@-%@",jobsmdl.jobname,jobsmdl.jobno,jobsmdl.skill]forState:UIControlStateNormal];
-                break;
-            case 2:
-                
-                [_formanbtn setTitle:[_formanarray objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
-                f=[_formandict objectForKey:[_formanarray objectAtIndex:indexPath.row]];
-                fname=[_formanarray objectAtIndex:indexPath.row];
-               [self ForemanEmployeenameSelect];
-                
-                break;
-                
-
-                
-            default:
-                break;
+        
+        
+        if (btnindex==1) {
+            jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:indexPath.row];
+            rowindex=indexPath.row;
+            
+            [_jobbtn setTitle:[NSString stringWithFormat:@"%@-%@-%@",jobsmdl.jobname,jobsmdl.jobno,jobsmdl.skill]forState:UIControlStateNormal];
+            [self LaborInsert];
         }
+        else if(btnindex==2)
+        {rowindex=indexPath.row;
+            formanmdl *formdl=(formanmdl*)[_formanarray objectAtIndex:indexPath.row];
+              [_formanbtn setTitle:formdl.ForemanName forState:UIControlStateNormal ];
+            fname=formdl.ForemanName;
+            _mgmttable.userInteractionEnabled=YES;
+        }
+//        switch (btnindex) {
+//            case 1:
+//                rowindex=indexPath.row;
+//                
+//                [_jobbtn setTitle:[NSString stringWithFormat:@"%@-%@-%@",jobsmdl.jobname,jobsmdl.jobno,jobsmdl.skill]forState:UIControlStateNormal];
+//                [self LaborInsert];
+//               // [self LaborForemanSelect];
+//                break;
+//            case 2:
+//                
+//                [_formanbtn setTitle:formdl.ForemanName forState:UIControlStateNormal ];
+//                f=[_formandict objectForKey:[_formanarray objectAtIndex:indexPath.row]];
+//                fname=[_formanarray objectAtIndex:indexPath.row];
+//               //[self ForemanEmployeenameSelect];
+//                
+//                break;
+//                
+//
+//                
+//            default:
+//                break;
+//        }
         
         //   [_optionbtnlbl setTitle:[_Optionarray objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
     }
@@ -432,6 +447,114 @@
     
     
 }
+-(void)LaborInsert{
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+    
+     jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:rowindex];
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<LaborInsert xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<jobsite>%@</jobsite>\n"
+                   
+                   "</LaborInsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",jobsmdl.jobno];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/LaborInsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)LaborForemanSelect{
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+    
+    jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:rowindex];
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<LaborForemanSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<jobsite>%@</jobsite>\n"
+                   
+                   "</LaborForemanSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",jobsmdl.jobno];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/LaborForemanSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
+
 -(void)ForemanSelect
 {
     recordResults=FALSE;
@@ -550,14 +673,15 @@
     recordResults=FALSE;
     NSString *soapMessage;
      LbmgModel*lmdl=(LbmgModel *)[_lbrmgmtarray objectAtIndex:btnindex];
-    NSInteger lid=[lmdl.lmentryid integerValue];
+     formanmdl*fmdl=(formanmdl *)[_formanarray objectAtIndex:rowindex];
+    NSInteger lid=[lmdl.LMEntryId integerValue];
     NSInteger tick;
     
         if (check==0) {
             tick=0;
         }
         else{
-           tick=[f integerValue];
+           tick=[fmdl.fEmployeeId integerValue];
         }
         _checkstring=@"";
     
@@ -574,10 +698,10 @@
                    "<ForemanUpdate xmlns=\"http://ios.kontract360.com/\">\n"
                    "<LMEntryId>%d</LMEntryId>\n"
                    "<LMForemanId>%d</LMForemanId>\n"
-                   
+                   "<checkin>%d</checkin>\n"
                    "</ForemanUpdate>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",lid,tick];
+                   "</soap:Envelope>\n",lid,tick,check];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -645,7 +769,7 @@
     [_popovertable reloadData];
     if (webtype==1) {
         
-        [self ForemanEmployeenameSelect];
+        [self LaborInsert];
         webtype=0;
     }
     
@@ -653,7 +777,7 @@
 }
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
-            if([elementName isEqualToString:@"JobsSelectResponse"])
+    if([elementName isEqualToString:@"JobsSelectResponse"])
     {
         _jobmdlarray=[[NSMutableArray alloc]init];
         _jobarray=[[NSMutableArray alloc]init];
@@ -708,37 +832,17 @@
         recordResults = TRUE;
     }
 
-    if([elementName isEqualToString:@"ForemanSelectResponse"])
-    {
-        _formanarray=[[NSMutableArray alloc]init];
-        _formandict=[[NSMutableDictionary alloc]init];
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"name"])
-    {
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"cemp_id"])
-    {
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"ForemanEmployeenameSelectResponse"])
+    if([elementName isEqualToString:@"LaborInsertResponse"])
     {
         _lbrmgmtarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"LMEntryId"])
+    {
         
         if(!_soapResults)
         {
@@ -746,7 +850,16 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"lmentryid"])
+    if([elementName isEqualToString:@"LMItemCode"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"LMJobSite"])
     {
         
         if(!_soapResults)
@@ -764,6 +877,7 @@
         }
         recordResults = TRUE;
     }
+
     if([elementName isEqualToString:@"LMForemanId"])
     {
         
@@ -773,7 +887,16 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"EmployeeName"])
+    if([elementName isEqualToString:@"LMCheck"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"employeename"])
     {
         
         if(!_soapResults)
@@ -792,10 +915,72 @@
         }
         recordResults = TRUE;
     }
-    
 
-
+    if([elementName isEqualToString:@"LaborForemanSelectResponse"])
+    {
+        _formanarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     
+    if([elementName isEqualToString:@"fLMEntryId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"fLMItemCode"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"fLMJobSite"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"fEmployeeId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"fLMCheck"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"fForemanName"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
 
 
@@ -869,48 +1054,117 @@
         _soapResults = nil;
     }
 
-    if([elementName isEqualToString:@"cemp_id"])
+
+       if([elementName isEqualToString:@"LMEntryId"])
     {
+        _lbmdl=[[LbmgModel alloc]init];
         recordResults = FALSE;
-        [_formandict setObject:_soapResults forKey:[_forman stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        _lbmdl.LMEntryId=_soapResults;
+       
+        _soapResults = nil;
+     
+    }
+    if([elementName isEqualToString:@"LMItemCode"])
+    {
+        
+        recordResults = FALSE;
+        _lbmdl.LMItemCode=_soapResults;
+        
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"lmentryid"])
+    if([elementName isEqualToString:@"LMJobSite"])
     {
         recordResults = FALSE;
-        _lbmdl=[[LbmgModel alloc]init];
-        _lbmdl.lmentryid=_soapResults;
+        _lbmdl.LMJobSite=_soapResults;
+        
         _soapResults = nil;
+      
     }
     if([elementName isEqualToString:@"LMEmployeeId"])
     {
         recordResults = FALSE;
         _lbmdl.LMEmployeeId=_soapResults;
+        
         _soapResults = nil;
-    }
+          }
+    
     if([elementName isEqualToString:@"LMForemanId"])
     {
         recordResults = FALSE;
         _lbmdl.LMForemanId=_soapResults;
+        
         _soapResults = nil;
-    }
-    if([elementName isEqualToString:@"EmployeeName"])
+          }
+    if([elementName isEqualToString:@"LMCheck"])
     {
         recordResults = FALSE;
-        _lbmdl.EmployeeName=_soapResults;
+        _lbmdl.LMCheck=_soapResults;
+        
         _soapResults = nil;
-    }
+            }
+    if([elementName isEqualToString:@"employeename"])
+    {
+        recordResults = FALSE;
+        _lbmdl.employeename=_soapResults;
+        [_lbrmgmtarray addObject:_lbmdl];
+        _soapResults = nil;
+           }
+    
     if([elementName isEqualToString:@"ForemanName"])
     {
         recordResults = FALSE;
-        _lbmdl.ForemanName=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        [_lbrmgmtarray addObject:_lbmdl];
+        _lbmdl.ForemanName=_soapResults;
+        
         _soapResults = nil;
+        
     }
-
-
-
     
+
+    if([elementName isEqualToString:@"fLMEntryId"])
+    {
+        _formanmdl=[[formanmdl alloc]init];
+        recordResults = FALSE;
+        _formanmdl.fLMEntryId=_soapResults;
+        
+        _soapResults = nil;
+          }
+    
+    if([elementName isEqualToString:@"fLMItemCode"])
+    {
+        recordResults = FALSE;
+        _formanmdl.fLMItemCode=_soapResults;
+        
+        _soapResults = nil;
+          }
+    if([elementName isEqualToString:@"fLMJobSite"])
+    {
+        recordResults = FALSE;
+        _formanmdl.fLMJobSite=_soapResults;
+        
+        _soapResults = nil;
+           }
+    if([elementName isEqualToString:@"fEmployeeId"])
+    {
+        recordResults = FALSE;
+        _formanmdl.fEmployeeId=_soapResults;
+        
+        _soapResults = nil;
+           }
+    if([elementName isEqualToString:@"fLMCheck"])
+    {
+        recordResults = FALSE;
+        _formanmdl.fLMCheck=_soapResults;
+        
+        _soapResults = nil;
+            }
+    if([elementName isEqualToString:@"fForemanName"])
+    {recordResults = FALSE;
+        _formanmdl.ForemanName=_soapResults;
+        [_formanarray addObject:_formanmdl];
+        _soapResults = nil;
+        
+         }
+
 }
 
 

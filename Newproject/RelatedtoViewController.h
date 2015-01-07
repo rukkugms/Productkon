@@ -19,6 +19,7 @@
 @property (strong, nonatomic)NSString*itemcode;
 @property (strong, nonatomic)NSString*jobnumber;
 @property (strong, nonatomic)NSString*type;
+@property (strong, nonatomic)NSString*status;
 @property (strong, nonatomic)RelatedtoMdl*relatedmdl;
 @property (strong, nonatomic)NSMutableArray*relatedarray;
 @property (strong, nonatomic)NSMutableArray*Addarray;
