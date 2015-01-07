@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "LinkViewController.h"
 @interface PMJobsViewController : UIViewController{
     UIButton *button;
 }
