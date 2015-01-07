@@ -338,6 +338,10 @@
 		D44ECC651A5D166C00B3082A /* PMjobsmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D44ECC641A5D166C00B3082A /* PMjobsmdl.m */; };
 		D44ECC691A5D3E0100B3082A /* LinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D44ECC671A5D3E0100B3082A /* LinkViewController.m */; };
 		D44ECC6A1A5D3E0100B3082A /* LinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44ECC681A5D3E0100B3082A /* LinkViewController.xib */; };
+		D44ECC6E1A5D3E8E00B3082A /* PurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D44ECC6C1A5D3E8E00B3082A /* PurchaseViewController.m */; };
+		D44ECC6F1A5D3E8E00B3082A /* PurchaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44ECC6D1A5D3E8E00B3082A /* PurchaseViewController.xib */; };
+		D44ECC731A5D3EA300B3082A /* WorkorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D44ECC711A5D3EA300B3082A /* WorkorderViewController.m */; };
+		D44ECC741A5D3EA300B3082A /* WorkorderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44ECC721A5D3EA300B3082A /* WorkorderViewController.xib */; };
 		D453DA211873F18C007EE3DC /* ThirdPartyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D453DA1F1873F18C007EE3DC /* ThirdPartyViewController.m */; };
 		D453DA221873F18C007EE3DC /* ThirdPartyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D453DA201873F18C007EE3DC /* ThirdPartyViewController.xib */; };
 		D453DA261873F1AF007EE3DC /* ConsumbleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D453DA241873F1AF007EE3DC /* ConsumbleViewController.m */; };
@@ -1098,6 +1102,12 @@
 		D44ECC661A5D3E0100B3082A /* LinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkViewController.h; sourceTree = "<group>"; };
 		D44ECC671A5D3E0100B3082A /* LinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkViewController.m; sourceTree = "<group>"; };
 		D44ECC681A5D3E0100B3082A /* LinkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LinkViewController.xib; sourceTree = "<group>"; };
+		D44ECC6B1A5D3E8E00B3082A /* PurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseViewController.h; sourceTree = "<group>"; };
+		D44ECC6C1A5D3E8E00B3082A /* PurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseViewController.m; sourceTree = "<group>"; };
+		D44ECC6D1A5D3E8E00B3082A /* PurchaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PurchaseViewController.xib; sourceTree = "<group>"; };
+		D44ECC701A5D3EA300B3082A /* WorkorderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkorderViewController.h; sourceTree = "<group>"; };
+		D44ECC711A5D3EA300B3082A /* WorkorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkorderViewController.m; sourceTree = "<group>"; };
+		D44ECC721A5D3EA300B3082A /* WorkorderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkorderViewController.xib; sourceTree = "<group>"; };
 		D453DA1E1873F18C007EE3DC /* ThirdPartyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdPartyViewController.h; sourceTree = "<group>"; };
 		D453DA1F1873F18C007EE3DC /* ThirdPartyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdPartyViewController.m; sourceTree = "<group>"; };
 		D453DA201873F18C007EE3DC /* ThirdPartyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdPartyViewController.xib; sourceTree = "<group>"; };
@@ -1856,6 +1866,12 @@
 				D44ECC661A5D3E0100B3082A /* LinkViewController.h */,
 				D44ECC671A5D3E0100B3082A /* LinkViewController.m */,
 				D44ECC681A5D3E0100B3082A /* LinkViewController.xib */,
+				D44ECC6B1A5D3E8E00B3082A /* PurchaseViewController.h */,
+				D44ECC6C1A5D3E8E00B3082A /* PurchaseViewController.m */,
+				D44ECC6D1A5D3E8E00B3082A /* PurchaseViewController.xib */,
+				D44ECC701A5D3EA300B3082A /* WorkorderViewController.h */,
+				D44ECC711A5D3EA300B3082A /* WorkorderViewController.m */,
+				D44ECC721A5D3EA300B3082A /* WorkorderViewController.xib */,
 				D41499B6194576D5001E9146 /* EqothersViewController.h */,
 				D41499B7194576D5001E9146 /* EqothersViewController.m */,
 				D41499B8194576D5001E9146 /* EqothersViewController.xib */,
@@ -2741,6 +2757,7 @@
 				64A41245194080D6003EE113 /* customermanagement.png in Resources */,
 				64A11EE718683792008D20CC /* workPhasesViewController.xib in Resources */,
 				D4FFBD201855B7830007851D /* carat.png in Resources */,
+				D44ECC6F1A5D3E8E00B3082A /* PurchaseViewController.xib in Resources */,
 				64C0AD081A5CF84400B31F52 /* StockViewController.xib in Resources */,
 				D49FA2F0196164560037BA7A /* TEqupcell.xib in Resources */,
 				64A5ED5019C2D7D3002E0018 /* Subcell.xib in Resources */,
@@ -2930,6 +2947,7 @@
 				D4A16B551974EEA8002CA2A2 /* FirstMdragcell.xib in Resources */,
 				D40407DD192B1CFB00864BA4 /* save 3.png in Resources */,
 				D49FA2EE1961643E0037BA7A /* Tlaborcell.xib in Resources */,
+				D44ECC741A5D3EA300B3082A /* WorkorderViewController.xib in Resources */,
 				D4A338E918F3EEEF00E53FAC /* Recordcustomcell.xib in Resources */,
 				D44DF4F219A5DF4600F3E9AB /* radioButtonIcon.gif in Resources */,
 				D400A5E41980EA03003D5F4C /* customer-&con (1).png in Resources */,
@@ -3235,6 +3253,7 @@
 				D49F876E18EEA36B00413CAD /* Vlumedismdl.m in Sources */,
 				646A28BC193743CF00902C4A /* OthereventMaodel.m in Sources */,
 				D49F875218EEA36B00413CAD /* commentmdl.m in Sources */,
+				D44ECC6E1A5D3E8E00B3082A /* PurchaseViewController.m in Sources */,
 				D4A338D318F3EE8700E53FAC /* Mastermarkmodel.m in Sources */,
 				D4ED6FED19EF9F5A00A241F1 /* UIViewController+Neworientation.m in Sources */,
 				D4A338EA18F3EEEF00E53FAC /* BillingViewController.m in Sources */,
@@ -3346,6 +3365,7 @@
 				D4A16B9A1974EEE0002CA2A2 /* CalEventDetailViewController.m in Sources */,
 				D49F875418EEA36B00413CAD /* Servicemdl.m in Sources */,
 				64A936B619E640A600C20D57 /* MasterHrViewController.m in Sources */,
+				D44ECC731A5D3EA300B3082A /* WorkorderViewController.m in Sources */,
 				D40367F018ED3A5200139E7D /* MangmntdetailsViewController.m in Sources */,
 				D4A674AB19345F7200D5A77E /* DPCalendarMonthlySingleMonthCell.m in Sources */,
 				64955C9B180E52D5000A86A1 /* WebViewController.m in Sources */,
