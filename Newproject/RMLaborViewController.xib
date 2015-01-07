@@ -10,8 +10,11 @@
                 <outlet property="craftbtn" destination="dj0-AF-Pcx" id="e2l-uc-YZN"/>
                 <outlet property="dropview" destination="VuR-DM-z5A" id="9dl-Sw-p8n"/>
                 <outlet property="enddatebtn" destination="HU8-4b-PLJ" id="BF2-Rl-en0"/>
+                <outlet property="firstdgtable" destination="44W-sw-fej" id="bar-7c-tHC"/>
                 <outlet property="jobbtn" destination="BOz-40-YDG" id="JM7-CL-uft"/>
                 <outlet property="maintabletitleview" destination="FTh-Hv-cHy" id="Wag-ye-Z6t"/>
+                <outlet property="maintableview" destination="mp9-nB-x5m" id="3Ii-wF-89f"/>
+                <outlet property="secdgtable" destination="XCf-9u-mff" id="2Sk-An-VPS"/>
                 <outlet property="startdatebtn" destination="YAJ-Nl-70u" id="svX-ZK-j1W"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -102,6 +105,10 @@
                     <rect key="frame" x="22" y="155" width="960" height="208"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="wW2-8B-LJo"/>
+                        <outlet property="delegate" destination="-1" id="SzU-iV-jP1"/>
+                    </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dj0-AF-Pcx">
                     <rect key="frame" x="45" y="393" width="229" height="32"/>
@@ -172,11 +179,19 @@
                             <rect key="frame" x="17" y="30" width="384" height="271"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="pV0-TU-Vxy"/>
+                                <outlet property="delegate" destination="-1" id="3DZ-fk-KCI"/>
+                            </connections>
                         </tableView>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="45" sectionHeaderHeight="22" sectionFooterHeight="22" id="XCf-9u-mff">
                             <rect key="frame" x="554" y="30" width="460" height="271"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="wJ3-Wo-dsy"/>
+                                <outlet property="delegate" destination="-1" id="Bek-48-pSc"/>
+                            </connections>
                         </tableView>
                         <view contentMode="scaleToFill" id="3KF-DG-ZyA">
                             <rect key="frame" x="554" y="0.0" width="460" height="29"/>
