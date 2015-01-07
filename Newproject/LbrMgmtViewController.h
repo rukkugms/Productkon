@@ -23,6 +23,7 @@
     NSInteger webtype;
     NSInteger btnclick;
     NSInteger rowindex;
+    NSInteger jobindex;
     
 }
 @property(strong,nonatomic)LbmgModel *lbmdl;

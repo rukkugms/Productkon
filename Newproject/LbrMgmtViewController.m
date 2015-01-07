@@ -91,11 +91,12 @@
     {
         if([_formanbtn.titleLabel.text isEqualToString:@"Select"])
         {
-            _mgmttable.userInteractionEnabled=NO;
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please Select a Foreman" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
         }
         else
         {
-            _mgmttable.userInteractionEnabled=YES;
+          
 
     _checkstring=@"clickd";
    
@@ -335,7 +336,7 @@
         
         if (btnindex==1) {
             jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:indexPath.row];
-            rowindex=indexPath.row;
+            jobindex=indexPath.row;
             
             [_jobbtn setTitle:[NSString stringWithFormat:@"%@-%@-%@",jobsmdl.jobname,jobsmdl.jobno,jobsmdl.skill]forState:UIControlStateNormal];
             [self LaborInsert];
@@ -345,7 +346,7 @@
             formanmdl *formdl=(formanmdl*)[_formanarray objectAtIndex:indexPath.row];
               [_formanbtn setTitle:formdl.ForemanName forState:UIControlStateNormal ];
             fname=formdl.ForemanName;
-            _mgmttable.userInteractionEnabled=YES;
+            
         }
 //        switch (btnindex) {
 //            case 1:
@@ -452,7 +453,7 @@
     NSString *soapMessage;
     
     
-     jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:rowindex];
+     jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:jobindex];
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -505,7 +506,7 @@
     NSString *soapMessage;
     
     
-    jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:rowindex];
+    jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:jobindex];
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -564,7 +565,7 @@
  //   NSString*jobno=[NSString stringWithFormat:@"%@-%@",[array objectAtIndex:0],[array objectAtIndex:1]];
 //    NSInteger job=[jobno integerValue];
 //    jobno=[NSString stringWithFormat:@"%d",job];
-     jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:rowindex];
+     jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:jobindex];
     NSString *job=[NSString stringWithFormat:@"%d",jobsmdl.jobid];
     soapMessage = [NSString stringWithFormat:
                    

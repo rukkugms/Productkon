@@ -27,6 +27,8 @@
 {
     [super viewWillAppear:animated];
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    _maintabletitleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+     self.dropview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
 
     [self JobsSelect];
 }
@@ -79,6 +81,8 @@
     //    [self.popOverController presentPopoverFromRect:_disclsurelbl.bounds inView:self.view permittedArrowDirections:nil animated:YES];
     
     
+    if (poptype==1) {
+        
     
     
    
@@ -86,6 +90,14 @@
                                           inView:self.view
                         permittedArrowDirections:UIPopoverArrowDirectionUp
                                         animated:YES];
+    }
+    else if(poptype==2)
+    {
+        [self.popovercontroller presentPopoverFromRect:_craftbtn.frame
+                                                inView:self.view
+                              permittedArrowDirections:UIPopoverArrowDirectionUp
+                                              animated:YES];
+    }
     
 }
 #pragma mark - Calendar
@@ -193,6 +205,7 @@
 }
 
 - (IBAction)SelectJobs:(id)sender {
+    poptype=1;
     [self createpopover];
     [self JobsSelect];
 }
@@ -205,6 +218,11 @@
 - (IBAction)SelectEnddate:(id)sender {
     calendertype=2;
     [self createCalenderPopover];
+}
+
+- (IBAction)SelectCraft:(id)sender {
+    poptype=2;
+     [self createpopover];
 }
 
 #pragma mark-Tableview
@@ -220,7 +238,14 @@
 {
     
     if (tableView==_popovertableview) {
+        if (poptype==1) {
+            
+        
         return [_jobarray count];
+        }else if(poptype==2)
+        {
+            return 5;
+        }
     
     }
     return YES;
@@ -236,10 +261,17 @@
             }
     cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
     if (tableView==_popovertableview) {
+        if (poptype==1) {
+
         jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:indexPath.row];
         
                 cell.textLabel.text=[NSString stringWithFormat:@"%@-%@-%@",jobsmdl.jobname,jobsmdl.jobno,jobsmdl.skill];
-                
+        }
+        else if(poptype==2)
+        {
+            cell.textLabel.text=@"Craft";
+        }
+        
         
         
     }
@@ -259,6 +291,9 @@
     
     
     if (tableView==_popovertableview) {
+        if (poptype==1) {
+            
+        
         jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:indexPath.row];
        
         
@@ -266,7 +301,11 @@
                 [_jobbtn setTitle:[NSString stringWithFormat:@"%@-%@-%@",jobsmdl.jobname,jobsmdl.jobno,jobsmdl.skill]forState:UIControlStateNormal];
         
                 
-                
+        }
+        else if(poptype==2)
+        {
+            
+        }
         
         //   [_optionbtnlbl setTitle:[_Optionarray objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
     }
