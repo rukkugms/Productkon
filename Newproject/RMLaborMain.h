@@ -10,4 +10,11 @@
 
 @interface RMLaborMain : NSObject
 
+@property(strong,nonatomic)NSString *entryid;
+@property(strong,nonatomic)NSString *Descption;
+@property(strong,nonatomic)NSString *Required;
+@property(strong,nonatomic)NSString *Filled;
+@property(strong,nonatomic)NSString *Balance;
+@property(strong,nonatomic)NSString *Craft;
+
 @end

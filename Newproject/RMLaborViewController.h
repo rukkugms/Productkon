@@ -13,17 +13,33 @@
 #import "LBSecond.h"
 #import "RMLaborMain.h"
 
-@interface RMLaborViewController : UIViewController
+@interface RMLaborViewController : UIViewController<UIGestureRecognizerDelegate>
 {
     NSInteger calendertype;
     NSInteger poptype;
+    NSInteger jobsiteindexpath;
+    NSDate *startdate;
+    NSDate *enddate;
+    
     BOOL recordResults;
+    
+    UITableViewCell*    draggedCell;
+    UIView*             dropArea;
+    id                  draggedData;
+    
+    BOOL            dragFromSource;     // used for reodering
+    NSIndexPath*    pathFromDstTable;
+
 }
 
-
+@property(strong,nonatomic)RMLaborMain *mainmodel;
+@property(strong,nonatomic)LbrFirst *firstmodel;
+@property(strong,nonatomic)LBSecond *secmodel;
 @property(strong,nonatomic)jobsitemodel *jobmdl;
 @property(strong,nonatomic)CKCalendarView *calender;
 @property(nonatomic, strong) NSDateFormatter *dateFormatter;
+
+@property(strong,nonatomic)NSString *currentdatestring;
 
 //IBActions
 - (IBAction)clsebtn:(id)sender;
@@ -31,6 +47,7 @@
 - (IBAction)SelectStartdate:(id)sender;
 - (IBAction)SelectEnddate:(id)sender;
 - (IBAction)SelectCraft:(id)sender;
+- (IBAction)Showdata:(id)sender;
 
 //IBOutlets
 @property (strong, nonatomic) IBOutlet UIButton *jobbtn;

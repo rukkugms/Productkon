@@ -7,6 +7,8 @@
 //
 
 #import "RMLaborViewController.h"
+#define kCellHeight 44
+#define kNavBarHeight 30
 
 @interface RMLaborViewController ()
 
@@ -16,6 +18,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupSourceTableWithFrame:CGRectMake(0, 0, 340,271)];
+    [self setupDestinationTableWithFrame:CGRectMake(0, 0, 529, 271)];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"MM/dd/YYYY"];
+    
+    _currentdatestring= [dateFormat stringFromDate:[NSDate date]];
+    
+    [_startdatebtn setTitle:_currentdatestring forState:UIControlStateNormal];
+    [_enddatebtn setTitle:_currentdatestring forState:UIControlStateNormal];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -35,7 +46,9 @@
     _firstdgtable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
     _secdgtable.layer.borderWidth=3.0;
     _secdgtable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
-
+    UIPanGestureRecognizer* panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanning:)];
+    panGesture.delegate=self;
+    [self.dropview addGestureRecognizer:panGesture];
 
     [self JobsSelect];
 }
@@ -185,23 +198,24 @@
 
 - (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date {
     if (calendertype==1) {
-        
+        NSLog(@"%@",date);
         
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
-        [dateFormat setDateFormat:@"MM/dd/YYYY"];
-        
+        [dateFormat setDateFormat:@"MM/dd/yyyy"];
+        startdate=date;
         NSString *dateString = [dateFormat stringFromDate:date];
         [_startdatebtn setTitle:dateString forState:UIControlStateNormal];
-        
+       // [self FillJRDetails];
     }
     if (calendertype==2) {
         
         
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
-        [dateFormat setDateFormat:@"MM/dd/YYYY"];
-        
+        [dateFormat setDateFormat:@"MM/dd/yyyy"];
+        enddate=date;
         NSString *dateString = [dateFormat stringFromDate:date];
         [_enddatebtn setTitle:dateString forState:UIControlStateNormal];
+        //[self FillJRDetails];
     }
 }
 
@@ -232,6 +246,23 @@
      [self createpopover];
 }
 
+- (IBAction)Showdata:(id)sender {
+    if ([startdate  compare:enddate] == NSOrderedDescending){
+        
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Start date should be less than or equal to end date" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    
+    else{
+            
+            [self FillJRDetails];
+            
+        }
+
+    
+}
+
 #pragma mark-Tableview
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -256,8 +287,8 @@
     
     }
     if (tableView==_maintableview) {
-        //return [_mainlistarray count];
-         return 5;
+        return [_mainlistarray count];
+        
     }
     if (tableView==_firstdgtable) {
         //return [_firstdgarray count];
@@ -310,12 +341,17 @@
     }
      if (tableView==_maintableview)
      {
-         
+           RMLaborMain *mainmodel=(RMLaborMain *)[_mainlistarray objectAtIndex:indexPath.row];
          _craftlabel=(UILabel *)[cell viewWithTag:1];
+         _craftlabel.text=mainmodel.Craft;
          _declabel=(UILabel*)[cell viewWithTag:2];
+         _declabel.text=mainmodel.Descption;
          _requiredlabel=(UILabel*)[cell viewWithTag:3];
+         _requiredlabel.text=mainmodel.Required;
          _filledlabel=(UILabel*)[cell viewWithTag:4];
+         _filledlabel.text=mainmodel.Filled;
          _balancelabel=(UILabel*)[cell viewWithTag:5];
+         _balancelabel.text=mainmodel.Balance;
      }
     
      else if (tableView==_firstdgtable)
@@ -351,8 +387,8 @@
         
                 
                 [_jobbtn setTitle:[NSString stringWithFormat:@"%@-%@-%@",jobsmdl.jobname,jobsmdl.jobno,jobsmdl.skill]forState:UIControlStateNormal];
-        
-                
+            jobsiteindexpath=indexPath.row;
+            //[self FillJRDetails];
         }
         else if(poptype==2)
         {
@@ -365,6 +401,7 @@
     
     
 }
+#pragma mark-Webservices
 
 -(void)JobsSelect{
     recordResults=FALSE;
@@ -419,6 +456,85 @@
     
     
 }
+-(void)FillJRDetails{
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+     jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:jobsiteindexpath];
+    NSString *start;
+    NSString *end;
+    
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+    [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
+    NSDate *dates = [dateFormat1 dateFromString:_startdatebtn.titleLabel.text];
+    NSLog(@"s%@",dates);
+    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
+    [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
+    
+    NSString*    dateString = [dateFormat2 stringFromDate:dates];
+    start=dateString;
+
+    
+    
+    NSDateFormatter *dateFormat3 = [[NSDateFormatter alloc] init];
+    [dateFormat3 setDateFormat:@"MM/dd/yyyy"];
+    NSDate *dat = [dateFormat3 dateFromString:_enddatebtn.titleLabel.text];
+    NSLog(@"s%@",dat);
+    NSDateFormatter *dateFormat4 = [[NSDateFormatter alloc]init];
+    [dateFormat4 setDateFormat: @"yyyy-MM-dd"];
+    
+    NSString*    dateString1 = [dateFormat4 stringFromDate:dat];
+    end=dateString1;
+
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<FillJRDetails xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<EmpJobsite>%@</EmpJobsite>\n"
+                   "<StartD>%@</StartD>\n"
+                   "<EndD>%@</EndD>\n"
+                   "</FillJRDetails>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",jobsmdl.jobno,start,end];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/FillJRDetails" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -458,7 +574,7 @@
     [_xmlParser parse];
     
     [_popovertableview reloadData];
-    
+    [_maintableview reloadData];
     
 }
 
@@ -517,6 +633,67 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"FillJRDetailsResponse"])
+    {_mainlistarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"EntryId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Description"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"Required"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Filled"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"Balance"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Craft"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+
+
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
@@ -571,6 +748,125 @@
         
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"EntryId"])
+    {
+        _mainmodel=[[RMLaborMain alloc]init];
+        recordResults = FALSE;
+        _mainmodel.entryid=_soapResults;
+        _soapResults = nil;
+           }
+    if([elementName isEqualToString:@"Description"])
+    {
+        recordResults = FALSE;
+        _mainmodel.Descption=_soapResults;
+        _soapResults = nil;
+    }
+    
+    if([elementName isEqualToString:@"Required"])
+    {
+        recordResults = FALSE;
+        _mainmodel.Required=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Filled"])
+    {
+        recordResults = FALSE;
+        _mainmodel.Filled=_soapResults;
+        _soapResults = nil;
+    }
+    
+    if([elementName isEqualToString:@"Balance"])
+    {
+        recordResults = FALSE;
+        _mainmodel.Balance=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Craft"])
+    {
+        recordResults = FALSE;
+        _mainmodel.Craft=_soapResults;
+        [_mainlistarray addObject:_mainmodel];
+        _soapResults = nil;
+    }
+
 }
 
+
+#pragma mark UIGestureRecognizer
+
+- (void)handlePanning:(UIPanGestureRecognizer *)gestureRecognizer
+{
+    switch ([gestureRecognizer state]) {
+        case UIGestureRecognizerStateBegan:
+            //[self startDragging:gestureRecognizer];
+            break;
+        case UIGestureRecognizerStateChanged:
+           // [self doDrag:gestureRecognizer];
+            break;
+        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateCancelled:
+        case UIGestureRecognizerStateFailed:
+           // [self stopDragging:gestureRecognizer];
+            break;
+        default:
+            break;
+    }
+}
+#pragma mark Helper methods for initialization
+
+- (void)setupSourceTableWithFrame:(CGRect)frame
+{
+    
+    [self.dropview addSubview:_firstdgtable];
+}
+
+- (void)setupDestinationTableWithFrame:(CGRect)frame
+{
+    
+    CGRect dropAreaFrame = frame;
+    dropAreaFrame.origin.y = kNavBarHeight;
+    dropAreaFrame.size.height -= kNavBarHeight;
+    
+    dropArea = [[UIView alloc] initWithFrame:CGRectMake(482, 30, 529, 271)];
+   // [dropArea setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f]];
+    [dropArea setBackgroundColor:[UIColor redColor]];
+    [self.dropview addSubview:dropArea];
+    
+    CGRect contentFrame = dropAreaFrame;
+    contentFrame.origin = CGPointMake(0, 0);
+    
+    UILabel* dropAreaLabel = [[UILabel alloc] initWithFrame:contentFrame];
+    dropAreaLabel.backgroundColor = [UIColor clearColor];
+    dropAreaLabel.font = [UIFont boldSystemFontOfSize:12];
+    dropAreaLabel.textAlignment = NSTextAlignmentCenter;
+    dropAreaLabel.textColor = [UIColor whiteColor];
+    // dropAreaLabel.text = @"Drop items here...";
+    [dropArea addSubview:dropAreaLabel];
+    
+    [dropArea addSubview:_secdgtable];
+    
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if ([alertView.message isEqualToString:@"Start date should be less than or equal to end date"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+            [dateFormat setDateFormat:@"MM/dd/YYYY"];
+            
+            _currentdatestring= [dateFormat stringFromDate:[NSDate date]];
+            
+            [_startdatebtn setTitle:_currentdatestring forState:UIControlStateNormal];
+            [_enddatebtn setTitle:_currentdatestring forState:UIControlStateNormal];
+            [self FillJRDetails];
+            
+        }
+    }
+
+
+}
 @end

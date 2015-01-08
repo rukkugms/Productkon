@@ -24,7 +24,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.0" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
-                        <navigationItem title="Labor Management" id="RhG-IR-C17">
+                        <navigationItem title="Labor Setup" id="RhG-IR-C17">
                             <barButtonItem key="rightBarButtonItem" style="plain" id="wCI-If-yqY">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Cjh-lf-H2J">
                                     <rect key="frame" x="474" y="-3" width="50" height="50"/>
