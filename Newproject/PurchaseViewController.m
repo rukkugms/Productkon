@@ -24,6 +24,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 /*
 #pragma mark - Navigation
 
@@ -33,5 +34,49 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark-Tableview
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    
+    // Return the number of sections.
+    return 1;
+    
+}
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+    // Return the number of rows in the section.
+    
+    return 1;
+    
+    
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"mycell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        
+            }
+    cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
+    
+ 
+    return cell;
+    
+    
+}
+
+#pragma mark - button Action
+- (IBAction)addbtn:(id)sender {
+}
+
+- (IBAction)deletbtn:(id)sender {
+}
+
+- (IBAction)clsebtn:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

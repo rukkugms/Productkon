@@ -8,10 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "LinkViewController.h"
+#import "PurchaseViewController.h"
+#import "PMjobsmdl.h"
 @interface PMJobsViewController : UIViewController{
     UIButton *button;
+    BOOL  recordResults;
+    NSInteger webtype;
 }
 
+@property (strong, nonatomic)PurchaseViewController *purchaseVCtrl;
+@property (strong, nonatomic)PMjobsmdl *jobmdl;
+@property (strong, nonatomic)NSMutableArray *jobarray;
+/* xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
 /*comment*/
 @property (strong, nonatomic) IBOutlet UIView *titleview;
 @property (strong, nonatomic) IBOutlet UITableView *jobtable;
@@ -42,6 +53,13 @@
 
 
 /*link view */
+@property (strong, nonatomic) IBOutlet UIView *linkview;
+@property (strong, nonatomic) IBOutlet UIButton *linkbtn;
+@property (strong, nonatomic) IBOutlet UIButton *updatebtnlbl;
+
+- (IBAction)updatebtn:(id)sender;
+- (IBAction)linkclsebtn:(id)sender;
+
 
 
 @end

@@ -10,4 +10,11 @@
 
 @interface PurchaseViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITableView *purchsetable;
+@property (strong, nonatomic) IBOutlet UIView *titleview;
+
+- (IBAction)addbtn:(id)sender;
+- (IBAction)deletbtn:(id)sender;
+- (IBAction)clsebtn:(id)sender;
+
 @end
