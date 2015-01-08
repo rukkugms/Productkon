@@ -538,7 +538,7 @@
 - (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date {
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
-    [dateFormat setDateFormat:@"MM/dd/YYYY"];
+    [dateFormat setDateFormat:@"MM/dd/yyyy"];
     
     NSString *dateString = [dateFormat stringFromDate:date];
     [_dateBtn setTitle:dateString forState:UIControlStateNormal];

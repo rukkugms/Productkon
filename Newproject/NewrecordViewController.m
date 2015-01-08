@@ -2576,8 +2576,8 @@ recordResults
         
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
-    [dateFormat setDateFormat:@"MM/dd/YYYY"];
-    
+    [dateFormat setDateFormat:@"MM/dd/yyyy"];
+        startdate=date;
     NSString *dateString = [dateFormat stringFromDate:date];
     [_startdatebtnlbl setTitle:dateString forState:UIControlStateNormal];
     
@@ -2586,8 +2586,8 @@ recordResults
         
         
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
-        [dateFormat setDateFormat:@"MM/dd/YYYY"];
-        
+        [dateFormat setDateFormat:@"MM/dd/yyyy"];
+        enddate=date;
         NSString *dateString = [dateFormat stringFromDate:date];
         [_enddatebtnlbl setTitle:dateString forState:UIControlStateNormal];
     }
@@ -2595,7 +2595,7 @@ recordResults
         
         
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
-        [dateFormat setDateFormat:@"MM/dd/YYYY"];
+        [dateFormat setDateFormat:@"MM/dd/yyyy"];
         
         NSString *dateString = [dateFormat stringFromDate:date];
         [_datebtnlbl setTitle:dateString forState:UIControlStateNormal];
@@ -2604,8 +2604,8 @@ recordResults
         
         
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
-        [dateFormat setDateFormat:@"MM/dd/YYYY"];
-        
+        [dateFormat setDateFormat:@"MM/dd/yyyy"];
+        startdate=date;
         NSString *dateString = [dateFormat stringFromDate:date];
         [_wethrfrmdatebtnlbl setTitle:dateString forState:UIControlStateNormal];
     }
@@ -2614,8 +2614,8 @@ recordResults
         
         
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
-        [dateFormat setDateFormat:@"MM/dd/YYYY"];
-        
+        [dateFormat setDateFormat:@"MM/dd/yyyy"];
+        enddate=date;
         NSString *dateString = [dateFormat stringFromDate:date];
         [_wethrendbtnlbl setTitle:dateString forState:UIControlStateNormal];
     }
@@ -2623,7 +2623,7 @@ recordResults
         
         
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
-        [dateFormat setDateFormat:@"MM/dd/YYYY"];
+        [dateFormat setDateFormat:@"MM/dd/yyyy"];
         
         NSString *dateString = [dateFormat stringFromDate:date];
         [_notedatebtnlbl setTitle:dateString forState:UIControlStateNormal];
@@ -2898,7 +2898,7 @@ recordResults
 
 - (IBAction)wrkupdtebtn:(id)sender {
     _reloadtype=5;
-    if ([_startdatebtnlbl.titleLabel.text  compare:_enddatebtnlbl.titleLabel.text] == NSOrderedDescending){
+    if ([startdate  compare:enddate] == NSOrderedDescending){
         
         
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"From date should be less than or equal to end date" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -3006,7 +3006,7 @@ recordResults
 
 - (IBAction)wethrupdatebtn:(id)sender {
     _reloadtype=8;
-    if ([_wethrfrmdatebtnlbl.titleLabel.text  compare:_wethrendbtnlbl.titleLabel.text] == NSOrderedDescending){
+    if ([startdate  compare:enddate] == NSOrderedDescending){
         
         
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Weather from date should be less than or equal to Weather to date" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
