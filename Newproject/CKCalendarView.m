@@ -445,6 +445,7 @@
 }
 
 - (void)dateButtonPressed:(id)sender {
+    
     DateButton *dateButton = sender;
     NSDate *date = dateButton.date;
     if (self.minimumDate && [date compare:self.minimumDate] == NSOrderedAscending) {
@@ -453,6 +454,7 @@
         return;
     } else {
         self.selectedDate = date;
+        NSLog(@"%@",self.selectedDate);
         [self.delegate calendar:self didSelectDate:self.selectedDate];
     }
 }

@@ -11,7 +11,7 @@
 #import "jobsitemodel.h"
 #import "Rightscheck.h"
 #import "BasicReqViewController.h"
-@interface PSitereqmntViewController : UIViewController{
+@interface PSitereqmntViewController : UIViewController<UIGestureRecognizerDelegate>{
     BOOL recordResults;
     UITableViewCell*    draggedCell;
     UIView*             dropArea;
