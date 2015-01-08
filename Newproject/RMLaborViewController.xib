@@ -26,6 +26,7 @@
             <subviews>
                 <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B4L-St-F07">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                    <color key="backgroundColor" red="0.0" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
                         <navigationItem title="Labor" id="Ibu-z7-Equ">
                             <barButtonItem key="rightBarButtonItem" style="plain" id="ezc-Rk-oqr">
@@ -229,6 +230,7 @@
                     <rect key="frame" x="564" y="76" width="69" height="30"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                     <state key="normal" title="Show">
+                        <color key="titleColor" red="0.27450980390000002" green="0.50980392159999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>

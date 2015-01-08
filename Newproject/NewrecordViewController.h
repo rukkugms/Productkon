@@ -31,6 +31,9 @@
     NSString*useridname;
     NSInteger drawtype,checkclick;
     
+    NSDate *startdate;
+    NSDate *enddate;
+    
   //  id <newrecordDelgate>Delegate;
 }
 @property(readwrite)NSInteger edittype;
