@@ -162,17 +162,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"JobNumber"])
-    {
-        
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"JobNumber"])
+        if([elementName isEqualToString:@"JobNumber"])
     {
         
         
@@ -204,6 +194,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"JobDescDetail"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
     if([elementName isEqualToString:@"JobStartDate"])
     {
@@ -215,6 +215,17 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"CustomerId"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"CustomerName"])
     {
         
@@ -225,6 +236,17 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"Unit"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"ContractAmount"])
     {
         
@@ -235,7 +257,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"ContractAmount"])
+    if([elementName isEqualToString:@"SelectedBidId"])
     {
         
         
@@ -246,6 +268,96 @@
         recordResults = TRUE;
     }
     
+    if([elementName isEqualToString:@"ContractNumber"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JobSkillName"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JobManHours"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JobEquipmentHours"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JobMaterialHours"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JobMan"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JobEquipment"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JobMaterial"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JobOTHER"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
 
 }
@@ -264,23 +376,50 @@
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-      if([elementName isEqualToString:@"JobNumber"])
+       if([elementName isEqualToString:@"Id"])
     {
-        _jobmdl=[[PMjobsmdl alloc]init];
+          _jobmdl=[[PMjobsmdl alloc]init];
+        
+         recordResults = FALSE;
+        _jobmdl.entryid=_soapResults;
+         _soapResults = nil;
+    }
+       if([elementName isEqualToString:@"JobNumber"])
+    {
+        
         
         recordResults = FALSE;
-        _jobmdl.jobnumber=_soapResults;
+        
         _soapResults = nil;
+
     }
-    if([elementName isEqualToString:@"JobSiteName"])
+    
+    
+    if([elementName isEqualToString:@"TrimmedJobNumber"])
     {
         
         
         recordResults = FALSE;
-        _jobmdl.jobsitename=_soapResults;
+        _soapResults = nil;
+
+    }
+    if([elementName isEqualToString:@"JobDescSummary"])
+    {
+        
+        
+        recordResults = FALSE;
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"StartDate"])
+    if([elementName isEqualToString:@"JobDescDetail"])
+    {
+        
+        
+        recordResults = FALSE;
+        _soapResults = nil;
+
+    }
+    
+    if([elementName isEqualToString:@"JobStartDate"])
     {
         
         
@@ -295,7 +434,17 @@
         NSString *myFormattedDate = [dateFormat stringFromDate:dates];
         _jobmdl.startdate=myFormattedDate;
         _soapResults = nil;
+
     }
+    if([elementName isEqualToString:@"CustomerId"])
+    {
+        
+        
+        recordResults = FALSE;
+        _soapResults = nil;
+
+    }
+    
     if([elementName isEqualToString:@"CustomerName"])
     {
         
@@ -303,15 +452,115 @@
         recordResults = FALSE;
         _jobmdl.customername=_soapResults;
         _soapResults = nil;
+
     }
+    if([elementName isEqualToString:@"Unit"])
+    {
+        
+        
+        recordResults = FALSE;
+        _soapResults = nil;
+
+    }
+    
     if([elementName isEqualToString:@"ContractAmount"])
     {
         
         
         recordResults = FALSE;
         _jobmdl.amount=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"SelectedBidId"])
+    {
+        
+        recordResults = FALSE;
+         _jobmdl.bidnumber=_soapResults;
+        _soapResults = nil;
+
+    }
+    
+    if([elementName isEqualToString:@"ContractNumber"])
+    {
+        
+        
+        recordResults = FALSE;
+         _jobmdl.contract=_soapResults;
+        _soapResults = nil;
+
+    }
+    if([elementName isEqualToString:@"JobSkillName"])
+    {
+        
+        
+        recordResults = FALSE;
+         _jobmdl.jobnumber=_soapResults;
+        _soapResults = nil;
+
+    }
+    if([elementName isEqualToString:@"JobManHours"])
+    {
+        
+        
+        recordResults = FALSE;
+         _jobmdl.manhr=_soapResults;
+        _soapResults = nil;
+
+    }
+    if([elementName isEqualToString:@"JobEquipmentHours"])
+    {
+        
+        
+        recordResults = FALSE;
+         _jobmdl.equhr=_soapResults;
+        _soapResults = nil;
+
+    }
+    if([elementName isEqualToString:@"JobMaterialHours"])
+    {
+        
+        
+        recordResults = FALSE;
+         _jobmdl.material=_soapResults;
+        _soapResults = nil;
+
+    }
+    if([elementName isEqualToString:@"JobMan"])
+    {
+        
+        
+        recordResults = FALSE;
+         _jobmdl.manpower=_soapResults;
+        _soapResults = nil;
+
+    }
+    if([elementName isEqualToString:@"JobEquipment"])
+    {
+        
+        
+        recordResults = FALSE;
+         _jobmdl.equipment=_soapResults;
+        _soapResults = nil;
+
+    }
+    if([elementName isEqualToString:@"JobMaterial"])
+    {
+        
+        
+        recordResults = FALSE;
+         _jobmdl.material=_soapResults;
+        _soapResults = nil;
+
+    }
+    if([elementName isEqualToString:@"JobOTHER"])
+    {
+        
+        
+        recordResults = FALSE;
+         _jobmdl.others=_soapResults;
         [_jobarray addObject:_jobmdl];
         _soapResults = nil;
+
     }
     }
 #pragma mark-Tableview
@@ -363,8 +612,12 @@
          
          PMjobsmdl *jobmdl1=(PMjobsmdl *)[_jobarray objectAtIndex:indexPath.row];
          _numbrcell=(UILabel *)[cell viewWithTag:1];
-         _numbrcell.text=[NSString stringWithFormat:@"%@-%@",jobmdl1.jobnumber,jobmdl1.jobsitename];
+         _numbrcell.text=jobmdl1.jobnumber;
          _bidlbl=(UILabel *)[cell viewWithTag:2];
+         _bidlbl.text=jobmdl1.bidnumber;
+         UITapGestureRecognizer *tapGesture =
+         [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap:)];
+         [_bidlbl addGestureRecognizer:tapGesture];
          _datelbl=(UILabel *)[cell viewWithTag:3];
          _datelbl.text=jobmdl1.startdate;
          _custmrlbl=(UILabel *)[cell viewWithTag:4];
@@ -374,7 +627,7 @@
          _Amtlbl=(UILabel *)[cell viewWithTag:6];
          _Amtlbl.text=jobmdl1.amount;
          _manhrlbl=(UILabel *)[cell viewWithTag:7];
-         _manhrlbl=jobmdl1.manhr;
+         _manhrlbl.text=jobmdl1.manhr;
          _eqhrlbl=(UILabel *)[cell viewWithTag:8];
          _eqhrlbl.text=jobmdl1.equhr;
          _manpwrlbl=(UILabel *)[cell viewWithTag:9];
@@ -422,6 +675,24 @@
     
     
 }
+-(void)labelTap:(UITapGestureRecognizer *)sender{
+    
+    CGPoint location = [sender locationInView:self.view];
+    CGPoint locationInTableview = [self.jobtable convertPoint:location fromView:self.view];
+    NSIndexPath *indexPath = [self.jobtable indexPathForRowAtPoint:locationInTableview];
+    
+    PMjobsmdl*job=(PMjobsmdl *)[_jobarray objectAtIndex:indexPath.row];
+    NSLog(@"textFieldIndexPath%d",indexPath.row);
+    _bidVCtrl=[[BidViewController alloc]initWithNibName:@"BidViewController" bundle:nil];
+    
+    _bidVCtrl.bidnumbr=job.bidnumber;
+    _bidVCtrl.frmplan=1;
+    [self presentViewController:_bidVCtrl animated:YES completion:nil];
+    
+    
+
+}
+
 #pragma mark - Button Action
 
 - (IBAction)clsebtn:(id)sender {

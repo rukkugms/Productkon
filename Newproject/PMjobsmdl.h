@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface PMjobsmdl : NSObject
+@property(strong,nonatomic) NSString *entryid;
 @property(strong,nonatomic) NSString *jobnumber;
 @property(strong,nonatomic) NSString *jobsitename;
 

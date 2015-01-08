@@ -10,6 +10,7 @@
 #import "LinkViewController.h"
 #import "PurchaseViewController.h"
 #import "PMjobsmdl.h"
+#import "BidViewController.h"
 @interface PMJobsViewController : UIViewController{
     UIButton *button;
     BOOL  recordResults;
@@ -18,6 +19,7 @@
 
 @property (strong, nonatomic)PurchaseViewController *purchaseVCtrl;
 @property (strong, nonatomic)PMjobsmdl *jobmdl;
+@property (strong, nonatomic)BidViewController *bidVCtrl;
 @property (strong, nonatomic)NSMutableArray *jobarray;
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
