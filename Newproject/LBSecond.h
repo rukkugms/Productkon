@@ -10,4 +10,15 @@
 
 @interface LBSecond : NSObject
 
+@property(strong,nonatomic)NSString *JREntryId;
+@property(strong,nonatomic)NSString *JRJobNumber;
+@property(strong,nonatomic)NSString *JRCempId;
+@property(strong,nonatomic)NSString *JRFromDate;
+@property(strong,nonatomic)NSString *JRToDate;
+@property(strong,nonatomic)NSString *JRReleased;
+@property(strong,nonatomic)NSString *JRCempFirstName;
+@property(strong,nonatomic)NSString *JRCempLastName;
+@property(strong,nonatomic)NSString *AssignDate;
+@property(strong,nonatomic)NSString *desname;
+
 @end

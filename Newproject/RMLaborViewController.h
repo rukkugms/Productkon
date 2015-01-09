@@ -40,6 +40,8 @@
 @property(nonatomic, strong) NSDateFormatter *dateFormatter;
 
 @property(strong,nonatomic)NSString *currentdatestring;
+@property(strong,nonatomic)NSString *craftitemcode;
+@property(strong,nonatomic)NSString *craft;
 
 //IBActions
 - (IBAction)clsebtn:(id)sender;
@@ -48,6 +50,7 @@
 - (IBAction)SelectEnddate:(id)sender;
 - (IBAction)SelectCraft:(id)sender;
 - (IBAction)Showdata:(id)sender;
+- (IBAction)releaseaction:(id)sender;
 
 //IBOutlets
 @property (strong, nonatomic) IBOutlet UIButton *jobbtn;
@@ -94,6 +97,8 @@
 @property(strong,nonatomic)NSMutableArray *secdgarray;
 @property(strong,nonatomic)NSMutableArray *craftlistarray;
 @property(strong,nonatomic)NSMutableArray *mainlistarray;
+
+@property(strong,nonatomic)NSMutableDictionary *craftlistdict;
 
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
