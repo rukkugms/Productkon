@@ -14,13 +14,15 @@
 @interface PMJobsViewController : UIViewController{
     UIButton *button;
     BOOL  recordResults;
-    NSInteger webtype;
+    NSInteger poptype,btnindex;
+    NSString *newstrg;
 }
 
 @property (strong, nonatomic)PurchaseViewController *purchaseVCtrl;
 @property (strong, nonatomic)PMjobsmdl *jobmdl;
 @property (strong, nonatomic)BidViewController *bidVCtrl;
 @property (strong, nonatomic)NSMutableArray *jobarray;
+@property (strong, nonatomic)NSMutableDictionary *linkdict;
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
@@ -53,6 +55,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *disclsurbtnlbl;
 - (IBAction)disclurebtn:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UINavigationItem *navtitle;
 
 /*link view */
 @property (strong, nonatomic) IBOutlet UIView *linkview;
@@ -61,6 +64,7 @@
 
 - (IBAction)updatebtn:(id)sender;
 - (IBAction)linkclsebtn:(id)sender;
+- (IBAction)linkpopbtn:(id)sender;
 
 
 

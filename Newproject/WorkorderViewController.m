@@ -34,4 +34,13 @@
 }
 */
 
+- (IBAction)clsebtn:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)addbtn:(id)sender {
+}
+
+- (IBAction)deletebtn:(id)sender {
+}
 @end

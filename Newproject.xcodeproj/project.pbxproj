@@ -294,6 +294,9 @@
 		D42505CB19A46830001D16A2 /* SecurityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42505C919A46830001D16A2 /* SecurityViewController.xib */; };
 		D42505D519A4A5A8001D16A2 /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = D42505D419A4A5A8001D16A2 /* lock.png */; };
 		D429C5F01952DD6100CE73A6 /* Siteinexcptncell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D429C5EF1952DD6000CE73A6 /* Siteinexcptncell.xib */; };
+		D42C5EA11A5F9E630050EB02 /* Workordercell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42C5EA01A5F9E620050EB02 /* Workordercell.xib */; };
+		D42C5EA41A5F9F790050EB02 /* Purchsemdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D42C5EA31A5F9F790050EB02 /* Purchsemdl.m */; };
+		D42C5EA71A5F9FA30050EB02 /* Workordrmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D42C5EA61A5F9FA30050EB02 /* Workordrmdl.m */; };
 		D42D8C0718D2D8AC009D8085 /* folderrightsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42D8C0418D2D8AC009D8085 /* folderrightsViewController.m */; };
 		D42D8C0818D2D8AC009D8085 /* folderrightsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42D8C0518D2D8AC009D8085 /* folderrightsViewController.xib */; };
 		D42D8C0918D2D8AC009D8085 /* custonfldrrigtscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42D8C0618D2D8AC009D8085 /* custonfldrrigtscell.xib */; };
@@ -313,6 +316,7 @@
 		D42D8C4018D2E442009D8085 /* ServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42D8C3F18D2E442009D8085 /* ServiceViewController.m */; };
 		D42D8C4218D2E450009D8085 /* ServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42D8C4118D2E450009D8085 /* ServiceViewController.xib */; };
 		D42E73DE1907E26300F7C99A /* Metgenmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D42E73DD1907E26300F7C99A /* Metgenmdl.m */; };
+		D43984E41A5E874F00E1BC30 /* Purchasecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43984E31A5E874F00E1BC30 /* Purchasecell.xib */; };
 		D4399EBC186D7BB100A693F7 /* search-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4399EBB186D7BB000A693F7 /* search-button@2x.png */; };
 		D4399EBE186D7BBF00A693F7 /* search-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D4399EBD186D7BBF00A693F7 /* search-button.png */; };
 		D43A395D18C993B00099EF7B /* NVerificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43A395C18C993B00099EF7B /* NVerificationViewController.xib */; };
@@ -1048,6 +1052,11 @@
 		D42505C919A46830001D16A2 /* SecurityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecurityViewController.xib; sourceTree = "<group>"; };
 		D42505D419A4A5A8001D16A2 /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
 		D429C5EF1952DD6000CE73A6 /* Siteinexcptncell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Siteinexcptncell.xib; sourceTree = "<group>"; };
+		D42C5EA01A5F9E620050EB02 /* Workordercell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Workordercell.xib; sourceTree = "<group>"; };
+		D42C5EA21A5F9F790050EB02 /* Purchsemdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Purchsemdl.h; sourceTree = "<group>"; };
+		D42C5EA31A5F9F790050EB02 /* Purchsemdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Purchsemdl.m; sourceTree = "<group>"; };
+		D42C5EA51A5F9FA30050EB02 /* Workordrmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workordrmdl.h; sourceTree = "<group>"; };
+		D42C5EA61A5F9FA30050EB02 /* Workordrmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Workordrmdl.m; sourceTree = "<group>"; };
 		D42D8C0318D2D8AC009D8085 /* folderrightsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = folderrightsViewController.h; sourceTree = "<group>"; };
 		D42D8C0418D2D8AC009D8085 /* folderrightsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = folderrightsViewController.m; sourceTree = "<group>"; };
 		D42D8C0518D2D8AC009D8085 /* folderrightsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = folderrightsViewController.xib; sourceTree = "<group>"; };
@@ -1074,6 +1083,7 @@
 		D42D8C4118D2E450009D8085 /* ServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceViewController.xib; sourceTree = "<group>"; };
 		D42E73DC1907E26300F7C99A /* Metgenmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metgenmdl.h; sourceTree = "<group>"; };
 		D42E73DD1907E26300F7C99A /* Metgenmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Metgenmdl.m; sourceTree = "<group>"; };
+		D43984E31A5E874F00E1BC30 /* Purchasecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Purchasecell.xib; sourceTree = "<group>"; };
 		D4399EBB186D7BB000A693F7 /* search-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-button@2x.png"; sourceTree = "<group>"; };
 		D4399EBD186D7BBF00A693F7 /* search-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-button.png"; sourceTree = "<group>"; };
 		D43A395C18C993B00099EF7B /* NVerificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NVerificationViewController.xib; sourceTree = "<group>"; };
@@ -1872,9 +1882,11 @@
 				D44ECC6B1A5D3E8E00B3082A /* PurchaseViewController.h */,
 				D44ECC6C1A5D3E8E00B3082A /* PurchaseViewController.m */,
 				D44ECC6D1A5D3E8E00B3082A /* PurchaseViewController.xib */,
+				D43984E31A5E874F00E1BC30 /* Purchasecell.xib */,
 				D44ECC701A5D3EA300B3082A /* WorkorderViewController.h */,
 				D44ECC711A5D3EA300B3082A /* WorkorderViewController.m */,
 				D44ECC721A5D3EA300B3082A /* WorkorderViewController.xib */,
+				D42C5EA01A5F9E620050EB02 /* Workordercell.xib */,
 				D41499B6194576D5001E9146 /* EqothersViewController.h */,
 				D41499B7194576D5001E9146 /* EqothersViewController.m */,
 				D41499B8194576D5001E9146 /* EqothersViewController.xib */,
@@ -2505,6 +2517,10 @@
 				64C0AD1E1A5D41D500B31F52 /* LbrFirst.m */,
 				64C0AD201A5D41F600B31F52 /* LBSecond.h */,
 				64C0AD211A5D41F600B31F52 /* LBSecond.m */,
+				D42C5EA21A5F9F790050EB02 /* Purchsemdl.h */,
+				D42C5EA31A5F9F790050EB02 /* Purchsemdl.m */,
+				D42C5EA51A5F9FA30050EB02 /* Workordrmdl.h */,
+				D42C5EA61A5F9FA30050EB02 /* Workordrmdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -2808,6 +2824,7 @@
 				D42D8C1718D2D8FF009D8085 /* custombasicreqcell.xib in Resources */,
 				64C0ACFC1A5CF80E00B31F52 /* IssuesViewController.xib in Resources */,
 				D4A338E818F3EEEF00E53FAC /* markupcell.xib in Resources */,
+				D42C5EA11A5F9E630050EB02 /* Workordercell.xib in Resources */,
 				D4A16B511974EEA8002CA2A2 /* GeneralViewController.xib in Resources */,
 				64A3B81F18DFEEC90015887F /* customcommentforactivitycell.xib in Resources */,
 				64A4124A194080F1003EE113 /* estimate.png in Resources */,
@@ -2919,6 +2936,7 @@
 				D49F8A4D18EEBAD700413CAD /* Basewagecell.xib in Resources */,
 				642F93011872870E0059101A /* customjobcell.xib in Resources */,
 				649B1F8B18C9CE800081B1F1 /* SendEmployeeview.xib in Resources */,
+				D43984E41A5E874F00E1BC30 /* Purchasecell.xib in Resources */,
 				D42D8C3818D2E3E3009D8085 /* UsersViewController.xib in Resources */,
 				64C0AD091A5CF84400B31F52 /* Siteoutview.xib in Resources */,
 				D4A16B4B1974EEA8002CA2A2 /* Outlookrecordaddview.xib in Resources */,
@@ -3158,6 +3176,7 @@
 				64A2D0941962C9F000BACE76 /* Reviebidmdl.m in Sources */,
 				D4004074185B183600C38E12 /* EqpmViewController.m in Sources */,
 				D4A6749A19345F1B00D5A77E /* NSDate+DP.m in Sources */,
+				D42C5EA41A5F9F790050EB02 /* Purchsemdl.m in Sources */,
 				D49F876918EEA36B00413CAD /* Infomdl.m in Sources */,
 				D40720881772F38A0070629A /* SalesRepInfoViewController.m in Sources */,
 				D4A16B8A1974EEE0002CA2A2 /* BidViewController.m in Sources */,
@@ -3300,6 +3319,7 @@
 				D49F875918EEA36B00413CAD /* jobsitemodel.m in Sources */,
 				64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */,
 				64B07B671A00B46400304153 /* Fstmarkmdl.m in Sources */,
+				D42C5EA71A5F9FA30050EB02 /* Workordrmdl.m in Sources */,
 				D4A338D518F3EE8700E53FAC /* subheadermarkmodel.m in Sources */,
 				D4EBB9571A26E15C006A8795 /* GpFleetViewController.m in Sources */,
 				D4F0940019F22C6100C3B527 /* BezierInterpView.m in Sources */,
