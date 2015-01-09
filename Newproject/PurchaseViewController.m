@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
-    //self.linkview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    self.addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     // Do any additional setup after loading the view from its nib.
     _purchsetable.layer.borderWidth=3.0;
     _purchsetable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
@@ -66,8 +66,11 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
+        [[NSBundle mainBundle]loadNibNamed:@"Purchasecell" owner:self options:nil];
+        cell=_puchsecell;
+
             }
-    cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
+      cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
     
  
     return cell;
@@ -77,6 +80,9 @@
 
 #pragma mark - button Action
 - (IBAction)addbtn:(id)sender {
+    _addview.hidden=NO;
+    _navtitle.title=@"ADD";
+    
 }
 
 - (IBAction)deletbtn:(id)sender {
@@ -85,4 +91,17 @@
 - (IBAction)clsebtn:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+- (IBAction)editbtn:(id)sender {
+     _addview.hidden=NO;
+    _navtitle.title=@"EDIT";
+    
+}
+- (IBAction)updatebtn:(id)sender {
+}
+
+- (IBAction)addclose:(id)sender {
+    _addview.hidden=YES;
+
+}
+
 @end

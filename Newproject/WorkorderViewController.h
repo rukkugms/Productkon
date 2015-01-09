@@ -7,7 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Workordrmdl.h"
 
-@interface WorkorderViewController : UIViewController
+@interface WorkorderViewController : UIViewController{
+    
+}
+
+
+
+@property (strong, nonatomic) Workordrmdl *Workmdl;
+@property (strong, nonatomic) IBOutlet UIView *titleview;
+@property (strong, nonatomic) IBOutlet UITableView *worktable;
+
+
+- (IBAction)clsebtn:(id)sender;
+
+- (IBAction)addbtn:(id)sender;
+- (IBAction)deletebtn:(id)sender;
 
 @end

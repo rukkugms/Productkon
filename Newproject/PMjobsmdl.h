@@ -16,6 +16,7 @@
 @property(strong,nonatomic) NSString *bidnumber;
 @property(strong,nonatomic) NSString *startdate;
 @property(strong,nonatomic) NSString *customername;
+@property(strong,nonatomic) NSString *customerid;
 @property(strong,nonatomic) NSString *contract;
 @property(strong,nonatomic) NSString *amount;
 @property(strong,nonatomic) NSString *manhr;
