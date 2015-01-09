@@ -49,6 +49,7 @@
     UIPanGestureRecognizer* panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanning:)];
     panGesture.delegate=self;
     [self.dropview addGestureRecognizer:panGesture];
+    _craftbtn.userInteractionEnabled=NO;
 
     [self JobsSelect];
 }
@@ -244,6 +245,8 @@
 - (IBAction)SelectCraft:(id)sender {
     poptype=2;
      [self createpopover];
+    [self FillJobCraft];
+    
 }
 
 - (IBAction)Showdata:(id)sender {
@@ -257,10 +260,14 @@
     else{
             
             [self FillJRDetails];
+        [self FillEmployeesBasedonJobandDate];
             
         }
 
     
+}
+
+- (IBAction)releaseaction:(id)sender {
 }
 
 #pragma mark-Tableview
@@ -282,7 +289,7 @@
         return [_jobarray count];
         }else if(poptype==2)
         {
-            return 5;
+            return [_craftlistarray count];
         }
     
     }
@@ -291,12 +298,12 @@
         
     }
     if (tableView==_firstdgtable) {
-        //return [_firstdgarray count];
-         return 5;
+        return [_firstdgarray count];
+        
     }
     if (tableView==_secdgtable) {
-        //return [_secdgarray count];
-         return 5;
+        return [_secdgarray count];
+        
     }
     return YES;
     
@@ -333,7 +340,7 @@
         }
         else if(poptype==2)
         {
-            cell.textLabel.text=@"Craft";
+            cell.textLabel.text=[_craftlistarray objectAtIndex:indexPath.row];
         }
         
         
@@ -356,17 +363,24 @@
     
      else if (tableView==_firstdgtable)
      {
+          LbrFirst *first=(LbrFirst *)[_firstdgarray objectAtIndex:indexPath.row];
          _Firstnamelabel=(UILabel *)[cell viewWithTag:1];
+         _Firstnamelabel.text=first.EmpFirstName;
          _secnamelabel=(UILabel*)[cell viewWithTag:2];
+         _secnamelabel.text=first.EmpLastName;
      }
     
     else if (tableView==_secdgtable)
      {
-         
+         LBSecond *second=(LBSecond *)[_secdgarray objectAtIndex:indexPath.row];
          _flabel=(UILabel *)[cell viewWithTag:1];
+         _flabel.text=second.JRCempFirstName;
          _Llabel=(UILabel*)[cell viewWithTag:2];
+         _Llabel.text=second.JRCempLastName;
          _Dgcraftlabel=(UILabel*)[cell viewWithTag:3];
+         _Dgcraftlabel.text=second.desname;
          _assigndatelabel=(UILabel*)[cell viewWithTag:4];
+         _assigndatelabel.text=second.AssignDate;
      }
     
     
@@ -388,11 +402,16 @@
                 
                 [_jobbtn setTitle:[NSString stringWithFormat:@"%@-%@-%@",jobsmdl.jobname,jobsmdl.jobno,jobsmdl.skill]forState:UIControlStateNormal];
             jobsiteindexpath=indexPath.row;
+            _craftbtn.userInteractionEnabled=YES;
+            
             //[self FillJRDetails];
         }
         else if(poptype==2)
         {
             
+            [_craftbtn setTitle:[_craftlistarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+            _craft=[_craftlistarray objectAtIndex:indexPath.row];
+            [self FillEmployeesBasedonCraft];
         }
         
        
@@ -534,6 +553,196 @@
     
     
 }
+-(void)FillJobCraft{
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+    jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:jobsiteindexpath];
+
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<FillJobCraft xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "<jobsite>%@</jobsite>\n"
+                   "</FillJobCraft>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",jobsmdl.jobno];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/FillJobCraft" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)FillEmployeesBasedonCraft{
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+    jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:jobsiteindexpath];
+    NSString *craftcode=[_craftlistdict objectForKey:_craft];
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<FillEmployeesBasedonCraft xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "<CraftCode>%@</CraftCode>\n"
+                   "<Job>%@</Job>\n"
+                   "</FillEmployeesBasedonCraft>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",craftcode,jobsmdl.jobno];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/FillEmployeesBasedonCraft" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)FillEmployeesBasedonJobandDate{
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+    jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:jobsiteindexpath];
+    NSString *start;
+    NSString *end;
+    
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+    [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
+    NSDate *dates = [dateFormat1 dateFromString:_startdatebtn.titleLabel.text];
+    NSLog(@"s%@",dates);
+    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
+    [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
+    
+    NSString*    dateString = [dateFormat2 stringFromDate:dates];
+    start=dateString;
+    
+    
+    
+    NSDateFormatter *dateFormat3 = [[NSDateFormatter alloc] init];
+    [dateFormat3 setDateFormat:@"MM/dd/yyyy"];
+    NSDate *dat = [dateFormat3 dateFromString:_enddatebtn.titleLabel.text];
+    NSLog(@"s%@",dat);
+    NSDateFormatter *dateFormat4 = [[NSDateFormatter alloc]init];
+    [dateFormat4 setDateFormat: @"yyyy-MM-dd"];
+    
+    NSString*    dateString1 = [dateFormat4 stringFromDate:dat];
+    end=dateString1;
+
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<FillEmployeesBasedonJobandDate xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "<JobCode>%@</JobCode>\n"
+                   "<StrD>%@</StrD>\n"
+                   "<EnDD>%@</EnDD>\n"
+                   "</FillEmployeesBasedonJobandDate>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",jobsmdl.jobno,start,end];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/FillEmployeesBasedonJobandDate" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -575,6 +784,8 @@
     
     [_popovertableview reloadData];
     [_maintableview reloadData];
+    [_firstdgtable reloadData];
+    [_secdgtable reloadData];
     
 }
 
@@ -691,6 +902,214 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"FillJobCraftResponse"])
+    {
+        _craftlistarray=[[NSMutableArray alloc]init];
+        _craftlistdict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"ItemCode"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"craftname"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"FillEmployeesBasedonCraftResponse"])
+    {
+        _firstdgarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"EmpId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"EmpDOB"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"EmpJobDescID"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"EmpNoOfDependents"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"EmpFirstName"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"EmpLastName"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"EmpBasicPay"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"FillEmployeesBasedonJobandDateResponse"])
+    {
+        _secdgarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"JREntryId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JRJobNumber"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JRCempId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JRFromDate"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JRToDate"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JRReleased"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JRCempFirstName"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JRCempLastName"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"AssignDate"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"desname"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+
+
+
+
 
 
 
@@ -788,6 +1207,149 @@
         [_mainlistarray addObject:_mainmodel];
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"ItemCode"])
+    {
+       
+        recordResults = FALSE;
+        _craftitemcode=_soapResults;
+        _soapResults = nil;
+           }
+    if([elementName isEqualToString:@"craftname"])
+    {
+        
+        recordResults = FALSE;
+        [_craftlistarray addObject:[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+       [_craftlistdict setObject:_craftitemcode forKey:[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"EmpId"])
+    {
+        _firstmodel=[[LbrFirst alloc]init];
+        recordResults = FALSE;
+        _firstmodel.EmpId=_soapResults;
+        _soapResults = nil;
+        
+      
+    }
+    if([elementName isEqualToString:@"EmpDOB"])
+    {
+        recordResults = FALSE;
+        _firstmodel.EmpDOB=_soapResults;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"EmpJobDescID"])
+    {
+        
+        recordResults = FALSE;
+        _firstmodel.EmpJobDescID=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"EmpNoOfDependents"])
+    {
+        recordResults = FALSE;
+        _firstmodel.EmpNoOfDependents=_soapResults;
+        _soapResults = nil;
+           }
+    if([elementName isEqualToString:@"EmpFirstName"])
+    {  recordResults = FALSE;
+        _firstmodel.EmpFirstName=_soapResults;
+        _soapResults = nil;
+        
+          }
+    if([elementName isEqualToString:@"EmpLastName"])
+    {
+        recordResults = FALSE;
+        _firstmodel.EmpLastName=_soapResults;
+        _soapResults = nil;
+      
+    }
+    if([elementName isEqualToString:@"EmpBasicPay"])
+    {
+        recordResults = FALSE;
+        _firstmodel.EmpBasicPay=_soapResults;
+        _soapResults = nil;
+        [_firstdgarray addObject:_firstmodel];
+       
+    }
+    if([elementName isEqualToString:@"JREntryId"])
+    {
+        
+        _secmodel=[[LBSecond alloc]init];
+        recordResults = FALSE;
+        _secmodel.JREntryId=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"JRJobNumber"])
+    {
+        recordResults = FALSE;
+        _secmodel.JRJobNumber=_soapResults;
+        _soapResults = nil;
+           }
+    if([elementName isEqualToString:@"JRCempId"])
+    {
+        recordResults = FALSE;
+        _secmodel.JRCempId=_soapResults;
+        _soapResults = nil;
+
+           }
+    if([elementName isEqualToString:@"JRFromDate"])
+    {
+        recordResults = FALSE;
+        _secmodel.JRFromDate=_soapResults;
+        _soapResults = nil;
+
+            }
+    if([elementName isEqualToString:@"JRToDate"])
+    {
+        recordResults = FALSE;
+        _secmodel.JRToDate=_soapResults;
+        _soapResults = nil;
+
+      
+    }
+    if([elementName isEqualToString:@"JRReleased"])
+    {
+        
+        recordResults = FALSE;
+        _secmodel.JRReleased=_soapResults;
+        _soapResults = nil;
+
+    }
+    if([elementName isEqualToString:@"JRCempFirstName"])
+    {
+        recordResults = FALSE;
+        _secmodel.JRCempFirstName=_soapResults;
+        _soapResults = nil;
+
+       
+    }
+    if([elementName isEqualToString:@"JRCempLastName"])
+    {
+        recordResults = FALSE;
+        _secmodel.JRCempLastName=_soapResults;
+        _soapResults = nil;
+
+        
+    }
+    
+    if([elementName isEqualToString:@"AssignDate"])
+    { recordResults = FALSE;
+        _secmodel.AssignDate=_soapResults;
+        _soapResults = nil;
+
+           }
+    if([elementName isEqualToString:@"desname"])
+    {
+        recordResults = FALSE;
+        _secmodel.desname=_soapResults;
+        [_secdgarray addObject:_secmodel];
+        _soapResults = nil;
+
+            }
+
+    
+
 
 }
 
