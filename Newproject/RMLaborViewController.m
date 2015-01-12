@@ -206,6 +206,7 @@
         startdate=date;
         NSString *dateString = [dateFormat stringFromDate:date];
         [_startdatebtn setTitle:dateString forState:UIControlStateNormal];
+        [self.popovercontroller dismissPopoverAnimated:YES];
        // [self FillJRDetails];
     }
     if (calendertype==2) {
@@ -216,6 +217,7 @@
         enddate=date;
         NSString *dateString = [dateFormat stringFromDate:date];
         [_enddatebtn setTitle:dateString forState:UIControlStateNormal];
+        [self.popovercontroller dismissPopoverAnimated:YES];
         //[self FillJRDetails];
     }
 }
