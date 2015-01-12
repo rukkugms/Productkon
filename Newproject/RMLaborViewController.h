@@ -20,7 +20,9 @@
     NSInteger jobsiteindexpath;
     NSDate *startdate;
     NSDate *enddate;
-    
+    NSInteger dragpath;
+    UIButton *button;
+    NSInteger releaseindex;
     BOOL recordResults;
     
     UITableViewCell*    draggedCell;
