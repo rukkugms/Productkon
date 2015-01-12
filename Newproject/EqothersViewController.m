@@ -926,7 +926,7 @@
     if([elementName isEqualToString:@"EqItemName"])
     {
         recordResults = FALSE;
-        [_itemnamearray addObject:_soapResults];
+        [_itemnamearray addObject:[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
         _soapResults = nil;
         
     }
