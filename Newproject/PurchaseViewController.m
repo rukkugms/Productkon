@@ -742,12 +742,20 @@
         
         
         if (buttonIndex==0) {
-            _updatebtnlbl.enabled=YES;
-            //_addview.hidden=YES;
-           // _numbrtxtfld.text=@"";
-            //[_datetxtfld setTitle:@"Select" forState:UIControlStateNormal];
+            if (optnidnfr==1) {
+                _updatebtnlbl.enabled=YES;
+                //_addview.hidden=YES;
+                _numbrtxtfld.text=@"";
+                [_datetxtfld setTitle:@"Select" forState:UIControlStateNormal];
+            }
+            else
+            {
+                _updatebtnlbl.enabled=YES;
+                _addview.hidden=YES;
+                _numbrtxtfld.text=@"";
+                [_datetxtfld setTitle:@"Select" forState:UIControlStateNormal];
             
-            
+        }
         }
     }
     if ([alertView.message isEqualToString:@"Updated Successfully"]) {
