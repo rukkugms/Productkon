@@ -906,27 +906,32 @@
             
         
         NSInteger path=indexPath.row;
-        switch(path){
-                case 0:
-                
+            
+            
+            if (path==0) {
                 _linkview.hidden=NO;
                 _updatebtnlbl.enabled=YES;
                 [_linkbtn setTitle:@"Select" forState:UIControlStateNormal];
                 _navtitle.title=[NSString stringWithFormat:@"%@-Link Contract",jobmdl1.jobnumber];
-                break;
-            case 1:
+            }
+            else if (path==1) {
                 self.purchaseVCtrl=[[PurchaseViewController alloc]initWithNibName:@"PurchaseViewController" bundle:nil];
                 self.purchaseVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+                self.purchaseVCtrl.jobid=jobmdl1.entryid;
                 [self dismissViewControllerAnimated:YES completion:^{[self presentViewController:self.purchaseVCtrl animated:YES completion:nil];
                 }];
-               
-                
-                break;
 
-                
-                
-        }
-        }
+            }
+            else if (path==2) {
+                self.WorkVCtrl=[[WorkorderViewController alloc]initWithNibName:@"WorkorderViewController" bundle:nil];
+                self.WorkVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+                self.WorkVCtrl.jobid=jobmdl1.entryid;
+                [self dismissViewControllerAnimated:YES completion:^{[self presentViewController:self.WorkVCtrl animated:YES completion:nil];
+                }];
+               
+            }
+
+                }
         else{
             PMjobsmdl *jobmdl1=(PMjobsmdl *)[_jobarray objectAtIndex:btnindex];
             NSArray*array=[_linkdict allKeys];
@@ -941,6 +946,24 @@
     
     
 }
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    //alternating cell back ground color
+    if(tableView==_jobtable)
+    {
+        if (indexPath.row%2 == 0) {
+            [cell setBackgroundColor:[UIColor whiteColor]];
+            
+        }else
+        {
+            
+            //[cell setBackgroundColor:[UIColor colorWithRed:247.0/255.0f green:247.0/255.0f blue:247.0/255.0f alpha:1.0f]];
+            [cell setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f]];
+            
+            
+        }
+    }
+}
+
 -(void)labelTap:(UITapGestureRecognizer *)sender{
     
     CGPoint location = [sender locationInView:self.view];

@@ -11,13 +11,14 @@
 #import "PurchaseViewController.h"
 #import "PMjobsmdl.h"
 #import "BidViewController.h"
+#import "WorkorderViewController.h"
 @interface PMJobsViewController : UIViewController{
     UIButton *button;
     BOOL  recordResults;
     NSInteger poptype,btnindex;
     NSString *newstrg;
 }
-
+@property (strong, nonatomic)WorkorderViewController *WorkVCtrl;
 @property (strong, nonatomic)PurchaseViewController *purchaseVCtrl;
 @property (strong, nonatomic)PMjobsmdl *jobmdl;
 @property (strong, nonatomic)BidViewController *bidVCtrl;

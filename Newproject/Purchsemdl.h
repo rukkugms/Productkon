@@ -12,6 +12,6 @@
 
 @property (strong, nonatomic)NSString *entryid;
 @property (strong, nonatomic)NSString*number;
-@property (strong, nonatomic)NSString *date;
+@property (strong, nonatomic)NSString *purchasedate;
 
 @end
