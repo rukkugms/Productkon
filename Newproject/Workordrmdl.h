@@ -11,7 +11,8 @@
 @interface Workordrmdl : NSObject
 @property (strong, nonatomic)NSString *entryid;
 @property (strong, nonatomic)NSString*number;
-@property (strong, nonatomic)NSString *date;
+@property (strong, nonatomic)NSString *workdate;
+@property (strong, nonatomic)NSString *purchaseid;
 @property (strong, nonatomic)NSString *purchaseorder;
 
 @end
