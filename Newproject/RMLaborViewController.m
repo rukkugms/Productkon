@@ -268,6 +268,14 @@
 }
 
 - (IBAction)releaseaction:(id)sender {
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.secdgtable];
+    NSIndexPath *textFieldIndexPath = [self.secdgtable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    releaseindex=textFieldIndexPath.row;
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Do you want to release this employee?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    [alert show];
 }
 
 #pragma mark-Tableview
@@ -380,7 +388,16 @@
          _Dgcraftlabel=(UILabel*)[cell viewWithTag:3];
          _Dgcraftlabel.text=second.desname;
          _assigndatelabel=(UILabel*)[cell viewWithTag:4];
-         _assigndatelabel.text=second.AssignDate;
+         NSArray*ary=[second.AssignDate componentsSeparatedByString:@"T"];
+         NSString*news=[ary objectAtIndex:0];
+         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+         [dateFormat setDateFormat:@"yyyy-MM-dd"];
+         NSDate *dates = [dateFormat dateFromString:news];
+         [dateFormat setDateFormat:@"MM-dd-yyy"];
+         NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+         _assigndatelabel.text=myFormattedDate;
+
+        
      }
     
     
@@ -420,6 +437,25 @@
     
     
 }
+#pragma mark UITableViewDelegate methods
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    //alternating cell back ground color
+    if(tableView==_maintableview||tableView==_firstdgtable||tableView==_secdgtable)
+    {
+        if (indexPath.row%2 == 0) {
+            [cell setBackgroundColor:[UIColor whiteColor]];
+            
+        }else
+        {
+            
+            //[cell setBackgroundColor:[UIColor colorWithRed:247.0/255.0f green:247.0/255.0f blue:247.0/255.0f alpha:1.0f]];
+            [cell setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f]];
+            
+            
+        }
+    }
+}
+
 #pragma mark-Webservices
 
 -(void)JobsSelect{
@@ -722,6 +758,150 @@
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
     [theRequest addValue: @"http://ios.kontract360.com/FillEmployeesBasedonJobandDate" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
+-(void)InsertJobReferral{
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+    jobsitemodel *jobsmdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:jobsiteindexpath];
+    NSString *craftcode=[_craftlistdict objectForKey:_craft];
+    
+    
+    LbrFirst *first=(LbrFirst*)[_firstdgarray objectAtIndex:dragpath];
+    NSInteger empid=[first.EmpId integerValue];
+    
+    NSString *start;
+    NSString *end;
+    
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+    [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
+    NSDate *dates = [dateFormat1 dateFromString:_startdatebtn.titleLabel.text];
+    NSLog(@"s%@",dates);
+    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
+    [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
+    
+    NSString*    dateString = [dateFormat2 stringFromDate:dates];
+    start=dateString;
+    
+    
+    
+    NSDateFormatter *dateFormat3 = [[NSDateFormatter alloc] init];
+    [dateFormat3 setDateFormat:@"MM/dd/yyyy"];
+    NSDate *dat = [dateFormat3 dateFromString:_enddatebtn.titleLabel.text];
+    NSLog(@"s%@",dat);
+    NSDateFormatter *dateFormat4 = [[NSDateFormatter alloc]init];
+    [dateFormat4 setDateFormat: @"yyyy-MM-dd"];
+    
+    NSString*    dateString1 = [dateFormat4 stringFromDate:dat];
+    end=dateString1;
+    
+    
+
+
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<InsertJobReferral xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "<jobsite>%@</jobsite>\n"
+                   "<std>%@</std>\n"
+                   "<endd>%@</endd>\n"
+                   "<craftid>%@</craftid>\n"
+                   "<empid>%d</empid>\n"
+                   "</InsertJobReferral>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",jobsmdl.jobno,start,end,craftcode,empid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/InsertJobReferral" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)ReleaseJobRefferals{
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+    
+    LBSecond *second=(LBSecond *)[_secdgarray objectAtIndex:releaseindex];
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<ReleaseJobRefferals xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<entryid>%d</entryid>\n"
+                   
+                   "</ReleaseJobRefferals>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[second.JREntryId integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/ReleaseJobRefferals" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1105,7 +1285,27 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"InsertJobReferralResponse"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
 
+    if([elementName isEqualToString:@"records"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
 
 
 
@@ -1347,7 +1547,17 @@
         _soapResults = nil;
 
             }
-
+    if([elementName isEqualToString:@"records"])
+    { recordResults = FALSE;
+        if ([_soapResults isEqualToString:@"inserted"]) {
+            [self FillEmployeesBasedonJobandDate];
+        }
+        if ([_soapResults isEqualToString:@"Released"]) {
+            [self FillEmployeesBasedonJobandDate];
+        }
+        _soapResults = nil;
+        
+    }
     
 
 
@@ -1360,15 +1570,15 @@
 {
     switch ([gestureRecognizer state]) {
         case UIGestureRecognizerStateBegan:
-            //[self startDragging:gestureRecognizer];
+            [self startDragging:gestureRecognizer];
             break;
         case UIGestureRecognizerStateChanged:
-           // [self doDrag:gestureRecognizer];
+            [self doDrag:gestureRecognizer];
             break;
         case UIGestureRecognizerStateEnded:
         case UIGestureRecognizerStateCancelled:
         case UIGestureRecognizerStateFailed:
-           // [self stopDragging:gestureRecognizer];
+            [self stopDragging:gestureRecognizer];
             break;
         default:
             break;
@@ -1389,7 +1599,7 @@
     dropAreaFrame.origin.y = kNavBarHeight;
     dropAreaFrame.size.height -= kNavBarHeight;
     
-    dropArea = [[UIView alloc] initWithFrame:CGRectMake(482, 30, 529, 271)];
+    dropArea = [[UIView alloc] initWithFrame:CGRectMake(469, 30, 529, 271)];
    // [dropArea setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f]];
     [dropArea setBackgroundColor:[UIColor redColor]];
     [self.dropview addSubview:dropArea];
@@ -1408,6 +1618,191 @@
     [dropArea addSubview:_secdgtable];
     
 }
+
+- (void)initDraggedCellWithCell:(UITableViewCell*)cell AtPoint:(CGPoint)point
+{
+    NSIndexPath* indexPath = [_firstdgtable indexPathForRowAtPoint:point];
+    //UITableViewCell* cell = [_subtypetable cellForRowAtIndexPath:indexPath];
+    // get rid of old cell, if it wasn't disposed already
+    if(draggedCell != nil)
+    {
+        [draggedCell removeFromSuperview];
+        // [draggedCell release];
+        draggedCell = nil;
+    }
+    
+    CGRect frame = CGRectMake(point.x, point.y, cell.frame.size.width-5, cell.frame.size.height-10);
+    
+    draggedCell = [[UITableViewCell alloc] init];
+    draggedCell.selectionStyle = UITableViewCellSelectionStyleGray;
+    LbrFirst*first=(LbrFirst *)[_firstdgarray objectAtIndex:indexPath.row];
+    draggedCell.textLabel.text =first.EmpFirstName;
+    draggedCell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
+    
+    draggedCell.textLabel.textColor = cell.textLabel.textColor;
+    draggedCell.highlighted = YES;
+    draggedCell.frame = frame;
+    draggedCell.alpha = 0.8;
+    
+    [self.dropview addSubview:draggedCell];
+}
+
+
+
+#pragma mark Helper methods for dragging
+
+- (void)startDragging:(UIPanGestureRecognizer *)gestureRecognizer
+{
+    
+    
+    CGPoint pointInSrc = [gestureRecognizer locationInView:_firstdgtable];
+    CGPoint pointInDst = [gestureRecognizer locationInView:_secdgtable];
+    
+    if([_firstdgtable pointInside:pointInSrc withEvent:nil])
+    {
+        [self startDraggingFromSrcAtPoint:pointInSrc];
+        dragFromSource = YES;
+    }
+    else if([_secdgtable pointInside:pointInDst withEvent:nil])
+    {
+        //[self startDraggingFromDstAtPoint:pointInDst];
+        dragFromSource = NO;
+    }
+    
+}
+
+- (void)startDraggingFromSrcAtPoint:(CGPoint)point
+{
+    
+   
+        
+        NSIndexPath* indexPath = [_firstdgtable indexPathForRowAtPoint:point];
+        UITableViewCell* cell = [_firstdgtable cellForRowAtIndexPath:indexPath];
+        
+        if(cell != nil)
+        {
+            CGPoint origin = cell.frame.origin;
+            origin.x += _firstdgtable.frame.origin.x;
+            origin.y += _firstdgtable.frame.origin.y;
+            
+            [self initDraggedCellWithCell:cell AtPoint:origin];
+            cell.highlighted = NO;
+            
+            if(draggedData != nil)
+            {
+                //[draggedData release];
+                draggedData = nil;
+            }
+            
+            dragpath=indexPath.row;
+            
+            LbrFirst*first=(LbrFirst *)[_firstdgarray objectAtIndex:dragpath];
+            
+            draggedData = first.EmpFirstName;
+            // NSLog(@"%@",manmdl1.itemdescptn);
+        }
+    
+    
+}
+
+
+- (void)doDrag:(UIPanGestureRecognizer *)gestureRecognizer
+{
+    if(draggedCell != nil && draggedData != nil)
+    {
+        CGPoint translation = [gestureRecognizer translationInView:[draggedCell superview]];
+        [draggedCell setCenter:CGPointMake([draggedCell center].x + translation.x,
+                                           [draggedCell center].y + translation.y)];
+        [gestureRecognizer setTranslation:CGPointZero inView:[draggedCell superview]];
+    }
+}
+- (void)stopDragging:(UIPanGestureRecognizer *)gestureRecognizer
+{  // _existstring=@"";
+    if(draggedCell != nil && draggedData != nil)
+    {
+        
+        
+        
+        if([gestureRecognizer state] == UIGestureRecognizerStateEnded
+           && [dropArea pointInside:[gestureRecognizer locationInView:dropArea] withEvent:nil])
+        {
+            NSIndexPath* indexPath = [_secdgtable indexPathForRowAtPoint:[gestureRecognizer locationInView:_secdgtable]];
+            if(indexPath != nil)
+            {
+                LBSecond*second=(LBSecond *)[_secdgarray objectAtIndex:indexPath.row];
+                second.JRCempFirstName=draggedData;
+                
+                [_secdgarray addObject:second];
+                
+               
+                [_secdgtable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+                
+                    
+                    [self InsertJobReferral];
+                
+                
+            }
+            else
+            {
+                if ([_secdgarray count]==0) {
+                    LBSecond*sec=[[LBSecond alloc]init];
+                    sec.JRCempFirstName=draggedData;
+                    [_secdgarray addObject:sec];
+                    
+                }
+                else{
+                    LBSecond*sec=(LBSecond *)[_secdgarray objectAtIndex:indexPath.row];
+                    sec.JRCempFirstName=draggedData;
+                    
+                    [_secdgarray addObject:sec];
+                }
+                
+                    
+                    [self InsertJobReferral];
+                
+            }
+        }
+        else if(!dragFromSource && pathFromDstTable != nil)
+        {
+            // insert cell back where it came from
+            [_secdgarray insertObject:draggedData atIndex:pathFromDstTable.row];
+            [_secdgtable insertRowsAtIndexPaths:[NSArray arrayWithObject:pathFromDstTable] withRowAnimation:UITableViewRowAnimationMiddle];
+            
+           
+            pathFromDstTable = nil;
+        }
+//        if ([_existstring isEqualToString:@"Already Exists"]) {
+//            [draggedCell removeFromSuperview];
+//          
+//            draggedCell = nil;
+//            
+//           
+//            draggedData = nil;
+//        }
+//        else
+//        {
+            [UIView animateWithDuration:0.3 animations:^
+             {
+                 CGRect frame = _secdgtable.frame;
+                
+                 _secdgtable.frame = frame;
+             }];
+            
+            [draggedCell removeFromSuperview];
+          
+            draggedCell = nil;
+            
+           
+            draggedData = nil;
+        //}
+    }
+}
+
+
+
+
+
+
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     if ([alertView.message isEqualToString:@"Start date should be less than or equal to end date"]) {
@@ -1428,7 +1823,17 @@
             
         }
     }
-
+    if ([alertView.message isEqualToString:@"Do you want to release this employee?"]) {
+        
+        
+        
+        if (buttonIndex==1) {
+            [self ReleaseJobRefferals];
+            
+        }
+    
+    }
+   
 
 }
 @end

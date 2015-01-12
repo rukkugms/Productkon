@@ -34,6 +34,7 @@
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
     [dateFormat setDateFormat:@"MM/dd/YYYY"];
    _curntdate = [dateFormat stringFromDate:date];
+     _titleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     
 
    }
