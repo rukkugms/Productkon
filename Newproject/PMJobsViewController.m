@@ -1007,17 +1007,17 @@
 - (IBAction)disclurebtn:(id)sender {
     poptype=1;
     UIViewController* popoverContent = [[UIViewController alloc]init];
-    UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 132, 125)];
+    UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 132, 121)];
     // popoverView.backgroundColor = [UIColor whiteColor];
-    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 132, 125)];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 132, 121)];
     _popovertableview.delegate=(id)self;
     _popovertableview.dataSource=(id)self;
-    _popovertableview.rowHeight= 40;
+    _popovertableview.rowHeight= 41;
     //_popovertableview.separatorStyle=UITableViewCellSeparatorStyleNone;
     //_popovertableview.separatorColor=[UIColor blackColor];
     [popoverView addSubview:_popovertableview];
     popoverContent.view = popoverView;
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(132, 125);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(132, 121);
     
     button = (UIButton *)sender;
     UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
@@ -1029,7 +1029,7 @@
     
     //UITableView *table = (UITableView *)[cell superview];
     self.popovercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
-    self.popovercontroller.popoverContentSize=CGSizeMake(132.0f, 125.0f);
+    self.popovercontroller.popoverContentSize=CGSizeMake(132.0f, 121.0f);
     self.popovercontroller=_popovercontroller;
     [self.popovercontroller presentPopoverFromRect:_disclsurbtnlbl.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
 }
