@@ -13,6 +13,7 @@
 
 @interface WorkorderViewController : UIViewController{
      BOOL  recordResults;
+    NSInteger btnindex,webtype,optnidnfr;
     
 }
 @property (strong, nonatomic)Purchsemdl *purchsemdl;

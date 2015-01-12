@@ -200,7 +200,7 @@
                    
                    "<CreatePO xmlns=\"http://ios.kontract360.com/\">\n"
                    "<po>%@</po>\n"
-                   "<JobId>%d</JobId>\n"
+                   "<JobID>%d</JobID>\n"
                    "<PODate>%@</PODate>\n"
                    "</CreatePO>\n"
                    "</soap:Body>\n"
@@ -263,7 +263,7 @@
                    "<purchID>%d</purchID>\n"
                    "<po>%@</po>\n"
                    "<JobId>%d</JobId>\n"
-                   "<PODate>%@</PODate>\n"
+                   "<podate>%@</podate>\n"
                    "</UpdatePO>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",[pmdl.entryid integerValue],_numbrtxtfld.text,[_jobid integerValue],dateString];
@@ -522,17 +522,33 @@
     }
     if([elementName isEqualToString:@"records"])
     {
-      recordResults = FALSE;
-        if ([_soapResults isEqualToString:@"Inserted"]) {
+       recordResults = FALSE;
+             if ([_soapResults isEqualToString:@"Inserted"]) {
             
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Inserted Successfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
-            [self ShowPO];
+           
         }
+      else  if ([_soapResults isEqualToString:@"Updated"]) {
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Updated Successfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+          
+        }
+
+      else  if ([_soapResults isEqualToString:@"Purchase Order Deleted"]) {
+            
+           
+            
+        }
+
         else{
+            msgstring=_soapResults;
+
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+          [self ShowPO];
          _soapResults = nil;
     }
 
@@ -587,8 +603,10 @@
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (editingStyle==UITableViewCellEditingStyleDelete) {
+        
+         path=indexPath.row;
         [self DestroyPO];
-        path=indexPath.row;
+       
         
      
         [_purchsearray removeObject:indexPath];
@@ -719,6 +737,34 @@
             
         }
     }
+    if ([alertView.message isEqualToString:msgstring]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            _updatebtnlbl.enabled=YES;
+            //_addview.hidden=YES;
+           // _numbrtxtfld.text=@"";
+            //[_datetxtfld setTitle:@"Select" forState:UIControlStateNormal];
+            
+            
+        }
+    }
+    if ([alertView.message isEqualToString:@"Updated Successfully"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            _updatebtnlbl.enabled=YES;
+            _addview.hidden=YES;
+            // _numbrtxtfld.text=@"";
+            //[_datetxtfld setTitle:@"Select" forState:UIControlStateNormal];
+            
+            
+        }
+    }
+
+
 }
 
 
