@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
-    //self.addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    self.addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     // Do any additional setup after loading the view from its nib.
     _worktable.layer.borderWidth=3.0;
     _worktable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
@@ -172,6 +172,7 @@
 
 #pragma mark - Web Service
 -(void)ShowWO{
+    webtype=1;
     recordResults = FALSE;
     
     
@@ -222,6 +223,7 @@
     
 }
 -(void)ShowPO{
+    webtype=2;
     recordResults = FALSE;
     
     
@@ -272,67 +274,82 @@
     
 }
 
-//-(void)CreateWO{
-//    recordResults = FALSE;
-//    
-//    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
-//    [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
-//    NSDate *dates = [dateFormat1 dateFromString:_datetxtfld.titleLabel.text];
-//    NSLog(@"s%@",dates);
-//    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
-//    [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
-//    
-//    NSString*    dateString = [dateFormat2 stringFromDate:dates];
-//    
-//    
-//    NSString *soapMessage;
-//    
-//    
-//    soapMessage = [NSString stringWithFormat:
-//                   
-//                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-//                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
-//                   
-//                   
-//                   "<soap:Body>\n"
-//                   
-//                   "<CreateWO xmlns=\"http://ios.kontract360.com/\">\n"
-//                   "<po>%@</po>\n"
-//                   "<JobId>%d</JobId>\n"
-//                   "<PODate>%@</PODate>\n"
-//                   "</CreateWO>\n"
-//                   "</soap:Body>\n"
-//                   "</soap:Envelope>\n",_numbrtxtfld.text,[_jobid integerValue],dateString];
-//    NSLog(@"soapmsg%@",soapMessage);
-//    
-//    
-//    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
-//    //    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
-//    
-//    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
-//    
-//    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
-//    
-//    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-//    
-//    [theRequest addValue: @"http://ios.kontract360.com/CreateWO" forHTTPHeaderField:@"Soapaction"];
-//    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
-//    [theRequest setHTTPMethod:@"POST"];
-//    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    
-//    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-//    
-//    if( theConnection )
-//    {
-//        _webData = [NSMutableData data];
-//    }
-//    else
-//    {
-//        ////NSLog(@"theConnection is NULL");
-//    }
-//    
-//}
+-(void)CreateWO{
+    webtype=3;
+    recordResults = FALSE;
+    Purchsemdl *pmdl=(Purchsemdl *)[_purchasearray objectAtIndex:btnindex];
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+    [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
+    NSDate *dates = [dateFormat1 dateFromString:_datebtnlbl.titleLabel.text];
+    NSLog(@"s%@",dates);
+    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
+    [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
+     NSString*    dateString = [dateFormat2 stringFromDate:dates];
+    
+    
+    NSDateFormatter *dateFormat3 = [[NSDateFormatter alloc] init];
+    [dateFormat3 setDateFormat:@"MM/dd/yyyy"];
+    NSDate *dates1 = [dateFormat3 dateFromString:pmdl.purchasedate];
+    NSLog(@"s%@",dates);
+    NSDateFormatter *dateFormat4 = [[NSDateFormatter alloc]init];
+    [dateFormat4 setDateFormat: @"yyyy-MM-dd"];
+     NSString*    dateString1 = [dateFormat4 stringFromDate:dates1];
+
+    
+    
+   
+    
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<CreateWO xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<wo>%@</wo>\n"
+                   "<JobID>%d</JobID>\n"
+                   "<PODate>%@</PODate>\n"
+                   "<po>%d</po>\n"
+                   "<wodate>%@</wodate>\n"
+                   "</CreateWO>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_numbrtxtfld.text,[_jobid integerValue],dateString1,[pmdl.entryid integerValue],dateString];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    //    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/CreateWO" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -370,8 +387,15 @@
     //  NSLog(@"dictioanry is %@",dictionary);
     
     [_xmlParser parse];
-    [_worktable reloadData];
+    if (webtype==1||webtype==3) {
+         [_worktable reloadData];
+       // webtype=0;
+        
+    }
+    else if(webtype==2){
     [_popOverTableView reloadData];
+       // webtype=0;
+    }
     
     }
 #pragma mark-xml parser
@@ -422,7 +446,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"PurchaseId"])
+        if([elementName isEqualToString:@"PurchaseNumberWO"])
     {
         
         if(!_soapResults)
@@ -431,7 +455,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"PurchaseNumber"])
+    if([elementName isEqualToString:@"PurchaseIdWO"])
     {
         
         if(!_soapResults)
@@ -440,6 +464,8 @@
         }
         recordResults = TRUE;
     }
+
+
     if([elementName isEqualToString:@"ShowPOResponse"])
     {
         _purchasearray=[[NSMutableArray alloc]init];
@@ -485,6 +511,25 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"CreateWOResponse"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"records"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -543,21 +588,24 @@
         
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"PurchaseId"])
+        if([elementName isEqualToString:@"PurchaseIdWO"])
     {
         
         recordResults = FALSE;
         _Workmdl.purchaseid=_soapResults;
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"PurchaseNumber"])
+
+    if([elementName isEqualToString:@"PurchaseNumberWO"])
     {
         
         recordResults = FALSE;
         _Workmdl.purchaseorder=_soapResults;
+        
         [_Workarray addObject:_Workmdl];
         _soapResults = nil;
     }
+  
     if([elementName isEqualToString:@"PurchaseId"])
     {
         
@@ -596,6 +644,24 @@
         _purchsemdl.purchasedate=myFormattedDate;
         [_purchasearray addObject:_purchsemdl];
         _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"records"])
+    {
+        
+       recordResults = FALSE;
+        if ([_soapResults isEqualToString:@"inserted"]) {
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Inserted Successfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+           
+        }
+        else{
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        [self ShowWO];
+        _soapResults = nil;
+        
     }
 
     
@@ -649,7 +715,7 @@
         _datelbl=(UILabel *)[cell viewWithTag:2];
         _datelbl.text=wmdl.workdate;
         _polbl=(UILabel *)[cell viewWithTag:3];
-         _polbl.text=wmdl.workdate;
+         _polbl.text=wmdl.purchaseorder;
 
     }
     else{
@@ -679,9 +745,20 @@
         }
     }
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+  Purchsemdl *pmdl=(Purchsemdl *)[_purchasearray objectAtIndex:indexPath.row];
+    btnindex=indexPath.row;
 
+    if (tableView==_popOverTableView){
+        [_pobtnlbl setTitle:pmdl.number forState:UIControlStateNormal];
+        
+    }
+}
 
 - (IBAction)editbtnlbl:(id)sender {
+    optnidnfr=2;
+     _addview.hidden=NO;
 }
 
 - (IBAction)clsebtn:(id)sender {
@@ -689,6 +766,7 @@
 }
 
 - (IBAction)addbtn:(id)sender {
+    optnidnfr=1;
     _addview.hidden=NO;
 }
 
@@ -709,5 +787,51 @@
 }
 
 - (IBAction)updatebtn:(id)sender {
+    if ([_numbrtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if([_datebtnlbl.titleLabel.text isEqualToString:@"Select"]){
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Date is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if([_pobtnlbl.titleLabel.text isEqualToString:@"Select"]){
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Purchase Order is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else{
+        _updatebtnlbl.enabled=NO;
+        
+        if (optnidnfr==1) {
+           [self CreateWO];
+        }
+        else{
+           // [self UpdatePO];
+        }
+        
+    }
+
+   
 }
+#pragma mark - Alertview delegate
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    ////NSLog(@"buttonIndex%d",buttonIndex);
+    
+    if ([alertView.message isEqualToString:@"Inserted Successfully"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            _updatebtnlbl.enabled=YES;
+            //_addview.hidden=YES;
+            _numbrtxtfld.text=@"";
+            [_datebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+             [_pobtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+            
+            
+        }
+    }
+}
+
 @end

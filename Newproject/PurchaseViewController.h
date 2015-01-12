@@ -14,6 +14,7 @@
  BOOL  recordResults;
     UIButton *button;
     NSInteger btnindex,optnidnfr,path;
+    NSString *msgstring;
 
 
 
