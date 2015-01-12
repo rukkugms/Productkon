@@ -757,8 +757,8 @@
         if (buttonIndex==0) {
             _updatebtnlbl.enabled=YES;
             _addview.hidden=YES;
-            // _numbrtxtfld.text=@"";
-            //[_datetxtfld setTitle:@"Select" forState:UIControlStateNormal];
+             _numbrtxtfld.text=@"";
+            [_datetxtfld setTitle:@"Select" forState:UIControlStateNormal];
             
             
         }

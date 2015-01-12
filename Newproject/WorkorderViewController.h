@@ -13,7 +13,9 @@
 
 @interface WorkorderViewController : UIViewController{
      BOOL  recordResults;
-    NSInteger btnindex,webtype,optnidnfr;
+    NSInteger btnindex,webtype,optnidnfr,editpath,deletepath;
+    UIButton *button;
+    NSString*msgstrg;
     
 }
 @property (strong, nonatomic)Purchsemdl *purchsemdl;
