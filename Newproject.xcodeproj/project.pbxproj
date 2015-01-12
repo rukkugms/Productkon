@@ -290,6 +290,7 @@
 		D41B14ED195C2F1700DEED6E /* calendarimg.png in Resources */ = {isa = PBXBuildFile; fileRef = D41B14EC195C2F1700DEED6E /* calendarimg.png */; };
 		D41BAF3D1A2D925F00674DDB /* leadsnew.png in Resources */ = {isa = PBXBuildFile; fileRef = D41BAF3C1A2D925E00674DDB /* leadsnew.png */; };
 		D41BAF3F1A2D9B6F00674DDB /* work-entry.png in Resources */ = {isa = PBXBuildFile; fileRef = D41BAF3E1A2D9B6F00674DDB /* work-entry.png */; };
+		D423E2551A63C45000DAB75E /* Jobimage.png in Resources */ = {isa = PBXBuildFile; fileRef = D423E2541A63C45000DAB75E /* Jobimage.png */; };
 		D42505CA19A46830001D16A2 /* SecurityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42505C819A46830001D16A2 /* SecurityViewController.m */; };
 		D42505CB19A46830001D16A2 /* SecurityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42505C919A46830001D16A2 /* SecurityViewController.xib */; };
 		D42505D519A4A5A8001D16A2 /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = D42505D419A4A5A8001D16A2 /* lock.png */; };
@@ -1047,6 +1048,7 @@
 		D41B14EC195C2F1700DEED6E /* calendarimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendarimg.png; sourceTree = "<group>"; };
 		D41BAF3C1A2D925E00674DDB /* leadsnew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leadsnew.png; sourceTree = "<group>"; };
 		D41BAF3E1A2D9B6F00674DDB /* work-entry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "work-entry.png"; sourceTree = "<group>"; };
+		D423E2541A63C45000DAB75E /* Jobimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Jobimage.png; sourceTree = "<group>"; };
 		D42505C719A46830001D16A2 /* SecurityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityViewController.h; sourceTree = "<group>"; };
 		D42505C819A46830001D16A2 /* SecurityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityViewController.m; sourceTree = "<group>"; };
 		D42505C919A46830001D16A2 /* SecurityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecurityViewController.xib; sourceTree = "<group>"; };
@@ -2208,6 +2210,7 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D423E2541A63C45000DAB75E /* Jobimage.png */,
 				64CB04EF1A5BAB85005394D5 /* create-a-new-job.png */,
 				64C27A561A35987400B66C77 /* com.png */,
 				64C27A581A35995F00B66C77 /* rs.png */,
@@ -3098,6 +3101,7 @@
 				D4A16B8E1974EEE0002CA2A2 /* DisplayBidTableViewController.xib in Resources */,
 				D48B608117F941AE001A53C8 /* RadioButton-Unselected.png in Resources */,
 				D4A338E618F3EEEF00E53FAC /* DetailmarkupsectionViewController.xib in Resources */,
+				D423E2551A63C45000DAB75E /* Jobimage.png in Resources */,
 				D40A99CD18C5A9B5005384F9 /* EmplyhrmgntViewController.xib in Resources */,
 				D4109A1519DC1B8B008E9949 /* ICON_Biz_P_info-grey.png in Resources */,
 				D400405C185B178F00C38E12 /* DocmntViewController.xib in Resources */,
