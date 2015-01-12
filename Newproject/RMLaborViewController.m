@@ -250,7 +250,12 @@
 }
 
 - (IBAction)Showdata:(id)sender {
-    if ([startdate  compare:enddate] == NSOrderedDescending){
+    if ([_jobbtn.titleLabel.text isEqualToString:@"Select"]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Please select a jobsite" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+
+    }
+   else if ([startdate compare:enddate] == NSOrderedDescending){
         
         
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Start date should be less than or equal to end date" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -1555,6 +1560,11 @@
         if ([_soapResults isEqualToString:@"Released"]) {
             [self FillEmployeesBasedonJobandDate];
         }
+        if ([_soapResults isEqualToString:@"Employee already assigned to  some other jobs in some dates of this period"])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
         _soapResults = nil;
         
     }
@@ -1833,6 +1843,17 @@
         }
     
     }
+    if ([alertView.message isEqualToString:@"Employee already assigned to  some other jobs in some dates of this period"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            [self FillEmployeesBasedonJobandDate];
+            
+        }
+        
+    }
+    
    
 
 }
