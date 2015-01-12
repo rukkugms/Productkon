@@ -350,6 +350,125 @@
     }
     
 }
+-(void)UpdateWO{
+    webtype=3;
+     Workordrmdl *wmdl=(Workordrmdl *)[_Workarray objectAtIndex:editpath];
+    recordResults = FALSE;
+   // Purchsemdl *pmdl=(Purchsemdl *)[_purchasearray objectAtIndex:btnindex];
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+    [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
+    NSDate *dates = [dateFormat1 dateFromString:_datebtnlbl.titleLabel.text];
+    NSLog(@"s%@",dates);
+    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
+    [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
+    NSString*    dateString = [dateFormat2 stringFromDate:dates];
+    
+    
+  
+   NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UpdateWO xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<woid>%d</woid>\n"
+                   "<wo>%@</wo>\n"
+                   "<JobId>%d</JobId>\n"
+                   "<poid>%d</poid>\n"
+                   "<wodate>%@</wodate>\n"
+                   "</UpdateWO>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[wmdl.entryid integerValue],_numbrtxtfld.text,[_jobid integerValue],[wmdl.purchaseid integerValue],dateString];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    //    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UpdateWO" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)DestroyWO{
+    recordResults = FALSE;
+    
+    
+    Workordrmdl *wmdl=(Workordrmdl *)[_Workarray objectAtIndex:deletepath];
+
+    
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<DestroyWO xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<woid>%d</woid>\n"
+                   "</DestroyWO>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[wmdl.entryid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    //    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/DestroyWO" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -655,7 +774,21 @@
             [alert show];
            
         }
+       else if ([_soapResults isEqualToString:@"Work Order Updated"]) {
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Updated Successfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
+        }
+       else if ([_soapResults isEqualToString:@"Work Order Deleted"]) {
+           
+         
+           
+       }
+
+
         else{
+            msgstrg=_soapResults;
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
@@ -754,11 +887,40 @@
         [_pobtnlbl setTitle:pmdl.number forState:UIControlStateNormal];
         
     }
+    [self.popOverController dismissPopoverAnimated:YES];
+}
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle==UITableViewCellEditingStyleDelete) {
+        
+        deletepath=indexPath.row;
+        [self DestroyWO];
+        
+        
+        
+        [_Workarray removeObject:indexPath];
+        
+        
+        
+        
+        
+    }
+    
 }
 
 - (IBAction)editbtnlbl:(id)sender {
     optnidnfr=2;
      _addview.hidden=NO;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.worktable];
+    NSIndexPath *textFieldIndexPath = [self.worktable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    editpath=textFieldIndexPath.row;
+    Workordrmdl *wmdl=(Workordrmdl *)[_Workarray objectAtIndex:editpath];
+    _numbrtxtfld.text=wmdl.number;
+    [_datebtnlbl setTitle:wmdl.workdate forState:UIControlStateNormal];
+     [_pobtnlbl setTitle:wmdl.purchaseorder forState:UIControlStateNormal];
 }
 
 - (IBAction)clsebtn:(id)sender {
@@ -771,6 +933,25 @@
 }
 
 - (IBAction)deletebtn:(id)sender {
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+        [_worktable setEditing:NO animated:NO];
+        [_worktable reloadData];
+        
+        
+        
+    }
+    
+    else{
+        [super setEditing:YES animated:YES];
+        [_worktable setEditing:YES animated:YES];
+        [_worktable reloadData];
+        
+        
+        
+        
+    }
+
 }
 - (IBAction)datebtn:(id)sender {
     [self createCalenderPopover];
@@ -806,7 +987,7 @@
            [self CreateWO];
         }
         else{
-           // [self UpdatePO];
+            [self UpdateWO];
         }
         
     }
@@ -832,6 +1013,46 @@
             
         }
     }
+    if ([alertView.message isEqualToString:@"Updated Successfully"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            _updatebtnlbl.enabled=YES;
+            _addview.hidden=YES;
+            _numbrtxtfld.text=@"";
+            [_datebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+            [_pobtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+            
+            
+        }
+    }
+
+    if ([alertView.message isEqualToString:msgstrg]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            _updatebtnlbl.enabled=YES;
+            if (optnidnfr==1) {
+                _updatebtnlbl.enabled=YES;
+               // _addview.hidden=YES;
+                _numbrtxtfld.text=@"";
+                [_datebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+                [_pobtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+            }
+            else{
+                _updatebtnlbl.enabled=YES;
+                _addview.hidden=YES;
+                _numbrtxtfld.text=@"";
+                [_datebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+                [_pobtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+            }
+            
+            
+        }
+    }
+
 }
 
 @end
