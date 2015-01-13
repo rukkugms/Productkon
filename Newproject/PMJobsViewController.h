@@ -18,6 +18,11 @@
     NSInteger poptype,btnindex;
     NSString *newstrg;
 }
+
+@property (strong, nonatomic)NSString*searchstring;
+
+@property (strong, nonatomic) IBOutlet UISearchBar * SearchingBar;
+
 @property (strong, nonatomic)WorkorderViewController *WorkVCtrl;
 @property (strong, nonatomic)PurchaseViewController *purchaseVCtrl;
 @property (strong, nonatomic)PMjobsmdl *jobmdl;
