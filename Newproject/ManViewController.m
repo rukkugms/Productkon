@@ -2356,7 +2356,7 @@ if ([alertView.message isEqualToString:msgstrg]) {
           _updatebtn.enabled=YES;
         _addview.hidden=YES;
         _manpowerTable.userInteractionEnabled=YES;
-        //[self Selectallmanpower];
+        [self Selectallmanpower];
     }
     _itemcodetxtfld.text=@"";
     
