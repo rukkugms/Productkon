@@ -563,6 +563,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"Description"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -635,6 +645,10 @@
         if ([newtitile isEqualToString:@"Manpower"]||[newtitile isEqualToString:@"Equipment"]||[newtitile isEqualToString:@"Equipments"]||[newtitile isEqualToString:@"ManPower"]||[newtitile isEqualToString:@"Material"]||[newtitile isEqualToString:@"Third Party"]||[newtitile isEqualToString:@"Consumbles"]||[newtitile isEqualToString:@"Perdiem"]||[newtitile isEqualToString:@"Delivery"]||[newtitile isEqualToString:@"Miscell"]||[newtitile isEqualToString:@"Other"]||[newtitile isEqualToString:@"Travel"]||[newtitile isEqualToString:@"SmallTools"]||[newtitile isEqualToString:@"Small Tools"]||[newtitile isEqualToString:@"Materials"]) {
             //newtitile=@"Cost";
             newtitile=[NSString stringWithFormat:@"Cost $%@",_eventmdl.sum1];
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setInteger:2 forKey:@"Typeidntfr"];
+            [defaults synchronize];
+
             if ([previoustitle isEqualToString:@"Cost"]) {
                 
                 
@@ -670,7 +684,28 @@
         _soapresults = nil;
 
     }
-  
+    if([elementName isEqualToString:@"Description"])
+    {
+        
+        recordResults = FALSE;
+       
+//        if([_soapresults isEqualToString:@"PH"]){
+//            _Subcalendartype=1;
+//        }
+//        else if ([_soapresults isEqualToString:@"MP"]){
+//            
+//            _Subcalendartype=2;
+//        }
+//        else {
+//            
+//            _Subcalendartype=3;
+//        }
+       
+        
+        _soapresults = nil;
+        
+    }
+
 }
 
 @end

@@ -692,6 +692,18 @@
     [self createCalenderPopover];
 }
 - (IBAction)updatebtn:(id)sender {
+    Validation*val=[[Validation alloc]init];
+    
+        int value2=[val isNumeric:_numbrtxtfld.text];
+        if (value2==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+else{
+
+
     
     if ([_numbrtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -712,7 +724,8 @@
         }
       
           }
-    
+}
+
 }
 
 - (IBAction)addclose:(id)sender {
