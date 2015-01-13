@@ -35,6 +35,24 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self FillJobsModel];
+    
+    _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+    _SearchingBar.delegate = (id)self;
+    _SearchingBar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    
+    // _navitem.titleView.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    
+    
+    self.jobtable.tableHeaderView =_SearchingBar;
+    
+    UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_SearchingBar contentsController:self];
+    searchController.searchResultsDataSource = (id)self;
+    searchController.searchResultsDelegate =(id)self;
+    searchController.delegate = (id)self;
+    
+    
+    _SearchingBar.text=@"";
+
 }
 /*
 #pragma mark - Navigation
@@ -997,6 +1015,33 @@
             
           }
     }
+}
+#pragma mark-Searchbar
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+    _searchstring=_SearchingBar.text;
+    //NSLog(@"search%@",searchstring);
+  //  [self SearchEquipment];
+    [searchBar resignFirstResponder];
+    
+    
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    // [self Allmanpwrarry];
+    
+}
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    
+    if ([_SearchingBar.text length]==0) {
+        
+        [self FillJobsModel];
+        // [searchBar resignFirstResponder];
+        
+        
+    }
+    // [searchBar resignFirstResponder];
+    
+    
 }
 
 #pragma mark - Button Action
