@@ -44,6 +44,7 @@
 @property(strong,nonatomic)NSString *currentdatestring;
 @property(strong,nonatomic)NSString *craftitemcode;
 @property(strong,nonatomic)NSString *craft;
+@property(strong,nonatomic)NSString *existingstring;
 
 //IBActions
 - (IBAction)clsebtn:(id)sender;

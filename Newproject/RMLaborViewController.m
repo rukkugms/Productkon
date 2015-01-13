@@ -1543,6 +1543,7 @@
     if([elementName isEqualToString:@"AssignDate"])
     { recordResults = FALSE;
         _secmodel.AssignDate=_soapResults;
+        [_secdgarray addObject:_secmodel];
         _soapResults = nil;
 
            }
@@ -1550,7 +1551,7 @@
     {
         recordResults = FALSE;
         _secmodel.desname=_soapResults;
-        [_secdgarray addObject:_secmodel];
+        
         _soapResults = nil;
 
             }
@@ -1564,6 +1565,7 @@
         }
         if ([_soapResults isEqualToString:@"Employee already assigned to  some other jobs in some dates of this period"])
         {
+            _existingstring=_soapResults;
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
@@ -1737,7 +1739,7 @@
     }
 }
 - (void)stopDragging:(UIPanGestureRecognizer *)gestureRecognizer
-{  // _existstring=@"";
+{   _existingstring=@"";
     if(draggedCell != nil && draggedData != nil)
     {
         
@@ -1791,16 +1793,16 @@
            
             pathFromDstTable = nil;
         }
-//        if ([_existstring isEqualToString:@"Already Exists"]) {
-//            [draggedCell removeFromSuperview];
-//          
-//            draggedCell = nil;
-//            
-//           
-//            draggedData = nil;
-//        }
-//        else
-//        {
+        if ([_existingstring isEqualToString:@"Employee already assigned to  some other jobs in some dates of this period"]) {
+            [draggedCell removeFromSuperview];
+          
+            draggedCell = nil;
+            
+           
+            draggedData = nil;
+        }
+        else
+        {
             [UIView animateWithDuration:0.3 animations:^
              {
                  CGRect frame = _secdgtable.frame;
@@ -1814,7 +1816,7 @@
             
            
             draggedData = nil;
-        //}
+        }
     }
 }
 
