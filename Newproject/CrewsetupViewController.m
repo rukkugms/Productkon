@@ -524,7 +524,16 @@
         draggedCell = nil;
     }
     
-    CGRect frame = CGRectMake(point.x, point.y, cell.frame.size.width-5, cell.frame.size.height-10);
+   //CGRect frame = CGRectMake(20, 250, cell.frame.size.width-5, cell.frame.size.height-10);
+    CGRect frame;
+    if(point.y>=489){
+        
+         frame= CGRectMake(point.x, 250, cell.frame.size.width-5, cell.frame.size.height-10);
+    }
+    else{
+         frame = CGRectMake(point.x, point.y, cell.frame.size.width-5, cell.frame.size.height-10);
+    }
+    
     
     draggedCell = [[UITableViewCell alloc] init];
     draggedCell.selectionStyle = UITableViewCellSelectionStyleGray;
@@ -580,7 +589,8 @@
     {
         CGPoint origin = cell.frame.origin;
         origin.x += _manpwrtable.frame.origin.x;
-        origin.y += _manpwrtable.frame.origin.y;
+        origin.y += _manpwrtable.frame.origin.y-2;
+       // origin.y += 100;
         
         [self initDraggedCellWithCell:cell AtPoint:origin];
         cell.highlighted = NO;

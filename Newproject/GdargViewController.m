@@ -1633,8 +1633,16 @@
         // [draggedCell release];
         mandraggedCell = nil;
     }
-    
-    CGRect frame = CGRectMake(point.x, point.y, cell.frame.size.width-5, cell.frame.size.height-10);
+    CGRect frame;
+    if(point.y>=489){
+        
+        frame= CGRectMake(point.x, 250, cell.frame.size.width-5, cell.frame.size.height-10);
+    }
+    else{
+        frame = CGRectMake(point.x, point.y, cell.frame.size.width-5, cell.frame.size.height-10);
+    }
+
+   // CGRect frame = CGRectMake(point.x, point.y, cell.frame.size.width-5, cell.frame.size.height-10);
    
     mandraggedCell = [[UITableViewCell alloc] init];
     mandraggedCell.selectionStyle = UITableViewCellSelectionStyleGray;
@@ -1914,8 +1922,16 @@
         // [draggedCell release];
         materldraggedCell = nil;
     }
-    
-    CGRect frame = CGRectMake(point.x, point.y, cell.frame.size.width-5, cell.frame.size.height-10);
+    CGRect frame;
+    if(point.y>=489){
+        
+        frame= CGRectMake(point.x, 250, cell.frame.size.width-5, cell.frame.size.height-10);
+    }
+    else{
+        frame = CGRectMake(point.x, point.y, cell.frame.size.width-5, cell.frame.size.height-10);
+    }
+
+    //CGRect frame = CGRectMake(point.x, point.y, cell.frame.size.width-5, cell.frame.size.height-10);
     
     materldraggedCell = [[UITableViewCell alloc] init];
     materldraggedCell.selectionStyle = UITableViewCellSelectionStyleGray;
