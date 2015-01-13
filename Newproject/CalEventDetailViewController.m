@@ -55,6 +55,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    btnclick=1;
     _totallabel.text=@"";
     tooltype=1;
     _mantitleview.hidden=NO;
@@ -111,7 +112,8 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 - (IBAction)manpoweraction:(id)sender
-{
+{ btnclick=1;
+    _summarybtn.enabled=YES;
     tooltype=1;
      _totalarray=[[NSMutableArray alloc]init];
     _mantitleview.hidden=NO;
@@ -140,8 +142,9 @@
     }
 }
 - (IBAction)equipmentaction:(id)sender
-{
+{ btnclick=1;
     tooltype=2;
+    _summarybtn.enabled=YES;
      _view1.hidden=YES;
      _eqpmntbtn.tintColor=[UIColor whiteColor];
     _manpwrbtn.tintColor=[UIColor blackColor];
@@ -168,9 +171,10 @@ _eqreviewtitleview.hidden=YES;
    // [_calmanpwrtable reloadData];
 }
 - (IBAction)materialaction:(id)sender
-{
+{ btnclick=1;
     tooltype=3;
      _view1.hidden=YES;
+    _summarybtn.enabled=YES;
     _manpwrbtn.tintColor=[UIColor blackColor];
     _eqpmntbtn.tintColor=[UIColor blackColor];
      _summarybtn.tintColor=[UIColor blackColor];
@@ -201,6 +205,7 @@ _eqreviewtitleview.hidden=YES;
     _eqpmntbtn.tintColor=[UIColor blackColor];
      _materialbtn.tintColor=[UIColor blackColor];
      _summarybtn.tintColor=[UIColor whiteColor];
+   
     _totalarray=[[NSMutableArray alloc]init];
     _mantitleview.hidden=YES;
     _mattitleview.hidden=YES;
@@ -210,17 +215,42 @@ _eqreviewtitleview.hidden=YES;
     _sumtable.hidden=NO;
     _eqreviewtitleview.hidden=YES;
     if ([_estimationstring isEqualToString:@"Estimationreview"]) {
+        if (btnclick==1) {
+        
+    
         sum=0;
         _reviewsumarray=[[NSMutableArray alloc]init];
         _titlearray=[[NSMutableArray alloc]init];
+        
+        _totallabel.text=@"";
         [self SummaryManPowerSelect];
+         //_summarybtn.enabled=NO;
+        
+         _summarybtn.tintColor=[UIColor whiteColor];
        // [self SummaryEquipmentSelect];
         //[self SummaryMaterialSelect];
+        }
+        else{
+        
+        
+            
+            
+        }
+         btnclick++;
     }
     else
     {
+        
+        sum=0;
+        _totallabel.text=@"";
     [self  SummarySelect];
-    }
+          //_summarybtn.enabled=NO;
+         _summarybtn.tintColor=[UIColor whiteColor];
+         }
+    
+    
+    
+   
 }
 
 #pragma mark-tableview datasource
@@ -2032,7 +2062,7 @@ _eqreviewtitleview.hidden=YES;
 {
     
     if ([_estimationstring isEqualToString:@"Estimationreview"]) {
-        
+          _totalarray=[[NSMutableArray alloc]init];
         for (int i=0; i<[_reviewsumarray count]; i++) {
             
             [_totalarray addObject:[_reviewsumarray objectAtIndex:i]];
@@ -2052,16 +2082,25 @@ _eqreviewtitleview.hidden=YES;
         }
         
     }
-    else{
-        
-        
+    else
+    {
+         _totalarray=[[NSMutableArray alloc]init];
+       
         for (int i=0; i<[_summaryarray count]; i++) {
             NSArray*array=[[_summaryarray objectAtIndex:i] componentsSeparatedByString:@" "];
-            //NSString*newtitile=[array objectAtIndex:0];
+            NSString*newtitile=[array objectAtIndex:0];
             NSString*newtitiles=[array objectAtIndex:1];
-            
+            NSLog(@"%@",newtitiles);
+            if ([newtitile isEqualToString:@"Direct"]||[newtitile isEqualToString:@"Indirect"]) {
+                
+            }
+            else
+            {
+           
+                
             [_totalarray addObject:[newtitiles stringByReplacingOccurrencesOfString:@"$" withString:@""]];
             NSLog(@"%@",_totalarray);
+            }
             
             if (i==[_summaryarray count]-1) {
                 for ( int x=0; x<[_totalarray count]; x++)
@@ -2073,9 +2112,10 @@ _eqreviewtitleview.hidden=YES;
                 
                 
                 sum=0;
+            
+            
+            
             }
-            
-            
         }
     }
     
@@ -2083,7 +2123,7 @@ _eqreviewtitleview.hidden=YES;
 
 
 -(void)newcalcuations{
-    
+     _totalarray=[[NSMutableArray alloc]init];
     switch (tooltype) {
         case 1:
             for (int i=0; i<[_manpwrarray count]; i++) {

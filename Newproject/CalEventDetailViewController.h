@@ -20,6 +20,7 @@
      double eqsum;
     double matsum;
     BOOL recordResults;
+    NSInteger btnclick;
 }
 @property(strong,nonatomic)NSString *estimationnumber;
 @property(strong,nonatomic)NSString *selecteddate;
