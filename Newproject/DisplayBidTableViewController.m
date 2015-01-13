@@ -416,11 +416,11 @@ _quantityarray=[[NSMutableArray alloc]init];
             double A1=([manmdl.TotalST doubleValue])*([manmdl.TotalSTRate doubleValue]);
             double A2=([manmdl.TotalOT doubleValue])*([manmdl.TotalOTRate doubleValue]);
             double B=A1+A2;
-            double total=B*([manmdl.TotalQty doubleValue]);
-            NSLog(@"%.2f",total);
+            //double total=B*([manmdl.TotalQty doubleValue]);
+            NSLog(@"%.2f",B);
 
             //NSInteger x=[manmdl.TotalUnitCost integerValue]*[manmdl.TotalQty integerValue];
-            _Mtotlabel.text=[NSString stringWithFormat:@"$%.2f",total];
+            _Mtotlabel.text=[NSString stringWithFormat:@"$%.2f",B];
             _Mtypelabel=(UILabel *)[cell viewWithTag:10];
             _Mtypelabel.text=manmdl.BidMType;
 
@@ -2100,10 +2100,10 @@ _quantityarray=[[NSMutableArray alloc]init];
                 double A1=([manmdl.TotalST doubleValue])*([manmdl.TotalSTRate doubleValue]);
                 double A2=([manmdl.TotalOT doubleValue])*([manmdl.TotalOTRate doubleValue]);
                 double B=A1+A2;
-                double total=B*([manmdl.TotalQty doubleValue]);
-                NSLog(@"%.2f",total);
+               // double total=B*([manmdl.TotalQty doubleValue]);
+                NSLog(@"%.2f",B);
                 NSInteger qty=[manmdl.TotalQty integerValue];
-                [_totalarray addObject:[NSString stringWithFormat:@"%.2f",total]];
+                [_totalarray addObject:[NSString stringWithFormat:@"%.2f",B]];
                 [_quantityarray addObject:[NSString stringWithFormat:@"%d",qty]];
                 [_starray addObject:[NSString stringWithFormat:@"%d",[manmdl.TotalST integerValue]]];
                  [_otarray addObject:[NSString stringWithFormat:@"%d",[manmdl.TotalOT integerValue]]];
