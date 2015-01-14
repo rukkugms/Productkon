@@ -27,6 +27,9 @@
     
     [_startdatebtn setTitle:_currentdatestring forState:UIControlStateNormal];
     [_enddatebtn setTitle:_currentdatestring forState:UIControlStateNormal];
+    
+    startdate=[NSDate date];
+    enddate=[NSDate date];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -262,6 +265,9 @@
         
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Start date should be less than or equal to end date" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+       startdate=nil;
+       enddate=nil;
+       
     }
     
     else{
@@ -1841,6 +1847,8 @@
             
             [_startdatebtn setTitle:_currentdatestring forState:UIControlStateNormal];
             [_enddatebtn setTitle:_currentdatestring forState:UIControlStateNormal];
+            startdate=[NSDate date];
+            enddate=[NSDate date];
             [self FillJRDetails];
             
         }
