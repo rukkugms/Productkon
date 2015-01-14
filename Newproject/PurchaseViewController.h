@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Purchsemdl.h"
 #import "CKCalendarView.h"
+#import "Validation.h"
 @interface PurchaseViewController : UIViewController{
     
  BOOL  recordResults;
@@ -20,6 +21,7 @@
 
 
 }
+@property (strong, nonatomic)Validation*val;
 @property (strong, nonatomic)NSString *jobid;
 @property (strong, nonatomic)Purchsemdl *purchsemdl;
 @property (strong, nonatomic)NSMutableArray *purchsearray;

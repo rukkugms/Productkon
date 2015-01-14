@@ -480,7 +480,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<JobsSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<JobsSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    
                    "</JobsSelect>\n"
@@ -489,7 +489,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -497,7 +497,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/JobsSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/JobsSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -557,7 +557,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<FillJRDetails xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<FillJRDetails xmlns=\"http://ios.kontract360.com/\">\n"
                    "<EmpJobsite>%@</EmpJobsite>\n"
                    "<StartD>%@</StartD>\n"
                    "<EndD>%@</EndD>\n"
@@ -567,7 +567,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -575,7 +575,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/FillJRDetails" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/FillJRDetails" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -612,7 +612,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<FillJobCraft xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<FillJobCraft xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "<jobsite>%@</jobsite>\n"
                    "</FillJobCraft>\n"
@@ -621,7 +621,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -629,7 +629,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/FillJobCraft" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/FillJobCraft" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -666,7 +666,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<FillEmployeesBasedonCraft xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<FillEmployeesBasedonCraft xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "<CraftCode>%@</CraftCode>\n"
                    "<Job>%@</Job>\n"
@@ -676,7 +676,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -684,7 +684,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/FillEmployeesBasedonCraft" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/FillEmployeesBasedonCraft" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -745,7 +745,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<FillEmployeesBasedonJobandDate xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<FillEmployeesBasedonJobandDate xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "<JobCode>%@</JobCode>\n"
                    "<StrD>%@</StrD>\n"
@@ -756,7 +756,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -764,7 +764,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/FillEmployeesBasedonJobandDate" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/FillEmployeesBasedonJobandDate" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -834,7 +834,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<InsertJobReferral xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<InsertJobReferral xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "<jobsite>%@</jobsite>\n"
                    "<std>%@</std>\n"
@@ -847,7 +847,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -855,7 +855,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/InsertJobReferral" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/InsertJobReferral" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -891,7 +891,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ReleaseJobRefferals xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<ReleaseJobRefferals xmlns=\"http://ios.kontract360.com/\">\n"
                     "<entryid>%d</entryid>\n"
                    
                    "</ReleaseJobRefferals>\n"
@@ -900,7 +900,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -908,7 +908,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/ReleaseJobRefferals" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/ReleaseJobRefferals" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

@@ -10,6 +10,7 @@
 #import "Workordrmdl.h"
 #import "CKCalendarView.h"
 #import "Purchsemdl.h"
+#import "Validation.h"
 
 @interface WorkorderViewController : UIViewController{
      BOOL  recordResults;
@@ -18,6 +19,7 @@
     NSString*msgstrg;
     
 }
+@property (strong, nonatomic)Validation *val;
 @property (strong, nonatomic)Purchsemdl *purchsemdl;
 @property (strong, nonatomic)NSString *jobid;
 @property (strong, nonatomic)NSMutableArray*Workarray;

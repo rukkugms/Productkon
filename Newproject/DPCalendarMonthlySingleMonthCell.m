@@ -159,12 +159,32 @@
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSInteger calendartype = [defaults integerForKey:@"Estcal"];
+      
+//        NSUserDefaults *defaults1 = [NSUserDefaults standardUserDefaults];
+//        NSInteger subcalendartype = [defaults1 integerForKey:@"Typeidntfr"];
+
+
         
         NSDate *day = self.date;
-       _eventColors1=[[NSArray alloc]initWithObjects:[UIColor colorWithRed:0/255.f green:100/255.0f blue:0/255.0f alpha:1], [UIColor colorWithRed:255/255.0f green:255/255.0f blue:0 alpha:1],[UIColor colorWithRed:100/255.f green:0/255.0f blue:0/255.0f alpha:1], nil];
+       _eventColors1=[[NSArray alloc]initWithObjects:[UIColor cyanColor], [UIColor colorWithRed:46/255.0f green:139.0/255.0f blue:87/255.0f alpha:1.0f],[UIColor colorWithRed:255/255.0f green:155/255.0f blue:101/255.0f alpha:1], nil];
         UIColor *color;
         if (calendartype==1) {
-               color = [self.eventColors1 objectAtIndex:event.colorIndex % self.eventColors1.count];
+            color = [self.eventColors1 objectAtIndex:event.colorIndex % self.eventColors1.count];
+            
+//            switch(subcalendartype){
+//                    case 1:
+//                     color=[UIColor cyanColor];
+//                    break;
+//                case 2:
+//                    color=[UIColor colorWithRed:46/255.0f green:139.0/255.0f blue:87/255.0f alpha:1.0f];
+//                    break;
+//                case 3:
+//                    
+//                      color=[UIColor colorWithRed:255/255.0f green:155/255.0f blue:101/255.0f alpha:1];
+//                    break;
+//            }
+//            
+         
             
         }
         else{

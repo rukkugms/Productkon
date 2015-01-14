@@ -126,7 +126,7 @@ NSString *const DPCalendarViewDayCellIdentifier = @"DPCalendarViewDayCellIdentif
             self.cellHeight = (self.bounds.size.height - self.weekdayHeight) / rows;
         } else {
             self.cellHeight = [attributes objectForKey:DPCalendarMonthlyViewAttributeCellHeight] ? [[attributes objectForKey:DPCalendarMonthlyViewAttributeCellHeight] floatValue] : DPCalendarMonthlyViewAttributeCellHeightDefault;
-        }
+            }
         
         self.separatorColor = [attributes objectForKey:DPCalendarMonthlyViewAttributeSeparatorColor] ? [attributes objectForKey:DPCalendarMonthlyViewAttributeSeparatorColor] :[UIColor cyanColor];
         //[UIColor colorWithRed:194/255.0f green:194/255.0f blue:202/255.0f alpha:1];
@@ -199,6 +199,7 @@ NSString *const DPCalendarViewDayCellIdentifier = @"DPCalendarViewDayCellIdentif
 }
 
 -(void)setMonthlyViewBackgroundColor:(UIColor *)monthlyViewBackgroundColor {
+    
     _monthlyViewBackgroundColor = monthlyViewBackgroundColor;
     self.backgroundColor = _monthlyViewBackgroundColor;
 }
@@ -627,9 +628,10 @@ NSString *const DPCalendarViewDayCellIdentifier = @"DPCalendarViewDayCellIdentif
                                               forIndexPath:indexPath];
     //NSLog(@"indepath%d",indexPath.item);
     
-    cell.eventColors = self.eventColors;
+    
     cell.todayBannerBkgColor = self.todayBannerBkgColor;
     
+
     cell.dayFont = self.dayFont;
     cell.dayTextColor = self.dayTextColor;
     cell.eventFont= self.eventFont;
@@ -640,12 +642,23 @@ NSString *const DPCalendarViewDayCellIdentifier = @"DPCalendarViewDayCellIdentif
     cell.eventDrawingStyle = self.eventDrawingStyle;
     
     cell.noInSameMonthColor = self.notInSameMonthColor;
+    NSLog(@"%@",cell.noInSameMonthColor);
     cell.selectedColor = self.selectedColor;
     cell.highlightedColor = self.highlightedColor;
     
     cell.firstVisiableDateOfMonth = [self dateForCollectionView:collectionView IndexPath:[NSIndexPath indexPathForItem:self.daysInWeek inSection:0]];
     
     cell.isInSameMonth = [self collectionView:collectionView shouldEnableItemAtIndexPath:indexPath];
+     NSLog(@"%d",cell.isInSameMonth);
+//    if (cell.isInSameMonth==1) {
+//       cell.eventColors = self.eventColors1;
+//        
+//    }
+//    else{
+//        
+//         cell.eventColors = self.eventColors;
+//        
+//    }
     NSDate *date = [self dateForCollectionView:collectionView IndexPath:indexPath];
     [cell setDate:date calendar:self.calendar events:[self.eventsForEachDay objectForKey:date] iconEvents:[self.iconEventsForEachDay objectForKey:date]];
     

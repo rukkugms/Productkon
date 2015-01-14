@@ -21,6 +21,8 @@
 }
 @property(strong,nonatomic)Eventmdl*eventmdl;
 @property(readwrite)NSInteger calendartype;
+@property(readwrite)NSInteger Subcalendartype;
+
 @property(strong,nonatomic)CalEventDetailViewController * calctrl;
 @property(strong,nonatomic)NSDate*previousdate;
 /*xmlParser*/
