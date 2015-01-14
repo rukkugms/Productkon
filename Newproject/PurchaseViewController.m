@@ -641,6 +641,9 @@
     optnidnfr=1;
     _addview.hidden=NO;
     _navtitle.title=@"ADD";
+    _numbrtxtfld.text=@"";
+    [_datetxtfld setTitle:@"Select" forState:UIControlStateNormal];
+    
     
 }
 

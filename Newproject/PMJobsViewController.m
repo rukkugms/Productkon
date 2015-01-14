@@ -232,7 +232,7 @@
                    "<conid>%d</conid>\n"
                    "</UpdateContract>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[[_linkdict objectForKey:[link objectAtIndex:0] ]integerValue],[jobmdl1.customerid integerValue]];
+                   "</soap:Envelope>\n",[jobmdl1.entryid integerValue],[[_linkdict objectForKey:[link objectAtIndex:0] ]integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -805,6 +805,7 @@
             
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Updated Successfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            [self FillJobsModel];
         }
           _soapResults = nil;
         
