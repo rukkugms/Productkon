@@ -1519,6 +1519,7 @@
     _typebtnlbl.enabled=YES;
     _datetxtfld.enabled=YES;
     _timebtn.enabled=YES;
+    _datebtnlbl.enabled=YES;
     
     
 }

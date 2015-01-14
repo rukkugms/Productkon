@@ -2001,7 +2001,7 @@ _eqreviewtitleview.hidden=YES;
         recordResults = FALSE;
         
         _othrmdl.Qty=_soapresults;
-       // [_otherarray addObject:_othrmdl];
+        [_otherarray addObject:_othrmdl];
         _soapresults = nil;
         
     }
@@ -2010,7 +2010,7 @@ _eqreviewtitleview.hidden=YES;
         recordResults = FALSE;
         
         _othrmdl.otherphasename=_soapresults;
-        [_otherarray addObject:_othrmdl];
+        //[_otherarray addObject:_othrmdl];
         _soapresults = nil;
         
     }
