@@ -303,6 +303,7 @@ if (tableView==_estmntable) {
         if(indexPath.row==2)
         {
               _calendartype=2;
+                       
             self.mpVCtrl=[DPCalendarmnViewController new];
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setInteger:2 forKey:@"Estcal"];

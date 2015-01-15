@@ -156,7 +156,103 @@
     
     //Draw Events
     for (DPCalendarEvent *event in self.events) {
+        if (self.isSelected || self.isPreviousSelectedCell) {
+            
+            
+           
+        }
+        else if (!self.isInSameMonth) {
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            NSInteger calendartype = [defaults integerForKey:@"Estcal"];
+            
+           
+            NSDate *day = self.date;
+            _eventColors1=[[NSArray alloc]initWithObjects:[UIColor lightGrayColor], nil];
+            UIColor *color;
+            if (calendartype==1) {
+                color = [self.eventColors1 objectAtIndex:event.colorIndex % self.eventColors1.count];
+                
+                
+                
+            }
+            else{
+                color = [self.eventColors objectAtIndex:event.colorIndex % self.eventColors.count];
+                
+            }
+            
+            
+            
+            if (event.rowIndex > 3 || ((event.rowIndex + 2) * self.rowHeight  > rect.size.height)) {
+                eventsNotShowingCount++;
+                continue;
+            }
+            
+            
+            
+            
+            NSDate *tomorrow = [self.date dateByAddingYears:0 months:0 days:1];
+            BOOL isEventEndedToday = [event.endTime compare:tomorrow] == NSOrderedAscending;
+            BOOL isEventStartToday = !([event.startTime compare:day] == NSOrderedAscending) || ([event.startTime compare:day] == NSOrderedAscending && [self.date isEqualToDate:self.firstVisiableDateOfMonth]);
+            
+            float startPosition = isEventStartToday ? EVENT_START_MARGIN : 0;
+            float width = isEventStartToday ? (isEventEndedToday ? (size.width - EVENT_START_MARGIN - EVENT_END_MARGIN):(size.width - EVENT_START_MARGIN - pixel) ) : (isEventEndedToday ? (size.width-EVENT_END_MARGIN-pixel) : (size.width-pixel));
+            
+            if (self.eventDrawingStyle == DPCalendarMonthlyViewEventDrawingStyleBar) {
+                //Draw Bar
+                
+                
+                [self drawCellWithColor:[color colorWithAlphaComponent:1] InRect:CGRectMake(startPosition, event.rowIndex * self.rowHeight + ROW_NewMARGIN-35, width, self.rowHeight - ROW_MARGIN) context:context];
+                
+            } else {
+                //Draw Underline
+                // [self drawCellWithColor:color InRect:CGRectMake(startPosition, (event.rowIndex + 1) * self.rowHeight, width, 0.5f) context:context];
+            }
+            
+            if (isEventStartToday) {
+                //Draw Left line
+                //[self drawCellWithColor:color InRect:CGRectMake(EVENT_START_MARGIN, event.rowIndex * self.rowHeight + ROW_MARGIN, 2, self.rowHeight - ROW_MARGIN) context:context];
+                
+                
+                [event.title drawInRect:CGRectMake(startPosition + 2 +  EVENT_TITLE_MARGIN, event.rowIndex * self.rowHeight + ROW_NewMARGIN-35, rect.size.width - EVENT_END_MARGIN, self.rowHeight - ROW_MARGIN) withAttributes:@{NSFontAttributeName:self.eventFont, NSParagraphStyleAttributeName:textStyle, NSForegroundColorAttributeName:[UIColor blackColor]}];
+                
+                
+                //  NSLog(@"%f",startPosition + 2 +  EVENT_TITLE_MARGIN);
+                // NSLog(@"%f",event.rowIndex * self.rowHeight + ROW_MARGIN);
+                // NSLog(@"%f",rect.size.width - EVENT_END_MARGIN);
+                // NSLog(@"%f",self.rowHeight - ROW_MARGIN);
+                
+                
+                
+                
+                
+                
+                
+            }
+            if (eventsNotShowingCount > 0) {
+                //show more
+                //        [[NSString stringWithFormat:@"%d more...", eventsNotShowingCount] drawInRect:CGRectMake(5, (self.events.count - eventsNotShowingCount + 1) * self.rowHeight + 2, rect.size.width - 5, self.rowHeight - 2) withAttributes:@{NSFontAttributeName:self.eventFont, NSParagraphStyleAttributeName:textStyle, NSForegroundColorAttributeName:[UIColor colorWithRed:67/255.0f green:67/255.0f blue:67/255.0f alpha:1]}];
+                
+                [[NSString stringWithFormat:@"More....."] drawInRect:CGRectMake(8, (self.events.count - eventsNotShowingCount +1) * self.rowHeight + 30, rect.size.width - 5, self.rowHeight - 2) withAttributes:@{NSFontAttributeName:self.eventFont, NSParagraphStyleAttributeName:textStyle, NSForegroundColorAttributeName:[UIColor blackColor]}];
+                
+                
+                
+                // NSLog(@"%f",(self.events.count - eventsNotShowingCount + 1) * self.rowHeight + 2);
+                //  NSLog(@"%f",rect.size.width - 5);
+                // NSLog(@"%f",self.rowHeight - 2);
+                //NSLog(@"%f",self.rowHeight - ROW_MARGIN);
+                
+            }
+            
+            
+        }
+
+            
+              else {
+          
+       
+           
         
+
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSInteger calendartype = [defaults integerForKey:@"Estcal"];
       
@@ -228,14 +324,14 @@
           [event.title drawInRect:CGRectMake(startPosition + 2 +  EVENT_TITLE_MARGIN, event.rowIndex * self.rowHeight + ROW_NewMARGIN-35, rect.size.width - EVENT_END_MARGIN, self.rowHeight - ROW_MARGIN) withAttributes:@{NSFontAttributeName:self.eventFont, NSParagraphStyleAttributeName:textStyle, NSForegroundColorAttributeName:[UIColor blackColor]}];
             
             
-            NSLog(@"%f",startPosition + 2 +  EVENT_TITLE_MARGIN);
-            NSLog(@"%f",event.rowIndex * self.rowHeight + ROW_MARGIN);
-             NSLog(@"%f",rect.size.width - EVENT_END_MARGIN);
-              NSLog(@"%f",self.rowHeight - ROW_MARGIN);
+          //  NSLog(@"%f",startPosition + 2 +  EVENT_TITLE_MARGIN);
+           // NSLog(@"%f",event.rowIndex * self.rowHeight + ROW_MARGIN);
+            // NSLog(@"%f",rect.size.width - EVENT_END_MARGIN);
+             // NSLog(@"%f",self.rowHeight - ROW_MARGIN);
             
             
             
-                   }
+            
         
         
         
@@ -248,14 +344,20 @@
         
         
         
-        NSLog(@"%f",(self.events.count - eventsNotShowingCount + 1) * self.rowHeight + 2);
-        NSLog(@"%f",rect.size.width - 5);
-        NSLog(@"%f",self.rowHeight - 2);
+       // NSLog(@"%f",(self.events.count - eventsNotShowingCount + 1) * self.rowHeight + 2);
+      //  NSLog(@"%f",rect.size.width - 5);
+       // NSLog(@"%f",self.rowHeight - 2);
         //NSLog(@"%f",self.rowHeight - ROW_MARGIN);
         
 }
-
-
+    
+    
+             }
+        
+       
+    }
+    
+    
 
 }
 
