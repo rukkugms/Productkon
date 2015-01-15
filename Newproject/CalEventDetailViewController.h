@@ -19,6 +19,9 @@
      double sum;
      double eqsum;
     double matsum;
+    NSInteger qty;
+    NSInteger totalst;
+    NSInteger totalOT;
     BOOL recordResults;
     NSInteger btnclick;
 }
@@ -60,6 +63,9 @@
 @property(strong,nonatomic)NSMutableArray *datearray;
 @property(strong,nonatomic)NSMutableArray *reviewsumarray;
 @property(strong,nonatomic)NSMutableArray *titlearray;
+@property(strong,nonatomic)NSMutableArray *qtyarray;
+@property(strong,nonatomic)NSMutableArray *starray;
+@property(strong,nonatomic)NSMutableArray *otarray;
 
 @property(strong,nonatomic)NSMutableDictionary *titledict;
 @property(strong,nonatomic)NSString *datedictstring;
@@ -121,6 +127,10 @@
 
 @property(strong,nonatomic)IBOutlet UIView *view1;
 @property(strong,nonatomic)IBOutlet UIView *view2;
+
+@property (strong, nonatomic) IBOutlet UILabel *qtytotallabel;
+@property (strong, nonatomic) IBOutlet UILabel *sttotal;
+@property (strong, nonatomic) IBOutlet UILabel *OTtotal;
 
 
 
