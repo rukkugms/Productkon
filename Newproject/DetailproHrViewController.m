@@ -79,7 +79,11 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     _remontharray=[[NSMutableArray alloc]initWithObjects:@"01",@"02",@"03",@"04",@"05",@"06",@"07",@"08",@"09",@"10",@"11",@"12", nil];
     _remonthdict=[[NSMutableDictionary alloc]initWithObjects:_montharray forKeys:_remontharray];
 
-    
+    _previewimg.userInteractionEnabled = YES;
+    UITapGestureRecognizer *pgr = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self action:@selector(handlePinch:)];
+    pgr.delegate = (id)self;
+    [_previewimg addGestureRecognizer:pgr];
     
 
 }
@@ -1972,17 +1976,17 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
 
 -(IBAction)updatedoc:(id)sender{
     
-    if ([_documentnametextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Name is Required " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-    }
-    else if(imagechecker==0){
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Document is Required " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-
-    }
-    else{
-        
+//    if ([_documentnametextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+//        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Name is Required " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        [alert show];
+//    }
+//    else if(imagechecker==0){
+//        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Document is Required " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        [alert show];
+//
+//    }
+//    else{
+    
         //_uplddocbtnlbl.enabled=NO;
        UIImage *imagename =_previewimg.image;
       NSData *data = UIImagePNGRepresentation(imagename);
@@ -1992,7 +1996,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     
     [self UploadHRDocsImage];
         
-    }
+   // }
     
 }
 - (IBAction)DetailsBtnAction:(id)sender
