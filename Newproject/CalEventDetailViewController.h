@@ -131,7 +131,13 @@
 @property (strong, nonatomic) IBOutlet UILabel *qtytotallabel;
 @property (strong, nonatomic) IBOutlet UILabel *sttotal;
 @property (strong, nonatomic) IBOutlet UILabel *OTtotal;
+@property (strong, nonatomic) IBOutlet UIView *MPtotalview;
+@property (strong, nonatomic) IBOutlet UIView *Eqtotalview;
+@property (strong, nonatomic) IBOutlet UILabel *eqqtytotal;
+@property (strong, nonatomic) IBOutlet UILabel *eqhourstotal;
 
+@property (strong, nonatomic) IBOutlet UIView *othertotalview;
+@property (strong, nonatomic) IBOutlet UILabel *othertotal;
 
 
 
