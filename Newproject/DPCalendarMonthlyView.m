@@ -611,7 +611,7 @@ NSString *const DPCalendarViewDayCellIdentifier = @"DPCalendarViewDayCellIdentif
 #pragma mark UICollectionViewDataSource
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.item < self.daysInWeek) {
-        // NSLog(@"indepath%d",indexPath.item);
+        
         DPCalendarMonthlyWeekdayCell *cell =
         [collectionView dequeueReusableCellWithReuseIdentifier:DPCalendarViewWeekDayCellIdentifier
                                                   forIndexPath:indexPath];
@@ -626,8 +626,7 @@ NSString *const DPCalendarViewDayCellIdentifier = @"DPCalendarViewDayCellIdentif
     DPCalendarMonthlySingleMonthCell *cell =
     [collectionView dequeueReusableCellWithReuseIdentifier:DPCalendarViewDayCellIdentifier
                                               forIndexPath:indexPath];
-    //NSLog(@"indepath%d",indexPath.item);
-    
+       
     
     cell.todayBannerBkgColor = self.todayBannerBkgColor;
     
@@ -642,23 +641,14 @@ NSString *const DPCalendarViewDayCellIdentifier = @"DPCalendarViewDayCellIdentif
     cell.eventDrawingStyle = self.eventDrawingStyle;
     
     cell.noInSameMonthColor = self.notInSameMonthColor;
-    NSLog(@"%@",cell.noInSameMonthColor);
+   
     cell.selectedColor = self.selectedColor;
     cell.highlightedColor = self.highlightedColor;
     
     cell.firstVisiableDateOfMonth = [self dateForCollectionView:collectionView IndexPath:[NSIndexPath indexPathForItem:self.daysInWeek inSection:0]];
     
     cell.isInSameMonth = [self collectionView:collectionView shouldEnableItemAtIndexPath:indexPath];
-     NSLog(@"%d",cell.isInSameMonth);
-//    if (cell.isInSameMonth==1) {
-//       cell.eventColors = self.eventColors1;
-//        
-//    }
-//    else{
-//        
-//         cell.eventColors = self.eventColors;
-//        
-//    }
+   
     NSDate *date = [self dateForCollectionView:collectionView IndexPath:indexPath];
     [cell setDate:date calendar:self.calendar events:[self.eventsForEachDay objectForKey:date] iconEvents:[self.iconEventsForEachDay objectForKey:date]];
     
@@ -697,6 +687,7 @@ NSString *const DPCalendarViewDayCellIdentifier = @"DPCalendarViewDayCellIdentif
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedDate = [self dateForCollectionView:collectionView IndexPath:indexPath];
     if ([self.monthlyViewDelegate respondsToSelector:@selector(didSelectItemWithDate:)]) {
+        
         return [self.monthlyViewDelegate didSelectItemWithDate:self.selectedDate];
     }
 //    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:@"" message:[NSString stringWithFormat:@"%d",indexPath.item] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
