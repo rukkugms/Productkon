@@ -28,6 +28,9 @@
     [super viewDidLoad];
     
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    _MPtotalview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+     _Eqtotalview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+      _othertotalview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _mattitleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _mantitleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _matothertitleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
@@ -56,9 +59,15 @@
 {
     [super viewWillAppear:animated];
     btnclick=1;
+    _Eqtotalview.hidden=YES;
      _qtyarray=[[NSMutableArray alloc]init];
      _starray=[[NSMutableArray alloc]init];
+    _otarray=[[NSMutableArray alloc]init];
     _totallabel.text=@"";
+    _qtytotallabel.text=@"";
+    _othertotalview.hidden=YES;
+    _sttotal.text=@"";
+    _OTtotal.text=@"";
     tooltype=1;
     _mantitleview.hidden=NO;
     _mattitleview.hidden=YES;
@@ -115,8 +124,13 @@
 }
 - (IBAction)manpoweraction:(id)sender
 { btnclick=1;
+    //_qtytotallabel.text=@"";
+   // _sttotal.text=@"";
+   // _OTtotal.text=@"";
+     _Eqtotalview.hidden=YES;
      _qtyarray=[[NSMutableArray alloc]init];
      _starray=[[NSMutableArray alloc]init];
+    _otarray=[[NSMutableArray alloc]init];
     _summarybtn.enabled=YES;
     tooltype=1;
      _totalarray=[[NSMutableArray alloc]init];
@@ -126,13 +140,14 @@
     _summarytitleview.hidden=YES;
      _eqreviewtitleview.hidden=YES;
     _sumtable.hidden=YES;
+    _othertotalview.hidden=YES;
     //[_calmanpwrtable reloadData];
     _calmanpwrtable.hidden=NO;
      _manpwrbtn.tintColor=[UIColor whiteColor];
     _eqpmntbtn.tintColor=[UIColor blackColor];
      _materialbtn.tintColor=[UIColor blackColor];
     _summarybtn.tintColor=[UIColor blackColor];
-    
+    _MPtotalview.hidden=NO;
     if ([_estimationstring isEqualToString:@"Estimationreview"]) {
         [self EstimationManPowerReviewSelect];
          _view1.hidden=YES;
@@ -147,10 +162,17 @@
 }
 - (IBAction)equipmentaction:(id)sender
 { btnclick=1;
+   // _qtytotallabel.text=@"";
+   // _sttotal.text=@"";
+   // _OTtotal.text=@"";
+    _MPtotalview.hidden=YES;
+    _Eqtotalview.hidden=NO;
      _qtyarray=[[NSMutableArray alloc]init];
      _starray=[[NSMutableArray alloc]init];
+    _otarray=[[NSMutableArray alloc]init];
     tooltype=2;
     _summarybtn.enabled=YES;
+    _othertotalview.hidden=YES;
      _view1.hidden=YES;
      _eqpmntbtn.tintColor=[UIColor whiteColor];
     _manpwrbtn.tintColor=[UIColor blackColor];
@@ -178,8 +200,15 @@ _eqreviewtitleview.hidden=YES;
 }
 - (IBAction)materialaction:(id)sender
 { btnclick=1;
+    _MPtotalview.hidden=YES;
+    _Eqtotalview.hidden=YES;
+    //_qtytotallabel.text=@"";
+    //_sttotal.text=@"";
+    //_OTtotal.text=@"";
+    _othertotalview.hidden=NO;
      _qtyarray=[[NSMutableArray alloc]init];
      _starray=[[NSMutableArray alloc]init];
+    _otarray=[[NSMutableArray alloc]init];
     tooltype=3;
      _view1.hidden=YES;
     _summarybtn.enabled=YES;
@@ -207,8 +236,15 @@ _eqreviewtitleview.hidden=YES;
 }
 - (IBAction)summaryaction:(id)sender
 {
+    //_qtytotallabel.text=@"";
+    //_sttotal.text=@"";
+   // _OTtotal.text=@"";
+    _MPtotalview.hidden=YES;
+    _Eqtotalview.hidden=NO;
+    _othertotalview.hidden=YES;
      _qtyarray=[[NSMutableArray alloc]init];
      _starray=[[NSMutableArray alloc]init];
+    _otarray=[[NSMutableArray alloc]init];
     tooltype=4;
      _view1.hidden=YES;
     _manpwrbtn.tintColor=[UIColor blackColor];
@@ -416,7 +452,8 @@ _eqreviewtitleview.hidden=YES;
                     _manpdatelabel.text=[NSString stringWithFormat:@"%d",[manmdl.Qty integerValue]];
                     NSInteger totst=([manmdl.ST integerValue ]*[manmdl.Qty integerValue]);
                     _manqtylabel.text=[NSString stringWithFormat:@"%d",totst];
-                     _manstlabel.text=manmdl.OT;
+                     NSInteger totot=([manmdl.OT integerValue ]*[manmdl.Qty integerValue]);
+                     _manstlabel.text=[NSString stringWithFormat:@"%d",totot];
                     _manotlabel.text=[NSString stringWithFormat:@"$%@",manmdl.STrate];
                 _manstratelabel.text=[NSString stringWithFormat:@"$%@",manmdl.OTrate];
                     double A1=([manmdl.ST doubleValue])*([manmdl.STrate doubleValue]);
@@ -2135,6 +2172,10 @@ _eqreviewtitleview.hidden=YES;
 
 -(void)newcalcuations{
      _totalarray=[[NSMutableArray alloc]init];
+    _starray=[[NSMutableArray alloc]init];
+    _otarray=[[NSMutableArray alloc]init];
+    
+   _qtyarray=[[NSMutableArray alloc]init];
     switch (tooltype) {
         case 1:
             for (int i=0; i<[_manpwrarray count]; i++) {
@@ -2145,6 +2186,8 @@ _eqreviewtitleview.hidden=YES;
             double total=B*([manmdl.Qty doubleValue]);
             NSLog(@"%.2f",total);
             [_qtyarray addObject:[NSString stringWithFormat:@"%d",[manmdl.Qty integerValue]]];
+            [_starray addObject:[NSString stringWithFormat:@"%d",[manmdl.ST integerValue]*[manmdl.Qty integerValue]]];
+                 [_otarray addObject:[NSString stringWithFormat:@"%d",[manmdl.OT integerValue]*[manmdl.Qty integerValue]]];
            [_totalarray addObject:[NSString stringWithFormat:@"%.2f",total]];
             NSLog(@"%@",_totalarray);
             
@@ -2152,6 +2195,8 @@ _eqreviewtitleview.hidden=YES;
                 [self calculatesum];
                 sum=0;
                 qty=0;
+                totalst=0;
+                totalOT=0;
             }
             }
 
@@ -2161,11 +2206,15 @@ _eqreviewtitleview.hidden=YES;
              Eqeventmdl *eqmdl=(Eqeventmdl *)[_eqpmntarray objectAtIndex:i];
             double B1=([eqmdl.UnitCost doubleValue])*([eqmdl.Qty doubleValue])*([eqmdl.EqST doubleValue]);
             [_totalarray addObject:[NSString stringWithFormat:@"%.2f",B1]];
+            [_qtyarray addObject:[NSString stringWithFormat:@"%d",[eqmdl.Qty integerValue]]];
+            [_starray addObject:[NSString stringWithFormat:@"%d",[eqmdl.EqST integerValue]]];
             NSLog(@"%@",_totalarray);
             
             if (i==[_eqpmntarray count]-1) {
                 [self calculatesum];
                 sum=0;
+                qty=0;
+                totalst=0;
             
                 
             }
@@ -2178,6 +2227,8 @@ _eqreviewtitleview.hidden=YES;
                 OthereventMaodel *othmdl=(OthereventMaodel *)[_otherarray objectAtIndex:i];
                 double B1=([othmdl.UnitCost doubleValue])*([othmdl.Qty doubleValue]);
                 [_totalarray addObject:[NSString stringWithFormat:@"%.2f",B1]];
+                [_qtyarray addObject:[NSString stringWithFormat:@"%d",[othmdl.Qty integerValue]]];
+                
                 NSLog(@"%@",_totalarray);
                 
                 if (i==[_otherarray count]-1) {
@@ -2185,6 +2236,7 @@ _eqreviewtitleview.hidden=YES;
                     
                     [self calculatesum];
                     sum=0;
+                     qty=0;
                 }
                 
             }
@@ -2200,20 +2252,84 @@ _eqreviewtitleview.hidden=YES;
 -(void)calculateqty
 {
     int i;
+     if (tooltype==1)        {
     for (i=0; i<[_qtyarray count]; i++)
     {
         qty=([[_qtyarray objectAtIndex:i]integerValue])+qty;
         NSLog(@"%d",qty);
-        if (tooltype==1)        {
+       
             _qtytotallabel.text=[NSString stringWithFormat:@"%d",qty]  ;
-        }
-        else
+    }
+         [self calculatest];
+     }
+    
+      else if (tooltype==2)
         {
-            _qtytotallabel.text=[NSString stringWithFormat:@"%d",qty] ;
+            for (i=0; i<[_qtyarray count]; i++)
+            {
+                qty=([[_qtyarray objectAtIndex:i]integerValue])+qty;
+                NSLog(@"%d",qty);
+                
+                _eqqtytotal.text=[NSString stringWithFormat:@"%d",qty]  ;
+            }
+             [self calculatest];
+
+        }
+      else if (tooltype==3)
+      {
+          for (i=0; i<[_qtyarray count]; i++)
+          {
+              qty=([[_qtyarray objectAtIndex:i]integerValue])+qty;
+              NSLog(@"%d",qty);
+              
+              _othertotal.text=[NSString stringWithFormat:@"%d",qty]  ;
+          }
+ 
+      }
+    
+}
+-(void)calculatest
+{
+    int i;
+    if (tooltype==1)        {
+    for (i=0; i<[_starray count]; i++)
+    {
+        totalst=([[_starray objectAtIndex:i]integerValue])+totalst;
+        NSLog(@"%d",totalst);
+      
+        _sttotal.text=[NSString stringWithFormat:@"%d",totalst]  ;
+        
+    }
+    [self calculateot];
+   
+    }
+    else if (tooltype==2)
+    {
+        for (i=0; i<[_starray count]; i++)
+        {
+            totalst=([[_starray objectAtIndex:i]integerValue])+totalst;
+            NSLog(@"%d",totalst);
+            
+            _eqhourstotal.text=[NSString stringWithFormat:@"%d",totalst]  ;
+        }
+    }
+}
+
+-(void)calculateot
+{
+    int i;
+    for (i=0; i<[_otarray count]; i++)
+    {
+        totalOT=([[_otarray objectAtIndex:i]integerValue])+totalOT;
+        NSLog(@"%d",totalOT);
+        if (tooltype==1)        {
+        _OTtotal.text=[NSString stringWithFormat:@"%d",totalOT]  ;
         }
     }
     
 }
+
+
 
 #pragma mark - SearchBar
 
@@ -2222,6 +2338,7 @@ _eqreviewtitleview.hidden=YES;
     _searchstring=_searchbar.text;
      _qtyarray=[[NSMutableArray alloc]init];
      _starray=[[NSMutableArray alloc]init];
+    _otarray=[[NSMutableArray alloc]init];
     _totalarray=[[NSMutableArray alloc]init];
     if (tooltype==1) {
         [self ManPowerReviewSearch];
@@ -2244,6 +2361,7 @@ _eqreviewtitleview.hidden=YES;
     _totalarray=[[NSMutableArray alloc]init];
      _qtyarray=[[NSMutableArray alloc]init];
      _starray=[[NSMutableArray alloc]init];
+    _otarray=[[NSMutableArray alloc]init];
     if (tooltype==1) {
     [self EstimationManPowerReviewSelect];
     }
@@ -2261,6 +2379,7 @@ _eqreviewtitleview.hidden=YES;
     _totalarray=[[NSMutableArray alloc]init];
      _qtyarray=[[NSMutableArray alloc]init];
      _starray=[[NSMutableArray alloc]init];
+    _otarray=[[NSMutableArray alloc]init];
     if ([_searchbar.text length]==0) {
         if (tooltype==1) {
         [self EstimationManPowerReviewSelect];
