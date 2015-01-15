@@ -15,6 +15,10 @@
 @property(strong,nonatomic)NSString *totalamount;
 @property(strong,nonatomic)NSString *bidstatus;
 @property(strong,nonatomic)NSString *customername;
+@property(strong,nonatomic)NSString *mancost;
+@property(strong,nonatomic)NSString *matcost;
+@property(strong,nonatomic)NSString *eqcost;
+@property(strong,nonatomic)NSString *othercost;
 
 
 @end

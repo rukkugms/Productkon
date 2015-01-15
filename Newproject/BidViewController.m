@@ -154,7 +154,15 @@ self.openviewindex=NSNotFound;
     _statuslabel=(UILabel *)[cell viewWithTag:4];
     _statuslabel.text=bmdl.bidstatus;
 
-   
+        _mancostlabel=(UILabel *)[cell viewWithTag:4];
+      //  _mancostlabel.text=bmdl.mancost;
+        _eqcostlabel=(UILabel *)[cell viewWithTag:4];
+       // _eqcostlabel.text=bmdl.eqcost;
+        _matcostlabel=(UILabel *)[cell viewWithTag:4];
+        //_matcostlabel.text=bmdl.matcost;
+        _othercostlabel=(UILabel *)[cell viewWithTag:4];
+       // _othercostlabel.text=bmdl.othercost;
+
     
     }
     if (tableView==_popovertableview) {

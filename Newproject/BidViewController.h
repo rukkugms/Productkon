@@ -52,6 +52,10 @@
 @property(strong,nonatomic)IBOutlet UILabel *statuslabel;
 @property(strong,nonatomic)IBOutlet UILabel *amountlabel;
 @property(strong,nonatomic)IBOutlet UILabel *bididlabel;
+@property(strong,nonatomic)IBOutlet UILabel *mancostlabel;
+@property(strong,nonatomic)IBOutlet UILabel *eqcostlabel;
+@property(strong,nonatomic)IBOutlet UILabel *matcostlabel;
+@property(strong,nonatomic)IBOutlet UILabel *othercostlabel;
 @property (strong, nonatomic) IBOutlet UIButton *disclsebtn;
 -(IBAction)selectdisclosure:(id)sender;
 @property(strong,nonatomic)IBOutlet UITableView *popovertableview;
