@@ -80,6 +80,8 @@
     NSLog(@"Applicnt %d",_applicantid);
     _segmntbtn.selectedSegmentIndex=0;
     _segmntbtn.userInteractionEnabled=YES;
+    _activityview.hidden=NO;
+    [_activityview startAnimating];
     
 }
 - (void)didReceiveMemoryWarning
@@ -1126,7 +1128,7 @@ ssnclck++;
     [_popOverTableView reloadData];
     if (testint==1) {
         
-        [self FetchImage];
+     //   [self FetchImage];
        // [self selectrequirements];
         testint=3;
     }
@@ -1827,6 +1829,7 @@ ssnclck++;
     {
         recordResults = FALSE;
         _photostring=_soapResults;
+          [self FetchImage];
         _soapResults = nil;
         
     }
@@ -2201,7 +2204,17 @@ ssnclck++;
         
       
         UIImage *image1=[[UIImage alloc]initWithData:data1];
-                _profileimg.image=image1;
+        
+        //[NSData dataWithData:UIImagePNGRepresentation(image.image)];
+        CGSize newsize=CGSizeMake(192, 110);
+        UIGraphicsBeginImageContext(newsize);
+        [image1 drawInRect:CGRectMake(0,0,newsize.width,newsize.height)];
+        UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        _profileimg.image=newImage;
+        _activityview.hidden=YES;
+        [_activityview stopAnimating];
+
 
         _soapResults = nil;
     }

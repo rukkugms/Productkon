@@ -1022,13 +1022,14 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     }
     if (newwebtype==4) {
           [_detailstablview reloadData];
+       
     }
 
           if (newwebtype==2) {
        [_documentlisttable reloadData];
         newwebtype=0;
     }
-    
+     [_documentlisttable reloadData];
      //[_detailstablview reloadData];
   [_popOverTableView reloadData];
     
@@ -1424,9 +1425,17 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     {
         
         recordResults = FALSE;
-        UIAlertView *alertview=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        if([_soapResults isEqualToString:@"inserted"]){
+            
+        UIAlertView *alertview=[[UIAlertView alloc]initWithTitle:@"" message:@"Inserted Successfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alertview show];
-        _resultstring=_soapResults;
+        }
+        else{
+             _resultstring=_soapResults;
+            UIAlertView *alertview=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alertview show];
+        }
+       
         
         
         [self Applicantrequirementselect];
@@ -1976,18 +1985,18 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
 
 -(IBAction)updatedoc:(id)sender{
     
-//    if ([_documentnametextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
-//        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Name is Required " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//        [alert show];
-//    }
-//    else if(imagechecker==0){
-//        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Document is Required " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//        [alert show];
-//
-//    }
-//    else{
+    if ([_documentnametextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Name is Required " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if(imagechecker==0){
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Document is Required " delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+
+    }
+    else{
     
-        //_uplddocbtnlbl.enabled=NO;
+        _uplddocbtnlbl.enabled=NO;
        UIImage *imagename =_previewimg.image;
       NSData *data = UIImagePNGRepresentation(imagename);
     _encodedString = [data base64EncodedString];
@@ -1996,7 +2005,7 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     
     [self UploadHRDocsImage];
         
-   // }
+    }
     
 }
 - (IBAction)DetailsBtnAction:(id)sender
@@ -2065,7 +2074,11 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     _editview.hidden=YES;
 }
 -(IBAction)updaterequirement:(id)sender{
+    _updatereqbtnlbl.enabled=NO;
+    
     [self ApplicantReqirement2Update];
+    
+    
 }
 
 -(IBAction)cancelrequirement:(id)sender{
@@ -2112,12 +2125,13 @@ _revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray
     NSArray *newnamearry=[_docmntdict allKeys];
     urlstring=[_docmntdict objectForKey:[newnamearry objectAtIndex:textFieldIndexPath.row]];
 
+    NSString*newstrg=[urlstring stringByReplacingOccurrencesOfString:@"ios" withString:@"testUSA"];
 
    // if (!_webVCtrl) {
         self.webVCtrl=[[WebViewController alloc]initWithNibName:@"WebViewController" bundle:nil];
    // }
     _webVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
-    _webVCtrl.urlstring=urlstring;
+    _webVCtrl.urlstring=newstrg;
     [self presentViewController:_webVCtrl
                        animated:YES completion:NULL];
     
@@ -2355,7 +2369,7 @@ finishedSavingWithError:(NSError *)error
         
         if (buttonIndex==0) {
             
-            
+             _updatereqbtnlbl.enabled=YES;
             _documentnametextfld.text=@"";
             [_statuslbl  setTitle:@"Select" forState:UIControlStateNormal];
             [_vendrnamebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
@@ -2364,6 +2378,24 @@ finishedSavingWithError:(NSError *)error
             _editview.hidden=YES;
         }
     }
+    
+    if ([alertView.message isEqualToString:@"Inserted Successfully"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            _uplddocbtnlbl.enabled=YES;
+
+            _documentnametextfld.text=@"";
+           // [_statuslbl  setTitle:@"Select" forState:UIControlStateNormal];
+           // [_vendrnamebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+            //[_detalexpbtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+           // [_verfictnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            //_editview.hidden=YES;
+        }
+    }
+
 }
 
 

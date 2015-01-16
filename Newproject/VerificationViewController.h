@@ -185,6 +185,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *veryimgevw;
 @property (strong, nonatomic) IBOutlet UILabel *verifiedcmpldlbl;
 
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityview;
 
 
 @end
