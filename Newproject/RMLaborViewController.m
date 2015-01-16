@@ -431,8 +431,12 @@
         
                 
                 [_jobbtn setTitle:[NSString stringWithFormat:@"%@-%@-%@",jobsmdl.jobname,jobsmdl.jobno,jobsmdl.skill]forState:UIControlStateNormal];
+            
+            [_craftbtn setTitle:[NSString stringWithFormat:@"Select"]forState:UIControlStateNormal];
+           _craft=@"";
             jobsiteindexpath=indexPath.row;
             _craftbtn.userInteractionEnabled=YES;
+             [self FillEmployeesBasedonCraft];
             
             //[self FillJRDetails];
         }
@@ -1565,6 +1569,7 @@
     { recordResults = FALSE;
         if ([_soapResults isEqualToString:@"inserted"]) {
             [self FillEmployeesBasedonJobandDate];
+            [self FillJRDetails];
         }
         if ([_soapResults isEqualToString:@"Released"]) {
             [self FillEmployeesBasedonJobandDate];
@@ -1859,6 +1864,7 @@
         
         if (buttonIndex==1) {
             [self ReleaseJobRefferals];
+            [self FillJRDetails];
             
         }
     
@@ -1869,6 +1875,7 @@
         
         if (buttonIndex==0) {
             [self FillEmployeesBasedonJobandDate];
+             [self FillJRDetails];
             
         }
         

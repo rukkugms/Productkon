@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "CalEventDetailViewController.h"
 #import "Eventmdl.h"
-@interface DPCalendarTestViewController : UINavigationController<UIActionSheetDelegate>{
+
+
+
+@interface DPCalendarTestViewController : UINavigationController
+{
     BOOL recordResults;
     NSString*olddate;
     NSString*previoustitle;
@@ -19,6 +23,7 @@
     
 
 }
+-(void)newaction;
 @property(strong,nonatomic)Eventmdl*eventmdl;
 @property(readwrite)NSInteger calendartype;
 @property(readwrite)NSInteger Subcalendartype;
@@ -29,6 +34,7 @@
 @property(strong,nonatomic)NSMutableData *webData;
 @property(strong,nonatomic)NSMutableString *soapresults;
 @property(strong,nonatomic)NSXMLParser *xmlparser;
+
 
 /*Arrays*/
 @property(strong,nonatomic)NSMutableArray *calendararray;

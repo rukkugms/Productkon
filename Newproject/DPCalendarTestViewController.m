@@ -24,9 +24,11 @@
 @property (nonatomic, strong) UIButton *todayButton;
 @property (nonatomic, strong) UIButton *createEventButton;
 @property (nonatomic, strong) UIButton *optionsButton;
-
+@property (readwrite) float progressvalue;
 @property (nonatomic, strong) NSArray *events;
 @property (nonatomic, strong) NSArray *iconEvents;
+@property (nonatomic, strong)UIProgressView *progressView;
+@property (nonatomic, strong)UIActivityIndicatorView *activity;
 
 @property (nonatomic, strong) DPCalendarMonthlyView *monthlyView;
 
@@ -56,10 +58,40 @@
     [self updateLabelWithMonth:self.monthlyView.seletedMonth];
   
 }
+-(void)createprogress
+{
+//    _progressView = [[UIProgressView alloc] init];
+//    
+//    _progressView.frame = CGRectMake((self.view.bounds.size.width-200)/2, 20, 200, 30);
+//    
+//    [_progressView setProgressTintColor:[UIColor cyanColor]];
+//    
+//    
+//    [_progressView setUserInteractionEnabled:NO];
+//    
+//    
+//    
+//    [_progressView setProgressViewStyle:UIProgressViewStyleBar];
+//    
+//    [_progressView setTrackTintColor:[UIColor lightGrayColor]];
+//    
+//    _progressView.progress=0.0f;
+//    _progressView.hidden=NO;
+//    [self.view addSubview:_progressView];
+//    [self startprogress];
+    _activity=[[UIActivityIndicatorView alloc]init];
+     _activity.frame = CGRectMake((self.view.bounds.size.width-100)/2, 300, 50, 50);
+    _activity.activityIndicatorViewStyle=UIActivityIndicatorViewStyleWhiteLarge;
+    _activity.color=[UIColor blackColor];
+    [self.view addSubview:_activity];
+    [_activity startAnimating];
 
+}
 - (void) generateMonthlyView {
+
     CGFloat width = self.view.bounds.size.height;
     CGFloat height = self.view.bounds.size.width;
+    
     
     [self.previousButton removeFromSuperview];
     [self.nextButton removeFromSuperview];
@@ -101,7 +133,7 @@
     [self.todayButton addTarget:self action:@selector(todayButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
     [self.optionsButton addTarget:self action:@selector(optionsButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
     [self.createEventButton addTarget:self action:@selector(createEventButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
-    
+   
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     [self.view addSubview:self.monthLabel];
     [self.view addSubview:self.previousButton];
@@ -110,14 +142,20 @@
     [self.view addSubview:self.optionsButton];
     [self.view addSubview:self.createEventButton];
     [self.monthlyView removeFromSuperview];
+   
     self.monthlyView = [[DPCalendarMonthlyView alloc] initWithFrame:CGRectMake(0, 45, height, width-45) delegate:self];
+    
+       //[self.monthlyView addSubview:_progressView];
     [self.view addSubview:self.monthlyView];
 //    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
 //    [self.monthlyView addSubview:spinner];
+   
+  [self createprogress];
 
 }
 
 - (void) updateData {
+    
     NSMutableArray *events = @[].mutableCopy;
     NSMutableArray *iconEvents = @[].mutableCopy;
     
@@ -241,8 +279,15 @@
     }
     
     [self.monthlyView setEvents:events complete:nil];
-   // [self.monthlyView setIconEvents:iconEvents complete:nil];
+    
+    //[self performSelector:@selector(newaction) withObject:self afterDelay:2];
 }
+//-(void)newaction
+//{
+//    [_activity stopAnimating];
+//    _activity.hidden=YES;
+//}
+
 
 -(void) previousButtonSelected:(id)button {
     [self.monthlyView scrollToPreviousMonthWithComplete:nil];
@@ -294,11 +339,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	[self updateLabelWithMonth:self.monthlyView.seletedMonth];
-    [self CalenderSelect];
+    
+        [self CalenderSelect];
     _eventdatearray=[[NSMutableArray alloc]init];
     _alldatearray=[[NSMutableArray alloc]init];
     _titledict=[[NSMutableDictionary alloc]init];
+    	[self updateLabelWithMonth:self.monthlyView.seletedMonth];
+   
    
 
    }
@@ -453,7 +500,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
       NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
@@ -491,6 +538,7 @@
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
    	[_webData appendData:data];
+    
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
@@ -516,8 +564,10 @@
 	[_xmlparser setShouldResolveExternalEntities: YES];
 	[_xmlparser parse];
     [self updateData];
-    
+   
 }
+
+
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
