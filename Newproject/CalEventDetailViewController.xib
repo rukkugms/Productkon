@@ -10,6 +10,7 @@
                 <outlet property="Eqtotalview" destination="Jiz-1k-yei" id="jrw-eR-tcN"/>
                 <outlet property="MPtotalview" destination="s7e-yh-jaA" id="9pZ-m4-rgo"/>
                 <outlet property="OTtotal" destination="SPs-DA-ogd" id="EoA-yw-MXv"/>
+                <outlet property="activityindctr" destination="DaU-G1-SLu" id="QZH-fd-wuK"/>
                 <outlet property="calmanpwrtable" destination="lwt-Yo-c6h" id="4eS-Fw-iC7"/>
                 <outlet property="eqhourstotal" destination="KtD-Sb-QhB" id="cRu-dU-dG2"/>
                 <outlet property="eqpmntbtn" destination="Vhe-nm-pPC" id="uy5-VC-ijn"/>
@@ -553,6 +554,11 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="DaU-G1-SLu">
+                    <rect key="frame" x="496" y="287" width="37" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="color" red="0.27450980390000002" green="0.50980392159999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>

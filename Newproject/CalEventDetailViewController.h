@@ -139,6 +139,7 @@
 @property (strong, nonatomic) IBOutlet UIView *othertotalview;
 @property (strong, nonatomic) IBOutlet UILabel *othertotal;
 
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityindctr;
 
 
 @end
