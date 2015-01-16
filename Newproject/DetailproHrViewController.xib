@@ -36,6 +36,7 @@
                 <outlet property="statelbl" destination="EhJ-en-j7z" id="ZJi-vr-bUu"/>
                 <outlet property="statuslbl" destination="2Xd-aN-316" id="lDE-Nz-zyn"/>
                 <outlet property="typesegmntlbl" destination="TyJ-aa-gkY" id="Soc-pS-cpX"/>
+                <outlet property="updatereqbtnlbl" destination="QMj-ne-wgL" id="m0u-VU-2QN"/>
                 <outlet property="uplddocbtnlbl" destination="Qkb-df-fgv" id="0XA-0B-mge"/>
                 <outlet property="vendrnamebtnlbl" destination="G0M-lZ-hVL" id="Mj1-Ui-bSX"/>
                 <outlet property="verfictnbtnlbl" destination="Dh8-dV-YmM" id="oGj-IJ-kWI"/>

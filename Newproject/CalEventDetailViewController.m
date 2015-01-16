@@ -127,6 +127,8 @@
     //_qtytotallabel.text=@"";
    // _sttotal.text=@"";
    // _OTtotal.text=@"";
+    _activityindctr.hidden=NO;
+    [_activityindctr startAnimating];
      _Eqtotalview.hidden=YES;
      _qtyarray=[[NSMutableArray alloc]init];
      _starray=[[NSMutableArray alloc]init];
@@ -161,7 +163,10 @@
     }
 }
 - (IBAction)equipmentaction:(id)sender
-{ btnclick=1;
+{
+    _activityindctr.hidden=NO;
+    [_activityindctr startAnimating];
+    btnclick=1;
    // _qtytotallabel.text=@"";
    // _sttotal.text=@"";
    // _OTtotal.text=@"";
@@ -199,7 +204,10 @@ _eqreviewtitleview.hidden=YES;
    // [_calmanpwrtable reloadData];
 }
 - (IBAction)materialaction:(id)sender
-{ btnclick=1;
+{
+    _activityindctr.hidden=NO;
+    [_activityindctr startAnimating];
+    btnclick=1;
     _MPtotalview.hidden=YES;
     _Eqtotalview.hidden=YES;
     //_qtytotallabel.text=@"";
@@ -236,6 +244,9 @@ _eqreviewtitleview.hidden=YES;
 }
 - (IBAction)summaryaction:(id)sender
 {
+    _activityindctr.hidden=NO;
+    [_activityindctr startAnimating];
+    
     //_qtytotallabel.text=@"";
     //_sttotal.text=@"";
    // _OTtotal.text=@"";
@@ -432,7 +443,7 @@ _eqreviewtitleview.hidden=YES;
                     double A2=([manmdl.OT doubleValue])*([manmdl.OTrate doubleValue]);
                     double B=A1+A2;
                     double total=B*([manmdl.Qty doubleValue]);
-                    NSLog(@"%.2f",total);
+                    //NSLog(@"%.2f",total);
                     
                    
                     _mantotallabel.text=[NSString stringWithFormat:@"$%.2f",total];
@@ -460,7 +471,7 @@ _eqreviewtitleview.hidden=YES;
                     double A2=([manmdl.OT doubleValue])*([manmdl.OTrate doubleValue]);
                     double B=A1+A2;
                     double total=B*([manmdl.Qty doubleValue]);
-                    NSLog(@"%.2f",total);
+                    //NSLog(@"%.2f",total);
                     _manotratelabel.text=[NSString stringWithFormat:@"$%.2f",total];
                     _mantotallabel.text=manmdl.mtype;
                       _typelabel.text=manmdl.phasename;
@@ -573,13 +584,13 @@ _eqreviewtitleview.hidden=YES;
         {
             
         
-        NSLog(@"%@",_summaryarray);
+        //NSLog(@"%@",_summaryarray);
         NSArray*array=[[_summaryarray objectAtIndex:indexPath.row ] componentsSeparatedByString:@"$"];
     
         NSString*newtitile=[array objectAtIndex:0];
       NSString*newtitiles=[array objectAtIndex:1];
-         NSLog(@"%@",newtitiles);
-         NSLog(@"%@",newtitile);
+        // NSLog(@"%@",newtitiles);
+        // NSLog(@"%@",newtitile);
         _summarylabel=(UILabel *)[cell viewWithTag:1];
             _costlabel=(UILabel *)[cell viewWithTag:2];
         _summarylabel.text=newtitile;
@@ -1368,6 +1379,8 @@ _eqreviewtitleview.hidden=YES;
     if (tooltype==1||tooltype==2||tooltype==3) {
           [self newcalcuations];
         [_calmanpwrtable reloadData];
+        _activityindctr.hidden=YES;
+        [_activityindctr stopAnimating];
     }
     
  
@@ -1375,21 +1388,34 @@ _eqreviewtitleview.hidden=YES;
     if (tooltype==4) {
         [self calculatereviewsum];
         [_sumtable reloadData];
+        
+        _activityindctr.hidden=YES;
+        [_activityindctr stopAnimating];
+
     }
     
     switch (tooltype) {
         case 5:
             [self calculatereviewsum];
              [_sumtable reloadData];
+            _activityindctr.hidden=YES;
+            [_activityindctr stopAnimating];
+
 
             break;
 
         case 7:
             [self SummaryMaterialSelect];
+            _activityindctr.hidden=YES;
+            [_activityindctr stopAnimating];
+
             break;
 
         case 6:
             [self SummaryEquipmentSelect];
+            _activityindctr.hidden=YES;
+            [_activityindctr stopAnimating];
+
             break;
             
         default:
@@ -2100,7 +2126,7 @@ _eqreviewtitleview.hidden=YES;
     for (i=0; i<[_totalarray count]; i++)
     {
         sum=([[_totalarray objectAtIndex:i]doubleValue])+sum;
-        NSLog(@"%.2f",sum);
+        //NSLog(@"%.2f",sum);
         _totallabel.text=[NSString stringWithFormat:@"$%.2f",sum]  ;
     }
     [self calculateqty];
@@ -2114,13 +2140,13 @@ _eqreviewtitleview.hidden=YES;
         for (int i=0; i<[_reviewsumarray count]; i++) {
             
             [_totalarray addObject:[_reviewsumarray objectAtIndex:i]];
-            NSLog(@"%@",_totalarray);
+           // NSLog(@"%@",_totalarray);
             if (i==[_reviewsumarray count]-1) {
                 
                 for ( int x=0; x<[_reviewsumarray count]; x++)
                 {
                     sum=([[_totalarray objectAtIndex:x]doubleValue])+sum;
-                    NSLog(@"%.2f",sum);
+                    //NSLog(@"%.2f",sum);
                     _totallabel.text=[NSString stringWithFormat:@"$%.2f",sum]  ;
                 }
                 
@@ -2138,7 +2164,7 @@ _eqreviewtitleview.hidden=YES;
             NSArray*array=[[_summaryarray objectAtIndex:i] componentsSeparatedByString:@" "];
             NSString*newtitile=[array objectAtIndex:0];
             NSString*newtitiles=[array objectAtIndex:1];
-            NSLog(@"%@",newtitiles);
+            //NSLog(@"%@",newtitiles);
             if ([newtitile isEqualToString:@"Direct"]||[newtitile isEqualToString:@"Indirect"]) {
                 
             }
@@ -2147,14 +2173,14 @@ _eqreviewtitleview.hidden=YES;
            
                 
             [_totalarray addObject:[newtitiles stringByReplacingOccurrencesOfString:@"$" withString:@""]];
-            NSLog(@"%@",_totalarray);
+            //NSLog(@"%@",_totalarray);
             }
             
             if (i==[_summaryarray count]-1) {
                 for ( int x=0; x<[_totalarray count]; x++)
                 {
                     sum=([[_totalarray objectAtIndex:x]doubleValue])+sum;
-                    NSLog(@"%.2f",sum);
+                    //NSLog(@"%.2f",sum);
                     _totallabel.text=[NSString stringWithFormat:@"$%.2f",sum]  ;
                 }
                 
@@ -2184,12 +2210,12 @@ _eqreviewtitleview.hidden=YES;
             double A2=([manmdl.OT doubleValue])*([manmdl.OTrate doubleValue]);
             double B=A1+A2;
             double total=B*([manmdl.Qty doubleValue]);
-            NSLog(@"%.2f",total);
+           // NSLog(@"%.2f",total);
             [_qtyarray addObject:[NSString stringWithFormat:@"%d",[manmdl.Qty integerValue]]];
             [_starray addObject:[NSString stringWithFormat:@"%d",[manmdl.ST integerValue]*[manmdl.Qty integerValue]]];
                  [_otarray addObject:[NSString stringWithFormat:@"%d",[manmdl.OT integerValue]*[manmdl.Qty integerValue]]];
            [_totalarray addObject:[NSString stringWithFormat:@"%.2f",total]];
-            NSLog(@"%@",_totalarray);
+           // NSLog(@"%@",_totalarray);
             
             if (i==[_manpwrarray count]-1) {
                 [self calculatesum];
@@ -2208,7 +2234,7 @@ _eqreviewtitleview.hidden=YES;
             [_totalarray addObject:[NSString stringWithFormat:@"%.2f",B1]];
             [_qtyarray addObject:[NSString stringWithFormat:@"%d",[eqmdl.Qty integerValue]]];
             [_starray addObject:[NSString stringWithFormat:@"%d",[eqmdl.EqST integerValue]]];
-            NSLog(@"%@",_totalarray);
+           // NSLog(@"%@",_totalarray);
             
             if (i==[_eqpmntarray count]-1) {
                 [self calculatesum];
@@ -2229,7 +2255,7 @@ _eqreviewtitleview.hidden=YES;
                 [_totalarray addObject:[NSString stringWithFormat:@"%.2f",B1]];
                 [_qtyarray addObject:[NSString stringWithFormat:@"%d",[othmdl.Qty integerValue]]];
                 
-                NSLog(@"%@",_totalarray);
+               // NSLog(@"%@",_totalarray);
                 
                 if (i==[_otherarray count]-1) {
                     
@@ -2256,7 +2282,7 @@ _eqreviewtitleview.hidden=YES;
     for (i=0; i<[_qtyarray count]; i++)
     {
         qty=([[_qtyarray objectAtIndex:i]integerValue])+qty;
-        NSLog(@"%d",qty);
+       // NSLog(@"%d",qty);
        
             _qtytotallabel.text=[NSString stringWithFormat:@"%d",qty]  ;
     }
@@ -2268,7 +2294,7 @@ _eqreviewtitleview.hidden=YES;
             for (i=0; i<[_qtyarray count]; i++)
             {
                 qty=([[_qtyarray objectAtIndex:i]integerValue])+qty;
-                NSLog(@"%d",qty);
+               // NSLog(@"%d",qty);
                 
                 _eqqtytotal.text=[NSString stringWithFormat:@"%d",qty]  ;
             }
@@ -2280,7 +2306,7 @@ _eqreviewtitleview.hidden=YES;
           for (i=0; i<[_qtyarray count]; i++)
           {
               qty=([[_qtyarray objectAtIndex:i]integerValue])+qty;
-              NSLog(@"%d",qty);
+             // NSLog(@"%d",qty);
               
               _othertotal.text=[NSString stringWithFormat:@"%d",qty]  ;
           }
@@ -2295,7 +2321,7 @@ _eqreviewtitleview.hidden=YES;
     for (i=0; i<[_starray count]; i++)
     {
         totalst=([[_starray objectAtIndex:i]integerValue])+totalst;
-        NSLog(@"%d",totalst);
+        //NSLog(@"%d",totalst);
       
         _sttotal.text=[NSString stringWithFormat:@"%d",totalst]  ;
         
@@ -2308,7 +2334,7 @@ _eqreviewtitleview.hidden=YES;
         for (i=0; i<[_starray count]; i++)
         {
             totalst=([[_starray objectAtIndex:i]integerValue])+totalst;
-            NSLog(@"%d",totalst);
+           // NSLog(@"%d",totalst);
             
             _eqhourstotal.text=[NSString stringWithFormat:@"%d",totalst]  ;
         }
@@ -2321,7 +2347,7 @@ _eqreviewtitleview.hidden=YES;
     for (i=0; i<[_otarray count]; i++)
     {
         totalOT=([[_otarray objectAtIndex:i]integerValue])+totalOT;
-        NSLog(@"%d",totalOT);
+        //NSLog(@"%d",totalOT);
         if (tooltype==1)        {
         _OTtotal.text=[NSString stringWithFormat:@"%d",totalOT]  ;
         }

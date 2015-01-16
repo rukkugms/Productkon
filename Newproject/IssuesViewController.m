@@ -386,7 +386,8 @@
     NSString*type=[_typedict objectForKey:_typebtnlbl.titleLabel.text];
     NSString*datetime=[NSString stringWithFormat:@"%@ %@",_datebtnlbl.titleLabel.text,_timebtn.titleLabel.text];
     NSArray*array=[_jobsitebtnlbl.titleLabel.text componentsSeparatedByString:@"-"];
-    NSString*job=[array objectAtIndex:0];
+    NSString*job=[NSString stringWithFormat:@"%@-%@", [array objectAtIndex:1], [array objectAtIndex:2]];
+   
     
     NSString *soapMessage;
     
@@ -408,7 +409,7 @@
                    "<IMStatus>%@</IMStatus>\n"
                    "</IssueManagementInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[_jobdict objectForKey:job],datetime,type,0,_cmmttxtview.text,@"Open"];
+                   "</soap:Envelope>\n",job,datetime,type,0,_cmmttxtview.text,@"Open"];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -450,7 +451,7 @@
     NSString*type=[_typedict objectForKey:_typebtnlbl.titleLabel.text];
     NSString *soapMessage;
     NSArray*array=[_jobsitebtnlbl.titleLabel.text componentsSeparatedByString:@"-"];
-    NSString*job=[array objectAtIndex:0];
+     NSString*job=[NSString stringWithFormat:@"%@-%@", [array objectAtIndex:1], [array objectAtIndex:2]];
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -470,7 +471,7 @@
                    "<IMStatus>%@</IMStatus>\n"
                    "</IssueManagementUpdate>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[ismdl.entryid integerValue],[_jobdict objectForKey:job],datetime,type,0,_cmmttxtview.text,_statusbtnlbl.titleLabel.text];
+                   "</soap:Envelope>\n",[ismdl.entryid integerValue],job,datetime,type,0,_cmmttxtview.text,_statusbtnlbl.titleLabel.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
