@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Empmdl.h"
+#import "jobsitemodel.h"
 @interface EmplyhrmgntViewController : UIViewController
 {
     NSInteger Path;
@@ -20,8 +21,17 @@
     NSInteger btnclck;
     NSInteger previousindexpath;
     NSInteger poptype;
+    
+    NSString*jobnumber;
+    NSString*jobid;
+     NSInteger Selectedpath;
 
 }
+
+@property(strong,nonatomic)jobsitemodel*jobmdl;
+@property(strong,nonatomic)NSMutableArray*jobarray;
+@property(strong,nonatomic)NSMutableArray*jobmdlarray;
+@property(strong,nonatomic)NSMutableArray*newjobarray;
 @property(strong,nonatomic)NSMutableArray *disclosurearray;
 @property(readwrite)NSInteger openviewindex;
 @property(readwrite)NSInteger previousopenviewindex;

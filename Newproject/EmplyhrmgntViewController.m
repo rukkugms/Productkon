@@ -51,10 +51,10 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     _searchbar.text=@"";
-      [self SelectAllJobSites];
+      //[self SelectAllJobSites];
     self.openviewindex=NSNotFound;
    // previousindexpath=NSNotFound;
-  
+  [self CustEmployeeselect];
    
    
     
@@ -107,7 +107,7 @@
 - (IBAction)jobsitebtn:(id)sender {
  
     poptype=2;
-       [self SelectAllJobSites];
+       [self JobsSelect];
     [self jobsitepopover];
     
     
@@ -172,7 +172,7 @@
         }
         else
         {
-           return[_jobsitearray count];
+           return[_jobarray count];
         }
     }
     return YES;
@@ -204,7 +204,8 @@
         }
         else
         {
-             cell.textLabel.text=[_jobsitearray objectAtIndex:indexPath.row];
+            jobsitemodel*jobsitemdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:indexPath.row];
+            cell.textLabel.text=[NSString stringWithFormat:@"%@-%@-%@",jobsitemdl.jobname,jobsitemdl.jobno,jobsitemdl.skill];
         }
 
     }
@@ -273,8 +274,9 @@
             
         }
         else
-        {
-            [_jobsitebtnlbl setTitle:[_jobsitearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+        { Selectedpath=indexPath.row;
+            jobsitemodel*jobsitemdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:indexPath.row];
+            [_jobsitebtnlbl setTitle:[NSString stringWithFormat:@"%@-%@-%@",jobsitemdl.jobname,jobsitemdl.jobno,jobsitemdl.skill] forState:UIControlStateNormal];
             [self.popOvercontroller dismissPopoverAnimated:YES];
         }
         }
@@ -656,6 +658,61 @@
     }
     
 }
+
+-(void)JobsSelect{
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+    
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<JobsSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   
+                   "</JobsSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/JobsSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
 -(void)SelectEmployeeBadge{
 
     recordResults = FALSE;
@@ -718,7 +775,8 @@
     }
     else
     {
-    jbid=[_jobsitedict objectForKey:_jobsitebtnlbl.titleLabel.text];
+   jobsitemodel*jobsitemdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:Selectedpath];
+        jbid=[NSString stringWithFormat:@"%d",jobsitemdl.jobid];
     }
   soapMessage = [NSString stringWithFormat:
                    
@@ -811,6 +869,59 @@
 #pragma mark - XMLParser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
+    if([elementName isEqualToString:@"JobsSelectResponse"])
+    {
+        _jobarray=[[NSMutableArray alloc]init];
+        _jobmdlarray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"id"]){
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JobNumber"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JobDescDetail"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"SkillName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    
+    if([elementName isEqualToString:@"JobSiteName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"CustEmployeeselectResponse"])
     {
         _employeelistarray=[[NSMutableArray alloc]init];
@@ -988,34 +1099,34 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"SelectAllJobSitesResponse"])
-    {
-        _jobsitearray=[[NSMutableArray alloc]init];
-        _jobsitedict=[[NSMutableDictionary alloc]init];
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"Id"])
-    {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"JobSiteName"])
-    {
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-
+//    if([elementName isEqualToString:@"SelectAllJobSitesResponse"])
+//    {
+//        _jobsitearray=[[NSMutableArray alloc]init];
+//        _jobsitedict=[[NSMutableDictionary alloc]init];
+//        if(!_soapResults)
+//        {
+//            _soapResults = [[NSMutableString alloc] init];
+//        }
+//        recordResults = TRUE;
+//    }
+//    if([elementName isEqualToString:@"Id"])
+//    {
+//        if(!_soapResults)
+//        {
+//            _soapResults = [[NSMutableString alloc] init];
+//        }
+//        recordResults = TRUE;
+//    }
+//    if([elementName isEqualToString:@"JobSiteName"])
+//    {
+//        
+//        if(!_soapResults)
+//        {
+//            _soapResults = [[NSMutableString alloc] init];
+//        }
+//        recordResults = TRUE;
+//    }
+//
 
 }
 
@@ -1034,6 +1145,45 @@
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
+    if([elementName isEqualToString:@"id"])
+    {_jobmdl=[[jobsitemodel alloc]init];
+        recordResults = FALSE;
+        _jobmdl.jobid=[_soapResults integerValue];
+        _soapResults = nil;
+    }
+    
+    if([elementName isEqualToString:@"JobNumber"])
+    {
+        recordResults = FALSE;
+        _jobmdl.jobno=_soapResults;
+        jobnumber=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"JobDescDetail"])
+    {
+        recordResults = FALSE;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"SkillName"])
+    {
+        recordResults = FALSE;
+        _jobmdl.skill=_soapResults;
+        _soapResults = nil;
+    }
+    
+    
+    if([elementName isEqualToString:@"JobSiteName"])
+    {
+        recordResults = FALSE;
+        _jobmdl.jobname=_soapResults;
+        
+        [_jobarray addObject:[NSString stringWithFormat:@"%@",_soapResults]];
+        [_jobmdlarray addObject:_jobmdl];
+        
+        _soapResults = nil;
+    }
+
     if([elementName isEqualToString:@"cemp_id"])
     {
         _empmdl=[[Empmdl alloc]init];
@@ -1153,26 +1303,26 @@
  _soapResults=nil;
         
     }
-      if([elementName isEqualToString:@"Id"])
-    {
-        
-        recordResults = FALSE;
-        
-        _jobsiteid=_soapResults;
-        _soapResults = nil;
-    }
-    if([elementName isEqualToString:@"JobSiteName"])
-    {
-        
-        recordResults = FALSE;
-        
-        
-        [_jobsitearray addObject:_soapResults];
-        [_jobsitedict setObject:_jobsiteid forKey:_soapResults];
-        
-        _soapResults = nil;
-    }
-
+//      if([elementName isEqualToString:@"Id"])
+//    {
+//        
+//        recordResults = FALSE;
+//        
+//        _jobsiteid=_soapResults;
+//        _soapResults = nil;
+//    }
+//    if([elementName isEqualToString:@"JobSiteName"])
+//    {
+//        
+//        recordResults = FALSE;
+//        
+//        
+//        [_jobsitearray addObject:_soapResults];
+//        [_jobsitedict setObject:_jobsiteid forKey:_soapResults];
+//        
+//        _soapResults = nil;
+//    }
+//
 
     
 
