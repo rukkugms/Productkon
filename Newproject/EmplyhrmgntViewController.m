@@ -712,8 +712,14 @@
     recordResults = FALSE;
     NSString *soapMessage;
     Empmdl *empmdl1=(Empmdl *)[_employeelistarray objectAtIndex:btnindex];
-    
-    NSString *jbid=[_jobsitedict objectForKey:_jobsitebtnlbl.titleLabel.text];
+    NSString *jbid;
+    if ([_jobsitebtnlbl.titleLabel.text isEqualToString:@"Select"]||[_jobsitebtnlbl.titleLabel.text isEqualToString:@""]) {
+        jbid=@"0";
+    }
+    else
+    {
+    jbid=[_jobsitedict objectForKey:_jobsitebtnlbl.titleLabel.text];
+    }
   soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
