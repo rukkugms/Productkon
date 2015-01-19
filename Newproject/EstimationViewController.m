@@ -490,7 +490,7 @@ if (tableView==_estmntable) {
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllCustomer xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SelectAllCustomer xmlns=\"https://testUSA.kontract360.com/\">\n"
                    
                    "</SelectAllCustomer>\n"
                    "</soap:Body>\n"
@@ -507,7 +507,7 @@ if (tableView==_estmntable) {
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllCustomer" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/SelectAllCustomer" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -539,7 +539,7 @@ if (tableView==_estmntable) {
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllLeads xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SelectAllLeads xmlns=\"https://testUSA.kontract360.com/\">\n"
                    
                    "</SelectAllLeads>\n"
                    "</soap:Body>\n"
@@ -556,7 +556,7 @@ if (tableView==_estmntable) {
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllLeads" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/SelectAllLeads" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -588,7 +588,7 @@ if (tableView==_estmntable) {
                    
                    "<soap:Body>\n"
                    
-                   "<EstimateSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<EstimateSelect xmlns=\"https://testUSA.kontract360.com/\">\n"
                    
                    "</EstimateSelect>\n"
                    "</soap:Body>\n"
@@ -605,7 +605,7 @@ if (tableView==_estmntable) {
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/EstimateSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/EstimateSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -637,7 +637,7 @@ if (tableView==_estmntable) {
                    
                    "<soap:Body>\n"
                    
-                   "<GetSkillforEstimation xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<GetSkillforEstimation xmlns=\"https://testUSA.kontract360.com/\">\n"
                    "<PlanId>%@</PlanId>\n"
                    "<ServiceId>%d</ServiceId>\n"
                    "</GetSkillforEstimation>\n"
@@ -655,7 +655,7 @@ if (tableView==_estmntable) {
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/GetSkillforEstimation" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/GetSkillforEstimation" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -714,7 +714,7 @@ if (tableView==_estmntable) {
                    
                    "<soap:Body>\n"
                    
-                   "<EstimateInsert xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<EstimateInsert xmlns=\"https://testUSA.kontract360.com/\">\n"
                    "<leadid>%d</leadid>\n"
                    "<CId>%d</CId>\n"
                    "<EstimationId>%@</EstimationId>\n"
@@ -737,7 +737,7 @@ if (tableView==_estmntable) {
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/EstimateInsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/EstimateInsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -770,7 +770,7 @@ if (tableView==_estmntable) {
                    
                    "<soap:Body>\n"
                    
-                   "<EstimationPlanSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<EstimationPlanSelect xmlns=\"https://testUSA.kontract360.com/\">\n"
                   " <customername>%@</customername>\n"
                    "</EstimationPlanSelect>\n"
                    "</soap:Body>\n"
@@ -788,7 +788,7 @@ if (tableView==_estmntable) {
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/EstimationPlanSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/EstimationPlanSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -821,7 +821,7 @@ if (tableView==_estmntable) {
                    
                    "<soap:Body>\n"
                    
-                   "<EstimationWorkTypeSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<EstimationWorkTypeSelect xmlns=\"https://testUSA.kontract360.com/\">\n"
                     "<planid>%@</planid>\n"
                    "</EstimationWorkTypeSelect>\n"
                    "</soap:Body>\n"
@@ -839,7 +839,7 @@ if (tableView==_estmntable) {
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/EstimationWorkTypeSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/EstimationWorkTypeSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -873,7 +873,7 @@ if (tableView==_estmntable) {
                    
                    "<soap:Body>\n"
                    
-                   "<WorkTypeSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<WorkTypeSelect xmlns=\"https://testUSA.kontract360.com/\">\n"
                    "</WorkTypeSelect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
@@ -889,7 +889,7 @@ if (tableView==_estmntable) {
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/WorkTypeSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/WorkTypeSelect" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];

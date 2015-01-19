@@ -268,7 +268,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllFolderRights xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SelectAllFolderRights xmlns=\"https://testUSA.kontract360.com/\">\n"
                    
                    "</SelectAllFolderRights>\n"
                    "</soap:Body>\n"
@@ -285,7 +285,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllFolderRights" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/SelectAllFolderRights" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -372,7 +372,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UpdateFolderRights xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<UpdateFolderRights xmlns=\"https://testUSA.kontract360.com/\">\n"
                    "<userid>%d</userid>\n"
                    "<create>%d</create>\n"
                    "<delete>%d</delete>\n"
@@ -393,7 +393,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/UpdateFolderRights" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/UpdateFolderRights" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -442,7 +442,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UserLogmaininsert xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<UserLogmaininsert xmlns=\"https://testUSA.kontract360.com/\">\n"
                    "<dateandtime>%@</dateandtime>\n"
                    "<userid>%d</userid>\n"
                    "<moduleid>%d</moduleid>\n"
@@ -467,7 +467,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

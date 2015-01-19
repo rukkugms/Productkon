@@ -140,7 +140,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<IndustrytypeSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<IndustrytypeSelect xmlns=\"https://testUSA.kontract360.com/\">\n"
                    "</IndustrytypeSelect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
@@ -157,7 +157,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/IndustrytypeSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/IndustrytypeSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -190,7 +190,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<IndustryTypeInsert xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<IndustryTypeInsert xmlns=\"https://testUSA.kontract360.com/\">\n"
                    "<ITName>%@</ITName>\n"
                    "</IndustryTypeInsert>\n"
                    "</soap:Body>\n"
@@ -207,7 +207,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/IndustryTypeInsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/IndustryTypeInsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -240,7 +240,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<IndustrytypeUpdate xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<IndustrytypeUpdate xmlns=\"https://testUSA.kontract360.com/\">\n"
                    "<ITEntryId>%d</ITEntryId>\n"
                    "<ITName>%@</ITName>\n"
                    "</IndustrytypeUpdate>\n"
@@ -258,7 +258,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/IndustrytypeUpdate" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/IndustrytypeUpdate" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -292,7 +292,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<IndustryTypeDelete xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<IndustryTypeDelete xmlns=\"https://testUSA.kontract360.com/\">\n"
                    "<ITEntryId>%d</ITEntryId>\n"
                    "</IndustryTypeDelete>\n"
                    "</soap:Body>\n"
@@ -309,7 +309,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/IndustryTypeDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/IndustryTypeDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -358,7 +358,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UserLogmaininsert xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<UserLogmaininsert xmlns=\"https://testUSA.kontract360.com/\">\n"
                    "<dateandtime>%@</dateandtime>\n"
                    "<userid>%d</userid>\n"
                    "<moduleid>%d</moduleid>\n"
@@ -383,7 +383,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -432,7 +432,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UserLogmaininsert xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<UserLogmaininsert xmlns=\"https://testUSA.kontract360.com/\">\n"
                    "<dateandtime>%@</dateandtime>\n"
                    "<userid>%d</userid>\n"
                    "<moduleid>%d</moduleid>\n"
@@ -457,7 +457,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -507,7 +507,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UserLogmaininsert xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<UserLogmaininsert xmlns=\"https://testUSA.kontract360.com/\">\n"
                    "<dateandtime>%@</dateandtime>\n"
                    "<userid>%d</userid>\n"
                    "<moduleid>%d</moduleid>\n"
@@ -533,7 +533,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

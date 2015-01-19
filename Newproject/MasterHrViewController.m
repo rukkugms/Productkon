@@ -446,7 +446,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
                    
                    "<soap:Body>\n"
                    
-                   "<AllSkills xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<AllSkills xmlns=\"https://testUSA.kontract360.com/\">\n"
                    
                    "</AllSkills>\n"
                    "</soap:Body>\n"
@@ -463,7 +463,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/AllSkills" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/AllSkills" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -498,7 +498,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
                    
                    "<soap:Body>\n"
                    
-                   "<ListAllApplicants xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<ListAllApplicants xmlns=\"https://testUSA.kontract360.com/\">\n"
                    
                    "</ListAllApplicants>\n"
                    "</soap:Body>\n"
@@ -515,7 +515,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/ListAllApplicants" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/ListAllApplicants" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -581,7 +581,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
                    
                    
                    "<soap:Body>\n"
-                   "<MoveApplicanttoInprocess xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<MoveApplicanttoInprocess xmlns=\"https://testUSA.kontract360.com/\">\n"
                    "<appid>%d</appid>\n"
                    "<jobsite>%d</jobsite>\n"
                    "<admin>%d</admin>\n"
@@ -601,7 +601,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/MoveApplicanttoInprocess" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/MoveApplicanttoInprocess" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -635,7 +635,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllJobSites xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SelectAllJobSites xmlns=\"https://testUSA.kontract360.com/\">\n"
                    
                    "</SelectAllJobSites>\n"
                    "</soap:Body>\n"
@@ -652,7 +652,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SelectAllJobSites" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/SelectAllJobSites" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -686,7 +686,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
                    
                    "<soap:Body>\n"
                    
-                   "<SearchApplicants xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SearchApplicants xmlns=\"https://testUSA.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "</SearchApplicants>\n"
                    "</soap:Body>\n"
@@ -703,7 +703,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SearchApplicants" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/SearchApplicants" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -739,7 +739,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
                    
                    "<soap:Body>\n"
                    
-                   "<JobsSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<JobsSelect xmlns=\"https://testUSA.kontract360.com/\">\n"
                    
                    
                    "</JobsSelect>\n"
@@ -756,7 +756,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/JobsSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/JobsSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

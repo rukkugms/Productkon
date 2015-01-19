@@ -573,7 +573,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<JobsSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<JobsSelect xmlns=\"https://testUSA.kontract360.com/\">\n"
                    
                    
                    "</JobsSelect>\n"
@@ -590,7 +590,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/JobsSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/JobsSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -627,7 +627,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SiteRequirementlistselect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SiteRequirementlistselect xmlns=\"https://testUSA.kontract360.com/\">\n"
                    
                    
                    "</SiteRequirementlistselect>\n"
@@ -644,7 +644,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SiteRequirementlistselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/SiteRequirementlistselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -683,7 +683,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SiteRequirementlist2select xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SiteRequirementlist2select xmlns=\"https://testUSA.kontract360.com/\">\n"
                    
                    "<EntryId>%d</EntryId>\n"
                    "</SiteRequirementlist2select>\n"
@@ -700,7 +700,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SiteRequirementlist2select" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/SiteRequirementlist2select" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -741,7 +741,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SiteRequirementlistInsert xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SiteRequirementlistInsert xmlns=\"https://testUSA.kontract360.com/\">\n"
                    
                    "<JSRJobId>%d</JSRJobId>\n"
                    "<JSRRequirementId>%d</JSRRequirementId>\n"
@@ -759,7 +759,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SiteRequirementlistInsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/SiteRequirementlistInsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -796,7 +796,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SiterequirementlistDelete xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<SiterequirementlistDelete xmlns=\"https://testUSA.kontract360.com/\">\n"
                     "<JSRID>%d</JSRID>\n"
                    
                    "</SiterequirementlistDelete>\n"
@@ -813,7 +813,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/SiterequirementlistDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/SiterequirementlistDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
