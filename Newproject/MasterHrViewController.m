@@ -557,8 +557,8 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         NSLog(@"%@",_jobsitebtnlbl.titleLabel.text);
       
         NSArray*array=[_jobsitebtnlbl.titleLabel.text componentsSeparatedByString:@"-"];
-        NSString*job=[NSString stringWithFormat:@"%@", [array objectAtIndex:1]];
-          jobsiteno=[[_jobsitedict objectForKey:job]integerValue];
+     NSString*job=[NSString stringWithFormat:@"%@", [array objectAtIndex:0]];
+        jobsiteno=[[_jobsitedict objectForKey:job]integerValue];
         
     }
     
@@ -1300,10 +1300,13 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         recordResults = FALSE;
         
           _empdetl.skillid=_soapResults;
+        [_JobsiteArray addObject:[NSString stringWithFormat:@"%@-%@-%@",jobsitename,jobstring,_soapResults]];
+        //[_skilldict setObject:_soapResults forKey:jobnumber];
 
         
         _soapResults = nil;
     }
+   
     if([elementName isEqualToString:@"Description"])
     {
         recordResults = FALSE;
@@ -1532,6 +1535,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         
         
         recordResults = FALSE;
+        jobid=_soapResults;
         
         _soapResults = nil;
     }
@@ -1552,7 +1556,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     {
         recordResults = FALSE;
         jobsitename=_soapResults;
-        [_jobsitedict setObject:jobstring forKey:_soapResults];
+        [_jobsitedict setObject:jobid forKey:_soapResults];
         //[_revjobdict setObject:_soapResults forKey:jobstring];
         
         // [_jobarray addObject:_soapResults];
@@ -1563,14 +1567,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         recordResults = FALSE;
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"SkillName"])
-    {
-        recordResults = FALSE;
-        [_JobsiteArray addObject:[NSString stringWithFormat:@"%@-%@-%@",jobsitename,jobstring,_soapResults]];
-        //[_skilldict setObject:_soapResults forKey:jobnumber];
-        _soapResults = nil;
-    }
-
+ 
 
 
 }
