@@ -80,7 +80,7 @@
 //    [self.view addSubview:_progressView];
 //    [self startprogress];
     _activity=[[UIActivityIndicatorView alloc]init];
-     _activity.frame = CGRectMake((self.view.bounds.size.width-100)/2, 300, 50, 50);
+     _activity.frame = CGRectMake((self.view.bounds.size.width-50)/2, 300, 50, 50);
     _activity.activityIndicatorViewStyle=UIActivityIndicatorViewStyleWhiteLarge;
     _activity.color=[UIColor blackColor];
     [self.view addSubview:_activity];
@@ -282,11 +282,11 @@
     
     //[self performSelector:@selector(newaction) withObject:self afterDelay:2];
 }
-//-(void)newaction
-//{
-//    [_activity stopAnimating];
-//    _activity.hidden=YES;
-//}
+-(void)newaction
+{
+    [_activity stopAnimating];
+    _activity.hidden=YES;
+}
 
 
 -(void) previousButtonSelected:(id)button {
@@ -346,9 +346,17 @@
     _titledict=[[NSMutableDictionary alloc]init];
     	[self updateLabelWithMonth:self.monthlyView.seletedMonth];
    
-   
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector:@selector(stopprocess) name:@"stopactivity" object:nil];
 
    }
+-(void)stopprocess
+{
+    [self performSelector:@selector(newaction) withObject:self afterDelay:6];
+
+//    [_activity stopAnimating];
+//    _activity.hidden=YES;
+}
 
 - (void) updateLabelWithMonth:(NSDate *)month {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];

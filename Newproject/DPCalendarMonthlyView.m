@@ -465,6 +465,8 @@ NSString *const DPCalendarViewDayCellIdentifier = @"DPCalendarViewDayCellIdentif
             if (complete) complete();
         }];
     }];
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center postNotification:[NSNotification notificationWithName:@"stopactivity" object:nil]];
 }
 
 -(void)setIconEvents:(NSArray *)passedIconEvents complete:(void (^)(void))complete{
@@ -653,6 +655,7 @@ NSString *const DPCalendarViewDayCellIdentifier = @"DPCalendarViewDayCellIdentif
     [cell setDate:date calendar:self.calendar events:[self.eventsForEachDay objectForKey:date] iconEvents:[self.iconEventsForEachDay objectForKey:date]];
     
     cell.separatorColor = self.separatorColor;
+   
     return cell;
     
 }
