@@ -22,7 +22,7 @@
     NSInteger poptype;
     NSInteger jobsite;
     NSInteger office;
-     NSString *ssn;
+     NSString *ssn,*jobsitename;
 }
 
 @property(strong,nonatomic)Empdetails *empdetl;
@@ -33,8 +33,8 @@
 @property(strong,nonatomic)IBOutlet UITableView *hrtable;
 @property(strong,nonatomic)IBOutlet UISearchBar *searchbar;
 @property(strong,nonatomic)IBOutlet UITableViewCell *hrtblecell;
-@property(strong,nonatomic)IBOutlet UITableView *poovertableview;
-@property(strong,nonatomic)UIPopoverController *poovercontroller;
+@property(strong,nonatomic)IBOutlet UITableView *povertableview;
+@property(strong,nonatomic)UIPopoverController *povercontroller;
 
 
 @property (strong, nonatomic) IBOutlet UILabel *ssnlabel;

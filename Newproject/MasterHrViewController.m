@@ -67,13 +67,13 @@
     UIViewController* popoverContent = [[UIViewController alloc]init];
     UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 130, 42)];
     popoverView.backgroundColor = [UIColor whiteColor];
-    _poovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 130, 42)];
-    _poovertableview.delegate=(id)self;
-    _poovertableview.dataSource=(id)self;
-    _poovertableview.rowHeight= 42;
-    _poovertableview.separatorStyle=UITableViewCellSeparatorStyleNone;
+    _povertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 130, 42)];
+    _povertableview.delegate=(id)self;
+    _povertableview.dataSource=(id)self;
+    _povertableview.rowHeight= 42;
+    _povertableview.separatorStyle=UITableViewCellSeparatorStyleNone;
     //_popovertableview.separatorColor=[UIColor blackColor];
-    [popoverView addSubview:_poovertableview];
+    [popoverView addSubview:_povertableview];
     popoverContent.view = popoverView;
     popoverContent.contentSizeForViewInPopover = CGSizeMake(130, 42);
 
@@ -92,10 +92,10 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
 {
     ssn=empdetls1.ssn;
     //UITableView *table = (UITableView *)[cell superview];
-    self.poovercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
-    self.poovercontroller.popoverContentSize=CGSizeMake(130.0f, 42.0f);
-    self.poovercontroller=_poovercontroller;
-    [self.poovercontroller presentPopoverFromRect:_disclosurebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    self.povercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
+    self.povercontroller.popoverContentSize=CGSizeMake(130.0f, 42.0f);
+    self.povercontroller=_povercontroller;
+    [self.povercontroller presentPopoverFromRect:_disclosurebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
 }
 }
 -(IBAction)indetailviewselection:(id)sender
@@ -125,15 +125,15 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
                            initWithFrame:CGRectMake(0, 0, 170, 170)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
-    _poovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 170, 170)];
+    _povertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 170, 170)];
     
-    _poovertableview.delegate=(id)self;
-    _poovertableview.dataSource=(id)self;
-    _poovertableview.rowHeight= 32;
-    _poovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    _povertableview.delegate=(id)self;
+    _povertableview.dataSource=(id)self;
+    _povertableview.rowHeight= 32;
+    _povertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
     
     
-    [popoverView addSubview:_poovertableview];
+    [popoverView addSubview:_povertableview];
     popoverContent.view = popoverView;
     
     //resize the popover view shown
@@ -142,14 +142,14 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     
     //create a popover controller
     
-    self.poovercontroller = [[UIPopoverController alloc]
+    self.povercontroller = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     
-    self.poovercontroller.popoverContentSize=CGSizeMake(170.0f, 170.0f);
-    self.poovercontroller=_poovercontroller;
+    self.povercontroller.popoverContentSize=CGSizeMake(170.0f, 170.0f);
+    self.povercontroller=_povercontroller;
 
     
-    [self.poovercontroller presentPopoverFromRect:_jobsitebtnlbl.frame
+    [self.povercontroller presentPopoverFromRect:_jobsitebtnlbl.frame
                                             inView:self.applicantprocessview
                           permittedArrowDirections:UIPopoverArrowDirectionUp
                                           animated:YES];
@@ -163,7 +163,8 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     [self ListAllApplicants];
 }
 - (IBAction)sitecheckactn:(id)sender {
-     [self SelectAllJobSites];
+   //  [self SelectAllJobSites];
+    [self JobsSelect];
     btntouch++;
     
     if (btntouch%2) {
@@ -237,7 +238,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     }
     else if (office==1)
     {
-    [self MoveApplicanttoInprocess];
+            [self MoveApplicanttoInprocess];
          _processbtn.userInteractionEnabled=NO;
     }
     
@@ -289,7 +290,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
 {
     return [_hrlistarray count];
 }
-    else if(tableView==_poovertableview)
+    else if(tableView==_povertableview)
     {
         if(poptype==1)
     {
@@ -317,7 +318,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
             [[NSBundle mainBundle]loadNibNamed:@"Customhrcell" owner:self options:nil];
             cell=_hrtblecell;
         }
-        if (tableView==_poovertableview) {
+        if (tableView==_povertableview) {
             if (poptype==1) {
                 
                 
@@ -413,21 +414,21 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
 {
     
     NSLog(@"sectn%d",indexPath.section);
-       if (tableView==_poovertableview) {
+       if (tableView==_povertableview) {
         if (poptype==1) {
             [_jobsitebtnlbl setTitle:@"Select Job Site" forState:UIControlStateNormal];
             [_sitechecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             [_officechecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
 
         
-            [self.poovercontroller dismissPopoverAnimated:YES];
+            [self.povercontroller dismissPopoverAnimated:YES];
         _applicantprocessview.hidden=NO;
             _navitem.title=[NSString stringWithFormat:@"Process Applicant-%@",ssn];
         }
         else
         {
              [_jobsitebtnlbl setTitle:[_JobsiteArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-            [self.poovercontroller dismissPopoverAnimated:YES];
+            [self.povercontroller dismissPopoverAnimated:YES];
         }
     }
 }
@@ -554,7 +555,11 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     if (btntouch%2) {
         admin=0;
         NSLog(@"%@",_jobsitebtnlbl.titleLabel.text);
-        jobsiteno=[[_jobsitedict objectForKey:_jobsitebtnlbl.titleLabel.text]integerValue];
+      
+        NSArray*array=[_jobsitebtnlbl.titleLabel.text componentsSeparatedByString:@"-"];
+        NSString*job=[NSString stringWithFormat:@"%@", [array objectAtIndex:1]];
+          jobsiteno=[[_jobsitedict objectForKey:job]integerValue];
+        
     }
     
     else {
@@ -719,6 +724,59 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     
     
 }
+-(void)JobsSelect{
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+    
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<JobsSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   
+                   
+                   "</JobsSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://testUSA.kontract360.com/JobsSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -757,6 +815,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         [self ListAllApplicants];
         webstring=@"app";
     }
+    [_povertableview reloadData];
 }
 #pragma mark - XMLParser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
@@ -1125,7 +1184,59 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         recordResults = TRUE;
     }
 
+    if([elementName isEqualToString:@"JobsSelectResponse"])
+    {
+        _jobsitedict=[[NSMutableDictionary alloc]init];
+        _JobsiteArray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"id"]){
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JobNumber"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JobDescDetail"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"SkillName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     
+    
+    if([elementName isEqualToString:@"JobSiteName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
 
 }
@@ -1382,25 +1493,25 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         _soapResults = nil;
         
     }
-       if([elementName isEqualToString:@"Id"])
-    {
-        
-        recordResults = FALSE;
-        
-        jobstring=_soapResults;
-        _soapResults = nil;
-    }
-    if([elementName isEqualToString:@"JobSiteName"])
-    {
-        
-        recordResults = FALSE;
-        
-        
-        [_JobsiteArray addObject:_soapResults];
-        [_jobsitedict setObject:jobstring forKey:_soapResults];
-        
-        _soapResults = nil;
-    }
+//       if([elementName isEqualToString:@"Id"])
+//    {
+//        
+//        recordResults = FALSE;
+//        
+//        jobstring=_soapResults;
+//        _soapResults = nil;
+//    }
+//    if([elementName isEqualToString:@"JobSiteName"])
+//    {
+//        
+//        recordResults = FALSE;
+//        
+//        
+//        [_JobsiteArray addObject:_soapResults];
+//        [_jobsitedict setObject:jobstring forKey:_soapResults];
+//        
+//        _soapResults = nil;
+//    }
     if([elementName isEqualToString:@"result"])
     {
         
@@ -1415,6 +1526,49 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
         
         _soapResults = nil;
 
+    }
+    if([elementName isEqualToString:@"id"])
+    {
+        
+        
+        recordResults = FALSE;
+        
+        _soapResults = nil;
+    }
+    
+    if([elementName isEqualToString:@"JobNumber"])
+    {
+        recordResults = FALSE;
+        jobstring=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"JobDescDetail"])
+    {
+        recordResults = FALSE;
+        // [_jobarray addObject:[NSString stringWithFormat:@"%@-%@",jobnumber,_soapResults]];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"JobSiteName"])
+    {
+        recordResults = FALSE;
+        jobsitename=_soapResults;
+        [_jobsitedict setObject:jobstring forKey:_soapResults];
+        //[_revjobdict setObject:_soapResults forKey:jobstring];
+        
+        // [_jobarray addObject:_soapResults];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"JobSkillId"])
+    {
+        recordResults = FALSE;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"SkillName"])
+    {
+        recordResults = FALSE;
+        [_JobsiteArray addObject:[NSString stringWithFormat:@"%@-%@-%@",jobsitename,jobstring,_soapResults]];
+        //[_skilldict setObject:_soapResults forKey:jobnumber];
+        _soapResults = nil;
     }
 
 
