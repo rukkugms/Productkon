@@ -128,7 +128,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<FillJobsModel xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<FillJobsModel xmlns=\"https://testUSA.kontract360.com/\">\n"
                    "</FillJobsModel>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
@@ -144,7 +144,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/FillJobsModel" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/FillJobsModel" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -177,7 +177,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<FillContract xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<FillContract xmlns=\"https://testUSA.kontract360.com/\">\n"
                    "<customername>%d</customername>\n"
                    "</FillContract>\n"
                    "</soap:Body>\n"
@@ -194,7 +194,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/FillContract" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/FillContract" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -227,7 +227,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UpdateContract xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<UpdateContract xmlns=\"https://testUSA.kontract360.com/\">\n"
                    "<id>%d</id>\n"
                    "<conid>%d</conid>\n"
                    "</UpdateContract>\n"
@@ -245,7 +245,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/UpdateContract" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/UpdateContract" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];

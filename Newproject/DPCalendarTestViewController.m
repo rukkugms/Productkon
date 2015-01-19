@@ -500,7 +500,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<CalenderSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<CalenderSelect xmlns=\"https://testUSA.kontract360.com/\">\n"
                     "<LeadID>%d</LeadID>\n"
                    "</CalenderSelect>\n"
                    "</soap:Body>\n"
@@ -517,7 +517,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-   [theRequest addValue: @"http://testUSA.kontract360.com/CalenderSelect" forHTTPHeaderField:@"Soapaction"];
+   [theRequest addValue: @"https://testUSA.kontract360.com/CalenderSelect" forHTTPHeaderField:@"Soapaction"];
      //[theRequest addValue: @"http://ios.kontract360.com/CalenderSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];

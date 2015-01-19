@@ -490,7 +490,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<JobsSelect xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<JobsSelect xmlns=\"https://testUSA.kontract360.com/\">\n"
                    
                    
                    "</JobsSelect>\n"
@@ -507,7 +507,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/JobsSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/JobsSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -567,7 +567,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<FillJRDetails xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<FillJRDetails xmlns=\"https://testUSA.kontract360.com/\">\n"
                    "<EmpJobsite>%@</EmpJobsite>\n"
                    "<StartD>%@</StartD>\n"
                    "<EndD>%@</EndD>\n"
@@ -585,7 +585,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/FillJRDetails" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/FillJRDetails" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -622,7 +622,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<FillJobCraft xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<FillJobCraft xmlns=\"https://testUSA.kontract360.com/\">\n"
                    
                    "<jobsite>%@</jobsite>\n"
                    "</FillJobCraft>\n"
@@ -639,7 +639,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/FillJobCraft" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/FillJobCraft" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -676,7 +676,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<FillEmployeesBasedonCraft xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<FillEmployeesBasedonCraft xmlns=\"https://testUSA.kontract360.com/\">\n"
                    
                    "<CraftCode>%@</CraftCode>\n"
                    "<Job>%@</Job>\n"
@@ -694,7 +694,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/FillEmployeesBasedonCraft" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/FillEmployeesBasedonCraft" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -755,7 +755,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<FillEmployeesBasedonJobandDate xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<FillEmployeesBasedonJobandDate xmlns=\"https://testUSA.kontract360.com/\">\n"
                    
                    "<JobCode>%@</JobCode>\n"
                    "<StrD>%@</StrD>\n"
@@ -774,7 +774,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/FillEmployeesBasedonJobandDate" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/FillEmployeesBasedonJobandDate" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -844,7 +844,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<InsertJobReferral xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<InsertJobReferral xmlns=\"https://testUSA.kontract360.com/\">\n"
                    
                    "<jobsite>%@</jobsite>\n"
                    "<std>%@</std>\n"
@@ -865,7 +865,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/InsertJobReferral" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/InsertJobReferral" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -901,7 +901,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ReleaseJobRefferals xmlns=\"http://testUSA.kontract360.com/\">\n"
+                   "<ReleaseJobRefferals xmlns=\"https://testUSA.kontract360.com/\">\n"
                     "<entryid>%d</entryid>\n"
                    
                    "</ReleaseJobRefferals>\n"
@@ -918,7 +918,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://testUSA.kontract360.com/ReleaseJobRefferals" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://testUSA.kontract360.com/ReleaseJobRefferals" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
