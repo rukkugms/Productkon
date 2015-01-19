@@ -122,10 +122,10 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 170, 170)];
+                           initWithFrame:CGRectMake(0, 0, 240, 200)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
-    _povertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 170, 170)];
+    _povertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 240, 200)];
     
     _povertableview.delegate=(id)self;
     _povertableview.dataSource=(id)self;
@@ -138,14 +138,14 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(170, 170);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(240, 200);
     
     //create a popover controller
     
     self.povercontroller = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     
-    self.povercontroller.popoverContentSize=CGSizeMake(170.0f, 170.0f);
+    self.povercontroller.popoverContentSize=CGSizeMake(240.0f, 200.0f);
     self.povercontroller=_povercontroller;
 
     
