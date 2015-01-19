@@ -396,7 +396,7 @@ return cell;
                    
                    "<soap:Body>\n"
                    
-                   "<ProjectManPowerRequiredSelect xmlns=\"https://testUSA.kontract360.com/\">\n"
+                   "<ProjectManPowerRequiredSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</ProjectManPowerRequiredSelect>\n"
                    "</soap:Body>\n"
@@ -404,7 +404,7 @@ return cell;
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     //NSURL *url = [NSURL URLWithString:@"testUSA.kontract360.com/service.asmx"];
     
@@ -414,7 +414,7 @@ return cell;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"https://testUSA.kontract360.com/ProjectManPowerRequiredSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/ProjectManPowerRequiredSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -448,7 +448,7 @@ return cell;
                    
                    "<soap:Body>\n"
                    
-                   "<LabourDescriptionSelect xmlns=\"https://testUSA.kontract360.com/\">\n"
+                   "<LabourDescriptionSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</LabourDescriptionSelect>\n"
                    "</soap:Body>\n"
@@ -456,7 +456,7 @@ return cell;
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     //NSURL *url = [NSURL URLWithString:@"testUSA.kontract360.com/service.asmx"];
     
@@ -466,7 +466,7 @@ return cell;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"https://testUSA.kontract360.com/LabourDescriptionSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/LabourDescriptionSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -499,7 +499,7 @@ return cell;
                    
                    "<soap:Body>\n"
                    
-                   "<LabourCalenderdateSelect xmlns=\"https://testUSA.kontract360.com/\">\n"
+                   "<LabourCalenderdateSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</LabourCalenderdateSelect>\n"
                    "</soap:Body>\n"
@@ -507,7 +507,7 @@ return cell;
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     //NSURL *url = [NSURL URLWithString:@"testUSA.kontract360.com/service.asmx"];
     
@@ -517,7 +517,7 @@ return cell;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"https://testUSA.kontract360.com/LabourCalenderdateSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/LabourCalenderdateSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -550,7 +550,7 @@ return cell;
                    
                    "<soap:Body>\n"
                    
-                   "<ManPowerJobnumberSelect xmlns=\"https://testUSA.kontract360.com/\">\n"
+                   "<ManPowerJobnumberSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</ManPowerJobnumberSelect>\n"
                    "</soap:Body>\n"
@@ -558,7 +558,7 @@ return cell;
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     //NSURL *url = [NSURL URLWithString:@"testUSA.kontract360.com/service.asmx"];
     
@@ -568,7 +568,7 @@ return cell;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"https://testUSA.kontract360.com/ManPowerJobnumberSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/ManPowerJobnumberSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -622,7 +622,7 @@ return cell;
                    
                    "<soap:Body>\n"
                    
-                   "<ManpowerreqSearch xmlns=\"https://testUSA.kontract360.com/\">\n"
+                   "<ManpowerreqSearch xmlns=\"http://ios.kontract360.com/\">\n"
                    "<string1>%@</string1>\n"
                    "<string2>%@</string2>\n"
                    "<string3>%@</string3>\n"
@@ -633,8 +633,8 @@ return cell;
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
-    //    NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    //    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -642,7 +642,7 @@ return cell;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"https://testUSA.kontract360.com/ManpowerreqSearch" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/ManpowerreqSearch" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -675,7 +675,7 @@ return cell;
                    
                    "<soap:Body>\n"
                    
-                   "<CountFromEmployeeSelect xmlns=\"https://testUSA.kontract360.com/\">\n"
+                   "<CountFromEmployeeSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</CountFromEmployeeSelect>\n"
                    "</soap:Body>\n"
@@ -683,7 +683,7 @@ return cell;
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     //NSURL *url = [NSURL URLWithString:@"testUSA.kontract360.com/service.asmx"];
     
@@ -693,7 +693,7 @@ return cell;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"https://testUSA.kontract360.com/CountFromEmployeeSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/CountFromEmployeeSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

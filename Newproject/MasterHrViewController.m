@@ -122,10 +122,10 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 170, 170)];
+                           initWithFrame:CGRectMake(0, 0, 240, 200)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
-    _povertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 170, 170)];
+    _povertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 240, 200)];
     
     _povertableview.delegate=(id)self;
     _povertableview.dataSource=(id)self;
@@ -138,14 +138,14 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(170, 170);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(240, 200);
     
     //create a popover controller
     
     self.povercontroller = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     
-    self.povercontroller.popoverContentSize=CGSizeMake(170.0f, 170.0f);
+    self.povercontroller.popoverContentSize=CGSizeMake(240.0f, 200.0f);
     self.povercontroller=_povercontroller;
 
     
@@ -446,7 +446,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
                    
                    "<soap:Body>\n"
                    
-                   "<AllSkills xmlns=\"https://testUSA.kontract360.com/\">\n"
+                   "<AllSkills xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</AllSkills>\n"
                    "</soap:Body>\n"
@@ -455,7 +455,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -463,7 +463,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"https://testUSA.kontract360.com/AllSkills" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/AllSkills" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -498,7 +498,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
                    
                    "<soap:Body>\n"
                    
-                   "<ListAllApplicants xmlns=\"https://testUSA.kontract360.com/\">\n"
+                   "<ListAllApplicants xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</ListAllApplicants>\n"
                    "</soap:Body>\n"
@@ -507,7 +507,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -515,7 +515,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"https://testUSA.kontract360.com/ListAllApplicants" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/ListAllApplicants" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -581,7 +581,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
                    
                    
                    "<soap:Body>\n"
-                   "<MoveApplicanttoInprocess xmlns=\"https://testUSA.kontract360.com/\">\n"
+                   "<MoveApplicanttoInprocess xmlns=\"http://ios.kontract360.com/\">\n"
                    "<appid>%d</appid>\n"
                    "<jobsite>%d</jobsite>\n"
                    "<admin>%d</admin>\n"
@@ -593,7 +593,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -601,7 +601,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"https://testUSA.kontract360.com/MoveApplicanttoInprocess" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/MoveApplicanttoInprocess" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -635,7 +635,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllJobSites xmlns=\"https://testUSA.kontract360.com/\">\n"
+                   "<SelectAllJobSites xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</SelectAllJobSites>\n"
                    "</soap:Body>\n"
@@ -644,7 +644,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -652,7 +652,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"https://testUSA.kontract360.com/SelectAllJobSites" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SelectAllJobSites" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -686,7 +686,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
                    
                    "<soap:Body>\n"
                    
-                   "<SearchApplicants xmlns=\"https://testUSA.kontract360.com/\">\n"
+                   "<SearchApplicants xmlns=\"http://ios.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "</SearchApplicants>\n"
                    "</soap:Body>\n"
@@ -695,7 +695,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -703,7 +703,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"https://testUSA.kontract360.com/SearchApplicants" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SearchApplicants" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -739,7 +739,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
                    
                    "<soap:Body>\n"
                    
-                   "<JobsSelect xmlns=\"https://testUSA.kontract360.com/\">\n"
+                   "<JobsSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    
                    "</JobsSelect>\n"
@@ -748,7 +748,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -756,7 +756,7 @@ if ([empdetls1.Inproceesstatus isEqualToString:@"true"])
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"https://testUSA.kontract360.com/JobsSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/JobsSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
