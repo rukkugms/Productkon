@@ -34,7 +34,7 @@
     NSInteger webtype;
     NSInteger path,Segmntcheck,ssnsegmentcheck,bgsegmentcheck,I9segmentcheck;
     
-    
+    NSString *jobsitename,*jobid,*jobstring;
 }
 @property(nonatomic,weak)id<myDelegate>delegate;
 @property (strong, nonatomic) IBOutlet UIView *verifctnview;

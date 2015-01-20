@@ -1023,7 +1023,13 @@ ssnclck++;
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
     [dateFormat setDateFormat:@"yyyy-MM-dd"];
     NSString*hiredate = [dateFormat stringFromDate:daa];
-   
+    
+    
+    NSArray*array=[_jobsitebtnlbl.titleLabel.text componentsSeparatedByString:@"-"];
+    NSString*job=[NSString stringWithFormat:@"%@", [array objectAtIndex:0]];
+   // jobsiteno=[[_jobsitedict objectForKey:job]integerValue];
+    NSString*jobsiteid=[_jobsitedict objectForKey:job];
+
 
     Verfymdl *verfymdl=(Verfymdl *)[_Fetchdetailsarray objectAtIndex:0];
     soapMessage = [NSString stringWithFormat:
@@ -1059,7 +1065,7 @@ ssnclck++;
                    "<job_id>%@</job_id>\n"
                    "</EmployeeInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",verfymdl.firstname,verfymdl.lastname,verfymdl.ssn,verfymdl.address,verfymdl.cellphone,verfymdl.Phonenumber,verfymdl.city,verfymdl.state,verfymdl.zip,verfymdl.dob,verfymdl.drivinglicence,hiredate,verfymdl.gender,verfymdl.country,verfymdl.email,[verfymdl.noofdependcies floatValue],verfymdl.maritalstatusid,[_craftdict objectForKey:_craftbtnlbl.titleLabel.text],[_payratetxtfld.text floatValue],[@"150" floatValue],0,[_jobsitedict objectForKey:_jobsitebtnlbl.titleLabel.text]];
+                   "</soap:Envelope>\n",verfymdl.firstname,verfymdl.lastname,verfymdl.ssn,verfymdl.address,verfymdl.cellphone,verfymdl.Phonenumber,verfymdl.city,verfymdl.state,verfymdl.zip,verfymdl.dob,verfymdl.drivinglicence,hiredate,verfymdl.gender,verfymdl.country,verfymdl.email,[verfymdl.noofdependcies floatValue],verfymdl.maritalstatusid,[_craftdict objectForKey:_craftbtnlbl.titleLabel.text],[_payratetxtfld.text floatValue],[@"150" floatValue],0,jobsiteid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1073,6 +1079,59 @@ ssnclck++;
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
     [theRequest addValue: @"http://ios.kontract360.com/EmployeeInsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)JobsSelect{
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+    
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<JobsSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   
+                   "</JobsSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/JobsSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1125,7 +1184,7 @@ ssnclck++;
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-    [_popOverTableView reloadData];
+    
     if (testint==1) {
         
      //   [self FetchImage];
@@ -1154,6 +1213,8 @@ ssnclck++;
     
     
     [_requirementtable reloadData];
+    
+    [_popOverTableView reloadData];
     }
 
 
@@ -1729,7 +1790,60 @@ ssnclck++;
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"JobsSelectResponse"])
+    {
+        _jobsitedict=[[NSMutableDictionary alloc]init];
+        _jobsitearray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
+    
+    if([elementName isEqualToString:@"id"]){
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JobNumber"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JobDescDetail"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"SkillName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    
+    if([elementName isEqualToString:@"JobSiteName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -2355,6 +2469,7 @@ ssnclck++;
     {
         recordResults=FALSE;
         _crftid=_soapResults;
+        jobid=_soapResults;
         _soapResults=nil;
     }
     
@@ -2368,21 +2483,21 @@ ssnclck++;
     }
     
 
-    if([elementName isEqualToString:@"Id"])
-    {
-        recordResults=FALSE;
-        _jobsiteid=_soapResults;
-        _soapResults=nil;
-    }
-    
-    
-    if([elementName isEqualToString:@"JobSiteName"])
-    {
-        recordResults=FALSE;
-        [_jobsitearray addObject:_soapResults];
-        [_jobsitedict setObject:_jobsiteid forKey:_soapResults];
-        _soapResults=nil;
-    }
+//    if([elementName isEqualToString:@"Id"])
+//    {
+//        recordResults=FALSE;
+//        _jobsiteid=_soapResults;
+//        _soapResults=nil;
+//    }
+//    
+//    
+//    if([elementName isEqualToString:@"JobSiteName"])
+//    {
+//        recordResults=FALSE;
+//        [_jobsitearray addObject:_soapResults];
+//        [_jobsitedict setObject:_jobsiteid forKey:_soapResults];
+//        _soapResults=nil;
+//    }
 
     if([elementName isEqualToString:@"SkillId"])
     {
@@ -2396,6 +2511,7 @@ ssnclck++;
         recordResults=FALSE;
         [_skillarray addObject:_soapResults];
         [_skilldict setObject:_soapResults forKey:_skillid];
+         [_jobsitearray addObject:[NSString stringWithFormat:@"%@-%@-%@",jobsitename,jobstring,_soapResults]];
         _soapResults=nil;
     }
     if([elementName isEqualToString:@"result"])
@@ -2406,6 +2522,43 @@ ssnclck++;
         [alertview show];
         
           _soapResults=nil;
+    }
+//    if([elementName isEqualToString:@"id"])
+//    {
+//        
+//        
+//        recordResults = FALSE;
+//        
+//        
+//        _soapResults = nil;
+//    }
+    
+    if([elementName isEqualToString:@"JobNumber"])
+    {
+        recordResults = FALSE;
+        jobstring=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"JobDescDetail"])
+    {
+        recordResults = FALSE;
+        // [_jobarray addObject:[NSString stringWithFormat:@"%@-%@",jobnumber,_soapResults]];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"JobSiteName"])
+    {
+        recordResults = FALSE;
+        jobsitename=_soapResults;
+        [_jobsitedict setObject:jobid forKey:_soapResults];
+        //[_revjobdict setObject:_soapResults forKey:jobstring];
+        
+        // [_jobarray addObject:_soapResults];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"JobSkillId"])
+    {
+        recordResults = FALSE;
+        _soapResults = nil;
     }
 
 
@@ -2454,10 +2607,10 @@ ssnclck++;
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 200, 250)];
+                           initWithFrame:CGRectMake(0, 0, 250, 250)];
     //200,250
     popoverView.backgroundColor = [UIColor lightTextColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 250)];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 250, 250)];
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
     _popOverTableView.rowHeight= 32;
@@ -2468,13 +2621,13 @@ ssnclck++;
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 250);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(250, 250);
     
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     
-    self.popOverController.popoverContentSize=CGSizeMake(200.0f, 250.0f);
+    self.popOverController.popoverContentSize=CGSizeMake(250.0f, 250.0f);
     self.popOverController=_popOverController;
     
     
@@ -2611,7 +2764,8 @@ ssnclck++;
      poptype=5;
     [self resignFirstResponder];
     [self createpopover];
-    [self SelectAllJobSites];
+    //[self SelectAllJobSites];
+    [self JobsSelect];
 }
 
 - (IBAction)movebtn:(id)sender {

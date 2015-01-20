@@ -18,11 +18,11 @@
     NSString *webstring;
     NSInteger btntouch;
     NSInteger chektouch;
-    NSString *jobstring;
+   
     NSInteger poptype;
     NSInteger jobsite;
     NSInteger office;
-     NSString *ssn,*jobsitename;
+     NSString *ssn,*jobsitename,*jobid,*jobstring;
 }
 
 @property(strong,nonatomic)Empdetails *empdetl;
