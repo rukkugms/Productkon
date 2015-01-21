@@ -154,14 +154,18 @@
 //        }
 //    }
     
+    
+    
     //Draw Events
     for (DPCalendarEvent *event in self.events) {
-        if (self.isSelected || self.isPreviousSelectedCell) {
-            
-            
-           
-        }
-        else if (!self.isInSameMonth) {
+//        if (self.isSelected || self.isPreviousSelectedCell) {
+//            
+//            
+//           
+//        }
+//        else
+        
+            if (!self.isInSameMonth) {
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             NSInteger calendartype = [defaults integerForKey:@"Estcal"];
             

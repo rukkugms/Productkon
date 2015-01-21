@@ -79,11 +79,15 @@
 //    _progressView.hidden=NO;
 //    [self.view addSubview:_progressView];
 //    [self startprogress];
+    
+    
+    
     _activity=[[UIActivityIndicatorView alloc]init];
      _activity.frame = CGRectMake((self.view.bounds.size.width-50)/2, 300, 50, 50);
     _activity.activityIndicatorViewStyle=UIActivityIndicatorViewStyleWhiteLarge;
     _activity.color=[UIColor blackColor];
     [self.view addSubview:_activity];
+    self.view.userInteractionEnabled=NO;
     [_activity startAnimating];
 
 }
@@ -286,6 +290,7 @@
 {
     [_activity stopAnimating];
     _activity.hidden=YES;
+     self.view.userInteractionEnabled=YES;
 }
 
 
