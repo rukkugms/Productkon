@@ -1006,9 +1006,17 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     
     
 }
+
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
+    if([elementName isEqualToString:@"faultcode"])
+    {
+        [_activitybtn stopAnimating];
+        _activitybtn.hidden=YES;
+        _addview.userInteractionEnabled=YES;
+       
+    }
     if([elementName isEqualToString:@"SelectAllSmallToolsResult"])
     {
         _toolarray=[[NSMutableArray alloc]init];

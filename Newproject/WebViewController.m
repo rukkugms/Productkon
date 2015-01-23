@@ -81,10 +81,24 @@
    
     
     NSLog(@"ef%@",error);
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"The resource you are looking for is not found on the server" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+    
 
 }
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    ////NSLog(@"buttonIndex%d",buttonIndex);
+    if ([alertView.message isEqualToString:@"The resource you are looking for is not found on the server"]) {
+        
+        
+        
+        if (buttonIndex==0) {
 
-
+            [_activity startAnimating];
+            _activity.hidden=YES;
+        }
+    }
+}
 
 - (IBAction)clsebtn:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

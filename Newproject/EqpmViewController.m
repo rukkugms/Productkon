@@ -1318,7 +1318,14 @@ finishedSavingWithError:(NSError *)error
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
-    
+    if([elementName isEqualToString:@"faultcode"])
+    {
+        [_activitybtn stopAnimating];
+        _activitybtn.hidden=YES;
+        
+        _addequipmentview.userInteractionEnabled=YES;
+        
+    }
    
     if([elementName isEqualToString:@"SelectAllSubtypeEquipmentResult"])
     {

@@ -907,6 +907,7 @@ return cell;
     
     [self UserLogmainview];
      NSString *fullURL =[NSString stringWithFormat:@"http://ios.kontract360.com%@",[_docdict objectForKey:[_documntarray objectAtIndex:textFieldIndexPath.row]]];
+//    NSString *fullURL =[NSString stringWithFormat:@"http://192.168.0.175:7342/Folder/Root/Company Values/132074984.jpg"];
     NSLog(@"fullurl%@",fullURL);
     //_urlstring=[_docdict objectForKey:[_documntarray objectAtIndex:textFieldIndexPath.row]];
    // _urlstring=[NSString stringWithFormat:@"http://192.168.0.1:443/Folder/Root/EmployeeHandbook/accounts.xlsx"];
