@@ -1298,7 +1298,13 @@ finishedSavingWithError:(NSError *)error
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
     
-   
+    if([elementName isEqualToString:@"faultcode"])
+    {
+        [_activitybtn stopAnimating];
+        _activitybtn.hidden=YES;
+        _addview.userInteractionEnabled=YES;
+        
+    }
     if([elementName isEqualToString:@"SelectAllSubtypeOtherResult"])
     {
         _subtypearray=[[NSMutableArray alloc]init];

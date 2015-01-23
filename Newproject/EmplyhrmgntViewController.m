@@ -119,10 +119,10 @@
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 200, 170)];
+                           initWithFrame:CGRectMake(0, 0, 250, 200)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
-    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 170)];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 250, 200)];
     
     _popovertableview.delegate=(id)self;
     _popovertableview.dataSource=(id)self;
@@ -135,14 +135,14 @@
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 170);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(250, 200);
     
     //create a popover controller
     
     self.popOvercontroller = [[UIPopoverController alloc]
                              initWithContentViewController:popoverContent];
     
-    self.popOvercontroller.popoverContentSize=CGSizeMake(200.0f, 170.0f);
+    self.popOvercontroller.popoverContentSize=CGSizeMake(250.0f, 200.0f);
     self.popOvercontroller=_popOvercontroller;
     
     [self.popOvercontroller presentPopoverFromRect:_jobsitebtnlbl.frame
@@ -770,6 +770,12 @@
     NSString *soapMessage;
     Empmdl *empmdl1=(Empmdl *)[_employeelistarray objectAtIndex:btnindex];
     NSString *jbid;
+    if (poptype==1) {
+        jbid=[_jobsitedict objectForKey:_jobsitebtnlbl.titleLabel.text];
+    }
+    else
+    {
+    
     if ([_jobsitebtnlbl.titleLabel.text isEqualToString:@"Select"]||[_jobsitebtnlbl.titleLabel.text isEqualToString:@""]) {
         jbid=@"0";
     }
@@ -777,6 +783,7 @@
     {
    jobsitemodel*jobsitemdl=(jobsitemodel *)[_jobmdlarray objectAtIndex:Selectedpath];
         jbid=[NSString stringWithFormat:@"%d",jobsitemdl.jobid];
+    }
     }
   soapMessage = [NSString stringWithFormat:
                    
@@ -873,6 +880,7 @@
     {
         _jobarray=[[NSMutableArray alloc]init];
         _jobmdlarray=[[NSMutableArray alloc]init];
+        _jobsitedict=[[NSMutableDictionary alloc]init];
         
         if(!_soapResults)
         {
@@ -1149,6 +1157,7 @@
     {_jobmdl=[[jobsitemodel alloc]init];
         recordResults = FALSE;
         _jobmdl.jobid=[_soapResults integerValue];
+        jobid=_soapResults;
         _soapResults = nil;
     }
     
@@ -1177,7 +1186,7 @@
     {
         recordResults = FALSE;
         _jobmdl.jobname=_soapResults;
-        
+        [_jobsitedict setObject:jobid forKey:_soapResults];
         [_jobarray addObject:[NSString stringWithFormat:@"%@",_soapResults]];
         [_jobmdlarray addObject:_jobmdl];
         

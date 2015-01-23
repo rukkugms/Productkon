@@ -284,7 +284,7 @@
 #pragma mark - XMLParser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
-    if([elementName isEqualToString:@"HRProcessselectResult"])
+    if([elementName isEqualToString:@"HRProcessselectResponse"])
     { //imgString=@"Fetchapp";
         _empnameArray=[[NSMutableArray alloc]init];
         _newprocesssarray=[[NSMutableArray alloc]init];
