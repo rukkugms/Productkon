@@ -80,7 +80,11 @@
     _processview.userInteractionEnabled=NO;
     _Moduleid=64;
     [self UserRightsforparticularmoduleselect];
+   
     
+    
+    
+
 
     
 }
