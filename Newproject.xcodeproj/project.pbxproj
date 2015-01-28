@@ -570,6 +570,11 @@
 		D4ACE56A19C1B1120060A352 /* craftcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4ACE56919C1B1120060A352 /* craftcell.xib */; };
 		D4ACE56D19C1B12D0060A352 /* Craftreqmtmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACE56C19C1B12D0060A352 /* Craftreqmtmdl.m */; };
 		D4B4CBA119738ED500696D37 /* Appreqmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B4CBA019738ED500696D37 /* Appreqmdl.m */; };
+		D4BDDDF61A789B880051B62B /* WorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BDDDF31A789B880051B62B /* WorkViewController.m */; };
+		D4BDDDF71A789B880051B62B /* WorkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4BDDDF41A789B880051B62B /* WorkViewController.xib */; };
+		D4BDDDF81A789B880051B62B /* WorkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4BDDDF51A789B880051B62B /* WorkCell.xib */; };
+		D4BDDDFC1A789BBA0051B62B /* AddworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BDDDFA1A789BBA0051B62B /* AddworkViewController.m */; };
+		D4BDDDFD1A789BBA0051B62B /* AddworkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4BDDDFB1A789BBA0051B62B /* AddworkViewController.xib */; };
 		D4CA2FD9176EC33E007EEF7D /* Customercell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA2FD8176EC33E007EEF7D /* Customercell.xib */; };
 		D4CA2FDB176ED128007EEF7D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4CA2FDA176ED128007EEF7D /* QuartzCore.framework */; };
 		D4D7A28D17F5401000880E38 /* profilepicture.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D7A28C17F5401000880E38 /* profilepicture.png */; };
@@ -1445,6 +1450,13 @@
 		D4ACE56C19C1B12D0060A352 /* Craftreqmtmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Craftreqmtmdl.m; sourceTree = "<group>"; };
 		D4B4CB9F19738ED500696D37 /* Appreqmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appreqmdl.h; sourceTree = "<group>"; };
 		D4B4CBA019738ED500696D37 /* Appreqmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appreqmdl.m; sourceTree = "<group>"; };
+		D4BDDDF21A789B880051B62B /* WorkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkViewController.h; sourceTree = "<group>"; };
+		D4BDDDF31A789B880051B62B /* WorkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkViewController.m; sourceTree = "<group>"; };
+		D4BDDDF41A789B880051B62B /* WorkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkViewController.xib; sourceTree = "<group>"; };
+		D4BDDDF51A789B880051B62B /* WorkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkCell.xib; sourceTree = "<group>"; };
+		D4BDDDF91A789BBA0051B62B /* AddworkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddworkViewController.h; sourceTree = "<group>"; };
+		D4BDDDFA1A789BBA0051B62B /* AddworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddworkViewController.m; sourceTree = "<group>"; };
+		D4BDDDFB1A789BBA0051B62B /* AddworkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddworkViewController.xib; sourceTree = "<group>"; };
 		D4CA2FD8176EC33E007EEF7D /* Customercell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Customercell.xib; sourceTree = "<group>"; };
 		D4CA2FDA176ED128007EEF7D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D4D7A28C17F5401000880E38 /* profilepicture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profilepicture.png; sourceTree = "<group>"; };
@@ -2203,8 +2215,23 @@
 				D4036FF519FE23310031C4F1 /* PlandocsViewController.m */,
 				D4036FF619FE23310031C4F1 /* PlandocsViewController.xib */,
 				D4036FF919FE24D10031C4F1 /* Plandocuscell.xib */,
+				D4BDDDF11A789B580051B62B /* WorkEntry */,
 			);
 			name = Planning;
+			sourceTree = "<group>";
+		};
+		D4BDDDF11A789B580051B62B /* WorkEntry */ = {
+			isa = PBXGroup;
+			children = (
+				D4BDDDF21A789B880051B62B /* WorkViewController.h */,
+				D4BDDDF31A789B880051B62B /* WorkViewController.m */,
+				D4BDDDF41A789B880051B62B /* WorkViewController.xib */,
+				D4BDDDF51A789B880051B62B /* WorkCell.xib */,
+				D4BDDDF91A789BBA0051B62B /* AddworkViewController.h */,
+				D4BDDDFA1A789BBA0051B62B /* AddworkViewController.m */,
+				D4BDDDFB1A789BBA0051B62B /* AddworkViewController.xib */,
+			);
+			name = WorkEntry;
 			sourceTree = "<group>";
 		};
 		D4D570151772BE4A00671A35 /* images */ = {
@@ -2983,12 +3010,14 @@
 				D400A5E41980EA03003D5F4C /* customer-&con (1).png in Resources */,
 				D41B14EB195C2D3F00DEED6E /* images.png in Resources */,
 				D42D8C1618D2D8FF009D8085 /* BasicReqViewController.xib in Resources */,
+				D4BDDDFD1A789BBA0051B62B /* AddworkViewController.xib in Resources */,
 				D4A338EB18F3EEEF00E53FAC /* BillingViewController.xib in Resources */,
 				64A2F9B019CBE44D009B1018 /* TPcell.xib in Resources */,
 				D4FED40B17F16722004BE242 /* HRcellview.xib in Resources */,
 				64A936B919E640C900C20D57 /* Customhrcell.xib in Resources */,
 				649EE4C5196151A2008DEF02 /* Lbmgcell.xib in Resources */,
 				64F97983185ED60000E7722B /* appbar.addblack.png in Resources */,
+				D4BDDDF71A789B880051B62B /* WorkViewController.xib in Resources */,
 				D4FED41217F18CB9004BE242 /* btn.png in Resources */,
 				64A3B81418DFEE980015887F /* LeadsViewController.xib in Resources */,
 				D4FED41417F18E28004BE242 /* tabbtn.png in Resources */,
@@ -3055,6 +3084,7 @@
 				D42505D519A4A5A8001D16A2 /* lock.png in Resources */,
 				D4E658D417F2EF5B00202B14 /* wrong.png in Resources */,
 				D42D8C1E18D2D91C009D8085 /* customvendercell.xib in Resources */,
+				D4BDDDF81A789B880051B62B /* WorkCell.xib in Resources */,
 				64A11EE918683BE6008D20CC /* customphase.xib in Resources */,
 				D4DEEDDB17F40BE70096A908 /* UploadDocViewController.xib in Resources */,
 				64C27A631A35A95400B66C77 /* branches.png in Resources */,
@@ -3232,6 +3262,7 @@
 				D4A338C918F3BD1900E53FAC /* WorktypeViewController.m in Sources */,
 				D42D8C1518D2D8FF009D8085 /* BasicReqViewController.m in Sources */,
 				D4A674A819345F7200D5A77E /* DateTable.m in Sources */,
+				D4BDDDF61A789B880051B62B /* WorkViewController.m in Sources */,
 				64B08E5F19471498003C25F5 /* Labourcustommdl.m in Sources */,
 				649E1F8018617ECD0010CBD8 /* MaterialsViewController.m in Sources */,
 				D40DE14A19E69DA4008FFD15 /* AFHTTPRequestOperation.m in Sources */,
@@ -3354,6 +3385,7 @@
 				64C0AD1C1A5D40C900B31F52 /* RMLaborMain.m in Sources */,
 				64A3B81318DFEE980015887F /* LeadsViewController.m in Sources */,
 				D499D29A196AB39A008D248A /* Timesheetmdl.m in Sources */,
+				D4BDDDFC1A789BBA0051B62B /* AddworkViewController.m in Sources */,
 				D404A2211A0361890086E40A /* Catergrymdl.m in Sources */,
 				D41499AF194573A2001E9146 /* ManagemttileViewController.m in Sources */,
 				D49F875518EEA36B00413CAD /* allfolderrights.m in Sources */,
