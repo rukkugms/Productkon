@@ -93,11 +93,26 @@
     doubleTap8.delegate=(id)self;
     [self.crewview addGestureRecognizer:doubleTap8];
 
+    UITapGestureRecognizer *doubleTap9 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(hrpage)];
+    doubleTap9.numberOfTapsRequired=1;
+    doubleTap9.delegate=(id)self;
+    [self.hrview addGestureRecognizer:doubleTap9];
+    [self.hrview setExclusiveTouch:YES];
+    UITapGestureRecognizer *doubleTap10 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(saftypage)];
+    doubleTap10.numberOfTapsRequired=1;
+    doubleTap10.delegate=(id)self;
+    [self.saftyview addGestureRecognizer:doubleTap10];
+    [self.saftyview setExclusiveTouch:YES];
 
 
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    _hrindicator.hidden=YES;
     _manpwrview.userInteractionEnabled=YES;
     _manactivity.hidden=YES;
     _eqpView.userInteractionEnabled=YES;
@@ -129,6 +144,34 @@
     
     
     
+    
+}
+-(void)hrpage{
+    _ModuleID=8;
+    [self UserLogmaininsert];
+    //_custindictr.hidden=YES;
+   // _ledactvtyindctr.hidden=YES;
+   // _planactivityindctr.hidden=YES;
+    //_estactvityindicator.hidden=YES;
+    
+   // _promgmtindicatr.hidden=YES;
+   // _compactivityindctr.hidden=YES;
+   // _resactivtyindictr.hidden=YES;
+    
+    _hrindicator.hidden=NO;
+    _hrview.userInteractionEnabled=NO;
+    [_hrindicator startAnimating];
+    [self UserRightsforparticularmoduleselect];
+
+}
+-(void)saftypage{
+    
+    _SafetyVCtrl=[[SafetyViewController alloc]initWithNibName:@"SafetyViewController" bundle:nil];
+      _SafetyVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+  
+    [self presentViewController:_SafetyVCtrl
+                       animated:YES completion:NULL];
+
     
 }
 -(void)equipPage
@@ -265,7 +308,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UserRightsforparticularmoduleselect xmlns=\"https://vip.kontract360.com/\">\n"
+                   "<UserRightsforparticularmoduleselect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<UserId>%d</UserId>\n"
                    "<ModuleId>%d</ModuleId>\n"
                    "</UserRightsforparticularmoduleselect>\n"
@@ -274,8 +317,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -283,7 +326,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"https://vip.kontract360.com/UserRightsforparticularmoduleselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/UserRightsforparticularmoduleselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -332,7 +375,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UserLogmaininsert xmlns=\"https://vip.kontract360.com/\">\n"
+                   "<UserLogmaininsert xmlns=\"http://ios.kontract360.com/\">\n"
                    "<dateandtime>%@</dateandtime>\n"
                    "<userid>%d</userid>\n"
                    "<moduleid>%d</moduleid>\n"
@@ -348,8 +391,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -357,7 +400,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"https://vip.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1128,6 +1171,67 @@
        
        
     }
+        if (_ModuleID==8)
+        {
+            Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
+            if (rightsmodel.ViewModule==1) {
+                _hrindicator.hidden=YES;
+                _hrview.userInteractionEnabled=YES;
+                [_hrindicator stopAnimating];
+              
+                _hrview.userInteractionEnabled=YES;
+                
+                // if (!self.TilehrVCtrl) {
+                self.TilehrVCtrl=[[TilehrViewController alloc]initWithNibName:@"TilehrViewController" bundle:nil];
+                // }
+                
+                _TilehrVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+                
+                [self presentViewController:_TilehrVCtrl
+                                   animated:YES completion:NULL];
+                
+            }
+            else
+            {
+                _hrindicator.hidden=YES;
+                [_hrindicator stopAnimating];
+                _hrview.userInteractionEnabled=YES;
+//                _compactivityindctr.hidden=YES;
+//                [_compactivityindctr stopAnimating];
+//                _resactivtyindictr.hidden=YES;
+//                [_resactivtyindictr stopAnimating];
+//                _custindictr.hidden=YES;
+//                [_custindictr stopAnimating];
+//                _ledactvtyindctr.hidden=YES;
+//                [_ledactvtyindctr stopAnimating];
+//                _planactivityindctr.hidden=YES;
+//                [_planactivityindctr stopAnimating];
+//                _estactvityindicator.hidden=YES;
+//                [_estactvityindicator stopAnimating];
+                _hrindicator.hidden=YES;
+                [_hrindicator stopAnimating];
+//                _promgmtindicatr.hidden=YES;
+//                [_promgmtindicatr stopAnimating];
+//                _companyView.userInteractionEnabled=YES;
+//                _reurceview.userInteractionEnabled=YES;
+//                _customerview.userInteractionEnabled=YES;
+//                _leadView.userInteractionEnabled=YES;
+//                _planngview.userInteractionEnabled=YES;
+//                _estimtnview.userInteractionEnabled=YES;
+//                _projectview.userInteractionEnabled=YES;
+                _hrview.userInteractionEnabled=YES;
+                
+                
+                
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"You don’t have right to view this form" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                
+            }
+        
+        
+        
+    }
+          
     if (_ModuleID==37)
     {
         Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
@@ -1218,6 +1322,7 @@
     }
         checkWS=0;
     }
+    
     
 }
 

@@ -18,6 +18,9 @@
 //#import "CrewsetupViewController.h"
 #import "GPSetupTileViewController.h"
 #import "Rightscheck.h"
+#import "HRViewController.h"
+#import "TilehrViewController.h"
+#import "SafetyViewController.h"
 
 
 @interface ResViewController : UIViewController
@@ -27,6 +30,8 @@
     NSInteger checkWS;
 }
 
+@property(strong,nonatomic)TilehrViewController*TilehrVCtrl;
+@property(strong,nonatomic)SafetyViewController *SafetyVCtrl;
 
 @property (strong, nonatomic) IBOutlet UIView *manpwrview;
 @property(strong,nonatomic)IBOutlet UIView *eqpView;
@@ -37,6 +42,8 @@
 @property (strong, nonatomic) IBOutlet UIView *consumbleview;
 @property (strong, nonatomic) IBOutlet UIView *cmpanyassetview;
 @property (strong, nonatomic) IBOutlet UIView *crewview;
+@property (strong, nonatomic) IBOutlet UIView *hrview;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *hrindicator;
 
 //ViewControllers
 ////neww
@@ -58,10 +65,12 @@
 @property(strong,nonatomic)NSMutableArray *userrightsarray;
 @property(strong,nonatomic)NSString *result;
 
+
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
 @property(strong,nonatomic)NSMutableData *webData;
+@property (strong, nonatomic) IBOutlet UIView *saftyview;
 
 
 /*activity*/
