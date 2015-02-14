@@ -548,7 +548,7 @@ _quantityarray=[[NSMutableArray alloc]init];
                    
                    "<soap:Body>\n"
                    
-                   "<BidManPowerReviewSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<BidManPowerReviewSelect xmlns=\"https://vip.kontract360.com/\">\n"
                    "<BidId>%@</BidId>\n"
                    "</BidManPowerReviewSelect>\n"
                    "</soap:Body>\n"
@@ -557,7 +557,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -565,7 +565,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/BidManPowerReviewSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/BidManPowerReviewSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -596,7 +596,7 @@ _quantityarray=[[NSMutableArray alloc]init];
                    
                    "<soap:Body>\n"
                    
-                   "<BidEquipmentSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<BidEquipmentSelect xmlns=\"https://vip.kontract360.com/\">\n"
                    "<BidId>%@</BidId>\n"
                    "</BidEquipmentSelect>\n"
                    "</soap:Body>\n"
@@ -605,7 +605,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -613,7 +613,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/BidEquipmentSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/BidEquipmentSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -644,7 +644,7 @@ _quantityarray=[[NSMutableArray alloc]init];
                    
                    "<soap:Body>\n"
                    
-                   "<BidMaterialReviewselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<BidMaterialReviewselect xmlns=\"https://vip.kontract360.com/\">\n"
                    "<BidId>%@</BidId>\n"
                    "</BidMaterialReviewselect>\n"
                    "</soap:Body>\n"
@@ -653,7 +653,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -661,7 +661,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/BidMaterialReviewselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/BidMaterialReviewselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -692,7 +692,7 @@ _quantityarray=[[NSMutableArray alloc]init];
                    
                    "<soap:Body>\n"
                    
-                   "<BidOtherReviewselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<BidOtherReviewselect xmlns=\"https://vip.kontract360.com/\">\n"
                    "<BidId>%@</BidId>\n"
                    "</BidOtherReviewselect>\n"
                    "</soap:Body>\n"
@@ -701,7 +701,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -709,7 +709,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/BidOtherReviewselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/BidOtherReviewselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -742,7 +742,7 @@ _quantityarray=[[NSMutableArray alloc]init];
                    
                    
                    "<soap:Body>\n"
-                   "<BidmanpowerSearch xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<BidmanpowerSearch xmlns=\"https://vip.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "<BidId>%@</BidId>\n"
                    "</BidmanpowerSearch>\n"
@@ -752,7 +752,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -760,7 +760,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/BidmanpowerSearch" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/BidmanpowerSearch" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -793,7 +793,7 @@ _quantityarray=[[NSMutableArray alloc]init];
                    
                    
                    "<soap:Body>\n"
-                   "<BidEquipmentReviewSearch xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<BidEquipmentReviewSearch xmlns=\"https://vip.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "<BidId>%@</BidId>\n"
                    "</BidEquipmentReviewSearch>\n"
@@ -803,7 +803,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -811,7 +811,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/BidEquipmentReviewSearch" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/BidEquipmentReviewSearch" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -844,7 +844,7 @@ _quantityarray=[[NSMutableArray alloc]init];
                    
                    
                    "<soap:Body>\n"
-                   "<BidMaterialReviewSearch xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<BidMaterialReviewSearch xmlns=\"https://vip.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "<BidId>%@</BidId>\n"
                    "</BidMaterialReviewSearch>\n"
@@ -854,7 +854,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -862,7 +862,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/BidMaterialReviewSearch" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/BidMaterialReviewSearch" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -895,7 +895,7 @@ _quantityarray=[[NSMutableArray alloc]init];
                    
                    
                    "<soap:Body>\n"
-                   "<BidOtherReviewSearch xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<BidOtherReviewSearch xmlns=\"https://vip.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "<BidId>%@</BidId>\n"
                    "</BidOtherReviewSearch>\n"
@@ -905,7 +905,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -913,7 +913,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/BidOtherReviewSearch" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/BidOtherReviewSearch" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -945,7 +945,7 @@ _quantityarray=[[NSMutableArray alloc]init];
                    
                    "<soap:Body>\n"
                    
-                   "<BidReviewCostselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<BidReviewCostselect xmlns=\"https://vip.kontract360.com/\">\n"
                    
                    "</BidReviewCostselect>\n"
                    "</soap:Body>\n"
@@ -954,7 +954,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -962,7 +962,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/BidReviewCostselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/BidReviewCostselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -994,7 +994,7 @@ _quantityarray=[[NSMutableArray alloc]init];
                    
                    "<soap:Body>\n"
                    
-                   "<BidReviewInsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<BidReviewInsert xmlns=\"https://vip.kontract360.com/\">\n"
                    "<BidId>%@</BidId>\n"
                    "</BidReviewInsert>\n"
                    "</soap:Body>\n"
@@ -1003,7 +1003,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1011,7 +1011,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/BidReviewInsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/BidReviewInsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

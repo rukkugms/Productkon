@@ -29,8 +29,12 @@
     NSInteger createcheck;
      NSString  *createstring;
     NSInteger imagechecker;
+      NSString  *userid;
     
 }
+@property(strong,nonatomic)NSString *result;
+@property(readwrite)NSInteger ModuleID;
+
 @property(readwrite)NSInteger frmplan;
 @property(strong,nonatomic)NSString *itemfromgp;
 
