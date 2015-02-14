@@ -81,7 +81,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
-      customArchiveName = "kontract3"
+      customArchiveName = "Kontract360"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
