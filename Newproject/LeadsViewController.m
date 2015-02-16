@@ -1230,7 +1230,7 @@ else
                  "</soap:Envelope>\n"];
     NSLog(@"soapmessage%@",soapmessage);
    // NSURL *url=[NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     NSMutableURLRequest *theRequest=[NSMutableURLRequest requestWithURL:url];
     NSString *msglength=[NSString stringWithFormat:@"%d",[soapmessage length]];
     [theRequest addValue:@"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
@@ -1279,7 +1279,7 @@ else
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1357,7 +1357,7 @@ else
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1439,7 +1439,7 @@ else
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1491,7 +1491,7 @@ else
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1542,7 +1542,7 @@ else
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1594,7 +1594,7 @@ else
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1645,7 +1645,7 @@ else
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1716,7 +1716,7 @@ else
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1768,8 +1768,8 @@ else
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1817,8 +1817,8 @@ else
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1866,7 +1866,7 @@ else
     NSLog(@"soapmsg%@",soapMessage);
     
     
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     //NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
@@ -1916,8 +1916,8 @@ else
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1965,8 +1965,8 @@ else
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -2038,8 +2038,8 @@ else
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -2110,8 +2110,8 @@ else
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -2183,8 +2183,8 @@ else
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -2257,8 +2257,8 @@ else
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -2331,8 +2331,8 @@ else
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -2405,8 +2405,8 @@ else
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -2480,8 +2480,8 @@ else
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -2554,8 +2554,8 @@ else
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -2628,8 +2628,8 @@ else
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -2702,8 +2702,8 @@ else
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     

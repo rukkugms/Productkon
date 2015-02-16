@@ -195,7 +195,7 @@ finishedSavingWithError:(NSError *)error
                    
                    "<soap:Body>\n"
                    
-                   "<ReadSafetyMaterials xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ReadSafetyMaterials xmlns=\"https://vip.kontract360.com/\">\n"
                    
                    "</ReadSafetyMaterials>\n"
                    "</soap:Body>\n"
@@ -204,7 +204,7 @@ finishedSavingWithError:(NSError *)error
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -212,7 +212,7 @@ finishedSavingWithError:(NSError *)error
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ReadSafetyMaterials" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/ReadSafetyMaterials" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -254,7 +254,7 @@ finishedSavingWithError:(NSError *)error
                    
                    "<soap:Body>\n"
                    
-                   "<CreateSafetyMaterials xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<CreateSafetyMaterials xmlns=\"https://vip.kontract360.com/\">\n"
                    "<description>%@</description>\n"
                    "<allsubtypes>%d</allsubtypes>\n"
                    "<unitcost>%d</unitcost>\n"
@@ -268,7 +268,7 @@ finishedSavingWithError:(NSError *)error
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -276,7 +276,7 @@ finishedSavingWithError:(NSError *)error
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/CreateSafetyMaterials" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/CreateSafetyMaterials" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -319,7 +319,7 @@ finishedSavingWithError:(NSError *)error
                    
                    "<soap:Body>\n"
                    
-                   "<UpdateSafetyMaterials xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UpdateSafetyMaterials xmlns=\"https://vip.kontract360.com/\">\n"
                    "<description>%@</description>\n"
                    "<allsubtypes>%d</allsubtypes>\n"
                    "<unitcost>%d</unitcost>\n"
@@ -334,7 +334,7 @@ finishedSavingWithError:(NSError *)error
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -342,7 +342,7 @@ finishedSavingWithError:(NSError *)error
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UpdateSafetyMaterials" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/UpdateSafetyMaterials" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -375,7 +375,7 @@ finishedSavingWithError:(NSError *)error
                    
                    "<soap:Body>\n"
                    
-                   "<DestroySafetyMaterials xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<DestroySafetyMaterials xmlns=\"https://vip.kontract360.com/\">\n"
                    "<ItemCode>%@</ItemCode>\n"
                    "<EntryId>%d</EntryId>\n"
                    "</DestroySafetyMaterials>\n"
@@ -385,7 +385,7 @@ finishedSavingWithError:(NSError *)error
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -393,7 +393,7 @@ finishedSavingWithError:(NSError *)error
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/DestroySafetyMaterials" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/DestroySafetyMaterials" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -426,7 +426,7 @@ finishedSavingWithError:(NSError *)error
                    
                    "<soap:Body>\n"
                    
-                   "<SearchSafetyMaterials xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SearchSafetyMaterials xmlns=\"https://vip.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "</SearchSafetyMaterials>\n"
                    "</soap:Body>\n"
@@ -435,7 +435,7 @@ finishedSavingWithError:(NSError *)error
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -443,7 +443,7 @@ finishedSavingWithError:(NSError *)error
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SearchSafetyMaterials" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/SearchSafetyMaterials" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -484,7 +484,7 @@ finishedSavingWithError:(NSError *)error
                    
                    "<soap:Body>\n"
                    
-                   "<FetchAnyImage xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<FetchAnyImage xmlns=\"https://vip.kontract360.com/\">\n"
                    "<filename>%@</filename>\n"
                    "<type1>%@</type1>\n"
                    "</FetchAnyImage>\n"
@@ -494,7 +494,7 @@ finishedSavingWithError:(NSError *)error
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -502,7 +502,7 @@ finishedSavingWithError:(NSError *)error
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/FetchAnyImage" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/FetchAnyImage" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -540,7 +540,7 @@ finishedSavingWithError:(NSError *)error
                    
                    "<soap:Body>\n"
                    
-                   "<UploadAnyImage xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UploadAnyImage xmlns=\"https://vip.kontract360.com/\">\n"
                    "<f>%@</f>\n"
                    "<fileName>%@</fileName>\n"
                    "<type>%@</type>\n"
@@ -552,7 +552,7 @@ finishedSavingWithError:(NSError *)error
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -560,7 +560,7 @@ finishedSavingWithError:(NSError *)error
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UploadAnyImage" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/UploadAnyImage" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -595,7 +595,7 @@ finishedSavingWithError:(NSError *)error
                    
                    "<soap:Body>\n"
                    
-                   "<UploadAnyImage xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UploadAnyImage xmlns=\"https://vip.kontract360.com/\">\n"
                    "<f>%@</f>\n"
                    "<fileName>%@</fileName>\n"
                    "<type>%@</type>\n"
@@ -607,7 +607,7 @@ finishedSavingWithError:(NSError *)error
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -615,7 +615,7 @@ finishedSavingWithError:(NSError *)error
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UploadAnyImage" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/UploadAnyImage" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -804,7 +804,25 @@ finishedSavingWithError:(NSError *)error
         }
         recordResults = TRUE;
     }
+   
+    if([elementName isEqualToString:@"FetchAnyImageResponse"]){
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
+    if([elementName isEqualToString:@"url"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -862,6 +880,7 @@ finishedSavingWithError:(NSError *)error
     {
         recordResults = FALSE;
           _SaftyMdl.picturelocation=_soapResults;
+        //_uplodpiclctn=_soapResults;
         
         _soapResults = nil;
         
@@ -895,11 +914,26 @@ finishedSavingWithError:(NSError *)error
         if([_soapResults isEqualToString:@"Deleted"]){
              [self ReadSafetyMaterials];
         }
-        else if(webtype==2){
-            safetycode=_soapResults;
-            [self Insertanyimage];
-            
-        }
+//        else if(webtype==2){
+//            
+//            safetycode=_soapResults;
+//            //[self Insertanyimage];
+//            
+//            if(imagechecker==1){
+//                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//                [alert show];
+//                _activityindictor.hidden=YES;
+//                [_activityindictor stopAnimating];
+//                _addview.userInteractionEnabled=YES;
+//                
+//                [self ReadSafetyMaterials];
+//            }else{
+//                [self Insertanyimage];
+//            }
+//            
+//
+//            
+//        }
         
     else if ([_soapResults isEqualToString:@"Inserted Successfully"]) {
             msgstrg=_soapResults;
@@ -956,8 +990,13 @@ finishedSavingWithError:(NSError *)error
             [alert show];
         }
         
-     else   if ([_soapResults isEqualToString:@"Safety Picture Updated"]) {
-            msgstrg=@"Inserted Succefully";
+        
+//        if (webtype==3) {
+//            
+//            
+//        }
+           if ([_soapResults isEqualToString:@"Safety Picture Updated"]) {
+            //msgstrg=@"Inserted Succefully";
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             [_activityindictor stopAnimating];
@@ -994,9 +1033,10 @@ finishedSavingWithError:(NSError *)error
         
         
         if ([_soapResults isEqualToString:@"Updated Successfully"]) {
-            msgstrg=_soapResults;
+           
             
             if(imagechecker==1){
+                 msgstrg=_soapResults;
                 //webtype=2;
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
@@ -1006,17 +1046,76 @@ finishedSavingWithError:(NSError *)error
                 
                 [self ReadSafetyMaterials];
             }else{
+                msgstrg=_soapResults;
                 [self UploadAnyImage];
             }
             
             //webtype=0;
             
             
-            
+            _soapResults = nil;
             
         }
         
- _soapResults = nil;
+ 
+    
+    if(webtype==2){
+        
+        safetycode=_soapResults;
+        //[self Insertanyimage];
+        
+        if(imagechecker==1){
+            msgstrg=@"Inserted Succefully";
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            _activityindictor.hidden=YES;
+            [_activityindictor stopAnimating];
+            _addview.userInteractionEnabled=YES;
+            
+            [self ReadSafetyMaterials];
+        }else{
+            [self Insertanyimage];
+        }
+        
+         _soapResults = nil;
+        webtype=0;
+        
+    }
+        
+        
+    }
+
+    if([elementName isEqualToString:@"url"])
+    {
+        recordResults = FALSE;
+        
+        _activityindictor.hidden=YES;
+        [_activityindictor stopAnimating];
+        _addview.userInteractionEnabled=YES;
+        NSData *data1=[_soapResults base64DecodedData];
+        
+        UIImage *image1=  [[UIImage alloc]initWithData:data1];
+        
+        //[NSData dataWithData:UIImagePNGRepresentation(image.image)];
+        
+        
+        CGSize newsize=CGSizeMake(184, 95);
+        UIGraphicsBeginImageContext(newsize);
+        [image1 drawInRect:CGRectMake(0,0,newsize.width,newsize.height)];
+        UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        _picimgeview.image=newImage;
+        
+        NSLog(@"img%@",image1);
+        
+        
+        
+        
+        
+        _soapResults = nil;
+        
+        
     }
 
 
@@ -1146,7 +1245,7 @@ _subtypctrlr.equipmainid=safty.entryid;
     _unitcosttxtfld.text=saftymdl2.unitcost;
     _unitmeasuretxtfld.text=saftymdl2.unitofmeasure;
     _stocktxtfld.text=saftymdl2.stckinhand;
-    
+    _uplodpiclctn=saftymdl2.picturelocation;
     if ([saftymdl2.allsubtype isEqualToString:@"true"]) {
         
         [_subtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
@@ -1329,6 +1428,41 @@ _subtypctrlr.equipmainid=safty.entryid;
         
         
     }
+    if ([alertView.message isEqualToString:@"Are you sure you want to delete this picture?"])
+    {
+        
+        if (buttonIndex==[alertView cancelButtonIndex]) {
+            imagechecker=1;
+            _picimgeview.image=[UIImage imageNamed:@"mNoImage"];
+        }
+        else
+        {
+            
+        }
+    }
+    
+    
+    if ([alertView.message isEqualToString:@"Invalid unit cost"]) {
+        
+        
+        _unitcosttxtfld.text=@"";
+        
+    }
+    
+    
+    if ([alertView.message isEqualToString:@"Invalid stock in hand"]) {
+        
+        
+        _stocktxtfld.text=@"";
+        
+    }
+    if ([alertView.message isEqualToString:@"Invalid unit of measure"]) {
+        
+        
+        _stocktxtfld.text=@"";
+        
+    }
+
 }
 #pragma mark-Alertview delegate
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField

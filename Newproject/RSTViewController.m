@@ -463,7 +463,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UserRightsforparticularmoduleselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserRightsforparticularmoduleselect xmlns=\"https://vip.kontract360.com/\">\n"
                    "<UserId>%d</UserId>\n"
                    "<ModuleId>%d</ModuleId>\n"
                    "</UserRightsforparticularmoduleselect>\n"
@@ -472,8 +472,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -481,7 +481,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UserRightsforparticularmoduleselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/UserRightsforparticularmoduleselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -514,7 +514,7 @@
                    
                    
                    "<soap:Body>\n"
-                   "<ManPowersubtypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ManPowersubtypeselect xmlns=\"https://vip.kontract360.com/\">\n"
                    "<MPStManpowerId>%d</MPStManpowerId>\n"
                    "</ManPowersubtypeselect>\n"
                    "</soap:Body>\n"
@@ -522,8 +522,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-        NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
-    //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+        NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
+    //  NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -531,7 +531,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ManPowersubtypeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/ManPowersubtypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -563,7 +563,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<MultiManpowersubtypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MultiManpowersubtypeselect xmlns=\"https://vip.kontract360.com/\">\n"
                    "<MPStManpowerId>%d</MPStManpowerId>\n"
                    "</MultiManpowersubtypeselect>\n"
                    "</soap:Body>\n"
@@ -571,8 +571,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-       NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
-    //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+       NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
+    //  NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -580,7 +580,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/MultiManpowersubtypeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/MultiManpowersubtypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -612,7 +612,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ManpowerSubtypeinsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ManpowerSubtypeinsert xmlns=\"https://vip.kontract360.com/\">\n"
                    "<MPStManpowerId>%d</MPStManpowerId>\n"
                    "<MPStSubTypeId>%d</MPStSubTypeId>\n"
                    "<MPStDescription>%@</MPStDescription>\n"
@@ -622,8 +622,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-        NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
-    //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+        NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
+    //  NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -631,7 +631,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ManpowerSubtypeinsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/ManpowerSubtypeinsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -663,7 +663,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ManpowerSubTypeDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ManpowerSubTypeDelete xmlns=\"https://vip.kontract360.com/\">\n"
                    "<MPStManpowerId>%d</MPStManpowerId>\n"
                    "</ManpowerSubTypeDelete>\n"
                    "</soap:Body>\n"
@@ -671,8 +671,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-        NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
-    //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+        NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
+    //  NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -680,7 +680,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ManpowerSubTypeDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/ManpowerSubTypeDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -715,7 +715,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Equipmentsubtypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Equipmentsubtypeselect xmlns=\"https://vip.kontract360.com/\">\n"
                    "<EqStEquipmentId>%d</EqStEquipmentId>\n"
                    "</Equipmentsubtypeselect>\n"
                    "</soap:Body>\n"
@@ -724,7 +724,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -732,7 +732,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Equipmentsubtypeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/Equipmentsubtypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -764,7 +764,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Multiequsubtypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Multiequsubtypeselect xmlns=\"https://vip.kontract360.com/\">\n"
                    "<EqStEquipmentId>%d</EqStEquipmentId>\n"
                    "</Multiequsubtypeselect>\n"
                    "</soap:Body>\n"
@@ -773,7 +773,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -781,7 +781,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Multiequsubtypeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/Multiequsubtypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -813,7 +813,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Equipmentsubtypeinsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Equipmentsubtypeinsert xmlns=\"https://vip.kontract360.com/\">\n"
                    "<EqStEquipmentId>%d</EqStEquipmentId>\n"
                    "<EqStSubTypeId>%d</EqStSubTypeId>\n"
                    "<EqStDescription>%@</EqStDescription>\n"
@@ -824,7 +824,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -832,7 +832,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Equipmentsubtypeinsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/Equipmentsubtypeinsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -864,7 +864,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<EquipmentsubtypeDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<EquipmentsubtypeDelete xmlns=\"https://vip.kontract360.com/\">\n"
                    "<EqStEquipmentId>%d</EqStEquipmentId>\n"
                    "</EquipmentsubtypeDelete>\n"
                    "</soap:Body>\n"
@@ -873,7 +873,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -881,7 +881,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/EquipmentsubtypeDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/EquipmentsubtypeDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -914,7 +914,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Materialsubtypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Materialsubtypeselect xmlns=\"https://vip.kontract360.com/\">\n"
                     "<MTStEquipmentId>%d</MTStEquipmentId>\n"
                    "</Materialsubtypeselect>\n"
                    "</soap:Body>\n"
@@ -923,7 +923,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -931,7 +931,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Materialsubtypeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/Materialsubtypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -963,7 +963,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<MultiMaterialsubtypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MultiMaterialsubtypeselect xmlns=\"https://vip.kontract360.com/\">\n"
                     "<MTStEquipmentId>%d</MTStEquipmentId>\n"
                    "</MultiMaterialsubtypeselect>\n"
                    "</soap:Body>\n"
@@ -972,7 +972,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -980,7 +980,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/MultiMaterialsubtypeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/MultiMaterialsubtypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1013,7 +1013,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Materialsubtypeinsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Materialsubtypeinsert xmlns=\"https://vip.kontract360.com/\">\n"
                    "<MTStEquipmentId>%d</MTStEquipmentId>\n"
                    "<MTStSubTypeId>%d</MTStSubTypeId>\n"
                    "<MTStDescription>%@</MTStDescription>\n"
@@ -1024,7 +1024,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1032,7 +1032,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Materialsubtypeinsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/Materialsubtypeinsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1064,7 +1064,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<MaterialsubtypeDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MaterialsubtypeDelete xmlns=\"https://vip.kontract360.com/\">\n"
                     "<MTStEquipmentId>%d</MTStEquipmentId>\n"
                    "</MaterialsubtypeDelete>\n"
                    "</soap:Body>\n"
@@ -1073,7 +1073,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1081,7 +1081,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/MaterialsubtypeDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/MaterialsubtypeDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1114,17 +1114,17 @@
                    
                    "<soap:Body>\n"
                    
-                   "<FleetmultipleSubtypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<FleetmultipleSubtypeselect xmlns=\"https://vip.kontract360.com/\">\n"
                    "<FLStEquipmentId>%d</FLStEquipmentId>\n"
                    "</FleetmultipleSubtypeselect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",_equipmainid];
     NSLog(@"soapmsg%@",soapMessage);
     
-       NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+       NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
 
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-   //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+   //   NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1132,7 +1132,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/FleetmultipleSubtypeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/FleetmultipleSubtypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1164,16 +1164,16 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Multifleetsubtypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Multifleetsubtypeselect xmlns=\"https://vip.kontract360.com/\">\n"
                   "<FLStEquipmentId>%d</FLStEquipmentId>\n"
                    "</Multifleetsubtypeselect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",_equipmainid];
     NSLog(@"soapmsg%@",soapMessage);
     
-          NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+          NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    //  NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1181,7 +1181,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Multifleetsubtypeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/Multifleetsubtypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1214,7 +1214,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<FleetmultiSubtypeinsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<FleetmultiSubtypeinsert xmlns=\"https://vip.kontract360.com/\">\n"
                    "<FLStEquipmentId>%d</FLStEquipmentId>\n"
                    "<FLStSubTypeId>%d</FLStSubTypeId>\n"
                    "<FLStDescription>%@</FLStDescription>\n"
@@ -1223,9 +1223,9 @@
                    "</soap:Envelope>\n",_equipmainid,[[_subtypelistdictionary objectForKey:[_Subtypelistarray objectAtIndex:path]]integerValue],[_Subtypelistarray objectAtIndex:path]];
     NSLog(@"soapmsg%@",soapMessage);
     
-        NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+        NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-   //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+   //   NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1233,7 +1233,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/FleetmultiSubtypeinsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/FleetmultiSubtypeinsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1265,16 +1265,16 @@
                    
                    "<soap:Body>\n"
                    
-                   "<FleetmultiSubTypeDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<FleetmultiSubTypeDelete xmlns=\"https://vip.kontract360.com/\">\n"
                    "<FLStEquipmentId>%d</FLStEquipmentId>\n"
                    "</FleetmultiSubTypeDelete>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",[subtypemdl.Brentryid integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
-       NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+       NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-   //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+   //   NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1282,7 +1282,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/FleetmultiSubTypeDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/FleetmultiSubTypeDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1317,7 +1317,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ThirdpartySubTypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ThirdpartySubTypeselect xmlns=\"https://vip.kontract360.com/\">\n"
                   "<TPStEquipmentId>%d</TPStEquipmentId>\n"
                    "</ThirdpartySubTypeselect>\n"
                    "</soap:Body>\n"
@@ -1326,7 +1326,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1334,7 +1334,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ThirdpartySubTypeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/ThirdpartySubTypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1367,7 +1367,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<MultiThirdpartysubtypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MultiThirdpartysubtypeselect xmlns=\"https://vip.kontract360.com/\">\n"
                    "<TPStEquipmentId>%d</TPStEquipmentId>\n"
                    "</MultiThirdpartysubtypeselect>\n"
                    "</soap:Body>\n"
@@ -1376,7 +1376,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1384,7 +1384,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/MultiThirdpartysubtypeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/MultiThirdpartysubtypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1417,7 +1417,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ThirdPartysubtypeinsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ThirdPartysubtypeinsert xmlns=\"https://vip.kontract360.com/\">\n"
                    "<TPStEquipmentId>%d</TPStEquipmentId>\n"
                    "<TPStSubTypeId>%d</TPStSubTypeId>\n"
                    "<TPStDescription>%@</TPStDescription>\n"
@@ -1428,7 +1428,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1436,7 +1436,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ThirdPartysubtypeinsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/ThirdPartysubtypeinsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1468,7 +1468,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ThirdPartysubtypeDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ThirdPartysubtypeDelete xmlns=\"https://vip.kontract360.com/\">\n"
                    "<TPStEquipmentId>%d</TPStEquipmentId>\n"
                    "</ThirdPartysubtypeDelete>\n"
                    "</soap:Body>\n"
@@ -1477,7 +1477,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1485,7 +1485,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ThirdPartysubtypeDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/ThirdPartysubtypeDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1519,7 +1519,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ConsumableSubTypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ConsumableSubTypeselect xmlns=\"https://vip.kontract360.com/\">\n"
                    "<COStConsumableId>%d</COStConsumableId>n"
                    "</ConsumableSubTypeselect>\n"
                    "</soap:Body>\n"
@@ -1528,7 +1528,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1536,7 +1536,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ConsumableSubTypeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/ConsumableSubTypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1569,7 +1569,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<MultiConsumablesubtypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MultiConsumablesubtypeselect xmlns=\"https://vip.kontract360.com/\">\n"
                     "<COstConsumableId>%d</COstConsumableId>\n"
                    "</MultiConsumablesubtypeselect>\n"
                    "</soap:Body>\n"
@@ -1578,7 +1578,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1586,7 +1586,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/MultiConsumablesubtypeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/MultiConsumablesubtypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1619,7 +1619,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Consumablesubtypeinsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Consumablesubtypeinsert xmlns=\"https://vip.kontract360.com/\">\n"
                    "<COStConsumableId>%d</COStConsumableId>\n"
                    "<COStSubTypeId>%d</COStSubTypeId>\n"
                    "<COStDescription>%@</COStDescription>\n"
@@ -1630,7 +1630,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1638,7 +1638,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Consumablesubtypeinsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/Consumablesubtypeinsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1670,7 +1670,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ConsumablesubtypeDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ConsumablesubtypeDelete xmlns=\"https://vip.kontract360.com/\">\n"
                    "<COStConsumableId>%d</COStConsumableId>\n"
                    "</ConsumablesubtypeDelete>\n"
                    "</soap:Body>\n"
@@ -1679,7 +1679,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1687,7 +1687,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ConsumablesubtypeDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/ConsumablesubtypeDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1721,7 +1721,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SmallToolsSubTypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SmallToolsSubTypeselect xmlns=\"https://vip.kontract360.com/\">\n"
                    "<STStSmallToolId>%d</STStSmallToolId>\n"
                    "</SmallToolsSubTypeselect>\n"
                    "</soap:Body>\n"
@@ -1730,7 +1730,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1738,7 +1738,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SmallToolsSubTypeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/SmallToolsSubTypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1771,7 +1771,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<MultiSmalltoolsubtypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MultiSmalltoolsubtypeselect xmlns=\"https://vip.kontract360.com/\">\n"
                    "<STStSmallToolId>%d</STStSmallToolId>\n"
                    "</MultiSmalltoolsubtypeselect>\n"
                    "</soap:Body>\n"
@@ -1780,7 +1780,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1788,7 +1788,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/MultiSmalltoolsubtypeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/MultiSmalltoolsubtypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1821,7 +1821,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SmallToolsubtypeinsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SmallToolsubtypeinsert xmlns=\"https://vip.kontract360.com/\">\n"
                    "<STStSmallToolId>%d</STStSmallToolId>\n"
                    "<STStSubTypeId>%d</STStSubTypeId>\n"
                    "<STStDescription>%@</STStDescription>\n"
@@ -1832,7 +1832,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1840,7 +1840,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SmallToolsubtypeinsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/SmallToolsubtypeinsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1872,7 +1872,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SmalltoolsubtypeDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SmalltoolsubtypeDelete xmlns=\"https://vip.kontract360.com/\">\n"
                     "<STStSmallToolId>%d</STStSmallToolId>\n"
                    "</SmalltoolsubtypeDelete>\n"
                    "</soap:Body>\n"
@@ -1881,7 +1881,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1889,7 +1889,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SmalltoolsubtypeDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/SmalltoolsubtypeDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1924,7 +1924,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<OthercompanySubTypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<OthercompanySubTypeselect xmlns=\"https://vip.kontract360.com/\">\n"
                    "<OCStOtherId>%d</OCStOtherId>\n"
                    "</OthercompanySubTypeselect>\n"
                    "</soap:Body>\n"
@@ -1933,7 +1933,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1941,7 +1941,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/OthercompanySubTypeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/OthercompanySubTypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1974,7 +1974,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Multiothercompanysubtypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Multiothercompanysubtypeselect xmlns=\"https://vip.kontract360.com/\">\n"
                    "<OCStOtherId>%d</OCStOtherId>\n"
                    "</Multiothercompanysubtypeselect>\n"
                    "</soap:Body>\n"
@@ -1983,7 +1983,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1991,7 +1991,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Multiothercompanysubtypeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/Multiothercompanysubtypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -2024,7 +2024,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<OtherCompanysubtypeinsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<OtherCompanysubtypeinsert xmlns=\"https://vip.kontract360.com/\">\n"
                    "<OCStOtherId>%d</OCStOtherId>\n"
                    "<OCStSubTypeId>%d</OCStSubTypeId>\n"
                    "<OCStDescription>%@</OCStDescription>\n"
@@ -2035,7 +2035,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -2043,7 +2043,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/OtherCompanysubtypeinsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/OtherCompanysubtypeinsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -2075,7 +2075,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<OthercompanysubtypeDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<OthercompanysubtypeDelete xmlns=\"https://vip.kontract360.com/\">\n"
                    "<OCStOtherId>%d</OCStOtherId>\n"
                    "</OthercompanysubtypeDelete>\n"
                    "</soap:Body>\n"
@@ -2084,7 +2084,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -2092,7 +2092,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/OthercompanysubtypeDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/OthercompanysubtypeDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -2126,7 +2126,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ReadMTSubTypes xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ReadMTSubTypes xmlns=\"https://vip.kontract360.com/\">\n"
                    "<SFMTItemCode>%d</SFMTItemCode>\n"
                    "</ReadMTSubTypes>\n"
                    "</soap:Body>\n"
@@ -2135,7 +2135,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -2143,7 +2143,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ReadMTSubTypes" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/ReadMTSubTypes" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -2176,7 +2176,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<MultiSafetyMaterialsubtypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MultiSafetyMaterialsubtypeselect xmlns=\"https://vip.kontract360.com/\">\n"
                    "<MTStEquipmentId>%d</MTStEquipmentId>\n"
                    "</MultiSafetyMaterialsubtypeselect>\n"
                    "</soap:Body>\n"
@@ -2185,7 +2185,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -2193,7 +2193,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/MultiSafetyMaterialsubtypeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/MultiSafetyMaterialsubtypeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -2226,7 +2226,7 @@
                   
                    "<soap:Body>\n"
                    
-                   "<CreateSFSubTypes xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<CreateSFSubTypes xmlns=\"https://vip.kontract360.com/\">\n"
                    "<MTStSubTypeId>%d</MTStSubTypeId>\n"
                    "<SFMTItemCode>%d</SFMTItemCode>\n"
                    "</CreateSFSubTypes>\n"
@@ -2236,7 +2236,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -2244,7 +2244,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/CreateSFSubTypes" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/CreateSFSubTypes" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -2276,7 +2276,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<DestroySFSubTypes xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<DestroySFSubTypes xmlns=\"https://vip.kontract360.com/\">\n"
                    "<MTStEntryId>%d</MTStEntryId>\n"
                    "</DestroySFSubTypes>\n"
                    "</soap:Body>\n"
@@ -2285,7 +2285,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -2293,7 +2293,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/DestroySFSubTypes" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/DestroySFSubTypes" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
