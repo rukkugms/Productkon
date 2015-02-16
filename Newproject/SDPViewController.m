@@ -1707,8 +1707,8 @@
     
     Manpwr *manpwr=(Manpwr *)[_firstsafetyarray objectAtIndex:indexPath.row];
     _safetyctrl=[[SafetyViewController alloc]initWithNibName:@"SafetyViewController" bundle:nil];
-   // _safetyctrl.frmplan=1;
-  //  _safetyctrl.itemfromgp=manpwr.itemcode;
+    _safetyctrl.frmplan=1;
+    _safetyctrl.itemfromgp=manpwr.itemcode;
     _safetyctrl.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:_safetyctrl animated:YES completion:nil];
 }
@@ -1723,8 +1723,8 @@
     
     Crewmodel *crewmdl1=(Crewmodel *)[_secsafetyarray objectAtIndex:indexPath.row];
     _safetyctrl=[[SafetyViewController alloc]initWithNibName:@"SafetyViewController" bundle:nil];
-   // _safetyctrl.frmplan=1;
-    //_safetyctrl.itemfromgp=crewmdl1.manpower;
+    _safetyctrl.frmplan=1;
+    _safetyctrl.itemfromgp=crewmdl1.manpower;
     _safetyctrl.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:_safetyctrl animated:YES completion:nil];
 }
