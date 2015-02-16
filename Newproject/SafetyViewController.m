@@ -1246,6 +1246,8 @@ _subtypctrlr.equipmainid=safty.entryid;
     _unitmeasuretxtfld.text=saftymdl2.unitofmeasure;
     _stocktxtfld.text=saftymdl2.stckinhand;
     _uplodpiclctn=saftymdl2.picturelocation;
+    _picimgeview.image=[UIImage imageNamed:@"mNoImage"];
+    
     if ([saftymdl2.allsubtype isEqualToString:@"true"]) {
         
         [_subtypebtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
