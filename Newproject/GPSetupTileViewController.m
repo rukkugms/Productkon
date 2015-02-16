@@ -80,6 +80,13 @@
     doubleTap7.numberOfTapsRequired=1;
     doubleTap7.delegate=(id)self;
     [self.Astview addGestureRecognizer:doubleTap7];
+    UITapGestureRecognizer *doubleTap8 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(safetypage)];
+    doubleTap8.numberOfTapsRequired=1;
+    doubleTap8.delegate=(id)self;
+    [self.safetyview addGestureRecognizer:doubleTap8];
+
 
 
    
@@ -117,6 +124,9 @@
     _consumview.userInteractionEnabled=YES;
     _smalltoolview.userInteractionEnabled=YES;
     _Astview.userInteractionEnabled=YES;
+    _safetyactivity.hidden=YES;
+    [_safetyactivity stopAnimating];
+    _safetyview.userInteractionEnabled=YES;
     
     
 
@@ -141,6 +151,20 @@
     _manview.userInteractionEnabled=NO;
 
   
+}
+-(void)safetypage
+{     _safetyactivity.hidden=NO;
+    [_safetyactivity startAnimating];
+    
+    _safeVCtrl=[[SDPViewController alloc]initWithNibName:@"SDPViewController" bundle:nil];
+    // }
+    //_crewctrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    
+    [self presentViewController:_safeVCtrl
+                       animated:YES completion:NULL];
+    
+    
+    
 }
 
 -(void)equipPage{
@@ -262,7 +286,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UserRightsforparticularmoduleselect xmlns=\"https://vip.kontract360.com/\">\n"
+                   "<UserRightsforparticularmoduleselect xmlns=\"http://ios.kontract360.com/\">\n"
                    "<UserId>%d</UserId>\n"
                    "<ModuleId>%d</ModuleId>\n"
                    "</UserRightsforparticularmoduleselect>\n"
@@ -271,8 +295,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -280,7 +304,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"https://vip.kontract360.com/UserRightsforparticularmoduleselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/UserRightsforparticularmoduleselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -329,7 +353,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UserLogmaininsert xmlns=\"https://vip.kontract360.com/\">\n"
+                   "<UserLogmaininsert xmlns=\"http://ios.kontract360.com/\">\n"
                    "<dateandtime>%@</dateandtime>\n"
                    "<userid>%d</userid>\n"
                    "<moduleid>%d</moduleid>\n"
@@ -345,8 +369,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    //   NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
+    //   NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://192.168.0.175/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -354,7 +378,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"https://vip.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/UserLogmaininsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

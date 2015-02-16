@@ -121,8 +121,6 @@
 		64A4D097195AE50E00C3F783 /* Bidmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A4D096195AE50E00C3F783 /* Bidmodel.m */; };
 		64A5ED4E19C2C4EC002E0018 /* RSTViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A5ED4C19C2C4EC002E0018 /* RSTViewController.xib */; };
 		64A5ED5019C2D7D3002E0018 /* Subcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A5ED4F19C2D7D3002E0018 /* Subcell.xib */; };
-		64A654B4192F1F14004DDB84 /* GPSetupTileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A654B2192F1F14004DDB84 /* GPSetupTileViewController.m */; };
-		64A654B5192F1F14004DDB84 /* GPSetupTileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A654B3192F1F14004DDB84 /* GPSetupTileViewController.xib */; };
 		64A936B619E640A600C20D57 /* MasterHrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A936B419E640A600C20D57 /* MasterHrViewController.m */; };
 		64A936B719E640A600C20D57 /* MasterHrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A936B519E640A600C20D57 /* MasterHrViewController.xib */; };
 		64A936B919E640C900C20D57 /* Customhrcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A936B819E640C900C20D57 /* Customhrcell.xib */; };
@@ -572,6 +570,12 @@
 		D4ACE56819C1B1020060A352 /* CraftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4ACE56619C1B1010060A352 /* CraftViewController.xib */; };
 		D4ACE56A19C1B1120060A352 /* craftcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4ACE56919C1B1120060A352 /* craftcell.xib */; };
 		D4ACE56D19C1B12D0060A352 /* Craftreqmtmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4ACE56C19C1B12D0060A352 /* Craftreqmtmdl.m */; };
+		D4B002AD1A91EA8E00213D80 /* FSafe.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4B002A81A91EA8D00213D80 /* FSafe.xib */; };
+		D4B002AE1A91EA8E00213D80 /* Ssafe.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4B002A91A91EA8D00213D80 /* Ssafe.xib */; };
+		D4B002AF1A91EA8E00213D80 /* SDPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B002AB1A91EA8D00213D80 /* SDPViewController.m */; };
+		D4B002B01A91EA8E00213D80 /* SDPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4B002AC1A91EA8D00213D80 /* SDPViewController.xib */; };
+		D4B002B41A91EAB300213D80 /* GPSetupTileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B002B21A91EAB300213D80 /* GPSetupTileViewController.m */; };
+		D4B002B51A91EAB300213D80 /* GPSetupTileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4B002B31A91EAB300213D80 /* GPSetupTileViewController.xib */; };
 		D4B4CBA119738ED500696D37 /* Appreqmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B4CBA019738ED500696D37 /* Appreqmdl.m */; };
 		D4BDDDF61A789B880051B62B /* WorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BDDDF31A789B880051B62B /* WorkViewController.m */; };
 		D4BDDDF71A789B880051B62B /* WorkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4BDDDF41A789B880051B62B /* WorkViewController.xib */; };
@@ -824,9 +828,6 @@
 		64A4D096195AE50E00C3F783 /* Bidmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bidmodel.m; sourceTree = "<group>"; };
 		64A5ED4C19C2C4EC002E0018 /* RSTViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RSTViewController.xib; sourceTree = "<group>"; };
 		64A5ED4F19C2D7D3002E0018 /* Subcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Subcell.xib; sourceTree = "<group>"; };
-		64A654B1192F1F14004DDB84 /* GPSetupTileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSetupTileViewController.h; sourceTree = "<group>"; };
-		64A654B2192F1F14004DDB84 /* GPSetupTileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSetupTileViewController.m; sourceTree = "<group>"; };
-		64A654B3192F1F14004DDB84 /* GPSetupTileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPSetupTileViewController.xib; sourceTree = "<group>"; };
 		64A936B319E640A600C20D57 /* MasterHrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterHrViewController.h; sourceTree = "<group>"; };
 		64A936B419E640A600C20D57 /* MasterHrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterHrViewController.m; sourceTree = "<group>"; };
 		64A936B519E640A600C20D57 /* MasterHrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MasterHrViewController.xib; sourceTree = "<group>"; };
@@ -1455,6 +1456,14 @@
 		D4ACE56919C1B1120060A352 /* craftcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = craftcell.xib; sourceTree = "<group>"; };
 		D4ACE56B19C1B12D0060A352 /* Craftreqmtmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Craftreqmtmdl.h; sourceTree = "<group>"; };
 		D4ACE56C19C1B12D0060A352 /* Craftreqmtmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Craftreqmtmdl.m; sourceTree = "<group>"; };
+		D4B002A81A91EA8D00213D80 /* FSafe.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FSafe.xib; sourceTree = "<group>"; };
+		D4B002A91A91EA8D00213D80 /* Ssafe.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Ssafe.xib; sourceTree = "<group>"; };
+		D4B002AA1A91EA8D00213D80 /* SDPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPViewController.h; sourceTree = "<group>"; };
+		D4B002AB1A91EA8D00213D80 /* SDPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPViewController.m; sourceTree = "<group>"; };
+		D4B002AC1A91EA8D00213D80 /* SDPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDPViewController.xib; sourceTree = "<group>"; };
+		D4B002B11A91EAB300213D80 /* GPSetupTileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSetupTileViewController.h; sourceTree = "<group>"; };
+		D4B002B21A91EAB300213D80 /* GPSetupTileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSetupTileViewController.m; sourceTree = "<group>"; };
+		D4B002B31A91EAB300213D80 /* GPSetupTileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPSetupTileViewController.xib; sourceTree = "<group>"; };
 		D4B4CB9F19738ED500696D37 /* Appreqmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appreqmdl.h; sourceTree = "<group>"; };
 		D4B4CBA019738ED500696D37 /* Appreqmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appreqmdl.m; sourceTree = "<group>"; };
 		D4BDDDF21A789B880051B62B /* WorkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkViewController.h; sourceTree = "<group>"; };
@@ -1744,9 +1753,9 @@
 		D4049664192F17DD00685109 /* Group SetUp */ = {
 			isa = PBXGroup;
 			children = (
-				64A654B1192F1F14004DDB84 /* GPSetupTileViewController.h */,
-				64A654B2192F1F14004DDB84 /* GPSetupTileViewController.m */,
-				64A654B3192F1F14004DDB84 /* GPSetupTileViewController.xib */,
+				D4B002B11A91EAB300213D80 /* GPSetupTileViewController.h */,
+				D4B002B21A91EAB300213D80 /* GPSetupTileViewController.m */,
+				D4B002B31A91EAB300213D80 /* GPSetupTileViewController.xib */,
 				D49E055D18C7022800AF6330 /* CrewsetupViewController.h */,
 				D49E055E18C7022800AF6330 /* CrewsetupViewController.m */,
 				D49E055F18C7022800AF6330 /* CrewsetupViewController.xib */,
@@ -1787,6 +1796,11 @@
 				645875BF1A2867F700906869 /* AstGpViewController.xib */,
 				645875C21A28681A00906869 /* GPastFcell.xib */,
 				645875C41A28684600906869 /* GpASSecell.xib */,
+				D4B002A81A91EA8D00213D80 /* FSafe.xib */,
+				D4B002A91A91EA8D00213D80 /* Ssafe.xib */,
+				D4B002AA1A91EA8D00213D80 /* SDPViewController.h */,
+				D4B002AB1A91EA8D00213D80 /* SDPViewController.m */,
+				D4B002AC1A91EA8D00213D80 /* SDPViewController.xib */,
 			);
 			name = "Group SetUp";
 			sourceTree = "<group>";
@@ -3034,6 +3048,7 @@
 				64A3B81418DFEE980015887F /* LeadsViewController.xib in Resources */,
 				D4FED41417F18E28004BE242 /* tabbtn.png in Resources */,
 				D4ACE56A19C1B1120060A352 /* craftcell.xib in Resources */,
+				D4B002B01A91EA8E00213D80 /* SDPViewController.xib in Resources */,
 				D4A16B961974EEE0002CA2A2 /* PhasecomponentsViewController.xib in Resources */,
 				D42505CB19A46830001D16A2 /* SecurityViewController.xib in Resources */,
 				64A1F8B718AA007500EE8850 /* customdoccell.xib in Resources */,
@@ -3049,6 +3064,7 @@
 				64C0ACF01A5CF7D600B31F52 /* AbsentViewController.xib in Resources */,
 				D41499BC19458121001E9146 /* Eqotherscell.xib in Resources */,
 				D4E6156418D971C500D7EAA0 /* logo.png in Resources */,
+				D4B002AE1A91EA8E00213D80 /* Ssafe.xib in Resources */,
 				D4E658C017F2A54F00202B14 /* I9view.xib in Resources */,
 				D4004057185B174A00C38E12 /* TileViewController.xib in Resources */,
 				D4A16B911974EEE0002CA2A2 /* sumbidcell.xib in Resources */,
@@ -3155,6 +3171,7 @@
 				D4A16B621974EEA8002CA2A2 /* Editplanview.xib in Resources */,
 				D4F053E11A0CA37A00672C88 /* planning2@2X.png in Resources */,
 				D4014FF618E3E34000DB825A /* Snumcell.xib in Resources */,
+				D4B002B51A91EAB300213D80 /* GPSetupTileViewController.xib in Resources */,
 				649316C219AB4629008CB7BF /* TLLeadsViewController.xib in Resources */,
 				D40736C018BB1E9B00C5DB30 /* right_arrow.png in Resources */,
 				D4A16B3D1974EEA8002CA2A2 /* cellfordocumnt.xib in Resources */,
@@ -3175,12 +3192,12 @@
 				D4A16B891974EEE0002CA2A2 /* Emtncell.xib in Resources */,
 				D40A663B187131CA00AB7496 /* cb_mono_on.png in Resources */,
 				6424B9CD1A27194300BC4648 /* Tpgpfirstcell.xib in Resources */,
+				D4B002AD1A91EA8E00213D80 /* FSafe.xib in Resources */,
 				64A3B81E18DFEEC90015887F /* ActivityCustomCell.xib in Resources */,
 				D47A9B2A19407D09001CC416 /* materialsicon.png in Resources */,
 				D4F29B0E19DD19FF009A30F8 /* 070537-glossy-black-3d-button-icon-alphanumeric-information2-ps copy@2X.png in Resources */,
 				D43DAA3718D1B62700280AA6 /* cmpnydocucell.xib in Resources */,
 				D41708FE19A5B94C00F55599 /* Userrightscell.xib in Resources */,
-				64A654B5192F1F14004DDB84 /* GPSetupTileViewController.xib in Resources */,
 				D40A663C187131CA00AB7496 /* cb_mono_off.png in Resources */,
 				64AE02B71949AC56002D44B6 /* InOutSiteViewController.xib in Resources */,
 				649EE4C319614866008DEF02 /* LbrMgmtViewController.xib in Resources */,
@@ -3230,9 +3247,11 @@
 				D4A16B8A1974EEE0002CA2A2 /* BidViewController.m in Sources */,
 				64C0ACEF1A5CF7D600B31F52 /* AbsentViewController.m in Sources */,
 				64A2F9B419CBE72E009B1018 /* STViewController.m in Sources */,
+				D4B002B41A91EAB300213D80 /* GPSetupTileViewController.m in Sources */,
 				D40DE0C019E64C9A008FFD15 /* InprocessViewController.m in Sources */,
 				D49F876818EEA36B00413CAD /* Cbranch.m in Sources */,
 				645875CB1A28899800906869 /* GPConusumViewController.m in Sources */,
+				D4B002AF1A91EA8E00213D80 /* SDPViewController.m in Sources */,
 				D49F874718EEA36B00413CAD /* NSData+Base64.m in Sources */,
 				D40DE15019E69DA4008FFD15 /* AFXMLRequestOperation.m in Sources */,
 				D40720871772F37D0070629A /* ContactInfoViewController.m in Sources */,
@@ -3381,7 +3400,6 @@
 				D4A16B5E1974EEA8002CA2A2 /* AllDetailsplandisplayViewController.m in Sources */,
 				D4004056185B174A00C38E12 /* TileViewController.m in Sources */,
 				64BF722C1A2EE70D00946718 /* MPwrEvntcalViewController.m in Sources */,
-				64A654B4192F1F14004DDB84 /* GPSetupTileViewController.m in Sources */,
 				64A3B81C18DFEEC90015887F /* ActivityViewController.m in Sources */,
 				D44BEA7618E0254900719ED5 /* TypeViewController.m in Sources */,
 				D49F876218EEA36B00413CAD /* NewscfldDetails.m in Sources */,

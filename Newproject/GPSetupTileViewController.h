@@ -16,6 +16,7 @@
 #import "GPConusumViewController.h"
 #import "GSmallViewController.h"
 #import "AstGpViewController.h"
+#import "SDPViewController.h"
 
 @interface GPSetupTileViewController : UIViewController
 {
@@ -36,6 +37,7 @@
 @property (strong, nonatomic) IBOutlet UIView *consumview;
 @property (strong, nonatomic) IBOutlet UIView *smalltoolview;
 @property (strong, nonatomic) IBOutlet UIView *Astview;
+@property (strong, nonatomic) IBOutlet UIView *safetyview;
 
 
 
@@ -47,6 +49,7 @@
 @property(strong,nonatomic)GPConusumViewController*consumVCtrl;
 @property(strong,nonatomic)GSmallViewController*smallVCtrl;
 @property(strong,nonatomic)AstGpViewController*assetVCtrl;
+@property(strong,nonatomic)SDPViewController *safeVCtrl;
 
 @property(strong,nonatomic)Rightscheck *rights;
 
@@ -72,6 +75,7 @@
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *gpconsumactivity;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *gpsmallactivity;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *gpassetactivity;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *safetyactivity;
 
 
 @end

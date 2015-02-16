@@ -22,6 +22,8 @@
                 <outlet property="gpthirdactivity" destination="KB6-a0-kX6" id="zUR-dr-muK"/>
                 <outlet property="manview" destination="cRA-LT-RkS" id="gfi-fH-bBk"/>
                 <outlet property="materview" destination="DO1-2D-JUb" id="JQm-M4-kfx"/>
+                <outlet property="safetyactivity" destination="RoS-PS-kdE" id="oAn-JW-jER"/>
+                <outlet property="safetyview" destination="06z-Cy-d8q" id="WRU-JW-gvb"/>
                 <outlet property="smalltoolview" destination="dH8-cC-AzU" id="IUj-uB-5zm"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
@@ -237,6 +239,29 @@
                     </subviews>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.80942062039999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
+                <view contentMode="scaleToFill" id="06z-Cy-d8q">
+                    <rect key="frame" x="370" y="431" width="150" height="151"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hr.png" id="8c3-aV-tuG">
+                            <rect key="frame" x="24" y="12" width="102" height="120"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Safety Material" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5aR-Mc-Uio">
+                            <rect key="frame" x="24" y="117" width="102" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="RoS-PS-kdE">
+                            <rect key="frame" x="57" y="57" width="37" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.20000000000000001" green="0.80942062039999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -251,6 +276,7 @@
         <image name="appbar.close.png" width="76" height="76"/>
         <image name="consumablesicon.png" width="512" height="512"/>
         <image name="fleeticon.png" width="512" height="512"/>
+        <image name="hr.png" width="512" height="512"/>
         <image name="othercompanyassestsicon.png" width="512" height="512"/>
         <image name="smalltoolsicon.png" width="512" height="512"/>
         <image name="thridpartyicon.png" width="512" height="512"/>
