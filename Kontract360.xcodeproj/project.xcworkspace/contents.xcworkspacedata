@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Newproject.xcodeproj">
+      location = "self:Kontract360.xcodeproj">
    </FileRef>
 </Workspace>

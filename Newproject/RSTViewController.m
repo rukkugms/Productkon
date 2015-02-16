@@ -3216,6 +3216,13 @@
           [self ReadMTSubTypes];
          
         }
+     else{
+         msgstring=_soapResults;
+         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:msgstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+         [alert show];
+     }
+        
+        _soapResults = nil;
     }
 
 }
