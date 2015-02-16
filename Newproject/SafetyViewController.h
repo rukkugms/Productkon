@@ -22,7 +22,8 @@
     NSString* safetycode,*msgstrg;
 }
 @property (strong, nonatomic)NSString*searchstring;
-
+@property(readwrite)NSInteger frmplan;
+@property(strong,nonatomic)NSString *itemfromgp;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchbar;
 @property (strong, nonatomic)RSTViewController *subtypctrlr;
 @property(strong,nonatomic)Manpwr *SaftyMdl;
