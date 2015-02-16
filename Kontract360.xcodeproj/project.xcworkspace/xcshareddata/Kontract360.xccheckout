@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>BC9F1934-4D58-4E0D-AF56-485F9E6C201C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Kontract360</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FBA2B664619B5DD4205E0C2C8EA63D1200B0A823</key>
+		<string>https://github.com/Riagms/Productkon.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Kontract360.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FBA2B664619B5DD4205E0C2C8EA63D1200B0A823</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Riagms/Productkon.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FBA2B664619B5DD4205E0C2C8EA63D1200B0A823</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FBA2B664619B5DD4205E0C2C8EA63D1200B0A823</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Productkon</string>
+		</dict>
+	</array>
+</dict>
+</plist>
