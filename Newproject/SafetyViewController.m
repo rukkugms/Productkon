@@ -1010,17 +1010,7 @@ finishedSavingWithError:(NSError *)error
 //            
 //            
 //        }
-        if ([_soapResults isEqualToString:@"Already Exists"]) {
-            
-            msgstrg=_soapResults;
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            _activityindictor.hidden=YES;
-            [_activityindictor stopAnimating];
-            _addview.userInteractionEnabled=YES;
-            
-        }
-        if ([_soapResults isEqualToString:@"Already In Use"]) {
+                if ([_soapResults isEqualToString:@"Already in Use"]) {
             msgstrg=_soapResults;
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
@@ -1117,7 +1107,17 @@ finishedSavingWithError:(NSError *)error
         webtype=0;
         
     }
-        
+        if ([_soapResults containsString:@"Already Exists"]) {
+            
+            msgstrg=_soapResults;
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            _activityindictor.hidden=YES;
+            [_activityindictor stopAnimating];
+            _addview.userInteractionEnabled=YES;
+            
+        }
+
         
     }
 
