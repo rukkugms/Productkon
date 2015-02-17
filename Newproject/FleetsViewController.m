@@ -1849,7 +1849,7 @@
             
             
         }
-      else  if ([_soapResults isEqualToString:@"Description Already Exists"]) {
+      else  if ([_soapResults containsString:@"Already Exists"]) {
             
             msgstrg=_soapResults;
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -2122,6 +2122,50 @@ if([elementName isEqualToString:@"url"])
     {
         [self UserLogmainupdate];
     }
+    if (_frmplan==1) {
+        UIImage *imagename =_picimageview.image;
+        // NSData *data = UIImagePNGRepresentation(imagename);
+        
+        NSData *data = UIImageJPEGRepresentation(imagename, 1.0);
+        
+        
+        _encodedString = [data base64EncodedString];
+        
+        if([_destxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Description is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            
+            [alert show];
+            _destxtfld.text=@"";
+        }
+        else if ([_suserachbtnlbl.titleLabel.text isEqualToString:@""]||[_suserachbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Category is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            
+            [alert show];
+            
+            
+        }
+        
+        else{
+            _activitybtn.hidden=NO;
+            [_activitybtn startAnimating];
+            _addview.userInteractionEnabled=NO;
+            
+            if (btntype==1) {
+                _updatebtn.enabled=NO;
+                [self Insertfleet];
+            }
+            if (btntype==2) {
+                _updatebtn.enabled=NO;
+                [self Updatefleet];
+            }
+        }
+    }
+
+    
+    else
+    {
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
     if (rightsmodel.EditModule==0) {
@@ -2175,6 +2219,7 @@ if([elementName isEqualToString:@"url"])
     if (btntype==2) {
         _updatebtn.enabled=NO;
         [self Updatefleet];
+    }
     }
     }
     }

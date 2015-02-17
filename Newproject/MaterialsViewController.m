@@ -1812,7 +1812,7 @@ _searchbar.text=@"";
              _addmatView.userInteractionEnabled=YES;
             [self SelectAllMaterials];
         }
-       else if ([_soapResults isEqualToString:@"Already Exists"])
+       else if ([_soapResults containsString:@"Already Exists"])
         {
             msgstrg=_soapResults;
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];

@@ -1553,6 +1553,57 @@
      {
          [self UserLogmainupdate];
      }
+    if(_frmplan==1)
+    {
+        if ([_nametextfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            _nametextfld.text=@"";
+        }
+        
+        else  if ([_addresstxtview.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Address is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else  if ([_statebtnlbl.titleLabel.text isEqualToString:@"Select"]||[_statebtnlbl.titleLabel.text isEqualToString:@""]) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"State is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else  if ([_cuntrybtnlbl.titleLabel.text isEqualToString:@"Select"]||[_cuntrybtnlbl.titleLabel.text isEqualToString:@""]) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Country is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else  if ([_phonetxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            _phonetxtfld.text=@"";
+        }
+        else if (([_emailtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Email is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            _emailtxtfld.text=@"";
+        }
+        else{
+            
+            if (optionidentifier==1) {
+                webtype=1;
+                
+                _updatebtn.enabled=NO;
+                [self CustomerMasterInsert];
+                
+            }
+            else  if (optionidentifier==2){
+                webtype=1;
+                
+                _updatebtn.enabled=NO;
+                [self CustomerMasterUpdate];
+            }
+        }
+    
+
+    }
+    else
+    {
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
     if (rightsmodel.EditModule==0) {
@@ -1611,6 +1662,7 @@
 
         _updatebtn.enabled=NO;
         [self CustomerMasterUpdate];
+    }
     }
     }
     }
