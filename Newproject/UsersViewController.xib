@@ -9,6 +9,8 @@
             <connections>
                 <outlet property="activatebtnlbl" destination="UeE-c3-aR1" id="SC5-Bi-miR"/>
                 <outlet property="addview" destination="lbl-gW-TtC" id="fYD-mR-uTw"/>
+                <outlet property="allbranchcheckbox" destination="RGt-zK-BdG" id="wlY-Qq-iBg"/>
+                <outlet property="branchbtn" destination="GSN-Pu-ork" id="lnT-Zk-0QK"/>
                 <outlet property="cancelbtn" destination="2sN-my-AhA" id="HKO-XF-6bU"/>
                 <outlet property="devicebtn" destination="8os-dV-Lr5" id="6ya-4f-WUS"/>
                 <outlet property="navitem" destination="xnW-6t-5D1" id="Unm-jg-PZK"/>
@@ -100,7 +102,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
                         <view hidden="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="lbl-gW-TtC">
-                            <rect key="frame" x="76" y="119" width="619" height="391"/>
+                            <rect key="frame" x="76" y="119" width="619" height="431"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <navigationBar contentMode="scaleToFill" id="bDo-wA-UIa">
@@ -163,7 +165,7 @@
                                     </connections>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uYF-GG-iZH">
-                                    <rect key="frame" x="239" y="323" width="60" height="30"/>
+                                    <rect key="frame" x="240" y="354" width="60" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                     <state key="normal" title="Update">
@@ -174,7 +176,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2sN-my-AhA">
-                                    <rect key="frame" x="350" y="323" width="62" height="30"/>
+                                    <rect key="frame" x="351" y="354" width="62" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                     <state key="normal" title="Cancel">
@@ -216,7 +218,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7tz-ii-f0F">
-                                    <rect key="frame" x="228" y="341" width="197" height="21"/>
+                                    <rect key="frame" x="228" y="351" width="197" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                     <color key="textColor" red="0.0" green="0.40000000000000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -256,6 +258,35 @@
                                     </state>
                                     <connections>
                                         <action selector="Selectdevice:" destination="-1" eventType="touchUpInside" id="kYT-C1-hzb"/>
+                                    </connections>
+                                </button>
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RGt-zK-BdG">
+                                    <rect key="frame" x="53" y="315" width="22" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" image="cb_mono_off.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="allbranchcheckaction:" destination="-1" eventType="touchUpInside" id="Ne5-Bn-6KS"/>
+                                    </connections>
+                                </button>
+                                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Branches" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ufG-eH-KM4">
+                                    <rect key="frame" x="41" y="289" width="77" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GSN-Pu-ork">
+                                    <rect key="frame" x="350" y="300" width="231" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                    <state key="normal" title="Branches" backgroundImage="textbox.png">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="goToBranchaddform:" destination="-1" eventType="touchUpInside" id="bNc-G0-Gdw"/>
                                     </connections>
                                 </button>
                             </subviews>

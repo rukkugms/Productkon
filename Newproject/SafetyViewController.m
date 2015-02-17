@@ -1525,14 +1525,14 @@ _subtypctrlr.equipmainid=safty.entryid;
             
         }
     }
-    if (textField==_unitmeasuretxtfld) {
-        int value15=[val isNumeric:_unitmeasuretxtfld.text];
-        if (value15==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid unit of measure" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert1 show];
-            
-        }
-    }
+//    if (textField==_unitmeasuretxtfld) {
+//        int value15=[val isNumeric:_unitmeasuretxtfld.text];
+//        if (value15==0) {
+//            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid unit of measure" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//            [alert1 show];
+//            
+//        }
+//    }
 
     return YES;
     

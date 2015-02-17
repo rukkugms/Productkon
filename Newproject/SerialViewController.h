@@ -31,6 +31,8 @@
 /*Arrays&models*/
 @property(strong ,nonatomic)NSMutableArray *sequencearray;
 
+@property(strong,nonatomic)NSString *searchstring;
+@property(strong,nonatomic)IBOutlet UISearchBar *searchbar;
 
 
 /*Outlets*/

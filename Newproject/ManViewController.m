@@ -1835,6 +1835,10 @@ _SearchingBar.text=@"";
                 UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 [alert show];
             }
+            if ([_soapResults isEqualToString:@"deleted"]) {
+                [self Selectallmanpower];
+            }
+
 
             
         }
@@ -2358,6 +2362,7 @@ if ([alertView.message isEqualToString:msgstrg]) {
         _manpowerTable.userInteractionEnabled=YES;
         [self Selectallmanpower];
     }
+    [self Selectallmanpower];
     _itemcodetxtfld.text=@"";
     
     _itemdestxtfld.text=@"";
@@ -2440,12 +2445,40 @@ if ([alertView.message isEqualToString:msgstrg]) {
     if(textField==_craftcodetextfld)
     {
         NSUInteger newLength = [_craftcodetextfld.text length] + [string length] - range.length;
-        return (newLength > 50) ? NO : YES;
+        return (newLength > 25) ? NO : YES;
     }
 
     
     
     return YES;
+}
+#pragma mark-textview Delegate
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if(textView==_eduactiontextview)
+    {
+
+    return _eduactiontextview.text.length + (text.length - range.length) <= 500;
+    }
+    if(textView==_trainingtextview)
+    {
+        
+        return _trainingtextview.text.length + (text.length - range.length) <= 500;
+    }
+
+    if(textView==_jobtasktextview)
+    {
+        
+        return _jobtasktextview.text.length + (text.length - range.length) <= 500;
+    }
+
+    if(textView==_experiencetextview)
+    {
+        
+        return _experiencetextview.text.length + (text.length - range.length) <= 500;
+    }
+    return YES;
+
 }
 
 #pragma mark-Sqlite Database

@@ -669,7 +669,7 @@
     }if([elementName isEqualToString:@"LeadStatusDeleteResponse"])
     {
         
-        
+        [self LeadStatusSelect];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -762,6 +762,7 @@
         }
         _statustxtfld.text=@"";
         _updatebtn.enabled=YES;
+        [self LeadStatusSelect];
     }
 }
 #pragma mark-tableview datasource
@@ -836,6 +837,17 @@
         
     }
 }
+#pragma mark-textfld delegates
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    if(textField==_statustxtfld)
+    {
+        NSUInteger newLength = [_statustxtfld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+    return YES;
+}
+
 
 
 @end

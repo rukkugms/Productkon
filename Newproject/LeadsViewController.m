@@ -667,8 +667,13 @@ if (tableView==_leadTable) {
     [_leadstatusBtn setTitle:info1.leadstatus forState:UIControlStateNormal];
     [_industrytypetxtfld setTitle:info1.Industrytype forState:UIControlStateNormal];
     [_prjctexcutntxtfld setTitle:info1.projectexecution forState:UIControlStateNormal];
+    if (info1.leadassignto.length==0||info1.assigntoname.length==0) {
+        
+    }
+    else
+    {
    [_assignto setTitle:[NSString stringWithFormat:@"%@-%@",info1.leadassignto,info1.assigntoname] forState:UIControlStateNormal];
-
+    }
    
 }
 - (IBAction)cancelbtn:(id)sender {
@@ -1115,6 +1120,12 @@ else
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Project Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+//        else if ([_assignto.titleLabel.text isEqualToString:@"Select"]||[_assignto.titleLabel.text isEqualToString:@""])
+//        {
+//            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Lead Assign To is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//            [alert show];
+//        }
+
         else if ([_leadstatusBtn.titleLabel.text isEqualToString:@"Select"]||[_leadstatusBtn.titleLabel.text isEqualToString:@""])
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Lead Status is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -1397,10 +1408,16 @@ else
     NSString *stid;
    
     stid=[_statedict objectForKey:_statebutton.titleLabel.text];
-    NSArray *array=[_assignto.titleLabel.text componentsSeparatedByString:@"-"];
-    NSString *namestring=[array objectAtIndex:0];
-    NSLog(@"%@",namestring);
-    
+    NSString *namestring;
+    if ([_assignto.titleLabel.text isEqualToString:@"Select"]||[_assignto.titleLabel.text isEqualToString:@""]) {
+        namestring=@"0";
+    }
+    else
+    {
+            NSArray *array=[_assignto.titleLabel.text componentsSeparatedByString:@"-"];
+        namestring=[array objectAtIndex:0];
+        NSLog(@"%@",namestring);
+    }
 
     soapMessage = [NSString stringWithFormat:
                    
@@ -2769,6 +2786,7 @@ else
 
     if (butnidtfr==3) {
         [self LeadCommentsList];
+        [_cmttable reloadData];
         butnidtfr=6;
     }
     if (webtype==1) {
@@ -2778,6 +2796,7 @@ else
     }
      [_leadTable reloadData];
     [_popOverTableView reloadData];
+    [_cmttable reloadData];
       
 }
 
@@ -2786,7 +2805,7 @@ else
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
     
-    if([elementName isEqualToString:@"GetLeadsResult"])
+    if([elementName isEqualToString:@"GetLeadsResponse"])
     {
         _leadinfoArray=[[NSMutableArray alloc]init];
         if(!_soapResults)
@@ -3784,8 +3803,15 @@ else
     {
         recordResults=FALSE;
         _msgstring=_soapResults;
+        if ([_msgstring isEqualToString:@"Deleted"]) {
+             [self getLeads];
+        }
+        else
+        {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+        }
+       
          _savebtnlbl.enabled=YES;
         _soapResults=nil;
     }
@@ -3965,6 +3991,9 @@ else
            _view2.hidden=YES;
            _leadTable.userInteractionEnabled=YES;
        }
+       if (butnidtfr==3||butnidtfr==6) {
+           [self LeadCommentsList];
+       }
       // [_companybtn setTitle:@"Select" forState:UIControlStateNormal];
        _cmpnttxtfld.text=@"";
        _contactnametxtfld.text=@"";
@@ -4124,20 +4153,25 @@ else
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     
     
+    if(textField==_cmpnttxtfld)
+    {
+        NSUInteger newLength = [_cmpnttxtfld.text length] + [string length] - range.length;
+        return (newLength > 100) ? NO : YES;
+    }
     if(textField==_locationtxtfld)
     {
         NSUInteger newLength = [_locationtxtfld.text length] + [string length] - range.length;
-        return (newLength > 100) ? NO : YES;
+        return (newLength > 50) ? NO : YES;
     }
     if(textField==_contactnametxtfld)
     {
         NSUInteger newLength = [_contactnametxtfld.text length] + [string length] - range.length;
-        return (newLength > 100) ? NO : YES;
+        return (newLength > 50) ? NO : YES;
     }
     if(textField==_contacttiletxtfld)
     {
         NSUInteger newLength = [_contacttiletxtfld.text length] + [string length] - range.length;
-        return (newLength > 100) ? NO : YES;
+        return (newLength > 50) ? NO : YES;
     }
     
     if(textField==_emailidtxtfld)

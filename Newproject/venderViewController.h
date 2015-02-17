@@ -27,7 +27,7 @@
     NSString *phnnostring;
     //id<myDelegate>delegate;
 }
-
+@property(strong,nonatomic)NSString *searchstring;
 @property(readwrite)NSInteger moduleid;
 @property(nonatomic,weak)id<myDelegate>delegate;
 @property(strong,nonatomic)NSString *soapstring;
@@ -73,4 +73,6 @@
 @property(strong,nonatomic)IBOutlet UILabel *resultdispaylabel;
 
 @property (strong, nonatomic) IBOutlet UIButton *cancelbtn;
+
+@property(strong,nonatomic)UISearchBar *searchbar;
 @end

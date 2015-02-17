@@ -785,5 +785,16 @@ _updatebtn.enabled=YES;
     _updatebtn.enabled=YES;
     _prjcttypetxtfld.text=@"";
     _typetable.userInteractionEnabled=YES;
+    [self ProjecttypeSelect];
+}
+#pragma mark-textfld delegates
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    if(textField==_prjcttypetxtfld)
+    {
+        NSUInteger newLength = [_prjcttypetxtfld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+    return YES;
 }
 @end

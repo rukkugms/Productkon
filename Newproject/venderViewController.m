@@ -34,6 +34,16 @@
     _vendelisttable.layer.borderWidth = 2.0;
     _vendelisttable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _tabletitleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
+    _searchbar.delegate=(id)self;
+    _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    _vendelisttable.tableHeaderView=_searchbar;
+    UISearchDisplayController *searchcontroller=[[UISearchDisplayController alloc]initWithSearchBar:_searchbar contentsController:self];
+    searchcontroller.delegate=(id)self;
+    searchcontroller.searchResultsDelegate=(id)self;
+    searchcontroller.searchResultsDataSource=(id)self;
+    
+    
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -41,6 +51,7 @@
 {
     [super viewWillAppear:animated];
     [self Selectvendor];
+    _searchbar.text=@"";
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,16 +61,19 @@
 }
 #pragma mark-Actions
 -(IBAction)closevendorpage:(id)sender
-{ _venderaddview.hidden=YES;
+{
+    _venderaddview.hidden=YES;
+    _searchbar.text=@"";
     _vendelisttable.userInteractionEnabled=YES;
     if ([self.delegate respondsToSelector:@selector(newaction)])
     {
-        _nametextfld.delegate=nil;
     [self.delegate newaction];
-    [self dismissViewControllerAnimated:YES completion:NULL];
-
+        _nametextfld.delegate=nil;
+   
+ [self dismissViewControllerAnimated:YES completion:NULL];
     
 }
+    
 
     
 }
@@ -107,6 +121,9 @@
     _addresstextfld.text=@"";
     _phonetextfld.text=@"";
     _ratetextfld.text=@"";
+    [_nametextfld resignFirstResponder];
+    _searchbar.text=@"";
+    
     //_vendelisttable.userInteractionEnabled=NO;
 }
 -(IBAction)updatevender:(id)sender
@@ -328,6 +345,58 @@
     
     
 }
+-(void)searchvendor{
+    //webtype=2;
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Vendorsearch xmlns=\"https://vip.kontract360.com/\">\n"
+                   "<searchtext>%@</searchtext>\n"
+                   "<ItemId>%d</ItemId>"
+                   "</Vendorsearch>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_searchstring,_itemid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    //   NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"https://vip.kontract360.com/Vendorsearch" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webdata = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 -(void)VendorInsert
 {  webtype=1;
     recordResults = FALSE;
@@ -767,6 +836,15 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"VendorsearchResponse"])
+    {
+        _venderlistarray=[[NSMutableArray alloc]init];
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
     if([elementName isEqualToString:@"SelectvendorResult"])
     {
@@ -1011,8 +1089,9 @@
     
     return YES;
 }
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+- (BOOL)textFieldDidEndEditing:(UITextField *)textField
 {
+    
     
     Validation*val=[[Validation alloc]init];
     if(textField==_nametextfld)
@@ -1191,7 +1270,7 @@
             _venderaddview.hidden=YES;
             _vendelisttable.userInteractionEnabled=YES;
         }
-            
+           _searchbar.text=@"";
 
         
     }
@@ -1212,6 +1291,32 @@
     }
 
    }
+#pragma mark-Searchbar
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+    _searchstring=_searchbar.text;
+    //NSLog(@"search%@",searchstring);
+    [self searchvendor];
+    [searchBar resignFirstResponder];
+    
+    
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [self Selectvendor];
+    
+}
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    
+    if ([_searchbar.text length]==0) {
+        
+        [self Selectvendor];
+      
+        
+        
+    }
+    
+    
+}
 
 
 @end

@@ -662,7 +662,7 @@
         recordresults = TRUE;
     }if([elementName isEqualToString:@"IndustryTypeDeleteResponse"])
     {
-        
+        [self IndustrytypeSelect];
         
         if(!_soapResults)
         {
@@ -756,6 +756,7 @@
         }
         _industrytextfld.text=@"";
         _updatebtn.enabled=YES;
+        [self IndustrytypeSelect];
     }
 }
 #pragma mark-tableview datasource
@@ -837,6 +838,16 @@
         }
         
     }
+}
+#pragma mark-textfld delegates
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    if(textField==_industrytextfld)
+    {
+        NSUInteger newLength = [_industrytextfld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+    return YES;
 }
 
 

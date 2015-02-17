@@ -22,13 +22,14 @@
     NSInteger USerdocid;
 
 }
+@property(strong,nonatomic)NSString *searchstring;
 @property(readwrite)NSInteger moduleid;
 @property(strong,nonatomic)NSString *msgstring;
 @property (strong, nonatomic)commentmdl *cmntmdl1;
 @property (strong, nonatomic)NSMutableArray*commentarray;
 @property (strong, nonatomic) IBOutlet UITableViewCell *cmntcell;
 @property (strong, nonatomic) IBOutlet UILabel *cmntlbl;
-
+@property (strong, nonatomic) IBOutlet UISearchBar *searchbar;
 @property (strong, nonatomic) IBOutlet UILabel *cmttype;
 
 

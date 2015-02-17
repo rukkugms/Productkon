@@ -179,6 +179,7 @@ finishedSavingWithError:(NSError *)error
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     _activitybtn.hidden=YES;
+    checksub=0;
     if (_frmplan==1) {
         /*searchbar*/
         _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
@@ -1901,6 +1902,9 @@ recordResults = FALSE;
 
             [self SelectAllOther];
         }
+        if ([_soapResults isEqualToString:@"deleted"]) {
+            [self SelectAllOther];
+        }
        
                _soapResults = nil;
     }
@@ -2117,51 +2121,6 @@ recordResults = FALSE;
     {
         [self UserLogmainupdate];
     }
-    if (_frmplan==1)
-    {
-        UIImage *imagename =_pictureimgview.image;
-        // NSData *data = UIImagePNGRepresentation(imagename);
-        
-        NSData *data = UIImageJPEGRepresentation(imagename, 1.0);
-        
-        
-        _encodedString = [data base64EncodedString];
-        NSLog(@"%@",_encodedString);
-        if([_destxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
-            
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Description field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            
-            [alert show];
-            _destxtfld.text=@"";
-        }
-        //    else if ([_suserachbtnlbl.titleLabel.text isEqualToString:@""]||[_suserachbtnlbl.titleLabel.text isEqualToString:@"Select"]){
-        //
-        //        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Subtype field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        //
-        //        [alert show];
-        //
-        //    }
-        else{
-            _activitybtn.hidden=NO;
-            [_activitybtn startAnimating];
-            _addview.userInteractionEnabled=YES;
-            
-            
-            
-            if (btntype==1) {
-                _updatebtn.enabled=NO;
-                [self InsertOther];
-            }
-            if (btntype==2) {
-                _updatebtn.enabled=NO;
-                [self UpdateOther];
-            }
-        }
-
-    }
-        
-else
-{
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
     if (rightsmodel.EditModule==0) {
@@ -2216,7 +2175,6 @@ else
     }
     }
     }
-}
 }
 -(IBAction)closeimage:(id)sender
 {UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Are you sure you want to delete this picture?" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
@@ -2615,18 +2573,18 @@ else
     if(textField==_insuredtxtfld)
     {
         NSUInteger newLength = [_insuredtxtfld.text length] + [string length] - range.length;
-        return (newLength > 18) ? NO : YES;
+        return (newLength > 9) ? NO : YES;
     }
     
     if(textField==_hurstxtfld)
     {
         NSUInteger newLength = [_hurstxtfld.text length] + [string length] - range.length;
-        return (newLength > 18) ? NO : YES;
+        return (newLength > 9) ? NO : YES;
     }
     if(textField==_fueltxtfld)
     {
         NSUInteger newLength = [_fueltxtfld.text length] + [string length] - range.length;
-        return (newLength > 18) ? NO : YES;
+        return (newLength > 9) ? NO : YES;
     }
     if(textField==_condtntxtfld)
     {
@@ -2636,39 +2594,39 @@ else
     if(textField==_hurlytxtfld)
     {
         NSUInteger newLength = [_hurlytxtfld.text length] + [string length] - range.length;
-        return (newLength > 18) ? NO : YES;
+        return (newLength > 9) ? NO : YES;
     }
     if(textField==_dailytxtfld)
     {
         NSUInteger newLength = [_dailytxtfld.text length] + [string length] - range.length;
-        return (newLength > 18) ? NO : YES;
+        return (newLength > 9) ? NO : YES;
     }
     
     if(textField==_shiftwisetxtfld)
     {
         NSUInteger newLength = [_shiftwisetxtfld.text length] + [string length] - range.length;
-        return (newLength > 18) ? NO : YES;
+        return (newLength > 9) ? NO : YES;
     }
     if(textField==_weeklytxtfld)
     {
         NSUInteger newLength = [_weeklytxtfld.text length] + [string length] - range.length;
-        return (newLength > 18) ? NO : YES;
+        return (newLength > 9) ? NO : YES;
     }
     
     if(textField==_monthlytxtfld)
     {
         NSUInteger newLength = [_monthlytxtfld.text length] + [string length] - range.length;
-        return (newLength > 18) ? NO : YES;
+        return (newLength > 9) ? NO : YES;
     }
     if(textField==_yearlytxtfld)
     {
         NSUInteger newLength = [_yearlytxtfld.text length] + [string length] - range.length;
-        return (newLength > 18) ? NO : YES;
+        return (newLength > 9) ? NO : YES;
     }
     if(textField==_stckinhandtxtfld)
     {
         NSUInteger newLength = [_stckinhandtxtfld.text length] + [string length] - range.length;
-        return (newLength > 18) ? NO : YES;
+        return (newLength > 9) ? NO : YES;
     }
     
     

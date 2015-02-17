@@ -33,6 +33,19 @@
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     
+    /*searchbar*/
+    _searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+    _searchbar.delegate = (id)self;
+    _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    
+    self.sequencetable.tableHeaderView =_searchbar;
+    
+    UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_searchbar contentsController:self];
+    searchController.searchResultsDataSource = (id)self;
+    searchController.searchResultsDelegate =(id)self;
+    searchController.delegate = (id)self;
+
+    
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -328,6 +341,59 @@
     
     
 }
+-(void)JobSequenceSearch
+{   // webtype=3;
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<JobSequenceSearch xmlns=\"https://vip.kontract360.com/\">\n"
+                   "<searchtext>%@</searchtext>\n"
+                   "<skillid>%d</skillid>\n"
+                   "</JobSequenceSearch>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_searchstring,_skillid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    //   NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"https://vip.kontract360.com/JobSequenceSearch" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
 -(void)UserLogmaininsert{
     
     recordResults = FALSE;
@@ -668,7 +734,16 @@
         recordResults = TRUE;
         
     }
-    
+    if ([elementName isEqualToString:@"JobSequenceSearchResponse"]) {
+         _sequencearray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+   
 
 
 
@@ -773,6 +848,8 @@
 }
 
 - (IBAction)editbtn:(id)sender {
+   
+    
     _updatebtn.enabled=YES;
     _cancelbtn.enabled=NO;
     //[super setEditing:NO animated:NO];
@@ -799,7 +876,8 @@ _cancelbtn.titleLabel.textColor=[UIColor grayColor];
 {
     _updatebtn.enabled=YES;
   _cancelbtn.enabled=YES;
-    
+   
+
     //[super setEditing:NO animated:NO];
   //  [_sequencetable setEditing:NO animated:NO];
       _sequencetable.userInteractionEnabled=NO;
@@ -852,6 +930,7 @@ _addview.hidden=YES;
     
     else
     {
+         _searchbar.text=@"";
 
     
     if (optionidentifier==1)
@@ -940,6 +1019,15 @@ _addview.hidden=YES;
         return (newLength > 10) ? NO : YES;
     }
     return YES;
+    
+    if(textField==_jobtasktextfld)
+    {
+        NSUInteger newLength = [_jobtasktextfld.text length] + [string length] - range.length;
+        return (newLength > 200) ? NO : YES;
+    }
+    return YES;
+    
+    
 }
 //- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 //{
@@ -974,4 +1062,32 @@ _addview.hidden=YES;
     }
 
 }
+#pragma mark-Searchbar
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+    _searchstring=_searchbar.text;
+    //NSLog(@"search%@",searchstring);
+    [self JobSequenceSearch];
+    [searchBar resignFirstResponder];
+    
+    
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [self JobsequenceSelect];
+    
+}
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    
+    if ([_searchbar.text length]==0) {
+        
+        [self JobsequenceSelect];
+        // [searchBar resignFirstResponder];
+        
+        
+    }
+    //[searchBar resignFirstResponder];
+    
+    
+}
+
 @end

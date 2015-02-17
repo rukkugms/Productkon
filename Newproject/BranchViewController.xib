@@ -27,7 +27,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="eod-Qd-ksO">
-                    <rect key="frame" x="20" y="102" width="979" height="603"/>
+                    <rect key="frame" x="23" y="104" width="979" height="644"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -58,7 +58,7 @@
                     </items>
                 </navigationBar>
                 <view contentMode="scaleToFill" id="HcX-a8-YDb">
-                    <rect key="frame" x="20" y="63" width="979" height="41"/>
+                    <rect key="frame" x="23" y="65" width="979" height="41"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="16f-RL-0nL">
@@ -117,7 +117,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
                 <view hidden="YES" contentMode="scaleToFill" id="nJb-fB-OAe">
-                    <rect key="frame" x="243" y="86" width="607" height="419"/>
+                    <rect key="frame" x="209" y="106" width="607" height="419"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="4nE-xz-mfd">

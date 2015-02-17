@@ -50,21 +50,32 @@
     [_popovrdict setObject:@"10" forKey:@"Bid Estimates"];
     [_popovrdict setObject:@"11" forKey:@"Contract"];
     [_popovrdict setObject:@"12" forKey:@"Company Info"];
-    [_popovrdict setObject:@"13" forKey:@"Basic Requirements"];
+    [_popovrdict setObject:@"13" forKey:@"Basic Requirement"];
     _popoverArry=[[NSMutableArray alloc]initWithArray:[_popovrdict allKeys]];
 
     [[self.cmmnttxtview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
     [[self.cmmnttxtview layer] setBorderWidth:2];
     [[self.cmmnttxtview layer] setCornerRadius:10];
    
-
-   
+    /*searchbar*/
+    _searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+    _searchbar.delegate = (id)self;
+    _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    
+    self.docutable.tableHeaderView =_searchbar;
+    
+    UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_searchbar contentsController:self];
+    searchController.searchResultsDataSource = (id)self;
+    searchController.searchResultsDelegate =(id)self;
+    searchController.delegate = (id)self;
+   _searchbar.text=@"";
 
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [_docutable reloadData];
+    _searchbar.text=@"";
 
 }
 
@@ -258,11 +269,11 @@ return cell;
         
         
                        [_docutyebtn setTitle:[_popoverArry objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-        
-      type=  [_popovrdict objectForKey:[_popoverArry objectAtIndex:indexPath.row] ];
+        type=[_popoverArry objectAtIndex:indexPath.row];
+      //type=  [_popovrdict objectForKey:[_popoverArry objectAtIndex:indexPath.row] ];
                 
     }
-    
+    _searchbar.text=@"";
     [self.popOverController dismissPopoverAnimated:YES];
     [self AllDocumentsselect];
 }
@@ -611,6 +622,58 @@ return cell;
     }
     
 }
+-(void)DocumentSearch
+{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<DocumentSearch xmlns=\"https://vip.kontract360.com/\">\n"
+                   "<searchtext>%@</searchtext>\n"
+                   "<Type>%@</Type>\n"
+                   "</DocumentSearch>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_searchstring,type];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"https://vip.kontract360.com/DocumentSearch" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 
 
 #pragma mark - Connection
@@ -664,6 +727,18 @@ return cell;
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"DocumentSearchResponse"])
+    {
+        _documntarray=[[NSMutableArray alloc]init];
+        _docdict=[[NSMutableDictionary alloc]init];
+        _fileiddict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"FolderName"])
     {
         if(!_soapResults)
@@ -896,6 +971,8 @@ return cell;
     [_popOverTableView reloadData];
 }
 - (IBAction)viewweb:(id)sender {
+    _searchbar.text=@"";
+    [self AllDocumentsselect];
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.docutable];
@@ -939,6 +1016,7 @@ return cell;
     _cmmnttxtview.text=@"";
      _newcmntview.hidden=YES;
      _savecmntbtn.enabled=YES;
+    _searchbar.text=@"";
 }
 - (IBAction)cmntbtn:(id)sender {
     
@@ -966,5 +1044,32 @@ return cell;
 - (IBAction)closebtn:(id)sender
 {
     [self.popOverController dismissPopoverAnimated:YES];
+    _searchbar.text=@"";
 }
+#pragma mark-Searchbar
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+    _searchstring=_searchbar.text;
+  [self DocumentSearch];
+    [searchBar resignFirstResponder];
+    
+    
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [self AllDocumentsselect];
+    
+}
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    
+    if ([_searchbar.text length]==0) {
+        
+       [self AllDocumentsselect];
+        
+        
+    }
+    
+    
+    
+}
+
 @end

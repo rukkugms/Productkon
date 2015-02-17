@@ -474,7 +474,7 @@
 - (IBAction)addclsebt:(id)sender {
     
     _addview.hidden=YES;
-  
+    
 }
 
 - (IBAction)clsebtn:(id)sender {

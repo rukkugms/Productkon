@@ -659,6 +659,10 @@
     NSInteger parnt;
     
           parnt=0;
+//    NSString*newstrg=  [_phasetextfld.text stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"];
+//    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"];
+//    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"];
+//    newstrg=  [newstrg stringByReplacingOccurrencesOfString:@"'" withString:@"&#39;"];
    
     recordresults = FALSE;
     NSString *soapMessage;
@@ -1820,7 +1824,7 @@
             _soapstring=_soapResults;
           if ([_soapstring isEqualToString:@"deleted"])
           {
-              
+              [self SelectAllPhases];
           }
             else
             {
@@ -1953,7 +1957,7 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if([alertView.message isEqualToString:_soapstring])
-    {
+    {[self SelectAllPhases];
         if (optionIdentifier==1) {
             _phasetextfld.text=@"";
             //[_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
