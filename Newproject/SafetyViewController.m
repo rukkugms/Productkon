@@ -1311,7 +1311,9 @@ _subtypctrlr.equipmainid=safty.entryid;
 }
 
 - (IBAction)clsebtn:(id)sender {
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SecondViewControllerDismissed"
+                                                        object:nil
+                                                      userInfo:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

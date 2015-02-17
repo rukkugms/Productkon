@@ -2045,6 +2045,9 @@ finishedSavingWithError:(NSError *)error
 {
      _updatebtn.enabled=YES;
     _addequipmentview.hidden=YES;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SecondViewControllerDismissed"
+                                                        object:nil
+                                                      userInfo:nil];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)addEquipment:(id)sender

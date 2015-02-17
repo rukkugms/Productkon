@@ -2072,6 +2072,9 @@ else
 {
       _updatebtn.enabled=YES;
     _addmatView.hidden=YES;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SecondViewControllerDismissed"
+                                                        object:nil
+                                                      userInfo:nil];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)addmaterial:(id)sender

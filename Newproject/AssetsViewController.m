@@ -2005,7 +2005,9 @@ recordResults = FALSE;
 - (IBAction)closebtn:(id)sender
 { _addview.hidden=YES;
     _updatebtn.enabled=YES;
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SecondViewControllerDismissed"
+                                                        object:nil
+                                                      userInfo:nil];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 - (IBAction)addbtn:(id)sender{

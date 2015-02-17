@@ -59,6 +59,8 @@
 
    
     [self AllSkills];
+    [self Selectcrewname];
+    [self CrewManPowerSelect];
    
 }
 
@@ -359,6 +361,7 @@
              
                  [_crewbtnlbl setTitle:[_crenamearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
                 [self Selectcrewname];
+                
                 break;
 
             default:
@@ -410,6 +413,7 @@
     _manctrl.itemcode=manpwr.itemcode;
     [self presentViewController:_manctrl animated:YES completion:nil];
 }
+
 -(void)labelTap1:(UITapGestureRecognizer *)sender{
     
     CGPoint location = [sender locationInView:self.view];
@@ -1649,6 +1653,8 @@
     }
    // [_autocompleteTableView reloadData];
        [_popOverTableView reloadData];
+     [_manpwrtable reloadData];
+    [_crewnametable reloadData];
     
     }
 #pragma mark-xml parser

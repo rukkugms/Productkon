@@ -1983,6 +1983,9 @@ if([elementName isEqualToString:@"url"])
 {
      _updatebtn.enabled=YES;
      _addview.hidden=YES;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SecondViewControllerDismissed"
+                                                        object:nil
+                                                      userInfo:nil];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 - (IBAction)addbtn:(id)sender{

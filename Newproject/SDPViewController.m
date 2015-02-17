@@ -1009,8 +1009,10 @@
     if (webpath==2) {
         [_Secondsafetyttable reloadData];
         
+        
     }
-    
+    [_Secondsafetyttable reloadData];
+    [_firstsafetytable reloadData];
     
 }
 #pragma mark-xml parser
@@ -1672,6 +1674,7 @@
                [_saftygpbtn setTitle:[_gplistarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
                 [self SafetyMaterialCrewNameSelect];
                 
+                
                 break;
                 
             default:
@@ -1709,6 +1712,11 @@
     _safetyctrl=[[SafetyViewController alloc]initWithNibName:@"SafetyViewController" bundle:nil];
     _safetyctrl.frmplan=1;
     _safetyctrl.itemfromgp=manpwr.itemcode;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didDismissSecondViewController)
+                                                 name:@"SecondViewControllerDismissed"
+                                               object:nil];
+
     _safetyctrl.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:_safetyctrl animated:YES completion:nil];
 }
@@ -1725,8 +1733,20 @@
     _safetyctrl=[[SafetyViewController alloc]initWithNibName:@"SafetyViewController" bundle:nil];
     _safetyctrl.frmplan=1;
     _safetyctrl.itemfromgp=crewmdl1.manpower;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didDismissSecondViewController)
+                                                 name:@"SecondViewControllerDismissed"
+                                               object:nil];
+
     _safetyctrl.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:_safetyctrl animated:YES completion:nil];
+}
+-(void)didDismissSecondViewController {
+    NSLog(@"Dismissed SecondViewController");
+    [self SafetyMaterialCrewNameSelect];
+    [self CrewSafetyMaterialselect];
+    
+    
 }
 
 #pragma mark-alert

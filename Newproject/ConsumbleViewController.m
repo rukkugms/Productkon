@@ -1919,7 +1919,9 @@ finishedSavingWithError:(NSError *)error
 -(IBAction)closeconsume:(id)sender{
       _addView.hidden=YES;
     _updatebtn.enabled=YES;
-
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SecondViewControllerDismissed"
+                                                        object:nil
+                                                      userInfo:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
     
     

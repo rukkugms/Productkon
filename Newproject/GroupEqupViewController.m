@@ -40,6 +40,7 @@
     UIPanGestureRecognizer* panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanning:)];
     panGesture.delegate=self;
     [self.touchview addGestureRecognizer:panGesture];
+   
 
     
 }
@@ -51,16 +52,17 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [_crewbtnlbl setTitle:@"Select" forState:UIControlStateNormal ];
-        [_servicebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
-     
+    
     [self setupSourceTableWithFrame:CGRectMake(0, 0, 266,610)];
     [self setupDestinationTableWithFrame:CGRectMake(0, 0, 460, 533)];
-    
+    [_crewbtnlbl setTitle:@"Select" forState:UIControlStateNormal ];
+    [_servicebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
     
     [self AllSkills];
     
+    
 }
+
 #pragma mark-Popover
 -(void)createpopover{
     UIViewController* popoverContent = [[UIViewController alloc]
@@ -341,7 +343,9 @@
                 
                 [_crewbtnlbl setTitle:[_crenamearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
                [self Selectcrewname];
-                break;
+               
+
+                               break;
                 
             default:
                 break;
@@ -390,8 +394,18 @@
     _equipctrl.frmplan=1;
     _equipctrl.itemfromgp=manpwr.itemcode;
      _equipctrl.userrightsarray=_userrightsarray;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didDismissSecondViewController)
+                                                 name:@"SecondViewControllerDismissed"
+                                               object:nil];
     _equipctrl.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:_equipctrl animated:YES completion:nil];
+}
+-(void)didDismissSecondViewController {
+    NSLog(@"Dismissed SecondViewController");
+    [self Selectcrewname];
+    [self CrewEquipmentSelect];
+
 }
 -(void)labelTap1:(UITapGestureRecognizer *)sender{
     
@@ -418,6 +432,11 @@
     _equipctrl.frmplan=1;
     _equipctrl.itemfromgp=crewmdl1.manpower;
     _equipctrl.userrightsarray=_userrightsarray;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didDismissSecondViewController)
+                                                 name:@"SecondViewControllerDismissed"
+                                               object:nil];
+
       _equipctrl.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:_equipctrl animated:YES completion:nil];
 }
@@ -1597,9 +1616,14 @@
     if (webpath==2) {
         [_crewtable reloadData];
         
+        
     }
     // [_autocompleteTableView reloadData];
     [_popOverTableView reloadData];
+    [_crewtable reloadData];
+    [_equpmenttable reloadData];
+   
+
 }
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
