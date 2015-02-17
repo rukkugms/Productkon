@@ -1982,6 +1982,13 @@ _searchbar.text=@"";
 //            [alert show];
 //            
 //        }
+        else if ([_unitofmesuretxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Unit of measure field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            
+            [alert show];
+            
+        }
 
         else
         {
@@ -2008,6 +2015,14 @@ _searchbar.text=@"";
 //            [alert show];
 //            
 //        }
+        else if ([_unitofmesuretxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Unit of measure field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            
+            [alert show];
+            
+        }
+
 
 else
 {
