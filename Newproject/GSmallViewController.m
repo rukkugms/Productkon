@@ -1000,9 +1000,11 @@
     if (webpath==2) {
         [_smallsectable reloadData];
         
+
     }
     
-    
+    [_smallsectable reloadData];
+    [_smallfirsttable reloadData];
 }
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
@@ -1648,6 +1650,8 @@
                 [_smallgpbtn setTitle:[_gplistarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
                 [self SmallToolsCrewNameSelect];
                 
+
+                
                 break;
                 
             default:
@@ -1688,6 +1692,11 @@
     _smallVCtrl=[[SmalltoolsViewController alloc]initWithNibName:@"SmalltoolsViewController" bundle:nil];
     _smallVCtrl.frmplan=1;
     _smallVCtrl.itemfromgp=tp.manpower;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didDismissSecondViewController)
+                                                 name:@"SecondViewControllerDismissed"
+                                               object:nil];
+
     _smallVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_smallVCtrl animated:YES completion:nil];
 }
@@ -1705,9 +1714,22 @@
     _smallVCtrl=[[SmalltoolsViewController alloc]initWithNibName:@"SmalltoolsViewController" bundle:nil];
     _smallVCtrl.frmplan=1;
     _smallVCtrl.itemfromgp=manpwr.itemcode;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didDismissSecondViewController)
+                                                 name:@"SecondViewControllerDismissed"
+                                               object:nil];
+
     _smallVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_smallVCtrl animated:YES completion:nil];
 
+}
+-(void)didDismissSecondViewController {
+    NSLog(@"Dismissed SecondViewController");
+    [self SmallToolsCrewNameSelect];
+    [self CrewSmallToolsSelect];
+
+    
+    
 }
 
 /*

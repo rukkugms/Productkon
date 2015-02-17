@@ -643,7 +643,9 @@
     else if(webtype==2){
         [_groupconsumtable reloadData];
     }
-    
+      [_consumtable reloadData];
+    [_groupconsumtable reloadData];
+
 }
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
@@ -1236,6 +1238,7 @@
                 
                 [_crewbtnlbl setTitle:[_crewnamearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
                 [self ConsumableCrewNameSelect];
+                
                 break;
                 
             default:
@@ -1303,6 +1306,11 @@
     _conVCtrl=[[ConsumbleViewController alloc]initWithNibName:@"ConsumbleViewController" bundle:nil];
     _conVCtrl.frmplan=1;
     _conVCtrl.itemfromgp=crewmdl1.manpower;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didDismissSecondViewController)
+                                                 name:@"SecondViewControllerDismissed"
+                                               object:nil];
+
     _conVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_conVCtrl animated:YES completion:nil];
 }
@@ -1319,8 +1327,20 @@
     _conVCtrl=[[ConsumbleViewController alloc]initWithNibName:@"ConsumbleViewController" bundle:nil];
     _conVCtrl.frmplan=1;
     _conVCtrl.itemfromgp=emdl.itemcode;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didDismissSecondViewController)
+                                                 name:@"SecondViewControllerDismissed"
+                                               object:nil];
+
     _conVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_conVCtrl animated:YES completion:nil];
+}
+-(void)didDismissSecondViewController {
+    NSLog(@"Dismissed SecondViewController");
+    [self ConsumableCrewNameSelect];
+    [self CrewConsumablesSelect];
+    
+    
 }
 
 #pragma mark-Actions

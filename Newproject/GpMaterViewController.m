@@ -483,7 +483,7 @@
                 
                 [_groupbtn setTitle:[_gpnamearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
                 [self MaterialCrewNameSelect];
-                break;
+                               break;
                 
             default:
                 break;
@@ -533,6 +533,11 @@
     _mtrlctrl.frmplan=1;
     _mtrlctrl.itemfromgp=manpwr.itemcode;
     _mtrlctrl.userrightsarray=_userrightsarray;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didDismissSecondViewController)
+                                                 name:@"SecondViewControllerDismissed"
+                                               object:nil];
+
     _mtrlctrl.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:_mtrlctrl animated:YES completion:nil];
 }
@@ -561,8 +566,19 @@
     _mtrlctrl.frmplan=1;
     _mtrlctrl.itemfromgp=crewmdl1.manpower;
       _mtrlctrl.userrightsarray=_userrightsarray;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didDismissSecondViewController)
+                                                 name:@"SecondViewControllerDismissed"
+                                               object:nil];
+
     _mtrlctrl.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:_mtrlctrl animated:YES completion:nil];
+}
+-(void)didDismissSecondViewController {
+    NSLog(@"Dismissed SecondViewController");
+    [self MaterialCrewNameSelect];
+    [self CrewMaterialselect];
+    
 }
 
 
@@ -1433,6 +1449,9 @@
     if (webpath==2) {
         [_crewnametable reloadData];
     }
+    [_crewnametable reloadData];
+    [_materailtable reloadData];
+
 }
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName

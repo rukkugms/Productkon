@@ -997,10 +997,12 @@
     
     if (webpath==2) {
         [_othersectable reloadData];
+       
         
     }
     
-    
+    [_othersectable reloadData];
+    [_otherfirsttable reloadData];
 }
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
@@ -1700,6 +1702,11 @@
     _assetVCtrl=[[AssetsViewController alloc]initWithNibName:@"AssetsViewController" bundle:nil];
     _assetVCtrl.frmplan=1;
     _assetVCtrl.itemfromgp=tp.manpower;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didDismissSecondViewController)
+                                                 name:@"SecondViewControllerDismissed"
+                                               object:nil];
+
     _assetVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_assetVCtrl animated:YES completion:nil];
 }
@@ -1716,13 +1723,25 @@
     _assetVCtrl=[[AssetsViewController alloc]initWithNibName:@"AssetsViewController" bundle:nil];
     _assetVCtrl.frmplan=1;
     _assetVCtrl.itemfromgp=manpwr.itemcode;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didDismissSecondViewController)
+                                                 name:@"SecondViewControllerDismissed"
+                                               object:nil];
+
     _assetVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_assetVCtrl animated:YES completion:nil];
     
 }
 
 
-
+-(void)didDismissSecondViewController {
+    NSLog(@"Dismissed SecondViewController");
+    [self OtherCrewNameSelect];
+    [self CrewOtherSelect];
+    
+    
+    
+}
 
 /*
 #pragma mark - Navigation

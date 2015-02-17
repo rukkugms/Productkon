@@ -737,6 +737,7 @@
                 
                 [_tpgpbtn setTitle:[_gplistarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
                 [self ThirdPartyCrewNameSelect];
+               
 
                                break;
                 
@@ -776,6 +777,11 @@
     _thirdVCtrl=[[ThirdPartyViewController alloc]initWithNibName:@"ThirdPartyViewController" bundle:nil];
     _thirdVCtrl.frmplan=1;
     _thirdVCtrl.itemfromgp=tp.manpower;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didDismissSecondViewController)
+                                                 name:@"SecondViewControllerDismissed"
+                                               object:nil];
+
     _thirdVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_thirdVCtrl animated:YES completion:nil];
 }
@@ -792,8 +798,20 @@
     _thirdVCtrl=[[ThirdPartyViewController alloc]initWithNibName:@"ThirdPartyViewController" bundle:nil];
     _thirdVCtrl.frmplan=1;
     _thirdVCtrl.itemfromgp=manpwr.itemcode;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didDismissSecondViewController)
+                                                 name:@"SecondViewControllerDismissed"
+                                               object:nil];
+
     _thirdVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_thirdVCtrl animated:YES completion:nil];
+}
+-(void)didDismissSecondViewController {
+    NSLog(@"Dismissed SecondViewController");
+    [self ThirdPartyCrewNameSelect];
+    [self CrewThirdpartySelect];
+
+    
 }
 
 #pragma mark- WebService
@@ -1304,8 +1322,8 @@
         [_thirdsectable reloadData];
         
     }
-
-
+ [_thirdfirsttable reloadData];
+  [_thirdsectable reloadData];
 }
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName

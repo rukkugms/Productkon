@@ -645,7 +645,10 @@
     else if(webtype==2){
         [_groupfleettable reloadData];
     }
-  
+    [_groupfleettable reloadData];
+    [_fleettable reloadData];
+    
+
    }
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
@@ -1237,7 +1240,7 @@
                 
                 [_crewbtnlbl setTitle:[_crewnamearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
                 [self FleetCrewNameSelect];
-                break;
+                                break;
                 
             default:
                 break;
@@ -1304,6 +1307,11 @@
     _fleetVCtrl=[[FleetsViewController alloc]initWithNibName:@"FleetsViewController" bundle:nil];
     _fleetVCtrl.frmplan=1;
     _fleetVCtrl.itemfromgp=crewmdl1.manpower;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didDismissSecondViewController)
+                                                 name:@"SecondViewControllerDismissed"
+                                               object:nil];
+
     
      _fleetVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_fleetVCtrl animated:YES completion:nil];
@@ -1321,9 +1329,21 @@
     _fleetVCtrl=[[FleetsViewController alloc]initWithNibName:@"FleetsViewController" bundle:nil];
     _fleetVCtrl.frmplan=1;
     _fleetVCtrl.itemfromgp=emdl.itemcode;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didDismissSecondViewController)
+                                                 name:@"SecondViewControllerDismissed"
+                                               object:nil];
+
     _fleetVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_fleetVCtrl animated:YES completion:nil];
 }
+-(void)didDismissSecondViewController {
+    NSLog(@"Dismissed SecondViewController");
+    [self FleetCrewNameSelect];
+    [self CrewfleetSelect];
+    
+}
+
 
 #pragma mark-Actions
 - (IBAction)servicebtn:(UIButton *)sender {
