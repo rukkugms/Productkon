@@ -58,6 +58,7 @@
 @property(strong,nonatomic)NSString*imgstring;
 
 /*cell outlets*/
+@property (strong, nonatomic) IBOutlet UINavigationItem *navtitle;
 
 @property (strong, nonatomic) IBOutlet UILabel *itemcodelbl;
 @property (strong, nonatomic) IBOutlet UILabel *codedeslbl;
@@ -81,5 +82,6 @@
 
 @property (strong, nonatomic) IBOutlet UITableViewCell *saftycell;
 @property (strong, nonatomic) IBOutlet UIButton *updatebtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *cancelbtnlbl;
 
 @end

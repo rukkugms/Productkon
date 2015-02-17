@@ -1269,6 +1269,9 @@ _subtypctrlr.equipmainid=safty.entryid;
     btninfr=2;
      _searchbar.text=@"";
     _addview.hidden=NO;
+    _navtitle.title=@"EDIT";
+        _cancelbtnlbl.enabled=NO;
+      [_cancelbtnlbl setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.saftytable];
@@ -1318,14 +1321,18 @@ _subtypctrlr.equipmainid=safty.entryid;
 }
 
 - (IBAction)Addbtn:(id)sender {
+    _cancelbtnlbl.enabled=YES;
     _searchbar.text=@"";
     btninfr=1;
     _addview.hidden=NO;
+     _navtitle.title=@"ADD";
+_picimgeview.image=[UIImage imageNamed:@"mNoImage"];
     _subtypebtnlbl.enabled=YES;
     _updatebtnlbl.enabled=YES;
     _activityindictor.hidden=YES;
     [_activityindictor stopAnimating];
     
+    _itemcodetxtfld.text=@"";
     _codedestxtfld.text=@"";
     _unitcosttxtfld.text=@"";
     _unitmeasuretxtfld.text=@"";
@@ -1394,6 +1401,14 @@ _subtypctrlr.equipmainid=safty.entryid;
         [alert show];
         _codedestxtfld.text=@"";
     }
+    else if ([_unitmeasuretxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Unit of measure field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        
+        [alert show];
+        
+    }
+
     
     else
     {
@@ -1412,9 +1427,9 @@ _subtypctrlr.equipmainid=safty.entryid;
                 [alert show];
                 _codedestxtfld.text=@"";
             }
-            else if ([_Cellsubbtnlbl.titleLabel.text isEqualToString:@""]||[_Cellsubbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+            else if ([_unitmeasuretxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0){
                 
-                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Subtype field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Unit of measure field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                 
                 [alert show];
                 
@@ -1455,6 +1470,7 @@ _subtypctrlr.equipmainid=safty.entryid;
             _saftytable.userInteractionEnabled=YES;
             _updatebtnlbl.enabled=YES;
         }
+        _picimgeview.image=[UIImage imageNamed:@"mNoImage"];
         _updatebtnlbl.enabled=YES;
         _activityindictor.hidden=YES;
         [_activityindictor stopAnimating];
@@ -1502,6 +1518,8 @@ _subtypctrlr.equipmainid=safty.entryid;
         _stocktxtfld.text=@"";
         
     }
+    
+    
 
 }
 #pragma mark-Alertview delegate
