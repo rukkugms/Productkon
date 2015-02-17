@@ -1069,7 +1069,73 @@ else
         [self UserLogmainupdate];
         
     }
+    if (_frmplan==1) {
+        if([_cmpnttxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Company Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else if([_phonetxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            _phonetxtfld.text=@"";
+        }
+        else if ([_statebutton.titleLabel.text isEqualToString:@"Select"]||[_statebutton.titleLabel.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"State is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else if ([_leadtypebtnlbl.titleLabel.text isEqualToString:@"Select"]||[_leadtypebtnlbl.titleLabel.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Type of Lead is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else if ([_industrytypetxtfld.titleLabel.text isEqualToString:@"Select"]||[_industrytypetxtfld.titleLabel.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Industry Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else if ([_projecttype.titleLabel.text isEqualToString:@"Select"]||[_projecttype.titleLabel.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Project Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        //        else if ([_assignto.titleLabel.text isEqualToString:@"Select"]||[_assignto.titleLabel.text isEqualToString:@""])
+        //        {
+        //            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Lead Assign To is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        //            [alert show];
+        //        }
+        
+        else if ([_leadstatusBtn.titleLabel.text isEqualToString:@"Select"]||[_leadstatusBtn.titleLabel.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Lead Status is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else
+        {
+            if (butnidtfr==1) {
+                [self UserLogmaininsert];
+                _updatebtnlbl.enabled=NO;
+                [self Addlead];
+            }
+            else // if(butnidtfr==2)
+            {
+                [self UserLogmainupdate];
+                _updatebtnlbl.enabled=NO;
+                [self updatelead];
+            }
+            
+        }
+        
+        
+        
+    }
+    
 
+    
+    else
+    {
   
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
@@ -1166,6 +1232,7 @@ else
 //
 //    }
 //}
+}
 }
 - (IBAction)selectcompany:(id)sender
 {

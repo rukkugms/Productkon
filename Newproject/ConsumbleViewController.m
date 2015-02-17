@@ -1537,7 +1537,7 @@ finishedSavingWithError:(NSError *)error
             
         }
         
-        if ([_soapResults isEqualToString:@"Already Exists"]) {
+        if ([_soapResults containsString:@"Already Exists"]) {
             
             msgstrg=_soapResults;
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -1800,6 +1800,72 @@ finishedSavingWithError:(NSError *)error
      {
          [self UserLogmainupdate];
      }
+    if (_frmplan==1) {
+        
+        UIImage *imagename =_imageview.image;
+        // NSData *data = UIImagePNGRepresentation(imagename);
+        
+        NSData *data = UIImageJPEGRepresentation(imagename, 1.0);
+        
+        
+        _encodedString = [data base64EncodedString];
+        NSLog(@"%@",_encodedString);
+        
+        if (butntype==1) {
+            if([_destxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ].length==0)
+            {
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                _destxtfld.text=@"";
+            }
+            //        else if ([_subsearchbtnlbl.titleLabel.text isEqualToString:@""]||[_subsearchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+            //
+            //            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Subtype field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            //
+            //            [alert show];
+            //
+            //        }
+            
+            else
+            {
+                _activitybtn.hidden=NO;
+                [_activitybtn startAnimating];
+                _updatebtn.enabled=NO;
+                
+                [self InsertConsumables];
+            }
+            
+        }
+        else  if (butntype==2)
+        {
+            if([_destxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length==0)
+            {
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                _destxtfld.text=@"";
+            }
+            else if ([_subsearchbtnlbl.titleLabel.text isEqualToString:@""]||[_subsearchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+                
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Subtype field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                
+                [alert show];
+                
+            }
+            
+            else
+            {
+                _activitybtn.hidden=NO;
+                [_activitybtn startAnimating];
+                _updatebtn.enabled=NO;
+                
+                [self UpdateConsumables];
+            }
+        }
+    }
+
+    
+    else
+    {
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
     if (rightsmodel.EditModule==0) {
@@ -1874,6 +1940,7 @@ finishedSavingWithError:(NSError *)error
 
         [self UpdateConsumables];
         }
+    }
     }
     }
 }

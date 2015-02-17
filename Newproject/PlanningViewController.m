@@ -743,6 +743,37 @@
     {
         [self UserLogmainupdate];
            }
+    if (_fromestmn==1) {
+        if([_planselectionbtn.titleLabel.text isEqualToString:@"Select"]||[_planselectionbtn.titleLabel.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Lead/Customer is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else if([_typebtnlbl.titleLabel.text isEqualToString:@"Select"]||[_typebtnlbl.titleLabel.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Work Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else
+        {
+            
+            
+            if(optionidentifier==1)
+            {
+                _updatebtn.enabled=NO;
+                [self insertplans];
+            }
+            else if(optionidentifier==2)
+            {
+                _updatebtn.enabled=NO;
+                [self UpdatePlan];
+            }
+        }
+    
+
+    }
+    else
+    {
 
     Rightscheck*rightsmodel=(Rightscheck *)[_userrightsarray objectAtIndex:0];
     
@@ -801,6 +832,7 @@
     {
          _updatebtn.enabled=NO;
         [self UpdatePlan];
+    }
     }
     }
     }
@@ -1990,6 +2022,25 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"UserLogmaininsertResponse"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"info"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"BidStatus"])
     {
         
@@ -2586,6 +2637,8 @@
         
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+        [self SelectAllPlans];
+        _searchbar.text=@"";
        // }
         _soapResults = nil;
     }
@@ -2641,6 +2694,13 @@
     }
     
     
+    if([elementName isEqualToString:@"info"])
+    {
+        
+        recordResults = FALSE;
+               _soapResults = nil;
+        
+    }
     if([elementName isEqualToString:@"ID"])
     {
         
@@ -2649,6 +2709,7 @@
         _soapResults = nil;
         
     }
+
     if([elementName isEqualToString:@"WorkType"])
     {
         
