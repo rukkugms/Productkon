@@ -505,7 +505,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<CalenderSelect xmlns=\"https://testUSA.kontract360.com/\">\n"
+                   "<CalenderSelect xmlns=\"https://vip.kontract360.com/\">\n"
                     "<LeadID>%d</LeadID>\n"
                    "</CalenderSelect>\n"
                    "</soap:Body>\n"
@@ -513,8 +513,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-   // NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
-      NSURL *url = [NSURL URLWithString:@"https://testusa.kontract360.com/service.asmx"];
+   // NNSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -522,8 +522,8 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-   [theRequest addValue: @"https://testUSA.kontract360.com/CalenderSelect" forHTTPHeaderField:@"Soapaction"];
-     //[theRequest addValue: @"https://testUSA.kontract360.com/CalenderSelect" forHTTPHeaderField:@"Soapaction"];
+   [theRequest addValue: @"https://vip.kontract360.com/CalenderSelect" forHTTPHeaderField:@"Soapaction"];
+     //[theRequest addValue: @"https://vip.kontract360.com/CalenderSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

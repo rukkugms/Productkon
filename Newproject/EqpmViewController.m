@@ -1916,7 +1916,9 @@ finishedSavingWithError:(NSError *)error
               _addequipmentview.userInteractionEnabled=YES;
             [self SelectAllEquipment];
         }
-        else if ([_soapResults isEqualToString:@"Already Exists"])
+       // else if ([_soapResults isEqualToString:@"Already Exists"])
+            
+          else  if([_soapResults containsString:@"Already Exists"])
              {
                   mesgstrg=_soapResults;
                   _activitybtn.hidden=YES;
