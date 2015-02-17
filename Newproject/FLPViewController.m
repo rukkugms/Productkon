@@ -664,7 +664,7 @@
         recordresults = TRUE;
     }if([elementName isEqualToString:@"FollowUpTypeDeleteResponse"])
     {
-        
+        [self FollowuptypeSelect];
         
         if(!_soapResults)
         {
@@ -758,7 +758,9 @@
         }
         _followtxtfld.text=@"";
         _updatebtn.enabled=YES;
+        [self FollowuptypeSelect];
     }
+    
 }
 #pragma mark-tableview datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -831,6 +833,16 @@
         }
         
     }
+}
+#pragma mark-textfld delegates
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    if(textField==_followtxtfld)
+    {
+        NSUInteger newLength = [_followtxtfld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+    return YES;
 }
 
 

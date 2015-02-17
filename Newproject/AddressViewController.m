@@ -37,7 +37,7 @@
     [[self.adrsstxtview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
     [[self.adrsstxtview layer] setBorderWidth:2];
     [[self.adrsstxtview layer] setCornerRadius:10];
-   
+    _addresstable.userInteractionEnabled=YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -877,12 +877,12 @@
 
 - (IBAction)editbtn:(id)sender {
      _updatebtn.enabled=YES;
-    _addresstable.userInteractionEnabled=NO;
-   // _.enabled=NO;
+       // _.enabled=NO;
     optionidentifier=2;
      _addview.hidden=NO;
     _addnavitem.title=@"Edit";
  webtype=2;
+    
       button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.addresstable];
@@ -894,6 +894,22 @@
     _adrsstxtview.text=addmdl.address;
     _cancelbtn.enabled=NO;
     [_cancelbtn setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
+    _addresstable.userInteractionEnabled=NO;
 
+}
+#pragma mark-textfld delegates
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    if(textField==_headrtxtfld)
+    {
+        NSUInteger newLength = [_headrtxtfld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+    return YES;
+}
+#pragma mark-textview Delegate
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    return _adrsstxtview.text.length + (text.length - range.length) <= 200;
 }
 @end

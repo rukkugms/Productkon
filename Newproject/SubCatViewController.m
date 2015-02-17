@@ -662,7 +662,7 @@
     
     else{
         [super setEditing:YES animated:YES];
-[_categorytabe setEditing:YES animated:YES];
+         [_categorytabe setEditing:YES animated:YES];
         [_categorytabe reloadData];
         
         

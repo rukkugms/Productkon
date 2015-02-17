@@ -210,7 +210,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"yyyy-MM-dd"];
         NSDate *dates = [dateFormat dateFromString:date1];
-        [dateFormat setDateFormat:@"MM-dd-yyy"];
+        [dateFormat setDateFormat:@"MM/dd/yyyy"];
         NSString *myFormattedDate = [dateFormat stringFromDate:dates];
         
         _datetext.text=myFormattedDate;
@@ -704,7 +704,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd"];
     NSDate *dates = [dateFormat dateFromString:date1];
-    [dateFormat setDateFormat:@"MM-dd-yyy"];
+    [dateFormat setDateFormat:@"MM/dd/yyyy"];
     NSString *myFormattedDate = [dateFormat stringFromDate:dates];
     
     
@@ -715,13 +715,13 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     _statusTxtFld.text=info1.status;
     _activityTxtFld.text=info1.activity;
     _descptionTextview.text=info1.actdesion;
-    //_dateBtn.enabled=NO;
-    //_dateBtn.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
-   // _activityTxtFld.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
-   //_employerTxtfld.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    _dateBtn.enabled=NO;
+    _dateBtn.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    _activityTxtFld.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+   _employerTxtfld.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
 
-    //_activityTxtFld.userInteractionEnabled=NO;
-    //_employerTxtfld.userInteractionEnabled=NO;
+    _activityTxtFld.userInteractionEnabled=NO;
+    _employerTxtfld.userInteractionEnabled=NO;
     [_activityTypeBtn setTitle:info1.communicationtype forState:UIControlStateNormal];
     NSLog(@"%@",info1.employer);
      [_empbtnlbl setTitle:[NSString stringWithFormat:@"%@-%@",info1.employer,info1.ename] forState:UIControlStateNormal];
@@ -2665,5 +2665,26 @@ else
                                           animated:YES];
     [self Employeeselect];
 
+}
+#pragma mark-textfld delegates
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    
+    if(textField==_activityTxtFld)
+    {
+        NSUInteger newLength = [_activityTxtFld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+    if(textField==_statusTxtFld)
+    {
+        NSUInteger newLength = [_statusTxtFld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+       return YES;
+}
+#pragma mark-textview Delegate
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    return _descptionTextview.text.length + (text.length - range.length) <= 50;
 }
 @end

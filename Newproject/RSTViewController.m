@@ -46,7 +46,7 @@
         
         [self ManPowersubtypeselect];
     }
-    if (_moduleid==27) {
+   else if (_moduleid==27) {
         
     
     [self Equipmentsubtypeselect];
@@ -137,7 +137,7 @@
             [self ManpowerSubtypeinsert];
         }
 
-        if (_moduleid==27) {
+        else if (_moduleid==27) {
             
             _updatebtn.enabled=NO;
         [self Equipmentsubtypeinsert];
@@ -191,7 +191,7 @@
         
         [self ManPowersubtypeselect];
     }
-    if (_moduleid==27) {
+ else if (_moduleid==27) {
         
         
         [self Equipmentsubtypeselect];
@@ -234,7 +234,7 @@
         
         [self MultiManpowersubtypeselect];
     }
-    if (_moduleid==27) {
+  else  if (_moduleid==27) {
         
     
     [self Multiequsubtypeselect];
@@ -388,7 +388,7 @@
             [_selectedsubtypearray removeObject:indexPath];
         }
 
-        if (_moduleid==27) {
+      else  if (_moduleid==27) {
             [self EquipmentsubtypeDelete];
              [_selectedsubtypearray removeObject:indexPath];
         }
@@ -3234,7 +3234,7 @@
             
             [self ManPowersubtypeselect];
         }
-        if (_moduleid==27) {
+      else if (_moduleid==27) {
             
         
         [self Equipmentsubtypeselect];

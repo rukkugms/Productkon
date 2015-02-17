@@ -158,7 +158,7 @@
                    
                    "</SaveBasicInfo>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_companynametxtfld.text,_addresstxtfld.text,_citytxtfld.text,stid,_ziptextfld.text,ctid,_phonetxtfld.text,_faxtxtfld.text,_mailtxtfld.text,_webtxtfld.text,_fedraltxtfld.text,_stateempIdtxtfld.text,_stateunempidtxtfld.text];
+                   "</soap:Envelope>\n",_companynametxtfld.text,_addresstxtfld.text,_citytxtfld.text,stid,_ziptextfld.text,ctid,_phonetxtfld.text,_faxtxtfld.text,[_mailtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]],[_webtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]],_fedraltxtfld.text,_stateempIdtxtfld.text,_stateunempidtxtfld.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     //    NSURL *url = [NSURL URLWithString:@"https://vip.kontract360.com/service.asmx"];
@@ -833,6 +833,7 @@
         
         recordResults = FALSE;
         NSString *fullURL =[NSString stringWithFormat:@"https://vip.kontract360.com/Files/Docs/BasicInfo/%@",_soapResults]  ;
+       //  NSString *fullURL =[NSString stringWithFormat:@"http://192.168.0.175:7342/Files/Docs/BasicInfo/%@",_soapResults]  ;
        // NSURL *url = [NSURL URLWithString:fullURL];
         //NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
         //[_logoweb loadRequest:requestObj];
@@ -932,8 +933,8 @@
         int value2=[val isNumeric:_stateunempidtxtfld.text];
         int value3=[val isNumeric:_fedraltxtfld.text];
          int value4=[val isNumeric:_ziptextfld.text];
-   int value5 = [val validEmailAddress:_mailtxtfld.text];
-    int value6=[val validateUrl:_webtxtfld.text];
+   int value5 = [val validEmailAddress:[_mailtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+    int value6=[val validateUrl:[_webtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
     
         
     if ([_companynametxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length ==0) {
@@ -1411,7 +1412,7 @@
     }
     if(textField==_mailtxtfld){
         
-        NSString *estring=_mailtxtfld.text;
+        NSString *estring=[_mailtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         if (estring.length==0) {
             
         }
@@ -1443,10 +1444,15 @@
 //     UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid website address" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 //             [alert show];
 // }
-        
+        NSString *estring=[_webtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        if (estring.length==0) {
+            
+        }
+        else
+        {
         
         Validation *val=[[Validation alloc]init];
-        BOOL webval=[val validateUrl:_webtxtfld.text];
+        BOOL webval=[val validateUrl:[_webtxtfld.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
         if(webval)
         {
             // email valid, other validations in the form
@@ -1456,6 +1462,7 @@
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Invalid Website" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+        }
         }
     }
     

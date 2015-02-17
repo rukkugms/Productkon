@@ -743,7 +743,7 @@
     if(textField==_typetxtfld)
     {
         NSUInteger newLength = [_typetxtfld.text length] + [string length] - range.length;
-        return (newLength > 50) ? NO : YES;
+        return (newLength > 100) ? NO : YES;
     }
     return YES;
 }

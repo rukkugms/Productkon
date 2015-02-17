@@ -1273,7 +1273,6 @@ finishedSavingWithError:(NSError *)error
 }
 
 
-
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -1879,7 +1878,7 @@ finishedSavingWithError:(NSError *)error
            
 
                    }
-        if ([_soapResults isEqualToString:@"Updated Successfully"]) {
+       else if ([_soapResults isEqualToString:@"Updated Successfully"]) {
             mesgstrg=_soapResults;
            
            // [self UploadAnyImage];
@@ -1901,7 +1900,7 @@ finishedSavingWithError:(NSError *)error
             webtype=0;
             
         }
-        if ([_soapResults isEqualToString:@"Already In Use"]) {
+      else  if ([_soapResults isEqualToString:@"Already In Use"]) {
             mesgstrg=_soapResults;
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:mesgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
@@ -1917,7 +1916,7 @@ finishedSavingWithError:(NSError *)error
               _addequipmentview.userInteractionEnabled=YES;
             [self SelectAllEquipment];
         }
-         if ([_soapResults isEqualToString:@"Already Exists"])
+        else if ([_soapResults isEqualToString:@"Already Exists"])
              {
                   mesgstrg=_soapResults;
                   _activitybtn.hidden=YES;
@@ -1927,11 +1926,10 @@ finishedSavingWithError:(NSError *)error
                  [alert show];
                  
              }
-        if ([_soapResults isEqualToString:@"deleted"])
-        {
-            [self SelectAllEquipment];
-        }
         
+        else{
+              [self SelectAllEquipment];
+        }
         
       _soapResults = nil;
         
@@ -2633,7 +2631,7 @@ _shiftwisetxtfld.text=@"";
     if(textField==_serialtxtfld)
     {
         NSUInteger newLength = [_serialtxtfld.text length] + [string length] - range.length;
-        return (newLength > 50) ? NO : YES;
+        return (newLength > 9) ? NO : YES;
     }
     
     if(textField==_manufattxtfld)
@@ -2644,18 +2642,18 @@ _shiftwisetxtfld.text=@"";
     if(textField==_insuredtxtfld)
     {
         NSUInteger newLength = [_insuredtxtfld.text length] + [string length] - range.length;
-        return (newLength > 18) ? NO : YES;
+        return (newLength > 9) ? NO : YES;
     }
     
     if(textField==_hurstxtfld)
     {
         NSUInteger newLength = [_hurstxtfld.text length] + [string length] - range.length;
-        return (newLength > 18) ? NO : YES;
+        return (newLength > 9) ? NO : YES;
     }
     if(textField==_fueltxtfld)
     {
         NSUInteger newLength = [_fueltxtfld.text length] + [string length] - range.length;
-        return (newLength > 18) ? NO : YES;
+        return (newLength > 9) ? NO : YES;
     }
     if(textField==_condtntxtfld)
     {
@@ -2665,39 +2663,39 @@ _shiftwisetxtfld.text=@"";
     if(textField==_hurlytxtfld)
     {
         NSUInteger newLength = [_hurlytxtfld.text length] + [string length] - range.length;
-        return (newLength > 18) ? NO : YES;
+        return (newLength > 9) ? NO : YES;
     }
     if(textField==_dailytxtfld)
     {
         NSUInteger newLength = [_dailytxtfld.text length] + [string length] - range.length;
-        return (newLength > 18) ? NO : YES;
+        return (newLength > 9) ? NO : YES;
     }
     
     if(textField==_shiftwisetxtfld)
     {
         NSUInteger newLength = [_shiftwisetxtfld.text length] + [string length] - range.length;
-        return (newLength > 18) ? NO : YES;
+        return (newLength > 9) ? NO : YES;
     }
     if(textField==_weeklytxtfld)
     {
         NSUInteger newLength = [_weeklytxtfld.text length] + [string length] - range.length;
-        return (newLength > 18) ? NO : YES;
+        return (newLength > 9) ? NO : YES;
     }
     
     if(textField==_monthlytxtfld)
     {
         NSUInteger newLength = [_monthlytxtfld.text length] + [string length] - range.length;
-        return (newLength > 18) ? NO : YES;
+        return (newLength >9) ? NO : YES;
     }
        if(textField==_yearlytxtfld)
     {
         NSUInteger newLength = [_yearlytxtfld.text length] + [string length] - range.length;
-        return (newLength > 18) ? NO : YES;
+        return (newLength > 9) ? NO : YES;
     }
     if(textField==_stockinhndtxtfld)
     {
         NSUInteger newLength = [_stockinhndtxtfld.text length] + [string length] - range.length;
-        return (newLength > 18) ? NO : YES;
+        return (newLength > 9) ? NO : YES;
     }
        
     

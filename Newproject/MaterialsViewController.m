@@ -1824,9 +1824,8 @@ _searchbar.text=@"";
        else if ([_soapResults isEqualToString:@"deleted"])
        {
            [self SelectAllMaterials];
-       }
 
-        
+       }
         
         
         _soapResults = nil;
@@ -2295,6 +2294,12 @@ else
         NSUInteger newLength = [_stockinhandtxtfld.text length] + [string length] - range.length;
         return (newLength > 18) ? NO : YES;
     }
+    if(textField==_unitofmesuretxtfld)
+    {
+        NSUInteger newLength = [_unitofmesuretxtfld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+
     
     
     return YES;
