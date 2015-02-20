@@ -19,6 +19,8 @@
     
     
 }
+-(void)newaction;
+
 @property(readwrite)NSInteger calendartype;
 @property(strong,nonatomic)Eventmdl*eventmdl;
 @property(strong,nonatomic)MPwrEvntcalViewController * calctrl;

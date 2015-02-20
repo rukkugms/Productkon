@@ -154,14 +154,14 @@ self.openviewindex=NSNotFound;
     _statuslabel=(UILabel *)[cell viewWithTag:4];
     _statuslabel.text=bmdl.bidstatus;
 
-        _mancostlabel=(UILabel *)[cell viewWithTag:4];
-      //  _mancostlabel.text=bmdl.mancost;
-        _eqcostlabel=(UILabel *)[cell viewWithTag:4];
-       // _eqcostlabel.text=bmdl.eqcost;
-        _matcostlabel=(UILabel *)[cell viewWithTag:4];
-        //_matcostlabel.text=bmdl.matcost;
-        _othercostlabel=(UILabel *)[cell viewWithTag:4];
-       // _othercostlabel.text=bmdl.othercost;
+        _mancostlabel=(UILabel *)[cell viewWithTag:5];
+        _mancostlabel.text=bmdl.mancost;
+        _eqcostlabel=(UILabel *)[cell viewWithTag:6];
+        _eqcostlabel.text=bmdl.eqcost;
+        _matcostlabel=(UILabel *)[cell viewWithTag:7];
+        _matcostlabel.text=bmdl.matcost;
+        _othercostlabel=(UILabel *)[cell viewWithTag:8];
+        _othercostlabel.text=bmdl.othercost;
 
     
     }
@@ -396,11 +396,11 @@ self.openviewindex=NSNotFound;
                    
                    "<soap:Body>\n"
                    
-                   "<BidSelect xmlns=\"https://vip.kontract360.com/\">\n"
-                   
-                   "</BidSelect>\n"
+                   "<ShowBids xmlns=\"https://vip.kontract360.com/\">\n"
+                   "<JobId>%d</JobId>"
+                   "</ShowBids>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n"];
+                   "</soap:Envelope>\n",0];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -413,7 +413,7 @@ self.openviewindex=NSNotFound;
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"https://vip.kontract360.com/BidSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"https://vip.kontract360.com/ShowBids" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -522,7 +522,7 @@ self.openviewindex=NSNotFound;
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
-    if([elementName isEqualToString:@"BidSelectResponse"])
+    if([elementName isEqualToString:@"ShowBidsResponse"])
     {
         _bidlistarray=[[NSMutableArray alloc]init];
         if(!_soapResults)
@@ -555,7 +555,7 @@ self.openviewindex=NSNotFound;
         
         
     }
-    if([elementName isEqualToString:@"bidid"])
+    if([elementName isEqualToString:@"BidNumber"])
     {
         if(!_soapResults)
         {
@@ -565,27 +565,7 @@ self.openviewindex=NSNotFound;
         
         
     }
-    if([elementName isEqualToString:@"totalamount"])
-    {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-        
-        
-    }
-    if([elementName isEqualToString:@"bidstatus"])
-    {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-        
-        
-    }
-    if([elementName isEqualToString:@"customername"])
+    if([elementName isEqualToString:@"Organization"])
     {
         if(!_soapResults)
         {
@@ -596,6 +576,68 @@ self.openviewindex=NSNotFound;
         
     }
 
+     if([elementName isEqualToString:@"TotalAmount"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+        
+    }
+    if([elementName isEqualToString:@"BidStatus"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+        
+    }
+    if([elementName isEqualToString:@"BidMan"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+        
+    }
+    if([elementName isEqualToString:@"BidEquipment"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+        
+    }
+    if([elementName isEqualToString:@"BidMaterial"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+        
+    }
+    if([elementName isEqualToString:@"BidOTHER"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+        
+    }
+
+    
 
 
 
@@ -629,28 +671,56 @@ self.openviewindex=NSNotFound;
         _bidmdl.idvalue=[_soapResults integerValue];
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"bidid"])
+    if([elementName isEqualToString:@"BidNumber"])
     {
         
         recordResults = FALSE;
         _bidmdl.bidid=_soapResults;
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"totalamount"])
+    if([elementName isEqualToString:@"TotalAmount"])
     {
         
         recordResults = FALSE;
         _bidmdl.totalamount=[_soapResults stringByReplacingOccurrencesOfString:@"-" withString:@""];
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"bidstatus"])
+    if([elementName isEqualToString:@"BidStatus"])
     {
         
         recordResults = FALSE;
         _bidmdl.bidstatus=_soapResults;
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"customername"])
+    if([elementName isEqualToString:@"BidMan"])
+    {
+        
+        recordResults = FALSE;
+        _bidmdl.mancost=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"BidEquipment"])
+    {
+        
+        recordResults = FALSE;
+        _bidmdl.eqcost=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"BidMaterial"])
+    {
+        
+        recordResults = FALSE;
+        _bidmdl.matcost=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"BidOTHER"])
+    {
+        
+        recordResults = FALSE;
+        _bidmdl.othercost=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Organization"])
     {
         
         recordResults = FALSE;

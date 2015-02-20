@@ -359,7 +359,7 @@ if (tableView==_estmntable) {
     
 //    CGPoint rootViewPoint = [label.superview convertPoint:center toView:self.estmntable];
 //    NSIndexPath *textFieldIndexPath = [self.estmntable indexPathForRowAtPoint:rootViewPoint];
-    NSLog(@"textFieldIndexPath%d",indexPath.row);
+   // NSLog(@"textFieldIndexPath%d",indexPath.row);
    
  ModlEstimation*estmdl=(ModlEstimation *)[_Estimationarray objectAtIndex:indexPath.row];
     
@@ -369,7 +369,7 @@ if (tableView==_estmntable) {
  
     _PlanVCtrl.plntype=1;
     _PlanVCtrl.fromestmn=1;
-    NSLog(@"%d",_PlanVCtrl.fromestmn);
+   // NSLog(@"%d",_PlanVCtrl.fromestmn);
     _PlanVCtrl.Estmnplan=estmdl.PlanId;
     [self presentViewController:_PlanVCtrl
                        animated:YES completion:NULL];
@@ -393,11 +393,11 @@ if (tableView==_estmntable) {
     
     //    CGPoint rootViewPoint = [label.superview convertPoint:center toView:self.estmntable];
     //    NSIndexPath *textFieldIndexPath = [self.estmntable indexPathForRowAtPoint:rootViewPoint];
-    NSLog(@"textFieldIndexPath%d",indexPath.row);
+ //   NSLog(@"textFieldIndexPath%d",indexPath.row);
     
     ModlEstimation*estmdl=(ModlEstimation *)[_Estimationarray objectAtIndex:indexPath.row];
-    NSLog(@"texIndexPath%@",estmdl.CId);
-      NSLog(@"texIndexPath%@",estmdl.leadid);
+  //  NSLog(@"texIndexPath%@",estmdl.CId);
+   //   NSLog(@"texIndexPath%@",estmdl.leadid);
     if ([estmdl.leadid isEqualToString:@"0"]) {
         
         
@@ -463,7 +463,7 @@ if (tableView==_estmntable) {
     
     //    CGPoint rootViewPoint = [label.superview convertPoint:center toView:self.estmntable];
     //    NSIndexPath *textFieldIndexPath = [self.estmntable indexPathForRowAtPoint:rootViewPoint];
-    NSLog(@"textFieldIndexPath%d",indexPath.row);
+  //  NSLog(@"textFieldIndexPath%d",indexPath.row);
     [self GetSkillforEstimation];
 //    ModlEstimation*estmdl=(ModlEstimation *)[_Estimationarray objectAtIndex:indexPath.row];
 //    

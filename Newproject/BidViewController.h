@@ -20,7 +20,7 @@
     UIButton *button;
     NSInteger btnindex;
      NSInteger selectedcell;
-}
+  }
 @property(readwrite)NSInteger frmplan;
 @property(strong,nonatomic)NSString *bidnumbr;
 @property(strong,nonatomic)NewCustmrViewController *customerctrl;

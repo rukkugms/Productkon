@@ -28,7 +28,7 @@
 
 @property (nonatomic, strong) NSArray *events;
 @property (nonatomic, strong) NSArray *iconEvents;
-
+@property (nonatomic, strong)UIActivityIndicatorView *activity;
 @property (nonatomic, strong) DPCalendarMonthlyView *monthlyView;
 
 @end
@@ -114,6 +114,53 @@
     self.monthlyView = [[DPCalendarMonthlyView alloc] initWithFrame:CGRectMake(0, 45, height, width-45) delegate:self];
     [self.view addSubview:self.monthlyView];
 }
+-(void)createprogress
+{
+    //    _progressView = [[UIProgressView alloc] init];
+    //
+    //    _progressView.frame = CGRectMake((self.view.bounds.size.width-200)/2, 20, 200, 30);
+    //
+    //    [_progressView setProgressTintColor:[UIColor cyanColor]];
+    //
+    //
+    //    [_progressView setUserInteractionEnabled:NO];
+    //
+    //
+    //
+    //    [_progressView setProgressViewStyle:UIProgressViewStyleBar];
+    //
+    //    [_progressView setTrackTintColor:[UIColor lightGrayColor]];
+    //
+    //    _progressView.progress=0.0f;
+    //    _progressView.hidden=NO;
+    //    [self.view addSubview:_progressView];
+    //    [self startprogress];
+    
+    
+    
+    _activity=[[UIActivityIndicatorView alloc]init];
+    _activity.frame = CGRectMake((self.view.bounds.size.width-50)/2, 300, 50, 50);
+    _activity.activityIndicatorViewStyle=UIActivityIndicatorViewStyleWhiteLarge;
+    _activity.color=[UIColor blackColor];
+    [self.view addSubview:_activity];
+    self.view.userInteractionEnabled=NO;
+    [_activity startAnimating];
+    
+}
+-(void)newaction
+{
+    [_activity stopAnimating];
+    _activity.hidden=YES;
+    self.view.userInteractionEnabled=YES;
+}
+-(void)stopprocess
+{
+    [self performSelector:@selector(newaction) withObject:self afterDelay:6];
+    
+    //    [_activity stopAnimating];
+    //    _activity.hidden=YES;
+}
+
 
 - (void) updateData {
     
@@ -132,7 +179,7 @@
     
     
     NSDate *date = [[NSDate date] dateByAddingYears:0 months:0 days:0];
-    NSLog(@"%@",date);
+   // NSLog(@"%@",date);
     
 
     
@@ -198,9 +245,9 @@
         dkey=[_alldatearray objectAtIndex:i];
         for (int x = 0; x < [_calendararray count]; x++){
             Eventmdl*neweve=(Eventmdl *)[_calendararray objectAtIndex:x];
-            NSLog(@"I%D",i);
-            NSLog(@"neweve.startdate%@",neweve.startdate);
-            NSLog(@"[_alldatearray objectAtIndex:i]%@",[_alldatearray objectAtIndex:i]);
+          //  NSLog(@"I%D",i);
+           // NSLog(@"neweve.startdate%@",neweve.startdate);
+           // NSLog(@"[_alldatearray objectAtIndex:i]%@",[_alldatearray objectAtIndex:i]);
             if ([neweve.startdate isEqualToString:[_alldatearray objectAtIndex:i]]) {
                 if ([neweve.Title length]==0) {
                     
@@ -214,9 +261,9 @@
             }
         }
         
-        NSLog(@"date%@",dkey);
+      //  NSLog(@"date%@",dkey);
         [_titledict setObject:_alltitlearray forKey:dkey];
-        NSLog(@"_titledict%@",_titledict);
+       // NSLog(@"_titledict%@",_titledict);
     }
     
     
@@ -249,6 +296,7 @@
     }
     
     [self.monthlyView setEvents:events complete:nil];
+    [self createprogress];
     // [self.monthlyView setIconEvents:iconEvents complete:nil];
 }
 
@@ -308,7 +356,8 @@
     _alldatearray=[[NSMutableArray alloc]init];
     _titledict=[[NSMutableDictionary alloc]init];
     
-    
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector:@selector(stopprocess) name:@"stopactivity" object:nil];
 }
 
 - (void) updateLabelWithMonth:(NSDate *)month {
@@ -337,13 +386,13 @@
     NSDateFormatter *formatter2 = [[NSDateFormatter alloc] init];
     [formatter2 setDateFormat: @"yyyy-MM-dd"];
     NSString *stringFromDate = [formatter2 stringFromDate:date];
-    NSLog(@"Select date %@", stringFromDate);
+  //  NSLog(@"Select date %@", stringFromDate);
     
     for (int i=0; i< _datearray.count; i++)
     {
         if(![_datearray containsObject:stringFromDate])
         {
-            NSLog(@"Select date %@", stringFromDate);
+           // NSLog(@"Select date %@", stringFromDate);
         }
         else
         {
@@ -650,7 +699,7 @@
         
         NSArray*array=[_soapresults componentsSeparatedByString:@" $"];
         NSString*newtitile=[array objectAtIndex:0];
-        NSLog(@"title%@",newtitile);
+       // NSLog(@"title%@",newtitile);
         
         
         if ([newtitile isEqualToString:@"Manpower"]||[newtitile isEqualToString:@"Equipment"]||[newtitile isEqualToString:@"Equipments"]||[newtitile isEqualToString:@"ManPower"]||[newtitile isEqualToString:@"Material"]||[newtitile isEqualToString:@"Third Party"]||[newtitile isEqualToString:@"Consumbles"]||[newtitile isEqualToString:@"Perdiem"]||[newtitile isEqualToString:@"Delivery"]||[newtitile isEqualToString:@"Miscell"]||[newtitile isEqualToString:@"Other"]||[newtitile isEqualToString:@"Travel"]||[newtitile isEqualToString:@"SmallTools"]||[newtitile isEqualToString:@"Small Tools"]||[newtitile isEqualToString:@"Materials"]) {

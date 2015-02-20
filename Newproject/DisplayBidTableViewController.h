@@ -19,6 +19,7 @@
     NSInteger TotST;
     NSInteger TotOT;
     NSInteger webtype;
+    NSInteger btnclick;
 }
 
 /*IBActions*/

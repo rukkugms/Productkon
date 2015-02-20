@@ -62,6 +62,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    btnclick=1;
     _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
     _searchbar.delegate=(id)self;
     _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
@@ -117,6 +118,7 @@
 }
 - (IBAction)manpoweraction:(id)sender
 {
+    btnclick=1;
     tooltype=1;
     _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
     _searchbar.delegate=(id)self;
@@ -167,6 +169,7 @@
 - (IBAction)equipmentaction:(id)sender
 {
     tooltype=2;
+    btnclick=1;
     _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
     _searchbar.delegate=(id)self;
     _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
@@ -208,7 +211,8 @@ _quantityarray=[[NSMutableArray alloc]init];
     
 }
 - (IBAction)materialaction:(id)sender
-{ _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
+{btnclick=1;
+    _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
     _searchbar.delegate=(id)self;
     _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     //self.manpowertable.tableHeaderView=_searchbar;
@@ -251,7 +255,8 @@ _quantityarray=[[NSMutableArray alloc]init];
    
 }
 - (IBAction)otheraction:(id)sender
-{ _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
+{btnclick=1;
+    _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
     _searchbar.delegate=(id)self;
     _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     //self.manpowertable.tableHeaderView=_searchbar;
@@ -295,6 +300,7 @@ _quantityarray=[[NSMutableArray alloc]init];
 - (IBAction)summaryaction:(id)sender
 {
     tooltype=5;
+    btnclick=1;
     [self BidReviewInsert];
     _ST.hidden=YES;
     _OT.hidden=YES;
@@ -2091,6 +2097,11 @@ _quantityarray=[[NSMutableArray alloc]init];
 
 
 -(void)newcalcuations{
+    _totalarray=[[NSMutableArray alloc]init];
+       _quantityarray=[[NSMutableArray alloc]init];
+     _starray=[[NSMutableArray alloc]init];
+     _otarray=[[NSMutableArray alloc]init];
+    
     
     switch (tooltype) {
         case 1:
